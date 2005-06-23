@@ -1,0 +1,98 @@
+.TH "TestStatistic.h" 3 "23 Jun 2005" "party" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+TestStatistic.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBC_standardize\fP (const double *t, const double *mu, const double *Sigma, int pq, double tol, double *ans)"
+.br
+.ti -1c
+.RI "double \fBC_maxabsTestStatistic\fP (const double *t, const double *mu, const double *Sigma, int pq, double tol)"
+.br
+.ti -1c
+.RI "double \fBC_quadformTestStatistic\fP (const double *t, const double *mu, const double *SigmaPlus, int pq)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "double C_maxabsTestStatistic (const double * t, const double * mu, const double * Sigma, int pq, double tol)"
+.PP
+Maximum absolute values of standardized statistics 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIt\fP the vector of statistics 
+.br
+\fImu\fP expectations 
+.br
+\fISigma\fP covariance matrix 
+.br
+\fIpq\fP dimension of t 
+.br
+\fItol\fP tolerance for variances 
+.RE
+.PP
+
+.PP
+Definition at line 66 of file TestStatistic.c.
+.PP
+References C_absstandardize(), and C_max().
+.PP
+Referenced by C_TestStatistic(), and R_maxabsTestStatistic().
+.SS "double C_quadformTestStatistic (const double * t, const double * mu, const double * SigmaPlus, int pq)"
+.PP
+Quadratic form t(t - mu) SigmaPlus (t - mu) 
+.br
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIt\fP the vector of statistics 
+.br
+\fImu\fP expectations 
+.br
+\fISigmaPlus\fP Moore-Penrose inverse 
+.br
+\fIpq\fP dimension of t 
+.RE
+.PP
+
+.PP
+Definition at line 110 of file TestStatistic.c.
+.PP
+Referenced by C_TestStatistic(), and R_quadformTestStatistic().
+.SS "void C_standardize (const double * t, const double * mu, const double * Sigma, int pq, double tol, double * ans)"
+.PP
+Standardizes a statistic t of length pq with mean mu and covariance Sigma for variances > tol 
+.br
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIt\fP the vector of statistics 
+.br
+\fImu\fP expectations 
+.br
+\fISigma\fP covariance matrix 
+.br
+\fIpq\fP dimension of t 
+.br
+\fItol\fP tolerance for variances 
+.br
+\fIans\fP return value; a pointer to a REALSXP-vector of length pq 
+.RE
+.PP
+
+.PP
+Definition at line 23 of file TestStatistic.c.
+.PP
+Referenced by C_absstandardize(), C_Node(), and R_splitcategorical().
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for party from the source code.

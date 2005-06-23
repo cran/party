@@ -1,0 +1,263 @@
+.TH "S3Classes.h" 3 "23 Jun 2005" "party" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+S3Classes.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBC_init_node\fP (SEXP node, int nobs, int ninputs, int nsurr, int q)"
+.br
+.ti -1c
+.RI "void \fBS3set_nodeID\fP (SEXP node, int nodeID)"
+.br
+.ti -1c
+.RI "int \fBS3get_nodeID\fP (SEXP node)"
+.br
+.ti -1c
+.RI "SEXP \fBS3get_nodeweights\fP (SEXP node)"
+.br
+.ti -1c
+.RI "SEXP \fBS3get_teststat\fP (SEXP node)"
+.br
+.ti -1c
+.RI "SEXP \fBS3get_criterion\fP (SEXP node)"
+.br
+.ti -1c
+.RI "SEXP \fBS3get_maxcriterion\fP (SEXP node)"
+.br
+.ti -1c
+.RI "void \fBS3set_nodeterminal\fP (SEXP node)"
+.br
+.ti -1c
+.RI "int \fBS3get_nodeterminal\fP (SEXP node)"
+.br
+.ti -1c
+.RI "SEXP \fBS3get_primarysplit\fP (SEXP node)"
+.br
+.ti -1c
+.RI "SEXP \fBS3get_surrogatesplits\fP (SEXP node)"
+.br
+.ti -1c
+.RI "SEXP \fBS3get_prediction\fP (SEXP node)"
+.br
+.ti -1c
+.RI "void \fBC_init_orderedsplit\fP (SEXP split, int nobs)"
+.br
+.ti -1c
+.RI "void \fBC_init_nominalsplit\fP (SEXP split, int nlevels, int nobs)"
+.br
+.ti -1c
+.RI "void \fBS3set_variableID\fP (SEXP split, int variableID)"
+.br
+.ti -1c
+.RI "int \fBS3get_variableID\fP (SEXP split)"
+.br
+.ti -1c
+.RI "int \fBS3is_ordered\fP (SEXP split)"
+.br
+.ti -1c
+.RI "void \fBS3set_ordered\fP (SEXP split)"
+.br
+.ti -1c
+.RI "void \fBS3set_nominal\fP (SEXP split)"
+.br
+.ti -1c
+.RI "SEXP \fBS3get_splitpoint\fP (SEXP split)"
+.br
+.ti -1c
+.RI "SEXP \fBS3get_splitstatistics\fP (SEXP split)"
+.br
+.ti -1c
+.RI "SEXP \fBS3get_leftnode\fP (SEXP node)"
+.br
+.ti -1c
+.RI "SEXP \fBS3get_rightnode\fP (SEXP node)"
+.br
+.ti -1c
+.RI "int \fBS3get_toleft\fP (SEXP split)"
+.br
+.ti -1c
+.RI "void \fBS3set_toleft\fP (SEXP split, int left)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "void C_init_node (SEXP node, int nobs, int ninputs, int nsurr, int q)"
+.PP
+Definition at line 11 of file S3Classes.c.
+.PP
+References CRITERION_LENGTH, NODE_LENGTH, S3_CRITERION, S3_iCRITERION, S3_MAXCRITERION, S3_NODEID, S3_PREDICTION, S3_PSPLIT, S3_SSPLIT, S3_STATISTICS, S3_TERMINAL, S3_WEIGHTS, and SPLIT_LENGTH.
+.PP
+Referenced by C_splitnode(), R_Ensemble(), R_Node(), and R_TreeGrow().
+.SS "void C_init_nominalsplit (SEXP split, int nlevels, int nobs)"
+.PP
+Definition at line 122 of file S3Classes.c.
+.PP
+References S3_ORDERED, S3_SPLITPOINT, S3_SPLITSTATISTICS, S3_TOLEFT, S3_VARIABLEID, and SPLIT_LENGTH.
+.PP
+Referenced by C_Node().
+.SS "void C_init_orderedsplit (SEXP split, int nobs)"
+.PP
+Definition at line 99 of file S3Classes.c.
+.PP
+References S3_ORDERED, S3_SPLITPOINT, S3_SPLITSTATISTICS, S3_TOLEFT, S3_VARIABLEID, and SPLIT_LENGTH.
+.PP
+Referenced by C_Node(), and C_surrogates().
+.SS "SEXP S3get_criterion (SEXP node)"
+.PP
+Definition at line 63 of file S3Classes.c.
+.PP
+References S3_CRITERION, and S3_iCRITERION.
+.PP
+Referenced by C_Node().
+.SS "SEXP S3get_leftnode (SEXP node)"
+.PP
+Definition at line 91 of file S3Classes.c.
+.PP
+References S3_LEFT.
+.PP
+Referenced by C_get_node(), C_get_nodebynum(), C_splitsurrogate(), and C_TreeGrow().
+.SS "SEXP S3get_maxcriterion (SEXP node)"
+.PP
+Definition at line 67 of file S3Classes.c.
+.PP
+References S3_CRITERION, and S3_MAXCRITERION.
+.PP
+Referenced by C_get_node(), and C_Node().
+.SS "int S3get_nodeID (SEXP node)"
+.PP
+Definition at line 46 of file S3Classes.c.
+.PP
+References S3_NODEID.
+.PP
+Referenced by C_get_nodebynum(), and C_get_nodeID().
+.SS "int S3get_nodeterminal (SEXP node)"
+.PP
+Definition at line 75 of file S3Classes.c.
+.PP
+References S3_TERMINAL.
+.PP
+Referenced by C_get_node(), C_get_nodebynum(), and C_TreeGrow().
+.SS "SEXP S3get_nodeweights (SEXP node)"
+.PP
+Definition at line 50 of file S3Classes.c.
+.PP
+References S3_WEIGHTS.
+.PP
+Referenced by C_get_node(), C_get_nodeweights(), C_getweights(), C_splitnode(), C_splitsurrogate(), C_surrogates(), C_TreeGrow(), R_Ensemble(), R_predictRF(), R_predictRF2(), and R_TreeGrow().
+.SS "SEXP S3get_prediction (SEXP node)"
+.PP
+Definition at line 87 of file S3Classes.c.
+.PP
+References S3_PREDICTION.
+.PP
+Referenced by C_get_prediction(), C_getpredictions(), C_Node(), and R_predictRF().
+.SS "SEXP S3get_primarysplit (SEXP node)"
+.PP
+Definition at line 79 of file S3Classes.c.
+.PP
+References S3_PSPLIT.
+.PP
+Referenced by C_get_node(), C_Node(), C_splitnode(), C_splitsurrogate(), and C_surrogates().
+.SS "SEXP S3get_rightnode (SEXP node)"
+.PP
+Definition at line 95 of file S3Classes.c.
+.PP
+References S3_RIGHT.
+.PP
+Referenced by C_get_node(), C_get_nodebynum(), C_splitsurrogate(), and C_TreeGrow().
+.SS "SEXP S3get_splitpoint (SEXP split)"
+.PP
+Definition at line 173 of file S3Classes.c.
+.PP
+References S3_SPLITPOINT.
+.PP
+Referenced by C_get_node(), C_Node(), C_splitnode(), C_splitsurrogate(), and C_surrogates().
+.SS "SEXP S3get_splitstatistics (SEXP split)"
+.PP
+Definition at line 177 of file S3Classes.c.
+.PP
+References S3_SPLITSTATISTICS.
+.PP
+Referenced by C_Node().
+.SS "SEXP S3get_surrogatesplits (SEXP node)"
+.PP
+Definition at line 83 of file S3Classes.c.
+.PP
+References S3_SSPLIT.
+.PP
+Referenced by C_get_node(), C_splitsurrogate(), C_surrogates(), and R_surrogates().
+.SS "SEXP S3get_teststat (SEXP node)"
+.PP
+Definition at line 59 of file S3Classes.c.
+.PP
+References S3_CRITERION, and S3_STATISTICS.
+.PP
+Referenced by C_Node().
+.SS "int S3get_toleft (SEXP split)"
+.PP
+Definition at line 164 of file S3Classes.c.
+.PP
+References S3_TOLEFT.
+.PP
+Referenced by C_get_node(), and C_splitsurrogate().
+.SS "int S3get_variableID (SEXP split)"
+.PP
+Definition at line 148 of file S3Classes.c.
+.PP
+References S3_VARIABLEID.
+.PP
+Referenced by C_get_node(), C_splitnode(), C_splitsurrogate(), and C_surrogates().
+.SS "int S3is_ordered (SEXP split)"
+.PP
+Definition at line 152 of file S3Classes.c.
+.PP
+References S3_ORDERED.
+.PP
+Referenced by C_get_node(), and C_splitnode().
+.SS "void S3set_nodeID (SEXP node, int nodeID)"
+.PP
+Definition at line 42 of file S3Classes.c.
+.PP
+References S3_NODEID.
+.PP
+Referenced by C_TreeGrow().
+.SS "void S3set_nodeterminal (SEXP node)"
+.PP
+Definition at line 71 of file S3Classes.c.
+.PP
+References S3_TERMINAL.
+.PP
+Referenced by C_Node().
+.SS "void S3set_nominal (SEXP split)"
+.PP
+Definition at line 160 of file S3Classes.c.
+.PP
+References S3_ORDERED.
+.SS "void S3set_ordered (SEXP split)"
+.PP
+Definition at line 156 of file S3Classes.c.
+.PP
+References S3_ORDERED.
+.SS "void S3set_toleft (SEXP split, int left)"
+.PP
+Definition at line 168 of file S3Classes.c.
+.PP
+References S3_TOLEFT.
+.PP
+Referenced by C_surrogates().
+.SS "void S3set_variableID (SEXP split, int variableID)"
+.PP
+Definition at line 144 of file S3Classes.c.
+.PP
+References S3_VARIABLEID.
+.PP
+Referenced by C_Node(), and C_surrogates().
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for party from the source code.

@@ -1,0 +1,74 @@
+.TH "SurrogateSplits.h" 3 "23 Jun 2005" "party" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SurrogateSplits.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBC_surrogates\fP (SEXP node, SEXP learnsample, SEXP weights, SEXP controls, SEXP fitmem)"
+.br
+.ti -1c
+.RI "void \fBC_splitsurrogate\fP (SEXP node, SEXP learnsample)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "void C_splitsurrogate (SEXP node, SEXP learnsample)"
+.PP
+Split with missing values 
+.br
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInode\fP the current node with primary and surrogate splits specified 
+.br
+\fIlearnsample\fP learning sample 
+.RE
+.PP
+
+.PP
+Definition at line 169 of file SurrogateSplits.c.
+.PP
+References get_missings(), get_nobs(), get_variable(), has_missings(), PL2_inputsSym, S3get_leftnode(), S3get_nodeweights(), S3get_primarysplit(), S3get_rightnode(), S3get_splitpoint(), S3get_surrogatesplits(), S3get_toleft(), and S3get_variableID().
+.PP
+Referenced by C_TreeGrow().
+.SS "void C_surrogates (SEXP node, SEXP learnsample, SEXP weights, SEXP controls, SEXP fitmem)"
+.PP
+Search for surrogate splits for bypassing the primary split 
+.br
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInode\fP the current node with primary split specified 
+.br
+\fIlearnsample\fP learning sample 
+.br
+\fIweights\fP the weights associated with the current node 
+.br
+\fIcontrols\fP an object of class `TreeControl' 
+.br
+\fIfitmem\fP an object of class `TreeFitMemory' 
+.RE
+.PP
+\fBTodo\fP
+.RS 4
+enable nominal surrogate split variables as well 
+.RE
+.PP
+
+.PP
+Definition at line 21 of file SurrogateSplits.c.
+.PP
+References C_ExpectCovarInfluence(), C_init_orderedsplit(), C_split(), get_maxsurrogate(), get_missings(), get_ninputs(), get_nobs(), get_ordering(), get_splitctrl(), get_splitstatistics(), get_variable(), get_weights(), has_missings(), is_nominal(), PL2_expcovinfssSym, PL2_inputsSym, PL2_linexpcov2sampleSym, S3get_nodeweights(), S3get_primarysplit(), S3get_splitpoint(), S3get_surrogatesplits(), S3get_variableID(), S3set_toleft(), S3set_variableID(), and SPLIT_LENGTH.
+.PP
+Referenced by C_TreeGrow(), and R_surrogates().
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for party from the source code.
