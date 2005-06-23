@@ -1,0 +1,8 @@
+
+		CHANGES IN `party' VERSION 0.2-2
+
+
+    o   ./src/Makedeps will be automatically generated (on Windows)
+        and must not be part of the source-package.
+
+    o   vignette cosmetics

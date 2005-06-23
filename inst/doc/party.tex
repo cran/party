@@ -27,6 +27,7 @@
 
 \newcommand{\bft}{\mathbf{t}}
 
+\usepackage{/usr/local/lib/R/share/texmf/Sweave}
 \begin{document}
 
 \title{\texttt{party}: A Laboratory for Recursive Part(y)itioning}
@@ -47,21 +48,7 @@
        \texttt{Achim.Zeileis@R-project.org} 
 \newline
 
-<<setup, echo = FALSE, results = hide>>=
-options(width = 65, SweaveHooks = list(leftpar = 
-    function() par(mai = par("mai") * c(1, 1.1, 1, 1))))
-require(party)
-require(coin)
-set.seed(290875)
-@
 
-<<bibtex, echo = FALSE, eval = FALSE>>=
-bib <- HSAuR:::readBibtex("partyrefs.bib")
-subbib <- HSAuR:::extractBibtex("party.Rnw", bib)
-sink("party.bib")
-HSAuR:::toBibtex.txtBibtex(subbib)
-sink()
-@
 
 
 \setkeys{Gin}{width=\textwidth}
@@ -132,10 +119,13 @@ missing,
 \LS & = & \{ (\Y_i, X_{1i}, \dots, X_{mi}); i = 1, \dots, n \}.
 \end{eqnarray*}
 For the sake of simplicity, we use a learning sample
-<<party-data, echo = TRUE>>=
-ls <- data.frame(y = gl(3, 50, labels = c("A", "B", "C")), x1 = rnorm(150) + rep(c(1, 0, 0), c(50, 50,
-50)), x2 = runif(150))
-@
+\begin{Schunk}
+\begin{Sinput}
+> ls <- data.frame(y = gl(3, 50, labels = c("A", "B", 
++     "C")), x1 = rnorm(150) + rep(c(1, 0, 0), c(50, 
++     50, 50)), x2 = runif(150))
+\end{Sinput}
+\end{Schunk}
 in the following illustrations.
 A generic algorithm for recursive binary partitioning for a given learning
 sample $\LS$ can be formulated using non-negative integer valued case weights $\w
@@ -172,10 +162,12 @@ is associated with a vector of case weights.
 
 In package \texttt{party}, the dependency structure and the variables may be
 specified in a traditional formula based way
-<<party-formula, echo = TRUE, results = hide>>=
-library(party)
-ctree(y ~ x1 + x2, data = ls)
-@
+\begin{Schunk}
+\begin{Sinput}
+> library(party)
+> ctree(y ~ x1 + x2, data = ls)
+\end{Sinput}
+\end{Schunk}
 Case counts $\w$ may be specified using the \texttt{weights} argument.
 
 \section{Recursive Partitioning by Conditional Inference \label{framework}}
@@ -217,9 +209,11 @@ where $g_j: \sX_j \rightarrow \R^{p_j}$ is a non-random transformation of
 the covariate $X_j$. The transformation may be specified using the
 \texttt{xtrafo} argument. If, for example, a ranking \textit{both}
 \texttt{x1} and \texttt{x2} is required,
-<<party-xtrafo, echo = TRUE, results = hide>>=
-ctree(y ~ x1 + x2, data = ls, xtrafo = rank)
-@
+\begin{Schunk}
+\begin{Sinput}
+> ctree(y ~ x1 + x2, data = ls, xtrafo = rank)
+\end{Sinput}
+\end{Schunk}
 can be used. The \emph{influence function} 
 $h: \sY \times \sY^n \rightarrow
 \R^q$ depends on the responses $(\Y_1, \dots, \Y_n)$ in a permutation
@@ -335,13 +329,17 @@ missing values. Universally applicable approaches are multiple test
 procedures based on $P_1, \dots, P_m$. 
 Simple Bonferroni-adjusted $P$-values $m
 P_j$, available via 
-<<party-Bonf, echo = TRUE, results = hide>>=
-ctree_control(testtype = "Bonferroni")
-@
+\begin{Schunk}
+\begin{Sinput}
+> ctree_control(testtype = "Bonferroni")
+\end{Sinput}
+\end{Schunk}
 or a min-$P$-value resampling approach 
-<<party-MC, echo = TRUE, results = hide>>=
-ctree_control(testtype = "MonteCarlo")           
-@
+\begin{Schunk}
+\begin{Sinput}
+> ctree_control(testtype = "MonteCarlo")
+\end{Sinput}
+\end{Schunk}
 are just examples and we refer
 to the multiple testing literature \citep[e.g.,][]{WestfallYoung1993}
 for more advanced methods. We reject $H_0$ when the minimum 
@@ -380,9 +378,11 @@ A^* = \argmax_A c(\bft_{j^*}^A, \mu_{j^*}^A, \Sigma_{j^*}^A).
 \end{eqnarray}
 The statistics $c(\bft_{j^*}^A, \mu_{j^*}^A, \Sigma_{j^*}^A)$ are available
 for each node with
-<<party-ss, echo = TRUE, results = hide>>=
-ctree_control(savesplitstats = TRUE)
-@
+\begin{Schunk}
+\begin{Sinput}
+> ctree_control(savesplitstats = TRUE)
+\end{Sinput}
+\end{Schunk}
 and can be used to depict a scatter plot of the covariate
 $\sX_{j^*}$ against the statistics.
 
@@ -392,9 +392,11 @@ In order to anticipate pathological splits one can restrict the number of
 possible subsets that are evaluated, for example by introducing restrictions
 on the sample size or the sum of the case weights in each of the two groups
 of observations induced by a possible split. For example,
-<<party-minsplit, echo = TRUE, results = hide>>=
-ctree_control(minsplit = 20)
-@
+\begin{Schunk}
+\begin{Sinput}
+> ctree_control(minsplit = 20)
+\end{Sinput}
+\end{Schunk}
 requires the sum of the weights in both the left and right daughter 
 node to exceed the value of $20$.
 
@@ -410,57 +412,121 @@ observations as the original split. One simply replaces the original
 response variable by a binary variable $I(X_{ji} \in A^*)$ coding the
 split and proceeds as described in the previous part. The number of
 surrogate splits can be controlled using
-<<party-maxsurr, echo = TRUE, results = hide>>=
-ctree_control(maxsurrogate = 3)
-@
+\begin{Schunk}
+\begin{Sinput}
+> ctree_control(maxsurrogate = 3)
+\end{Sinput}
+\end{Schunk}
 
 \paragraph{Inspecting a Tree.}
 
 Once we have fitted a conditional tree via
-<<party-fitted, echo = TRUE>>=
-ct <- ctree(y ~ x1 + x2, data = ls)
-@
+\begin{Schunk}
+\begin{Sinput}
+> ct <- ctree(y ~ x1 + x2, data = ls)
+\end{Sinput}
+\end{Schunk}
 we can inspect the results via a \texttt{print} method
-<<party-print, echo = TRUE>>=
-ct
-@
+\begin{Schunk}
+\begin{Sinput}
+> ct
+\end{Sinput}
+\begin{Soutput}
+	 Conditional tree with 2 terminal nodes
+
+Response:  y 
+Inputs:  x1, x2 
+Number of observations:  150 
+
+1) x1 <= 0.8255248; criterion = 1, statistic = 22.991
+  2)*  weights = 96 
+1) x1 > 0.8255248
+  3)*  weights = 54 
+\end{Soutput}
+\end{Schunk}
 or by looking at a graphical representation as in Figure \ref{party-plot1}.
 
 \begin{figure}[t]
 \begin{center}
-<<party-plot, echo = TRUE, fig = TRUE, height = 5, width = 8>>=
-plot(ct)
-@
+\begin{Schunk}
+\begin{Sinput}
+> plot(ct)
+\end{Sinput}
+\end{Schunk}
+\includegraphics{party-party-plot}
 \caption{A graphical representation of a classification tree.
 \label{party-plot1}}
 \end{center}
 \end{figure}
 
 Each node can be extracted by its node number, i.e., the root node is
-<<party-nodes, echo = TRUE>>=
-nodes(ct, 1)
-@
+\begin{Schunk}
+\begin{Sinput}
+> nodes(ct, 1)
+\end{Sinput}
+\begin{Soutput}
+[[1]]
+1) x1 <= 0.8255248; criterion = 1, statistic = 22.991
+  2)*  weights = 96 
+1) x1 > 0.8255248
+  3)*  weights = 54 
+\end{Soutput}
+\end{Schunk}
 This object is a conventional list with elements
-<<party-nodelist, echo = TRUE>>=
-names(nodes(ct, 1)[[1]])
-@
+\begin{Schunk}
+\begin{Sinput}
+> names(nodes(ct, 1)[[1]])
+\end{Sinput}
+\begin{Soutput}
+[1] "nodeID"     "weights"    "criterion"  "terminal"  
+[5] "psplit"     "ssplits"    "prediction" "left"      
+[9] "right"     
+\end{Soutput}
+\end{Schunk}
 and we refer to the manual pages for a description of those elements.
 The \texttt{Predict} function aims at computing predictions in the space of
 the response variable, in our case a factor
-<<party-Predict, echo = TRUE>>=
-Predict(ct, newdata = ls)
-@
+\begin{Schunk}
+\begin{Sinput}
+> Predict(ct, newdata = ls)
+\end{Sinput}
+\begin{Soutput}
+  [1] A A A A C A C A C C A A C A A A A C A C A A A C A A A C C A
+ [31] A C A A C A A C C C A A C C C C A A A A A A C C C C A C C A
+ [61] C C C C C C A A A A A C C A C A C C C C C C C C C C C C A C
+ [91] A C A C C C C C C C C A C C C A C C A C C C C C C C A C C C
+[121] C C C C C C C C C C C C C C C C C A C C C C A C C A C A C A
+Levels: A B C
+\end{Soutput}
+\end{Schunk}
 When we are interested in properties of the conditional distribution of the
 response given the covariates, we use
-<<party-treeresponse, echo = TRUE>>=
-treeresponse(ct, newdata = ls[c(1, 51, 101),])
-@
+\begin{Schunk}
+\begin{Sinput}
+> treeresponse(ct, newdata = ls[c(1, 51, 101), ])
+\end{Sinput}
+\begin{Soutput}
+[[1]]
+[1] 0.5740741 0.2592593 0.1666667
+
+[[2]]
+[1] 0.5740741 0.2592593 0.1666667
+
+[[3]]
+[1] 0.1979167 0.3750000 0.4270833
+\end{Soutput}
+\end{Schunk}
 which, in our case, is a list with conditional class probabilities.
 We can determine the node numbers of nodes some new observations are falling
 into by
-<<party-where, echo = TRUE>>=
-where(ct, newdata = ls[c(1,51,101),])
-@
+\begin{Schunk}
+\begin{Sinput}
+> where(ct, newdata = ls[c(1, 51, 101), ])
+\end{Sinput}
+\begin{Soutput}
+[1] 3 3 2
+\end{Soutput}
+\end{Schunk}
 
 \section{Examples \label{examples}}
 
@@ -603,24 +669,26 @@ the nominal level of the conditional independence tests as $\alpha = 0.05$.
 
 \paragraph{Tree Pipit Abundance.}
 
-<<treepipit-ctree, echo = TRUE>>=
-data(treepipit, package = "coin")
-tptree <- ctree(counts ~ ., data = treepipit)
-@
+\begin{Schunk}
+\begin{Sinput}
+> data(treepipit, package = "coin")
+> tptree <- ctree(counts ~ ., data = treepipit)
+\end{Sinput}
+\end{Schunk}
 
 \begin{figure}[t]
 \begin{center}
-<<treepipit-plot, echo = TRUE, fig = TRUE, height = 5, width = 8>>=
-plot(tptree, terminal_panel = node_hist(tptree, breaks = 0:6-0.5, ymax = 65, 
-horizontal = FALSE, freq = TRUE))
-@
+\begin{Schunk}
+\begin{Sinput}
+> plot(tptree, terminal_panel = node_hist(tptree, breaks = 0:6 - 
++     0.5, ymax = 65, horizontal = FALSE, freq = TRUE))
+\end{Sinput}
+\end{Schunk}
+\includegraphics{party-treepipit-plot}
 \caption{Conditional regression tree for the tree pipit data.}
 \end{center}
 \end{figure}
 
-<<treepipit-x, echo = FALSE, results = hide>>=
-x <- tptree@tree
-@
 
 The impact of certain environmental factors on the population density of the 
 tree pipit \textit{Anthus trivialis} 
@@ -630,11 +698,11 @@ The occurrence of tree pipits was recorded several times at
 $n = 86$ stands which were established on a long environmental gradient. 
 Among nine environmental factors, 
 the covariate showing the largest association to the number of tree pipits
-is the canopy overstorey $(P = $\Sexpr{round(1 - x$criterion[[3]], 3)}$)$. 
+is the canopy overstorey $(P = $0.002$)$. 
 Two groups of stands can be distinguished: Sunny stands with less than $40\%$
-canopy overstorey $(n = \Sexpr{sum(x$left$weights)})$ show a
+canopy overstorey $(n = 24)$ show a
 significantly higher density of tree pipits compared to darker stands with more than
-$40\%$ canopy overstorey $(n = \Sexpr{sum(x$right$weights)})$.
+$40\%$ canopy overstorey $(n = 62)$.
 This result is important for management decisions
 in forestry enterprises: Cutting the overstorey with release of old
 oaks creates a perfect habitat for this indicator species
@@ -642,14 +710,13 @@ of near natural forest environments.
 
 \paragraph{Glaucoma \& Laser Scanning Images.}
 
-<<glaucoma-ctree, echo = TRUE>>=
-data(GlaucomaM, package = "ipred")
-gtree <- ctree(Class ~ ., data = GlaucomaM)
-@
+\begin{Schunk}
+\begin{Sinput}
+> data(GlaucomaM, package = "ipred")
+> gtree <- ctree(Class ~ ., data = GlaucomaM)
+\end{Sinput}
+\end{Schunk}
 
-<<glaucoma-x, echo = FALSE, results = hide>>=
-x <- gtree@tree
-@
 
 Laser scanning images taken from the eye background are expected to serve as 
 the basis of an automated system for glaucoma diagnosis. 
@@ -664,7 +731,7 @@ data is part of the
 (\cite{Rnews:Peters+Hothorn+Lausen:2002}, \url{http://CRAN.R-project.org}).
 The first split in Figure~\ref{glaucoma} separates eyes with a volume 
 above reference less than
-$\Sexpr{x$psplit$splitpoint} \text{ mm}^3$ in the inferior part of the
+$0.059 \text{ mm}^3$ in the inferior part of the
 optic nerve head (\texttt{vari}). 
 Observations with larger volume are mostly controls, a finding which
 corresponds to subject matter knowledge: The volume above reference measures the
@@ -675,9 +742,12 @@ temporal part of the optic nerve head (\texttt{vart}).
 
 \begin{figure}[t]
 \begin{center}
-<<glaucoma-plot, echo = TRUE, fig = TRUE, height = 6, width = 10>>=
-plot(gtree)
-@
+\begin{Schunk}
+\begin{Sinput}
+> plot(gtree)
+\end{Sinput}
+\end{Schunk}
+\includegraphics{party-glaucoma-plot}
 \caption{Conditional inference tree for the glaucoma data. For each inner node, the
 Bonferroni-adjusted $P$-values are given, the fraction of glaucomatous eyes
 is displayed for each terminal node. \label{glaucoma}}
@@ -691,10 +761,15 @@ well, namely by specifying the appropriate panel generating function
 
 \begin{figure}[ht!]
 \begin{center}
-<<glaucoma-plot-inner, echo = TRUE, fig = TRUE, height = 7, width = 10>>=
-plot(gtree, inner_panel = node_barplot, 
-     edge_panel = function(ctreeobj, ...) { function(...) invisible() }, tnex = 1)
-@
+\begin{Schunk}
+\begin{Sinput}
+> plot(gtree, inner_panel = node_barplot, edge_panel = function(ctreeobj, 
++     ...) {
++     function(...) invisible()
++ }, tnex = 1)
+\end{Sinput}
+\end{Schunk}
+\includegraphics{party-glaucoma-plot-inner}
 \caption{Conditional inference tree for the glaucoma data with the 
          fraction of glaucomatous eyes displayed for both inner and terminal
          nodes. \label{glaucoma-inner}}
@@ -715,19 +790,24 @@ especially, $3$.
 
 \begin{figure}[t]
 \begin{center}
-<<glaucoma-split-plot, echo = TRUE, fig = TRUE, height = 4, width = 11, leftpar = TRUE>>=
-cex <- 1.6
-inner <- nodes(gtree, 1:3)
-layout(matrix(1:length(inner), ncol = length(inner)))
-out <- sapply(inner, function(i) {
-    splitstat <- i$psplit$splitstatistic
-    x <- GlaucomaM[[i$psplit$variableName]][splitstat > 0]
-    plot(x, splitstat[splitstat > 0], main = paste("Node", i$nodeID),
-         xlab = i$psplit$variableName, ylab = "Statistic", ylim = c(0, 10),
-         cex.axis = cex, cex.lab = cex, cex.main = cex)
-    abline(v = i$psplit$splitpoint, lty = 3)
-})
-@
+\begin{Schunk}
+\begin{Sinput}
+> cex <- 1.6
+> inner <- nodes(gtree, 1:3)
+> layout(matrix(1:length(inner), ncol = length(inner)))
+> out <- sapply(inner, function(i) {
++     splitstat <- i$psplit$splitstatistic
++     x <- GlaucomaM[[i$psplit$variableName]][splitstat > 
++         0]
++     plot(x, splitstat[splitstat > 0], main = paste("Node", 
++         i$nodeID), xlab = i$psplit$variableName, 
++         ylab = "Statistic", ylim = c(0, 10), cex.axis = cex, 
++         cex.lab = cex, cex.main = cex)
++     abline(v = i$psplit$splitpoint, lty = 3)
++ })
+\end{Sinput}
+\end{Schunk}
+\includegraphics{party-glaucoma-split-plot}
 \caption{Split point estimation in each inner node. The process of 
          the standardized two-sample test statistics for each possible 
          split point in the selected input variable is show.
@@ -739,9 +819,16 @@ out <- sapply(inner, function(i) {
 The class predictions of the tree for the learning sample (and for new
 observations as well) can be computed using the \texttt{Predict} function. A
 comparison with the true class memberships is done by
-<<glaucoma-prediction, echo = TRUE>>=
-table(Predict(gtree), GlaucomaM$Class)
-@
+\begin{Schunk}
+\begin{Sinput}
+> table(Predict(gtree), GlaucomaM$Class)
+\end{Sinput}
+\begin{Soutput}
+           glaucoma normal
+  glaucoma       70      3
+  normal         28     95
+\end{Soutput}
+\end{Schunk}
 When we are interested in conditional class probabilities, the
 \texttt{treeresponse} method must be used. A graphical representation is
 shown in Figure \ref{glaucoma-probplot}.
@@ -749,16 +836,20 @@ shown in Figure \ref{glaucoma-probplot}.
 \setkeys{Gin}{width=.6\textwidth}
 \begin{figure}[ht!]
 \begin{center}
-<<glaucoma-classprob, echo = TRUE, fig = TRUE, height = 4, width = 4>>=
-prob <- sapply(treeresponse(gtree), function(x) x[1]) +
-               runif(nrow(GlaucomaM), min = -0.01, max = 0.01)
-splitvar <- nodes(gtree, 1)[[1]]$psplit$variableName
-plot(GlaucomaM[[splitvar]], prob, 
-     pch = as.numeric(GlaucomaM$Class), ylab = "Conditional Class Prob.",
-     xlab = splitvar)
-abline(v = nodes(gtree, 1)[[1]]$psplit$splitpoint, lty = 2)
-legend(0.15, 0.7, pch = 1:2, legend = levels(GlaucomaM$Class), bty = "n")
-@
+\begin{Schunk}
+\begin{Sinput}
+> prob <- sapply(treeresponse(gtree), function(x) x[1]) + 
++     runif(nrow(GlaucomaM), min = -0.01, max = 0.01)
+> splitvar <- nodes(gtree, 1)[[1]]$psplit$variableName
+> plot(GlaucomaM[[splitvar]], prob, pch = as.numeric(GlaucomaM$Class), 
++     ylab = "Conditional Class Prob.", xlab = splitvar)
+> abline(v = nodes(gtree, 1)[[1]]$psplit$splitpoint, 
++     lty = 2)
+> legend(0.15, 0.7, pch = 1:2, legend = levels(GlaucomaM$Class), 
++     bty = "n")
+\end{Sinput}
+\end{Schunk}
+\includegraphics{party-glaucoma-classprob}
 \caption{Estimated conditional class probabilities (slightly jittered) 
          for the Glaucoma data depending on the first split variable. 
          The vertical line denotes the first split point. \label{glaucoma-probplot}}
@@ -767,17 +858,22 @@ legend(0.15, 0.7, pch = 1:2, legend = levels(GlaucomaM$Class), bty = "n")
 
 \paragraph{Node Positive Breast Cancer.}
 
-<<GBSGS-ctree, echo = TRUE>>=
-data(GBSG2, package = "ipred")  
-stree <- ctree(Surv(time, cens) ~ ., data = GBSG2)
-@
+\begin{Schunk}
+\begin{Sinput}
+> data(GBSG2, package = "ipred")
+> stree <- ctree(Surv(time, cens) ~ ., data = GBSG2)
+\end{Sinput}
+\end{Schunk}
 
 \setkeys{Gin}{width=\textwidth}
 \begin{figure}[t]
 \begin{center}
-<<GBSG2-plot, echo = TRUE, fig = TRUE, height = 6, width = 10>>=
-plot(stree)
-@
+\begin{Schunk}
+\begin{Sinput}
+> plot(stree)
+\end{Sinput}
+\end{Schunk}
+\includegraphics{party-GBSG2-plot}
 \caption{Tree-structured survival model for the GBSG2 data and the distribution of 
 survival times in the terminal nodes. The median survival time is displayed in
 each terminal node of the tree. \label{gbsg2}}
@@ -807,22 +903,44 @@ The estimated median survival time for new patients is less informative
 compared to the whole Kaplan-Meier curve estimated from the patients in the
 learning sample for each terminal node. We can compute those `predictions'
 by means of the \texttt{treeresponse} method
-<<GBSG2-KM, echo = TRUE>>=
-treeresponse(stree, newdata = GBSG2[1:2,])
-@
+\begin{Schunk}
+\begin{Sinput}
+> treeresponse(stree, newdata = GBSG2[1:2, ])
+\end{Sinput}
+\begin{Soutput}
+[[1]]
+Call: survival:::survfit(formula = resp, weights = w[[i]], subset = w[[i]] > 
+    0)
+
+      n  events  median 0.95LCL 0.95UCL 
+    248      88    2093    1814     Inf 
+
+[[2]]
+Call: survival:::survfit(formula = resp, weights = w[[i]], subset = w[[i]] > 
+    0)
+
+      n  events  median 0.95LCL 0.95UCL 
+    166      77    1701    1174    2018 
+\end{Soutput}
+\end{Schunk}
 
 \paragraph{Mammography Experience.}
 
-<<mammo-ctree, echo = TRUE>>=
-data(mammoexp)
-mtree <- ctree(ME ~ ., data = mammoexp)
-@
+\begin{Schunk}
+\begin{Sinput}
+> data(mammoexp)
+> mtree <- ctree(ME ~ ., data = mammoexp)
+\end{Sinput}
+\end{Schunk}
 
 \begin{figure}[t]
 \begin{center}
-<<mammo-plot, echo = TRUE, fig = TRUE, height = 5, width = 8>>=
-plot(mtree)
-@
+\begin{Schunk}
+\begin{Sinput}
+> plot(mtree)
+\end{Sinput}
+\end{Schunk}
+\includegraphics{party-mammo-plot}
 \caption{Ordinal regression for the mammography experience data with the
 fractions of (never, within a year, over one year) given in the nodes.
 No admissible split was found for node 4 because only $5$ of $91$ women reported 
@@ -872,31 +990,37 @@ shown in Figure~\ref{spider} which additionally identifies \texttt{reft}.
 The data are available in package 
 \texttt{mvpart} \citep{mvpart2004} at \url{http://CRAN.R-project.org}.
 
-<<spider-ctree, echo = TRUE, eval = FALSE>>=
-data(spider, package = "mvpart")   
-sptree <- ctree(arct.lute + pard.lugu + zora.spin + pard.nigr + pard.pull +
-           aulo.albi + troc.terr + alop.cune + pard.mont + alop.acce + 
-           alop.fabr + arct.peri ~ herbs+reft+moss+sand+twigs+water, 
-           controls = ctree_control(teststat = "maxabs", testtype = "MonteCarlo", nresample = 9999, 
-           minsplit = 5, mincriterion = 0.9), data = spider)
-sptree@tree$criterion
-
-library(coin)
-data(spider, package = "mvpart")
-it <- independence_test(arct.lute + pard.lugu + zora.spin + pard.nigr + pard.pull +
-                       aulo.albi + troc.terr + alop.cune + pard.mont + alop.acce +   
-                       alop.fabr + arct.peri ~ herbs+reft+moss+sand+twigs+water, 
-                       data = spider, distribution = approximate(B = 19999))
-statistic(it, "standardized")
-pvalue(it)
-@
+\begin{Schunk}
+\begin{Sinput}
+> data(spider, package = "mvpart")
+> sptree <- ctree(arct.lute + pard.lugu + zora.spin + 
++     pard.nigr + pard.pull + aulo.albi + troc.terr + 
++     alop.cune + pard.mont + alop.acce + alop.fabr + 
++     arct.peri ~ herbs + reft + moss + sand + twigs + 
++     water, controls = ctree_control(teststat = "maxabs", 
++     testtype = "MonteCarlo", nresample = 9999, minsplit = 5, 
++     mincriterion = 0.9), data = spider)
+> sptree@tree$criterion
+> library(coin)
+> data(spider, package = "mvpart")
+> it <- independence_test(arct.lute + pard.lugu + zora.spin + 
++     pard.nigr + pard.pull + aulo.albi + troc.terr + 
++     alop.cune + pard.mont + alop.acce + alop.fabr + 
++     arct.peri ~ herbs + reft + moss + sand + twigs + 
++     water, data = spider, distribution = approximate(B = 19999))
+> statistic(it, "standardized")
+> pvalue(it)
+\end{Sinput}
+\end{Schunk}
 
 \begin{figure}[t]
 \begin{center}
 <<<<<<< party.Rnw
-<<spider-plot, eval = FALSE, echo = TRUE, fig = TRUE>>=
-plot(sptree, terminal_panel = node_terminal)
-@
+\begin{Schunk}
+\begin{Sinput}
+> plot(sptree, terminal_panel = node_terminal)
+\end{Sinput}
+\end{Schunk}
 \caption{Regression tree for hunting spider abundance. The species with
          maximal abundance is given for each terminal node. \label{spider}}
 \end{center}
