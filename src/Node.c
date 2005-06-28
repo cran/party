@@ -3,7 +3,7 @@
     Node computations
     *\file Node.c
     *\author $Author: hothorn $
-    *\date $Date: 2005/06/14 09:21:32 $
+    *\date $Date: 2005/06/28 15:40:16 $
 */
                 
 #include "party.h"
@@ -48,12 +48,14 @@ void C_prediction(const double *y, int n, int q, const double *weights,
 void C_Node(SEXP node, SEXP learnsample, SEXP weights, 
             SEXP fitmem, SEXP controls, int TERMINAL) {
     
-    int nobs, ninputs, jselect, yORDERED, q, j;
+    int nobs, ninputs, jselect, yORDERED, q, j, k, i;
     double mincriterion, sweights, *dprediction;
     double *teststat, *pvalue, smax, cutpoint = 0.0, maxstat = 0.0;
     double *standstat, *splitstat;
     SEXP responses, inputs, y, x, expcovinf, thisweights, linexpcov;
     SEXP varctrl, splitctrl, gtctrl, tgctrl, split, joint;
+    double *dxtransf, *dweights;
+    int *itable;
     
     nobs = get_nobs(learnsample);
     ninputs = get_ninputs(learnsample);
@@ -114,7 +116,7 @@ void C_Node(SEXP node, SEXP learnsample, SEXP weights,
                 thisweights = get_weights(fitmem, jselect);
             } else {
                 expcovinf = GET_SLOT(fitmem, PL2_expcovinfSym);
-               thisweights = weights;
+                thisweights = weights;
             }
 
             /* <FIXME> handle ordered factors separatly??? </FIXME> */
@@ -179,6 +181,24 @@ void C_Node(SEXP node, SEXP learnsample, SEXP weights,
                                     expcovinf, &cutpoint, 
                                     INTEGER(S3get_splitpoint(split)),
                                     &maxstat, splitstat);
+
+                 /* compute which levels of a factor are available in this node 
+                    (for printing) later on. A real `table' for this node would
+                    induce too much overhead here. Maybe later. */
+                    
+                 itable = INTEGER(S3get_table(split));
+                 dxtransf = REAL(get_transformation(inputs, jselect));
+                 dweights = REAL(thisweights);
+                 for (k = 0; k < LENGTH(get_levels(inputs, jselect)); k++) {
+                     itable[k] = 0;
+                     for (i = 0; i < nobs; i++) {
+                         if (dxtransf[k * nobs + i] * dweights[i] > 0) {
+                             itable[k] = 1;
+                             continue;
+                         }
+                     }
+                 }
+
                  Free(standstat);
             }
             if (maxstat == 0) {

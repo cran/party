@@ -3,7 +3,7 @@
     S3 classes for dealing with nodes and splits
     *\file S3Classes.c
     *\author $Author: hothorn $
-    *\date $Date: 2005/06/22 07:32:15 $
+    *\date $Date: 2005/06/28 15:40:16 $
 */
                 
 #include "party.h"
@@ -117,11 +117,12 @@ void C_init_orderedsplit(SEXP split, int nobs) {
         SET_VECTOR_ELT(split, S3_SPLITSTATISTICS, R_NilValue);
     SET_VECTOR_ELT(split, S3_TOLEFT, toleft = allocVector(INTSXP, 1));
     INTEGER(toleft)[0] = 1;
+    SET_VECTOR_ELT(split, S3_TABLE, R_NilValue);
 }
 
 void C_init_nominalsplit(SEXP split, int nlevels, int nobs) {
     
-    SEXP variableID, splitpoint, splitstatistics, ordered, toleft;
+    SEXP variableID, splitpoint, splitstatistics, ordered, toleft, table;
     
     if (LENGTH(split) < SPLIT_LENGTH)
         error("split is not a list with at least %s elements", SPLIT_LENGTH);
@@ -138,7 +139,7 @@ void C_init_nominalsplit(SEXP split, int nlevels, int nobs) {
         SET_VECTOR_ELT(split, S3_SPLITSTATISTICS, R_NilValue);
     SET_VECTOR_ELT(split, S3_TOLEFT, toleft = allocVector(INTSXP, 1));
     INTEGER(toleft)[0] = 1;
-
+    SET_VECTOR_ELT(split, S3_TABLE, table = allocVector(INTSXP, nlevels));
 }
 
 void S3set_variableID(SEXP split, int variableID) {
@@ -180,5 +181,14 @@ SEXP S3get_splitstatistics(SEXP split) {
    ans = VECTOR_ELT(split, S3_SPLITSTATISTICS);
    if (ans == R_NilValue)
        error("split does not have a splitstatistics element");
+   return(ans);
+}
+
+SEXP S3get_table(SEXP split) {
+   SEXP ans;
+   
+   ans = VECTOR_ELT(split, S3_TABLE);
+   if (ans == R_NilValue)
+       error("split does not have a table element");
    return(ans);
 }

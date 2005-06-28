@@ -1,4 +1,4 @@
-                
+
 void C_init_node(SEXP node, int nobs, int ninputs, int nsurr, int q);
 void S3set_nodeID(SEXP node, int nodeID);
 int S3get_nodeID(SEXP node);
@@ -22,5 +22,6 @@ SEXP S3get_splitpoint(SEXP split);
 SEXP S3get_splitstatistics(SEXP split);
 SEXP S3get_leftnode(SEXP node);
 SEXP S3get_rightnode(SEXP node);
+SEXP S3get_table(SEXP node);
 int S3get_toleft(SEXP split);
 void S3set_toleft(SEXP split, int left);

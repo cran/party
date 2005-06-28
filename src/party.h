@@ -52,7 +52,8 @@
 #define S3_SPLITPOINT		2    /* splitpoint */
 #define S3_SPLITSTATISTICS	3    /* splitstatistics */
 #define S3_TOLEFT		4    /* toleft */
-#define SPLIT_LENGTH		5    /* 5 elements in total */
+#define S3_TABLE                5    /* table for nominal splits */
+#define SPLIT_LENGTH		6    /* 6 elements in total */
 
 /* type of test statistic */
 #define MAXABS			1

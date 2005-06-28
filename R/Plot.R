@@ -1,5 +1,5 @@
 
-# $Id: Plot.R,v 1.6 2005/06/23 09:15:53 zeileis Exp $
+# $Id: Plot.R,v 1.7 2005/06/28 15:40:16 hothorn Exp $
 
 ## utility functions for querying the number of
 ## terminal nodes and the maximal depth of (sub-)trees
@@ -692,7 +692,7 @@ plotTree <- function(node, xlim, ylim, nx, ny,
         }
     } else {
         ### <FIXME>: always to the left? </FIXME>
-        split <- attr(ps$splitpoint, "levels")[as.logical(ps$splitpoint)]
+        split <- attr(ps$splitpoint, "levels")[as.logical(ps$splitpoint) & (ps$table > 0)]
     }
 
 
@@ -722,7 +722,7 @@ plotTree <- function(node, xlim, ylim, nx, ny,
             split <- ps$splitpoint
         }
     } else {
-        split <- attr(ps$splitpoint, "levels")[!as.logical(ps$splitpoint)]
+        split <- attr(ps$splitpoint, "levels")[!as.logical(ps$splitpoint) & (ps$table > 0)]
     }
 
     rsp_vp <- viewport(x = unit(xrpos, "native"),

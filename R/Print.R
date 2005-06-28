@@ -1,5 +1,5 @@
 
-# $Id: Print.R,v 1.3 2005/06/22 07:32:15 hothorn Exp $
+# $Id: Print.R,v 1.4 2005/06/28 15:40:16 hothorn Exp $
 
 prettysplit <- function(x, inames = NULL, ilevels = NULL) {
     if (length(x) == 4)
@@ -7,6 +7,9 @@ prettysplit <- function(x, inames = NULL, ilevels = NULL) {
     if (length(x) == 5)
         names(x) <- c("variableID", "ordered", "splitpoint", "splitstatistics",
                       "toleft")
+    if (length(x) == 6)
+        names(x) <- c("variableID", "ordered", "splitpoint", "splitstatistics",
+                      "toleft", "table")
     if (x$ordered) {
         class(x) <- "orderedSplit"
     } else {
@@ -79,15 +82,19 @@ print.orderedSplit <- function(x, left = TRUE, ...) {
 }
 
 print.nominalSplit <- function(x, left = TRUE, ...) {
+
+    levels <- attr(x$splitpoint, "levels")
+
+    ### is > 0 for levels available in this node
+    tab <- x$table
+
     if (left) {
-        txt <- paste("\{", 
-            paste(attr(x$splitpoint, "levels")[as.logical(x$splitpoint)], 
-                  collapse = ", "), "\}", collapse = "", sep = "")
+        lev <- levels[as.logical(x$splitpoint) & (tab > 0)]
     } else {
-        txt <- paste("\{", 
-            paste(attr(x$splitpoint, "levels")[!as.logical(x$splitpoint)], 
-                  collapse = ", "), "\}", collapse = "", sep = "")
+        lev <- levels[!as.logical(x$splitpoint) & (tab > 0)]
     }
+
+    txt <- paste("\{", paste(lev, collapse = ", "), "\}", collapse = "", sep = "")
     cat(x$variableName, "==", txt)
 }
 

@@ -1,5 +1,13 @@
 
-		CHANGES IN `party' VERSION 0.2-2
+		CHANGES IN `party' VERSION 0.2-3 (2005-06-29)
+
+
+    o   print and plot only levels which are available in a node (for nominal
+        splits)
+
+
+
+		CHANGES IN `party' VERSION 0.2-2 (2005-06-27)
 
 
     o   ./src/Makedeps will be automatically generated (on Windows)

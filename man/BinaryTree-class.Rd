@@ -37,7 +37,9 @@ The most important slot is \code{tree}, a (recursive) list with elements
                \code{splitstatistics} saves the process of standardized 
                two-sample statistics the split point estimation is based on.
                The logical \code{toleft} determines if observations
-               go left or right down the tree.}
+               go left or right down the tree. For nominal splits, the slot
+               \code{table} is a vector being greater zero if the
+               corresponding level is available in the corresponding node.}
   \item{ssplits}{ a list of surrogate splits, each with the same elements as
                  \code{psplit}.}
   \item{prediction}{ the prediction of the node: the mean for numeric
