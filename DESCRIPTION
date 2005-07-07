@@ -1,7 +1,7 @@
 Package: party
 Title: A Laboratory for Recursive Part(y)itioning
-Date: $Date: 2005/06/28 15:40:16 $
-Version: 0.2-3
+Date: $Date: 2005/07/07 12:39:29 $
+Version: 0.2-4
 Author: Torsten Hothorn, Kurt Hornik and Achim Zeileis
 Maintainer: Torsten Hothorn <Torsten.Hothorn@R-project.org>
 Description: Unbiased recursive partitioning in a conditional 
@@ -18,4 +18,4 @@ Depends: R (>= 2.0.1), survival, grid, modeltools, coin
 Suggests: ipred
 SaveImage: yes
 License: GPL
-Packaged: Wed Jun 29 10:00:42 2005; hothorn
+Packaged: Thu Jul  7 16:22:57 2005; hothorn

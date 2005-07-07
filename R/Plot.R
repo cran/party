@@ -1,5 +1,5 @@
 
-# $Id: Plot.R,v 1.7 2005/06/28 15:40:16 hothorn Exp $
+# $Id: Plot.R,v 1.9 2005/07/07 12:39:29 hothorn Exp $
 
 ## utility functions for querying the number of
 ## terminal nodes and the maximal depth of (sub-)trees
@@ -33,7 +33,7 @@ node_inner <- function(ctreeobj,
         varlab <- ifelse(abbreviate > 0,
             abbreviate(x$psplit$variableName, as.numeric(abbreviate)),
 	    x$psplit$variableName)
-        pval <- 1 - x$criterion[[3]]
+        pval <- 1 - x$criterion$maxcriterion
         plab <- ifelse(pval < 10^(-digits),
                        paste("p <", 10^(-digits)),
                        paste("p =", round(pval, digits = digits)))
@@ -752,8 +752,8 @@ plot.BinaryTree <- function(x, main = NULL,
                             edge_panel = edge_simple,
 			    drop_terminal = (type[1] == "extended"),
 			    tnex = (type[1] == "extended") + 1, 
-			    new = TRUE,
-			    pop = FALSE,
+			    newpage = TRUE,
+			    pop = TRUE,
 			    ...) {
 
     ### plot BinaryTree objects
@@ -782,7 +782,7 @@ plot.BinaryTree <- function(x, main = NULL,
     }
 
     ## setup newpage
-    if (new) grid.newpage()
+    if (newpage) grid.newpage()
 
     ## setup root viewport
     root_vp <- viewport(layout = grid.layout(3, 3, 

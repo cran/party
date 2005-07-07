@@ -3,7 +3,7 @@
     Conditional Distributions
     *\file Distributions.c
     *\author $Author: hothorn $
-    *\date $Date: 2005/06/14 09:21:32 $
+    *\date $Date: 2005/07/07 12:32:01 $
 */
                 
 #include "party.h"
@@ -256,7 +256,21 @@ void C_MonteCarlo(double *criterion, SEXP learnsample, SEXP weights,
     /* return adjusted pvalues */
     for (j = 0; j < ninputs; j++)
         ans_pvalues[j] = (double) counts[j] / B;
-                    
+                
+    /* <FIXME> we try to assess the linear statistics later on 
+               (in C_Node, for categorical variables) 
+               but have used this memory for resampling here */
+
+    for (j = 1; j <= ninputs; j++) {
+        x = get_transformation(inputs, j);
+        /* re-compute linear statistics for unpermuted data */
+        xmem = get_varmemory(fitmem, j);
+        C_LinearStatistic(REAL(x), ncol(x), REAL(y), ncol(y), 
+                      dweights, nobs, 
+                      REAL(GET_SLOT(xmem, PL2_linearstatisticSym)));
+    }
+    /* </FIXME> */
+    
     Free(stats); Free(counts); Free(dummy); Free(permute); 
     Free(index); Free(permindex);
 }

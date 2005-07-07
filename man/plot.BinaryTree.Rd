@@ -9,8 +9,8 @@
      type = c("extended", "simple"), terminal_panel = NULL,
      inner_panel = node_inner, edge_panel = edge_simple,
      drop_terminal = (type[1] == "extended"), 
-     tnex = (type[1] == "extended") + 1, new = TRUE,  
-     pop = FALSE, \dots)
+     tnex = (type[1] == "extended") + 1, newpage = TRUE,  
+     pop = TRUE, \dots)
 }
 \arguments{
   \item{x}{ an object of class \code{BinaryTree}.}
@@ -31,7 +31,7 @@
   \item{drop_terminal}{ a logical indicating whether all terminal nodes
                         should be plotted at the bottom.}
   \item{tnex}{ a numeric value giving the terminal node extention. }
-  \item{new}{ a logical indicating whether a new plot should be created. }
+  \item{newpage}{ a logical indicating whether \code{grid.newpage()} should be called. }
   \item{pop}{ a logical whether the viewport tree should be popped before
               return. }
   \item{\dots}{ additional arguments passed to callies.}

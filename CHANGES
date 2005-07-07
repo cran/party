@@ -1,4 +1,13 @@
 
+		CHANGES IN `party' VERSION 0.2-4 (2005-07-07)
+
+    o    names of `criterion' element in `SplittingNode' objects were wrong
+
+    o    categorical splits with `ctree_control(testtype = "MonteCarlo")'
+         were potentially wrong
+
+
+
 		CHANGES IN `party' VERSION 0.2-3 (2005-06-29)
 
 
