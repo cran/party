@@ -1,5 +1,15 @@
 
+
+		CHANGES IN `party' VERSION 0.2-5 (2005-08-19)
+
+
+    o    ctree() now searches the global environment for variables given
+         in `formula' when the `data' argument is unspecified.
+
+
+
 		CHANGES IN `party' VERSION 0.2-4 (2005-07-07)
+
 
     o    names of `criterion' element in `SplittingNode' objects were wrong
 

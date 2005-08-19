@@ -1,5 +1,5 @@
 
-# $Id: ConditionalTree.R,v 1.9 2005/06/23 08:28:42 hothorn Exp $
+# $Id: ConditionalTree.R,v 1.10 2005/08/19 09:47:39 hothorn Exp $
 
 ### the fitting procedure
 ctreefit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
@@ -224,7 +224,7 @@ ctree_control <- function(teststattype = c("quadform", "maxabs"),
 }
 
 ### the top-level convenience function
-ctree <- function(formula, data, subset = NULL, weights = NULL, 
+ctree <- function(formula, data = list(), subset = NULL, weights = NULL, 
                   controls = ctree_control(), xtrafo = NULL, 
                   ytrafo = NULL, scores = NULL) {
 
