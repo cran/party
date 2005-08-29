@@ -1,0 +1,104 @@
+.TH "Distributions.h" 3 "31 Aug 2005" "party" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Distributions.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "double \fBC_quadformConditionalPvalue\fP (const double tstat, const double df)"
+.br
+.ti -1c
+.RI "double \fBC_maxabsConditionalPvalue\fP (const double tstat, const double *Sigma, const int pq, int *maxpts, double *releps, double *abseps, double *tol)"
+.br
+.ti -1c
+.RI "void \fBC_MonteCarlo\fP (double *pvalues, SEXP learnsample, SEXP weights, SEXP fitmem, SEXP varctrl, SEXP gtctrl, double *ans)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "double C_maxabsConditionalPvalue (const double tstat, const double * Sigma, const int pq, int * maxpts, double * releps, double * abseps, double * tol)"
+.PP
+Conditional asymptotic P-value of a maxabs-type test statistic
+.br
+ Basically the functionality from package `mvtnorm' 
+.br
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItstat\fP test statitstic 
+.br
+\fISigma\fP covariance matrix 
+.br
+\fIpq\fP nrow(Sigma) 
+.br
+\fImaxpts\fP number of Monte-Carlo steps 
+.br
+\fIreleps\fP relative error 
+.br
+\fIabseps\fP absolute error 
+.br
+\fItol\fP tolerance 
+.RE
+.PP
+
+.PP
+Definition at line 52 of file Distributions.c.
+.PP
+References mvtdst.
+.PP
+Referenced by C_ConditionalPvalue(), and R_maxabsConditionalPvalue().
+.SS "void C_MonteCarlo (double * criterion, SEXP learnsample, SEXP weights, SEXP fitmem, SEXP varctrl, SEXP gtctrl, double * ans_pvalues)"
+.PP
+Monte-Carlo approximation to the conditional pvalues 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcriterion\fP vector of node criteria for each input 
+.br
+\fIlearnsample\fP an object of class `LearningSample' 
+.br
+\fIweights\fP case weights 
+.br
+\fIfitmem\fP an object of class `TreeFitMemory' 
+.br
+\fIvarctrl\fP an object of class `VariableControl' 
+.br
+\fIgtctrl\fP an object of class `GlobalTestControl' 
+.br
+\fIans_pvalues\fP return values; vector of adjusted pvalues 
+.RE
+.PP
+
+.PP
+Definition at line 169 of file Distributions.c.
+.PP
+References C_LinearStatistic(), C_max(), C_MLinearStatistic(), C_PermutedLinearStatistic(), C_SampleNoReplace(), C_TeststatCriterion(), get_Mscorematrix(), get_ninputs(), get_nobs(), get_nresample(), get_transformation(), get_varmemory(), get_varMmemory(), has_missings(), is_ordinal(), ncol(), PL2_expcovinfSym, PL2_inputsSym, PL2_linearstatisticSym, PL2_responsesSym, and PL2_sumweightsSym.
+.PP
+Referenced by C_GlobalTest(), and R_MonteCarlo().
+.SS "double C_quadformConditionalPvalue (const double tstat, const double df)"
+.PP
+Conditional asymptotic P-value of a quadratic form
+.br
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItstat\fP test statistic 
+.br
+\fIdf\fP degree of freedom 
+.RE
+.PP
+
+.PP
+Definition at line 18 of file Distributions.c.
+.PP
+Referenced by C_ConditionalPvalue(), and R_quadformConditionalPvalue().
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for party from the source code.

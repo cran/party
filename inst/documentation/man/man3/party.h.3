@@ -1,0 +1,270 @@
+.TH "party.h" 3 "31 Aug 2005" "party" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+party.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <R.h>\fP
+.br
+\fC#include <Rmath.h>\fP
+.br
+\fC#include <Rinternals.h>\fP
+.br
+\fC#include <Rdefines.h>\fP
+.br
+\fC#include <R_ext/Applic.h>\fP
+.br
+\fC#include 'Classes.h'\fP
+.br
+\fC#include 'Utils.h'\fP
+.br
+\fC#include 'mvt.h'\fP
+.br
+\fC#include 'LinearStatistic.h'\fP
+.br
+\fC#include 'TestStatistic.h'\fP
+.br
+\fC#include 'Distributions.h'\fP
+.br
+\fC#include 'Convenience.h'\fP
+.br
+\fC#include 'S3Classes.h'\fP
+.br
+\fC#include 'IndependenceTest.h'\fP
+.br
+\fC#include 'Splits.h'\fP
+.br
+\fC#include 'Node.h'\fP
+.br
+\fC#include 'Predict.h'\fP
+.br
+\fC#include 'SurrogateSplits.h'\fP
+.br
+
+.SS "Defines"
+
+.in +1c
+.ti -1c
+.RI "#define \fBS3_NODEID\fP   0"
+.br
+.ti -1c
+.RI "#define \fBS3_WEIGHTS\fP   1"
+.br
+.ti -1c
+.RI "#define \fBS3_CRITERION\fP   2"
+.br
+.ti -1c
+.RI "#define \fBS3_TERMINAL\fP   3"
+.br
+.ti -1c
+.RI "#define \fBS3_PSPLIT\fP   4"
+.br
+.ti -1c
+.RI "#define \fBS3_SSPLIT\fP   5"
+.br
+.ti -1c
+.RI "#define \fBS3_PREDICTION\fP   6"
+.br
+.ti -1c
+.RI "#define \fBS3_LEFT\fP   7"
+.br
+.ti -1c
+.RI "#define \fBS3_RIGHT\fP   8"
+.br
+.ti -1c
+.RI "#define \fBNODE_LENGTH\fP   9"
+.br
+.ti -1c
+.RI "#define \fBS3_STATISTICS\fP   0"
+.br
+.ti -1c
+.RI "#define \fBS3_iCRITERION\fP   1"
+.br
+.ti -1c
+.RI "#define \fBS3_MAXCRITERION\fP   2"
+.br
+.ti -1c
+.RI "#define \fBCRITERION_LENGTH\fP   3"
+.br
+.ti -1c
+.RI "#define \fBS3_VARIABLEID\fP   0"
+.br
+.ti -1c
+.RI "#define \fBS3_ORDERED\fP   1"
+.br
+.ti -1c
+.RI "#define \fBS3_SPLITPOINT\fP   2"
+.br
+.ti -1c
+.RI "#define \fBS3_SPLITSTATISTICS\fP   3"
+.br
+.ti -1c
+.RI "#define \fBS3_TOLEFT\fP   4"
+.br
+.ti -1c
+.RI "#define \fBS3_TABLE\fP   5"
+.br
+.ti -1c
+.RI "#define \fBSPLIT_LENGTH\fP   6"
+.br
+.ti -1c
+.RI "#define \fBMAXABS\fP   1"
+.br
+.ti -1c
+.RI "#define \fBQUADFORM\fP   2"
+.br
+.ti -1c
+.RI "#define \fBBONFERRONI\fP   1"
+.br
+.ti -1c
+.RI "#define \fBMONTECARLO\fP   2"
+.br
+.ti -1c
+.RI "#define \fBAGGREGATED\fP   3"
+.br
+.ti -1c
+.RI "#define \fBRAW\fP   4"
+.br
+.in -1c
+.SH "Define Documentation"
+.PP 
+.SS "#define AGGREGATED   3"
+.PP
+Definition at line 65 of file party.h.
+.PP
+Referenced by C_GlobalTest().
+.SS "#define BONFERRONI   1"
+.PP
+Definition at line 63 of file party.h.
+.PP
+Referenced by C_GlobalTest().
+.SS "#define CRITERION_LENGTH   3"
+.PP
+Definition at line 47 of file party.h.
+.PP
+Referenced by C_init_node().
+.SS "#define MAXABS   1"
+.PP
+Definition at line 59 of file party.h.
+.PP
+Referenced by C_ConditionalPvalue().
+.SS "#define MONTECARLO   2"
+.PP
+Definition at line 64 of file party.h.
+.PP
+Referenced by C_GlobalTest().
+.SS "#define NODE_LENGTH   9"
+.PP
+Definition at line 41 of file party.h.
+.PP
+Referenced by C_init_node(), C_splitnode(), R_Ensemble(), R_Node(), and R_TreeGrow().
+.SS "#define QUADFORM   2"
+.PP
+Definition at line 60 of file party.h.
+.PP
+Referenced by C_ConditionalPvalue().
+.SS "#define RAW   4"
+.PP
+Definition at line 66 of file party.h.
+.PP
+Referenced by C_GlobalTest().
+.SS "#define S3_CRITERION   2"
+.PP
+Definition at line 34 of file party.h.
+.PP
+Referenced by C_init_node(), S3get_criterion(), S3get_maxcriterion(), and S3get_teststat().
+.SS "#define S3_iCRITERION   1"
+.PP
+Definition at line 45 of file party.h.
+.PP
+Referenced by C_init_node(), and S3get_criterion().
+.SS "#define S3_LEFT   7"
+.PP
+Definition at line 39 of file party.h.
+.PP
+Referenced by C_splitnode(), and S3get_leftnode().
+.SS "#define S3_MAXCRITERION   2"
+.PP
+Definition at line 46 of file party.h.
+.PP
+Referenced by C_init_node(), and S3get_maxcriterion().
+.SS "#define S3_NODEID   0"
+.PP
+Definition at line 32 of file party.h.
+.PP
+Referenced by C_init_node(), S3get_nodeID(), and S3set_nodeID().
+.SS "#define S3_ORDERED   1"
+.PP
+Definition at line 51 of file party.h.
+.PP
+Referenced by C_init_nominalsplit(), C_init_orderedsplit(), S3is_ordered(), S3set_nominal(), and S3set_ordered().
+.SS "#define S3_PREDICTION   6"
+.PP
+Definition at line 38 of file party.h.
+.PP
+Referenced by C_init_node(), and S3get_prediction().
+.SS "#define S3_PSPLIT   4"
+.PP
+Definition at line 36 of file party.h.
+.PP
+Referenced by C_init_node(), and S3get_primarysplit().
+.SS "#define S3_RIGHT   8"
+.PP
+Definition at line 40 of file party.h.
+.PP
+Referenced by C_splitnode(), and S3get_rightnode().
+.SS "#define S3_SPLITPOINT   2"
+.PP
+Definition at line 52 of file party.h.
+.PP
+Referenced by C_init_nominalsplit(), C_init_orderedsplit(), and S3get_splitpoint().
+.SS "#define S3_SPLITSTATISTICS   3"
+.PP
+Definition at line 53 of file party.h.
+.PP
+Referenced by C_init_nominalsplit(), C_init_orderedsplit(), and S3get_splitstatistics().
+.SS "#define S3_SSPLIT   5"
+.PP
+Definition at line 37 of file party.h.
+.PP
+Referenced by C_init_node(), and S3get_surrogatesplits().
+.SS "#define S3_STATISTICS   0"
+.PP
+Definition at line 44 of file party.h.
+.PP
+Referenced by C_init_node(), and S3get_teststat().
+.SS "#define S3_TABLE   5"
+.PP
+Definition at line 55 of file party.h.
+.PP
+Referenced by C_init_nominalsplit(), C_init_orderedsplit(), and S3get_table().
+.SS "#define S3_TERMINAL   3"
+.PP
+Definition at line 35 of file party.h.
+.PP
+Referenced by C_init_node(), S3get_nodeterminal(), and S3set_nodeterminal().
+.SS "#define S3_TOLEFT   4"
+.PP
+Definition at line 54 of file party.h.
+.PP
+Referenced by C_init_nominalsplit(), C_init_orderedsplit(), S3get_toleft(), and S3set_toleft().
+.SS "#define S3_VARIABLEID   0"
+.PP
+Definition at line 50 of file party.h.
+.PP
+Referenced by C_init_nominalsplit(), C_init_orderedsplit(), S3get_variableID(), and S3set_variableID().
+.SS "#define S3_WEIGHTS   1"
+.PP
+Definition at line 33 of file party.h.
+.PP
+Referenced by C_init_node(), and S3get_nodeweights().
+.SS "#define SPLIT_LENGTH   6"
+.PP
+Definition at line 56 of file party.h.
+.PP
+Referenced by C_init_node(), C_init_nominalsplit(), C_init_orderedsplit(), and C_surrogates().
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for party from the source code.

@@ -50,10 +50,8 @@ ctreefit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
         if (is.null(newdata)) {
             newinp <- object@inputs
         } else {
-            penv <- new.env()
-            object@menv@set("input", data = newdata, env = penv)
-            newinp <- initVariableFrame(get("input", envir = penv), 
-                                        trafo = NULL)
+            newinp <- object@menv@get("input", data = newdata)
+            newinp <- initVariableFrame(newinp, trafo = NULL)
         }
 
         .Call("R_get_nodeID", tree, newinp, mincriterion, PACKAGE = "party")

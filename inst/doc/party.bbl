@@ -1,0 +1,125 @@
+\begin{thebibliography}{20}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{{\tt #1}}\fi
+
+\bibitem[Agresti(2002)]{Agresti2002}
+Alan Agresti.
+\newblock {\em Categorical Data Analysis}.
+\newblock John Wiley \& Sons, Hoboken, New Jersey, 2nd edition, 2002.
+
+\bibitem[Breiman et~al.(1984)Breiman, Friedman, Olshen, and
+  Stone]{classifica:1984}
+L.~Breiman, J.~H. Friedman, R.~A. Olshen, and C.~J. Stone.
+\newblock {\em Classification and regression trees}.
+\newblock Wadsworth, California, 1984.
+
+\bibitem[De'ath(2002)]{Death2002}
+Glenn De'ath.
+\newblock Multivariate regression trees: A new technique for modeling
+  species-environment relationships.
+\newblock {\em Ecology}, 83\penalty0 (4):\penalty0 1105--1117, 2002.
+
+\bibitem[Hosmer and Lemeshow(2000)]{HosmerLemeshow2000}
+David~W. Hosmer and Stanley Lemeshow.
+\newblock {\em Applied Logistic Regression}.
+\newblock John Wiley \& Sons, New York, 2nd edition, 2000.
+
+\bibitem[LeBlanc and Crowley(1992)]{relative-r:1992}
+Michael LeBlanc and John Crowley.
+\newblock Relative risk trees for censored survival data.
+\newblock {\em Biometrics}, 48:\penalty0 411--425, June 1992.
+
+\bibitem[Mardin et~al.(2003)Mardin, Hothorn, Peters, J{\"u}nemann, Nguyen, and
+  Lausen]{new-glauco:2003}
+Christian~Y. Mardin, Torsten Hothorn, Andrea Peters, Anselm~G. J{\"u}nemann,
+  Nhung~X. Nguyen, and Berthold Lausen.
+\newblock New glaucoma classification method based on standard {HRT} parameters
+  by bagging classification trees.
+\newblock {\em Journal of Glaucoma}, 12\penalty0 (4):\penalty0 340--346, 2003.
+
+\bibitem[Mingers(1987)]{Mingers1987}
+John Mingers.
+\newblock Expert systems -- rule induction with statistical data.
+\newblock {\em Journal of the Operations Research Society}, 38\penalty0
+  (1):\penalty0 39--47, 1987.
+
+\bibitem[Molinaro et~al.(2004)Molinaro, Dudoit, and van~der
+  Laan]{MolinaroDudiotvdLaan2003}
+Annette~M. Molinaro, Sandrine Dudoit, and Mark~J. van~der Laan.
+\newblock Tree-based multivariate regression and density estimation with
+  right-censored data.
+\newblock {\em Journal of Multivariate Analysis}, 90\penalty0 (1):\penalty0
+  154--177, 2004.
+
+\bibitem[M{\"u}ller and Hothorn(2004)]{MuellerHothorn2004}
+J{\"o}rg M{\"u}ller and Torsten Hothorn.
+\newblock Maximally selected two-sample statistics as a new tool for the
+  identification and assessment of habitat factors with an application to
+  breeding bird communities in oak forests.
+\newblock {\em European Journal of Forest Research}, 123:\penalty0 218--228,
+  2004.
+
+\bibitem[Noh et~al.(2004)Noh, Song, and Park]{NohSongPark2004}
+Hyun~Gon Noh, Moon~Sup Song, and Sung~Hyun Park.
+\newblock An unbiased method for constructing multilabel classification trees.
+\newblock {\em Computational Statistics \& Data Analysis}, 47\penalty0
+  (1):\penalty0 149--164, 2004.
+
+\bibitem[O'Brien(2004)]{OBrien2004}
+Sean~M. O'Brien.
+\newblock Cutpoint selection for categorizing a continuous predictor.
+\newblock {\em Biometrics}, 60:\penalty0 504--509, 2004.
+
+\bibitem[Peters et~al.(2002)Peters, Hothorn, and
+  Lausen]{Rnews:Peters+Hothorn+Lausen:2002}
+Andrea Peters, Torsten Hothorn, and Berthold Lausen.
+\newblock ipred: Improved predictors.
+\newblock {\em R News}, 2\penalty0 (2):\penalty0 33--36, June 2002.
+\newblock URL \url{http://CRAN.R-project.org/doc/Rnews/}.
+\newblock {ISSN} 1609-3631.
+
+\bibitem[Quinlan(1993)]{Quinlan1993}
+John~R. Quinlan.
+\newblock {\em C4.5: Programs for Machine Learning}.
+\newblock Morgan Kaufmann Publ., San Mateo, California, 1993.
+
+\bibitem[Schumacher et~al.(2001)Schumacher, Holl\"ander, Schwarzer, and
+  Sauerbrei]{statistics:2001a}
+Martin Schumacher, Norbert Holl\"ander, Guido Schwarzer, and Willi Sauerbrei.
+\newblock Prognostic factor studies.
+\newblock In John Crowley, editor, {\em Statistics in Oncology}, pages
+  321--378. Marcel Dekker, New York, Basel, 2001.
+
+\bibitem[Segal(1988)]{regression:1988}
+Mark~Robert Segal.
+\newblock Regression trees for censored data.
+\newblock {\em Biometrics}, 44:\penalty0 35--47, 1988.
+
+\bibitem[Shih(1999)]{Shih1999}
+Y.S. Shih.
+\newblock Families of splitting criteria for classification trees.
+\newblock {\em Statistics and Computing}, 9:\penalty0 309--315, 1999.
+
+\bibitem[Strasser and Weber(1999)]{StrasserWeber1999}
+Helmut Strasser and Christian Weber.
+\newblock On the asymptotic theory of permutation statistics.
+\newblock {\em Mathematical Methods of Statistics}, 8:\penalty0 220--250, 1999.
+
+\bibitem[Westfall and Young(1993)]{WestfallYoung1993}
+Peter~H. Westfall and S.~Stanley Young.
+\newblock {\em Resampling-based Multiple Testing}.
+\newblock John Wiley \& Sons, New York, 1993.
+
+\bibitem[White and Liu(1994)]{WhiteLiu1994}
+Allan~P. White and Wei~Zhong Liu.
+\newblock Bias in information-based measures in decision tree induction.
+\newblock {\em Machine Learning}, 15:\penalty0 321--329, 1994.
+
+\bibitem[Zhang(1998)]{Zhang1998}
+Heping Zhang.
+\newblock Classification trees for multiple binary responses.
+\newblock {\em Journal of the American Statistical Association}, 93:\penalty0
+  180--193, 1998.
+
+\end{thebibliography}

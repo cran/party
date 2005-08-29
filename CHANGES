@@ -1,5 +1,11 @@
 
 
+		CHANGES IN `party' VERSION 0.2-7 (2005-08-31)
+
+
+    o    extract inputs using menv@get("input", data = newdata) in predict
+
+
 		CHANGES IN `party' VERSION 0.2-6 (2005-08-29)
 
 

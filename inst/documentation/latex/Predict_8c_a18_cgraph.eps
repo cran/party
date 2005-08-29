@@ -1,0 +1,1709 @@
+%!PS-Adobe-2.0
+%%Creator: dot version 1.12 (Thu Jun  3 12:52:32 UTC 2004)
+%%For: (hothorn) Torsten Hothorn
+%%Title: G
+%%Pages: (atend)
+%%BoundingBox: 35 35 645 597
+%%EndComments
+save
+%%BeginProlog
+/DotDict 200 dict def
+DotDict begin
+
+/setupLatin1 {
+mark
+/EncodingVector 256 array def
+ EncodingVector 0
+
+ISOLatin1Encoding 0 255 getinterval putinterval
+
+EncodingVector
+  dup 306 /AE
+  dup 301 /Aacute
+  dup 302 /Acircumflex
+  dup 304 /Adieresis
+  dup 300 /Agrave
+  dup 305 /Aring
+  dup 303 /Atilde
+  dup 307 /Ccedilla
+  dup 311 /Eacute
+  dup 312 /Ecircumflex
+  dup 313 /Edieresis
+  dup 310 /Egrave
+  dup 315 /Iacute
+  dup 316 /Icircumflex
+  dup 317 /Idieresis
+  dup 314 /Igrave
+  dup 334 /Udieresis
+  dup 335 /Yacute
+  dup 376 /thorn
+  dup 337 /germandbls
+  dup 341 /aacute
+  dup 342 /acircumflex
+  dup 344 /adieresis
+  dup 346 /ae
+  dup 340 /agrave
+  dup 345 /aring
+  dup 347 /ccedilla
+  dup 351 /eacute
+  dup 352 /ecircumflex
+  dup 353 /edieresis
+  dup 350 /egrave
+  dup 355 /iacute
+  dup 356 /icircumflex
+  dup 357 /idieresis
+  dup 354 /igrave
+  dup 360 /dcroat
+  dup 361 /ntilde
+  dup 363 /oacute
+  dup 364 /ocircumflex
+  dup 366 /odieresis
+  dup 362 /ograve
+  dup 365 /otilde
+  dup 370 /oslash
+  dup 372 /uacute
+  dup 373 /ucircumflex
+  dup 374 /udieresis
+  dup 371 /ugrave
+  dup 375 /yacute
+  dup 377 /ydieresis  
+
+% Set up ISO Latin 1 character encoding
+/starnetISO {
+        dup dup findfont dup length dict begin
+        { 1 index /FID ne { def }{ pop pop } ifelse
+        } forall
+        /Encoding EncodingVector def
+        currentdict end definefont
+} def
+/Times-Roman starnetISO def
+/Times-Italic starnetISO def
+/Times-Bold starnetISO def
+/Times-BoldItalic starnetISO def
+/Helvetica starnetISO def
+/Helvetica-Oblique starnetISO def
+/Helvetica-Bold starnetISO def
+/Helvetica-BoldOblique starnetISO def
+/Courier starnetISO def
+/Courier-Oblique starnetISO def
+/Courier-Bold starnetISO def
+/Courier-BoldOblique starnetISO def
+cleartomark
+} bind def
+
+%%BeginResource: procset
+/coord-font-family /Times-Roman def
+/default-font-family /Times-Roman def
+/coordfont coord-font-family findfont 8 scalefont def
+
+/InvScaleFactor 1.0 def
+/set_scale {
+	dup 1 exch div /InvScaleFactor exch def
+	dup scale
+} bind def
+
+% styles
+/solid { [] 0 setdash } bind def
+/dashed { [9 InvScaleFactor mul dup ] 0 setdash } bind def
+/dotted { [1 InvScaleFactor mul 6 InvScaleFactor mul] 0 setdash } bind def
+/invis {/fill {newpath} def /stroke {newpath} def /show {pop newpath} def} bind def
+/bold { 2 setlinewidth } bind def
+/filled { } bind def
+/unfilled { } bind def
+/rounded { } bind def
+/diagonals { } bind def
+
+% hooks for setting color 
+/nodecolor { sethsbcolor } bind def
+/edgecolor { sethsbcolor } bind def
+/graphcolor { sethsbcolor } bind def
+/nopcolor {pop pop pop} bind def
+
+/beginpage {	% i j npages
+	/npages exch def
+	/j exch def
+	/i exch def
+	/str 10 string def
+	npages 1 gt {
+		gsave
+			coordfont setfont
+			0 0 moveto
+			(\() show i str cvs show (,) show j str cvs show (\)) show
+		grestore
+	} if
+} bind def
+
+/set_font {
+	findfont exch
+	scalefont setfont
+} def
+
+% draw aligned label in bounding box aligned to current point
+/alignedtext {			% width adj text
+	/text exch def
+	/adj exch def
+	/width exch def
+	gsave
+		width 0 gt {
+			text stringwidth pop adj mul 0 rmoveto
+		} if
+		[] 0 setdash
+		text show
+	grestore
+} def
+
+/boxprim {				% xcorner ycorner xsize ysize
+		4 2 roll
+		moveto
+		2 copy
+		exch 0 rlineto
+		0 exch rlineto
+		pop neg 0 rlineto
+		closepath
+} bind def
+
+/ellipse_path {
+	/ry exch def
+	/rx exch def
+	/y exch def
+	/x exch def
+	matrix currentmatrix
+	newpath
+	x y translate
+	rx ry scale
+	0 0 1 0 360 arc
+	setmatrix
+} bind def
+
+/endpage { showpage } bind def
+/showpage { } def
+
+/layercolorseq
+	[	% layer color sequence - darkest to lightest
+		[0 0 0]
+		[.2 .8 .8]
+		[.4 .8 .8]
+		[.6 .8 .8]
+		[.8 .8 .8]
+	]
+def
+
+/layerlen layercolorseq length def
+
+/setlayer {/maxlayer exch def /curlayer exch def
+	layercolorseq curlayer 1 sub layerlen mod get
+	aload pop sethsbcolor
+	/nodecolor {nopcolor} def
+	/edgecolor {nopcolor} def
+	/graphcolor {nopcolor} def
+} bind def
+
+/onlayer { curlayer ne {invis} if } def
+
+/onlayers {
+	/myupper exch def
+	/mylower exch def
+	curlayer mylower lt
+	curlayer myupper gt
+	or
+	{invis} if
+} def
+
+/curlayer 0 def
+
+%%EndResource
+%%EndProlog
+%%BeginSetup
+14 default-font-family set_font
+1 setmiterlimit
+% /arrowlength 10 def
+% /arrowwidth 5 def
+
+% make sure pdfmark is harmless for PS-interpreters other than Distiller
+/pdfmark where {pop} {userdict /pdfmark /cleartomark load put} ifelse
+% make '<<' and '>>' safe on PS Level 1 devices
+/languagelevel where {pop languagelevel}{1} ifelse
+2 lt {
+    userdict (<<) cvn ([) cvn load put
+    userdict (>>) cvn ([) cvn load put
+} if
+
+%%EndSetup
+%%Page: 1 1
+%%PageBoundingBox: 36 36 645 597
+%%PageOrientation: Portrait
+gsave
+35 35 610 562 boxprim clip newpath
+36 36 translate
+0 0 1 beginpage
+0 0 translate 0 rotate
+0.000 0.000 0.000 graphcolor
+10.00 /Helvetica set_font
+
+%	Node1
+gsave 10 dict begin
+filled
+0.000 0.000 1.000 nodecolor
+0.000 0.000 0.000 nodecolor
+newpath 8 176 moveto
+86 176 lineto
+86 195 lineto
+8 195 lineto
+closepath
+fill
+0.000 0.000 1.000 nodecolor
+newpath 8 176 moveto
+86 176 lineto
+86 195 lineto
+8 195 lineto
+closepath
+stroke
+gsave 10 dict begin
+47 181 moveto 70 -0.5 (R_predictRF2) alignedtext
+end grestore
+end grestore
+
+%	Node2
+[ /Rect [ 241 470 345 488 ]
+  /Border [ 0 0 0 ]
+  /Action << /Subtype /URI /URI ($Predict_8c.html#a3) >>
+  /Subtype /Link
+/ANN pdfmark
+gsave 10 dict begin
+filled
+0.000 0.000 1.000 nodecolor
+newpath 241 469 moveto
+346 469 lineto
+346 488 lineto
+241 488 lineto
+closepath
+fill
+0.000 0.000 0.000 nodecolor
+newpath 241 469 moveto
+346 469 lineto
+346 488 lineto
+241 488 lineto
+closepath
+stroke
+gsave 10 dict begin
+293 474 moveto 97 -0.5 (C_get_nodebynum) alignedtext
+end grestore
+end grestore
+
+%	Node1 -> Node2
+gsave 10 dict begin
+solid
+0.667 0.776 0.439 edgecolor
+newpath 81 195 moveto
+83 196 84 196 86 197 curveto
+108 207 104 222 122 237 curveto
+154 264 180 247 204 280 curveto
+253 346 186 404 234 462 curveto
+stroke
+gsave 10 dict begin
+solid
+1 setlinewidth
+0.667 0.776 0.439 edgecolor
+newpath 232 465 moveto
+241 470 lineto
+237 460 lineto
+closepath
+fill
+0.667 0.776 0.439 edgecolor
+newpath 232 465 moveto
+241 470 lineto
+237 460 lineto
+closepath
+stroke
+end grestore
+end grestore
+
+%	Node7
+[ /Rect [ 123 289 203 307 ]
+  /Border [ 0 0 0 ]
+  /Action << /Subtype /URI /URI ($Predict_8c.html#a7) >>
+  /Subtype /Link
+/ANN pdfmark
+gsave 10 dict begin
+filled
+0.000 0.000 1.000 nodecolor
+newpath 123 288 moveto
+204 288 lineto
+204 307 lineto
+123 307 lineto
+closepath
+fill
+0.000 0.000 0.000 nodecolor
+newpath 123 288 moveto
+204 288 lineto
+204 307 lineto
+123 307 lineto
+closepath
+stroke
+gsave 10 dict begin
+163 293 moveto 73 -0.5 (C_get_nodeID) alignedtext
+end grestore
+end grestore
+
+%	Node1 -> Node7
+gsave 10 dict begin
+solid
+0.667 0.776 0.439 edgecolor
+newpath 86 195 moveto
+117 223 94 253 116 282 curveto
+stroke
+gsave 10 dict begin
+solid
+1 setlinewidth
+0.667 0.776 0.439 edgecolor
+newpath 113 284 moveto
+123 289 lineto
+118 279 lineto
+closepath
+fill
+0.667 0.776 0.439 edgecolor
+newpath 113 284 moveto
+123 289 lineto
+118 279 lineto
+closepath
+stroke
+end grestore
+end grestore
+
+%	Node9
+[ /Rect [ 386 0 488 18 ]
+  /Border [ 0 0 0 ]
+  /Action << /Subtype /URI /URI ($S3Classes_8c.html#a3) >>
+  /Subtype /Link
+/ANN pdfmark
+gsave 10 dict begin
+filled
+0.000 0.000 1.000 nodecolor
+newpath 386 -1 moveto
+488 -1 lineto
+488 18 lineto
+386 18 lineto
+closepath
+fill
+0.000 0.000 0.000 nodecolor
+newpath 386 -1 moveto
+488 -1 lineto
+488 18 lineto
+386 18 lineto
+closepath
+stroke
+gsave 10 dict begin
+437 4 moveto 94 -0.5 (S3get_nodeweights) alignedtext
+end grestore
+end grestore
+
+%	Node1 -> Node9
+gsave 10 dict begin
+solid
+0.667 0.776 0.439 edgecolor
+newpath 77 195 moveto
+91 199 107 202 122 204 curveto
+159 209 171 219 204 204 curveto
+309 161 285 80 382 23 curveto
+382 23 383 22 383 22 curveto
+stroke
+gsave 10 dict begin
+solid
+1 setlinewidth
+0.667 0.776 0.439 edgecolor
+newpath 385 25 moveto
+393 18 lineto
+382 18 lineto
+closepath
+fill
+0.667 0.776 0.439 edgecolor
+newpath 385 25 moveto
+393 18 lineto
+382 18 lineto
+closepath
+stroke
+end grestore
+end grestore
+
+%	Node10
+[ /Rect [ 131 177 195 195 ]
+  /Border [ 0 0 0 ]
+  /Action << /Subtype /URI /URI ($Utils_8c.html#a9) >>
+  /Subtype /Link
+/ANN pdfmark
+gsave 10 dict begin
+filled
+0.000 0.000 1.000 nodecolor
+newpath 131 176 moveto
+196 176 lineto
+196 195 lineto
+131 195 lineto
+closepath
+fill
+0.000 0.000 0.000 nodecolor
+newpath 131 176 moveto
+196 176 lineto
+196 195 lineto
+131 195 lineto
+closepath
+stroke
+gsave 10 dict begin
+163 181 moveto 57 -0.5 (C_matprod) alignedtext
+end grestore
+end grestore
+
+%	Node1 -> Node10
+gsave 10 dict begin
+solid
+0.667 0.776 0.439 edgecolor
+newpath 86 186 moveto
+97 186 110 186 121 186 curveto
+stroke
+gsave 10 dict begin
+solid
+1 setlinewidth
+0.667 0.776 0.439 edgecolor
+newpath 121 190 moveto
+131 186 lineto
+121 183 lineto
+closepath
+fill
+0.667 0.776 0.439 edgecolor
+newpath 121 190 moveto
+131 186 lineto
+121 183 lineto
+closepath
+stroke
+end grestore
+end grestore
+
+%	Node11
+[ /Rect [ 137 141 189 159 ]
+  /Border [ 0 0 0 ]
+  /Action << /Subtype /URI /URI ($Classes_8c.html#a89) >>
+  /Subtype /Link
+/ANN pdfmark
+gsave 10 dict begin
+filled
+0.000 0.000 1.000 nodecolor
+newpath 137 140 moveto
+189 140 lineto
+189 159 lineto
+137 159 lineto
+closepath
+fill
+0.000 0.000 0.000 nodecolor
+newpath 137 140 moveto
+189 140 lineto
+189 159 lineto
+137 159 lineto
+closepath
+stroke
+gsave 10 dict begin
+163 145 moveto 44 -0.5 (get_nobs) alignedtext
+end grestore
+end grestore
+
+%	Node1 -> Node11
+gsave 10 dict begin
+solid
+0.667 0.776 0.439 edgecolor
+newpath 86 176 moveto
+103 170 106 165 122 159 curveto
+124 158 125 158 127 157 curveto
+stroke
+gsave 10 dict begin
+solid
+1 setlinewidth
+0.667 0.776 0.439 edgecolor
+newpath 128 160 moveto
+137 155 lineto
+127 154 lineto
+closepath
+fill
+0.667 0.776 0.439 edgecolor
+newpath 128 160 moveto
+137 155 lineto
+127 154 lineto
+closepath
+stroke
+end grestore
+end grestore
+
+%	Node12
+[ /Rect [ 149 105 177 123 ]
+  /Border [ 0 0 0 ]
+  /Action << /Subtype /URI /URI ($Utils_8c.html#a19) >>
+  /Subtype /Link
+/ANN pdfmark
+gsave 10 dict begin
+filled
+0.000 0.000 1.000 nodecolor
+newpath 149 104 moveto
+178 104 lineto
+178 123 lineto
+149 123 lineto
+closepath
+fill
+0.000 0.000 0.000 nodecolor
+newpath 149 104 moveto
+178 104 lineto
+178 123 lineto
+149 123 lineto
+closepath
+stroke
+gsave 10 dict begin
+163 109 moveto 20 -0.5 (ncol) alignedtext
+end grestore
+end grestore
+
+%	Node1 -> Node12
+gsave 10 dict begin
+solid
+0.667 0.776 0.439 edgecolor
+newpath 86 176 moveto
+110 160 99 139 122 123 curveto
+127 120 133 118 139 117 curveto
+stroke
+gsave 10 dict begin
+solid
+1 setlinewidth
+0.667 0.776 0.439 edgecolor
+newpath 140 120 moveto
+149 115 lineto
+139 114 lineto
+closepath
+fill
+0.667 0.776 0.439 edgecolor
+newpath 140 120 moveto
+149 115 lineto
+139 114 lineto
+closepath
+stroke
+end grestore
+end grestore
+
+%	Node13
+[ /Rect [ 146 69 180 87 ]
+  /Border [ 0 0 0 ]
+  /Action << /Subtype /URI /URI ($Utils_8c.html#a18) >>
+  /Subtype /Link
+/ANN pdfmark
+gsave 10 dict begin
+filled
+0.000 0.000 1.000 nodecolor
+newpath 146 68 moveto
+180 68 lineto
+180 87 lineto
+146 87 lineto
+closepath
+fill
+0.000 0.000 0.000 nodecolor
+newpath 146 68 moveto
+180 68 lineto
+180 87 lineto
+146 87 lineto
+closepath
+stroke
+gsave 10 dict begin
+163 73 moveto 26 -0.5 (nrow) alignedtext
+end grestore
+end grestore
+
+%	Node1 -> Node13
+gsave 10 dict begin
+solid
+0.667 0.776 0.439 edgecolor
+newpath 86 176 moveto
+119 148 90 115 122 87 curveto
+126 84 131 82 136 80 curveto
+stroke
+gsave 10 dict begin
+solid
+1 setlinewidth
+0.667 0.776 0.439 edgecolor
+newpath 137 83 moveto
+146 78 lineto
+136 77 lineto
+closepath
+fill
+0.667 0.776 0.439 edgecolor
+newpath 137 83 moveto
+146 78 lineto
+136 77 lineto
+closepath
+stroke
+end grestore
+end grestore
+
+%	Node3
+[ /Rect [ 397 506 477 524 ]
+  /Border [ 0 0 0 ]
+  /Action << /Subtype /URI /URI ($S3Classes_8c.html#a12) >>
+  /Subtype /Link
+/ANN pdfmark
+gsave 10 dict begin
+filled
+0.000 0.000 1.000 nodecolor
+newpath 397 505 moveto
+478 505 lineto
+478 524 lineto
+397 524 lineto
+closepath
+fill
+0.000 0.000 0.000 nodecolor
+newpath 397 505 moveto
+478 505 lineto
+478 524 lineto
+397 524 lineto
+closepath
+stroke
+gsave 10 dict begin
+437 510 moveto 73 -0.5 (S3get_leftnode) alignedtext
+end grestore
+end grestore
+
+%	Node2 -> Node3
+gsave 10 dict begin
+solid
+0.667 0.776 0.439 edgecolor
+newpath 346 488 moveto
+363 494 366 500 382 505 curveto
+384 506 385 506 387 507 curveto
+stroke
+gsave 10 dict begin
+solid
+1 setlinewidth
+0.667 0.776 0.439 edgecolor
+newpath 387 510 moveto
+397 509 lineto
+388 504 lineto
+closepath
+fill
+0.667 0.776 0.439 edgecolor
+newpath 387 510 moveto
+397 509 lineto
+388 504 lineto
+closepath
+stroke
+end grestore
+end grestore
+
+%	Node4
+[ /Rect [ 399 542 475 560 ]
+  /Border [ 0 0 0 ]
+  /Action << /Subtype /URI /URI ($S3Classes_8c.html#a2) >>
+  /Subtype /Link
+/ANN pdfmark
+gsave 10 dict begin
+filled
+0.000 0.000 1.000 nodecolor
+newpath 399 541 moveto
+476 541 lineto
+476 560 lineto
+399 560 lineto
+closepath
+fill
+0.000 0.000 0.000 nodecolor
+newpath 399 541 moveto
+476 541 lineto
+476 560 lineto
+399 560 lineto
+closepath
+stroke
+gsave 10 dict begin
+437 546 moveto 69 -0.5 (S3get_nodeID) alignedtext
+end grestore
+end grestore
+
+%	Node2 -> Node4
+gsave 10 dict begin
+solid
+0.667 0.776 0.439 edgecolor
+newpath 346 488 moveto
+370 504 359 526 382 541 curveto
+384 542 387 544 389 545 curveto
+stroke
+gsave 10 dict begin
+solid
+1 setlinewidth
+0.667 0.776 0.439 edgecolor
+newpath 388 548 moveto
+399 548 lineto
+390 542 lineto
+closepath
+fill
+0.667 0.776 0.439 edgecolor
+newpath 388 548 moveto
+399 548 lineto
+390 542 lineto
+closepath
+stroke
+end grestore
+end grestore
+
+%	Node5
+[ /Rect [ 384 470 490 488 ]
+  /Border [ 0 0 0 ]
+  /Action << /Subtype /URI /URI ($S3Classes_8c.html#a8) >>
+  /Subtype /Link
+/ANN pdfmark
+gsave 10 dict begin
+filled
+0.000 0.000 1.000 nodecolor
+newpath 384 469 moveto
+490 469 lineto
+490 488 lineto
+384 488 lineto
+closepath
+fill
+0.000 0.000 0.000 nodecolor
+newpath 384 469 moveto
+490 469 lineto
+490 488 lineto
+384 488 lineto
+closepath
+stroke
+gsave 10 dict begin
+437 474 moveto 98 -0.5 (S3get_nodeterminal) alignedtext
+end grestore
+end grestore
+
+%	Node2 -> Node5
+gsave 10 dict begin
+solid
+0.667 0.776 0.439 edgecolor
+newpath 346 479 moveto
+355 479 364 479 374 479 curveto
+stroke
+gsave 10 dict begin
+solid
+1 setlinewidth
+0.667 0.776 0.439 edgecolor
+newpath 374 483 moveto
+384 479 lineto
+374 476 lineto
+closepath
+fill
+0.667 0.776 0.439 edgecolor
+newpath 374 483 moveto
+384 479 lineto
+374 476 lineto
+closepath
+stroke
+end grestore
+end grestore
+
+%	Node6
+[ /Rect [ 393 434 481 452 ]
+  /Border [ 0 0 0 ]
+  /Action << /Subtype /URI /URI ($S3Classes_8c.html#a13) >>
+  /Subtype /Link
+/ANN pdfmark
+gsave 10 dict begin
+filled
+0.000 0.000 1.000 nodecolor
+newpath 393 433 moveto
+481 433 lineto
+481 452 lineto
+393 452 lineto
+closepath
+fill
+0.000 0.000 0.000 nodecolor
+newpath 393 433 moveto
+481 433 lineto
+481 452 lineto
+393 452 lineto
+closepath
+stroke
+gsave 10 dict begin
+437 438 moveto 80 -0.5 (S3get_rightnode) alignedtext
+end grestore
+end grestore
+
+%	Node2 -> Node6
+gsave 10 dict begin
+solid
+0.667 0.776 0.439 edgecolor
+newpath 346 469 moveto
+363 464 366 458 382 452 curveto
+382 452 383 452 383 452 curveto
+stroke
+gsave 10 dict begin
+solid
+1 setlinewidth
+0.667 0.776 0.439 edgecolor
+newpath 384 455 moveto
+393 449 lineto
+382 449 lineto
+closepath
+fill
+0.667 0.776 0.439 edgecolor
+newpath 384 455 moveto
+393 449 lineto
+382 449 lineto
+closepath
+stroke
+end grestore
+end grestore
+
+%	Node7 -> Node4
+gsave 10 dict begin
+solid
+0.667 0.776 0.439 edgecolor
+newpath 203 307 moveto
+203 307 204 308 204 308 curveto
+263 370 184 433 240 497 curveto
+277 540 343 551 389 552 curveto
+stroke
+gsave 10 dict begin
+solid
+1 setlinewidth
+0.667 0.776 0.439 edgecolor
+newpath 389 556 moveto
+399 552 lineto
+389 549 lineto
+closepath
+fill
+0.667 0.776 0.439 edgecolor
+newpath 389 556 moveto
+399 552 lineto
+389 549 lineto
+closepath
+stroke
+end grestore
+end grestore
+
+%	Node8
+[ /Rect [ 259 270 327 288 ]
+  /Border [ 0 0 0 ]
+  /Action << /Subtype /URI /URI ($Predict_8c.html#a1) >>
+  /Subtype /Link
+/ANN pdfmark
+gsave 10 dict begin
+filled
+0.000 0.000 1.000 nodecolor
+newpath 259 269 moveto
+327 269 lineto
+327 288 lineto
+259 288 lineto
+closepath
+fill
+0.000 0.000 0.000 nodecolor
+newpath 259 269 moveto
+327 269 lineto
+327 288 lineto
+259 288 lineto
+closepath
+stroke
+gsave 10 dict begin
+293 274 moveto 60 -0.5 (C_get_node) alignedtext
+end grestore
+end grestore
+
+%	Node7 -> Node8
+gsave 10 dict begin
+solid
+0.667 0.776 0.439 edgecolor
+newpath 204 292 moveto
+218 290 234 287 249 285 curveto
+stroke
+gsave 10 dict begin
+solid
+1 setlinewidth
+0.667 0.776 0.439 edgecolor
+newpath 249 288 moveto
+259 284 lineto
+249 282 lineto
+closepath
+fill
+0.667 0.776 0.439 edgecolor
+newpath 249 288 moveto
+259 284 lineto
+249 282 lineto
+closepath
+stroke
+end grestore
+end grestore
+
+%	Node8 -> Node3
+gsave 10 dict begin
+solid
+0.667 0.776 0.439 edgecolor
+newpath 327 279 moveto
+334 280 341 283 346 288 curveto
+415 358 314 436 382 505 curveto
+384 507 386 508 388 510 curveto
+stroke
+gsave 10 dict begin
+solid
+1 setlinewidth
+0.667 0.776 0.439 edgecolor
+newpath 386 513 moveto
+397 514 lineto
+389 507 lineto
+closepath
+fill
+0.667 0.776 0.439 edgecolor
+newpath 386 513 moveto
+397 514 lineto
+389 507 lineto
+closepath
+stroke
+end grestore
+end grestore
+
+%	Node8 -> Node5
+gsave 10 dict begin
+solid
+0.667 0.776 0.439 edgecolor
+newpath 327 279 moveto
+334 280 341 283 346 288 curveto
+402 344 331 406 377 463 curveto
+stroke
+gsave 10 dict begin
+solid
+1 setlinewidth
+0.667 0.776 0.439 edgecolor
+newpath 375 466 moveto
+384 471 lineto
+380 461 lineto
+closepath
+fill
+0.667 0.776 0.439 edgecolor
+newpath 375 466 moveto
+384 471 lineto
+380 461 lineto
+closepath
+stroke
+end grestore
+end grestore
+
+%	Node8 -> Node6
+gsave 10 dict begin
+solid
+0.667 0.776 0.439 edgecolor
+newpath 327 279 moveto
+334 280 341 283 346 288 curveto
+395 334 334 388 382 433 curveto
+383 434 383 434 384 435 curveto
+stroke
+gsave 10 dict begin
+solid
+1 setlinewidth
+0.667 0.776 0.439 edgecolor
+newpath 383 438 moveto
+393 440 lineto
+386 432 lineto
+closepath
+fill
+0.667 0.776 0.439 edgecolor
+newpath 383 438 moveto
+393 440 lineto
+386 432 lineto
+closepath
+stroke
+end grestore
+end grestore
+
+%	Node14
+[ /Rect [ 406 398 468 416 ]
+  /Border [ 0 0 0 ]
+  /Action << /Subtype /URI /URI ($Utils_8c.html#a17) >>
+  /Subtype /Link
+/ANN pdfmark
+gsave 10 dict begin
+filled
+0.000 0.000 1.000 nodecolor
+newpath 406 397 moveto
+468 397 lineto
+468 416 lineto
+406 416 lineto
+closepath
+fill
+0.000 0.000 0.000 nodecolor
+newpath 406 397 moveto
+468 397 lineto
+468 416 lineto
+406 416 lineto
+closepath
+stroke
+gsave 10 dict begin
+437 402 moveto 54 -0.5 (C_i_in_set) alignedtext
+end grestore
+end grestore
+
+%	Node8 -> Node14
+gsave 10 dict begin
+solid
+0.667 0.776 0.439 edgecolor
+newpath 327 280 moveto
+334 281 341 284 346 288 curveto
+385 322 344 364 382 397 curveto
+386 401 391 403 396 405 curveto
+stroke
+gsave 10 dict begin
+solid
+1 setlinewidth
+0.667 0.776 0.439 edgecolor
+newpath 396 408 moveto
+406 407 lineto
+397 402 lineto
+closepath
+fill
+0.667 0.776 0.439 edgecolor
+newpath 396 408 moveto
+406 407 lineto
+397 402 lineto
+closepath
+stroke
+end grestore
+end grestore
+
+%	Node15
+[ /Rect [ 402 324 472 342 ]
+  /Border [ 0 0 0 ]
+  /Action << /Subtype /URI /URI ($Classes_8c.html#a83) >>
+  /Subtype /Link
+/ANN pdfmark
+gsave 10 dict begin
+filled
+0.000 0.000 1.000 nodecolor
+newpath 402 323 moveto
+473 323 lineto
+473 342 lineto
+402 342 lineto
+closepath
+fill
+0.000 0.000 0.000 nodecolor
+newpath 402 323 moveto
+473 323 lineto
+473 342 lineto
+402 342 lineto
+closepath
+stroke
+gsave 10 dict begin
+437 328 moveto 63 -0.5 (get_missings) alignedtext
+end grestore
+end grestore
+
+%	Node8 -> Node15
+gsave 10 dict begin
+solid
+0.667 0.776 0.439 edgecolor
+newpath 327 282 moveto
+334 283 340 285 346 288 curveto
+366 299 363 313 382 323 curveto
+385 325 389 326 392 327 curveto
+stroke
+gsave 10 dict begin
+solid
+1 setlinewidth
+0.667 0.776 0.439 edgecolor
+newpath 391 330 moveto
+402 330 lineto
+393 324 lineto
+closepath
+fill
+0.667 0.776 0.439 edgecolor
+newpath 391 330 moveto
+402 330 lineto
+393 324 lineto
+closepath
+stroke
+end grestore
+end grestore
+
+%	Node16
+[ /Rect [ 528 343 600 361 ]
+  /Border [ 0 0 0 ]
+  /Action << /Subtype /URI /URI ($Classes_8c.html#a79) >>
+  /Subtype /Link
+/ANN pdfmark
+gsave 10 dict begin
+filled
+0.000 0.000 1.000 nodecolor
+newpath 528 342 moveto
+600 342 lineto
+600 361 lineto
+528 361 lineto
+closepath
+fill
+0.000 0.000 0.000 nodecolor
+newpath 528 342 moveto
+600 342 lineto
+600 361 lineto
+528 361 lineto
+closepath
+stroke
+gsave 10 dict begin
+564 347 moveto 64 -0.5 (has_missings) alignedtext
+end grestore
+end grestore
+
+%	Node8 -> Node16
+gsave 10 dict begin
+solid
+0.667 0.776 0.439 edgecolor
+newpath 327 287 moveto
+337 290 346 295 354 301 curveto
+369 313 371 318 378 335 curveto
+381 342 377 347 382 351 curveto
+402 367 471 363 518 358 curveto
+stroke
+gsave 10 dict begin
+solid
+1 setlinewidth
+0.667 0.776 0.439 edgecolor
+newpath 518 361 moveto
+528 357 lineto
+518 355 lineto
+closepath
+fill
+0.667 0.776 0.439 edgecolor
+newpath 518 361 moveto
+528 357 lineto
+518 355 lineto
+closepath
+stroke
+end grestore
+end grestore
+
+%	Node17
+[ /Rect [ 403 288 471 306 ]
+  /Border [ 0 0 0 ]
+  /Action << /Subtype /URI /URI ($Classes_8c.html#a75) >>
+  /Subtype /Link
+/ANN pdfmark
+gsave 10 dict begin
+filled
+0.000 0.000 1.000 nodecolor
+newpath 403 287 moveto
+472 287 lineto
+472 306 lineto
+403 306 lineto
+closepath
+fill
+0.000 0.000 0.000 nodecolor
+newpath 403 287 moveto
+472 287 lineto
+472 306 lineto
+403 306 lineto
+closepath
+stroke
+gsave 10 dict begin
+437 292 moveto 61 -0.5 (get_variable) alignedtext
+end grestore
+end grestore
+
+%	Node8 -> Node17
+gsave 10 dict begin
+solid
+0.667 0.776 0.439 edgecolor
+newpath 327 283 moveto
+347 286 372 289 393 292 curveto
+stroke
+gsave 10 dict begin
+solid
+1 setlinewidth
+0.667 0.776 0.439 edgecolor
+newpath 393 295 moveto
+403 293 lineto
+393 289 lineto
+closepath
+fill
+0.667 0.776 0.439 edgecolor
+newpath 393 295 moveto
+403 293 lineto
+393 289 lineto
+closepath
+stroke
+end grestore
+end grestore
+
+%	Node18
+[ /Rect [ 386 252 488 270 ]
+  /Border [ 0 0 0 ]
+  /Action << /Subtype /URI /URI ($S3Classes_8c.html#a6) >>
+  /Subtype /Link
+/ANN pdfmark
+gsave 10 dict begin
+filled
+0.000 0.000 1.000 nodecolor
+newpath 386 251 moveto
+489 251 lineto
+489 270 lineto
+386 270 lineto
+closepath
+fill
+0.000 0.000 0.000 nodecolor
+newpath 386 251 moveto
+489 251 lineto
+489 270 lineto
+386 270 lineto
+closepath
+stroke
+gsave 10 dict begin
+437 256 moveto 95 -0.5 (S3get_maxcriterion) alignedtext
+end grestore
+end grestore
+
+%	Node8 -> Node18
+gsave 10 dict begin
+solid
+0.667 0.776 0.439 edgecolor
+newpath 327 275 moveto
+342 273 359 271 376 268 curveto
+stroke
+gsave 10 dict begin
+solid
+1 setlinewidth
+0.667 0.776 0.439 edgecolor
+newpath 376 271 moveto
+386 267 lineto
+376 265 lineto
+closepath
+fill
+0.667 0.776 0.439 edgecolor
+newpath 376 271 moveto
+386 267 lineto
+376 265 lineto
+closepath
+stroke
+end grestore
+end grestore
+
+%	Node8 -> Node9
+gsave 10 dict begin
+solid
+0.667 0.776 0.439 edgecolor
+newpath 327 279 moveto
+334 278 341 274 346 269 curveto
+422 191 311 105 379 23 curveto
+stroke
+gsave 10 dict begin
+solid
+1 setlinewidth
+0.667 0.776 0.439 edgecolor
+newpath 382 25 moveto
+386 15 lineto
+377 20 lineto
+closepath
+fill
+0.667 0.776 0.439 edgecolor
+newpath 382 25 moveto
+386 15 lineto
+377 20 lineto
+closepath
+stroke
+end grestore
+end grestore
+
+%	Node19
+[ /Rect [ 387 216 487 234 ]
+  /Border [ 0 0 0 ]
+  /Action << /Subtype /URI /URI ($S3Classes_8c.html#a9) >>
+  /Subtype /Link
+/ANN pdfmark
+gsave 10 dict begin
+filled
+0.000 0.000 1.000 nodecolor
+newpath 387 215 moveto
+488 215 lineto
+488 234 lineto
+387 234 lineto
+closepath
+fill
+0.000 0.000 0.000 nodecolor
+newpath 387 215 moveto
+488 215 lineto
+488 234 lineto
+387 234 lineto
+closepath
+stroke
+gsave 10 dict begin
+437 220 moveto 93 -0.5 (S3get_primarysplit) alignedtext
+end grestore
+end grestore
+
+%	Node8 -> Node19
+gsave 10 dict begin
+solid
+0.667 0.776 0.439 edgecolor
+newpath 327 276 moveto
+334 275 340 272 346 269 curveto
+363 260 363 249 378 238 curveto
+stroke
+gsave 10 dict begin
+solid
+1 setlinewidth
+0.667 0.776 0.439 edgecolor
+newpath 381 240 moveto
+387 232 lineto
+377 235 lineto
+closepath
+fill
+0.667 0.776 0.439 edgecolor
+newpath 381 240 moveto
+387 232 lineto
+377 235 lineto
+closepath
+stroke
+end grestore
+end grestore
+
+%	Node20
+[ /Rect [ 394 180 480 198 ]
+  /Border [ 0 0 0 ]
+  /Action << /Subtype /URI /URI ($S3Classes_8c.html#a23) >>
+  /Subtype /Link
+/ANN pdfmark
+gsave 10 dict begin
+filled
+0.000 0.000 1.000 nodecolor
+newpath 394 179 moveto
+480 179 lineto
+480 198 lineto
+394 198 lineto
+closepath
+fill
+0.000 0.000 0.000 nodecolor
+newpath 394 179 moveto
+480 179 lineto
+480 198 lineto
+394 198 lineto
+closepath
+stroke
+gsave 10 dict begin
+437 184 moveto 78 -0.5 (S3get_splitpoint) alignedtext
+end grestore
+end grestore
+
+%	Node8 -> Node20
+gsave 10 dict begin
+solid
+0.667 0.776 0.439 edgecolor
+newpath 327 278 moveto
+334 276 341 273 346 269 curveto
+375 248 354 219 382 198 curveto
+383 197 384 197 385 196 curveto
+stroke
+gsave 10 dict begin
+solid
+1 setlinewidth
+0.667 0.776 0.439 edgecolor
+newpath 386 199 moveto
+394 192 lineto
+383 193 lineto
+closepath
+fill
+0.667 0.776 0.439 edgecolor
+newpath 386 199 moveto
+394 192 lineto
+383 193 lineto
+closepath
+stroke
+end grestore
+end grestore
+
+%	Node21
+[ /Rect [ 382 144 492 162 ]
+  /Border [ 0 0 0 ]
+  /Action << /Subtype /URI /URI ($S3Classes_8c.html#a10) >>
+  /Subtype /Link
+/ANN pdfmark
+gsave 10 dict begin
+filled
+0.000 0.000 1.000 nodecolor
+newpath 382 143 moveto
+492 143 lineto
+492 162 lineto
+382 162 lineto
+closepath
+fill
+0.000 0.000 0.000 nodecolor
+newpath 382 143 moveto
+492 143 lineto
+492 162 lineto
+382 162 lineto
+closepath
+stroke
+gsave 10 dict begin
+437 148 moveto 102 -0.5 (S3get_surrogatesplits) alignedtext
+end grestore
+end grestore
+
+%	Node8 -> Node21
+gsave 10 dict begin
+solid
+0.667 0.776 0.439 edgecolor
+newpath 327 278 moveto
+334 276 341 274 346 269 curveto
+381 239 350 201 375 169 curveto
+stroke
+gsave 10 dict begin
+solid
+1 setlinewidth
+0.667 0.776 0.439 edgecolor
+newpath 377 172 moveto
+382 162 lineto
+372 167 lineto
+closepath
+fill
+0.667 0.776 0.439 edgecolor
+newpath 377 172 moveto
+382 162 lineto
+372 167 lineto
+closepath
+stroke
+end grestore
+end grestore
+
+%	Node22
+[ /Rect [ 404 108 470 126 ]
+  /Border [ 0 0 0 ]
+  /Action << /Subtype /URI /URI ($S3Classes_8c.html#a21) >>
+  /Subtype /Link
+/ANN pdfmark
+gsave 10 dict begin
+filled
+0.000 0.000 1.000 nodecolor
+newpath 404 107 moveto
+471 107 lineto
+471 126 lineto
+404 126 lineto
+closepath
+fill
+0.000 0.000 0.000 nodecolor
+newpath 404 107 moveto
+471 107 lineto
+471 126 lineto
+404 126 lineto
+closepath
+stroke
+gsave 10 dict begin
+437 112 moveto 59 -0.5 (S3get_toleft) alignedtext
+end grestore
+end grestore
+
+%	Node8 -> Node22
+gsave 10 dict begin
+solid
+0.667 0.776 0.439 edgecolor
+newpath 327 279 moveto
+334 277 341 274 346 269 curveto
+394 225 334 171 382 126 curveto
+385 123 390 121 394 119 curveto
+stroke
+gsave 10 dict begin
+solid
+1 setlinewidth
+0.667 0.776 0.439 edgecolor
+newpath 395 122 moveto
+404 117 lineto
+394 116 lineto
+closepath
+fill
+0.667 0.776 0.439 edgecolor
+newpath 395 122 moveto
+404 117 lineto
+394 116 lineto
+closepath
+stroke
+end grestore
+end grestore
+
+%	Node23
+[ /Rect [ 391 72 483 90 ]
+  /Border [ 0 0 0 ]
+  /Action << /Subtype /URI /URI ($S3Classes_8c.html#a17) >>
+  /Subtype /Link
+/ANN pdfmark
+gsave 10 dict begin
+filled
+0.000 0.000 1.000 nodecolor
+newpath 391 71 moveto
+483 71 lineto
+483 90 lineto
+391 90 lineto
+closepath
+fill
+0.000 0.000 0.000 nodecolor
+newpath 391 71 moveto
+483 71 lineto
+483 90 lineto
+391 90 lineto
+closepath
+stroke
+gsave 10 dict begin
+437 76 moveto 84 -0.5 (S3get_variableID) alignedtext
+end grestore
+end grestore
+
+%	Node8 -> Node23
+gsave 10 dict begin
+solid
+0.667 0.776 0.439 edgecolor
+newpath 327 279 moveto
+334 277 341 274 346 269 curveto
+404 212 324 147 382 90 curveto
+382 90 382 90 383 90 curveto
+stroke
+gsave 10 dict begin
+solid
+1 setlinewidth
+0.667 0.776 0.439 edgecolor
+newpath 385 93 moveto
+391 84 lineto
+381 87 lineto
+closepath
+fill
+0.667 0.776 0.439 edgecolor
+newpath 385 93 moveto
+391 84 lineto
+381 87 lineto
+closepath
+stroke
+end grestore
+end grestore
+
+%	Node24
+[ /Rect [ 402 36 472 54 ]
+  /Border [ 0 0 0 ]
+  /Action << /Subtype /URI /URI ($S3Classes_8c.html#a18) >>
+  /Subtype /Link
+/ANN pdfmark
+gsave 10 dict begin
+filled
+0.000 0.000 1.000 nodecolor
+newpath 402 35 moveto
+472 35 lineto
+472 54 lineto
+402 54 lineto
+closepath
+fill
+0.000 0.000 0.000 nodecolor
+newpath 402 35 moveto
+472 35 lineto
+472 54 lineto
+402 54 lineto
+closepath
+stroke
+gsave 10 dict begin
+437 40 moveto 62 -0.5 (S3is_ordered) alignedtext
+end grestore
+end grestore
+
+%	Node8 -> Node24
+gsave 10 dict begin
+solid
+0.667 0.776 0.439 edgecolor
+newpath 327 279 moveto
+334 278 341 274 346 269 curveto
+414 200 314 123 382 54 curveto
+385 51 388 49 392 48 curveto
+stroke
+gsave 10 dict begin
+solid
+1 setlinewidth
+0.667 0.776 0.439 edgecolor
+newpath 393 51 moveto
+402 45 lineto
+391 45 lineto
+closepath
+fill
+0.667 0.776 0.439 edgecolor
+newpath 393 51 moveto
+402 45 lineto
+391 45 lineto
+closepath
+stroke
+end grestore
+end grestore
+
+%	Node25
+[ /Rect [ 541 398 587 416 ]
+  /Border [ 0 0 0 ]
+  /Action << /Subtype /URI /URI ($Utils_8c.html#a16) >>
+  /Subtype /Link
+/ANN pdfmark
+gsave 10 dict begin
+filled
+0.000 0.000 1.000 nodecolor
+newpath 541 397 moveto
+588 397 lineto
+588 416 lineto
+541 416 lineto
+closepath
+fill
+0.000 0.000 0.000 nodecolor
+newpath 541 397 moveto
+588 397 lineto
+588 416 lineto
+541 416 lineto
+closepath
+stroke
+gsave 10 dict begin
+564 402 moveto 39 -0.5 (i_in_set) alignedtext
+end grestore
+end grestore
+
+%	Node14 -> Node25
+gsave 10 dict begin
+solid
+0.667 0.776 0.439 edgecolor
+newpath 468 407 moveto
+487 407 512 407 531 407 curveto
+stroke
+gsave 10 dict begin
+solid
+1 setlinewidth
+0.667 0.776 0.439 edgecolor
+newpath 531 411 moveto
+541 407 lineto
+531 404 lineto
+closepath
+fill
+0.667 0.776 0.439 edgecolor
+newpath 531 411 moveto
+541 407 lineto
+531 404 lineto
+closepath
+stroke
+end grestore
+end grestore
+
+%	Node15 -> Node16
+gsave 10 dict begin
+solid
+0.667 0.776 0.439 edgecolor
+newpath 473 338 moveto
+487 340 503 343 518 345 curveto
+stroke
+gsave 10 dict begin
+solid
+1 setlinewidth
+0.667 0.776 0.439 edgecolor
+newpath 518 348 moveto
+528 346 lineto
+518 342 lineto
+closepath
+fill
+0.667 0.776 0.439 edgecolor
+newpath 518 348 moveto
+528 346 lineto
+518 342 lineto
+closepath
+stroke
+end grestore
+end grestore
+endpage
+showpage
+grestore
+%%PageTrailer
+%%EndPage: 1
+%%Trailer
+%%Pages: 1
+end
+restore
+%%EOF

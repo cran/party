@@ -3,7 +3,7 @@
     Some convenience functions
     *\file Convenience.c
     *\author $Author: hothorn $
-    *\date $Date: 2005/06/14 09:21:32 $
+    *\date $Date: 2005/08/31 07:27:04 $
 */
                 
 #include "party.h"
@@ -152,4 +152,47 @@ double C_ConditionalPvalue(const double tstat, SEXP linexpcov,
         default: error("C_ConditionalPvalue: undefined value for type argument");
     }
     return(ans);
+}
+
+
+/**
+    extract the (first) response variable from a learning sample
+    *\param learnsample an object of class `LearningSample'
+*/
+
+SEXP R_get_response(SEXP learnsample) {
+    return(VECTOR_ELT(GET_SLOT(GET_SLOT(learnsample, PL2_responsesSym), 
+                               PL2_variablesSym), 0));
+}
+
+
+/**
+    change the values of the response variable in a learning sample
+    *\param learnsample an object of class `LearningSample'
+    *\param y a REAL with new values
+*/
+
+void R_set_response(SEXP learnsample, SEXP y) {
+
+    double *v, *t, *j, *dy;
+    int i, n;
+    
+    n = LENGTH(y);
+    dy = REAL(y);
+    
+    if (LENGTH(R_get_response(learnsample)) != n)
+        error("lengths of arguments don't match");
+    
+    v = REAL(VECTOR_ELT(GET_SLOT(GET_SLOT(learnsample, PL2_responsesSym), 
+                                 PL2_variablesSym), 0));
+    t = REAL(VECTOR_ELT(GET_SLOT(GET_SLOT(learnsample, PL2_responsesSym), 
+                                 PL2_transformationsSym), 0));
+    j = REAL(GET_SLOT(GET_SLOT(learnsample, PL2_responsesSym), 
+                      PL2_jointtransfSym));
+    
+    for (i = 0; i < n; i++) {
+        v[i] = dy[i];
+        t[i] = dy[i];
+        j[i] = dy[i];
+    }
 }
