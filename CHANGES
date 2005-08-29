@@ -1,5 +1,12 @@
 
 
+		CHANGES IN `party' VERSION 0.2-6 (2005-08-29)
+
+
+    o   make gfortran happy
+
+
+
 		CHANGES IN `party' VERSION 0.2-5 (2005-08-19)
 
 

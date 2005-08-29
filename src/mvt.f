@@ -1,8 +1,8 @@
 *
-*    $Id: mvt.f,v 1.1 2005/04/14 08:58:16 hothorn Exp $
+*    $Id: mvt.f,v 1.2 2005/08/29 11:08:04 hothorn Exp $
 *
       SUBROUTINE MVTDST( N, NU, LOWER, UPPER, INFIN, CORREL, DELTA, 
-     &           MAXPTS, ABSEPS, RELEPS, TOL, ERROR, VALUE, INFORM )       
+     &           MAXPTS, ABSEPS, RELEPS, TOL, ERROR, VALUE, INFORM )
 *
 *     A subroutine for computing non-central multivariate t probabilities.
 *     This subroutine uses an algorithm (QRSVN) described in the paper
@@ -188,7 +188,7 @@
       END IF
       END
 *
-      SUBROUTINE MVVLSB( N,W,R,DL,INFI, A,B,COV, Y, DI,EI, ND, VALUE )      
+      SUBROUTINE MVVLSB( N,W,R,DL,INFI, A,B,COV, Y, DI,EI, ND, VALUE )
 *     
 *     Integrand subroutine
 *
@@ -357,8 +357,8 @@
 * 
                IF ( DEMIN .GT. EPSI ) THEN
                   Y(I) = 0
-                  IF ( INFI(I) .NE. 0 ) Y(I) =        MVTDNS( 0, AMIN )        
-                  IF ( INFI(I) .NE. 1 ) Y(I) = Y(I) - MVTDNS( 0, BMIN )        
+                  IF ( INFI(I) .NE. 0 ) Y(I) =        MVTDNS( 0, AMIN )
+                  IF ( INFI(I) .NE. 1 ) Y(I) = Y(I) - MVTDNS( 0, BMIN )
                   Y(I) = Y(I)/DEMIN
                ELSE
                   IF ( INFI(I) .EQ. 0 ) Y(I) = BMIN
@@ -828,7 +828,7 @@
             BVN = -BVN/TWOPI
          ENDIF
          IF ( R .GT. 0 ) BVN =  BVN + MVPHI( -MAX( H, K ) )
-         IF ( R .LT. 0 ) BVN = -BVN + MAX( ZERO, MVPHI(-H) - MVPHI(-K) )     
+         IF ( R .LT. 0 ) BVN = -BVN + MAX( ZERO, MVPHI(-H) - MVPHI(-K) )
       ENDIF
       MVBVU = BVN
       END
@@ -869,7 +869,7 @@
       ENDIF
       END
 *
-      DOUBLE PRECISION FUNCTION MVBVT( NU, LOWER, UPPER, INFIN, CORREL )      
+      DOUBLE PRECISION FUNCTION MVBVT( NU, LOWER, UPPER, INFIN, CORREL )
 *
 *     A function for computing bivariate normal and t probabilities.
 *
@@ -1040,7 +1040,7 @@
          hkrn = dh*dk + r*nu  
          hkn = dh*dk - nu  
          hpk = dh + dk 
-         bvt = atan2(-snu*(hkn*qhrk+hpk*hkrn),hkn*hkrn-nu*hpk*qhrk)/tpi  
+         bvt = atan2(-snu*(hkn*qhrk+hpk*hkrn),hkn*hkrn-nu*hpk*qhrk)/tpi
          if ( bvt .lt. -1d-15 ) bvt = bvt + 1
          gmph = dh/( tpi*snu*( 1 + dh**2/nu ) )  
          gmpk = dk/( tpi*snu*( 1 + dk**2/nu ) )  
@@ -1283,7 +1283,7 @@
       KMX = 1
       DO K = 1, NF
          VARPRD = VAREST(K)*VARSQR(K)
-         FINEST(K) = FINEST(K) + ( FINVAL(K) - FINEST(K) )/( 1+VARPRD )      
+         FINEST(K) = FINEST(K) + ( FINVAL(K) - FINEST(K) )/( 1+VARPRD )
          IF ( VARSQR(K) .GT. 0 ) VAREST(K) = ( 1 + VARPRD )/VARSQR(K)
          ABSERR = MAX( ABSERR, 7*SQRT( VARSQR(K)/( 1 + VARPRD ) )/2 )
          IF ( ABS(FINEST(K)) .GT. ABS(FINEST(KMX)) ) KMX = K
@@ -1472,7 +1472,7 @@
          END DO
          CALL FUNSUB( NDIM, X, NF, FS )
          DO J = 1, NF
-            VALUES(J) = VALUES(J) + ( FS(J) - VALUES(J) )/( 2*K-1 )      
+            VALUES(J) = VALUES(J) + ( FS(J) - VALUES(J) )/( 2*K-1 )
          END DO
          DO J = 1, NDIM
             X(J) = 1 - X(J)
