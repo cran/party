@@ -1,5 +1,5 @@
 
-# $Id: Plot.R,v 1.9 2005/07/07 12:39:29 hothorn Exp $
+# $Id: Plot.R,v 1.11 2005/09/06 15:52:10 hothorn Exp $
 
 ## utility functions for querying the number of
 ## terminal nodes and the maximal depth of (sub-)trees
@@ -594,6 +594,9 @@ edge_simple <- function(ctreeobj,
                 split <- paste("\{", paste(split, collapse = ", "), 
     	                       "\}", sep="")
         } else {
+            ### <FIXME> phantom and . functions cannot be found by
+            ###         codetools
+            ### </FIXME>
             if (left) split <- as.expression(bquote(phantom(0) <= .(split)))
                 else split <- as.expression(bquote(phantom(0) > .(split)))
         }

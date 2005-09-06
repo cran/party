@@ -1,5 +1,5 @@
 
-# $Id: Utils.R,v 1.6 2005/06/22 09:32:30 hothorn Exp $
+# $Id: Utils.R,v 1.7 2005/09/05 22:26:18 hothorn Exp $
 
 ### Wrapper for functions defined in ./src/Utilsc
 
@@ -63,7 +63,7 @@ maxabsTestStatistic <- function(t, mu, Sigma, tol = sqrt(.Machine$double.eps)) {
     storage.mode(tol) <- "double"
     
     if (length(t) != length(mu) || length(t) != nrow(Sigma)) 
-        error("dimensions don't match")
+        stop("dimensions don't match")
         
     .Call("R_maxabsTestStatistic", t, mu, Sigma, tol, PACKAGE = "party")
 }
@@ -77,7 +77,7 @@ quadformTestStatistic <- function(t, mu, Sigma,
     storage.mode(tol) <- "double"
     
     if (length(t) != length(mu) || length(t) != nrow(Sigma)) 
-        error("dimensions don't match")
+        stop("dimensions don't match")
         
     SigmaPlus <- MPinv(Sigma, tol = tol)
     .Call("R_quadformTestStatistic", t, mu, SigmaPlus, PACKAGE = "party")
