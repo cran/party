@@ -50,8 +50,8 @@
 <<setup, echo = FALSE, results = hide>>=
 options(width = 65, SweaveHooks = list(leftpar = 
     function() par(mai = par("mai") * c(1, 1.1, 1, 1))))
-require(party)
-require(coin)
+require("party")
+require("coin")
 set.seed(290875)
 @
 
@@ -173,7 +173,7 @@ is associated with a vector of case weights.
 In package \texttt{party}, the dependency structure and the variables may be
 specified in a traditional formula based way
 <<party-formula, echo = TRUE, results = hide>>=
-library(party)
+library("party")
 ctree(y ~ x1 + x2, data = ls)
 @
 Case counts $\w$ may be specified using the \texttt{weights} argument.
@@ -881,7 +881,7 @@ sptree <- ctree(arct.lute + pard.lugu + zora.spin + pard.nigr + pard.pull +
            minsplit = 5, mincriterion = 0.9), data = spider)
 sptree@tree$criterion
 
-library(coin)
+library("coin")
 data(spider, package = "mvpart")
 it <- independence_test(arct.lute + pard.lugu + zora.spin + pard.nigr + pard.pull +
                        aulo.albi + troc.terr + alop.cune + pard.mont + alop.acce +   

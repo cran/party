@@ -1,6 +1,14 @@
 
 		CHANGES IN `party' VERSION 0.2-8 (2005-08-06)
 
+
+    o    splits in categorical variables could have failed due 
+         to weired internal checks
+
+
+		CHANGES IN `party' VERSION 0.2-8 (2005-08-06)
+
+
     o    fix problems reported by codetools
 
 

@@ -164,7 +164,7 @@ In package \texttt{party}, the dependency structure and the variables may be
 specified in a traditional formula based way
 \begin{Schunk}
 \begin{Sinput}
-> library(party)
+> library("party")
 > ctree(y ~ x1 + x2, data = ls)
 \end{Sinput}
 \end{Schunk}
@@ -1001,7 +1001,7 @@ The data are available in package
 +     testtype = "MonteCarlo", nresample = 9999, minsplit = 5, 
 +     mincriterion = 0.9), data = spider)
 > sptree@tree$criterion
-> library(coin)
+> library("coin")
 > data(spider, package = "mvpart")
 > it <- independence_test(arct.lute + pard.lugu + zora.spin + 
 +     pard.nigr + pard.pull + aulo.albi + troc.terr + 

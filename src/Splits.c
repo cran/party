@@ -3,7 +3,7 @@
     Binary splits 
     *\file Splits.c
     *\author $Author: hothorn $
-    *\date $Date: 2005/06/14 09:21:32 $
+    *\date $Date: 2005/10/19 14:40:37 $
 */
                 
 #include "party.h"
@@ -312,7 +312,9 @@ void C_splitcategorical(const int *codingx, int p,
                    C_split may end up with cutpoint > max(irank), why?
            </FIXME>
         */
-        if (chk == 0) tmp = 0.0;
+        /* hm, why did I added 
+        if (chk == 0) tmp = 0.0; 
+        ??? */
     }
     maxstat[0] = tmp;
 

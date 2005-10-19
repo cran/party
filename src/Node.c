@@ -3,7 +3,7 @@
     Node computations
     *\file Node.c
     *\author $Author: hothorn $
-    *\date $Date: 2005/06/28 15:40:16 $
+    *\date $Date: 2005/10/19 14:40:43 $
 */
                 
 #include "party.h"
@@ -207,6 +207,7 @@ void C_Node(SEXP node, SEXP learnsample, SEXP weights,
                 if (j == 1) {          
                     S3set_nodeterminal(node);
                 } else {
+                    /* <FIXME> why? </FIXME> */
                     pvalue[jselect - 1] = 0.0;
                 }
             } else {
