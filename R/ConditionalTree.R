@@ -1,5 +1,5 @@
 
-# $Id: ConditionalTree.R,v 1.11 2005/09/01 08:57:35 hothorn Exp $
+# $Id: ConditionalTree.R,v 1.12 2005/11/07 13:53:16 hothorn Exp $
 
 ### the fitting procedure
 ctreefit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
@@ -39,8 +39,7 @@ ctreefit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
     RET@tree <- tree
     RET@where <- where
     RET@responses <- object@responses
-    RET@inputnames <- names(object@inputs@variables)
-    RET@levels <- object@inputs@levels
+    RET@data <- object@menv
 
     ### get terminal node numbers
     RET@get_where <- function(newdata = NULL, mincriterion = 0, ...) {

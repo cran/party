@@ -57,12 +57,9 @@ releases of the package.
 }
 \section{Slots}{
   \describe{
-    \item{\code{inputnames}:}{ a character vector with the names of
-                               the input variables used for fitting the tree.}
+    \item{\code{data}:}{ an object of class \code{\link[modeltools]{ModelEnv}}.}
     \item{\code{responses}:}{ an object of class \code{"VariableFrame"}
                               storing the values of the response variable(s). }
-    \item{\code{levels}:}{ a list of character vectors storing the levels of
-                           nominal or ordered input variables. }
     \item{\code{cond_distr_response}:}{ a function computing the conditional
                                         distribution of the response. } 
     \item{\code{predict_response}:}{ a function for computing predictions. }

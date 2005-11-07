@@ -1,5 +1,12 @@
 
-		CHANGES IN `party' VERSION 0.2-8 (2005-08-06)
+		CHANGES IN `party' VERSION 0.2-10 (2005-11-08)
+
+
+    o    new slot `data' in BinaryTree objects, slots inputnames and levels 
+         have been removed
+
+
+		CHANGES IN `party' VERSION 0.2-9 (2005-10-19)
 
 
     o    splits in categorical variables could have failed due 

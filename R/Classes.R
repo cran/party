@@ -1,5 +1,5 @@
 
-# $Id: Classes.R,v 1.8 2005/06/22 09:32:30 hothorn Exp $
+# $Id: Classes.R,v 1.9 2005/11/07 13:53:16 hothorn Exp $
 
 ### Conditional Expectation and Covariance
 setClass(Class = "ExpectCovar",
@@ -205,13 +205,9 @@ setClass(Class = "BinaryTreePartition",
 ### A class for binary trees   
 setClass(Class = "BinaryTree", 
     representation = representation(
-        inputnames          = "character",     # a character vector with 
-                                               # input names
-                                               # (just for printing)
+        data                = "ModelEnv",
         responses           = "VariableFrame", # a list of response `variables'
                                                # for computing predictions
-        levels              = "list",          # factor levels of inputs 
-                                               # (for printing) 
         cond_distr_response = "function",      # predict distribtion
         predict_response    = "function",      # predict responses
         prediction_weights  = "function",      # prediction weights
