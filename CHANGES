@@ -1,4 +1,12 @@
 
+		CHANGES IN `party' VERSION 0.3-0 (2005-11-29)
+
+
+    o    `ytrafo' and `xtrafo' functions make use of `coin:::trafo' now,
+         i.e. the handling of influence functions and transformations
+         has been unified in packages `party' and `coin'
+
+
 		CHANGES IN `party' VERSION 0.2-10 (2005-11-08)
 
 

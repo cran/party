@@ -1,5 +1,5 @@
 
-# $Id: Print.R,v 1.6 2005/11/07 13:53:16 hothorn Exp $
+# $Id: Print.R,v 1.7 2005/11/28 16:15:28 hothorn Exp $
 
 prettysplit <- function(x, inames = NULL, ilevels = NULL) {
     if (length(x) == 4)
@@ -107,15 +107,11 @@ print.BinaryTree <- function(x, ...) {
     cat("\t Conditional tree with", length(unique(where(x))), 
         "terminal nodes\n\n")
     y <- x@responses
-    if (y@is_censored) {
-        cat("Response: ", names(y@variables), "(censored)\n")
-    } else {
-        if (y@ninputs > 1) {
-            cat("Responses:", paste(names(y@variables), 
-                                    collapse = ", "), "\n")
-        }  else {
-            cat("Response: ", names(y@variables), "\n")
-        }
+    if (y@ninputs > 1) {
+        cat("Responses:", paste(names(y@variables), 
+                                collapse = ", "), "\n")
+    }  else {
+        cat("Response: ", names(y@variables), "\n")
     }
     inames <- names(x@data@get("input"))
     if (length(inames) > 1) {

@@ -1,4 +1,4 @@
-This is pdfeTeXk, Version 3.14159-1.10b-2.1 (Web2C 7.4.5) (format=pdflatex 2005.6.9)  8 NOV 2005 13:17
+This is pdfeTeXk, Version 3.14159-1.10b-2.1 (Web2C 7.4.5) (format=pdflatex 2005.6.9)  29 NOV 2005 11:46
 entering extended mode
  file:line:error style messages enabled.
 **\nonstopmode \input /home/hothorn/projects/cvs/cpkg/party/inst/doc/party.tex
@@ -367,7 +367,7 @@ x8' already exists, duplicates ignored
 Warning: pdflatex (file /var/lib/texmf/dvips/config/pdftex.map): entry for `cme
 x9' already exists, duplicates ignored
 }] [2] [3] [4]
-Overfull \hbox (12.3202pt too wide) in alignment at lines 321--326
+Overfull \hbox (12.3202pt too wide) in alignment at lines 322--327
  [][][] []
  []
 
@@ -410,7 +410,7 @@ File: party-mammo-plot.pdf Graphic file (type pdf)
 Here is how much of TeX's memory you used:
  4902 strings out of 95257
  66848 string characters out of 1187588
- 118068 words of memory out of 1000001
+ 117068 words of memory out of 1000001
  7790 multiletter control sequences out of 10000+50000
  35475 words of font info for 85 fonts, out of 500000 for 1000
  20 hyphenation exceptions out of 1000
@@ -432,4 +432,4 @@ r/share/texmf/fonts/type1/bluesky/cm/cmr10.pfb></usr/share/texmf/fonts/type1/bl
 uesky/cm/cmr7.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr8.pfb></usr/share
 /texmf/fonts/type1/bluesky/cm/cmr12.pfb></usr/share/texmf/fonts/type1/bluesky/c
 m/cmr17.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmtt12.pfb>
-Output written on party.pdf (19 pages, 374277 bytes).
+Output written on party.pdf (19 pages, 372146 bytes).

@@ -211,7 +211,8 @@ the covariate $X_j$. The transformation may be specified using the
 \texttt{x1} and \texttt{x2} is required,
 \begin{Schunk}
 \begin{Sinput}
-> ctree(y ~ x1 + x2, data = ls, xtrafo = rank)
+> ctree(y ~ x1 + x2, data = ls, xtrafo = function(data) trafo(data, 
++     numeric_trafo = rank))
 \end{Sinput}
 \end{Schunk}
 can be used. The \emph{influence function} 
@@ -825,8 +826,8 @@ comparison with the true class memberships is done by
 \end{Sinput}
 \begin{Soutput}
            glaucoma normal
-  glaucoma       70      3
-  normal         28     95
+  glaucoma       98     98
+  normal          0      0
 \end{Soutput}
 \end{Schunk}
 When we are interested in conditional class probabilities, the

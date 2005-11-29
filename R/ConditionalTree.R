@@ -1,5 +1,5 @@
 
-# $Id: ConditionalTree.R,v 1.12 2005/11/07 13:53:16 hothorn Exp $
+# $Id: ConditionalTree.R,v 1.13 2005/11/28 16:15:28 hothorn Exp $
 
 ### the fitting procedure
 ctreefit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
@@ -134,7 +134,7 @@ ctreefit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
 
 ### data pre-processing (ordering, computing transformations etc)
 ctreedpp <- function(formula, data = list(), subset = NULL, 
-                     na.action = NULL, xtrafo = NULL, ytrafo = NULL, 
+                     na.action = NULL, xtrafo = trafo, ytrafo = trafo, 
                      scores = NULL, ...) {
 
     dat <- ModelEnvFormula(formula = formula, data = data, 
@@ -142,23 +142,13 @@ ctreedpp <- function(formula, data = list(), subset = NULL,
     inp <- initVariableFrame(dat@get("input"), trafo = xtrafo, 
                              scores = scores)
 
-    if (has(dat, "censored"))
-        censored <- as.logical(dat@get("censored")[[1]])
     response <- dat@get("response")
 
     if (any(is.na(response)))
         stop("missing values in response variable not allowed")
 
-    if (length(response) != 1 && has(dat, "censored"))
-        stop("multiple failure times not yet implemented")
+    resp <- initVariableFrame(response, trafo = ytrafo)
 
-    if (has(dat, "censored")) {
-        resp <- initVariableFrame(Surv(response[[1]], censored), 
-                                  trafo = ytrafo)
-        names(resp@variables) <- names(response)
-    } else {
-        resp <- initVariableFrame(response, trafo = ytrafo)
-    }
     RET <- new("LearningSample", inputs = inp, responses = resp,
                weights = rep(1, inp@nobs), nobs = inp@nobs,
                ninputs = inp@ninputs, menv = dat)
@@ -222,8 +212,8 @@ ctree_control <- function(teststattype = c("quadform", "maxabs"),
 
 ### the top-level convenience function
 ctree <- function(formula, data = list(), subset = NULL, weights = NULL, 
-                  controls = ctree_control(), xtrafo = NULL, 
-                  ytrafo = NULL, scores = NULL) {
+                  controls = ctree_control(), xtrafo = trafo, 
+                  ytrafo = trafo, scores = NULL) {
 
     ### setup learning sample
     ls <- dpp(conditionalTree, formula, data, subset, xtrafo = xtrafo, 

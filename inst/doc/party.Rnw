@@ -218,7 +218,8 @@ the covariate $X_j$. The transformation may be specified using the
 \texttt{xtrafo} argument. If, for example, a ranking \textit{both}
 \texttt{x1} and \texttt{x2} is required,
 <<party-xtrafo, echo = TRUE, results = hide>>=
-ctree(y ~ x1 + x2, data = ls, xtrafo = rank)
+ctree(y ~ x1 + x2, data = ls, xtrafo = function(data) trafo(data,
+numeric_trafo = rank))
 @
 can be used. The \emph{influence function} 
 $h: \sY \times \sY^n \rightarrow

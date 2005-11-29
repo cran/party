@@ -8,7 +8,7 @@
 }
 \usage{
 ctree(formula, data, subset = NULL, weights = NULL, 
-      controls = ctree_control(), xtrafo = NULL, ytrafo = NULL, 
+      controls = ctree_control(), xtrafo = trafo, ytrafo = trafo, 
       scores = NULL)
 }
 \arguments{
@@ -21,8 +21,10 @@ ctree(formula, data, subset = NULL, weights = NULL,
                   allowed.}
   \item{controls}{an object of class \code{\link{TreeControl}}, which can be
                   obtained using \code{\link{ctree_control}}.}
-  \item{xtrafo}{ an optional function to be applied to all input variables. }
-  \item{ytrafo}{ an optional function to be applied to all response variables. }
+  \item{xtrafo}{ a function to be applied to all input variables.
+                By default, the \code{\link[coin]{trafo}} function is applied.}
+  \item{ytrafo}{ a function to be applied to all response variables. 
+                By default, the \code{\link[coin]{trafo}} function is applied.}
   \item{scores}{ an optional named list of scores to be attached to ordered
                factors.}
 }
