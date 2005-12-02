@@ -3,8 +3,8 @@
 ###################################################
 options(width = 65, SweaveHooks = list(leftpar = 
     function() par(mai = par("mai") * c(1, 1.1, 1, 1))))
-require("party")
-require("coin")
+require(party)
+require(coin)
 set.seed(290875)
 
 
@@ -28,15 +28,14 @@ ls <- data.frame(y = gl(3, 50, labels = c("A", "B", "C")), x1 = rnorm(150) + rep
 ###################################################
 ### chunk number 4: party-formula
 ###################################################
-library("party")
+library(party)
 ctree(y ~ x1 + x2, data = ls)
 
 
 ###################################################
 ### chunk number 5: party-xtrafo
 ###################################################
-ctree(y ~ x1 + x2, data = ls, xtrafo = function(data) trafo(data,
-numeric_trafo = rank))
+ctree(y ~ x1 + x2, data = ls, xtrafo = rank)
 
 
 ###################################################
@@ -241,7 +240,7 @@ plot(mtree)
 ##            minsplit = 5, mincriterion = 0.9), data = spider)
 ## sptree@tree$criterion
 ## 
-## library("coin")
+## library(coin)
 ## data(spider, package = "mvpart")
 ## it <- independence_test(arct.lute + pard.lugu + zora.spin + pard.nigr + pard.pull +
 ##                        aulo.albi + troc.terr + alop.cune + pard.mont + alop.acce +   

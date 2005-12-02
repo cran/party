@@ -1,4 +1,10 @@
 
+		CHANGES IN `party' VERSION 0.3-2 (2006-01-12)
+
+
+    o    isequal must not check equality of attributes
+
+
 		CHANGES IN `party' VERSION 0.3-1 (2005-12-02)
 
 

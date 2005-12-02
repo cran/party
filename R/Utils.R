@@ -199,7 +199,9 @@ nmi <- function(x, y)
 
 ### check if two objects are identical and print differences else
 isequal <- function(a, b) {
-    if (!identical(all.equal(a, b), TRUE)) {
+    attributes(a) <- NULL
+    attributes(b) <- NULL
+    if (!isTRUE(all.equal(a, b))) {
         print(a, digits = 10)
         print(b, digits = 10)
         return(FALSE)
