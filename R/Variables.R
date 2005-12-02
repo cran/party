@@ -1,7 +1,15 @@
 
-# $Id: Variables.R,v 1.7 2005/11/29 10:45:26 hothorn Exp $
+# $Id: Variables.R,v 1.9 2005/12/02 10:02:22 hothorn Exp $
 
-initVariableFrame.df <- function(obj, trafo = trafo, scores = NULL, ...) {
+ptrafo <- function(data, numeric_trafo = id_trafo, 
+   factor_trafo = function(x) model.matrix(~ x - 1), 
+   surv_trafo = logrank_trafo, var_trafo = NULL)
+
+    trafo(data = data, numeric_trafo = numeric_trafo, factor_trafo =
+          factor_trafo, surv_trafo = surv_trafo, var_trafo = var_trafo)
+
+
+initVariableFrame.df <- function(obj, trafo = ptrafo, scores = NULL, ...) {
 
     RET <- new("VariableFrame", nrow(obj), ncol(obj))
     
@@ -15,13 +23,14 @@ initVariableFrame.df <- function(obj, trafo = trafo, scores = NULL, ...) {
         scores <- scores[names(scores) %in% colnames(obj)]
     }
     if (!is.null(scores)) {
-        tmp <- sapply(names(scores), function(n) {
+        for (n in names(scores)) {
             if (!(is.factor(obj[[n]]) && is.ordered(obj[[n]])) || 
                 nlevels(obj[[n]]) != length(scores[[n]]))
                 stop("cannot assign scores to variable ", sQuote(n))
             attr(obj[[n]], "scores") <- scores[[n]]
-        })
+        }
     }
+
     RET@scores <- lapply(obj, function(x) {
         sc <- NULL
         if (is.ordered(x)) {

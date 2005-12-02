@@ -25,7 +25,7 @@ stopifnot(isequal(node[[5]][[3]], 0.059))
 
 ### and now with ranked inputs -> Wilcoxon-Mann-Whitney tests
 inp <- initVariableFrame(GlaucomaM[,-63,drop = FALSE], trafo = function(data)
-trafo(data, numeric_trafo = rank))
+ptrafo(data, numeric_trafo = rank))
 resp <- initVariableFrame(GlaucomaM[,"Class",drop = FALSE], trafo = NULL)
 ls <- new("LearningSample", inputs = inp, responses = resp,
           weights = rep(1, inp@nobs), nobs = nrow(GlaucomaM), 

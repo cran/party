@@ -1,5 +1,5 @@
 
-# $Id: ConditionalTree.R,v 1.13 2005/11/28 16:15:28 hothorn Exp $
+# $Id: ConditionalTree.R,v 1.14 2005/12/02 10:02:22 hothorn Exp $
 
 ### the fitting procedure
 ctreefit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
@@ -134,7 +134,7 @@ ctreefit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
 
 ### data pre-processing (ordering, computing transformations etc)
 ctreedpp <- function(formula, data = list(), subset = NULL, 
-                     na.action = NULL, xtrafo = trafo, ytrafo = trafo, 
+                     na.action = NULL, xtrafo = ptrafo, ytrafo = ptrafo, 
                      scores = NULL, ...) {
 
     dat <- ModelEnvFormula(formula = formula, data = data, 
@@ -212,8 +212,8 @@ ctree_control <- function(teststattype = c("quadform", "maxabs"),
 
 ### the top-level convenience function
 ctree <- function(formula, data = list(), subset = NULL, weights = NULL, 
-                  controls = ctree_control(), xtrafo = trafo, 
-                  ytrafo = trafo, scores = NULL) {
+                  controls = ctree_control(), xtrafo = ptrafo, 
+                  ytrafo = ptrafo, scores = NULL) {
 
     ### setup learning sample
     ls <- dpp(conditionalTree, formula, data, subset, xtrafo = xtrafo, 

@@ -7,7 +7,7 @@ export(ctree, ctree_memory, ctree_control,
        node_surv, node_barplot, node_boxplot,
        node_hist, node_density, weights, 
        where, nodes, conditionalTree,
-       treeresponse, response)
+       treeresponse, response, ptrafo)
 
 exportClasses("BinaryTree", "LearningSample", "SplittingNode",
               "TerminalNode", "TreeControl")

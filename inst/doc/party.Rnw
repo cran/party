@@ -40,7 +40,7 @@
      \texttt{Torsten.Hothorn@R-project.org}
 \newline
 
-\noindent$^2$Institut f\"ur Statistik und Mathematik,
+\noindent$^2$Department f\"ur Statistik und Mathematik,
              Wirtschaftsuniversit\"at Wien \\
        Augasse 2-6, A-1090 Wien, Austria \\
        \texttt{Kurt.Hornik@R-project.org} \\
@@ -605,7 +605,7 @@ the nominal level of the conditional independence tests as $\alpha = 0.05$.
 \paragraph{Tree Pipit Abundance.}
 
 <<treepipit-ctree, echo = TRUE>>=
-data(treepipit, package = "coin")
+data("treepipit", package = "coin")
 tptree <- ctree(counts ~ ., data = treepipit)
 @
 
@@ -644,7 +644,7 @@ of near natural forest environments.
 \paragraph{Glaucoma \& Laser Scanning Images.}
 
 <<glaucoma-ctree, echo = TRUE>>=
-data(GlaucomaM, package = "ipred")
+data("GlaucomaM", package = "ipred")
 gtree <- ctree(Class ~ ., data = GlaucomaM)
 @
 
@@ -769,7 +769,7 @@ legend(0.15, 0.7, pch = 1:2, legend = levels(GlaucomaM$Class), bty = "n")
 \paragraph{Node Positive Breast Cancer.}
 
 <<GBSGS-ctree, echo = TRUE>>=
-data(GBSG2, package = "ipred")  
+data("GBSG2", package = "ipred")  
 stree <- ctree(Surv(time, cens) ~ ., data = GBSG2)
 @
 
@@ -815,7 +815,7 @@ treeresponse(stree, newdata = GBSG2[1:2,])
 \paragraph{Mammography Experience.}
 
 <<mammo-ctree, echo = TRUE>>=
-data(mammoexp)
+data("mammoexp", package = "party")
 mtree <- ctree(ME ~ ., data = mammoexp)
 @
 
@@ -874,7 +874,7 @@ The data are available in package
 \texttt{mvpart} \citep{mvpart2004} at \url{http://CRAN.R-project.org}.
 
 <<spider-ctree, echo = TRUE, eval = FALSE>>=
-data(spider, package = "mvpart")   
+data("spider", package = "mvpart")   
 sptree <- ctree(arct.lute + pard.lugu + zora.spin + pard.nigr + pard.pull +
            aulo.albi + troc.terr + alop.cune + pard.mont + alop.acce + 
            alop.fabr + arct.peri ~ herbs+reft+moss+sand+twigs+water, 
@@ -883,7 +883,7 @@ sptree <- ctree(arct.lute + pard.lugu + zora.spin + pard.nigr + pard.pull +
 sptree@tree$criterion
 
 library("coin")
-data(spider, package = "mvpart")
+data("spider", package = "mvpart")
 it <- independence_test(arct.lute + pard.lugu + zora.spin + pard.nigr + pard.pull +
                        aulo.albi + troc.terr + alop.cune + pard.mont + alop.acce +   
                        alop.fabr + arct.peri ~ herbs+reft+moss+sand+twigs+water, 

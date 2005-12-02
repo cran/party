@@ -8,7 +8,7 @@
 }
 \usage{
 ctree(formula, data, subset = NULL, weights = NULL, 
-      controls = ctree_control(), xtrafo = trafo, ytrafo = trafo, 
+      controls = ctree_control(), xtrafo = ptrafo, ytrafo = ptrafo, 
       scores = NULL)
 }
 \arguments{
@@ -22,9 +22,9 @@ ctree(formula, data, subset = NULL, weights = NULL,
   \item{controls}{an object of class \code{\link{TreeControl}}, which can be
                   obtained using \code{\link{ctree_control}}.}
   \item{xtrafo}{ a function to be applied to all input variables.
-                By default, the \code{\link[coin]{trafo}} function is applied.}
+                By default, the \code{\link{ptrafo}} function is applied.}
   \item{ytrafo}{ a function to be applied to all response variables. 
-                By default, the \code{\link[coin]{trafo}} function is applied.}
+                By default, the \code{\link{ptrafo}} function is applied.}
   \item{scores}{ an optional named list of scores to be attached to ordered
                factors.}
 }
@@ -83,7 +83,7 @@ ctree(formula, data, subset = NULL, weights = NULL,
 \examples{
 
     ### regression
-    data(airquality)
+    data("airquality")
     airq <- subset(airquality, !is.na(Ozone))
     airct <- ctree(Ozone ~ ., data = airq, 
                    controls = ctree_control(maxsurrogate = 3))
@@ -101,7 +101,7 @@ ctree(formula, data, subset = NULL, weights = NULL,
     tr <- treeresponse(irisct, newdata = iris[1:10,])
 
     ### ordinal regression
-    data(mammoexp) 
+    data("mammoexp", package = "party") 
     mammoct <- ctree(ME ~ ., data = mammoexp) 
     plot(mammoct)
 
@@ -109,8 +109,8 @@ ctree(formula, data, subset = NULL, weights = NULL,
     treeresponse(mammoct, newdata = mammoexp[1:10,])
 
     ### survival analysis
-    if (require(ipred)) {
-        data(GBSG2, package = "ipred")
+    if (require("ipred")) {
+        data("GBSG2", package = "ipred")
         GBSG2ct <- ctree(Surv(time, cens) ~ .,data = GBSG2)
         plot(GBSG2ct)
         treeresponse(GBSG2ct, newdata = GBSG2[1:2,])        

@@ -44,8 +44,36 @@ Loading required package: class
 > tlev <- levels(gtctrl@testtype)
 > 
 > data(GlaucomaM, package = "ipred")
-> tree <- ctree(Class ~ ., data = GlaucomaM)@tree
+> gtree <- ctree(Class ~ ., data = GlaucomaM)
+> tree <- gtree@tree
 > stopifnot(isequal(tree[[5]][[3]], 0.059))
+> predict(gtree)
+  [1] normal   normal   normal   normal   normal   normal   normal   normal  
+  [9] normal   normal   normal   glaucoma normal   normal   normal   normal  
+ [17] normal   normal   normal   normal   normal   normal   normal   normal  
+ [25] normal   normal   normal   normal   normal   normal   normal   normal  
+ [33] normal   normal   normal   normal   normal   normal   normal   normal  
+ [41] normal   normal   normal   normal   normal   normal   normal   normal  
+ [49] normal   normal   normal   normal   normal   normal   normal   normal  
+ [57] normal   normal   normal   normal   normal   normal   normal   normal  
+ [65] normal   normal   normal   normal   normal   glaucoma normal   normal  
+ [73] normal   normal   normal   normal   normal   normal   normal   normal  
+ [81] glaucoma normal   normal   normal   normal   normal   normal   normal  
+ [89] normal   normal   normal   normal   normal   normal   normal   normal  
+ [97] normal   normal   glaucoma glaucoma glaucoma glaucoma normal   normal  
+[105] normal   normal   normal   glaucoma glaucoma normal   glaucoma glaucoma
+[113] glaucoma glaucoma glaucoma glaucoma glaucoma normal   normal   glaucoma
+[121] glaucoma glaucoma glaucoma glaucoma glaucoma glaucoma normal   glaucoma
+[129] normal   glaucoma normal   glaucoma glaucoma glaucoma glaucoma glaucoma
+[137] glaucoma glaucoma glaucoma glaucoma glaucoma glaucoma glaucoma glaucoma
+[145] glaucoma normal   normal   glaucoma glaucoma normal   glaucoma normal  
+[153] glaucoma glaucoma glaucoma glaucoma normal   glaucoma glaucoma glaucoma
+[161] glaucoma glaucoma normal   normal   glaucoma normal   normal   glaucoma
+[169] glaucoma glaucoma glaucoma glaucoma normal   glaucoma glaucoma glaucoma
+[177] normal   glaucoma normal   glaucoma glaucoma glaucoma normal   glaucoma
+[185] glaucoma glaucoma normal   glaucoma glaucoma normal   glaucoma normal  
+[193] glaucoma glaucoma glaucoma normal  
+Levels: glaucoma normal
 > 
 > # print(tree)
 > 

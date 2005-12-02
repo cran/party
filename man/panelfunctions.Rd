@@ -73,7 +73,7 @@ node_density(ctreeobj, col = "black", rug = TRUE, horizontal = TRUE,
 }
 \examples{
 
-  data(airquality)
+  data("airquality")
   airq <- subset(airquality, !is.na(Ozone))
   airct <- ctree(Ozone ~ ., data = airq)
 

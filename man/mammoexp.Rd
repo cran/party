@@ -40,7 +40,7 @@
 }
 \examples{
 
-  data(mammoexp)
+  data("mammoexp", package = "party")
   ### fit tree with attached scores (but those are the default values anyway)
   ctree(ME ~ .,data = mammoexp, 
         scores = list(ME = 1:3, SYMPT = 1:4, DECT = 1:3))

@@ -49,7 +49,7 @@
 }
 \examples{
 
-  data(airquality)
+  data("airquality")
   airq <- subset(airquality, !is.na(Ozone))
   airct <- ctree(Ozone ~ ., data = airq)
 

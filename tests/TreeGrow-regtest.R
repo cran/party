@@ -15,8 +15,10 @@ gtctrl <- new("GlobalTestControl")
 tlev <- levels(gtctrl@testtype)
 
 data(GlaucomaM, package = "ipred")
-tree <- ctree(Class ~ ., data = GlaucomaM)@tree
+gtree <- ctree(Class ~ ., data = GlaucomaM)
+tree <- gtree@tree
 stopifnot(isequal(tree[[5]][[3]], 0.059))
+predict(gtree)
 
 # print(tree)
 

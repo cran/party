@@ -41,7 +41,7 @@
      \texttt{Torsten.Hothorn@R-project.org}
 \newline
 
-\noindent$^2$Institut f\"ur Statistik und Mathematik,
+\noindent$^2$Department f\"ur Statistik und Mathematik,
              Wirtschaftsuniversit\"at Wien \\
        Augasse 2-6, A-1090 Wien, Austria \\
        \texttt{Kurt.Hornik@R-project.org} \\
@@ -672,7 +672,7 @@ the nominal level of the conditional independence tests as $\alpha = 0.05$.
 
 \begin{Schunk}
 \begin{Sinput}
-> data(treepipit, package = "coin")
+> data("treepipit", package = "coin")
 > tptree <- ctree(counts ~ ., data = treepipit)
 \end{Sinput}
 \end{Schunk}
@@ -713,7 +713,7 @@ of near natural forest environments.
 
 \begin{Schunk}
 \begin{Sinput}
-> data(GlaucomaM, package = "ipred")
+> data("GlaucomaM", package = "ipred")
 > gtree <- ctree(Class ~ ., data = GlaucomaM)
 \end{Sinput}
 \end{Schunk}
@@ -826,8 +826,8 @@ comparison with the true class memberships is done by
 \end{Sinput}
 \begin{Soutput}
            glaucoma normal
-  glaucoma       98     98
-  normal          0      0
+  glaucoma       70      3
+  normal         28     95
 \end{Soutput}
 \end{Schunk}
 When we are interested in conditional class probabilities, the
@@ -861,7 +861,7 @@ shown in Figure \ref{glaucoma-probplot}.
 
 \begin{Schunk}
 \begin{Sinput}
-> data(GBSG2, package = "ipred")
+> data("GBSG2", package = "ipred")
 > stree <- ctree(Surv(time, cens) ~ ., data = GBSG2)
 \end{Sinput}
 \end{Schunk}
@@ -929,7 +929,7 @@ Call: survival:::survfit(formula = resp, weights = w[[i]], subset = w[[i]] >
 
 \begin{Schunk}
 \begin{Sinput}
-> data(mammoexp)
+> data("mammoexp", package = "party")
 > mtree <- ctree(ME ~ ., data = mammoexp)
 \end{Sinput}
 \end{Schunk}
@@ -993,7 +993,7 @@ The data are available in package
 
 \begin{Schunk}
 \begin{Sinput}
-> data(spider, package = "mvpart")
+> data("spider", package = "mvpart")
 > sptree <- ctree(arct.lute + pard.lugu + zora.spin + 
 +     pard.nigr + pard.pull + aulo.albi + troc.terr + 
 +     alop.cune + pard.mont + alop.acce + alop.fabr + 
@@ -1003,7 +1003,7 @@ The data are available in package
 +     mincriterion = 0.9), data = spider)
 > sptree@tree$criterion
 > library("coin")
-> data(spider, package = "mvpart")
+> data("spider", package = "mvpart")
 > it <- independence_test(arct.lute + pard.lugu + zora.spin + 
 +     pard.nigr + pard.pull + aulo.albi + troc.terr + 
 +     alop.cune + pard.mont + alop.acce + alop.fabr + 
