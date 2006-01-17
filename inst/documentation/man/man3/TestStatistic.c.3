@@ -1,0 +1,199 @@
+.TH "TestStatistic.c" 3 "18 Jan 2006" "party" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+TestStatistic.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'party.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBC_standardize\fP (const double *t, const double *mu, const double *Sigma, int pq, double tol, double *ans)"
+.br
+.ti -1c
+.RI "void \fBC_absstandardize\fP (const double *t, const double *mu, const double *Sigma, int pq, double tol, double *ans)"
+.br
+.ti -1c
+.RI "double \fBC_maxabsTestStatistic\fP (const double *t, const double *mu, const double *Sigma, int pq, double tol)"
+.br
+.ti -1c
+.RI "SEXP \fBR_maxabsTestStatistic\fP (SEXP t, SEXP mu, SEXP Sigma, SEXP tol)"
+.br
+.ti -1c
+.RI "double \fBC_quadformTestStatistic\fP (const double *t, const double *mu, const double *SigmaPlus, int pq)"
+.br
+.ti -1c
+.RI "SEXP \fBR_quadformTestStatistic\fP (SEXP t, SEXP mu, SEXP SigmaPlus)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Test statistics for conditional inference
+.PP
+\fBAuthor:\fP
+.RS 4
+\fBAuthor\fP.RS 4
+hothorn 
+.RE
+.PP
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+\fBDate\fP.RS 4
+2005/06/14 09:21:32 
+.RE
+.PP
+.RE
+.PP
+
+.PP
+Definition in file \fBTestStatistic.c\fP.
+.SH "Function Documentation"
+.PP 
+.SS "void C_absstandardize (const double * t, const double * mu, const double * Sigma, int pq, double tol, double * ans)"
+.PP
+Absolute values of standardized statistics 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIt\fP the vector of statistics 
+.br
+\fImu\fP expectations 
+.br
+\fISigma\fP covariance matrix 
+.br
+\fIpq\fP dimension of t 
+.br
+\fItol\fP tolerance for variances 
+.br
+\fIans\fP return value; a pointer to a REALSXP-vector of length pq 
+.RE
+.PP
+
+.PP
+Definition at line 49 of file TestStatistic.c.
+.PP
+References C_abs(), and C_standardize().
+.PP
+Referenced by C_maxabsTestStatistic().
+.SS "double C_maxabsTestStatistic (const double * t, const double * mu, const double * Sigma, int pq, double tol)"
+.PP
+Maximum absolute values of standardized statistics 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIt\fP the vector of statistics 
+.br
+\fImu\fP expectations 
+.br
+\fISigma\fP covariance matrix 
+.br
+\fIpq\fP dimension of t 
+.br
+\fItol\fP tolerance for variances 
+.RE
+.PP
+
+.PP
+Definition at line 66 of file TestStatistic.c.
+.PP
+References C_absstandardize(), and C_max().
+.PP
+Referenced by C_TestStatistic(), and R_maxabsTestStatistic().
+.SS "double C_quadformTestStatistic (const double * t, const double * mu, const double * SigmaPlus, int pq)"
+.PP
+Quadratic form t(t - mu) SigmaPlus (t - mu) 
+.br
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIt\fP the vector of statistics 
+.br
+\fImu\fP expectations 
+.br
+\fISigmaPlus\fP Moore-Penrose inverse 
+.br
+\fIpq\fP dimension of t 
+.RE
+.PP
+
+.PP
+Definition at line 110 of file TestStatistic.c.
+.PP
+Referenced by C_TestStatistic(), and R_quadformTestStatistic().
+.SS "void C_standardize (const double * t, const double * mu, const double * Sigma, int pq, double tol, double * ans)"
+.PP
+Standardizes a statistic t of length pq with mean mu and covariance Sigma for variances > tol 
+.br
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIt\fP the vector of statistics 
+.br
+\fImu\fP expectations 
+.br
+\fISigma\fP covariance matrix 
+.br
+\fIpq\fP dimension of t 
+.br
+\fItol\fP tolerance for variances 
+.br
+\fIans\fP return value; a pointer to a REALSXP-vector of length pq 
+.RE
+.PP
+
+.PP
+Definition at line 23 of file TestStatistic.c.
+.PP
+Referenced by C_absstandardize(), C_Node(), and R_splitcategorical().
+.SS "SEXP R_maxabsTestStatistic (SEXP t, SEXP mu, SEXP Sigma, SEXP tol)"
+.PP
+R-interface to C_maxabsTestStatistic 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIt\fP the vector of statistics 
+.br
+\fImu\fP expectations 
+.br
+\fISigma\fP covariance matrix 
+.br
+\fItol\fP tolerance for variances 
+.RE
+.PP
+
+.PP
+Definition at line 87 of file TestStatistic.c.
+.PP
+References C_maxabsTestStatistic().
+.SS "SEXP R_quadformTestStatistic (SEXP t, SEXP mu, SEXP SigmaPlus)"
+.PP
+R-interface to C_quadformTestStatistic 
+.br
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIt\fP the vector of statistics 
+.br
+\fImu\fP expectations 
+.br
+\fISigmaPlus\fP Moore-Penrose inverse 
+.RE
+.PP
+
+.PP
+Definition at line 140 of file TestStatistic.c.
+.PP
+References C_quadformTestStatistic().
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for party from the source code.

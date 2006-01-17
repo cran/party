@@ -1,5 +1,5 @@
 
-# $Id: Variables.R,v 1.9 2005/12/02 10:02:22 hothorn Exp $
+# $Id: Variables.R,v 1.10 2006/01/17 15:28:01 hothorn Exp $
 
 ptrafo <- function(data, numeric_trafo = id_trafo, 
    factor_trafo = function(x) model.matrix(~ x - 1), 
@@ -119,3 +119,8 @@ setMethod("response",
     signature = "BinaryTree",
     definition = function(object) object@responses@variables
 )
+
+get_variables <- function(x)
+    x@variables
+
+    

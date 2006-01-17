@@ -1,0 +1,253 @@
+.TH "Utils.h" 3 "18 Jan 2006" "party" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Utils.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBC_kronecker\fP (const double *A, const int m, const int n, const double *B, const int r, const int s, double *ans)"
+.br
+.ti -1c
+.RI "SEXP \fBLa_svd\fP (SEXP jobu, SEXP jobv, SEXP x, SEXP s, SEXP u, SEXP v, SEXP method)"
+.br
+.ti -1c
+.RI "void \fBC_SampleNoReplace\fP (int *x, int m, int k, int *ans)"
+.br
+.ti -1c
+.RI "void \fBC_MPinv\fP (SEXP x, double tol, SEXP svdmem, SEXP ans)"
+.br
+.ti -1c
+.RI "double \fBC_max\fP (const double *x, const int n)"
+.br
+.ti -1c
+.RI "void \fBC_abs\fP (double *x, int n)"
+.br
+.ti -1c
+.RI "void \fBC_matprod\fP (double *x, int nrx, int ncx, double *y, int nry, int ncy, double *z)"
+.br
+.ti -1c
+.RI "void \fBC_matprodT\fP (double *x, int nrx, int ncx, double *y, int nry, int ncy, double *z)"
+.br
+.ti -1c
+.RI "int \fBnrow\fP (SEXP x)"
+.br
+.ti -1c
+.RI "int \fBncol\fP (SEXP y)"
+.br
+.ti -1c
+.RI "int \fBC_whichmax\fP (double *pvalue, double *teststat, int ninputs)"
+.br
+.ti -1c
+.RI "int \fBi_in_set\fP (int i, int *iset, int p)"
+.br
+.ti -1c
+.RI "int \fBC_i_in_set\fP (int i, SEXP set)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "void C_abs (double * x, int n)"
+.PP
+absolute value 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIx\fP numeric vector 
+.br
+\fIn\fP length(x) 
+.RE
+.PP
+
+.PP
+Definition at line 259 of file Utils.c.
+.PP
+Referenced by C_absstandardize(), and R_abs().
+.SS "int C_i_in_set (int i, SEXP set)"
+.PP
+Definition at line 473 of file Utils.c.
+.PP
+References i_in_set().
+.PP
+Referenced by C_get_node().
+.SS "void C_kronecker (const double * A, const int m, const int n, const double * B, const int r, const int s, double * ans)"
+.PP
+Computes the Kronecker product of two matrices
+.br
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIA\fP matrix 
+.br
+\fIm\fP nrow(A) 
+.br
+\fIn\fP ncol(A) 
+.br
+\fIB\fP matrix 
+.br
+\fIr\fP nrow(B) 
+.br
+\fIs\fP ncol(B) 
+.br
+\fIans\fP return value; a pointer to a REALSXP-vector of length (mr x ns) 
+.RE
+.PP
+
+.PP
+Definition at line 23 of file Utils.c.
+.PP
+Referenced by C_ExpectCovarLinearStatistic(), and R_kronecker().
+.SS "void C_matprod (double * x, int nrx, int ncx, double * y, int nry, int ncy, double * z)"
+.PP
+matrix product x *% y 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIx\fP a matrix 
+.br
+\fInrx\fP number of rows of x 
+.br
+\fIncx\fP number of cols of x 
+.br
+\fIy\fP a matrix 
+.br
+\fInry\fP number of rows of y 
+.br
+\fIncy\fP number of cols of y 
+.br
+\fIz\fP a matrix of dimension nrx x ncy 
+.RE
+.PP
+
+.PP
+Definition at line 297 of file Utils.c.
+.PP
+Referenced by C_MLinearStatistic(), R_matprod(), and R_predictRF2().
+.SS "void C_matprodT (double * x, int nrx, int ncx, double * y, int nry, int ncy, double * z)"
+.PP
+matrix product x *% t(y) 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIx\fP a matrix 
+.br
+\fInrx\fP number of rows of x 
+.br
+\fIncx\fP number of cols of x 
+.br
+\fIy\fP a matrix 
+.br
+\fInry\fP number of rows of y 
+.br
+\fIncy\fP number of cols of y 
+.br
+\fIz\fP a matrix of dimension nrx x ncy 
+.RE
+.PP
+
+.PP
+Definition at line 349 of file Utils.c.
+.PP
+Referenced by C_MLinearStatistic(), and R_matprodT().
+.SS "double C_max (const double * x, const int n)"
+.PP
+the maximum of a double vector 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIx\fP vector 
+.br
+\fIn\fP its length 
+.RE
+.PP
+
+.PP
+Definition at line 222 of file Utils.c.
+.PP
+Referenced by C_maxabsTestStatistic(), C_MonteCarlo(), C_Node(), and R_max().
+.SS "void C_MPinv (SEXP x, double tol, SEXP svdmem, SEXP ans)"
+.PP
+Moore-Penrose inverse of a matrix 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIx\fP matrix 
+.br
+\fItol\fP a tolerance bound 
+.br
+\fIsvdmem\fP an object of class `svd_mem' 
+.br
+\fIans\fP return value; an object of class `ExpectCovarMPinv' 
+.RE
+.PP
+
+.PP
+Definition at line 128 of file Utils.c.
+.PP
+References CR_svd(), PL2_MPinvSym, PL2_rankSym, and PL2_svdSym.
+.PP
+Referenced by C_LinStatExpCovMPinv(), and R_MPinv().
+.SS "void C_SampleNoReplace (int * x, int m, int k, int * ans)"
+.PP
+compute a permutation of a (random subset of) 0:(m-1) 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIx\fP an integer vector of length m 
+.br
+\fIm\fP integer 
+.br
+\fIk\fP integer 
+.br
+\fIans\fP an integer vector of length k 
+.RE
+.PP
+
+.PP
+Definition at line 397 of file Utils.c.
+.PP
+Referenced by C_GlobalTest(), C_MonteCarlo(), R_permute(), and R_rsubset().
+.SS "int C_whichmax (double * pvalue, double * teststat, int ninputs)"
+.PP
+Definition at line 488 of file Utils.c.
+.PP
+Referenced by C_Node(), and R_whichmax().
+.SS "int i_in_set (int i, int * iset, int p)"
+.PP
+determine if i is element of the integer vector set 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIi\fP an integer 
+.br
+\fIiset\fP a pointer to an integer vector 
+.br
+\fIp\fP length(iset) 
+.RE
+.PP
+
+.PP
+Definition at line 458 of file Utils.c.
+.PP
+Referenced by C_i_in_set(), and C_splitnode().
+.SS "SEXP La_svd (SEXP jobu, SEXP jobv, SEXP x, SEXP s, SEXP u, SEXP v, SEXP method)"
+.PP
+Referenced by CR_svd().
+.SS "int ncol (SEXP y)"
+.PP
+Definition at line 484 of file Utils.c.
+.PP
+Referenced by C_GlobalTest(), C_IndependenceTest(), C_MLinearStatistic(), C_MonteCarlo(), C_Node(), C_splitnode(), R_Ensemble(), R_ExpectCovarInfluence(), R_ExpectCovarLinearStatistic(), R_LinearStatistic(), R_matprod(), R_matprodT(), R_MPinv(), R_Node(), R_PermutedLinearStatistic(), R_predictRF2(), R_split(), R_splitcategorical(), and R_TreeGrow().
+.SS "int nrow (SEXP x)"
+.PP
+Definition at line 480 of file Utils.c.
+.PP
+Referenced by C_GlobalTest(), C_IndependenceTest(), C_MLinearStatistic(), R_ExpectCovarInfluence(), R_ExpectCovarLinearStatistic(), R_LinearStatistic(), R_matprod(), R_matprodT(), R_maxabsConditionalPvalue(), R_MPinv(), R_PermutedLinearStatistic(), R_predictRF2(), R_split(), and R_splitcategorical().
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for party from the source code.

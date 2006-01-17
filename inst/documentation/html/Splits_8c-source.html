@@ -253,48 +253,50 @@
 00312 <span class="comment">                   C_split may end up with cutpoint &gt; max(irank), why?</span>
 00313 <span class="comment">           &lt;/FIXME&gt;</span>
 00314 <span class="comment">        */</span>
-00315         <span class="keywordflow">if</span> (chk == 0) tmp = 0.0;
-00316     }
-00317     maxstat[0] = tmp;
-00318 
-00319     <span class="comment">/* free memory */</span>
-00320     Free(tmpx); Free(ordertmpx); Free(irank); Free(tmptmpx);
-00321 }
-00322 
-00323 
-<a name="l00337"></a><a class="code" href="Splits_8c.html#a3">00337</a> SEXP <a class="code" href="Splits_8c.html#a3">R_splitcategorical</a>(SEXP x, SEXP codingx, SEXP y, SEXP weights, 
-00338                         SEXP linexpcov2sample, SEXP linexpcov, 
-00339                         SEXP expcovinf, SEXP splitctrl) {
-00340              
-00341     SEXP ans, cutpoint, maxstat, statistics, levelset;
-00342     <span class="keywordtype">double</span> *standstat;
-00343 
-00344     <a class="code" href="Convenience_8c.html#a0">C_LinStatExpCov</a>(REAL(x), <a class="code" href="Utils_8c.html#a19">ncol</a>(x), REAL(y), <a class="code" href="Utils_8c.html#a19">ncol</a>(y), REAL(weights), <a class="code" href="Utils_8c.html#a18">nrow</a>(x),
-00345                     1, GET_SLOT(linexpcov, <a class="code" href="Classes_8c.html#a3">PL2_expcovinfSym</a>), linexpcov);
-00346 
-00347     standstat = Calloc(<a class="code" href="Classes_8c.html#a63">get_dimension</a>(linexpcov), <span class="keywordtype">double</span>);
-00348     <a class="code" href="TestStatistic_8c.html#a0">C_standardize</a>(REAL(GET_SLOT(linexpcov, <a class="code" href="Classes_8c.html#a2">PL2_linearstatisticSym</a>)),
-00349                   REAL(GET_SLOT(linexpcov, <a class="code" href="Classes_8c.html#a0">PL2_expectationSym</a>)),
-00350                   REAL(GET_SLOT(linexpcov, <a class="code" href="Classes_8c.html#a1">PL2_covarianceSym</a>)),
-00351                   <a class="code" href="Classes_8c.html#a63">get_dimension</a>(linexpcov), <a class="code" href="Classes_8c.html#a66">get_tol</a>(splitctrl), standstat);
-00352 
-00353     PROTECT(ans = allocVector(VECSXP, 4));
-00354     SET_VECTOR_ELT(ans, 0, cutpoint = allocVector(REALSXP, 1));
-00355     SET_VECTOR_ELT(ans, 1, maxstat = allocVector(REALSXP, 1));
-00356     SET_VECTOR_ELT(ans, 2, statistics = allocVector(REALSXP, <a class="code" href="Utils_8c.html#a18">nrow</a>(x)));
-00357     SET_VECTOR_ELT(ans, 3, levelset = allocVector(INTSXP, <a class="code" href="Utils_8c.html#a19">ncol</a>(x)));
-00358     
-00359     <a class="code" href="Splits_8c.html#a2">C_splitcategorical</a>(INTEGER(codingx), <a class="code" href="Utils_8c.html#a19">ncol</a>(x), REAL(y), <a class="code" href="Utils_8c.html#a19">ncol</a>(y), REAL(weights), 
-00360                        <a class="code" href="Utils_8c.html#a18">nrow</a>(x), NULL, 0, standstat, 
-00361                        splitctrl, linexpcov2sample, expcovinf, 
-00362                        REAL(cutpoint), INTEGER(levelset), REAL(maxstat), 
-00363                        REAL(statistics));
-00364 
-00365     UNPROTECT(1);
-00366     Free(standstat);
-00367     <span class="keywordflow">return</span>(ans);
-00368 }
-</pre></div><hr size="1"><address style="align: right;"><small>Generated on Tue Sep 6 01:02:54 2005 for party by&nbsp;
+00315         <span class="comment">/* hm, why did I added </span>
+00316 <span class="comment">        if (chk == 0) tmp = 0.0; </span>
+00317 <span class="comment">        ??? */</span>
+00318     }
+00319     maxstat[0] = tmp;
+00320 
+00321     <span class="comment">/* free memory */</span>
+00322     Free(tmpx); Free(ordertmpx); Free(irank); Free(tmptmpx);
+00323 }
+00324 
+00325 
+<a name="l00339"></a><a class="code" href="Splits_8c.html#a3">00339</a> SEXP <a class="code" href="Splits_8c.html#a3">R_splitcategorical</a>(SEXP x, SEXP codingx, SEXP y, SEXP weights, 
+00340                         SEXP linexpcov2sample, SEXP linexpcov, 
+00341                         SEXP expcovinf, SEXP splitctrl) {
+00342              
+00343     SEXP ans, cutpoint, maxstat, statistics, levelset;
+00344     <span class="keywordtype">double</span> *standstat;
+00345 
+00346     <a class="code" href="Convenience_8c.html#a0">C_LinStatExpCov</a>(REAL(x), <a class="code" href="Utils_8c.html#a19">ncol</a>(x), REAL(y), <a class="code" href="Utils_8c.html#a19">ncol</a>(y), REAL(weights), <a class="code" href="Utils_8c.html#a18">nrow</a>(x),
+00347                     1, GET_SLOT(linexpcov, <a class="code" href="Classes_8c.html#a3">PL2_expcovinfSym</a>), linexpcov);
+00348 
+00349     standstat = Calloc(<a class="code" href="Classes_8c.html#a63">get_dimension</a>(linexpcov), <span class="keywordtype">double</span>);
+00350     <a class="code" href="TestStatistic_8c.html#a0">C_standardize</a>(REAL(GET_SLOT(linexpcov, <a class="code" href="Classes_8c.html#a2">PL2_linearstatisticSym</a>)),
+00351                   REAL(GET_SLOT(linexpcov, <a class="code" href="Classes_8c.html#a0">PL2_expectationSym</a>)),
+00352                   REAL(GET_SLOT(linexpcov, <a class="code" href="Classes_8c.html#a1">PL2_covarianceSym</a>)),
+00353                   <a class="code" href="Classes_8c.html#a63">get_dimension</a>(linexpcov), <a class="code" href="Classes_8c.html#a66">get_tol</a>(splitctrl), standstat);
+00354 
+00355     PROTECT(ans = allocVector(VECSXP, 4));
+00356     SET_VECTOR_ELT(ans, 0, cutpoint = allocVector(REALSXP, 1));
+00357     SET_VECTOR_ELT(ans, 1, maxstat = allocVector(REALSXP, 1));
+00358     SET_VECTOR_ELT(ans, 2, statistics = allocVector(REALSXP, <a class="code" href="Utils_8c.html#a18">nrow</a>(x)));
+00359     SET_VECTOR_ELT(ans, 3, levelset = allocVector(INTSXP, <a class="code" href="Utils_8c.html#a19">ncol</a>(x)));
+00360     
+00361     <a class="code" href="Splits_8c.html#a2">C_splitcategorical</a>(INTEGER(codingx), <a class="code" href="Utils_8c.html#a19">ncol</a>(x), REAL(y), <a class="code" href="Utils_8c.html#a19">ncol</a>(y), REAL(weights), 
+00362                        <a class="code" href="Utils_8c.html#a18">nrow</a>(x), NULL, 0, standstat, 
+00363                        splitctrl, linexpcov2sample, expcovinf, 
+00364                        REAL(cutpoint), INTEGER(levelset), REAL(maxstat), 
+00365                        REAL(statistics));
+00366 
+00367     UNPROTECT(1);
+00368     Free(standstat);
+00369     <span class="keywordflow">return</span>(ans);
+00370 }
+</pre></div><hr size="1"><address style="align: right;"><small>Generated on Wed Jan 18 11:23:28 2006 for party by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.2 </small></address>
 </body>

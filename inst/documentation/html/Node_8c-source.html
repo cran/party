@@ -188,35 +188,36 @@
 00207                 <span class="keywordflow">if</span> (j == 1) {          
 00208                     <a class="code" href="S3Classes_8c.html#a7">S3set_nodeterminal</a>(node);
 00209                 } <span class="keywordflow">else</span> {
-00210                     pvalue[jselect - 1] = 0.0;
-00211                 }
-00212             } <span class="keywordflow">else</span> {
-00213                 <a class="code" href="S3Classes_8c.html#a16">S3set_variableID</a>(split, jselect);
-00214                 <span class="keywordflow">break</span>;
-00215             }
-00216         } <span class="keywordflow">else</span> {
-00217             <a class="code" href="S3Classes_8c.html#a7">S3set_nodeterminal</a>(node);
-00218             <span class="keywordflow">break</span>;
-00219         }
-00220     }
-00221 }       
-00222 
+00210                     <span class="comment">/* &lt;FIXME&gt; why? &lt;/FIXME&gt; */</span>
+00211                     pvalue[jselect - 1] = 0.0;
+00212                 }
+00213             } <span class="keywordflow">else</span> {
+00214                 <a class="code" href="S3Classes_8c.html#a16">S3set_variableID</a>(split, jselect);
+00215                 <span class="keywordflow">break</span>;
+00216             }
+00217         } <span class="keywordflow">else</span> {
+00218             <a class="code" href="S3Classes_8c.html#a7">S3set_nodeterminal</a>(node);
+00219             <span class="keywordflow">break</span>;
+00220         }
+00221     }
+00222 }       
 00223 
-<a name="l00232"></a><a class="code" href="Node_8c.html#a2">00232</a> SEXP <a class="code" href="Node_8c.html#a2">R_Node</a>(SEXP learnsample, SEXP weights, SEXP fitmem, SEXP controls) {
-00233             
-00234      SEXP ans;
-00235      
-00236      PROTECT(ans = allocVector(VECSXP, <a class="code" href="party_8h.html#a9">NODE_LENGTH</a>));
-00237      <a class="code" href="S3Classes_8c.html#a0">C_init_node</a>(ans, <a class="code" href="Classes_8c.html#a89">get_nobs</a>(learnsample), <a class="code" href="Classes_8c.html#a90">get_ninputs</a>(learnsample), 
-00238                  <a class="code" href="Classes_8c.html#a99">get_maxsurrogate</a>(<a class="code" href="Classes_8c.html#a95">get_splitctrl</a>(controls)),
-00239                  <a class="code" href="Utils_8c.html#a19">ncol</a>(GET_SLOT(GET_SLOT(learnsample, <a class="code" href="Classes_8c.html#a47">PL2_responsesSym</a>), 
-00240                       <a class="code" href="Classes_8c.html#a37">PL2_jointtransfSym</a>)));
-00241 
-00242      <a class="code" href="Node_8c.html#a1">C_Node</a>(ans, learnsample, weights, fitmem, controls, 0);
-00243      UNPROTECT(1);
-00244      <span class="keywordflow">return</span>(ans);
-00245 }
-</pre></div><hr size="1"><address style="align: right;"><small>Generated on Tue Sep 6 01:02:54 2005 for party by&nbsp;
+00224 
+<a name="l00233"></a><a class="code" href="Node_8c.html#a2">00233</a> SEXP <a class="code" href="Node_8c.html#a2">R_Node</a>(SEXP learnsample, SEXP weights, SEXP fitmem, SEXP controls) {
+00234             
+00235      SEXP ans;
+00236      
+00237      PROTECT(ans = allocVector(VECSXP, <a class="code" href="party_8h.html#a9">NODE_LENGTH</a>));
+00238      <a class="code" href="S3Classes_8c.html#a0">C_init_node</a>(ans, <a class="code" href="Classes_8c.html#a89">get_nobs</a>(learnsample), <a class="code" href="Classes_8c.html#a90">get_ninputs</a>(learnsample), 
+00239                  <a class="code" href="Classes_8c.html#a99">get_maxsurrogate</a>(<a class="code" href="Classes_8c.html#a95">get_splitctrl</a>(controls)),
+00240                  <a class="code" href="Utils_8c.html#a19">ncol</a>(GET_SLOT(GET_SLOT(learnsample, <a class="code" href="Classes_8c.html#a47">PL2_responsesSym</a>), 
+00241                       <a class="code" href="Classes_8c.html#a37">PL2_jointtransfSym</a>)));
+00242 
+00243      <a class="code" href="Node_8c.html#a1">C_Node</a>(ans, learnsample, weights, fitmem, controls, 0);
+00244      UNPROTECT(1);
+00245      <span class="keywordflow">return</span>(ans);
+00246 }
+</pre></div><hr size="1"><address style="align: right;"><small>Generated on Wed Jan 18 11:23:28 2006 for party by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.2 </small></address>
 </body>

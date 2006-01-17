@@ -1,0 +1,227 @@
+.TH "IndependenceTest.c" 3 "18 Jan 2006" "party" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+IndependenceTest.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'party.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBC_TeststatPvalue\fP (const SEXP linexpcov, const SEXP varctrl, double *ans_teststat, double *ans_pvalue)"
+.br
+.ti -1c
+.RI "void \fBC_TeststatCriterion\fP (const SEXP linexpcov, const SEXP varctrl, double *ans_teststat, double *ans_criterion)"
+.br
+.ti -1c
+.RI "void \fBC_IndependenceTest\fP (const SEXP x, const SEXP y, const SEXP weights, const SEXP ScoreMatrix, SEXP Mlinexpcov, const int ORDERED, SEXP linexpcov, SEXP varctrl, SEXP ans)"
+.br
+.ti -1c
+.RI "SEXP \fBR_IndependenceTest\fP (SEXP x, SEXP y, SEXP weights, SEXP ScoreMatrix, SEXP Mlinexpcov, SEXP linexpcov, SEXP varctrl)"
+.br
+.ti -1c
+.RI "void \fBC_GlobalTest\fP (const SEXP learnsample, const SEXP weights, SEXP fitmem, const SEXP varctrl, const SEXP gtctrl, const double minsplit, double *ans_teststat, double *ans_criterion)"
+.br
+.ti -1c
+.RI "SEXP \fBR_GlobalTest\fP (SEXP learnsample, SEXP weights, SEXP fitmem, SEXP varctrl, SEXP gtctrl)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Functions for variable selection in each node of a tree
+.PP
+\fBAuthor:\fP
+.RS 4
+\fBAuthor\fP.RS 4
+hothorn 
+.RE
+.PP
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+\fBDate\fP.RS 4
+2005/06/16 11:10:12 
+.RE
+.PP
+.RE
+.PP
+
+.PP
+Definition in file \fBIndependenceTest.c\fP.
+.SH "Function Documentation"
+.PP 
+.SS "void C_GlobalTest (const SEXP learnsample, const SEXP weights, SEXP fitmem, const SEXP varctrl, const SEXP gtctrl, const double minsplit, double * ans_teststat, double * ans_criterion)"
+.PP
+Perform a global test on independence of a response and multiple inputs 
+.br
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlearnsample\fP an object of class `LearningSample' 
+.br
+\fIweights\fP case weights 
+.br
+\fIfitmem\fP an object of class `TreeFitMemory' 
+.br
+\fIvarctrl\fP an object of class `VariableControl' 
+.br
+\fIgtctrl\fP an object of class `GlobalTestControl' 
+.br
+\fIminsplit\fP minimum sum of weights to proceed 
+.br
+\fIans_teststat\fP return value; vector of test statistics 
+.br
+\fIans_criterion\fP return value; vector of node criteria (adjusted) pvalues or raw test statistics 
+.RE
+.PP
+
+.PP
+Definition at line 157 of file IndependenceTest.c.
+.PP
+References AGGREGATED, BONFERRONI, C_ExpectCovarInfluence(), C_LinStatExpCov(), C_LinStatExpCovMPinv(), C_MLinearStatistic(), C_MonteCarlo(), C_SampleNoReplace(), C_TeststatCriterion(), get_dontuse(), get_dontusetmp(), get_missings(), get_Mscorematrix(), get_mtry(), get_ninputs(), get_nobs(), get_randomsplits(), get_teststattype(), get_testtype(), get_tol(), get_transformation(), get_varmemory(), get_varMmemory(), get_weights(), has_missings(), is_ordinal(), MONTECARLO, ncol(), nrow(), PL2_expcovinfSym, PL2_inputsSym, PL2_responsesSym, PL2_sumweightsSym, and RAW.
+.PP
+Referenced by C_Node(), and R_GlobalTest().
+.SS "void C_IndependenceTest (const SEXP x, const SEXP y, const SEXP weights, const SEXP ScoreMatrix, SEXP Mlinexpcov, const int ORDERED, SEXP linexpcov, SEXP varctrl, SEXP ans)"
+.PP
+Test of independence between x and y 
+.br
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIx\fP values of the transformation 
+.br
+\fIy\fP values of the influence function 
+.br
+\fIweights\fP case weights 
+.br
+\fIScoreMatrix\fP for ordinal variables, the score matrix M 
+.br
+\fIMlinexpcov\fP an object of class `VariableControl' for MT 
+.br
+\fIORDERED\fP logical 
+.br
+\fIlinexpcov\fP an object of class `VariableControl' for T 
+.br
+\fIvarctrl\fP an object of class `VariableControl' 
+.br
+\fIans;\fP return value, a double vector (teststat, pvalue) 
+.RE
+.PP
+
+.PP
+Definition at line 81 of file IndependenceTest.c.
+.PP
+References C_LinStatExpCov(), C_LinStatExpCovMPinv(), C_MLinearStatistic(), C_TeststatPvalue(), get_teststattype(), get_tol(), ncol(), nrow(), and PL2_expcovinfSym.
+.PP
+Referenced by R_IndependenceTest().
+.SS "void C_TeststatCriterion (const SEXP linexpcov, const SEXP varctrl, double * ans_teststat, double * ans_criterion)"
+.PP
+Computes the test statistic and the node criterion 
+.br
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlinexpcov\fP an object of class `LinStatExpectCovar' 
+.br
+\fIvarctrl\fP an object of class `VariableControl' 
+.br
+\fIans_teststat;\fP return value, the test statistic 
+.br
+\fIans_criterion;\fP return value, thep-value 
+.RE
+.PP
+
+.PP
+Definition at line 53 of file IndependenceTest.c.
+.PP
+References C_TeststatPvalue(), and get_pvalue().
+.PP
+Referenced by C_GlobalTest(), and C_MonteCarlo().
+.SS "void C_TeststatPvalue (const SEXP linexpcov, const SEXP varctrl, double * ans_teststat, double * ans_pvalue)"
+.PP
+Computes the test statistic and, if requested, the corresponding P-value for a linear statistic 
+.br
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlinexpcov\fP an object of class `LinStatExpectCovar' 
+.br
+\fIvarctrl\fP an object of class `VariableControl' 
+.br
+\fIans_teststat;\fP return value, the test statistic 
+.br
+\fIans_pvalue;\fP return value, the p-value 
+.RE
+.PP
+
+.PP
+Definition at line 21 of file IndependenceTest.c.
+.PP
+References C_ConditionalPvalue(), C_TestStatistic(), get_abseps(), get_maxpts(), get_pvalue(), get_releps(), get_teststattype(), and get_tol().
+.PP
+Referenced by C_IndependenceTest(), and C_TeststatCriterion().
+.SS "SEXP R_GlobalTest (SEXP learnsample, SEXP weights, SEXP fitmem, SEXP varctrl, SEXP gtctrl)"
+.PP
+R-interface to C_GlobalTest 
+.br
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlearnsample\fP an object of class `LearningSample' 
+.br
+\fIweights\fP case weights 
+.br
+\fIfitmem\fP an object of class `TreeFitMemory' 
+.br
+\fIvarctrl\fP an object of class `VariableControl' 
+.br
+\fIgtctrl\fP an object of class `GlobalTestControl' 
+.RE
+.PP
+
+.PP
+Definition at line 304 of file IndependenceTest.c.
+.PP
+References C_GlobalTest(), and get_ninputs().
+.SS "SEXP R_IndependenceTest (SEXP x, SEXP y, SEXP weights, SEXP ScoreMatrix, SEXP Mlinexpcov, SEXP linexpcov, SEXP varctrl)"
+.PP
+R-interface to C_IndependenceTest 
+.br
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIx\fP values of the transformation 
+.br
+\fIy\fP values of the influence function 
+.br
+\fIweights\fP case weights 
+.br
+\fIScoreMatrix\fP for ordinal variables, the score matrix M 
+.br
+\fIMlinexpcov\fP an object of class `VariableControl' for MT 
+.br
+\fIlinexpcov\fP an object of class `VariableControl' for T 
+.br
+\fIvarctrl\fP an object of class `VariableControl' 
+.RE
+.PP
+
+.PP
+Definition at line 127 of file IndependenceTest.c.
+.PP
+References C_IndependenceTest().
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for party from the source code.

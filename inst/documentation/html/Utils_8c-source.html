@@ -432,7 +432,30 @@
 00551     }
 00552     <span class="keywordflow">return</span>(a);
 00553 }
-</pre></div><hr size="1"><address style="align: right;"><small>Generated on Tue Sep 6 01:02:54 2005 for party by&nbsp;
+00554 
+<a name="l00555"></a><a class="code" href="Utils_8c.html#a23">00555</a> SEXP <a class="code" href="Utils_8c.html#a23">R_modify_response</a>(SEXP x, SEXP vf) {
+00556 
+00557     <span class="keywordtype">double</span> *src, *tar;
+00558     <span class="keywordtype">int</span> i, n;
+00559     
+00560     src = REAL(x);
+00561     n = LENGTH(x);
+00562 
+00563     tar = REAL(<a class="code" href="Classes_8c.html#a73">get_transformation</a>(vf, 1));
+00564     <span class="keywordflow">for</span> (i = 0; i &lt; n; i++)
+00565         tar[i] = src[i];
+00566 
+00567     tar = REAL(<a class="code" href="Classes_8c.html#a74">get_jointtransf</a>(vf));
+00568     <span class="keywordflow">for</span> (i = 0; i &lt; n; i++)
+00569         tar[i] = src[i];
+00570 
+00571     tar = REAL(<a class="code" href="Classes_8c.html#a75">get_variable</a>(vf, 1));
+00572     <span class="keywordflow">for</span> (i = 0; i &lt; n; i++)
+00573         tar[i] = src[i];
+00574                                           
+00575     <span class="keywordflow">return</span>(R_NilValue);
+00576 }
+</pre></div><hr size="1"><address style="align: right;"><small>Generated on Wed Jan 18 11:23:28 2006 for party by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.2 </small></address>
 </body>

@@ -3,8 +3,8 @@
 ###################################################
 options(width = 65, SweaveHooks = list(leftpar = 
     function() par(mai = par("mai") * c(1, 1.1, 1, 1))))
-require(party)
-require(coin)
+require("party")
+require("coin")
 set.seed(290875)
 
 
@@ -28,14 +28,15 @@ ls <- data.frame(y = gl(3, 50, labels = c("A", "B", "C")), x1 = rnorm(150) + rep
 ###################################################
 ### chunk number 4: party-formula
 ###################################################
-library(party)
+library("party")
 ctree(y ~ x1 + x2, data = ls)
 
 
 ###################################################
 ### chunk number 5: party-xtrafo
 ###################################################
-ctree(y ~ x1 + x2, data = ls, xtrafo = rank)
+ctree(y ~ x1 + x2, data = ls, xtrafo = function(data) trafo(data,
+numeric_trafo = rank))
 
 
 ###################################################
@@ -119,7 +120,7 @@ where(ct, newdata = ls[c(1,51,101),])
 ###################################################
 ### chunk number 19: treepipit-ctree
 ###################################################
-data(treepipit, package = "coin")
+data("treepipit", package = "coin")
 tptree <- ctree(counts ~ ., data = treepipit)
 
 
@@ -139,7 +140,7 @@ x <- tptree@tree
 ###################################################
 ### chunk number 22: glaucoma-ctree
 ###################################################
-data(GlaucomaM, package = "ipred")
+data("GlaucomaM", package = "ipred")
 gtree <- ctree(Class ~ ., data = GlaucomaM)
 
 
@@ -200,7 +201,7 @@ legend(0.15, 0.7, pch = 1:2, legend = levels(GlaucomaM$Class), bty = "n")
 ###################################################
 ### chunk number 29: GBSGS-ctree
 ###################################################
-data(GBSG2, package = "ipred")  
+data("GBSG2", package = "ipred")  
 stree <- ctree(Surv(time, cens) ~ ., data = GBSG2)
 
 
@@ -219,7 +220,7 @@ treeresponse(stree, newdata = GBSG2[1:2,])
 ###################################################
 ### chunk number 32: mammo-ctree
 ###################################################
-data(mammoexp)
+data("mammoexp", package = "party")
 mtree <- ctree(ME ~ ., data = mammoexp)
 
 
@@ -232,7 +233,7 @@ plot(mtree)
 ###################################################
 ### chunk number 34: spider-ctree eval=FALSE
 ###################################################
-## data(spider, package = "mvpart")   
+## data("spider", package = "mvpart")   
 ## sptree <- ctree(arct.lute + pard.lugu + zora.spin + pard.nigr + pard.pull +
 ##            aulo.albi + troc.terr + alop.cune + pard.mont + alop.acce + 
 ##            alop.fabr + arct.peri ~ herbs+reft+moss+sand+twigs+water, 
@@ -240,8 +241,8 @@ plot(mtree)
 ##            minsplit = 5, mincriterion = 0.9), data = spider)
 ## sptree@tree$criterion
 ## 
-## library(coin)
-## data(spider, package = "mvpart")
+## library("coin")
+## data("spider", package = "mvpart")
 ## it <- independence_test(arct.lute + pard.lugu + zora.spin + pard.nigr + pard.pull +
 ##                        aulo.albi + troc.terr + alop.cune + pard.mont + alop.acce +   
 ##                        alop.fabr + arct.peri ~ herbs+reft+moss+sand+twigs+water, 

@@ -1,0 +1,74 @@
+\hypertarget{Splits_8h}{
+\section{Splits.h File Reference}
+\label{Splits_8h}\index{Splits.h@{Splits.h}}
+}
+
+
+This graph shows which files directly or indirectly include this file:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=155pt]{Splits_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void \hyperlink{Splits_8h_a0}{C\_\-split} (const double $\ast$x, int p, const double $\ast$y, int q, const double $\ast$weights, int n, const int $\ast$orderx, const double $\ast$score\_\-y, const int ORDERED, SEXP splitctrl, SEXP linexpcov2sample, SEXP expcovinf, double $\ast$cutpoint, double $\ast$maxstat, double $\ast$statistics)
+\item 
+void \hyperlink{Splits_8h_a1}{C\_\-splitcategorical} (const int $\ast$codingx, int p, const double $\ast$y, int q, const double $\ast$weights, int n, const double $\ast$score\_\-y, const int ORDERED, double $\ast$standstat, SEXP splitctrl, SEXP linexpcov2sample, SEXP expcovinf, double $\ast$cutpoint, int $\ast$levelset, double $\ast$maxstat, double $\ast$statistics)
+\end{CompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{Splits_8h_a0}{
+\index{Splits.h@{Splits.h}!C_split@{C\_\-split}}
+\index{C_split@{C\_\-split}!Splits.h@{Splits.h}}
+\subsubsection[C\_\-split]{\setlength{\rightskip}{0pt plus 5cm}void C\_\-split (const double $\ast$ {\em x}, int {\em p}, const double $\ast$ {\em y}, int {\em q}, const double $\ast$ {\em weights}, int {\em n}, const int $\ast$ {\em orderx}, const double $\ast$ {\em score\_\-y}, const int {\em ORDERED}, SEXP {\em splitctrl}, SEXP {\em linexpcov2sample}, SEXP {\em expcovinf}, double $\ast$ {\em cutpoint}, double $\ast$ {\em maxstat}, double $\ast$ {\em statistics})}}
+\label{Splits_8h_a0}
+
+
+Search for a cutpoint in a ordered variable x maximizing a two-sample statistic w.r.t. (the influence function of ) the response variable y. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em x}]raw numeric measurements \item[{\em p}]dimension of the transformation \item[{\em y}]values of the influence function \item[{\em q}]dimension of the influence function \item[{\em weights}]case weights \item[{\em n}]number of observations \item[{\em orderx}]the ordering of the transformations, i.e. R$>$ order(x) \item[{\em score\_\-y}]the q-dim. score vector for y, if y is an ordered factor \item[{\em ORDERED}]a logical coding whether y is an ordered factor \item[{\em splitctrl}]an object of class `Split\-Control' \item[{\em linexpcov2sample}]an (uninitialized) object of class `Lin\-Stat\-Expect\-Covar' with p = 1 \item[{\em expcovinf}]an initialized object of class `Expect\-Covar\-Influence' \item[{\em cutpoint}]return value; pointer to a double for the cutpoint in x \item[{\em maxstat}]return value; pointer to a double for the maximal test statistic \item[{\em statistics}]return value; pointer to a n-dim double for the statistics \end{description}
+\end{Desc}
+
+
+Definition at line 35 of file Splits.c.
+
+References get\_\-minbucket(), get\_\-minprob(), get\_\-tol(), PL2\_\-covariance\-Sym, PL2\_\-expectation\-Sym, PL2\_\-linearstatistic\-Sym, and PL2\_\-sumweights\-Sym.
+
+Referenced by C\_\-Node(), C\_\-splitcategorical(), C\_\-surrogates(), and R\_\-split().
+
+Here is the call graph for this function:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=107pt]{Splits_8h_a0_cgraph}
+\end{center}
+\end{figure}
+\hypertarget{Splits_8h_a1}{
+\index{Splits.h@{Splits.h}!C_splitcategorical@{C\_\-splitcategorical}}
+\index{C_splitcategorical@{C\_\-splitcategorical}!Splits.h@{Splits.h}}
+\subsubsection[C\_\-splitcategorical]{\setlength{\rightskip}{0pt plus 5cm}void C\_\-splitcategorical (const int $\ast$ {\em codingx}, int {\em p}, const double $\ast$ {\em y}, int {\em q}, const double $\ast$ {\em weights}, int {\em n}, const double $\ast$ {\em score\_\-y}, const int {\em ORDERED}, double $\ast$ {\em standstat}, SEXP {\em splitctrl}, SEXP {\em linexpcov2sample}, SEXP {\em expcovinf}, double $\ast$ {\em cutpoint}, int $\ast$ {\em levelset}, double $\ast$ {\em maxstat}, double $\ast$ {\em statistics})}}
+\label{Splits_8h_a1}
+
+
+Search for a cutpoint in a unordered factor x maximizing a two-sample statistic w.r.t. (the influence function of ) the response variable y. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em codingx}]the coding of x, i.e. as.numeric(x) \item[{\em p}]dimension of the transformation \item[{\em y}]values of the influence function \item[{\em q}]dimension of the influence function \item[{\em weights}]case weights \item[{\em n}]number of observations \item[{\em codingx}]the coding of x, i.e. as.numeric(x) \item[{\em score\_\-y}]the q-dim. score vector for y, if y is an ordered factor \item[{\em ORDERED}]a logical coding whether y is an ordered factor \item[{\em standstat}]the vector of the standardized statistics for x, y, weights, score\_\-y \item[{\em splitctrl}]an object of class `Split\-Control' \item[{\em linexpcov2sample}]an (uninitialized) object of class `Lin\-Stat\-Expect\-Covar' with p = 1 \item[{\em expcovinf}]an initialized object of class `Expect\-Covar\-Influence' \item[{\em cutpoint}]return value; pointer to a double for the cutpoint in x \item[{\em levelset}]return value; pointer to a p-dim 0/1 integer \item[{\em maxstat}]return value; pointer to a double for the maximal test statistic \item[{\em statistics}]return value; pointer to a n-dim double for the statistics \end{description}
+\end{Desc}
+
+
+Definition at line 246 of file Splits.c.
+
+References C\_\-split(), and get\_\-tol().
+
+Referenced by C\_\-Node(), and R\_\-splitcategorical().
+
+Here is the call graph for this function:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=172pt]{Splits_8h_a1_cgraph}
+\end{center}
+\end{figure}
