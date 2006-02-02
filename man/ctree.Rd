@@ -63,7 +63,7 @@ ctree(formula, data, subset = NULL, weights = NULL,
   c(1,5,6))}, for example.
 
   For a general description of the methodology see Hothorn, Hornik and
-  Zeileis (2004).
+  Zeileis (2006).
 
 }
 \value{
@@ -71,10 +71,10 @@ ctree(formula, data, subset = NULL, weights = NULL,
 }
 \references{ 
 
-   Torsten Hothorn, Kurt Hornik and Achim Zeileis (2004). Unbiased Recursive
-   Partitioning: A Conditional Inference Framework. Technical Report Nr. 8, 
-   Research Report Series / Department of Statistics and Mathematics, WU Wien.
-   \url{http://epub.wu-wien.ac.at/dyn/openURL?id=oai:epub.wu-wien.ac.at:epub-wu-01_756}
+   Torsten Hothorn, Kurt Hornik and Achim Zeileis (2006). Unbiased Recursive
+   Partitioning: A Conditional Inference Framework. \emph{Journal of
+   Computational and Graphical Statistics} (accepted). Preprint available
+   from \url{http://statmath.wu-wien.ac.at/~zeileis/papers/Hothorn+Hornik+Zeileis-2006.pdf}
 
    Helmut Strasser and Christian Weber (1999). On the asymptotic theory of permutation
    statistics. \emph{Mathematical Methods of Statistics}, \bold{8}, 220--250.

@@ -87,7 +87,8 @@ overfitting problem \cite{Mingers1987} notes that the algorithm
 distinguish between a significant and an insignificant improvement in the
 information measure.
 \end{quote}
-With the \texttt{party} package 
+With the \texttt{party} package \citep[see][for a full description of its
+methodological foundations]{Hothorn+Hornik+Zeileis:2006a}
 we enter at the point where \cite{WhiteLiu1994} demand for
 \begin{quote}
 [\ldots] a \textit{statistical} approach [to recursive partitioning] which

@@ -1,4 +1,15 @@
 
+		CHANGES IN `party' VERSION 0.3-5 (2006-02-02)
+
+    o    make R CMD check happy and move src/README to inst/README
+
+
+		CHANGES IN `party' VERSION 0.3-4 (2006-01-18)
+
+
+    o    documentation updates
+
+
 		CHANGES IN `party' VERSION 0.3-3 (2006-01-18)
 
 
