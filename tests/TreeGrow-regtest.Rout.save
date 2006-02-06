@@ -1,6 +1,6 @@
 
 R : Copyright 2005, The R Foundation for Statistical Computing
-Version 2.2.0  (2005-10-06 r35749)
+Version 2.2.1  (2005-12-20 r36812)
 ISBN 3-900051-07-0
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -12,7 +12,7 @@ Type 'contributors()' for more information and
 'citation()' on how to cite R or R packages in publications.
 
 Type 'demo()' for some demos, 'help()' for on-line help, or
-'help.start()' for a HTML browser interface to help.
+'help.start()' for an HTML browser interface to help.
 Type 'q()' to quit R.
 
 > 
@@ -38,7 +38,8 @@ Loading required package: class
 > gctorture(on = GCtorture)
 > 
 > ### get rid of the NAMESPACE
-> load(file.path(.find.package("party"), "R", "all.rda"))
+> nsparty <- attach(NULL, name="ns-party")
+> .Internal(lib.fixup(asNamespace("party"), nsparty))
 > 
 > gtctrl <- new("GlobalTestControl")
 > tlev <- levels(gtctrl@testtype)

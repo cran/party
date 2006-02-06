@@ -9,7 +9,8 @@ if (!require(coin))
 gctorture(on = GCtorture)
 
 ### get rid of the NAMESPACE
-load(file.path(.find.package("party"), "R", "all.rda"))
+nsparty <- attach(NULL, name="ns-party")
+.Internal(lib.fixup(asNamespace("party"), nsparty))
 
 gtctrl <- new("GlobalTestControl")
 tlev <- levels(gtctrl@testtype)

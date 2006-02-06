@@ -1,5 +1,13 @@
 
+		CHANGES IN `party' VERSION 0.3-5 (2006-02-06)
+
+
+    o    use a different way to deal with NAMESPACEs during in tests/*.R
+         following a suggestion by Prof. Brian D. Ripley
+
+
 		CHANGES IN `party' VERSION 0.3-5 (2006-02-02)
+
 
     o    make R CMD check happy and move src/README to inst/README
 

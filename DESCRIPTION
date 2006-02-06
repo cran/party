@@ -1,7 +1,7 @@
 Package: party
 Title: A Laboratory for Recursive Part(y)itioning
-Date: $Date: 2006/02/02 08:48:57 $
-Version: 0.3-5
+Date: $Date: 2006/02/06 14:37:41 $
+Version: 0.3-6
 Author: Torsten Hothorn, Kurt Hornik and Achim Zeileis
 Maintainer: Torsten Hothorn <Torsten.Hothorn@R-project.org>
 Description: Unbiased recursive partitioning in a conditional 
@@ -16,6 +16,6 @@ Description: Unbiased recursive partitioning in a conditional
   tree-structured regression models is available.
 Depends: R (>= 2.0.1), survival, grid, modeltools (>= 0.2-2), coin (>= 0.3-8)
 Suggests: ipred
-SaveImage: yes
+LazyLoad: yes
 License: GPL
-Packaged: Thu Feb  2 09:50:32 2006; hothorn
+Packaged: Mon Feb  6 15:39:38 2006; hothorn
