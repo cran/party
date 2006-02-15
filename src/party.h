@@ -24,6 +24,7 @@
 #include "Node.h"
 #include "Predict.h"
 #include "SurrogateSplits.h"
+#include "TreeGrow.h"
 
 /* constants, basically the length of lists representing S3 classes
    and the position of certain elements  */

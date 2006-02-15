@@ -1,5 +1,5 @@
 
-# $Id: Print.R,v 1.7 2005/11/28 16:15:28 hothorn Exp $
+# $Id: Print.R 2438 2006-02-08 17:33:26Z hothorn $
 
 prettysplit <- function(x, inames = NULL, ilevels = NULL) {
     if (length(x) == 4)
@@ -104,7 +104,7 @@ print.BinaryTreePartition <- function(x, ...)
 
 print.BinaryTree <- function(x, ...) {
     cat("\n")
-    cat("\t Conditional tree with", length(unique(where(x))), 
+    cat("\t Conditional inference tree with", length(unique(where(x))), 
         "terminal nodes\n\n")
     y <- x@responses
     if (y@ninputs > 1) {
@@ -121,4 +121,27 @@ print.BinaryTree <- function(x, ...) {
     }
     cat("Number of observations: ", x@responses@nobs, "\n\n")
     print(x@tree)
+}
+
+print.RandomForest <- function(x, ...) {
+    cat("\n")
+    cat("\t Random Forest using Conditional Inference Trees\n")
+    cat("\n")
+    cat("Number of trees: ", length(x@ensemble), "\n")
+    cat("\n")
+    y <- x@responses
+    if (y@ninputs > 1) {
+        cat("Responses:", paste(names(y@variables),
+                                collapse = ", "), "\n")
+    }  else {
+        cat("Response: ", names(y@variables), "\n")
+    }
+    inames <- names(x@data@get("input"))
+    if (length(inames) > 1) {
+        cat("Inputs: ", paste(inames, collapse = ", "), "\n")
+    } else {
+        cat("Input: ", inames, "\n")
+    }
+    cat("Number of observations: ", x@responses@nobs, "\n\n")
+    invisible(x)
 }

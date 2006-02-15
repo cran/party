@@ -82,7 +82,7 @@ Levels: glaucoma normal
 +                control = ctree_control(stump = TRUE))
 > print(stump)
 
-	 Conditional tree with 2 terminal nodes
+	 Conditional inference tree with 2 terminal nodes
 
 Response:  Class 
 Inputs:  ag, at, as, an, ai, eag, eat, eas, ean, eai, abrg, abrt, abrs, abrn, abri, hic, mhcg, mhct, mhcs, mhcn, mhci, phcg, phct, phcs, phcn, phci, hvc, vbsg, vbst, vbss, vbsn, vbsi, vasg, vast, vass, vasn, vasi, vbrg, vbrt, vbrs, vbrn, vbri, varg, vart, vars, varn, vari, mdg, mdt, mds, mdn, mdi, tmg, tmt, tms, tmn, tmi, mr, rnf, mdic, emd, mv 
@@ -98,7 +98,7 @@ Number of observations:  196
 > tr <- ctree(counts ~ ., data = treepipit)
 > tr
 
-	 Conditional tree with 2 terminal nodes
+	 Conditional inference tree with 2 terminal nodes
 
 Response:  counts 
 Inputs:  age, coverstorey, coverregen, meanregen, coniferous, deadtree, cbpiles, ivytree, fdist 
@@ -116,7 +116,7 @@ Number of observations:  86
 > tr <- ctree(Class ~ ., data = GlaucomaM)
 > tr
 
-	 Conditional tree with 4 terminal nodes
+	 Conditional inference tree with 4 terminal nodes
 
 Response:  Class 
 Inputs:  ag, at, as, an, ai, eag, eat, eas, ean, eai, abrg, abrt, abrs, abrn, abri, hic, mhcg, mhct, mhcs, mhcn, mhci, phcg, phct, phcs, phcn, phci, hvc, vbsg, vbst, vbss, vbsn, vbsi, vasg, vast, vass, vasn, vasi, vbrg, vbrt, vbrs, vbrn, vbri, varg, vart, vars, varn, vari, mdg, mdt, mds, mdn, mdi, tmg, tmt, tms, tmn, tmi, mr, rnf, mdic, emd, mv 
@@ -139,7 +139,7 @@ Number of observations:  196
 > GBSG2tree <- ctree(Surv(time, cens) ~ ., data = GBSG2)
 > GBSG2tree
 
-	 Conditional tree with 4 terminal nodes
+	 Conditional inference tree with 4 terminal nodes
 
 Response:  Surv(time, cens) 
 Inputs:  horTh, age, menostat, tsize, tgrade, pnodes, progrec, estrec 
@@ -175,7 +175,7 @@ as.factor(GBSG2tree@where)=7 166     77   1701    1174    2018
 +                                     testtype = "Raw"))
 > tr
 
-	 Conditional tree with 10 terminal nodes
+	 Conditional inference tree with 10 terminal nodes
 
 Response:  Surv(time, cens) 
 Inputs:  horTh, age, menostat, tsize, tgrade, pnodes, progrec, estrec 
@@ -225,7 +225,7 @@ Warning message:
 no admissible split found 
 > tr
 
-	 Conditional tree with 3 terminal nodes
+	 Conditional inference tree with 3 terminal nodes
 
 Response:  ME 
 Inputs:  symptoms, benefit, HIST, BSE, DECT 

@@ -11,7 +11,7 @@ ctree_control(teststattype = c("quadform", "maxabs"),
               testtype = c("Bonferroni", "MonteCarlo", "Raw"), 
               mincriterion = 0.95, minsplit = 20, stump = FALSE, 
               nresample = 9999, maxsurrogate = 0, mtry = 0, 
-              savesplitstats = TRUE)
+              savesplitstats = TRUE, maxdepth = 0)
 }
 \arguments{
   \item{teststattype}{ a character specifying the type of the test statistic
@@ -34,6 +34,8 @@ ctree_control(teststattype = c("quadform", "maxabs"),
   \item{savesplitstats}{ a logical determining if the process of standardized
                          two-sample statistics for split point estimate
                          is saved for each primary split.}
+  \item{maxdepth}{ maximum depth of the tree. The default \code{maxdepth = 0}
+                   means that no restrictions are applied to tree sizes.}
 }
 \details{
 

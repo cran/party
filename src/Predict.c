@@ -3,7 +3,7 @@
     Node splitting and prediction
     *\file Predict.c
     *\author $Author: hothorn $
-    *\date $Date: 2005/06/14 09:21:32 $
+    *\date $Date: 2006-02-08 18:33:26 +0100 (Wed, 08 Feb 2006) $
 */
                 
 #include "party.h"
@@ -627,5 +627,62 @@ SEXP R_predictRF2(SEXP forest, SEXP response, SEXP newinputs,
             REAL(VECTOR_ELT(ans, i))[j] = REAL(VECTOR_ELT(ans, i))[j] / sumw;
     }
     UNPROTECT(2);
+    return(ans);
+}
+
+/**
+    Predictions weights from RandomForest objects
+    *\param forest a list of trees
+    *\param newinputs an object of class `VariableFrame'
+    *\param mincriterion overwrites mincriterion used for tree growing
+    *\param oobpred a logical indicating out-of-bag predictions
+*/
+
+SEXP R_predictRF_weights(SEXP forest, SEXP newinputs, SEXP mincriterion, SEXP oobpred) {
+
+    SEXP ans, tree, bw;
+    int ntrees, nobs, i, b, j, q, iwhere, oob = 0, count = 0, ntrain;
+    double *dtmp;
+    
+    if (LOGICAL(oobpred)[0]) oob = 1;
+    
+    nobs = get_nobs(newinputs);
+    ntrees = LENGTH(forest);
+    q = LENGTH(S3get_prediction(
+                   C_get_nodebynum(VECTOR_ELT(forest, 0), 1)));
+
+    if (oob) {
+        if (LENGTH(S3get_nodeweights(
+                       C_get_nodebynum(VECTOR_ELT(forest, 0), 1))) != nobs)
+            error("number of observations don't match");
+    }    
+    
+    tree = VECTOR_ELT(forest, 0);
+    ntrain = LENGTH(S3get_nodeweights(C_get_nodebynum(tree, 1)));
+    
+    PROTECT(ans = allocVector(VECSXP, nobs));
+    
+    for (i = 0; i < nobs; i++) {
+        count = 0;
+        SET_VECTOR_ELT(ans, i, bw = allocVector(REALSXP, ntrain));
+        for (j = 0; j < ntrain; j++)
+            REAL(bw)[j] = 0.0;
+        for (b = 0; b < ntrees; b++) {
+            tree = VECTOR_ELT(forest, b);
+
+            if (oob && 
+                REAL(S3get_nodeweights(C_get_nodebynum(tree, 1)))[i] > 0.0) 
+                continue;
+
+            iwhere = C_get_nodeID(tree, newinputs, REAL(mincriterion)[0], i);
+            dtmp = REAL(S3get_nodeweights(C_get_nodebynum(tree, iwhere)));
+            for (j = 0; j < ntrain; j++)
+                REAL(bw)[j] += dtmp[j];
+            count++;
+        }
+        if (count == 0) 
+            error("cannot compute out-of-bag predictions for obs ", i + 1);
+    }
+    UNPROTECT(1);
     return(ans);
 }

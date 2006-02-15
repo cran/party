@@ -12,12 +12,12 @@
 <p>
 Include dependency graph for Node.c:<p><center><img src="Node_8c__incl.png" border="0" usemap="#Node.c_map" alt=""></center>
 <map name="Node.c_map">
-<area href="party_8h.html" shape="rect" coords="117,415,162,438" alt="">
+<area href="party_8h.html" shape="rect" coords="117,439,162,462" alt="">
 <area href="Classes_8h.html" shape="rect" coords="239,247,306,271" alt="">
 <area href="Utils_8h.html" shape="rect" coords="250,295,295,319" alt="">
 <area href="mvt_8h.html" shape="rect" coords="254,343,291,367" alt="">
 <area href="LinearStatistic_8h.html" shape="rect" coords="222,391,323,415" alt="">
-<area href="TestStatistic_8h.html" shape="rect" coords="227,438,318,462" alt="">
+<area href="TestStatistic_8h.html" shape="rect" coords="227,439,318,462" alt="">
 <area href="Distributions_8h.html" shape="rect" coords="227,486,318,510" alt="">
 <area href="Convenience_8h.html" shape="rect" coords="227,534,318,558" alt="">
 <area href="S3Classes_8h.html" shape="rect" coords="231,582,314,606" alt="">
@@ -26,6 +26,7 @@ Include dependency graph for Node.c:<p><center><img src="Node_8c__incl.png" bord
 <area href="Node_8h.html" shape="rect" coords="249,726,297,750" alt="">
 <area href="Predict_8h.html" shape="rect" coords="243,774,302,798" alt="">
 <area href="SurrogateSplits_8h.html" shape="rect" coords="219,822,326,846" alt="">
+<area href="TreeGrow_8h.html" shape="rect" coords="235,870,310,894" alt="">
 </map>
 
 <p>
@@ -43,7 +44,7 @@ Include dependency graph for Node.c:<p><center><img src="Node_8c__incl.png" bord
 Node computations<p>
 <dl compact><dt><b>Author:</b></dt><dd><dl compact><dt><b>Author</b></dt><dd>hothorn </dd></dl>
 </dd></dl>
-<dl compact><dt><b>Date:</b></dt><dd><dl compact><dt><b>Date</b></dt><dd>2005/10/19 14:40:43 </dd></dl>
+<dl compact><dt><b>Date:</b></dt><dd><dl compact><dt><b>Date</b></dt><dd>2005-10-19 16:40:43 +0200 (Wed, 19 Oct 2005) </dd></dl>
 </dd></dl>
 
 <p>
@@ -120,21 +121,21 @@ The main function for all node computations <dl compact><dt><b>Parameters:</b></
 <p>
 Definition at line <a class="el" href="Node_8c-source.html#l00048">48</a> of file <a class="el" href="Node_8c-source.html">Node.c</a>.
 <p>
-References <a class="el" href="IndependenceTest_8c-source.html#l00157">C_GlobalTest()</a>, <a class="el" href="S3Classes_8c-source.html#l00123">C_init_nominalsplit()</a>, <a class="el" href="S3Classes_8c-source.html#l00099">C_init_orderedsplit()</a>, <a class="el" href="Utils_8c-source.html#l00222">C_max()</a>, <a class="el" href="Node_8c-source.html#l00022">C_prediction()</a>, <a class="el" href="Splits_8c-source.html#l00035">C_split()</a>, <a class="el" href="Splits_8c-source.html#l00246">C_splitcategorical()</a>, <a class="el" href="TestStatistic_8c-source.html#l00023">C_standardize()</a>, <a class="el" href="Utils_8c-source.html#l00488">C_whichmax()</a>, <a class="el" href="Classes_8c-source.html#l00143">get_dimension()</a>, <a class="el" href="Classes_8c-source.html#l00311">get_gtctrl()</a>, <a class="el" href="Classes_8c-source.html#l00226">get_levels()</a>, <a class="el" href="Classes_8c-source.html#l00319">get_mincriterion()</a>, <a class="el" href="Classes_8c-source.html#l00171">get_minsplit()</a>, <a class="el" href="Classes_8c-source.html#l00287">get_ninputs()</a>, <a class="el" href="Classes_8c-source.html#l00283">get_nobs()</a>, <a class="el" href="Classes_8c-source.html#l00215">get_ordering()</a>, <a class="el" href="Classes_8c-source.html#l00275">get_savesplitstats()</a>, <a class="el" href="Classes_8c-source.html#l00307">get_splitctrl()</a>, <a class="el" href="Classes_8c-source.html#l00279">get_splitstatistics()</a>, <a class="el" href="Classes_8c-source.html#l00315">get_tgctrl()</a>, <a class="el" href="Classes_8c-source.html#l00155">get_tol()</a>, <a class="el" href="Classes_8c-source.html#l00183">get_transformation()</a>, <a class="el" href="Classes_8c-source.html#l00303">get_varctrl()</a>, <a class="el" href="Classes_8c-source.html#l00193">get_variable()</a>, <a class="el" href="Classes_8c-source.html#l00260">get_varmemory()</a>, <a class="el" href="Classes_8c-source.html#l00291">get_weights()</a>, <a class="el" href="Classes_8c-source.html#l00211">has_missings()</a>, <a class="el" href="Classes_8c-source.html#l00199">is_nominal()</a>, <a class="el" href="Classes_8c-source.html#l00203">is_ordinal()</a>, <a class="el" href="Utils_8c-source.html#l00484">ncol()</a>, <a class="el" href="Classes_8c-source.html#l00012">PL2_covarianceSym</a>, <a class="el" href="Classes_8c-source.html#l00012">PL2_expcovinfSym</a>, <a class="el" href="Classes_8c-source.html#l00012">PL2_expectationSym</a>, <a class="el" href="Classes_8c-source.html#l00012">PL2_inputsSym</a>, <a class="el" href="Classes_8c-source.html#l00012">PL2_jointtransfSym</a>, <a class="el" href="Classes_8c-source.html#l00012">PL2_linearstatisticSym</a>, <a class="el" href="Classes_8c-source.html#l00012">PL2_linexpcov2sampleSym</a>, <a class="el" href="Classes_8c-source.html#l00012">PL2_responsesSym</a>, <a class="el" href="Classes_8c-source.html#l00012">PL2_scoresSym</a>, <a class="el" href="Classes_8c-source.html#l00012">PL2_sumweightsSym</a>, <a class="el" href="S3Classes_8c-source.html#l00063">S3get_criterion()</a>, <a class="el" href="S3Classes_8c-source.html#l00067">S3get_maxcriterion()</a>, <a class="el" href="S3Classes_8c-source.html#l00087">S3get_prediction()</a>, <a class="el" href="S3Classes_8c-source.html#l00079">S3get_primarysplit()</a>, <a class="el" href="S3Classes_8c-source.html#l00174">S3get_splitpoint()</a>, <a class="el" href="S3Classes_8c-source.html#l00178">S3get_splitstatistics()</a>, <a class="el" href="S3Classes_8c-source.html#l00187">S3get_table()</a>, <a class="el" href="S3Classes_8c-source.html#l00059">S3get_teststat()</a>, <a class="el" href="S3Classes_8c-source.html#l00071">S3set_nodeterminal()</a>, and <a class="el" href="S3Classes_8c-source.html#l00145">S3set_variableID()</a>.
+References <a class="el" href="IndependenceTest_8c-source.html#l00157">C_GlobalTest()</a>, <a class="el" href="S3Classes_8c-source.html#l00123">C_init_nominalsplit()</a>, <a class="el" href="S3Classes_8c-source.html#l00099">C_init_orderedsplit()</a>, <a class="el" href="Utils_8c-source.html#l00222">C_max()</a>, <a class="el" href="Node_8c-source.html#l00022">C_prediction()</a>, <a class="el" href="Splits_8c-source.html#l00035">C_split()</a>, <a class="el" href="Splits_8c-source.html#l00246">C_splitcategorical()</a>, <a class="el" href="TestStatistic_8c-source.html#l00023">C_standardize()</a>, <a class="el" href="Utils_8c-source.html#l00488">C_whichmax()</a>, <a class="el" href="Classes_8c-source.html#l00145">get_dimension()</a>, <a class="el" href="Classes_8c-source.html#l00313">get_gtctrl()</a>, <a class="el" href="Classes_8c-source.html#l00228">get_levels()</a>, <a class="el" href="Classes_8c-source.html#l00321">get_mincriterion()</a>, <a class="el" href="Classes_8c-source.html#l00173">get_minsplit()</a>, <a class="el" href="Classes_8c-source.html#l00289">get_ninputs()</a>, <a class="el" href="Classes_8c-source.html#l00285">get_nobs()</a>, <a class="el" href="Classes_8c-source.html#l00217">get_ordering()</a>, <a class="el" href="Classes_8c-source.html#l00277">get_savesplitstats()</a>, <a class="el" href="Classes_8c-source.html#l00309">get_splitctrl()</a>, <a class="el" href="Classes_8c-source.html#l00281">get_splitstatistics()</a>, <a class="el" href="Classes_8c-source.html#l00317">get_tgctrl()</a>, <a class="el" href="Classes_8c-source.html#l00157">get_tol()</a>, <a class="el" href="Classes_8c-source.html#l00185">get_transformation()</a>, <a class="el" href="Classes_8c-source.html#l00305">get_varctrl()</a>, <a class="el" href="Classes_8c-source.html#l00195">get_variable()</a>, <a class="el" href="Classes_8c-source.html#l00262">get_varmemory()</a>, <a class="el" href="Classes_8c-source.html#l00293">get_weights()</a>, <a class="el" href="Classes_8c-source.html#l00213">has_missings()</a>, <a class="el" href="Classes_8c-source.html#l00201">is_nominal()</a>, <a class="el" href="Classes_8c-source.html#l00205">is_ordinal()</a>, <a class="el" href="Utils_8c-source.html#l00484">ncol()</a>, <a class="el" href="Classes_8c-source.html#l00012">PL2_covarianceSym</a>, <a class="el" href="Classes_8c-source.html#l00012">PL2_expcovinfSym</a>, <a class="el" href="Classes_8c-source.html#l00012">PL2_expectationSym</a>, <a class="el" href="Classes_8c-source.html#l00012">PL2_inputsSym</a>, <a class="el" href="Classes_8c-source.html#l00012">PL2_jointtransfSym</a>, <a class="el" href="Classes_8c-source.html#l00012">PL2_linearstatisticSym</a>, <a class="el" href="Classes_8c-source.html#l00012">PL2_linexpcov2sampleSym</a>, <a class="el" href="Classes_8c-source.html#l00012">PL2_responsesSym</a>, <a class="el" href="Classes_8c-source.html#l00012">PL2_scoresSym</a>, <a class="el" href="Classes_8c-source.html#l00012">PL2_sumweightsSym</a>, <a class="el" href="S3Classes_8c-source.html#l00063">S3get_criterion()</a>, <a class="el" href="S3Classes_8c-source.html#l00067">S3get_maxcriterion()</a>, <a class="el" href="S3Classes_8c-source.html#l00087">S3get_prediction()</a>, <a class="el" href="S3Classes_8c-source.html#l00079">S3get_primarysplit()</a>, <a class="el" href="S3Classes_8c-source.html#l00174">S3get_splitpoint()</a>, <a class="el" href="S3Classes_8c-source.html#l00178">S3get_splitstatistics()</a>, <a class="el" href="S3Classes_8c-source.html#l00187">S3get_table()</a>, <a class="el" href="S3Classes_8c-source.html#l00059">S3get_teststat()</a>, <a class="el" href="S3Classes_8c-source.html#l00071">S3set_nodeterminal()</a>, and <a class="el" href="S3Classes_8c-source.html#l00145">S3set_variableID()</a>.
 <p>
-Referenced by <a class="el" href="TreeGrow_8c-source.html#l00022">C_TreeGrow()</a>, and <a class="el" href="Node_8c-source.html#l00233">R_Node()</a>.
+Referenced by <a class="el" href="TreeGrow_8c-source.html#l00023">C_TreeGrow()</a>, and <a class="el" href="Node_8c-source.html#l00233">R_Node()</a>.
 <p>
 Here is the call graph for this function:<p><center><img src="Node_8c_a1_cgraph.png" border="0" usemap="#Node_8c_a1_cgraph_map" alt=""></center>
 <map name="Node_8c_a1_cgraph_map">
 <area href="IndependenceTest_8c.html#a4" shape="rect" coords="152,390,237,414" alt="">
-<area href="Classes_8c.html#a90" shape="rect" coords="328,190,402,214" alt="">
-<area href="Classes_8c.html#a89" shape="rect" coords="334,241,396,265" alt="">
-<area href="Classes_8c.html#a66" shape="rect" coords="472,116,520,140" alt="">
-<area href="Classes_8c.html#a73" shape="rect" coords="308,292,422,316" alt="">
-<area href="Classes_8c.html#a84" shape="rect" coords="317,341,413,365" alt="">
-<area href="Classes_8c.html#a91" shape="rect" coords="326,440,404,464" alt="">
-<area href="Classes_8c.html#a79" shape="rect" coords="321,489,409,513" alt="">
-<area href="Classes_8c.html#a77" shape="rect" coords="334,592,396,616" alt="">
+<area href="Classes_8c.html#a91" shape="rect" coords="328,190,402,214" alt="">
+<area href="Classes_8c.html#a90" shape="rect" coords="334,241,396,265" alt="">
+<area href="Classes_8c.html#a67" shape="rect" coords="472,116,520,140" alt="">
+<area href="Classes_8c.html#a74" shape="rect" coords="308,292,422,316" alt="">
+<area href="Classes_8c.html#a85" shape="rect" coords="317,341,413,365" alt="">
+<area href="Classes_8c.html#a92" shape="rect" coords="326,440,404,464" alt="">
+<area href="Classes_8c.html#a80" shape="rect" coords="321,489,409,513" alt="">
+<area href="Classes_8c.html#a78" shape="rect" coords="334,592,396,616" alt="">
 <area href="Utils_8c.html#a19" shape="rect" coords="346,538,384,562" alt="">
 <area href="S3Classes_8c.html#a15" shape="rect" coords="136,788,253,812" alt="">
 <area href="S3Classes_8c.html#a14" shape="rect" coords="137,836,252,860" alt="">
@@ -144,19 +145,19 @@ Here is the call graph for this function:<p><center><img src="Node_8c_a1_cgraph.
 <area href="Splits_8c.html#a2" shape="rect" coords="140,140,249,164" alt="">
 <area href="TestStatistic_8c.html#a0" shape="rect" coords="149,980,240,1004" alt="">
 <area href="Utils_8c.html#a20" shape="rect" coords="153,1028,236,1052" alt="">
-<area href="Classes_8c.html#a63" shape="rect" coords="148,1076,241,1100" alt="">
-<area href="Classes_8c.html#a96" shape="rect" coords="164,1124,225,1148" alt="">
-<area href="Classes_8c.html#a81" shape="rect" coords="161,641,228,665" alt="">
-<area href="Classes_8c.html#a76" shape="rect" coords="330,689,400,713" alt="">
-<area href="Classes_8c.html#a98" shape="rect" coords="144,1172,245,1196" alt="">
-<area href="Classes_8c.html#a70" shape="rect" coords="156,1220,233,1244" alt="">
-<area href="Classes_8c.html#a80" shape="rect" coords="155,689,235,713" alt="">
-<area href="Classes_8c.html#a87" shape="rect" coords="139,1268,251,1292" alt="">
-<area href="Classes_8c.html#a95" shape="rect" coords="157,1316,232,1340" alt="">
-<area href="Classes_8c.html#a88" shape="rect" coords="140,1364,249,1388" alt="">
-<area href="Classes_8c.html#a97" shape="rect" coords="164,1412,225,1436" alt="">
-<area href="Classes_8c.html#a94" shape="rect" coords="161,1460,228,1484" alt="">
-<area href="Classes_8c.html#a75" shape="rect" coords="156,1508,233,1532" alt="">
+<area href="Classes_8c.html#a64" shape="rect" coords="148,1076,241,1100" alt="">
+<area href="Classes_8c.html#a97" shape="rect" coords="164,1124,225,1148" alt="">
+<area href="Classes_8c.html#a82" shape="rect" coords="161,641,228,665" alt="">
+<area href="Classes_8c.html#a77" shape="rect" coords="330,689,400,713" alt="">
+<area href="Classes_8c.html#a99" shape="rect" coords="144,1172,245,1196" alt="">
+<area href="Classes_8c.html#a71" shape="rect" coords="156,1220,233,1244" alt="">
+<area href="Classes_8c.html#a81" shape="rect" coords="155,689,235,713" alt="">
+<area href="Classes_8c.html#a88" shape="rect" coords="139,1268,251,1292" alt="">
+<area href="Classes_8c.html#a96" shape="rect" coords="157,1316,232,1340" alt="">
+<area href="Classes_8c.html#a89" shape="rect" coords="140,1364,249,1388" alt="">
+<area href="Classes_8c.html#a98" shape="rect" coords="164,1412,225,1436" alt="">
+<area href="Classes_8c.html#a95" shape="rect" coords="161,1460,228,1484" alt="">
+<area href="Classes_8c.html#a76" shape="rect" coords="156,1508,233,1532" alt="">
 <area href="S3Classes_8c.html#a5" shape="rect" coords="148,1556,241,1580" alt="">
 <area href="S3Classes_8c.html#a6" shape="rect" coords="135,1604,255,1628" alt="">
 <area href="S3Classes_8c.html#a11" shape="rect" coords="143,1652,247,1676" alt="">
@@ -304,22 +305,22 @@ R-interface to C_Node <dl compact><dt><b>Parameters:</b></dt><dd>
 <p>
 Definition at line <a class="el" href="Node_8c-source.html#l00233">233</a> of file <a class="el" href="Node_8c-source.html">Node.c</a>.
 <p>
-References <a class="el" href="S3Classes_8c-source.html#l00011">C_init_node()</a>, <a class="el" href="Node_8c-source.html#l00048">C_Node()</a>, <a class="el" href="Classes_8c-source.html#l00323">get_maxsurrogate()</a>, <a class="el" href="Classes_8c-source.html#l00287">get_ninputs()</a>, <a class="el" href="Classes_8c-source.html#l00283">get_nobs()</a>, <a class="el" href="Classes_8c-source.html#l00307">get_splitctrl()</a>, <a class="el" href="Utils_8c-source.html#l00484">ncol()</a>, <a class="el" href="party_8h-source.html#l00041">NODE_LENGTH</a>, <a class="el" href="Classes_8c-source.html#l00012">PL2_jointtransfSym</a>, and <a class="el" href="Classes_8c-source.html#l00012">PL2_responsesSym</a>.
+References <a class="el" href="S3Classes_8c-source.html#l00011">C_init_node()</a>, <a class="el" href="Node_8c-source.html#l00048">C_Node()</a>, <a class="el" href="Classes_8c-source.html#l00325">get_maxsurrogate()</a>, <a class="el" href="Classes_8c-source.html#l00289">get_ninputs()</a>, <a class="el" href="Classes_8c-source.html#l00285">get_nobs()</a>, <a class="el" href="Classes_8c-source.html#l00309">get_splitctrl()</a>, <a class="el" href="Utils_8c-source.html#l00484">ncol()</a>, <a class="el" href="party_8h-source.html#l00042">NODE_LENGTH</a>, <a class="el" href="Classes_8c-source.html#l00012">PL2_jointtransfSym</a>, and <a class="el" href="Classes_8c-source.html#l00012">PL2_responsesSym</a>.
 <p>
 Here is the call graph for this function:<p><center><img src="Node_8c_a2_cgraph.png" border="0" usemap="#Node_8c_a2_cgraph_map" alt=""></center>
 <map name="Node_8c_a2_cgraph_map">
 <area href="S3Classes_8c.html#a0" shape="rect" coords="141,6,216,30" alt="">
 <area href="Node_8c.html#a1" shape="rect" coords="152,156,205,179" alt="">
-<area href="Classes_8c.html#a90" shape="rect" coords="285,69,360,93" alt="">
-<area href="Classes_8c.html#a89" shape="rect" coords="292,142,353,166" alt="">
-<area href="Classes_8c.html#a95" shape="rect" coords="285,198,360,222" alt="">
+<area href="Classes_8c.html#a91" shape="rect" coords="285,69,360,93" alt="">
+<area href="Classes_8c.html#a90" shape="rect" coords="292,142,353,166" alt="">
+<area href="Classes_8c.html#a96" shape="rect" coords="285,198,360,222" alt="">
 <area href="Utils_8c.html#a19" shape="rect" coords="304,247,341,271" alt="">
-<area href="Classes_8c.html#a99" shape="rect" coords="122,305,234,329" alt="">
+<area href="Classes_8c.html#a100" shape="rect" coords="122,305,234,329" alt="">
 </map>
     </td>
   </tr>
 </table>
-<hr size="1"><address style="align: right;"><small>Generated on Wed Jan 18 11:23:41 2006 for party by&nbsp;
+<hr size="1"><address style="align: right;"><small>Generated on Thu Feb 16 09:12:20 2006 for party by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.2 </small></address>
 </body>

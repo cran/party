@@ -1,5 +1,5 @@
 
-# $Id: Memory.R,v 1.5 2005/06/23 08:28:42 hothorn Exp $
+# $Id: Memory.R 2389 2005-06-23 08:28:42Z hothorn $
 
 ctree_memory <- function(object, MPinv = FALSE) {
 

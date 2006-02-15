@@ -1,5 +1,5 @@
 
-# $Id: Plot.R,v 1.11 2005/09/06 15:52:10 hothorn Exp $
+# $Id: Plot.R 2474 2006-02-16 16:24:37Z zeileis $
 
 ## utility functions for querying the number of
 ## terminal nodes and the maximal depth of (sub-)trees
@@ -25,18 +25,22 @@ node_inner <- function(ctreeobj,
                        digits = 3,
 		       abbreviate = FALSE,
 		       fill = "white",
+		       pval = TRUE,
 		       id = TRUE)
 {
-
     getLabel1 <- function(x) {
         if (x$terminal) return(rep.int("", 2))
         varlab <- ifelse(abbreviate > 0,
             abbreviate(x$psplit$variableName, as.numeric(abbreviate)),
 	    x$psplit$variableName)
-        pval <- 1 - x$criterion$maxcriterion
-        plab <- ifelse(pval < 10^(-digits),
-                       paste("p <", 10^(-digits)),
-                       paste("p =", round(pval, digits = digits)))
+	if(pval) {
+            pvalue <- 1 - x$criterion$maxcriterion
+            plab <- ifelse(pvalue < 10^(-digits),
+                           paste("p <", 10^(-digits)),
+                           paste("p =", round(pvalue, digits = digits)))
+	} else {
+	    plab <- ""
+	}
         return(c(varlab, plab))
     }
 
@@ -71,13 +75,13 @@ node_inner <- function(ctreeobj,
         grid.polygon(x = unit(c(xell, rev(xell)), "npc"),
                      y = unit(c(yell, -yell)+0.5, "npc"),
                      gp = gpar(fill = fill[1]))
-        grid.text(lab[1], y = unit(2, "lines"))   
-        grid.text(lab[2], y = unit(1, "lines"))    
+        grid.text(lab[1], y = unit(1.5 + 0.5 * pval, "lines"))
+        if(pval) grid.text(lab[2], y = unit(1, "lines"))
 
         if (id) {
             nodeIDvp <- viewport(x = unit(0.5, "npc"), y = unit(1, "npc"),
-                                 width = unit(1, "lines"),
-                                 height = unit(1, "lines"))
+	        width = max(unit(1, "lines"), unit(1.3, "strwidth", as.character(node$nodeID))),
+	        height = max(unit(1, "lines"), unit(1.3, "strheight", as.character(node$nodeID))))
             pushViewport(nodeIDvp)
             grid.rect(gp = gpar(fill = fill[2]))
             grid.text(node$nodeID)
@@ -88,12 +92,12 @@ node_inner <- function(ctreeobj,
     
     return(rval)
 }
+class(node_inner) <- "grapcon_generator"
 
 node_surv <- function(ctreeobj,
 	 	      ylines = 2,
 		      id = TRUE, ...)
 {
-
     survobj <- response(ctreeobj)[[1]]
     if (!("Surv" %in% class(survobj))) 
         stop(sQuote("ctreeobj"), " is not a survival tree")
@@ -141,6 +145,7 @@ node_surv <- function(ctreeobj,
 
     return(rval)
 }
+class(node_surv) <- "grapcon_generator"
 
 node_barplot <- function(ctreeobj,
                          col = "black",
@@ -151,7 +156,6 @@ node_barplot <- function(ctreeobj,
 		         gap = NULL,
 		         id = TRUE)
 {
-
    getMaxPred <- function(x) {
      mp <- max(x$prediction)
      mpl <- ifelse(x$terminal, 0, getMaxPred(x$left))
@@ -232,6 +236,7 @@ node_barplot <- function(ctreeobj,
     
     return(rval)
 }
+class(node_barplot) <- "grapcon_generator"
 
 node_boxplot <- function(ctreeobj,
                          col = "black",
@@ -241,7 +246,6 @@ node_boxplot <- function(ctreeobj,
 		         ylines = 3,
 		         id = TRUE)
 {
-
     y <- response(ctreeobj)[[1]]
     if (!is.numeric(y))
         stop(sQuote("ctreeobj"), " is not a regression tree")
@@ -319,6 +323,7 @@ node_boxplot <- function(ctreeobj,
     
     return(rval)
 }
+class(node_boxplot) <- "grapcon_generator"
 
 node_hist <- function(ctreeobj,
                       col = "black",
@@ -331,7 +336,6 @@ node_hist <- function(ctreeobj,
 		      id = TRUE,
 		      ...)
 {
-
     y <- response(ctreeobj)[[1]]
     if (!is.numeric(y))
         stop(sQuote("ctreeobj"), " is not a regression tree")
@@ -412,6 +416,7 @@ node_hist <- function(ctreeobj,
     }
     return(rval)
 }
+class(node_hist) <- "grapcon_generator"
 
 node_density <- function(ctreeobj,
                          col = "black",
@@ -422,7 +427,6 @@ node_density <- function(ctreeobj,
 		         ylines = 3,
 		         id = TRUE)
 {
-
     y <- response(ctreeobj)[[1]]
     if (!is.numeric(y))
         stop(sQuote("ctreeobj"), " is not a regression tree")
@@ -516,6 +520,7 @@ node_density <- function(ctreeobj,
     
     return(rval)
 }
+class(node_density) <- "grapcon_generator"
 
 node_terminal <- function(ctreeobj,
                           digits = 3,
@@ -523,7 +528,6 @@ node_terminal <- function(ctreeobj,
 		          fill = c("lightgray", "white"),
 		          id = TRUE)
 {
-
     getLabel1 <- function(x) {
         if (!x$terminal) return(rep.int("", 2))
         nlab <- paste("n =", sum(x$weights))
@@ -564,8 +568,8 @@ node_terminal <- function(ctreeobj,
 
         if (id) {
             nodeIDvp <- viewport(x = unit(0.5, "npc"), y = unit(1, "npc"),
-                                 width = unit(1, "lines"),
-                                 height = unit(1, "lines"))
+	        width = max(unit(1, "lines"), unit(1.3, "strwidth", as.character(node$nodeID))),
+	        height = max(unit(1, "lines"), unit(1.3, "strheight", as.character(node$nodeID))))
             pushViewport(nodeIDvp)
             grid.rect(gp = gpar(fill = fill[2], lty = "solid"))
             grid.text(node$nodeID)
@@ -575,12 +579,10 @@ node_terminal <- function(ctreeobj,
     }
     return(rval)
 }
+class(node_terminal) <- "grapcon_generator"
 
-edge_simple <- function(ctreeobj,
-                        digits = 3,
-		        abbreviate = FALSE)
+edge_simple <- function(treeobj, digits = 3, abbreviate = FALSE)
 {
-
     ### panel function for simple edge labelling
     function(split, ordered = FALSE, left = TRUE) {
   
@@ -605,6 +607,7 @@ edge_simple <- function(ctreeobj,
         grid.text(split, just = "center")
     }
 }
+class(edge_simple) <- "grapcon_generator"
 
 plotTree <- function(node, xlim, ylim, nx, ny, 
                terminal_panel, inner_panel, edge_panel,
@@ -748,11 +751,10 @@ plotTree <- function(node, xlim, ylim, nx, ny,
 }
 
 
-plot.BinaryTree <- function(x, main = NULL,
-                            type = c("extended", "simple"),
-                            terminal_panel = NULL,
-			    inner_panel = node_inner, 
-                            edge_panel = edge_simple,
+plot.BinaryTree <- function(x, main = NULL, type = c("extended", "simple"),
+                            terminal_panel = NULL, tp_args = list(),
+			    inner_panel = node_inner, ip_args = list(),
+                            edge_panel = edge_simple, ep_args = list(),
 			    drop_terminal = (type[1] == "extended"),
 			    tnex = (type[1] == "extended") + 1, 
 			    newpage = TRUE,
@@ -815,24 +817,29 @@ plot.BinaryTree <- function(x, main = NULL,
     ### the heuristic is as follows: If the first argument
     ### is `ctreeobj' than we assume a panel generating function, 
     ### otherwise the function is treated as a panel function
-    if (names(formals(terminal_panel))[1] == "ctreeobj") 
-        terminal_panel <- terminal_panel(x)
-    if (names(formals(inner_panel))[1] == "ctreeobj") 
-        inner_panel <- inner_panel(x)
-    if (names(formals(edge_panel))[1] == "ctreeobj") 
-        edge_panel <- edge_panel(x)
+    if(inherits(terminal_panel, "grapcon_generator"))
+      terminal_panel <- do.call("terminal_panel", c(list(x), as.list(tp_args)))
+    if(inherits(inner_panel, "grapcon_generator"))
+      inner_panel <- do.call("inner_panel", c(list(x), as.list(ip_args)))
+    if(inherits(edge_panel, "grapcon_generator"))
+      edge_panel <- do.call("edge_panel", c(list(x), as.list(ep_args)))
 
-    ## call the workhorse
-    plotTree(ptr,
-       xlim = c(0, nx), ylim = c(0, ny - 0.5 + (tnex - 1)),
-       nx = nx, ny = ny, 
-       terminal_panel = terminal_panel,
-       inner_panel = inner_panel,
-       edge_panel = edge_panel,
-       tnex = tnex,
-       drop_terminal = drop_terminal,
-       debug = FALSE)
 
+    if((nx <= 1 & ny <= 1)) {
+      pushViewport(plotViewport(margins = rep(1.5, 4), name = paste("Node", ptr$nodeID, sep = "")))
+      terminal_panel(ptr)    
+    } else {
+      ## call the workhorse
+      plotTree(ptr,
+        xlim = c(0, nx), ylim = c(0, ny - 0.5 + (tnex - 1)),
+        nx = nx, ny = ny, 
+        terminal_panel = terminal_panel,
+        inner_panel = inner_panel,
+        edge_panel = edge_panel,
+        tnex = tnex,
+        drop_terminal = drop_terminal,
+        debug = FALSE)
+    }
     upViewport()
-    if (pop) popViewport()
+    if (pop) popViewport() else upViewport()
 }

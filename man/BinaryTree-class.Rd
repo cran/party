@@ -106,7 +106,7 @@ Class \code{"BinaryTreePartition"}, directly.
 }
 }
 \examples{
-  data(airquality)
+
   airq <- subset(airquality, !is.na(Ozone))
   airct <- ctree(Ozone ~ ., data = airq,   
                  controls = ctree_control(maxsurrogate = 3))

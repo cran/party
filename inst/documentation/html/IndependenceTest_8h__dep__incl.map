@@ -1,5 +1,5 @@
 base referer
-rect $party_8h.html 189,319 234,342
+rect $party_8h.html 189,343 234,366
 rect $Classes_8c.html 311,7 378,31
 rect $Convenience_8c.html 299,55 390,79
 rect $Distributions_8c.html 299,103 390,127
@@ -7,10 +7,11 @@ rect $IndependenceTest_8c.html 283,151 406,175
 rect $LinearStatistic_8c.html 294,199 395,223
 rect $Node_8c.html 321,247 369,271
 rect $Predict_8c.html 315,295 374,319
-rect $randomF77_8c.html 303,342 386,366
-rect $S3Classes_8c.html 303,390 386,414
-rect $Splits_8c.html 319,438 370,462
-rect $SurrogateSplits_8c.html 291,486 398,510
-rect $TestStatistic_8c.html 299,534 390,558
-rect $TreeGrow_8c.html 307,582 382,606
-rect $Utils_8c.html 322,630 367,654
+rect $randomF77_8c.html 303,343 386,366
+rect $RandomForest_8c.html 293,390 397,414
+rect $S3Classes_8c.html 303,438 386,462
+rect $Splits_8c.html 319,486 370,510
+rect $SurrogateSplits_8c.html 291,534 398,558
+rect $TestStatistic_8c.html 299,582 390,606
+rect $TreeGrow_8c.html 307,630 382,654
+rect $Utils_8c.html 322,678 367,702

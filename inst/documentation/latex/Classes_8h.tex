@@ -98,6 +98,8 @@ SEXP \hyperlink{Classes_8h_a99}{get\_\-tgctrl} (SEXP object)
 SEXP \hyperlink{Classes_8h_a100}{get\_\-splitstatistics} (SEXP object)
 \item 
 int \hyperlink{Classes_8h_a101}{get\_\-savesplitstats} (SEXP object)
+\item 
+int \hyperlink{Classes_8h_a102}{check\_\-depth} (SEXP object, int depth)
 \end{CompactItemize}
 \subsection*{Variables}
 \begin{CompactItemize}
@@ -223,7 +225,20 @@ SEXP \hyperlink{Classes_8h_a58}{PL2\_\-tgctrl\-Sym}
 
 
 \subsection{Function Documentation}
-\hypertarget{Classes_8h_a64}{
+\hypertarget{Classes_8h_a102}{
+\index{Classes.h@{Classes.h}!check_depth@{check\_\-depth}}
+\index{check_depth@{check\_\-depth}!Classes.h@{Classes.h}}
+\subsubsection[check\_\-depth]{\setlength{\rightskip}{0pt plus 5cm}int check\_\-depth (SEXP {\em object}, int {\em depth})}}
+\label{Classes_8h_a102}
+
+
+
+
+Definition at line 349 of file Classes.c.
+
+References PL2\_\-maxdepth\-Sym.
+
+Referenced by C\_\-Tree\-Grow().\hypertarget{Classes_8h_a64}{
 \index{Classes.h@{Classes.h}!get_abseps@{get\_\-abseps}}
 \index{get_abseps@{get\_\-abseps}!Classes.h@{Classes.h}}
 \subsubsection[get\_\-abseps]{\setlength{\rightskip}{0pt plus 5cm}double get\_\-abseps (SEXP {\em object})}}
@@ -232,7 +247,7 @@ SEXP \hyperlink{Classes_8h_a58}{PL2\_\-tgctrl\-Sym}
 
 
 
-Definition at line 163 of file Classes.c.
+Definition at line 165 of file Classes.c.
 
 References PL2\_\-abseps\-Sym.
 
@@ -245,7 +260,7 @@ Referenced by C\_\-Teststat\-Pvalue().\hypertarget{Classes_8h_a59}{
 
 
 
-Definition at line 143 of file Classes.c.
+Definition at line 145 of file Classes.c.
 
 References PL2\_\-dimension\-Sym.
 
@@ -258,7 +273,7 @@ Referenced by C\_\-Conditional\-Pvalue(), C\_\-MLinear\-Statistic(), C\_\-Node()
 
 
 
-Definition at line 335 of file Classes.c.
+Definition at line 337 of file Classes.c.
 
 References PL2\_\-dontuse\-Sym.
 
@@ -271,7 +286,7 @@ Referenced by C\_\-Global\-Test().\hypertarget{Classes_8h_a96}{
 
 
 
-Definition at line 339 of file Classes.c.
+Definition at line 341 of file Classes.c.
 
 References PL2\_\-dontusetmp\-Sym.
 
@@ -284,7 +299,7 @@ Referenced by C\_\-Global\-Test().\hypertarget{Classes_8h_a91}{
 
 
 
-Definition at line 311 of file Classes.c.
+Definition at line 313 of file Classes.c.
 
 References PL2\_\-gtctrl\-Sym.
 
@@ -297,7 +312,7 @@ Referenced by C\_\-Node().\hypertarget{Classes_8h_a70}{
 
 
 
-Definition at line 189 of file Classes.c.
+Definition at line 191 of file Classes.c.
 
 References PL2\_\-jointtransf\-Sym.
 
@@ -310,7 +325,7 @@ Referenced by R\_\-modify\_\-response().\hypertarget{Classes_8h_a78}{
 
 
 
-Definition at line 226 of file Classes.c.
+Definition at line 228 of file Classes.c.
 
 References is\_\-nominal(), is\_\-ordinal(), and PL2\_\-levels\-Sym.
 
@@ -331,7 +346,7 @@ Here is the call graph for this function:\begin{figure}[H]
 
 
 
-Definition at line 159 of file Classes.c.
+Definition at line 161 of file Classes.c.
 
 References PL2\_\-maxpts\-Sym.
 
@@ -344,7 +359,7 @@ Referenced by C\_\-Teststat\-Pvalue().\hypertarget{Classes_8h_a98}{
 
 
 
-Definition at line 323 of file Classes.c.
+Definition at line 325 of file Classes.c.
 
 References PL2\_\-maxsurrogate\-Sym.
 
@@ -357,7 +372,7 @@ Referenced by C\_\-splitnode(), C\_\-surrogates(), C\_\-Tree\-Grow(), R\_\-Ensem
 
 
 
-Definition at line 179 of file Classes.c.
+Definition at line 181 of file Classes.c.
 
 References PL2\_\-minbucket\-Sym.
 
@@ -370,7 +385,7 @@ Referenced by C\_\-split().\hypertarget{Classes_8h_a92}{
 
 
 
-Definition at line 319 of file Classes.c.
+Definition at line 321 of file Classes.c.
 
 References PL2\_\-mincriterion\-Sym.
 
@@ -383,7 +398,7 @@ Referenced by C\_\-Node().\hypertarget{Classes_8h_a67}{
 
 
 
-Definition at line 175 of file Classes.c.
+Definition at line 177 of file Classes.c.
 
 References PL2\_\-minprob\-Sym.
 
@@ -396,7 +411,7 @@ Referenced by C\_\-split().\hypertarget{Classes_8h_a66}{
 
 
 
-Definition at line 171 of file Classes.c.
+Definition at line 173 of file Classes.c.
 
 References PL2\_\-minsplit\-Sym.
 
@@ -409,7 +424,7 @@ Referenced by C\_\-Node().\hypertarget{Classes_8h_a76}{
 
 
 
-Definition at line 249 of file Classes.c.
+Definition at line 251 of file Classes.c.
 
 References has\_\-missings(), and PL2\_\-which\-NASym.
 
@@ -430,7 +445,7 @@ Here is the call graph for this function:\begin{figure}[H]
 
 
 
-Definition at line 270 of file Classes.c.
+Definition at line 272 of file Classes.c.
 
 References PL2\_\-Mscorematrices\-Sym.
 
@@ -443,7 +458,7 @@ Referenced by C\_\-Global\-Test(), and C\_\-Monte\-Carlo().\hypertarget{Classes_
 
 
 
-Definition at line 331 of file Classes.c.
+Definition at line 333 of file Classes.c.
 
 References PL2\_\-mtry\-Sym.
 
@@ -456,7 +471,7 @@ Referenced by C\_\-Global\-Test().\hypertarget{Classes_8h_a85}{
 
 
 
-Definition at line 287 of file Classes.c.
+Definition at line 289 of file Classes.c.
 
 References PL2\_\-ninputs\-Sym.
 
@@ -469,11 +484,11 @@ Referenced by C\_\-Global\-Test(), C\_\-Monte\-Carlo(), C\_\-Node(), C\_\-splitn
 
 
 
-Definition at line 283 of file Classes.c.
+Definition at line 285 of file Classes.c.
 
 References PL2\_\-nobs\-Sym.
 
-Referenced by C\_\-Global\-Test(), C\_\-Monte\-Carlo(), C\_\-Node(), C\_\-predict(), C\_\-splitnode(), C\_\-splitsurrogate(), C\_\-surrogates(), C\_\-Tree\-Grow(), C\_\-weights(), R\_\-Ensemble(), R\_\-get\_\-node\-ID(), R\_\-Node(), R\_\-predict(), R\_\-predict\-RF(), R\_\-predict\-RF2(), R\_\-Tree\-Grow(), and R\_\-weights().\hypertarget{Classes_8h_a88}{
+Referenced by C\_\-Global\-Test(), C\_\-Monte\-Carlo(), C\_\-Node(), C\_\-predict(), C\_\-splitnode(), C\_\-splitsurrogate(), C\_\-surrogates(), C\_\-Tree\-Grow(), C\_\-weights(), R\_\-Ensemble(), R\_\-get\_\-node\-ID(), R\_\-Node(), R\_\-predict(), R\_\-predict\-RF(), R\_\-predict\-RF2(), R\_\-predict\-RF\_\-weights(), R\_\-Tree\-Grow(), and R\_\-weights().\hypertarget{Classes_8h_a88}{
 \index{Classes.h@{Classes.h}!get_nresample@{get\_\-nresample}}
 \index{get_nresample@{get\_\-nresample}!Classes.h@{Classes.h}}
 \subsubsection[get\_\-nresample]{\setlength{\rightskip}{0pt plus 5cm}int get\_\-nresample (SEXP {\em object})}}
@@ -482,7 +497,7 @@ Referenced by C\_\-Global\-Test(), C\_\-Monte\-Carlo(), C\_\-Node(), C\_\-predic
 
 
 
-Definition at line 299 of file Classes.c.
+Definition at line 301 of file Classes.c.
 
 References PL2\_\-nresample\-Sym.
 
@@ -495,7 +510,7 @@ Referenced by C\_\-Monte\-Carlo().\hypertarget{Classes_8h_a77}{
 
 
 
-Definition at line 215 of file Classes.c.
+Definition at line 217 of file Classes.c.
 
 References is\_\-nominal(), and PL2\_\-ordering\-Sym.
 
@@ -516,7 +531,7 @@ Here is the call graph for this function:\begin{figure}[H]
 
 
 
-Definition at line 151 of file Classes.c.
+Definition at line 153 of file Classes.c.
 
 References PL2\_\-pvalue\-Sym.
 
@@ -529,7 +544,7 @@ Referenced by C\_\-Teststat\-Criterion(), and C\_\-Teststat\-Pvalue().\hypertarg
 
 
 
-Definition at line 327 of file Classes.c.
+Definition at line 329 of file Classes.c.
 
 References PL2\_\-randomsplits\-Sym.
 
@@ -542,7 +557,7 @@ Referenced by C\_\-Global\-Test().\hypertarget{Classes_8h_a65}{
 
 
 
-Definition at line 167 of file Classes.c.
+Definition at line 169 of file Classes.c.
 
 References PL2\_\-releps\-Sym.
 
@@ -555,7 +570,7 @@ Referenced by C\_\-Teststat\-Pvalue().\hypertarget{Classes_8h_a101}{
 
 
 
-Definition at line 275 of file Classes.c.
+Definition at line 277 of file Classes.c.
 
 References PL2\_\-savesplitstats\-Sym.
 
@@ -568,7 +583,7 @@ Referenced by C\_\-Node().\hypertarget{Classes_8h_a79}{
 
 
 
-Definition at line 238 of file Classes.c.
+Definition at line 240 of file Classes.c.
 
 References is\_\-ordinal(), and PL2\_\-scores\-Sym.
 
@@ -587,7 +602,7 @@ Here is the call graph for this function:\begin{figure}[H]
 
 
 
-Definition at line 307 of file Classes.c.
+Definition at line 309 of file Classes.c.
 
 References PL2\_\-splitctrl\-Sym.
 
@@ -600,7 +615,7 @@ Referenced by C\_\-Node(), C\_\-splitnode(), C\_\-surrogates(), C\_\-Tree\-Grow(
 
 
 
-Definition at line 279 of file Classes.c.
+Definition at line 281 of file Classes.c.
 
 References PL2\_\-splitstatistics\-Sym.
 
@@ -613,7 +628,7 @@ Referenced by C\_\-Node(), and C\_\-surrogates().\hypertarget{Classes_8h_a97}{
 
 
 
-Definition at line 343 of file Classes.c.
+Definition at line 345 of file Classes.c.
 
 References PL2\_\-stump\-Sym.
 
@@ -626,7 +641,7 @@ Referenced by C\_\-Tree\-Grow().\hypertarget{Classes_8h_a60}{
 
 
 
-Definition at line 147 of file Classes.c.
+Definition at line 149 of file Classes.c.
 
 References PL2\_\-teststattype\-Sym.
 
@@ -639,7 +654,7 @@ Referenced by C\_\-Global\-Test(), C\_\-Independence\-Test(), and C\_\-Teststat\
 
 
 
-Definition at line 295 of file Classes.c.
+Definition at line 297 of file Classes.c.
 
 References PL2\_\-testtype\-Sym.
 
@@ -652,7 +667,7 @@ Referenced by C\_\-Global\-Test().\hypertarget{Classes_8h_a99}{
 
 
 
-Definition at line 315 of file Classes.c.
+Definition at line 317 of file Classes.c.
 
 References PL2\_\-tgctrl\-Sym.
 
@@ -665,7 +680,7 @@ Referenced by C\_\-Node(), and C\_\-Tree\-Grow().\hypertarget{Classes_8h_a61}{
 
 
 
-Definition at line 155 of file Classes.c.
+Definition at line 157 of file Classes.c.
 
 References PL2\_\-tol\-Sym.
 
@@ -678,7 +693,7 @@ Referenced by C\_\-Global\-Test(), C\_\-Independence\-Test(), C\_\-Node(), C\_\-
 
 
 
-Definition at line 183 of file Classes.c.
+Definition at line 185 of file Classes.c.
 
 References PL2\_\-transformations\-Sym.
 
@@ -691,7 +706,7 @@ Referenced by C\_\-Global\-Test(), C\_\-Monte\-Carlo(), C\_\-Node(), and R\_\-mo
 
 
 
-Definition at line 303 of file Classes.c.
+Definition at line 305 of file Classes.c.
 
 References PL2\_\-varctrl\-Sym.
 
@@ -704,7 +719,7 @@ Referenced by C\_\-Node().\hypertarget{Classes_8h_a71}{
 
 
 
-Definition at line 193 of file Classes.c.
+Definition at line 195 of file Classes.c.
 
 References PL2\_\-variables\-Sym.
 
@@ -717,7 +732,7 @@ Referenced by C\_\-get\_\-node(), C\_\-Node(), C\_\-splitnode(), C\_\-splitsurro
 
 
 
-Definition at line 260 of file Classes.c.
+Definition at line 262 of file Classes.c.
 
 References PL2\_\-varmemory\-Sym.
 
@@ -730,7 +745,7 @@ Referenced by C\_\-Global\-Test(), C\_\-Monte\-Carlo(), and C\_\-Node().\hyperta
 
 
 
-Definition at line 265 of file Classes.c.
+Definition at line 267 of file Classes.c.
 
 References PL2\_\-var\-Mmemory\-Sym.
 
@@ -743,7 +758,7 @@ Referenced by C\_\-Global\-Test(), and C\_\-Monte\-Carlo().\hypertarget{Classes_
 
 
 
-Definition at line 291 of file Classes.c.
+Definition at line 293 of file Classes.c.
 
 References PL2\_\-weights\-Sym.
 
@@ -763,7 +778,7 @@ Referenced by C\_\-Global\-Test(), C\_\-Node(), and C\_\-surrogates().\hypertarg
 
 
 
-Definition at line 211 of file Classes.c.
+Definition at line 213 of file Classes.c.
 
 References PL2\_\-has\_\-missings\-Sym.
 
@@ -776,7 +791,7 @@ Referenced by C\_\-get\_\-node(), C\_\-Global\-Test(), C\_\-Monte\-Carlo(), C\_\
 
 
 
-Definition at line 207 of file Classes.c.
+Definition at line 209 of file Classes.c.
 
 References PL2\_\-is\_\-censored\-Sym.\hypertarget{Classes_8h_a72}{
 \index{Classes.h@{Classes.h}!is_nominal@{is\_\-nominal}}
@@ -787,7 +802,7 @@ References PL2\_\-is\_\-censored\-Sym.\hypertarget{Classes_8h_a72}{
 
 
 
-Definition at line 199 of file Classes.c.
+Definition at line 201 of file Classes.c.
 
 References PL2\_\-is\_\-nominal\-Sym.
 
@@ -800,7 +815,7 @@ Referenced by C\_\-Node(), C\_\-surrogates(), get\_\-levels(), and get\_\-orderi
 
 
 
-Definition at line 203 of file Classes.c.
+Definition at line 205 of file Classes.c.
 
 References PL2\_\-is\_\-ordinal\-Sym.
 

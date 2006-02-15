@@ -1,5 +1,5 @@
 
-# $Id: Utils.R,v 1.8 2006/01/12 10:47:48 hothorn Exp $
+# $Id: Utils.R 2432 2006-01-12 10:47:48Z hothorn $
 
 ### Wrapper for functions defined in ./src/Utilsc
 

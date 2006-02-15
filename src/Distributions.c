@@ -3,7 +3,7 @@
     Conditional Distributions
     *\file Distributions.c
     *\author $Author: hothorn $
-    *\date $Date: 2005/07/07 12:32:01 $
+    *\date $Date: 2005-07-07 14:32:01 +0200 (Thu, 07 Jul 2005) $
 */
                 
 #include "party.h"

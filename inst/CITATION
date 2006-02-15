@@ -1,0 +1,16 @@
+citHeader("To cite party in publications use:")
+
+citEntry(entry="Article",
+         title = "Unbiased Recursive Partitioning: A Conditional Inference Framework",
+         author = personList(as.person("Torsten Hothorn"), as.person("Kurt Hornik"), 
+                             as.person("Achim Zeileis")),
+         journal      = "Journal of Computational and Graphical Statistics",
+         year         = "2006",
+         note         = "accepted for publication",
+
+         textVersion =
+         paste("Torsten Hothorn, Kurt Hornik and Achim Zeileis (2006).",
+               "Unbiased Recursive Partitioning: A Conditional Inference Framework.",
+               "Journal of Computational and Graphical Statistics (accepted for publication).")
+)
+

@@ -1,5 +1,5 @@
 
-# $Id: ConditionalTree.R,v 1.14 2005/12/02 10:02:22 hothorn Exp $
+# $Id: ConditionalTree.R 2464 2006-02-14 10:35:22Z hothorn $
 
 ### the fitting procedure
 ctreefit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
@@ -177,7 +177,7 @@ ctree_control <- function(teststattype = c("quadform", "maxabs"),
                           testtype = c("Bonferroni", "MonteCarlo", "Raw"),
                           mincriterion = 0.95, minsplit = 20, stump = FALSE,
                           nresample = 9999, maxsurrogate = 0, mtry = 0, 
-                          savesplitstats = TRUE) {
+                          savesplitstats = TRUE, maxdepth = 0) {
 
     teststattype <- match.arg(teststattype)
     testtype <- match.arg(testtype)
@@ -206,6 +206,7 @@ ctree_control <- function(teststattype = c("quadform", "maxabs"),
     RET@splitctrl@minsplit <- minsplit
     RET@splitctrl@maxsurrogate <- as.integer(maxsurrogate)
     RET@tgctrl@stump <- stump
+    RET@tgctrl@maxdepth <- as.integer(maxdepth)
     RET@tgctrl@savesplitstats <- savesplitstats
     RET
 }

@@ -3,7 +3,7 @@
     S4 classes for package `party'
     *\file Classes.c
     *\author $Author: hothorn $
-    *\date $Date: 2005/06/14 09:21:32 $
+    *\date $Date: 2006-02-14 11:35:22 +0100 (Di, 14 Feb 2006) $
 */
 
 #include "party.h"
@@ -70,6 +70,7 @@ SEXP
     PL2_dontuseSym,
     PL2_dontusetmpSym,
     PL2_stumpSym,
+    PL2_maxdepthSym,
     PL2_tgctrlSym;
 
 SEXP party_init(void) {
@@ -134,6 +135,7 @@ SEXP party_init(void) {
     PL2_dontuseSym = install("dontuse"); 
     PL2_dontusetmpSym = install("dontusetmp"); 
     PL2_stumpSym = install("stump"); 
+    PL2_maxdepthSym = install("maxdepth"); 
     PL2_tgctrlSym = install("tgctrl"); 
     return(R_NilValue);
 }
@@ -342,4 +344,12 @@ SEXP get_dontusetmp(SEXP object) {
 
 int get_stump(SEXP object) {
     return(INTEGER(GET_SLOT(object, PL2_stumpSym))[0]);
+}
+
+int check_depth(SEXP object, int depth) {
+    int maxdepth;
+    maxdepth = INTEGER(GET_SLOT(object, PL2_maxdepthSym))[0];
+    if (maxdepth == 0) return(1);
+    if (maxdepth < 1) error("maxdepth is less than one");
+    return(depth <= maxdepth);
 }

@@ -1,0 +1,18 @@
+\BOOKMARK [1][-]{Section.0.Introduction.1}{Introduction}{}
+\BOOKMARK [1][-]{Section.1.Recursive binary partitioning.1}{Recursive binary partitioning}{}
+\BOOKMARK [1][-]{Section.2.Recursive partitioning by conditional inference.1}{Recursive partitioning by conditional inference}{}
+\BOOKMARK [2][-]{Subsection.3.0.Variable selection and stopping criteria.2}{Variable selection and stopping criteria}{Section.2.Recursive partitioning by conditional inference.1}
+\BOOKMARK [2][-]{Subsection.3.1.Splitting criteria.2}{Splitting criteria}{Section.2.Recursive partitioning by conditional inference.1}
+\BOOKMARK [2][-]{Subsection.3.2.Missing values and surrogate splits.2}{Missing values and surrogate splits}{Section.2.Recursive partitioning by conditional inference.1}
+\BOOKMARK [2][-]{Subsection.3.3.Inspecting a tree.2}{Inspecting a tree}{Section.2.Recursive partitioning by conditional inference.1}
+\BOOKMARK [1][-]{Section.3.Examples.1}{Examples}{}
+\BOOKMARK [2][-]{Subsection.4.0.Univariate continuous or discrete regression.2}{Univariate continuous or discrete regression}{Section.3.Examples.1}
+\BOOKMARK [2][-]{Subsection.4.1.Censored regression.2}{Censored regression}{Section.3.Examples.1}
+\BOOKMARK [2][-]{Subsection.4.2.$J$-class classification.2}{J-class classification}{Section.3.Examples.1}
+\BOOKMARK [2][-]{Subsection.4.3.Ordinal regression.2}{Ordinal regression}{Section.3.Examples.1}
+\BOOKMARK [2][-]{Subsection.4.4.Multivariate regression.2}{Multivariate regression}{Section.3.Examples.1}
+\BOOKMARK [1][-]{Section.4.Illustrations and applications.1}{Illustrations and applications}{}
+\BOOKMARK [2][-]{Subsection.5.0.Tree pipit abundance.2}{Tree pipit abundance}{Section.4.Illustrations and applications.1}
+\BOOKMARK [2][-]{Subsection.5.1.Glaucoma and laser scanning images.2}{Glaucoma and laser scanning images}{Section.4.Illustrations and applications.1}
+\BOOKMARK [2][-]{Subsection.5.2.Node positive breast cancer.2}{Node positive breast cancer}{Section.4.Illustrations and applications.1}
+\BOOKMARK [2][-]{Subsection.5.3.Mammography experience.2}{Mammography experience}{Section.4.Illustrations and applications.1}

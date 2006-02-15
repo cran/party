@@ -1,4 +1,4 @@
-.TH "Predict.c" 3 "18 Jan 2006" "party" \" -*- nroff -*-
+.TH "Predict.c" 3 "16 Feb 2006" "party" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -69,6 +69,9 @@ Predict.c \-
 .ti -1c
 .RI "SEXP \fBR_predictRF2\fP (SEXP forest, SEXP response, SEXP newinputs, SEXP mincriterion, SEXP oobpred)"
 .br
+.ti -1c
+.RI "SEXP \fBR_predictRF_weights\fP (SEXP forest, SEXP newinputs, SEXP mincriterion, SEXP oobpred)"
+.br
 .in -1c
 .SH "Detailed Description"
 .PP 
@@ -85,7 +88,7 @@ hothorn
 \fBDate:\fP
 .RS 4
 \fBDate\fP.RS 4
-2005/06/14 09:21:32 
+2006-02-08 18:33:26 +0100 (Wed, 08 Feb 2006) 
 .RE
 .PP
 .RE
@@ -143,7 +146,7 @@ Definition at line 252 of file Predict.c.
 .PP
 References S3get_leftnode(), S3get_nodeID(), S3get_nodeterminal(), and S3get_rightnode().
 .PP
-Referenced by C_getpredictions(), C_getweights(), R_get_nodebynum(), R_predictRF(), and R_predictRF2().
+Referenced by C_getpredictions(), C_getweights(), R_get_nodebynum(), R_predictRF(), R_predictRF2(), and R_predictRF_weights().
 .SS "int C_get_nodeID (SEXP subtree, SEXP newinputs, double mincriterion, int numobs)"
 .PP
 Get the nodeID for a new observation 
@@ -167,7 +170,7 @@ Definition at line 316 of file Predict.c.
 .PP
 References C_get_node(), and S3get_nodeID().
 .PP
-Referenced by R_get_nodeID(), R_predictRF(), and R_predictRF2().
+Referenced by R_get_nodeID(), R_predictRF(), R_predictRF2(), and R_predictRF_weights().
 .SS "SEXP C_get_nodeweights (SEXP subtree, SEXP newinputs, double mincriterion, int numobs)"
 .PP
 Get the weights for a new observation 
@@ -491,6 +494,26 @@ Predictions from RandomForest objects, based in total weights
 Definition at line 576 of file Predict.c.
 .PP
 References C_get_nodebynum(), C_get_nodeID(), C_matprod(), get_nobs(), ncol(), nrow(), and S3get_nodeweights().
+.SS "SEXP R_predictRF_weights (SEXP forest, SEXP newinputs, SEXP mincriterion, SEXP oobpred)"
+.PP
+Predictions weights from RandomForest objects 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIforest\fP a list of trees 
+.br
+\fInewinputs\fP an object of class `VariableFrame' 
+.br
+\fImincriterion\fP overwrites mincriterion used for tree growing 
+.br
+\fIoobpred\fP a logical indicating out-of-bag predictions 
+.RE
+.PP
+
+.PP
+Definition at line 641 of file Predict.c.
+.PP
+References C_get_nodebynum(), C_get_nodeID(), get_nobs(), S3get_nodeweights(), and S3get_prediction().
 .SS "SEXP R_weights (SEXP tree, SEXP newinputs, SEXP mincriterion)"
 .PP
 R-Interface to C_weights 

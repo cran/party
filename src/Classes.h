@@ -106,3 +106,4 @@ int get_maxsurrogate(SEXP object);
 SEXP get_tgctrl(SEXP object);
 SEXP get_splitstatistics(SEXP object);
 int get_savesplitstats(SEXP object);
+int check_depth(SEXP object, int depth);

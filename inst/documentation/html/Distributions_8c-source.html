@@ -131,17 +131,17 @@
 00174     <span class="keywordtype">double</span> sweights, *stats, tmp = 0.0, smax, *dweights; 
 00175     <span class="keywordtype">int</span> m, *counts, b, B, *dummy, *permindex, *index, *permute;
 00176     
-00177     ninputs = <a class="code" href="Classes_8c.html#a90">get_ninputs</a>(learnsample);
-00178     nobs = <a class="code" href="Classes_8c.html#a89">get_nobs</a>(learnsample);
+00177     ninputs = <a class="code" href="Classes_8c.html#a91">get_ninputs</a>(learnsample);
+00178     nobs = <a class="code" href="Classes_8c.html#a90">get_nobs</a>(learnsample);
 00179     responses = GET_SLOT(learnsample, <a class="code" href="Classes_8c.html#a47">PL2_responsesSym</a>);
 00180     inputs = GET_SLOT(learnsample, <a class="code" href="Classes_8c.html#a48">PL2_inputsSym</a>);
 00181     dweights = REAL(weights);
 00182     
 00183     <span class="comment">/* number of Monte-Carlo replications */</span>
-00184     B = <a class="code" href="Classes_8c.html#a93">get_nresample</a>(gtctrl);
+00184     B = <a class="code" href="Classes_8c.html#a94">get_nresample</a>(gtctrl);
 00185     
-00186     yORDERED = <a class="code" href="Classes_8c.html#a77">is_ordinal</a>(responses, 1);
-00187     y = <a class="code" href="Classes_8c.html#a73">get_transformation</a>(responses, 1);
+00186     yORDERED = <a class="code" href="Classes_8c.html#a78">is_ordinal</a>(responses, 1);
+00187     y = <a class="code" href="Classes_8c.html#a74">get_transformation</a>(responses, 1);
 00188     
 00189     expcovinf = GET_SLOT(fitmem, <a class="code" href="Classes_8c.html#a3">PL2_expcovinfSym</a>);
 00190 
@@ -176,12 +176,12 @@
 00219 
 00220         <span class="comment">/* for all input variables */</span>
 00221         <span class="keywordflow">for</span> (j = 1; j &lt;= ninputs; j++) {
-00222             x = <a class="code" href="Classes_8c.html#a73">get_transformation</a>(inputs, j);
-00223             xORDERED = <a class="code" href="Classes_8c.html#a77">is_ordinal</a>(inputs, j);
+00222             x = <a class="code" href="Classes_8c.html#a74">get_transformation</a>(inputs, j);
+00223             xORDERED = <a class="code" href="Classes_8c.html#a78">is_ordinal</a>(inputs, j);
 00224 
 00225             <span class="comment">/* compute test statistic or pvalue for the permuted data */</span>
-00226             xmem = <a class="code" href="Classes_8c.html#a84">get_varmemory</a>(fitmem, j);
-00227             <span class="keywordflow">if</span> (!<a class="code" href="Classes_8c.html#a79">has_missings</a>(inputs, j)) {
+00226             xmem = <a class="code" href="Classes_8c.html#a85">get_varmemory</a>(fitmem, j);
+00227             <span class="keywordflow">if</span> (!<a class="code" href="Classes_8c.html#a80">has_missings</a>(inputs, j)) {
 00228                 <a class="code" href="LinearStatistic_8c.html#a6">C_PermutedLinearStatistic</a>(REAL(x), <a class="code" href="Utils_8c.html#a19">ncol</a>(x), REAL(y), <a class="code" href="Utils_8c.html#a19">ncol</a>(y), 
 00229                     nobs, m, index, permindex, 
 00230                     REAL(GET_SLOT(xmem, <a class="code" href="Classes_8c.html#a2">PL2_linearstatisticSym</a>)));
@@ -191,8 +191,8 @@
 00234             
 00235             <span class="comment">/* compute the criterion, i.e. something to be MAXIMISED */</span>
 00236             <span class="keywordflow">if</span> (yORDERED || xORDERED) {
-00237                 Mxmem = <a class="code" href="Classes_8c.html#a85">get_varMmemory</a>(fitmem, j);
-00238                 <a class="code" href="Convenience_8c.html#a2">C_MLinearStatistic</a>(xmem, <a class="code" href="Classes_8c.html#a86">get_Mscorematrix</a>(fitmem, j), Mxmem);
+00237                 Mxmem = <a class="code" href="Classes_8c.html#a86">get_varMmemory</a>(fitmem, j);
+00238                 <a class="code" href="Convenience_8c.html#a2">C_MLinearStatistic</a>(xmem, <a class="code" href="Classes_8c.html#a87">get_Mscorematrix</a>(fitmem, j), Mxmem);
 00239                 <a class="code" href="IndependenceTest_8c.html#a1">C_TeststatCriterion</a>(Mxmem, varctrl, &amp;tmp, &amp;stats[j - 1]);
 00240             } <span class="keywordflow">else</span> {
 00241                 <a class="code" href="IndependenceTest_8c.html#a1">C_TeststatCriterion</a>(xmem, varctrl, &amp;tmp, &amp;stats[j - 1]);
@@ -219,9 +219,9 @@
 00262 <span class="comment">               but have used this memory for resampling here */</span>
 00263 
 00264     <span class="keywordflow">for</span> (j = 1; j &lt;= ninputs; j++) {
-00265         x = <a class="code" href="Classes_8c.html#a73">get_transformation</a>(inputs, j);
+00265         x = <a class="code" href="Classes_8c.html#a74">get_transformation</a>(inputs, j);
 00266         <span class="comment">/* re-compute linear statistics for unpermuted data */</span>
-00267         xmem = <a class="code" href="Classes_8c.html#a84">get_varmemory</a>(fitmem, j);
+00267         xmem = <a class="code" href="Classes_8c.html#a85">get_varmemory</a>(fitmem, j);
 00268         <a class="code" href="LinearStatistic_8c.html#a0">C_LinearStatistic</a>(REAL(x), <a class="code" href="Utils_8c.html#a19">ncol</a>(x), REAL(y), <a class="code" href="Utils_8c.html#a19">ncol</a>(y), 
 00269                       dweights, nobs, 
 00270                       REAL(GET_SLOT(xmem, <a class="code" href="Classes_8c.html#a2">PL2_linearstatisticSym</a>)));
@@ -238,13 +238,13 @@
 00291                   
 00292      SEXP ans;
 00293      
-00294      PROTECT(ans = allocVector(REALSXP, <a class="code" href="Classes_8c.html#a90">get_ninputs</a>(learnsample)));
+00294      PROTECT(ans = allocVector(REALSXP, <a class="code" href="Classes_8c.html#a91">get_ninputs</a>(learnsample)));
 00295      <a class="code" href="Distributions_8c.html#a4">C_MonteCarlo</a>(REAL(criterion), learnsample, weights, fitmem, varctrl, 
 00296                   gtctrl, REAL(ans));
 00297      UNPROTECT(1);
 00298      <span class="keywordflow">return</span>(ans);
 00299 }
-</pre></div><hr size="1"><address style="align: right;"><small>Generated on Wed Jan 18 11:23:28 2006 for party by&nbsp;
+</pre></div><hr size="1"><address style="align: right;"><small>Generated on Thu Feb 16 09:11:58 2006 for party by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.2 </small></address>
 </body>

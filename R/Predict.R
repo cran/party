@@ -1,9 +1,14 @@
 
-# $Id: Predict.R,v 1.7 2005/06/22 09:32:30 hothorn Exp $
+# $Id: Predict.R 2463 2006-02-14 09:07:14Z hothorn $
 
 predict.BinaryTree <- function(object, ...) {
     conditionalTree@predict(object, ...)
 }
+
+predict.RandomForest <- function(object, OOB = FALSE, ...) {
+    RandomForest@predict(object, OOB = OOB, ...)
+}
+
 
 setGeneric("treeresponse", function(object, ...) 
            standardGeneric("treeresponse"))
@@ -13,13 +18,30 @@ setMethod("treeresponse", signature = signature(object = "BinaryTree"),
         object@cond_distr_response(newdata = newdata, ...)
 )
 
-
-setGeneric("weights", function(object, ...) standardGeneric("weights"))
-
-setMethod("weights", signature = signature(object = "BinaryTree"),
-    definition = function(object, newdata = NULL, ...)
-        object@prediction_weights(newdata = newdata, ...)
+setMethod("treeresponse", signature = signature(object = "RandomForest"),
+    definition = function(object, newdata = NULL, ...)   
+        object@cond_distr_response(newdata = newdata, ...)
 )
+
+
+### weights is an S3 generic
+###setGeneric("weights", function(object, ...) standardGeneric("weights"))
+###
+###setMethod("weights", signature = signature(object = "BinaryTree"),
+###    definition = function(object, newdata = NULL, ...)
+###        object@prediction_weights(newdata = newdata, ...)
+###)
+###
+###setMethod("weights", signature = signature(object = "RandomForest"),
+###    definition = function(object, newdata = NULL, OOB = FALSE, ...)
+###        object@prediction_weights(newdata = newdata, OOB = OOB, ...)
+###)
+
+weights.BinaryTree <- function(object, newdata = NULL, ...)
+    object@prediction_weights(newdata = newdata, ...)
+
+weights.RandomForest <- function(object, newdata = NULL, OOB = FALSE, ...)
+    object@prediction_weights(newdata = newdata, OOB = OOB, ...)
 
 
 setGeneric("where", function(object, ...) standardGeneric("where"))

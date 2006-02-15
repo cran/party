@@ -38,17 +38,17 @@
 00057     <span class="keywordtype">double</span> *dxtransf, *dweights;
 00058     <span class="keywordtype">int</span> *itable;
 00059     
-00060     nobs = <a class="code" href="Classes_8c.html#a89">get_nobs</a>(learnsample);
-00061     ninputs = <a class="code" href="Classes_8c.html#a90">get_ninputs</a>(learnsample);
-00062     varctrl = <a class="code" href="Classes_8c.html#a94">get_varctrl</a>(controls);
-00063     splitctrl = <a class="code" href="Classes_8c.html#a95">get_splitctrl</a>(controls);
-00064     gtctrl = <a class="code" href="Classes_8c.html#a96">get_gtctrl</a>(controls);
-00065     tgctrl = <a class="code" href="Classes_8c.html#a97">get_tgctrl</a>(controls);
-00066     mincriterion = <a class="code" href="Classes_8c.html#a98">get_mincriterion</a>(gtctrl);
+00060     nobs = <a class="code" href="Classes_8c.html#a90">get_nobs</a>(learnsample);
+00061     ninputs = <a class="code" href="Classes_8c.html#a91">get_ninputs</a>(learnsample);
+00062     varctrl = <a class="code" href="Classes_8c.html#a95">get_varctrl</a>(controls);
+00063     splitctrl = <a class="code" href="Classes_8c.html#a96">get_splitctrl</a>(controls);
+00064     gtctrl = <a class="code" href="Classes_8c.html#a97">get_gtctrl</a>(controls);
+00065     tgctrl = <a class="code" href="Classes_8c.html#a98">get_tgctrl</a>(controls);
+00066     mincriterion = <a class="code" href="Classes_8c.html#a99">get_mincriterion</a>(gtctrl);
 00067     responses = GET_SLOT(learnsample, <a class="code" href="Classes_8c.html#a47">PL2_responsesSym</a>);
 00068     inputs = GET_SLOT(learnsample, <a class="code" href="Classes_8c.html#a48">PL2_inputsSym</a>);
-00069     yORDERED = <a class="code" href="Classes_8c.html#a77">is_ordinal</a>(responses, 1); 
-00070     y = <a class="code" href="Classes_8c.html#a73">get_transformation</a>(responses, 1);
+00069     yORDERED = <a class="code" href="Classes_8c.html#a78">is_ordinal</a>(responses, 1); 
+00070     y = <a class="code" href="Classes_8c.html#a74">get_transformation</a>(responses, 1);
 00071     q = <a class="code" href="Utils_8c.html#a19">ncol</a>(y);
 00072     joint = GET_SLOT(responses, <a class="code" href="Classes_8c.html#a37">PL2_jointtransfSym</a>);
 00073 
@@ -56,7 +56,7 @@
 00075 
 00076     <span class="comment">/* compute the test statistics and the node criteria for each input */</span>        
 00077     <a class="code" href="IndependenceTest_8c.html#a4">C_GlobalTest</a>(learnsample, weights, fitmem, varctrl,
-00078                  gtctrl, <a class="code" href="Classes_8c.html#a70">get_minsplit</a>(splitctrl), 
+00078                  gtctrl, <a class="code" href="Classes_8c.html#a71">get_minsplit</a>(splitctrl), 
 00079                  REAL(<a class="code" href="S3Classes_8c.html#a4">S3get_teststat</a>(node)), REAL(<a class="code" href="S3Classes_8c.html#a5">S3get_criterion</a>(node)));
 00080     
 00081     <span class="comment">/* sum of weights: C_GlobalTest did nothing if sweights &lt; mincriterion */</span>
@@ -90,34 +90,34 @@
 00109             jselect = <a class="code" href="Utils_8c.html#a20">C_whichmax</a>(pvalue, teststat, ninputs) + 1;
 00110 
 00111             <span class="comment">/* get the raw numeric values or the codings of a factor */</span>
-00112             x = <a class="code" href="Classes_8c.html#a75">get_variable</a>(inputs, jselect);
-00113             <span class="keywordflow">if</span> (<a class="code" href="Classes_8c.html#a79">has_missings</a>(inputs, jselect)) {
-00114                 expcovinf = GET_SLOT(<a class="code" href="Classes_8c.html#a84">get_varmemory</a>(fitmem, jselect), 
+00112             x = <a class="code" href="Classes_8c.html#a76">get_variable</a>(inputs, jselect);
+00113             <span class="keywordflow">if</span> (<a class="code" href="Classes_8c.html#a80">has_missings</a>(inputs, jselect)) {
+00114                 expcovinf = GET_SLOT(<a class="code" href="Classes_8c.html#a85">get_varmemory</a>(fitmem, jselect), 
 00115                                     <a class="code" href="Classes_8c.html#a3">PL2_expcovinfSym</a>);
-00116                 thisweights = <a class="code" href="Classes_8c.html#a91">get_weights</a>(fitmem, jselect);
+00116                 thisweights = <a class="code" href="Classes_8c.html#a92">get_weights</a>(fitmem, jselect);
 00117             } <span class="keywordflow">else</span> {
 00118                 expcovinf = GET_SLOT(fitmem, <a class="code" href="Classes_8c.html#a3">PL2_expcovinfSym</a>);
 00119                 thisweights = weights;
 00120             }
 00121 
 00122             <span class="comment">/* &lt;FIXME&gt; handle ordered factors separatly??? &lt;/FIXME&gt; */</span>
-00123             <span class="keywordflow">if</span> (!<a class="code" href="Classes_8c.html#a76">is_nominal</a>(inputs, jselect)) {
+00123             <span class="keywordflow">if</span> (!<a class="code" href="Classes_8c.html#a77">is_nominal</a>(inputs, jselect)) {
 00124             
 00125                 <span class="comment">/* search for a split in a ordered variable x */</span>
 00126                 split = <a class="code" href="S3Classes_8c.html#a9">S3get_primarysplit</a>(node);
 00127                 
 00128                 <span class="comment">/* check if the n-vector of splitstatistics </span>
 00129 <span class="comment">                   should be returned for each primary split */</span>
-00130                 <span class="keywordflow">if</span> (<a class="code" href="Classes_8c.html#a87">get_savesplitstats</a>(tgctrl)) {
+00130                 <span class="keywordflow">if</span> (<a class="code" href="Classes_8c.html#a88">get_savesplitstats</a>(tgctrl)) {
 00131                     <a class="code" href="S3Classes_8c.html#a14">C_init_orderedsplit</a>(split, nobs);
 00132                     splitstat = REAL(<a class="code" href="S3Classes_8c.html#a24">S3get_splitstatistics</a>(split));
 00133                 } <span class="keywordflow">else</span> {
 00134                     <a class="code" href="S3Classes_8c.html#a14">C_init_orderedsplit</a>(split, 0);
-00135                     splitstat = REAL(<a class="code" href="Classes_8c.html#a88">get_splitstatistics</a>(fitmem));
+00135                     splitstat = REAL(<a class="code" href="Classes_8c.html#a89">get_splitstatistics</a>(fitmem));
 00136                 }
 00137 
 00138                 <a class="code" href="Splits_8c.html#a0">C_split</a>(REAL(x), 1, REAL(y), q, REAL(weights), nobs,
-00139                         INTEGER(<a class="code" href="Classes_8c.html#a80">get_ordering</a>(inputs, jselect)), 
+00139                         INTEGER(<a class="code" href="Classes_8c.html#a81">get_ordering</a>(inputs, jselect)), 
 00140                         REAL(VECTOR_ELT(GET_SLOT(responses, <a class="code" href="Classes_8c.html#a34">PL2_scoresSym</a>), 0)),
 00141                         yORDERED, splitctrl, 
 00142                         GET_SLOT(fitmem, <a class="code" href="Classes_8c.html#a40">PL2_linexpcov2sampleSym</a>),
@@ -131,29 +131,29 @@
 00150                  
 00151                 <span class="comment">/* check if the n-vector of splitstatistics </span>
 00152 <span class="comment">                   should be returned for each primary split */</span>
-00153                 <span class="keywordflow">if</span> (<a class="code" href="Classes_8c.html#a87">get_savesplitstats</a>(tgctrl)) {
+00153                 <span class="keywordflow">if</span> (<a class="code" href="Classes_8c.html#a88">get_savesplitstats</a>(tgctrl)) {
 00154                     <a class="code" href="S3Classes_8c.html#a15">C_init_nominalsplit</a>(split, 
-00155                         LENGTH(<a class="code" href="Classes_8c.html#a81">get_levels</a>(inputs, jselect)), 
+00155                         LENGTH(<a class="code" href="Classes_8c.html#a82">get_levels</a>(inputs, jselect)), 
 00156                         nobs);
 00157                     splitstat = REAL(<a class="code" href="S3Classes_8c.html#a24">S3get_splitstatistics</a>(split));
 00158                 } <span class="keywordflow">else</span> {
 00159                     <a class="code" href="S3Classes_8c.html#a15">C_init_nominalsplit</a>(split, 
-00160                         LENGTH(<a class="code" href="Classes_8c.html#a81">get_levels</a>(inputs, jselect)), 
+00160                         LENGTH(<a class="code" href="Classes_8c.html#a82">get_levels</a>(inputs, jselect)), 
 00161                         0);
-00162                     splitstat = REAL(<a class="code" href="Classes_8c.html#a88">get_splitstatistics</a>(fitmem));
+00162                     splitstat = REAL(<a class="code" href="Classes_8c.html#a89">get_splitstatistics</a>(fitmem));
 00163                 }
 00164           
-00165                  linexpcov = <a class="code" href="Classes_8c.html#a84">get_varmemory</a>(fitmem, jselect);
-00166                  standstat = Calloc(<a class="code" href="Classes_8c.html#a63">get_dimension</a>(linexpcov), <span class="keywordtype">double</span>);
+00165                  linexpcov = <a class="code" href="Classes_8c.html#a85">get_varmemory</a>(fitmem, jselect);
+00166                  standstat = Calloc(<a class="code" href="Classes_8c.html#a64">get_dimension</a>(linexpcov), <span class="keywordtype">double</span>);
 00167                  <a class="code" href="TestStatistic_8c.html#a0">C_standardize</a>(REAL(GET_SLOT(linexpcov, 
 00168                                              <a class="code" href="Classes_8c.html#a2">PL2_linearstatisticSym</a>)),
 00169                                REAL(GET_SLOT(linexpcov, <a class="code" href="Classes_8c.html#a0">PL2_expectationSym</a>)),
 00170                                REAL(GET_SLOT(linexpcov, <a class="code" href="Classes_8c.html#a1">PL2_covarianceSym</a>)),
-00171                                <a class="code" href="Classes_8c.html#a63">get_dimension</a>(linexpcov), <a class="code" href="Classes_8c.html#a66">get_tol</a>(splitctrl), 
+00171                                <a class="code" href="Classes_8c.html#a64">get_dimension</a>(linexpcov), <a class="code" href="Classes_8c.html#a67">get_tol</a>(splitctrl), 
 00172                                standstat);
 00173  
 00174                  <a class="code" href="Splits_8c.html#a2">C_splitcategorical</a>(INTEGER(x), 
-00175                                     LENGTH(<a class="code" href="Classes_8c.html#a81">get_levels</a>(inputs, jselect)), 
+00175                                     LENGTH(<a class="code" href="Classes_8c.html#a82">get_levels</a>(inputs, jselect)), 
 00176                                     REAL(y), q, REAL(weights), 
 00177                                     nobs, REAL(VECTOR_ELT(GET_SLOT(responses, 
 00178                                                <a class="code" href="Classes_8c.html#a34">PL2_scoresSym</a>), 0)),
@@ -168,9 +168,9 @@
 00187 <span class="comment">                    induce too much overhead here. Maybe later. */</span>
 00188                     
 00189                  itable = INTEGER(<a class="code" href="S3Classes_8c.html#a25">S3get_table</a>(split));
-00190                  dxtransf = REAL(<a class="code" href="Classes_8c.html#a73">get_transformation</a>(inputs, jselect));
+00190                  dxtransf = REAL(<a class="code" href="Classes_8c.html#a74">get_transformation</a>(inputs, jselect));
 00191                  dweights = REAL(thisweights);
-00192                  <span class="keywordflow">for</span> (k = 0; k &lt; LENGTH(<a class="code" href="Classes_8c.html#a81">get_levels</a>(inputs, jselect)); k++) {
+00192                  <span class="keywordflow">for</span> (k = 0; k &lt; LENGTH(<a class="code" href="Classes_8c.html#a82">get_levels</a>(inputs, jselect)); k++) {
 00193                      itable[k] = 0;
 00194                      <span class="keywordflow">for</span> (i = 0; i &lt; nobs; i++) {
 00195                          <span class="keywordflow">if</span> (dxtransf[k * nobs + i] * dweights[i] &gt; 0) {
@@ -208,8 +208,8 @@
 00235      SEXP ans;
 00236      
 00237      PROTECT(ans = allocVector(VECSXP, <a class="code" href="party_8h.html#a9">NODE_LENGTH</a>));
-00238      <a class="code" href="S3Classes_8c.html#a0">C_init_node</a>(ans, <a class="code" href="Classes_8c.html#a89">get_nobs</a>(learnsample), <a class="code" href="Classes_8c.html#a90">get_ninputs</a>(learnsample), 
-00239                  <a class="code" href="Classes_8c.html#a99">get_maxsurrogate</a>(<a class="code" href="Classes_8c.html#a95">get_splitctrl</a>(controls)),
+00238      <a class="code" href="S3Classes_8c.html#a0">C_init_node</a>(ans, <a class="code" href="Classes_8c.html#a90">get_nobs</a>(learnsample), <a class="code" href="Classes_8c.html#a91">get_ninputs</a>(learnsample), 
+00239                  <a class="code" href="Classes_8c.html#a100">get_maxsurrogate</a>(<a class="code" href="Classes_8c.html#a96">get_splitctrl</a>(controls)),
 00240                  <a class="code" href="Utils_8c.html#a19">ncol</a>(GET_SLOT(GET_SLOT(learnsample, <a class="code" href="Classes_8c.html#a47">PL2_responsesSym</a>), 
 00241                       <a class="code" href="Classes_8c.html#a37">PL2_jointtransfSym</a>)));
 00242 
@@ -217,7 +217,7 @@
 00244      UNPROTECT(1);
 00245      <span class="keywordflow">return</span>(ans);
 00246 }
-</pre></div><hr size="1"><address style="align: right;"><small>Generated on Wed Jan 18 11:23:28 2006 for party by&nbsp;
+</pre></div><hr size="1"><address style="align: right;"><small>Generated on Thu Feb 16 09:11:58 2006 for party by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.2 </small></address>
 </body>

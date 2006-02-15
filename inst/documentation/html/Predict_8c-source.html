@@ -24,12 +24,12 @@
 00031     dweights = REAL(weights);
 00032     responses = GET_SLOT(learnsample, <a class="code" href="Classes_8c.html#a47">PL2_responsesSym</a>);
 00033     inputs = GET_SLOT(learnsample, <a class="code" href="Classes_8c.html#a48">PL2_inputsSym</a>);
-00034     nobs = <a class="code" href="Classes_8c.html#a89">get_nobs</a>(learnsample);
+00034     nobs = <a class="code" href="Classes_8c.html#a90">get_nobs</a>(learnsample);
 00035             
 00036     <span class="comment">/* set up memory for the left daughter */</span>
 00037     SET_VECTOR_ELT(node, <a class="code" href="party_8h.html#a7">S3_LEFT</a>, leftnode = allocVector(VECSXP, <a class="code" href="party_8h.html#a9">NODE_LENGTH</a>));
 00038     <a class="code" href="S3Classes_8c.html#a0">C_init_node</a>(leftnode, nobs, 
-00039         <a class="code" href="Classes_8c.html#a90">get_ninputs</a>(learnsample), <a class="code" href="Classes_8c.html#a99">get_maxsurrogate</a>(<a class="code" href="Classes_8c.html#a95">get_splitctrl</a>(control)),
+00039         <a class="code" href="Classes_8c.html#a91">get_ninputs</a>(learnsample), <a class="code" href="Classes_8c.html#a100">get_maxsurrogate</a>(<a class="code" href="Classes_8c.html#a96">get_splitctrl</a>(control)),
 00040         <a class="code" href="Utils_8c.html#a19">ncol</a>(GET_SLOT(GET_SLOT(learnsample, <a class="code" href="Classes_8c.html#a47">PL2_responsesSym</a>),
 00041                       <a class="code" href="Classes_8c.html#a37">PL2_jointtransfSym</a>)));
 00042     leftweights = REAL(<a class="code" href="S3Classes_8c.html#a3">S3get_nodeweights</a>(leftnode));
@@ -38,15 +38,15 @@
 00045     SET_VECTOR_ELT(node, <a class="code" href="party_8h.html#a8">S3_RIGHT</a>, 
 00046                    rightnode = allocVector(VECSXP, <a class="code" href="party_8h.html#a9">NODE_LENGTH</a>));
 00047     <a class="code" href="S3Classes_8c.html#a0">C_init_node</a>(rightnode, nobs, 
-00048         <a class="code" href="Classes_8c.html#a90">get_ninputs</a>(learnsample), <a class="code" href="Classes_8c.html#a99">get_maxsurrogate</a>(<a class="code" href="Classes_8c.html#a95">get_splitctrl</a>(control)),
+00048         <a class="code" href="Classes_8c.html#a91">get_ninputs</a>(learnsample), <a class="code" href="Classes_8c.html#a100">get_maxsurrogate</a>(<a class="code" href="Classes_8c.html#a96">get_splitctrl</a>(control)),
 00049         <a class="code" href="Utils_8c.html#a19">ncol</a>(GET_SLOT(GET_SLOT(learnsample, <a class="code" href="Classes_8c.html#a47">PL2_responsesSym</a>),
 00050                       <a class="code" href="Classes_8c.html#a37">PL2_jointtransfSym</a>)));
 00051     rightweights = REAL(<a class="code" href="S3Classes_8c.html#a3">S3get_nodeweights</a>(rightnode));
 00052 
 00053     <span class="comment">/* split according to the primary split */</span>
 00054     split = <a class="code" href="S3Classes_8c.html#a9">S3get_primarysplit</a>(node);
-00055     <span class="keywordflow">if</span> (<a class="code" href="Classes_8c.html#a79">has_missings</a>(inputs, <a class="code" href="S3Classes_8c.html#a17">S3get_variableID</a>(split))) {
-00056         whichNA = <a class="code" href="Classes_8c.html#a83">get_missings</a>(inputs, <a class="code" href="S3Classes_8c.html#a17">S3get_variableID</a>(split));
+00055     <span class="keywordflow">if</span> (<a class="code" href="Classes_8c.html#a80">has_missings</a>(inputs, <a class="code" href="S3Classes_8c.html#a17">S3get_variableID</a>(split))) {
+00056         whichNA = <a class="code" href="Classes_8c.html#a84">get_missings</a>(inputs, <a class="code" href="S3Classes_8c.html#a17">S3get_variableID</a>(split));
 00057         iwhichNA = INTEGER(whichNA);
 00058         nna = LENGTH(whichNA);
 00059     } <span class="keywordflow">else</span> {
@@ -57,7 +57,7 @@
 00064     
 00065     <span class="keywordflow">if</span> (<a class="code" href="S3Classes_8c.html#a18">S3is_ordered</a>(split)) {
 00066         cutpoint = REAL(<a class="code" href="S3Classes_8c.html#a23">S3get_splitpoint</a>(split))[0];
-00067         dx = REAL(<a class="code" href="Classes_8c.html#a75">get_variable</a>(inputs, <a class="code" href="S3Classes_8c.html#a17">S3get_variableID</a>(split)));
+00067         dx = REAL(<a class="code" href="Classes_8c.html#a76">get_variable</a>(inputs, <a class="code" href="S3Classes_8c.html#a17">S3get_variableID</a>(split)));
 00068         <span class="keywordflow">for</span> (i = 0; i &lt; nobs; i++) {
 00069             <span class="keywordflow">if</span> (nna &gt; 0) {
 00070                 <span class="keywordflow">if</span> (<a class="code" href="Utils_8c.html#a16">i_in_set</a>(i + 1, iwhichNA, nna)) <span class="keywordflow">continue</span>;
@@ -72,7 +72,7 @@
 00079         }
 00080     } <span class="keywordflow">else</span> {
 00081         levelset = INTEGER(<a class="code" href="S3Classes_8c.html#a23">S3get_splitpoint</a>(split));
-00082         ix = INTEGER(<a class="code" href="Classes_8c.html#a75">get_variable</a>(inputs, <a class="code" href="S3Classes_8c.html#a17">S3get_variableID</a>(split)));
+00082         ix = INTEGER(<a class="code" href="Classes_8c.html#a76">get_variable</a>(inputs, <a class="code" href="S3Classes_8c.html#a17">S3get_variableID</a>(split)));
 00083 
 00084         <span class="keywordflow">for</span> (i = 0; i &lt; nobs; i++) {
 00085             <span class="keywordflow">if</span> (nna &gt; 0) {
@@ -118,8 +118,8 @@
 00134 
 00135     <span class="comment">/* missing values. Maybe store the proportions left / </span>
 00136 <span class="comment">       right in each node? */</span>
-00137     <span class="keywordflow">if</span> (<a class="code" href="Classes_8c.html#a79">has_missings</a>(newinputs, <a class="code" href="S3Classes_8c.html#a17">S3get_variableID</a>(split))) {
-00138         whichNA = <a class="code" href="Classes_8c.html#a83">get_missings</a>(newinputs, <a class="code" href="S3Classes_8c.html#a17">S3get_variableID</a>(split));
+00137     <span class="keywordflow">if</span> (<a class="code" href="Classes_8c.html#a80">has_missings</a>(newinputs, <a class="code" href="S3Classes_8c.html#a17">S3get_variableID</a>(split))) {
+00138         whichNA = <a class="code" href="Classes_8c.html#a84">get_missings</a>(newinputs, <a class="code" href="S3Classes_8c.html#a17">S3get_variableID</a>(split));
 00139     
 00140         <span class="keywordflow">if</span> (<a class="code" href="Utils_8c.html#a17">C_i_in_set</a>(numobs, whichNA)) {
 00141         
@@ -133,8 +133,8 @@
 00149                 <span class="keywordflow">if</span> (ns &gt;= LENGTH(surrsplit)) <span class="keywordflow">break</span>;
 00150             
 00151                 ssplit = VECTOR_ELT(surrsplit, ns);
-00152                 <span class="keywordflow">if</span> (<a class="code" href="Classes_8c.html#a79">has_missings</a>(newinputs, <a class="code" href="S3Classes_8c.html#a17">S3get_variableID</a>(ssplit))) {
-00153                     <span class="keywordflow">if</span> (INTEGER(<a class="code" href="Classes_8c.html#a83">get_missings</a>(newinputs, 
+00152                 <span class="keywordflow">if</span> (<a class="code" href="Classes_8c.html#a80">has_missings</a>(newinputs, <a class="code" href="S3Classes_8c.html#a17">S3get_variableID</a>(ssplit))) {
+00153                     <span class="keywordflow">if</span> (INTEGER(<a class="code" href="Classes_8c.html#a84">get_missings</a>(newinputs, 
 00154                                              <a class="code" href="S3Classes_8c.html#a17">S3get_variableID</a>(ssplit)))[i]) {
 00155                         ns++;
 00156                         <span class="keywordflow">continue</span>;
@@ -142,7 +142,7 @@
 00158                 }
 00159 
 00160                 cutpoint = REAL(<a class="code" href="S3Classes_8c.html#a23">S3get_splitpoint</a>(ssplit))[0];
-00161                 x = REAL(<a class="code" href="Classes_8c.html#a75">get_variable</a>(newinputs, <a class="code" href="S3Classes_8c.html#a17">S3get_variableID</a>(ssplit)))[i];
+00161                 x = REAL(<a class="code" href="Classes_8c.html#a76">get_variable</a>(newinputs, <a class="code" href="S3Classes_8c.html#a17">S3get_variableID</a>(ssplit)))[i];
 00162                      
 00163                 <span class="keywordflow">if</span> (<a class="code" href="S3Classes_8c.html#a21">S3get_toleft</a>(ssplit)) {
 00164                     <span class="keywordflow">if</span> (x &lt;= cutpoint) {
@@ -187,7 +187,7 @@
 00203     
 00204     <span class="keywordflow">if</span> (<a class="code" href="S3Classes_8c.html#a18">S3is_ordered</a>(split)) {
 00205         cutpoint = REAL(<a class="code" href="S3Classes_8c.html#a23">S3get_splitpoint</a>(split))[0];
-00206         x = REAL(<a class="code" href="Classes_8c.html#a75">get_variable</a>(newinputs, 
+00206         x = REAL(<a class="code" href="Classes_8c.html#a76">get_variable</a>(newinputs, 
 00207                      <a class="code" href="S3Classes_8c.html#a17">S3get_variableID</a>(split)))[numobs];
 00208         <span class="keywordflow">if</span> (x &lt;= cutpoint) {
 00209             <span class="keywordflow">return</span>(<a class="code" href="Predict_8c.html#a1">C_get_node</a>(<a class="code" href="S3Classes_8c.html#a12">S3get_leftnode</a>(subtree), 
@@ -198,7 +198,7 @@
 00214         }
 00215     } <span class="keywordflow">else</span> {
 00216         levelset = INTEGER(<a class="code" href="S3Classes_8c.html#a23">S3get_splitpoint</a>(split));
-00217         level = INTEGER(<a class="code" href="Classes_8c.html#a75">get_variable</a>(newinputs, 
+00217         level = INTEGER(<a class="code" href="Classes_8c.html#a76">get_variable</a>(newinputs, 
 00218                             <a class="code" href="S3Classes_8c.html#a17">S3get_variableID</a>(split)))[numobs];
 00219         <span class="comment">/* level is in 1, ..., K */</span>
 00220         <span class="keywordflow">if</span> (levelset[level - 1]) {
@@ -265,7 +265,7 @@
 00332     SEXP ans;
 00333     <span class="keywordtype">int</span> nobs, i, *dans;
 00334             
-00335     nobs = <a class="code" href="Classes_8c.html#a89">get_nobs</a>(newinputs);
+00335     nobs = <a class="code" href="Classes_8c.html#a90">get_nobs</a>(newinputs);
 00336     PROTECT(ans = allocVector(INTSXP, nobs));
 00337     dans = INTEGER(ans);
 00338     <span class="keywordflow">for</span> (i = 0; i &lt; nobs; i++)
@@ -279,7 +279,7 @@
 00354     
 00355     <span class="keywordtype">int</span> nobs, i;
 00356     
-00357     nobs = <a class="code" href="Classes_8c.html#a89">get_nobs</a>(newinputs);    
+00357     nobs = <a class="code" href="Classes_8c.html#a90">get_nobs</a>(newinputs);    
 00358     <span class="keywordflow">if</span> (LENGTH(ans) != nobs) 
 00359         error(<span class="stringliteral">"ans is not of length %d\n"</span>, nobs);
 00360         
@@ -294,7 +294,7 @@
 00376     SEXP ans;
 00377     <span class="keywordtype">int</span> nobs;
 00378     
-00379     nobs = <a class="code" href="Classes_8c.html#a89">get_nobs</a>(newinputs);
+00379     nobs = <a class="code" href="Classes_8c.html#a90">get_nobs</a>(newinputs);
 00380     PROTECT(ans = allocVector(VECSXP, nobs));
 00381     <a class="code" href="Predict_8c.html#a9">C_predict</a>(tree, newinputs, REAL(mincriterion)[0], ans);
 00382     UNPROTECT(1);
@@ -363,7 +363,7 @@
 00479     
 00480     <span class="keywordtype">int</span> nobs, i;
 00481     
-00482     nobs = <a class="code" href="Classes_8c.html#a89">get_nobs</a>(newinputs);    
+00482     nobs = <a class="code" href="Classes_8c.html#a90">get_nobs</a>(newinputs);    
 00483     <span class="keywordflow">if</span> (LENGTH(ans) != nobs) 
 00484         error(<span class="stringliteral">"ans is not of length %d\n"</span>, nobs);
 00485         
@@ -378,7 +378,7 @@
 00501     SEXP ans;
 00502     <span class="keywordtype">int</span> nobs;
 00503     
-00504     nobs = <a class="code" href="Classes_8c.html#a89">get_nobs</a>(newinputs);
+00504     nobs = <a class="code" href="Classes_8c.html#a90">get_nobs</a>(newinputs);
 00505     PROTECT(ans = allocVector(VECSXP, nobs));
 00506     <a class="code" href="Predict_8c.html#a15">C_weights</a>(tree, newinputs, REAL(mincriterion)[0], ans);
 00507     UNPROTECT(1);
@@ -393,7 +393,7 @@
 00524     
 00525     <span class="keywordflow">if</span> (LOGICAL(oobpred)[0]) oob = 1;
 00526     
-00527     nobs = <a class="code" href="Classes_8c.html#a89">get_nobs</a>(newinputs);
+00527     nobs = <a class="code" href="Classes_8c.html#a90">get_nobs</a>(newinputs);
 00528     ntrees = LENGTH(forest);
 00529     q = LENGTH(<a class="code" href="S3Classes_8c.html#a11">S3get_prediction</a>(
 00530                    <a class="code" href="Predict_8c.html#a3">C_get_nodebynum</a>(VECTOR_ELT(forest, 0), 1)));
@@ -442,7 +442,7 @@
 00582 
 00583     <span class="keywordflow">if</span> (LOGICAL(oobpred)[0]) oob = 1;
 00584     
-00585     nobs = <a class="code" href="Classes_8c.html#a89">get_nobs</a>(newinputs);
+00585     nobs = <a class="code" href="Classes_8c.html#a90">get_nobs</a>(newinputs);
 00586     ntrees = LENGTH(forest);
 00587     n = <a class="code" href="Utils_8c.html#a18">nrow</a>(response);
 00588     q = <a class="code" href="Utils_8c.html#a19">ncol</a>(response);
@@ -489,7 +489,56 @@
 00629     UNPROTECT(2);
 00630     <span class="keywordflow">return</span>(ans);
 00631 }
-</pre></div><hr size="1"><address style="align: right;"><small>Generated on Wed Jan 18 11:23:28 2006 for party by&nbsp;
+00632 
+<a name="l00641"></a><a class="code" href="Predict_8c.html#a19">00641</a> SEXP <a class="code" href="Predict_8c.html#a19">R_predictRF_weights</a>(SEXP forest, SEXP newinputs, SEXP mincriterion, SEXP oobpred) {
+00642 
+00643     SEXP ans, tree, bw;
+00644     <span class="keywordtype">int</span> ntrees, nobs, i, b, j, q, iwhere, oob = 0, count = 0, ntrain;
+00645     <span class="keywordtype">double</span> *dtmp;
+00646     
+00647     <span class="keywordflow">if</span> (LOGICAL(oobpred)[0]) oob = 1;
+00648     
+00649     nobs = <a class="code" href="Classes_8c.html#a90">get_nobs</a>(newinputs);
+00650     ntrees = LENGTH(forest);
+00651     q = LENGTH(<a class="code" href="S3Classes_8c.html#a11">S3get_prediction</a>(
+00652                    <a class="code" href="Predict_8c.html#a3">C_get_nodebynum</a>(VECTOR_ELT(forest, 0), 1)));
+00653 
+00654     <span class="keywordflow">if</span> (oob) {
+00655         <span class="keywordflow">if</span> (LENGTH(<a class="code" href="S3Classes_8c.html#a3">S3get_nodeweights</a>(
+00656                        <a class="code" href="Predict_8c.html#a3">C_get_nodebynum</a>(VECTOR_ELT(forest, 0), 1))) != nobs)
+00657             error(<span class="stringliteral">"number of observations don't match"</span>);
+00658     }    
+00659     
+00660     tree = VECTOR_ELT(forest, 0);
+00661     ntrain = LENGTH(<a class="code" href="S3Classes_8c.html#a3">S3get_nodeweights</a>(<a class="code" href="Predict_8c.html#a3">C_get_nodebynum</a>(tree, 1)));
+00662     
+00663     PROTECT(ans = allocVector(VECSXP, nobs));
+00664     
+00665     <span class="keywordflow">for</span> (i = 0; i &lt; nobs; i++) {
+00666         count = 0;
+00667         SET_VECTOR_ELT(ans, i, bw = allocVector(REALSXP, ntrain));
+00668         <span class="keywordflow">for</span> (j = 0; j &lt; ntrain; j++)
+00669             REAL(bw)[j] = 0.0;
+00670         <span class="keywordflow">for</span> (b = 0; b &lt; ntrees; b++) {
+00671             tree = VECTOR_ELT(forest, b);
+00672 
+00673             <span class="keywordflow">if</span> (oob &amp;&amp; 
+00674                 REAL(<a class="code" href="S3Classes_8c.html#a3">S3get_nodeweights</a>(<a class="code" href="Predict_8c.html#a3">C_get_nodebynum</a>(tree, 1)))[i] &gt; 0.0) 
+00675                 <span class="keywordflow">continue</span>;
+00676 
+00677             iwhere = <a class="code" href="Predict_8c.html#a7">C_get_nodeID</a>(tree, newinputs, REAL(mincriterion)[0], i);
+00678             dtmp = REAL(<a class="code" href="S3Classes_8c.html#a3">S3get_nodeweights</a>(<a class="code" href="Predict_8c.html#a3">C_get_nodebynum</a>(tree, iwhere)));
+00679             <span class="keywordflow">for</span> (j = 0; j &lt; ntrain; j++)
+00680                 REAL(bw)[j] += dtmp[j];
+00681             count++;
+00682         }
+00683         <span class="keywordflow">if</span> (count == 0) 
+00684             error(<span class="stringliteral">"cannot compute out-of-bag predictions for obs "</span>, i + 1);
+00685     }
+00686     UNPROTECT(1);
+00687     <span class="keywordflow">return</span>(ans);
+00688 }
+</pre></div><hr size="1"><address style="align: right;"><small>Generated on Thu Feb 16 09:11:58 2006 for party by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.2 </small></address>
 </body>

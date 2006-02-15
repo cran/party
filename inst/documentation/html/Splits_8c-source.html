@@ -25,7 +25,7 @@
 00046     <span class="keywordtype">int</span> lastj, i, j, k, l;
 00047 
 00048     <span class="keywordflow">if</span> (p != 1) error(<span class="stringliteral">"C_split: p not equal to one"</span>);
-00049     tol = <a class="code" href="Classes_8c.html#a66">get_tol</a>(splitctrl);
+00049     tol = <a class="code" href="Classes_8c.html#a67">get_tol</a>(splitctrl);
 00050 
 00051     <span class="comment">/* init statistics and determine the maximal value with positive weight </span>
 00052 <span class="comment">       since we can't choose this one as cutpoint</span>
@@ -47,8 +47,8 @@
 00068 
 00069         <span class="comment">/* we need to ensure that at least minbucket weights </span>
 00070 <span class="comment">           are there to split (either left or right) */</span>
-00071         minprob = <a class="code" href="Classes_8c.html#a71">get_minprob</a>(splitctrl);
-00072         minbucket = <a class="code" href="Classes_8c.html#a72">get_minbucket</a>(splitctrl);
+00071         minprob = <a class="code" href="Classes_8c.html#a72">get_minprob</a>(splitctrl);
+00072         minbucket = <a class="code" href="Classes_8c.html#a73">get_minbucket</a>(splitctrl);
 00073         minobs = sweights * minprob + 1.0;
 00074 
 00075         <span class="keywordflow">if</span> (minobs &lt; minbucket) 
@@ -196,7 +196,7 @@
 00255     <span class="keywordtype">double</span> tol, *tmpx, *tmptmpx, tmp = 0.0;
 00256     <span class="keywordtype">int</span> *irank, *ordertmpx, i, j, k, l, jp, chk;
 00257 
-00258     tol = <a class="code" href="Classes_8c.html#a66">get_tol</a>(splitctrl);          
+00258     tol = <a class="code" href="Classes_8c.html#a67">get_tol</a>(splitctrl);          
 00259                      
 00260     <span class="comment">/* allocate memory */</span>
 00261     tmpx = Calloc(n, <span class="keywordtype">double</span>);
@@ -274,11 +274,11 @@
 00346     <a class="code" href="Convenience_8c.html#a0">C_LinStatExpCov</a>(REAL(x), <a class="code" href="Utils_8c.html#a19">ncol</a>(x), REAL(y), <a class="code" href="Utils_8c.html#a19">ncol</a>(y), REAL(weights), <a class="code" href="Utils_8c.html#a18">nrow</a>(x),
 00347                     1, GET_SLOT(linexpcov, <a class="code" href="Classes_8c.html#a3">PL2_expcovinfSym</a>), linexpcov);
 00348 
-00349     standstat = Calloc(<a class="code" href="Classes_8c.html#a63">get_dimension</a>(linexpcov), <span class="keywordtype">double</span>);
+00349     standstat = Calloc(<a class="code" href="Classes_8c.html#a64">get_dimension</a>(linexpcov), <span class="keywordtype">double</span>);
 00350     <a class="code" href="TestStatistic_8c.html#a0">C_standardize</a>(REAL(GET_SLOT(linexpcov, <a class="code" href="Classes_8c.html#a2">PL2_linearstatisticSym</a>)),
 00351                   REAL(GET_SLOT(linexpcov, <a class="code" href="Classes_8c.html#a0">PL2_expectationSym</a>)),
 00352                   REAL(GET_SLOT(linexpcov, <a class="code" href="Classes_8c.html#a1">PL2_covarianceSym</a>)),
-00353                   <a class="code" href="Classes_8c.html#a63">get_dimension</a>(linexpcov), <a class="code" href="Classes_8c.html#a66">get_tol</a>(splitctrl), standstat);
+00353                   <a class="code" href="Classes_8c.html#a64">get_dimension</a>(linexpcov), <a class="code" href="Classes_8c.html#a67">get_tol</a>(splitctrl), standstat);
 00354 
 00355     PROTECT(ans = allocVector(VECSXP, 4));
 00356     SET_VECTOR_ELT(ans, 0, cutpoint = allocVector(REALSXP, 1));
@@ -296,7 +296,7 @@
 00368     Free(standstat);
 00369     <span class="keywordflow">return</span>(ans);
 00370 }
-</pre></div><hr size="1"><address style="align: right;"><small>Generated on Wed Jan 18 11:23:28 2006 for party by&nbsp;
+</pre></div><hr size="1"><address style="align: right;"><small>Generated on Thu Feb 16 09:11:59 2006 for party by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.2 </small></address>
 </body>

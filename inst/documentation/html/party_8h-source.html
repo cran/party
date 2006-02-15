@@ -33,47 +33,48 @@
 00024 <span class="preprocessor">#include "<a class="code" href="Node_8h.html">Node.h</a>"</span>
 00025 <span class="preprocessor">#include "<a class="code" href="Predict_8h.html">Predict.h</a>"</span>
 00026 <span class="preprocessor">#include "<a class="code" href="SurrogateSplits_8h.html">SurrogateSplits.h</a>"</span>
-00027 
-00028 <span class="comment">/* constants, basically the length of lists representing S3 classes</span>
-00029 <span class="comment">   and the position of certain elements  */</span>
-00030 
-00031 <span class="comment">/* S3 list elements in `splittingNode's */</span>
-<a name="l00032"></a><a class="code" href="party_8h.html#a0">00032</a> <span class="preprocessor">#define S3_NODEID               0    </span><span class="comment">/* nodeID */</span>
-<a name="l00033"></a><a class="code" href="party_8h.html#a1">00033</a> <span class="preprocessor">#define S3_WEIGHTS              1    </span><span class="comment">/* weights */</span>
-<a name="l00034"></a><a class="code" href="party_8h.html#a2">00034</a> <span class="preprocessor">#define S3_CRITERION            2    </span><span class="comment">/* criterion */</span>
-<a name="l00035"></a><a class="code" href="party_8h.html#a3">00035</a> <span class="preprocessor">#define S3_TERMINAL             3    </span><span class="comment">/* terminal */</span>
-<a name="l00036"></a><a class="code" href="party_8h.html#a4">00036</a> <span class="preprocessor">#define S3_PSPLIT               4    </span><span class="comment">/* psplit */</span>
-<a name="l00037"></a><a class="code" href="party_8h.html#a5">00037</a> <span class="preprocessor">#define S3_SSPLIT               5    </span><span class="comment">/* ssplit */</span>
-<a name="l00038"></a><a class="code" href="party_8h.html#a6">00038</a> <span class="preprocessor">#define S3_PREDICTION           6    </span><span class="comment">/* prediction */</span>
-<a name="l00039"></a><a class="code" href="party_8h.html#a7">00039</a> <span class="preprocessor">#define S3_LEFT                 7    </span><span class="comment">/* left */</span>
-<a name="l00040"></a><a class="code" href="party_8h.html#a8">00040</a> <span class="preprocessor">#define S3_RIGHT                8    </span><span class="comment">/* right */</span>
-<a name="l00041"></a><a class="code" href="party_8h.html#a9">00041</a> <span class="preprocessor">#define NODE_LENGTH             9    </span><span class="comment">/* 9 elements in total */</span>
-00042 
-00043 <span class="comment">/* S3 list elements in `criterion' element of `SplittingNode's */</span>
-<a name="l00044"></a><a class="code" href="party_8h.html#a10">00044</a> <span class="preprocessor">#define S3_STATISTICS           0    </span><span class="comment">/* statistics */</span>
-<a name="l00045"></a><a class="code" href="party_8h.html#a11">00045</a> <span class="preprocessor">#define S3_iCRITERION           1    </span><span class="comment">/* criterion */</span>
-<a name="l00046"></a><a class="code" href="party_8h.html#a12">00046</a> <span class="preprocessor">#define S3_MAXCRITERION         2    </span><span class="comment">/* max(criterion) */</span>
-<a name="l00047"></a><a class="code" href="party_8h.html#a13">00047</a> <span class="preprocessor">#define CRITERION_LENGTH        3    </span><span class="comment">/* 3 elements in total */</span>
-00048 
-00049 <span class="comment">/* S3 list elements in `orderedSplit's or `nominalSplit's */</span>
-<a name="l00050"></a><a class="code" href="party_8h.html#a14">00050</a> <span class="preprocessor">#define S3_VARIABLEID           0    </span><span class="comment">/* variableID */</span>
-<a name="l00051"></a><a class="code" href="party_8h.html#a15">00051</a> <span class="preprocessor">#define S3_ORDERED              1    </span><span class="comment">/* ordered */</span>
-<a name="l00052"></a><a class="code" href="party_8h.html#a16">00052</a> <span class="preprocessor">#define S3_SPLITPOINT           2    </span><span class="comment">/* splitpoint */</span>
-<a name="l00053"></a><a class="code" href="party_8h.html#a17">00053</a> <span class="preprocessor">#define S3_SPLITSTATISTICS      3    </span><span class="comment">/* splitstatistics */</span>
-<a name="l00054"></a><a class="code" href="party_8h.html#a18">00054</a> <span class="preprocessor">#define S3_TOLEFT               4    </span><span class="comment">/* toleft */</span>
-<a name="l00055"></a><a class="code" href="party_8h.html#a19">00055</a> <span class="preprocessor">#define S3_TABLE                5    </span><span class="comment">/* table for nominal splits */</span>
-<a name="l00056"></a><a class="code" href="party_8h.html#a20">00056</a> <span class="preprocessor">#define SPLIT_LENGTH            6    </span><span class="comment">/* 6 elements in total */</span>
-00057 
-00058 <span class="comment">/* type of test statistic */</span>
-<a name="l00059"></a><a class="code" href="party_8h.html#a21">00059</a> <span class="preprocessor">#define MAXABS                  1</span>
-<a name="l00060"></a><a class="code" href="party_8h.html#a22">00060</a> <span class="preprocessor"></span><span class="preprocessor">#define QUADFORM                2</span>
-00061 <span class="preprocessor"></span>
-00062 <span class="comment">/* type of multiplicity adjustment */</span>
-<a name="l00063"></a><a class="code" href="party_8h.html#a23">00063</a> <span class="preprocessor">#define BONFERRONI              1</span>
-<a name="l00064"></a><a class="code" href="party_8h.html#a24">00064</a> <span class="preprocessor"></span><span class="preprocessor">#define MONTECARLO              2</span>
-<a name="l00065"></a><a class="code" href="party_8h.html#a25">00065</a> <span class="preprocessor"></span><span class="preprocessor">#define AGGREGATED              3</span>
-<a name="l00066"></a><a class="code" href="party_8h.html#a26">00066</a> <span class="preprocessor"></span><span class="preprocessor">#define RAW                     4</span>
-</pre></div><hr size="1"><address style="align: right;"><small>Generated on Wed Jan 18 11:23:28 2006 for party by&nbsp;
+00027 <span class="preprocessor">#include "<a class="code" href="TreeGrow_8h.html">TreeGrow.h</a>"</span>
+00028 
+00029 <span class="comment">/* constants, basically the length of lists representing S3 classes</span>
+00030 <span class="comment">   and the position of certain elements  */</span>
+00031 
+00032 <span class="comment">/* S3 list elements in `splittingNode's */</span>
+<a name="l00033"></a><a class="code" href="party_8h.html#a0">00033</a> <span class="preprocessor">#define S3_NODEID               0    </span><span class="comment">/* nodeID */</span>
+<a name="l00034"></a><a class="code" href="party_8h.html#a1">00034</a> <span class="preprocessor">#define S3_WEIGHTS              1    </span><span class="comment">/* weights */</span>
+<a name="l00035"></a><a class="code" href="party_8h.html#a2">00035</a> <span class="preprocessor">#define S3_CRITERION            2    </span><span class="comment">/* criterion */</span>
+<a name="l00036"></a><a class="code" href="party_8h.html#a3">00036</a> <span class="preprocessor">#define S3_TERMINAL             3    </span><span class="comment">/* terminal */</span>
+<a name="l00037"></a><a class="code" href="party_8h.html#a4">00037</a> <span class="preprocessor">#define S3_PSPLIT               4    </span><span class="comment">/* psplit */</span>
+<a name="l00038"></a><a class="code" href="party_8h.html#a5">00038</a> <span class="preprocessor">#define S3_SSPLIT               5    </span><span class="comment">/* ssplit */</span>
+<a name="l00039"></a><a class="code" href="party_8h.html#a6">00039</a> <span class="preprocessor">#define S3_PREDICTION           6    </span><span class="comment">/* prediction */</span>
+<a name="l00040"></a><a class="code" href="party_8h.html#a7">00040</a> <span class="preprocessor">#define S3_LEFT                 7    </span><span class="comment">/* left */</span>
+<a name="l00041"></a><a class="code" href="party_8h.html#a8">00041</a> <span class="preprocessor">#define S3_RIGHT                8    </span><span class="comment">/* right */</span>
+<a name="l00042"></a><a class="code" href="party_8h.html#a9">00042</a> <span class="preprocessor">#define NODE_LENGTH             9    </span><span class="comment">/* 9 elements in total */</span>
+00043 
+00044 <span class="comment">/* S3 list elements in `criterion' element of `SplittingNode's */</span>
+<a name="l00045"></a><a class="code" href="party_8h.html#a10">00045</a> <span class="preprocessor">#define S3_STATISTICS           0    </span><span class="comment">/* statistics */</span>
+<a name="l00046"></a><a class="code" href="party_8h.html#a11">00046</a> <span class="preprocessor">#define S3_iCRITERION           1    </span><span class="comment">/* criterion */</span>
+<a name="l00047"></a><a class="code" href="party_8h.html#a12">00047</a> <span class="preprocessor">#define S3_MAXCRITERION         2    </span><span class="comment">/* max(criterion) */</span>
+<a name="l00048"></a><a class="code" href="party_8h.html#a13">00048</a> <span class="preprocessor">#define CRITERION_LENGTH        3    </span><span class="comment">/* 3 elements in total */</span>
+00049 
+00050 <span class="comment">/* S3 list elements in `orderedSplit's or `nominalSplit's */</span>
+<a name="l00051"></a><a class="code" href="party_8h.html#a14">00051</a> <span class="preprocessor">#define S3_VARIABLEID           0    </span><span class="comment">/* variableID */</span>
+<a name="l00052"></a><a class="code" href="party_8h.html#a15">00052</a> <span class="preprocessor">#define S3_ORDERED              1    </span><span class="comment">/* ordered */</span>
+<a name="l00053"></a><a class="code" href="party_8h.html#a16">00053</a> <span class="preprocessor">#define S3_SPLITPOINT           2    </span><span class="comment">/* splitpoint */</span>
+<a name="l00054"></a><a class="code" href="party_8h.html#a17">00054</a> <span class="preprocessor">#define S3_SPLITSTATISTICS      3    </span><span class="comment">/* splitstatistics */</span>
+<a name="l00055"></a><a class="code" href="party_8h.html#a18">00055</a> <span class="preprocessor">#define S3_TOLEFT               4    </span><span class="comment">/* toleft */</span>
+<a name="l00056"></a><a class="code" href="party_8h.html#a19">00056</a> <span class="preprocessor">#define S3_TABLE                5    </span><span class="comment">/* table for nominal splits */</span>
+<a name="l00057"></a><a class="code" href="party_8h.html#a20">00057</a> <span class="preprocessor">#define SPLIT_LENGTH            6    </span><span class="comment">/* 6 elements in total */</span>
+00058 
+00059 <span class="comment">/* type of test statistic */</span>
+<a name="l00060"></a><a class="code" href="party_8h.html#a21">00060</a> <span class="preprocessor">#define MAXABS                  1</span>
+<a name="l00061"></a><a class="code" href="party_8h.html#a22">00061</a> <span class="preprocessor"></span><span class="preprocessor">#define QUADFORM                2</span>
+00062 <span class="preprocessor"></span>
+00063 <span class="comment">/* type of multiplicity adjustment */</span>
+<a name="l00064"></a><a class="code" href="party_8h.html#a23">00064</a> <span class="preprocessor">#define BONFERRONI              1</span>
+<a name="l00065"></a><a class="code" href="party_8h.html#a24">00065</a> <span class="preprocessor"></span><span class="preprocessor">#define MONTECARLO              2</span>
+<a name="l00066"></a><a class="code" href="party_8h.html#a25">00066</a> <span class="preprocessor"></span><span class="preprocessor">#define AGGREGATED              3</span>
+<a name="l00067"></a><a class="code" href="party_8h.html#a26">00067</a> <span class="preprocessor"></span><span class="preprocessor">#define RAW                     4</span>
+</pre></div><hr size="1"><address style="align: right;"><small>Generated on Thu Feb 16 09:11:58 2006 for party by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.2 </small></address>
 </body>

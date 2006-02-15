@@ -3,7 +3,7 @@
     Functions for variable selection in each node of a tree
     *\file IndependenceTest.c
     *\author $Author: hothorn $
-    *\date $Date: 2005/06/16 11:10:12 $
+    *\date $Date: 2005-06-16 13:10:12 +0200 (Thu, 16 Jun 2005) $
 */
                 
 #include "party.h"

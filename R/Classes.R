@@ -1,5 +1,5 @@
 
-# $Id: Classes.R,v 1.9 2005/11/07 13:53:16 hothorn Exp $
+# $Id: Classes.R 2464 2006-02-14 10:35:22Z hothorn $
 
 ### Conditional Expectation and Covariance
 setClass(Class = "ExpectCovar",
@@ -132,9 +132,10 @@ setClass(Class = "GlobalTestControl",
 setClass(Class = "TreeGrowControl",
     representation = representation(
         stump           = "logical",
+        maxdepth        = "integer",
         savesplitstats  = "logical"
     ),
-    prototype = list(stump = FALSE, savesplitstats = TRUE)
+    prototype = list(stump = FALSE, maxdepth = as.integer(0), savesplitstats = TRUE)
 )
 
 setClass(Class = "TreeControl",
@@ -215,3 +216,17 @@ setClass(Class = "BinaryTree",
     ),
     contains = "BinaryTreePartition"
 )
+
+### A class for random forest  
+setClass(Class = "RandomForest", 
+    representation = representation(
+        ensemble            = "list",
+        data                = "ModelEnv",
+        responses           = "VariableFrame", # a list of response `variables'
+                                               # for computing predictions
+        cond_distr_response = "function",      # predict distribtion
+        predict_response    = "function",      # predict responses
+        prediction_weights  = "function"      # prediction weights
+    )
+)
+

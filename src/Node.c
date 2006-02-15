@@ -3,7 +3,7 @@
     Node computations
     *\file Node.c
     *\author $Author: hothorn $
-    *\date $Date: 2005/10/19 14:40:43 $
+    *\date $Date: 2005-10-19 16:40:43 +0200 (Wed, 19 Oct 2005) $
 */
                 
 #include "party.h"

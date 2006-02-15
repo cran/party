@@ -38,7 +38,7 @@
 00063     
 00064     nr = <a class="code" href="Utils_8c.html#a18">nrow</a>(ScoreMatrix);
 00065     nc = <a class="code" href="Utils_8c.html#a19">ncol</a>(ScoreMatrix);
-00066     pq = <a class="code" href="Classes_8c.html#a63">get_dimension</a>(linexpcov);
+00066     pq = <a class="code" href="Classes_8c.html#a64">get_dimension</a>(linexpcov);
 00067     dummy = Calloc(nr * pq, <span class="keywordtype">double</span>);
 00068     
 00069     <a class="code" href="Utils_8c.html#a9">C_matprod</a>(REAL(ScoreMatrix), <a class="code" href="Utils_8c.html#a18">nrow</a>(ScoreMatrix), <a class="code" href="Utils_8c.html#a19">ncol</a>(ScoreMatrix), 
@@ -61,7 +61,7 @@
 00093     <span class="keywordtype">int</span> pq;
 00094     <span class="keywordtype">double</span> ans = 0.0;
 00095     
-00096     pq = <a class="code" href="Classes_8c.html#a63">get_dimension</a>(linexpcov);
+00096     pq = <a class="code" href="Classes_8c.html#a64">get_dimension</a>(linexpcov);
 00097 
 00098     <span class="keywordflow">switch</span>(type) {
 00099         <span class="comment">/* maxabs-type test statistic */</span>
@@ -92,7 +92,7 @@
 00135     <span class="keywordtype">int</span> pq;
 00136     <span class="keywordtype">double</span> ans = 0.0;
 00137     
-00138     pq = <a class="code" href="Classes_8c.html#a63">get_dimension</a>(linexpcov);
+00138     pq = <a class="code" href="Classes_8c.html#a64">get_dimension</a>(linexpcov);
 00139 
 00140     <span class="keywordflow">switch</span>(type) {
 00141         <span class="comment">/* maxabs-type test statistic */</span>
@@ -142,7 +142,7 @@
 00196         j[i] = dy[i];
 00197     }
 00198 }
-</pre></div><hr size="1"><address style="align: right;"><small>Generated on Wed Jan 18 11:23:28 2006 for party by&nbsp;
+</pre></div><hr size="1"><address style="align: right;"><small>Generated on Thu Feb 16 09:11:58 2006 for party by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.2 </small></address>
 </body>

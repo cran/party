@@ -1,0 +1,463 @@
+
+R : Copyright 2006, The R Foundation for Statistical Computing
+Version 2.3.0 Under development (unstable) (2006-02-14 r37355)
+ISBN 3-900051-07-0
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> library("party")
+Loading required package: survival
+Loading required package: splines
+Loading required package: grid
+Loading required package: modeltools
+Loading required package: coin
+Loading required package: mvtnorm
+Loading required package: zoo
+Loading required package: sandwich
+Loading required package: strucchange
+> 
+> data("BostonHousing", package = "mlbench")
+> BostonHousing$lstat <- log(BostonHousing$lstat)
+> BostonHousing$rm <- BostonHousing$rm^2
+> BostonHousing$chas <- factor(BostonHousing$chas, levels = 0:1, labels = c("no", "yes"))
+> BostonHousing$rad <- factor(BostonHousing$rad, ordered = TRUE)
+> fmBH <- mob(medv ~ lstat + rm | zn + indus + chas + nox + age + dis + rad + tax + crim + b + ptratio,
++   control = mob_control(minsplit = 40, verbose = TRUE),
++   data = BostonHousing, model = linearModel)
+
+-------------------------------------------
+Fluctuation tests of splitting variables:
+                    zn        indus         chas          nox          age
+statistic 3.363356e+01 6.532322e+01 2.275635e+01 8.136281e+01 3.675850e+01
+p.value   1.176113e-04 1.603635e-11 4.993053e-04 4.138241e-15 2.608438e-05
+                   dis          rad          tax         crim            b
+statistic 6.903150e+01 1.153641e+02 9.068440e+01 8.655065e+01 3.627629e+01
+p.value   2.397851e-12 7.087680e-13 3.257864e-17 2.801011e-16 3.294641e-05
+               ptratio
+statistic 7.221524e+01
+p.value   4.666898e-13
+
+Best splitting variable: tax
+Perform split? yes
+-------------------------------------------
+
+Node properties:
+tax <= 432; criterion = 1, statistic = 115.364
+
+-------------------------------------------
+Fluctuation tests of splitting variables:
+                    zn       indus      chas          nox        age
+statistic 27.785009791 21.33293464 8.0272421 23.774323202 11.9204284
+p.value    0.001494064  0.02851930 0.4005192  0.009518732  0.7666366
+                   dis          rad          tax         crim         b
+statistic 24.268011081 50.481593270 3.523250e+01 3.276813e+01 9.0363245
+p.value    0.007601532  0.003437763 4.275527e-05 1.404487e-04 0.9871502
+               ptratio
+statistic 4.510680e+01
+p.value   3.309747e-07
+
+Best splitting variable: ptratio
+Perform split? yes
+-------------------------------------------
+
+Node properties:
+ptratio <= 15.2; criterion = 1, statistic = 50.482
+
+-------------------------------------------
+Fluctuation tests of splitting variables:
+                    zn       indus        chas         nox         age
+statistic 3.233350e+01 22.26864036 12.93407112 22.10510234 20.41295354
+p.value   1.229678e-04  0.01504788  0.05259509  0.01622098  0.03499731
+                 dis          rad          tax        crim         b
+statistic 17.7204735 5.526565e+01 2.879128e+01 20.28503194 6.5549665
+p.value    0.1091769 7.112214e-04 6.916307e-04  0.03706934 0.9999522
+               ptratio
+statistic 4.789850e+01
+p.value   4.738855e-08
+
+Best splitting variable: ptratio
+Perform split? yes
+-------------------------------------------
+
+Node properties:
+ptratio <= 19.6; criterion = 1, statistic = 55.266
+
+-------------------------------------------
+Fluctuation tests of splitting variables:
+                 zn      indus      chas        nox       age        dis
+statistic 14.971474 14.6477733 7.1172962 14.3455158 8.2176363 16.1112185
+p.value    0.280361  0.3134649 0.5405005  0.3467974 0.9906672  0.1847818
+                  rad          tax     crim         b    ptratio
+statistic 43.17824350 3.447271e+01 9.340075 8.7773142 10.8469969
+p.value    0.03281124 4.281939e-05 0.952996 0.9772696  0.8202694
+
+Best splitting variable: tax
+Perform split? yes
+-------------------------------------------
+
+Node properties:
+tax <= 265; criterion = 1, statistic = 43.178
+
+-------------------------------------------
+Fluctuation tests of splitting variables:
+                 zn     indus     chas      nox        age       dis        rad
+statistic 11.998039 7.3971233 7.227770 9.293619 14.3023962 8.9239826 33.1746444
+p.value    0.574642 0.9931875 0.522447 0.911962  0.2886603 0.9389895  0.3926249
+                 tax       crim         b    ptratio
+statistic 16.6666129 11.7143758 9.9050903 11.5927528
+p.value    0.1206412  0.6153455 0.8539893  0.6328381
+
+Best splitting variable: tax
+Perform split? no
+-------------------------------------------
+
+-------------------------------------------
+Fluctuation tests of splitting variables:
+                  zn     indus         chas         nox       age        dis
+statistic 10.9187926 9.0917078 2.754081e+01 17.39203006 4.6282349 11.9581600
+p.value    0.7091039 0.9172303 4.987667e-05  0.08922543 0.9999992  0.5607267
+                rad        tax     crim        b   ptratio
+statistic 0.2557803 10.9076165 3.711175 3.158329 9.8865054
+p.value   1.0000000  0.7106612 1.000000 1.000000 0.8410064
+
+Best splitting variable: chas
+Perform split? yes
+-------------------------------------------
+
+Splitting factor variable, objective function: 
+ no 
+Inf 
+
+No admissable split found in ‘chas’
+Warning message:
+no admissable split found 
+> fmBH
+1) tax <= 432; criterion = 1, statistic = 115.364
+  2) ptratio <= 15.2; criterion = 1, statistic = 50.482
+    3)*  weights = 72 
+Terminal node model
+Linear model with coefficients:
+(Intercept)        lstat           rm  
+     9.2349      -4.9391       0.6859  
+
+  2) ptratio > 15.2
+    4) ptratio <= 19.6; criterion = 1, statistic = 55.266
+      5) tax <= 265; criterion = 1, statistic = 43.178
+        6)*  weights = 63 
+Terminal node model
+Linear model with coefficients:
+(Intercept)        lstat           rm  
+     3.9637      -2.7663       0.6881  
+
+      5) tax > 265
+        7)*  weights = 162 
+Terminal node model
+Linear model with coefficients:
+(Intercept)        lstat           rm  
+    -1.7984      -0.2677       0.6539  
+
+    4) ptratio > 19.6
+      8)*  weights = 56 
+Terminal node model
+Linear model with coefficients:
+(Intercept)        lstat           rm  
+    17.5865      -4.6190       0.3387  
+
+1) tax > 432
+  9)*  weights = 153 
+Terminal node model
+Linear model with coefficients:
+(Intercept)        lstat           rm  
+    68.2971     -16.3540      -0.1478  
+
+> summary(fmBH)
+$`3`
+
+Call:
+NULL
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-7.910  0.000  0.000  0.000  6.632 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  9.23488    3.95128   2.337   0.0223 *  
+lstat       -4.93910    0.88285  -5.595 4.14e-07 ***
+rm           0.68591    0.05136  13.354  < 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
+
+Residual standard error: 3.413 on 69 degrees of freedom
+Multiple R-Squared: 0.922,	Adjusted R-squared: 0.9197 
+F-statistic: 407.8 on 2 and 69 DF,  p-value: < 2.2e-16 
+
+
+$`6`
+
+Call:
+NULL
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-4.614  0.000  0.000  0.000 12.473 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  3.96372    5.00781   0.792  0.43177    
+lstat       -2.76629    1.00406  -2.755  0.00776 ** 
+rm           0.68813    0.07716   8.918 1.36e-12 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
+
+Residual standard error: 3.2 on 60 degrees of freedom
+Multiple R-Squared: 0.8176,	Adjusted R-squared: 0.8115 
+F-statistic: 134.5 on 2 and 60 DF,  p-value: < 2.2e-16 
+
+
+$`7`
+
+Call:
+NULL
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-9.092  0.000  0.000  0.000 10.236 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -1.79839    2.84702  -0.632    0.529    
+lstat       -0.26771    0.69581  -0.385    0.701    
+rm           0.65389    0.03757  17.404   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
+
+Residual standard error: 2.652 on 159 degrees of freedom
+Multiple R-Squared: 0.8173,	Adjusted R-squared: 0.815 
+F-statistic: 355.6 on 2 and 159 DF,  p-value: < 2.2e-16 
+
+
+$`8`
+
+Call:
+NULL
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-8.466  0.000  0.000  0.000  4.947 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 17.58649    4.21666   4.171 0.000113 ***
+lstat       -4.61897    0.84025  -5.497 1.13e-06 ***
+rm           0.33867    0.07574   4.472 4.13e-05 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
+
+Residual standard error: 2.197 on 53 degrees of freedom
+Multiple R-Squared: 0.6446,	Adjusted R-squared: 0.6312 
+F-statistic: 48.07 on 2 and 53 DF,  p-value: 1.238e-12 
+
+
+$`9`
+
+Call:
+NULL
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-10.56   0.00   0.00   0.00  24.28 
+
+Coefficients:
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  68.29709    3.83284  17.819  < 2e-16 ***
+lstat       -16.35401    0.96577 -16.934  < 2e-16 ***
+rm           -0.14779    0.05047  -2.928  0.00394 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
+
+Residual standard error: 4.689 on 150 degrees of freedom
+Multiple R-Squared: 0.6649,	Adjusted R-squared: 0.6604 
+F-statistic: 148.8 on 2 and 150 DF,  p-value: < 2.2e-16 
+
+
+> 
+> data("PimaIndiansDiabetes", package = "mlbench")
+> fmPID <- mob(diabetes ~ glucose | pregnant + pressure + triceps + insulin + mass + pedigree + age,
++   control = mob_control(verbose = TRUE),
++   data = PimaIndiansDiabetes, model = glinearModel, family = binomial())
+
+-------------------------------------------
+Fluctuation tests of splitting variables:
+              pregnant  pressure     triceps   insulin         mass    pedigree
+statistic 2.988568e+01 7.5028009 15.94104656 6.5968798 4.881000e+01 18.33529248
+p.value   1.080668e-04 0.9745212  0.09443482 0.9951636 5.006389e-09  0.03262343
+                   age
+statistic 4.351454e+01
+p.value   8.545400e-08
+
+Best splitting variable: mass
+Perform split? yes
+-------------------------------------------
+
+Node properties:
+mass <= 26.3; criterion = 1, statistic = 48.81
+
+-------------------------------------------
+Fluctuation tests of splitting variables:
+            pregnant pressure  triceps   insulin       mass  pedigree       age
+statistic 10.3922724 4.353803 5.911438 3.7858362 10.4749354 3.6263313 6.0978350
+p.value    0.4903414 0.999824 0.986890 0.9999888  0.4785391 0.9999958 0.9817752
+
+Best splitting variable: mass
+Perform split? no
+-------------------------------------------
+
+-------------------------------------------
+Fluctuation tests of splitting variables:
+              pregnant   pressure   triceps   insulin     mass    pedigree
+statistic 26.739121881 10.5022779 7.3468058 7.8963949 9.154590 17.96439322
+p.value    0.000512744  0.6314467 0.9743999 0.9463538 0.825481  0.03643852
+                   age
+statistic 3.498467e+01
+p.value   7.615150e-06
+
+Best splitting variable: age
+Perform split? yes
+-------------------------------------------
+
+Node properties:
+age <= 30; criterion = 1, statistic = 34.985
+
+-------------------------------------------
+Fluctuation tests of splitting variables:
+           pregnant  pressure   triceps    insulin      mass  pedigree
+statistic 4.3749993 9.7025158 7.6614572 13.6970740 5.4287860 5.6404196
+p.value   0.9999817 0.6805075 0.9289403  0.1891210 0.9988324 0.9978877
+                age
+statistic 6.3088817
+p.value   0.9902905
+
+Best splitting variable: insulin
+Perform split? no
+-------------------------------------------
+
+-------------------------------------------
+Fluctuation tests of splitting variables:
+          pregnant pressure   triceps   insulin       mass pedigree        age
+statistic 7.728289 2.246709 3.6078323 4.9703207 10.1369449 11.90042 12.9698472
+p.value   0.921978 1.000000 0.9999999 0.9997265  0.6112689  0.36264  0.2480068
+
+Best splitting variable: age
+Perform split? no
+-------------------------------------------
+> fmPID
+1) mass <= 26.3; criterion = 1, statistic = 48.81
+  2)*  weights = 167 
+Terminal node model
+Binomial GLM with coefficients:
+(Intercept)      glucose  
+   -9.95151      0.05871  
+
+1) mass > 26.3
+  3) age <= 30; criterion = 1, statistic = 34.985
+    4)*  weights = 304 
+Terminal node model
+Binomial GLM with coefficients:
+(Intercept)      glucose  
+   -6.70559      0.04684  
+
+  3) age > 30
+    5)*  weights = 297 
+Terminal node model
+Binomial GLM with coefficients:
+(Intercept)      glucose  
+   -2.77095      0.02354  
+
+> summary(fmPID)
+$`2`
+
+Call:
+NULL
+
+Deviance Residuals: 
+   Min      1Q  Median      3Q     Max  
+-1.817   0.000   0.000   0.000   2.718  
+
+Coefficients:
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept) -9.95151    1.74013  -5.719 1.07e-08 ***
+glucose      0.05871    0.01211   4.846 1.26e-06 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 96.202  on 166  degrees of freedom
+Residual deviance: 60.502  on 165  degrees of freedom
+AIC: 64.502
+
+Number of Fisher Scoring iterations: 6
+
+
+$`4`
+
+Call:
+NULL
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-1.9438  -0.3484   0.0000   0.0000   2.4894  
+
+Coefficients:
+             Estimate Std. Error z value Pr(>|z|)    
+(Intercept) -6.705586   0.800193  -8.380  < 2e-16 ***
+glucose      0.046837   0.006208   7.544 4.54e-14 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 364.01  on 303  degrees of freedom
+Residual deviance: 280.98  on 302  degrees of freedom
+AIC: 284.98
+
+Number of Fisher Scoring iterations: 5
+
+
+$`5`
+
+Call:
+NULL
+
+Deviance Residuals: 
+   Min      1Q  Median      3Q     Max  
+-2.005   0.000   0.000   0.000   2.380  
+
+Coefficients:
+             Estimate Std. Error z value Pr(>|z|)    
+(Intercept) -2.770954   0.548241  -5.054 4.32e-07 ***
+glucose      0.023536   0.004202   5.601 2.13e-08 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 407.11  on 296  degrees of freedom
+Residual deviance: 369.43  on 295  degrees of freedom
+AIC: 373.43
+
+Number of Fisher Scoring iterations: 4
+
+
+> 

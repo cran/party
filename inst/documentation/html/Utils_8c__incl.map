@@ -1,10 +1,10 @@
 base referer
-rect $party_8h.html 112,415 157,438
+rect $party_8h.html 112,439 157,462
 rect $Classes_8h.html 234,247 301,271
 rect $Utils_8h.html 245,295 290,319
 rect $mvt_8h.html 249,343 286,367
 rect $LinearStatistic_8h.html 217,391 318,415
-rect $TestStatistic_8h.html 222,438 313,462
+rect $TestStatistic_8h.html 222,439 313,462
 rect $Distributions_8h.html 222,486 313,510
 rect $Convenience_8h.html 222,534 313,558
 rect $S3Classes_8h.html 226,582 309,606
@@ -13,3 +13,4 @@ rect $Splits_8h.html 242,678 293,702
 rect $Node_8h.html 244,726 292,750
 rect $Predict_8h.html 238,774 297,798
 rect $SurrogateSplits_8h.html 214,822 321,846
+rect $TreeGrow_8h.html 230,870 305,894

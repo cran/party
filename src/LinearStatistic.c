@@ -3,7 +3,7 @@
     Linear statistics for conditional inference based on Strasser & Weber (1999)
     *\file LinearStatistic.c
     *\author $Author: hothorn $
-    *\date $Date: 2005/06/14 09:21:32 $
+    *\date $Date: 2005-06-14 11:21:32 +0200 (Tue, 14 Jun 2005) $
 */
     
 #include "party.h"

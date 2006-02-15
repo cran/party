@@ -72,280 +72,290 @@
 00070     <a class="code" href="Classes_8c.html#a58">PL2_dontuseSym</a>,
 00071     <a class="code" href="Classes_8c.html#a59">PL2_dontusetmpSym</a>,
 00072     <a class="code" href="Classes_8c.html#a60">PL2_stumpSym</a>,
-00073     <a class="code" href="Classes_8c.html#a61">PL2_tgctrlSym</a>;
-00074 
-<a name="l00075"></a><a class="code" href="Classes_8c.html#a62">00075</a> SEXP <a class="code" href="Classes_8c.html#a62">party_init</a>(<span class="keywordtype">void</span>) {
-00076     <a class="code" href="Classes_8c.html#a0">PL2_expectationSym</a> = install(<span class="stringliteral">"expectation"</span>);
-00077     <a class="code" href="Classes_8c.html#a1">PL2_covarianceSym</a> = install(<span class="stringliteral">"covariance"</span>);
-00078     <a class="code" href="Classes_8c.html#a2">PL2_linearstatisticSym</a> = install(<span class="stringliteral">"linearstatistic"</span>);
-00079     <a class="code" href="Classes_8c.html#a3">PL2_expcovinfSym</a> = install(<span class="stringliteral">"expcovinf"</span>);
-00080     <a class="code" href="Classes_8c.html#a4">PL2_expcovinfssSym</a> = install(<span class="stringliteral">"expcovinfss"</span>);
-00081     <a class="code" href="Classes_8c.html#a5">PL2_sumweightsSym</a> = install(<span class="stringliteral">"sumweights"</span>);
-00082     <a class="code" href="Classes_8c.html#a6">PL2_dimensionSym</a> = install(<span class="stringliteral">"dimension"</span>);
-00083     <a class="code" href="Classes_8c.html#a7">PL2_MPinvSym</a> = install(<span class="stringliteral">"MPinv"</span>);
-00084     <a class="code" href="Classes_8c.html#a8">PL2_rankSym</a> = install(<span class="stringliteral">"rank"</span>);
-00085     <a class="code" href="Classes_8c.html#a9">PL2_svdSym</a> = install(<span class="stringliteral">"svd"</span>);
-00086     <a class="code" href="Classes_8c.html#a10">PL2_svdmemSym</a> = install(<span class="stringliteral">"svdmem"</span>);
-00087     <a class="code" href="Classes_8c.html#a11">PL2_methodSym</a> = install(<span class="stringliteral">"method"</span>);
-00088     <a class="code" href="Classes_8c.html#a12">PL2_jobuSym</a> = install(<span class="stringliteral">"jobu"</span>);
-00089     <a class="code" href="Classes_8c.html#a13">PL2_jobvSym</a> = install(<span class="stringliteral">"jobv"</span>);
-00090     <a class="code" href="Classes_8c.html#a14">PL2_uSym</a> = install(<span class="stringliteral">"u"</span>);
-00091     <a class="code" href="Classes_8c.html#a15">PL2_vSym</a> = install(<span class="stringliteral">"v"</span>);
-00092     <a class="code" href="Classes_8c.html#a16">PL2_sSym</a> = install(<span class="stringliteral">"s"</span>);
-00093     <a class="code" href="Classes_8c.html#a17">PL2_pSym</a> = install(<span class="stringliteral">"p"</span>); 
-00094     <a class="code" href="Classes_8c.html#a18">PL2_teststattypeSym</a> = install(<span class="stringliteral">"teststattype"</span>);
-00095     <a class="code" href="Classes_8c.html#a19">PL2_pvalueSym</a> = install(<span class="stringliteral">"pvalue"</span>);
-00096     <a class="code" href="Classes_8c.html#a20">PL2_tolSym</a> = install(<span class="stringliteral">"tol"</span>);
-00097     <a class="code" href="Classes_8c.html#a21">PL2_maxptsSym</a> = install(<span class="stringliteral">"maxpts"</span>);
-00098     <a class="code" href="Classes_8c.html#a22">PL2_absepsSym</a> = install(<span class="stringliteral">"abseps"</span>);
-00099     <a class="code" href="Classes_8c.html#a23">PL2_relepsSym</a> = install(<span class="stringliteral">"releps"</span>);
-00100     <a class="code" href="Classes_8c.html#a25">PL2_minsplitSym</a> = install(<span class="stringliteral">"minsplit"</span>);
-00101     <a class="code" href="Classes_8c.html#a24">PL2_minprobSym</a> = install(<span class="stringliteral">"minprob"</span>);
-00102     <a class="code" href="Classes_8c.html#a26">PL2_minbucketSym</a> = install(<span class="stringliteral">"minbucket"</span>);
-00103     <a class="code" href="Classes_8c.html#a27">PL2_variablesSym</a> = install(<span class="stringliteral">"variables"</span>); 
-00104     <a class="code" href="Classes_8c.html#a28">PL2_transformationsSym</a> = install(<span class="stringliteral">"transformations"</span>); 
-00105     <a class="code" href="Classes_8c.html#a29">PL2_is_nominalSym</a> = install(<span class="stringliteral">"is_nominal"</span>); 
-00106     <a class="code" href="Classes_8c.html#a30">PL2_is_ordinalSym</a> = install(<span class="stringliteral">"is_ordinal"</span>); 
-00107     <a class="code" href="Classes_8c.html#a31">PL2_is_censoredSym</a> = install(<span class="stringliteral">"is_censored"</span>); 
-00108     <a class="code" href="Classes_8c.html#a32">PL2_orderingSym</a> = install(<span class="stringliteral">"ordering"</span>); 
-00109     <a class="code" href="Classes_8c.html#a33">PL2_levelsSym</a> = install(<span class="stringliteral">"levels"</span>); 
-00110     <a class="code" href="Classes_8c.html#a34">PL2_scoresSym</a> = install(<span class="stringliteral">"scores"</span>); 
-00111     <a class="code" href="Classes_8c.html#a35">PL2_has_missingsSym</a> = install(<span class="stringliteral">"has_missings"</span>); 
-00112     <a class="code" href="Classes_8c.html#a36">PL2_whichNASym</a> = install(<span class="stringliteral">"whichNA"</span>); 
-00113     <a class="code" href="Classes_8c.html#a37">PL2_jointtransfSym</a> = install(<span class="stringliteral">"jointtransf"</span>); 
-00114     <a class="code" href="Classes_8c.html#a38">PL2_nobsSym</a> = install(<span class="stringliteral">"nobs"</span>); 
-00115     <a class="code" href="Classes_8c.html#a39">PL2_ninputsSym</a> = install(<span class="stringliteral">"ninputs"</span>); 
-00116     <a class="code" href="Classes_8c.html#a40">PL2_linexpcov2sampleSym</a> = install(<span class="stringliteral">"linexpcov2sample"</span>); 
-00117     <a class="code" href="Classes_8c.html#a41">PL2_weightsSym</a> = install(<span class="stringliteral">"weights"</span>); 
-00118     <a class="code" href="Classes_8c.html#a42">PL2_varmemorySym</a> = install(<span class="stringliteral">"varmemory"</span>); 
-00119     <a class="code" href="Classes_8c.html#a43">PL2_varMmemorySym</a> = install(<span class="stringliteral">"varMmemory"</span>); 
-00120     <a class="code" href="Classes_8c.html#a44">PL2_MscorematricesSym</a> = install(<span class="stringliteral">"Mscorematrices"</span>); 
-00121     <a class="code" href="Classes_8c.html#a45">PL2_splitstatisticsSym</a> = install(<span class="stringliteral">"splitstatistics"</span>);
-00122     <a class="code" href="Classes_8c.html#a46">PL2_savesplitstatsSym</a> = install(<span class="stringliteral">"savesplitstats"</span>);
-00123     <a class="code" href="Classes_8c.html#a47">PL2_responsesSym</a> = install(<span class="stringliteral">"responses"</span>); 
-00124     <a class="code" href="Classes_8c.html#a48">PL2_inputsSym</a> = install(<span class="stringliteral">"inputs"</span>); 
-00125     <a class="code" href="Classes_8c.html#a49">PL2_testtypeSym</a> = install(<span class="stringliteral">"testtype"</span>); 
-00126     <a class="code" href="Classes_8c.html#a50">PL2_nresampleSym</a> = install(<span class="stringliteral">"nresample"</span>); 
-00127     <a class="code" href="Classes_8c.html#a51">PL2_varctrlSym</a> = install(<span class="stringliteral">"varctrl"</span>); 
-00128     <a class="code" href="Classes_8c.html#a52">PL2_splitctrlSym</a> = install(<span class="stringliteral">"splitctrl"</span>); 
-00129     <a class="code" href="Classes_8c.html#a53">PL2_gtctrlSym</a> = install(<span class="stringliteral">"gtctrl"</span>); 
-00130     <a class="code" href="Classes_8c.html#a54">PL2_mincriterionSym</a> = install(<span class="stringliteral">"mincriterion"</span>); 
-00131     <a class="code" href="Classes_8c.html#a55">PL2_maxsurrogateSym</a> = install(<span class="stringliteral">"maxsurrogate"</span>); 
-00132     <a class="code" href="Classes_8c.html#a56">PL2_randomsplitsSym</a> = install(<span class="stringliteral">"randomsplits"</span>); 
-00133     <a class="code" href="Classes_8c.html#a57">PL2_mtrySym</a> = install(<span class="stringliteral">"mtry"</span>); 
-00134     <a class="code" href="Classes_8c.html#a58">PL2_dontuseSym</a> = install(<span class="stringliteral">"dontuse"</span>); 
-00135     <a class="code" href="Classes_8c.html#a59">PL2_dontusetmpSym</a> = install(<span class="stringliteral">"dontusetmp"</span>); 
-00136     <a class="code" href="Classes_8c.html#a60">PL2_stumpSym</a> = install(<span class="stringliteral">"stump"</span>); 
-00137     <a class="code" href="Classes_8c.html#a61">PL2_tgctrlSym</a> = install(<span class="stringliteral">"tgctrl"</span>); 
-00138     <span class="keywordflow">return</span>(R_NilValue);
-00139 }
-00140 
-00141 <span class="comment">/* accessor functions */</span>
+00073     <a class="code" href="Classes_8c.html#a61">PL2_maxdepthSym</a>,
+00074     <a class="code" href="Classes_8c.html#a62">PL2_tgctrlSym</a>;
+00075 
+<a name="l00076"></a><a class="code" href="Classes_8c.html#a63">00076</a> SEXP <a class="code" href="Classes_8c.html#a63">party_init</a>(<span class="keywordtype">void</span>) {
+00077     <a class="code" href="Classes_8c.html#a0">PL2_expectationSym</a> = install(<span class="stringliteral">"expectation"</span>);
+00078     <a class="code" href="Classes_8c.html#a1">PL2_covarianceSym</a> = install(<span class="stringliteral">"covariance"</span>);
+00079     <a class="code" href="Classes_8c.html#a2">PL2_linearstatisticSym</a> = install(<span class="stringliteral">"linearstatistic"</span>);
+00080     <a class="code" href="Classes_8c.html#a3">PL2_expcovinfSym</a> = install(<span class="stringliteral">"expcovinf"</span>);
+00081     <a class="code" href="Classes_8c.html#a4">PL2_expcovinfssSym</a> = install(<span class="stringliteral">"expcovinfss"</span>);
+00082     <a class="code" href="Classes_8c.html#a5">PL2_sumweightsSym</a> = install(<span class="stringliteral">"sumweights"</span>);
+00083     <a class="code" href="Classes_8c.html#a6">PL2_dimensionSym</a> = install(<span class="stringliteral">"dimension"</span>);
+00084     <a class="code" href="Classes_8c.html#a7">PL2_MPinvSym</a> = install(<span class="stringliteral">"MPinv"</span>);
+00085     <a class="code" href="Classes_8c.html#a8">PL2_rankSym</a> = install(<span class="stringliteral">"rank"</span>);
+00086     <a class="code" href="Classes_8c.html#a9">PL2_svdSym</a> = install(<span class="stringliteral">"svd"</span>);
+00087     <a class="code" href="Classes_8c.html#a10">PL2_svdmemSym</a> = install(<span class="stringliteral">"svdmem"</span>);
+00088     <a class="code" href="Classes_8c.html#a11">PL2_methodSym</a> = install(<span class="stringliteral">"method"</span>);
+00089     <a class="code" href="Classes_8c.html#a12">PL2_jobuSym</a> = install(<span class="stringliteral">"jobu"</span>);
+00090     <a class="code" href="Classes_8c.html#a13">PL2_jobvSym</a> = install(<span class="stringliteral">"jobv"</span>);
+00091     <a class="code" href="Classes_8c.html#a14">PL2_uSym</a> = install(<span class="stringliteral">"u"</span>);
+00092     <a class="code" href="Classes_8c.html#a15">PL2_vSym</a> = install(<span class="stringliteral">"v"</span>);
+00093     <a class="code" href="Classes_8c.html#a16">PL2_sSym</a> = install(<span class="stringliteral">"s"</span>);
+00094     <a class="code" href="Classes_8c.html#a17">PL2_pSym</a> = install(<span class="stringliteral">"p"</span>); 
+00095     <a class="code" href="Classes_8c.html#a18">PL2_teststattypeSym</a> = install(<span class="stringliteral">"teststattype"</span>);
+00096     <a class="code" href="Classes_8c.html#a19">PL2_pvalueSym</a> = install(<span class="stringliteral">"pvalue"</span>);
+00097     <a class="code" href="Classes_8c.html#a20">PL2_tolSym</a> = install(<span class="stringliteral">"tol"</span>);
+00098     <a class="code" href="Classes_8c.html#a21">PL2_maxptsSym</a> = install(<span class="stringliteral">"maxpts"</span>);
+00099     <a class="code" href="Classes_8c.html#a22">PL2_absepsSym</a> = install(<span class="stringliteral">"abseps"</span>);
+00100     <a class="code" href="Classes_8c.html#a23">PL2_relepsSym</a> = install(<span class="stringliteral">"releps"</span>);
+00101     <a class="code" href="Classes_8c.html#a25">PL2_minsplitSym</a> = install(<span class="stringliteral">"minsplit"</span>);
+00102     <a class="code" href="Classes_8c.html#a24">PL2_minprobSym</a> = install(<span class="stringliteral">"minprob"</span>);
+00103     <a class="code" href="Classes_8c.html#a26">PL2_minbucketSym</a> = install(<span class="stringliteral">"minbucket"</span>);
+00104     <a class="code" href="Classes_8c.html#a27">PL2_variablesSym</a> = install(<span class="stringliteral">"variables"</span>); 
+00105     <a class="code" href="Classes_8c.html#a28">PL2_transformationsSym</a> = install(<span class="stringliteral">"transformations"</span>); 
+00106     <a class="code" href="Classes_8c.html#a29">PL2_is_nominalSym</a> = install(<span class="stringliteral">"is_nominal"</span>); 
+00107     <a class="code" href="Classes_8c.html#a30">PL2_is_ordinalSym</a> = install(<span class="stringliteral">"is_ordinal"</span>); 
+00108     <a class="code" href="Classes_8c.html#a31">PL2_is_censoredSym</a> = install(<span class="stringliteral">"is_censored"</span>); 
+00109     <a class="code" href="Classes_8c.html#a32">PL2_orderingSym</a> = install(<span class="stringliteral">"ordering"</span>); 
+00110     <a class="code" href="Classes_8c.html#a33">PL2_levelsSym</a> = install(<span class="stringliteral">"levels"</span>); 
+00111     <a class="code" href="Classes_8c.html#a34">PL2_scoresSym</a> = install(<span class="stringliteral">"scores"</span>); 
+00112     <a class="code" href="Classes_8c.html#a35">PL2_has_missingsSym</a> = install(<span class="stringliteral">"has_missings"</span>); 
+00113     <a class="code" href="Classes_8c.html#a36">PL2_whichNASym</a> = install(<span class="stringliteral">"whichNA"</span>); 
+00114     <a class="code" href="Classes_8c.html#a37">PL2_jointtransfSym</a> = install(<span class="stringliteral">"jointtransf"</span>); 
+00115     <a class="code" href="Classes_8c.html#a38">PL2_nobsSym</a> = install(<span class="stringliteral">"nobs"</span>); 
+00116     <a class="code" href="Classes_8c.html#a39">PL2_ninputsSym</a> = install(<span class="stringliteral">"ninputs"</span>); 
+00117     <a class="code" href="Classes_8c.html#a40">PL2_linexpcov2sampleSym</a> = install(<span class="stringliteral">"linexpcov2sample"</span>); 
+00118     <a class="code" href="Classes_8c.html#a41">PL2_weightsSym</a> = install(<span class="stringliteral">"weights"</span>); 
+00119     <a class="code" href="Classes_8c.html#a42">PL2_varmemorySym</a> = install(<span class="stringliteral">"varmemory"</span>); 
+00120     <a class="code" href="Classes_8c.html#a43">PL2_varMmemorySym</a> = install(<span class="stringliteral">"varMmemory"</span>); 
+00121     <a class="code" href="Classes_8c.html#a44">PL2_MscorematricesSym</a> = install(<span class="stringliteral">"Mscorematrices"</span>); 
+00122     <a class="code" href="Classes_8c.html#a45">PL2_splitstatisticsSym</a> = install(<span class="stringliteral">"splitstatistics"</span>);
+00123     <a class="code" href="Classes_8c.html#a46">PL2_savesplitstatsSym</a> = install(<span class="stringliteral">"savesplitstats"</span>);
+00124     <a class="code" href="Classes_8c.html#a47">PL2_responsesSym</a> = install(<span class="stringliteral">"responses"</span>); 
+00125     <a class="code" href="Classes_8c.html#a48">PL2_inputsSym</a> = install(<span class="stringliteral">"inputs"</span>); 
+00126     <a class="code" href="Classes_8c.html#a49">PL2_testtypeSym</a> = install(<span class="stringliteral">"testtype"</span>); 
+00127     <a class="code" href="Classes_8c.html#a50">PL2_nresampleSym</a> = install(<span class="stringliteral">"nresample"</span>); 
+00128     <a class="code" href="Classes_8c.html#a51">PL2_varctrlSym</a> = install(<span class="stringliteral">"varctrl"</span>); 
+00129     <a class="code" href="Classes_8c.html#a52">PL2_splitctrlSym</a> = install(<span class="stringliteral">"splitctrl"</span>); 
+00130     <a class="code" href="Classes_8c.html#a53">PL2_gtctrlSym</a> = install(<span class="stringliteral">"gtctrl"</span>); 
+00131     <a class="code" href="Classes_8c.html#a54">PL2_mincriterionSym</a> = install(<span class="stringliteral">"mincriterion"</span>); 
+00132     <a class="code" href="Classes_8c.html#a55">PL2_maxsurrogateSym</a> = install(<span class="stringliteral">"maxsurrogate"</span>); 
+00133     <a class="code" href="Classes_8c.html#a56">PL2_randomsplitsSym</a> = install(<span class="stringliteral">"randomsplits"</span>); 
+00134     <a class="code" href="Classes_8c.html#a57">PL2_mtrySym</a> = install(<span class="stringliteral">"mtry"</span>); 
+00135     <a class="code" href="Classes_8c.html#a58">PL2_dontuseSym</a> = install(<span class="stringliteral">"dontuse"</span>); 
+00136     <a class="code" href="Classes_8c.html#a59">PL2_dontusetmpSym</a> = install(<span class="stringliteral">"dontusetmp"</span>); 
+00137     <a class="code" href="Classes_8c.html#a60">PL2_stumpSym</a> = install(<span class="stringliteral">"stump"</span>); 
+00138     <a class="code" href="Classes_8c.html#a61">PL2_maxdepthSym</a> = install(<span class="stringliteral">"maxdepth"</span>); 
+00139     <a class="code" href="Classes_8c.html#a62">PL2_tgctrlSym</a> = install(<span class="stringliteral">"tgctrl"</span>); 
+00140     <span class="keywordflow">return</span>(R_NilValue);
+00141 }
 00142 
-<a name="l00143"></a><a class="code" href="Classes_8h.html#a59">00143</a> <span class="keywordtype">int</span> <a class="code" href="Classes_8c.html#a63">get_dimension</a>(SEXP object) {
-00144     <span class="keywordflow">return</span>(INTEGER(GET_SLOT(object, <a class="code" href="Classes_8c.html#a6">PL2_dimensionSym</a>))[0]);
-00145 }
-00146 
-<a name="l00147"></a><a class="code" href="Classes_8h.html#a60">00147</a> <span class="keywordtype">int</span> <a class="code" href="Classes_8c.html#a64">get_teststattype</a>(SEXP object) {
-00148     <span class="keywordflow">return</span>(INTEGER(GET_SLOT(object, <a class="code" href="Classes_8c.html#a18">PL2_teststattypeSym</a>))[0]);
-00149 }
-00150 
-<a name="l00151"></a><a class="code" href="Classes_8h.html#a62">00151</a> <span class="keywordtype">int</span> <a class="code" href="Classes_8c.html#a65">get_pvalue</a>(SEXP object) {
-00152     <span class="keywordflow">return</span>(INTEGER(GET_SLOT(object, <a class="code" href="Classes_8c.html#a19">PL2_pvalueSym</a>))[0]);
-00153 }
-00154 
-<a name="l00155"></a><a class="code" href="Classes_8h.html#a61">00155</a> <span class="keywordtype">double</span> <a class="code" href="Classes_8c.html#a66">get_tol</a>(SEXP object) {
-00156     <span class="keywordflow">return</span>(REAL(GET_SLOT(object, <a class="code" href="Classes_8c.html#a20">PL2_tolSym</a>))[0]);
-00157 }
-00158 
-<a name="l00159"></a><a class="code" href="Classes_8h.html#a63">00159</a> <span class="keywordtype">int</span> <a class="code" href="Classes_8c.html#a67">get_maxpts</a>(SEXP object) {
-00160     <span class="keywordflow">return</span>(INTEGER(GET_SLOT(object, <a class="code" href="Classes_8c.html#a21">PL2_maxptsSym</a>))[0]);
-00161 }
-00162 
-<a name="l00163"></a><a class="code" href="Classes_8h.html#a64">00163</a> <span class="keywordtype">double</span> <a class="code" href="Classes_8c.html#a68">get_abseps</a>(SEXP object) {
-00164     <span class="keywordflow">return</span>(REAL(GET_SLOT(object, <a class="code" href="Classes_8c.html#a22">PL2_absepsSym</a>))[0]);
-00165 }
-00166 
-<a name="l00167"></a><a class="code" href="Classes_8h.html#a65">00167</a> <span class="keywordtype">double</span> <a class="code" href="Classes_8c.html#a69">get_releps</a>(SEXP object) {
-00168     <span class="keywordflow">return</span>(REAL(GET_SLOT(object, <a class="code" href="Classes_8c.html#a23">PL2_relepsSym</a>))[0]);
-00169 }
-00170 
-<a name="l00171"></a><a class="code" href="Classes_8h.html#a66">00171</a> <span class="keywordtype">double</span> <a class="code" href="Classes_8c.html#a70">get_minsplit</a>(SEXP object) {
-00172     <span class="keywordflow">return</span>(REAL(GET_SLOT(object, <a class="code" href="Classes_8c.html#a25">PL2_minsplitSym</a>))[0]);
-00173 }
-00174 
-<a name="l00175"></a><a class="code" href="Classes_8h.html#a67">00175</a> <span class="keywordtype">double</span> <a class="code" href="Classes_8c.html#a71">get_minprob</a>(SEXP object) {
-00176     <span class="keywordflow">return</span>(REAL(GET_SLOT(object, <a class="code" href="Classes_8c.html#a24">PL2_minprobSym</a>))[0]);
-00177 }
-00178 
-<a name="l00179"></a><a class="code" href="Classes_8h.html#a68">00179</a> <span class="keywordtype">double</span> <a class="code" href="Classes_8c.html#a72">get_minbucket</a>(SEXP object) {
-00180     <span class="keywordflow">return</span>(REAL(GET_SLOT(object, <a class="code" href="Classes_8c.html#a26">PL2_minbucketSym</a>))[0]);
-00181 }
-00182 
-<a name="l00183"></a><a class="code" href="Classes_8h.html#a69">00183</a> SEXP <a class="code" href="Classes_8c.html#a73">get_transformation</a>(SEXP object, <span class="keywordtype">int</span> variable) {
-00184     <span class="keywordflow">return</span>(VECTOR_ELT(
-00185                GET_SLOT(object, <a class="code" href="Classes_8c.html#a28">PL2_transformationsSym</a>), 
-00186                variable - 1));
-00187 }
-00188 
-<a name="l00189"></a><a class="code" href="Classes_8h.html#a70">00189</a> SEXP <a class="code" href="Classes_8c.html#a74">get_jointtransf</a>(SEXP object) {
-00190     <span class="keywordflow">return</span>(GET_SLOT(object, <a class="code" href="Classes_8c.html#a37">PL2_jointtransfSym</a>));
-00191 }
-00192 
-<a name="l00193"></a><a class="code" href="Classes_8h.html#a71">00193</a> SEXP <a class="code" href="Classes_8c.html#a75">get_variable</a>(SEXP object, <span class="keywordtype">int</span> variable) {
-00194     <span class="keywordflow">return</span>(VECTOR_ELT(
-00195                GET_SLOT(object, <a class="code" href="Classes_8c.html#a27">PL2_variablesSym</a>), 
-00196                variable - 1));
-00197 }
-00198 
-<a name="l00199"></a><a class="code" href="Classes_8h.html#a72">00199</a> <span class="keywordtype">int</span> <a class="code" href="Classes_8c.html#a76">is_nominal</a>(SEXP object, <span class="keywordtype">int</span> variable) {
-00200     <span class="keywordflow">return</span>(INTEGER(GET_SLOT(object, <a class="code" href="Classes_8c.html#a29">PL2_is_nominalSym</a>))[variable - 1]);
-00201 }
-00202 
-<a name="l00203"></a><a class="code" href="Classes_8h.html#a73">00203</a> <span class="keywordtype">int</span> <a class="code" href="Classes_8c.html#a77">is_ordinal</a>(SEXP object, <span class="keywordtype">int</span> variable) {
-00204     <span class="keywordflow">return</span>(INTEGER(GET_SLOT(object, <a class="code" href="Classes_8c.html#a30">PL2_is_ordinalSym</a>))[variable - 1]);
-00205 }
-00206 
-<a name="l00207"></a><a class="code" href="Classes_8h.html#a74">00207</a> <span class="keywordtype">int</span> <a class="code" href="Classes_8c.html#a78">is_censored</a>(SEXP object, <span class="keywordtype">int</span> variable) {
-00208     <span class="keywordflow">return</span>(INTEGER(GET_SLOT(object, <a class="code" href="Classes_8c.html#a31">PL2_is_censoredSym</a>))[variable - 1]);
-00209 }
-00210 
-<a name="l00211"></a><a class="code" href="Classes_8h.html#a75">00211</a> <span class="keywordtype">int</span> <a class="code" href="Classes_8c.html#a79">has_missings</a>(SEXP object, <span class="keywordtype">int</span> variable) {
-00212     <span class="keywordflow">return</span>(INTEGER(GET_SLOT(object, <a class="code" href="Classes_8c.html#a35">PL2_has_missingsSym</a>))[variable - 1]);
-00213 }
-00214 
-<a name="l00215"></a><a class="code" href="Classes_8h.html#a77">00215</a> SEXP <a class="code" href="Classes_8c.html#a80">get_ordering</a>(SEXP object, <span class="keywordtype">int</span> variable) {
-00216     <span class="keywordflow">if</span> (!<a class="code" href="Classes_8c.html#a76">is_nominal</a>(object, variable)) {
-00217         <span class="keywordflow">return</span>(VECTOR_ELT(
-00218                GET_SLOT(object, <a class="code" href="Classes_8c.html#a32">PL2_orderingSym</a>), 
-00219                variable - 1));
-00220     } <span class="keywordflow">else</span> {
-00221         error(<span class="stringliteral">"Variable %d is not ordered"</span>, variable);
-00222         <span class="keywordflow">return</span>(R_NilValue);
-00223     }
-00224 }
-00225 
-<a name="l00226"></a><a class="code" href="Classes_8h.html#a78">00226</a> SEXP <a class="code" href="Classes_8c.html#a81">get_levels</a>(SEXP object, <span class="keywordtype">int</span> variable) {
-00227     <span class="keywordflow">if</span> (<a class="code" href="Classes_8c.html#a76">is_nominal</a>(object, variable) || 
-00228         <a class="code" href="Classes_8c.html#a77">is_ordinal</a>(object, variable)) {
-00229         <span class="keywordflow">return</span>(VECTOR_ELT(
-00230                GET_SLOT(object, <a class="code" href="Classes_8c.html#a33">PL2_levelsSym</a>), 
-00231                variable - 1));
-00232     } <span class="keywordflow">else</span> {
-00233         error(<span class="stringliteral">"Variable %d is not an (ordered) factor"</span>, variable);
-00234         <span class="keywordflow">return</span>(R_NilValue);
-00235     }
-00236 }
-00237 
-<a name="l00238"></a><a class="code" href="Classes_8h.html#a79">00238</a> SEXP <a class="code" href="Classes_8c.html#a82">get_scores</a>(SEXP object, <span class="keywordtype">int</span> variable) {
-00239     <span class="keywordflow">if</span> (<a class="code" href="Classes_8c.html#a77">is_ordinal</a>(object, variable)) {
-00240         <span class="keywordflow">return</span>(VECTOR_ELT(
-00241                GET_SLOT(object, <a class="code" href="Classes_8c.html#a34">PL2_scoresSym</a>), 
-00242                variable - 1));
-00243     } <span class="keywordflow">else</span> {
-00244         error(<span class="stringliteral">"Variable %d is not an ordered factor"</span>, variable);
-00245         <span class="keywordflow">return</span>(R_NilValue);
-00246     }
-00247 }
-00248 
-<a name="l00249"></a><a class="code" href="Classes_8h.html#a76">00249</a> SEXP <a class="code" href="Classes_8c.html#a83">get_missings</a>(SEXP object, <span class="keywordtype">int</span> variable) {
-00250     <span class="keywordflow">if</span> (<a class="code" href="Classes_8c.html#a79">has_missings</a>(object, variable)) {
-00251         <span class="keywordflow">return</span>(VECTOR_ELT(
-00252                GET_SLOT(object, <a class="code" href="Classes_8c.html#a36">PL2_whichNASym</a>), 
-00253                variable - 1));
-00254     } <span class="keywordflow">else</span> {
-00255         error(<span class="stringliteral">"Variable %d has no missing values"</span>, variable);
-00256         <span class="keywordflow">return</span>(R_NilValue);
-00257     }
-00258 }
-00259 
-<a name="l00260"></a><a class="code" href="Classes_8h.html#a81">00260</a> SEXP <a class="code" href="Classes_8c.html#a84">get_varmemory</a>(SEXP object, <span class="keywordtype">int</span> variable) {
-00261     <span class="keywordflow">return</span>(VECTOR_ELT(GET_SLOT(object, <a class="code" href="Classes_8c.html#a42">PL2_varmemorySym</a>), 
-00262                       variable - 1));
-00263 }
-00264 
-<a name="l00265"></a><a class="code" href="Classes_8h.html#a82">00265</a> SEXP <a class="code" href="Classes_8c.html#a85">get_varMmemory</a>(SEXP object, <span class="keywordtype">int</span> variable) {
-00266     <span class="keywordflow">return</span>(VECTOR_ELT(GET_SLOT(object, <a class="code" href="Classes_8c.html#a43">PL2_varMmemorySym</a>), 
-00267                       variable - 1));
-00268 }
-00269 
-<a name="l00270"></a><a class="code" href="Classes_8h.html#a83">00270</a> SEXP <a class="code" href="Classes_8c.html#a86">get_Mscorematrix</a>(SEXP object, <span class="keywordtype">int</span> variable) {
-00271     <span class="keywordflow">return</span>(VECTOR_ELT(GET_SLOT(object, <a class="code" href="Classes_8c.html#a44">PL2_MscorematricesSym</a>), 
-00272                       variable - 1));
-00273 }
-00274 
-<a name="l00275"></a><a class="code" href="Classes_8h.html#a101">00275</a> <span class="keywordtype">int</span> <a class="code" href="Classes_8c.html#a87">get_savesplitstats</a>(SEXP object) {
-00276     <span class="keywordflow">return</span>(INTEGER(GET_SLOT(object, <a class="code" href="Classes_8c.html#a46">PL2_savesplitstatsSym</a>))[0]);
-00277 }
-00278 
-<a name="l00279"></a><a class="code" href="Classes_8h.html#a100">00279</a> SEXP <a class="code" href="Classes_8c.html#a88">get_splitstatistics</a>(SEXP object) {
-00280     <span class="keywordflow">return</span>(GET_SLOT(object, <a class="code" href="Classes_8c.html#a45">PL2_splitstatisticsSym</a>));
-00281 }
-00282 
-<a name="l00283"></a><a class="code" href="Classes_8h.html#a84">00283</a> <span class="keywordtype">int</span> <a class="code" href="Classes_8c.html#a89">get_nobs</a>(SEXP object) {
-00284     <span class="keywordflow">return</span>(INTEGER(GET_SLOT(object, <a class="code" href="Classes_8c.html#a38">PL2_nobsSym</a>))[0]);
-00285 }
-00286 
-<a name="l00287"></a><a class="code" href="Classes_8h.html#a85">00287</a> <span class="keywordtype">int</span> <a class="code" href="Classes_8c.html#a90">get_ninputs</a>(SEXP object) {
-00288     <span class="keywordflow">return</span>(INTEGER(GET_SLOT(object, <a class="code" href="Classes_8c.html#a39">PL2_ninputsSym</a>))[0]);
-00289 }
-00290 
-<a name="l00291"></a><a class="code" href="Classes_8h.html#a86">00291</a> SEXP <a class="code" href="Classes_8c.html#a91">get_weights</a>(SEXP object, <span class="keywordtype">int</span> variable) {
-00292     <span class="keywordflow">return</span>(VECTOR_ELT(GET_SLOT(object, <a class="code" href="Classes_8c.html#a41">PL2_weightsSym</a>), variable - 1));
-00293 }
-00294 
-<a name="l00295"></a><a class="code" href="Classes_8h.html#a87">00295</a> <span class="keywordtype">int</span> <a class="code" href="Classes_8c.html#a92">get_testtype</a>(SEXP object) {
-00296     <span class="keywordflow">return</span>(INTEGER(GET_SLOT(object, <a class="code" href="Classes_8c.html#a49">PL2_testtypeSym</a>))[0]);
-00297 }
-00298 
-<a name="l00299"></a><a class="code" href="Classes_8h.html#a88">00299</a> <span class="keywordtype">int</span> <a class="code" href="Classes_8c.html#a93">get_nresample</a>(SEXP object) {
-00300     <span class="keywordflow">return</span>(INTEGER(GET_SLOT(object, <a class="code" href="Classes_8c.html#a50">PL2_nresampleSym</a>))[0]);
-00301 }
-00302 
-<a name="l00303"></a><a class="code" href="Classes_8h.html#a89">00303</a> SEXP <a class="code" href="Classes_8c.html#a94">get_varctrl</a>(SEXP object) {
-00304     <span class="keywordflow">return</span>(GET_SLOT(object, <a class="code" href="Classes_8c.html#a51">PL2_varctrlSym</a>));
-00305 }
-00306 
-<a name="l00307"></a><a class="code" href="Classes_8h.html#a90">00307</a> SEXP <a class="code" href="Classes_8c.html#a95">get_splitctrl</a>(SEXP object) {
-00308     <span class="keywordflow">return</span>(GET_SLOT(object, <a class="code" href="Classes_8c.html#a52">PL2_splitctrlSym</a>));
-00309 }
-00310 
-<a name="l00311"></a><a class="code" href="Classes_8h.html#a91">00311</a> SEXP <a class="code" href="Classes_8c.html#a96">get_gtctrl</a>(SEXP object) {
-00312     <span class="keywordflow">return</span>(GET_SLOT(object, <a class="code" href="Classes_8c.html#a53">PL2_gtctrlSym</a>));
-00313 }
-00314 
-<a name="l00315"></a><a class="code" href="Classes_8h.html#a99">00315</a> SEXP <a class="code" href="Classes_8c.html#a97">get_tgctrl</a>(SEXP object) {
-00316     <span class="keywordflow">return</span>(GET_SLOT(object, <a class="code" href="Classes_8c.html#a61">PL2_tgctrlSym</a>));
-00317 }
-00318 
-<a name="l00319"></a><a class="code" href="Classes_8h.html#a92">00319</a> <span class="keywordtype">double</span> <a class="code" href="Classes_8c.html#a98">get_mincriterion</a>(SEXP object) {
-00320     <span class="keywordflow">return</span>(REAL(GET_SLOT(object, <a class="code" href="Classes_8c.html#a54">PL2_mincriterionSym</a>))[0]);
-00321 }
-00322 
-<a name="l00323"></a><a class="code" href="Classes_8h.html#a98">00323</a> <span class="keywordtype">int</span> <a class="code" href="Classes_8c.html#a99">get_maxsurrogate</a>(SEXP object) {
-00324     <span class="keywordflow">return</span>(INTEGER(GET_SLOT(object, <a class="code" href="Classes_8c.html#a55">PL2_maxsurrogateSym</a>))[0]);
-00325 }
-00326 
-<a name="l00327"></a><a class="code" href="Classes_8h.html#a93">00327</a> <span class="keywordtype">int</span> <a class="code" href="Classes_8c.html#a100">get_randomsplits</a>(SEXP object) {
-00328     <span class="keywordflow">return</span>(INTEGER(GET_SLOT(object, <a class="code" href="Classes_8c.html#a56">PL2_randomsplitsSym</a>))[0]);
-00329 }
-00330 
-<a name="l00331"></a><a class="code" href="Classes_8h.html#a94">00331</a> <span class="keywordtype">int</span> <a class="code" href="Classes_8c.html#a101">get_mtry</a>(SEXP object) {
-00332     <span class="keywordflow">return</span>(INTEGER(GET_SLOT(object, <a class="code" href="Classes_8c.html#a57">PL2_mtrySym</a>))[0]);
-00333 }
-00334 
-<a name="l00335"></a><a class="code" href="Classes_8h.html#a95">00335</a> SEXP <a class="code" href="Classes_8c.html#a102">get_dontuse</a>(SEXP object) {
-00336     <span class="keywordflow">return</span>(GET_SLOT(object, <a class="code" href="Classes_8c.html#a58">PL2_dontuseSym</a>));
-00337 }
-00338 
-<a name="l00339"></a><a class="code" href="Classes_8h.html#a96">00339</a> SEXP <a class="code" href="Classes_8c.html#a103">get_dontusetmp</a>(SEXP object) {
-00340     <span class="keywordflow">return</span>(GET_SLOT(object, <a class="code" href="Classes_8c.html#a59">PL2_dontusetmpSym</a>));
-00341 }
-00342 
-<a name="l00343"></a><a class="code" href="Classes_8h.html#a97">00343</a> <span class="keywordtype">int</span> <a class="code" href="Classes_8c.html#a104">get_stump</a>(SEXP object) {
-00344     <span class="keywordflow">return</span>(INTEGER(GET_SLOT(object, <a class="code" href="Classes_8c.html#a60">PL2_stumpSym</a>))[0]);
-00345 }
-</pre></div><hr size="1"><address style="align: right;"><small>Generated on Wed Jan 18 11:23:28 2006 for party by&nbsp;
+00143 <span class="comment">/* accessor functions */</span>
+00144 
+<a name="l00145"></a><a class="code" href="Classes_8h.html#a59">00145</a> <span class="keywordtype">int</span> <a class="code" href="Classes_8c.html#a64">get_dimension</a>(SEXP object) {
+00146     <span class="keywordflow">return</span>(INTEGER(GET_SLOT(object, <a class="code" href="Classes_8c.html#a6">PL2_dimensionSym</a>))[0]);
+00147 }
+00148 
+<a name="l00149"></a><a class="code" href="Classes_8h.html#a60">00149</a> <span class="keywordtype">int</span> <a class="code" href="Classes_8c.html#a65">get_teststattype</a>(SEXP object) {
+00150     <span class="keywordflow">return</span>(INTEGER(GET_SLOT(object, <a class="code" href="Classes_8c.html#a18">PL2_teststattypeSym</a>))[0]);
+00151 }
+00152 
+<a name="l00153"></a><a class="code" href="Classes_8h.html#a62">00153</a> <span class="keywordtype">int</span> <a class="code" href="Classes_8c.html#a66">get_pvalue</a>(SEXP object) {
+00154     <span class="keywordflow">return</span>(INTEGER(GET_SLOT(object, <a class="code" href="Classes_8c.html#a19">PL2_pvalueSym</a>))[0]);
+00155 }
+00156 
+<a name="l00157"></a><a class="code" href="Classes_8h.html#a61">00157</a> <span class="keywordtype">double</span> <a class="code" href="Classes_8c.html#a67">get_tol</a>(SEXP object) {
+00158     <span class="keywordflow">return</span>(REAL(GET_SLOT(object, <a class="code" href="Classes_8c.html#a20">PL2_tolSym</a>))[0]);
+00159 }
+00160 
+<a name="l00161"></a><a class="code" href="Classes_8h.html#a63">00161</a> <span class="keywordtype">int</span> <a class="code" href="Classes_8c.html#a68">get_maxpts</a>(SEXP object) {
+00162     <span class="keywordflow">return</span>(INTEGER(GET_SLOT(object, <a class="code" href="Classes_8c.html#a21">PL2_maxptsSym</a>))[0]);
+00163 }
+00164 
+<a name="l00165"></a><a class="code" href="Classes_8h.html#a64">00165</a> <span class="keywordtype">double</span> <a class="code" href="Classes_8c.html#a69">get_abseps</a>(SEXP object) {
+00166     <span class="keywordflow">return</span>(REAL(GET_SLOT(object, <a class="code" href="Classes_8c.html#a22">PL2_absepsSym</a>))[0]);
+00167 }
+00168 
+<a name="l00169"></a><a class="code" href="Classes_8h.html#a65">00169</a> <span class="keywordtype">double</span> <a class="code" href="Classes_8c.html#a70">get_releps</a>(SEXP object) {
+00170     <span class="keywordflow">return</span>(REAL(GET_SLOT(object, <a class="code" href="Classes_8c.html#a23">PL2_relepsSym</a>))[0]);
+00171 }
+00172 
+<a name="l00173"></a><a class="code" href="Classes_8h.html#a66">00173</a> <span class="keywordtype">double</span> <a class="code" href="Classes_8c.html#a71">get_minsplit</a>(SEXP object) {
+00174     <span class="keywordflow">return</span>(REAL(GET_SLOT(object, <a class="code" href="Classes_8c.html#a25">PL2_minsplitSym</a>))[0]);
+00175 }
+00176 
+<a name="l00177"></a><a class="code" href="Classes_8h.html#a67">00177</a> <span class="keywordtype">double</span> <a class="code" href="Classes_8c.html#a72">get_minprob</a>(SEXP object) {
+00178     <span class="keywordflow">return</span>(REAL(GET_SLOT(object, <a class="code" href="Classes_8c.html#a24">PL2_minprobSym</a>))[0]);
+00179 }
+00180 
+<a name="l00181"></a><a class="code" href="Classes_8h.html#a68">00181</a> <span class="keywordtype">double</span> <a class="code" href="Classes_8c.html#a73">get_minbucket</a>(SEXP object) {
+00182     <span class="keywordflow">return</span>(REAL(GET_SLOT(object, <a class="code" href="Classes_8c.html#a26">PL2_minbucketSym</a>))[0]);
+00183 }
+00184 
+<a name="l00185"></a><a class="code" href="Classes_8h.html#a69">00185</a> SEXP <a class="code" href="Classes_8c.html#a74">get_transformation</a>(SEXP object, <span class="keywordtype">int</span> variable) {
+00186     <span class="keywordflow">return</span>(VECTOR_ELT(
+00187                GET_SLOT(object, <a class="code" href="Classes_8c.html#a28">PL2_transformationsSym</a>), 
+00188                variable - 1));
+00189 }
+00190 
+<a name="l00191"></a><a class="code" href="Classes_8h.html#a70">00191</a> SEXP <a class="code" href="Classes_8c.html#a75">get_jointtransf</a>(SEXP object) {
+00192     <span class="keywordflow">return</span>(GET_SLOT(object, <a class="code" href="Classes_8c.html#a37">PL2_jointtransfSym</a>));
+00193 }
+00194 
+<a name="l00195"></a><a class="code" href="Classes_8h.html#a71">00195</a> SEXP <a class="code" href="Classes_8c.html#a76">get_variable</a>(SEXP object, <span class="keywordtype">int</span> variable) {
+00196     <span class="keywordflow">return</span>(VECTOR_ELT(
+00197                GET_SLOT(object, <a class="code" href="Classes_8c.html#a27">PL2_variablesSym</a>), 
+00198                variable - 1));
+00199 }
+00200 
+<a name="l00201"></a><a class="code" href="Classes_8h.html#a72">00201</a> <span class="keywordtype">int</span> <a class="code" href="Classes_8c.html#a77">is_nominal</a>(SEXP object, <span class="keywordtype">int</span> variable) {
+00202     <span class="keywordflow">return</span>(INTEGER(GET_SLOT(object, <a class="code" href="Classes_8c.html#a29">PL2_is_nominalSym</a>))[variable - 1]);
+00203 }
+00204 
+<a name="l00205"></a><a class="code" href="Classes_8h.html#a73">00205</a> <span class="keywordtype">int</span> <a class="code" href="Classes_8c.html#a78">is_ordinal</a>(SEXP object, <span class="keywordtype">int</span> variable) {
+00206     <span class="keywordflow">return</span>(INTEGER(GET_SLOT(object, <a class="code" href="Classes_8c.html#a30">PL2_is_ordinalSym</a>))[variable - 1]);
+00207 }
+00208 
+<a name="l00209"></a><a class="code" href="Classes_8h.html#a74">00209</a> <span class="keywordtype">int</span> <a class="code" href="Classes_8c.html#a79">is_censored</a>(SEXP object, <span class="keywordtype">int</span> variable) {
+00210     <span class="keywordflow">return</span>(INTEGER(GET_SLOT(object, <a class="code" href="Classes_8c.html#a31">PL2_is_censoredSym</a>))[variable - 1]);
+00211 }
+00212 
+<a name="l00213"></a><a class="code" href="Classes_8h.html#a75">00213</a> <span class="keywordtype">int</span> <a class="code" href="Classes_8c.html#a80">has_missings</a>(SEXP object, <span class="keywordtype">int</span> variable) {
+00214     <span class="keywordflow">return</span>(INTEGER(GET_SLOT(object, <a class="code" href="Classes_8c.html#a35">PL2_has_missingsSym</a>))[variable - 1]);
+00215 }
+00216 
+<a name="l00217"></a><a class="code" href="Classes_8h.html#a77">00217</a> SEXP <a class="code" href="Classes_8c.html#a81">get_ordering</a>(SEXP object, <span class="keywordtype">int</span> variable) {
+00218     <span class="keywordflow">if</span> (!<a class="code" href="Classes_8c.html#a77">is_nominal</a>(object, variable)) {
+00219         <span class="keywordflow">return</span>(VECTOR_ELT(
+00220                GET_SLOT(object, <a class="code" href="Classes_8c.html#a32">PL2_orderingSym</a>), 
+00221                variable - 1));
+00222     } <span class="keywordflow">else</span> {
+00223         error(<span class="stringliteral">"Variable %d is not ordered"</span>, variable);
+00224         <span class="keywordflow">return</span>(R_NilValue);
+00225     }
+00226 }
+00227 
+<a name="l00228"></a><a class="code" href="Classes_8h.html#a78">00228</a> SEXP <a class="code" href="Classes_8c.html#a82">get_levels</a>(SEXP object, <span class="keywordtype">int</span> variable) {
+00229     <span class="keywordflow">if</span> (<a class="code" href="Classes_8c.html#a77">is_nominal</a>(object, variable) || 
+00230         <a class="code" href="Classes_8c.html#a78">is_ordinal</a>(object, variable)) {
+00231         <span class="keywordflow">return</span>(VECTOR_ELT(
+00232                GET_SLOT(object, <a class="code" href="Classes_8c.html#a33">PL2_levelsSym</a>), 
+00233                variable - 1));
+00234     } <span class="keywordflow">else</span> {
+00235         error(<span class="stringliteral">"Variable %d is not an (ordered) factor"</span>, variable);
+00236         <span class="keywordflow">return</span>(R_NilValue);
+00237     }
+00238 }
+00239 
+<a name="l00240"></a><a class="code" href="Classes_8h.html#a79">00240</a> SEXP <a class="code" href="Classes_8c.html#a83">get_scores</a>(SEXP object, <span class="keywordtype">int</span> variable) {
+00241     <span class="keywordflow">if</span> (<a class="code" href="Classes_8c.html#a78">is_ordinal</a>(object, variable)) {
+00242         <span class="keywordflow">return</span>(VECTOR_ELT(
+00243                GET_SLOT(object, <a class="code" href="Classes_8c.html#a34">PL2_scoresSym</a>), 
+00244                variable - 1));
+00245     } <span class="keywordflow">else</span> {
+00246         error(<span class="stringliteral">"Variable %d is not an ordered factor"</span>, variable);
+00247         <span class="keywordflow">return</span>(R_NilValue);
+00248     }
+00249 }
+00250 
+<a name="l00251"></a><a class="code" href="Classes_8h.html#a76">00251</a> SEXP <a class="code" href="Classes_8c.html#a84">get_missings</a>(SEXP object, <span class="keywordtype">int</span> variable) {
+00252     <span class="keywordflow">if</span> (<a class="code" href="Classes_8c.html#a80">has_missings</a>(object, variable)) {
+00253         <span class="keywordflow">return</span>(VECTOR_ELT(
+00254                GET_SLOT(object, <a class="code" href="Classes_8c.html#a36">PL2_whichNASym</a>), 
+00255                variable - 1));
+00256     } <span class="keywordflow">else</span> {
+00257         error(<span class="stringliteral">"Variable %d has no missing values"</span>, variable);
+00258         <span class="keywordflow">return</span>(R_NilValue);
+00259     }
+00260 }
+00261 
+<a name="l00262"></a><a class="code" href="Classes_8h.html#a81">00262</a> SEXP <a class="code" href="Classes_8c.html#a85">get_varmemory</a>(SEXP object, <span class="keywordtype">int</span> variable) {
+00263     <span class="keywordflow">return</span>(VECTOR_ELT(GET_SLOT(object, <a class="code" href="Classes_8c.html#a42">PL2_varmemorySym</a>), 
+00264                       variable - 1));
+00265 }
+00266 
+<a name="l00267"></a><a class="code" href="Classes_8h.html#a82">00267</a> SEXP <a class="code" href="Classes_8c.html#a86">get_varMmemory</a>(SEXP object, <span class="keywordtype">int</span> variable) {
+00268     <span class="keywordflow">return</span>(VECTOR_ELT(GET_SLOT(object, <a class="code" href="Classes_8c.html#a43">PL2_varMmemorySym</a>), 
+00269                       variable - 1));
+00270 }
+00271 
+<a name="l00272"></a><a class="code" href="Classes_8h.html#a83">00272</a> SEXP <a class="code" href="Classes_8c.html#a87">get_Mscorematrix</a>(SEXP object, <span class="keywordtype">int</span> variable) {
+00273     <span class="keywordflow">return</span>(VECTOR_ELT(GET_SLOT(object, <a class="code" href="Classes_8c.html#a44">PL2_MscorematricesSym</a>), 
+00274                       variable - 1));
+00275 }
+00276 
+<a name="l00277"></a><a class="code" href="Classes_8h.html#a101">00277</a> <span class="keywordtype">int</span> <a class="code" href="Classes_8c.html#a88">get_savesplitstats</a>(SEXP object) {
+00278     <span class="keywordflow">return</span>(INTEGER(GET_SLOT(object, <a class="code" href="Classes_8c.html#a46">PL2_savesplitstatsSym</a>))[0]);
+00279 }
+00280 
+<a name="l00281"></a><a class="code" href="Classes_8h.html#a100">00281</a> SEXP <a class="code" href="Classes_8c.html#a89">get_splitstatistics</a>(SEXP object) {
+00282     <span class="keywordflow">return</span>(GET_SLOT(object, <a class="code" href="Classes_8c.html#a45">PL2_splitstatisticsSym</a>));
+00283 }
+00284 
+<a name="l00285"></a><a class="code" href="Classes_8h.html#a84">00285</a> <span class="keywordtype">int</span> <a class="code" href="Classes_8c.html#a90">get_nobs</a>(SEXP object) {
+00286     <span class="keywordflow">return</span>(INTEGER(GET_SLOT(object, <a class="code" href="Classes_8c.html#a38">PL2_nobsSym</a>))[0]);
+00287 }
+00288 
+<a name="l00289"></a><a class="code" href="Classes_8h.html#a85">00289</a> <span class="keywordtype">int</span> <a class="code" href="Classes_8c.html#a91">get_ninputs</a>(SEXP object) {
+00290     <span class="keywordflow">return</span>(INTEGER(GET_SLOT(object, <a class="code" href="Classes_8c.html#a39">PL2_ninputsSym</a>))[0]);
+00291 }
+00292 
+<a name="l00293"></a><a class="code" href="Classes_8h.html#a86">00293</a> SEXP <a class="code" href="Classes_8c.html#a92">get_weights</a>(SEXP object, <span class="keywordtype">int</span> variable) {
+00294     <span class="keywordflow">return</span>(VECTOR_ELT(GET_SLOT(object, <a class="code" href="Classes_8c.html#a41">PL2_weightsSym</a>), variable - 1));
+00295 }
+00296 
+<a name="l00297"></a><a class="code" href="Classes_8h.html#a87">00297</a> <span class="keywordtype">int</span> <a class="code" href="Classes_8c.html#a93">get_testtype</a>(SEXP object) {
+00298     <span class="keywordflow">return</span>(INTEGER(GET_SLOT(object, <a class="code" href="Classes_8c.html#a49">PL2_testtypeSym</a>))[0]);
+00299 }
+00300 
+<a name="l00301"></a><a class="code" href="Classes_8h.html#a88">00301</a> <span class="keywordtype">int</span> <a class="code" href="Classes_8c.html#a94">get_nresample</a>(SEXP object) {
+00302     <span class="keywordflow">return</span>(INTEGER(GET_SLOT(object, <a class="code" href="Classes_8c.html#a50">PL2_nresampleSym</a>))[0]);
+00303 }
+00304 
+<a name="l00305"></a><a class="code" href="Classes_8h.html#a89">00305</a> SEXP <a class="code" href="Classes_8c.html#a95">get_varctrl</a>(SEXP object) {
+00306     <span class="keywordflow">return</span>(GET_SLOT(object, <a class="code" href="Classes_8c.html#a51">PL2_varctrlSym</a>));
+00307 }
+00308 
+<a name="l00309"></a><a class="code" href="Classes_8h.html#a90">00309</a> SEXP <a class="code" href="Classes_8c.html#a96">get_splitctrl</a>(SEXP object) {
+00310     <span class="keywordflow">return</span>(GET_SLOT(object, <a class="code" href="Classes_8c.html#a52">PL2_splitctrlSym</a>));
+00311 }
+00312 
+<a name="l00313"></a><a class="code" href="Classes_8h.html#a91">00313</a> SEXP <a class="code" href="Classes_8c.html#a97">get_gtctrl</a>(SEXP object) {
+00314     <span class="keywordflow">return</span>(GET_SLOT(object, <a class="code" href="Classes_8c.html#a53">PL2_gtctrlSym</a>));
+00315 }
+00316 
+<a name="l00317"></a><a class="code" href="Classes_8h.html#a99">00317</a> SEXP <a class="code" href="Classes_8c.html#a98">get_tgctrl</a>(SEXP object) {
+00318     <span class="keywordflow">return</span>(GET_SLOT(object, <a class="code" href="Classes_8c.html#a62">PL2_tgctrlSym</a>));
+00319 }
+00320 
+<a name="l00321"></a><a class="code" href="Classes_8h.html#a92">00321</a> <span class="keywordtype">double</span> <a class="code" href="Classes_8c.html#a99">get_mincriterion</a>(SEXP object) {
+00322     <span class="keywordflow">return</span>(REAL(GET_SLOT(object, <a class="code" href="Classes_8c.html#a54">PL2_mincriterionSym</a>))[0]);
+00323 }
+00324 
+<a name="l00325"></a><a class="code" href="Classes_8h.html#a98">00325</a> <span class="keywordtype">int</span> <a class="code" href="Classes_8c.html#a100">get_maxsurrogate</a>(SEXP object) {
+00326     <span class="keywordflow">return</span>(INTEGER(GET_SLOT(object, <a class="code" href="Classes_8c.html#a55">PL2_maxsurrogateSym</a>))[0]);
+00327 }
+00328 
+<a name="l00329"></a><a class="code" href="Classes_8h.html#a93">00329</a> <span class="keywordtype">int</span> <a class="code" href="Classes_8c.html#a101">get_randomsplits</a>(SEXP object) {
+00330     <span class="keywordflow">return</span>(INTEGER(GET_SLOT(object, <a class="code" href="Classes_8c.html#a56">PL2_randomsplitsSym</a>))[0]);
+00331 }
+00332 
+<a name="l00333"></a><a class="code" href="Classes_8h.html#a94">00333</a> <span class="keywordtype">int</span> <a class="code" href="Classes_8c.html#a102">get_mtry</a>(SEXP object) {
+00334     <span class="keywordflow">return</span>(INTEGER(GET_SLOT(object, <a class="code" href="Classes_8c.html#a57">PL2_mtrySym</a>))[0]);
+00335 }
+00336 
+<a name="l00337"></a><a class="code" href="Classes_8h.html#a95">00337</a> SEXP <a class="code" href="Classes_8c.html#a103">get_dontuse</a>(SEXP object) {
+00338     <span class="keywordflow">return</span>(GET_SLOT(object, <a class="code" href="Classes_8c.html#a58">PL2_dontuseSym</a>));
+00339 }
+00340 
+<a name="l00341"></a><a class="code" href="Classes_8h.html#a96">00341</a> SEXP <a class="code" href="Classes_8c.html#a104">get_dontusetmp</a>(SEXP object) {
+00342     <span class="keywordflow">return</span>(GET_SLOT(object, <a class="code" href="Classes_8c.html#a59">PL2_dontusetmpSym</a>));
+00343 }
+00344 
+<a name="l00345"></a><a class="code" href="Classes_8h.html#a97">00345</a> <span class="keywordtype">int</span> <a class="code" href="Classes_8c.html#a105">get_stump</a>(SEXP object) {
+00346     <span class="keywordflow">return</span>(INTEGER(GET_SLOT(object, <a class="code" href="Classes_8c.html#a60">PL2_stumpSym</a>))[0]);
+00347 }
+00348 
+<a name="l00349"></a><a class="code" href="Classes_8h.html#a102">00349</a> <span class="keywordtype">int</span> <a class="code" href="Classes_8c.html#a106">check_depth</a>(SEXP object, <span class="keywordtype">int</span> depth) {
+00350     <span class="keywordtype">int</span> maxdepth;
+00351     maxdepth = INTEGER(GET_SLOT(object, <a class="code" href="Classes_8c.html#a61">PL2_maxdepthSym</a>))[0];
+00352     <span class="keywordflow">if</span> (maxdepth == 0) <span class="keywordflow">return</span>(1);
+00353     <span class="keywordflow">if</span> (maxdepth &lt; 1) error(<span class="stringliteral">"maxdepth is less than one"</span>);
+00354     <span class="keywordflow">return</span>(depth &lt;= maxdepth);
+00355 }
+</pre></div><hr size="1"><address style="align: right;"><small>Generated on Thu Feb 16 09:11:58 2006 for party by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.2 </small></address>
 </body>

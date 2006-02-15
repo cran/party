@@ -1,54 +1,98 @@
-
-\documentclass[letter]{article}
-\usepackage{amstext}
-\usepackage{amsfonts}
-\usepackage{hyperref}
-\usepackage[round]{natbib}
-\usepackage{hyperref}
-
+\documentclass{Z}
 
 %%\VignetteIndexEntry{party: A Laboratory for Recursive Part(y)itioning}
 %%\VignetteDepends{coin,ipred}
 
-\input{head}
+%% packages
+\usepackage{amstext}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{thumbpdf}
+\usepackage{rotating}
 
-\hypersetup{%
-  pdftitle = {party: A Laboratory for Recursive Part(y)itioning},
-  pdfsubject = {Manuscript},
-  pdfauthor = {Torsten Hothorn, Kurt Hornik, and Achim Zeileis},
-%% change colorlinks to false for pretty printing
-  colorlinks = {true},
-  linkcolor = {blue},
-  citecolor = {blue},
-  urlcolor = {red},
-  hyperindex = {true},
-  linktocpage = {true},
-}
-
+%% commands
+\renewcommand{\Prob}{\mathbb{P} }
+\renewcommand{\E}{\mathbb{E}}
+\newcommand{\V}{\mathbb{V}}
+\newcommand{\Var}{\mathbb{V}}
+\newcommand{\R}{\mathbb{R} }
+\newcommand{\N}{\mathbb{N} }
+\newcommand{\C}{\mathbb{C} }
+\newcommand{\argmin}{\operatorname{argmin}\displaylimits}
+\newcommand{\argmax}{\operatorname{argmax}\displaylimits}
+\newcommand{\LS}{\mathcal{L}_n}
+\newcommand{\TS}{\mathcal{T}_n}
+\newcommand{\LSc}{\mathcal{L}_{\text{comb},n}}
+\newcommand{\LSbc}{\mathcal{L}^*_{\text{comb},n}}
+\newcommand{\F}{\mathcal{F}}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\yn}{y_{\text{new}}}
+\newcommand{\z}{\mathbf{z}}
+\newcommand{\X}{\mathbf{X}}
+\newcommand{\Y}{\mathbf{Y}}
+\newcommand{\sX}{\mathcal{X}}
+\newcommand{\sY}{\mathcal{Y}}
+\newcommand{\T}{\mathbf{T}}
+\newcommand{\x}{\mathbf{x}}
+\renewcommand{\a}{\mathbf{a}}
+\newcommand{\xn}{\mathbf{x}_{\text{new}}}
+\newcommand{\y}{\mathbf{y}}
+\newcommand{\w}{\mathbf{w}}
+\newcommand{\ws}{\mathbf{w}_\cdot}
+\renewcommand{\t}{\mathbf{t}}
+\newcommand{\M}{\mathbf{M}}
+\renewcommand{\vec}{\text{vec}}
+\newcommand{\B}{\mathbf{B}}
+\newcommand{\K}{\mathbf{K}}
+\newcommand{\W}{\mathbf{W}}
+\newcommand{\D}{\mathbf{D}}
+\newcommand{\I}{\mathbf{I}}
+\newcommand{\bS}{\mathbf{S}}
+\newcommand{\cellx}{\pi_n[\x]}
+\newcommand{\partn}{\pi_n(\mathcal{L}_n)}
+\newcommand{\err}{\text{Err}}
+\newcommand{\ea}{\widehat{\text{Err}}^{(a)}}
+\newcommand{\ecv}{\widehat{\text{Err}}^{(cv1)}}
+\newcommand{\ecvten}{\widehat{\text{Err}}^{(cv10)}}
+\newcommand{\eone}{\widehat{\text{Err}}^{(1)}}
+\newcommand{\eplus}{\widehat{\text{Err}}^{(.632+)}}
+\newcommand{\eoob}{\widehat{\text{Err}}^{(oob)}}
 \newcommand{\bft}{\mathbf{t}}
+
+\hyphenation{Qua-dra-tic}
+
+\title{\pkg{party}: A Laboratory for Recursive Part(y)itioning}
+\Plaintitle{party: A Laboratory for Recursive Part(y)itioning}
+
+\author{Torsten Hothorn\\Friedrich-Alexander-Universit\"at\\Erlangen-N\"urnberg
+   \And Kurt Hornik\\Wirtschaftsuniversit\"at Wien
+   \And Achim Zeileis\\Wirtschaftsuniversit\"at Wien}
+\Plainauthor{Achim Zeileis, Torsten Hothorn, Kurt Hornik}
+
+\Abstract{
+  The \pkg{party} package \citep{Hothorn+Hornik+Zeileis:2006a} aims
+  at providing a recursive part(y)itioning laboratory assembling
+  various high- and low-level tools for building tree-based regression
+  and classification models. This includes conditional inference trees
+  (\code{ctree}), conditional inference forests (\code{cforest}) and
+  parametric model trees (\code{mob}). At the core of the package is
+  \code{ctree}, an implementation of conditional inference trees which
+  embed tree-structured regression models into a well defined theory of
+  conditional inference procedures. This non-parametric class of regression
+  trees is applicable to all kinds of regression problems, including
+  nominal, ordinal, numeric, censored as well as multivariate response
+  variables and arbitrary measurement scales of the covariates.
+  This vignette comprises a practical guide to exploiting the flexible
+  and extensible computational tools in \pkg{party} for fitting and
+  visualizing conditional inference trees.
+}
+\Keywords{conditional inference, non-parametric models, recursive partitioning}
+
 
 \begin{document}
 
-\title{\texttt{party}: A Laboratory for Recursive Part(y)itioning}
-\author{Torsten Hothorn$^1$, Kurt Hornik$^2$ and Achim Zeileis$^2$}
-\date{}
-\maketitle
-
-\noindent$^1$Institut f\"ur Medizininformatik, Biometrie und Epidemiologie\\
-     Friedrich-Alexander-Universit\"at Erlangen-N\"urnberg\\
-     Waldstra{\ss}e 6, D-91054 Erlangen, Germany \\
-     \texttt{Torsten.Hothorn@R-project.org}
-\newline
-
-\noindent$^2$Department f\"ur Statistik und Mathematik,
-             Wirtschaftsuniversit\"at Wien \\
-       Augasse 2-6, A-1090 Wien, Austria \\
-       \texttt{Kurt.Hornik@R-project.org} \\
-       \texttt{Achim.Zeileis@R-project.org} 
-\newline
-
 <<setup, echo = FALSE, results = hide>>=
-options(width = 65, SweaveHooks = list(leftpar = 
+options(width = 70, SweaveHooks = list(leftpar = 
     function() par(mai = par("mai") * c(1, 1.1, 1, 1))))
 require("party")
 require("coin")
@@ -87,7 +131,7 @@ overfitting problem \cite{Mingers1987} notes that the algorithm
 distinguish between a significant and an insignificant improvement in the
 information measure.
 \end{quote}
-With the \texttt{party} package \citep[see][for a full description of its
+With the \pkg{party} package \citep[see][for a full description of its
 methodological foundations]{Hothorn+Hornik+Zeileis:2006a}
 we enter at the point where \cite{WhiteLiu1994} demand for
 \begin{quote}
@@ -106,7 +150,9 @@ significant
 association between any of the covariates and the response can be stated and 
 the recursion needs to stop.
 
-\section{Recursive Binary Partitioning \label{algo}}
+\clearpage
+
+\section{Recursive binary partitioning} \label{algo}
 
 We focus on regression models describing the conditional distribution of a
 response variable $\Y$ given the status of $m$ covariates by
@@ -171,7 +217,7 @@ nominal level~$\alpha$. The algorithm induces a partition $\{B_1, \dots, B_r\}$ 
 the covariate space $\sX$, where each cell $B \in \{B_1, \dots, B_r\}$ 
 is associated with a vector of case weights. 
 
-In package \texttt{party}, the dependency structure and the variables may be
+In package \pkg{party}, the dependency structure and the variables may be
 specified in a traditional formula based way
 <<party-formula, echo = TRUE, results = hide>>=
 library("party")
@@ -179,7 +225,9 @@ ctree(y ~ x1 + x2, data = ls)
 @
 Case counts $\w$ may be specified using the \texttt{weights} argument.
 
-\section{Recursive Partitioning by Conditional Inference \label{framework}}
+\clearpage
+
+\section{Recursive partitioning by conditional inference} \label{framework}
 
 In the main part of this section we focus on step 1 of the generic algorithm.
 Unified tests for independence are constructed by means of the conditional
@@ -189,7 +237,8 @@ in one selected covariate and the handling of missing values
 is performed based on standardized linear statistics within the same
 framework as well. 
 
-\paragraph{Variable Selection and Stopping Criteria.}
+\subsection{Variable selection and stopping criteria}
+
 At step 1 of the generic algorithm given in Section~\ref{algo} we face an 
 independence problem. We need to decide whether there is any information
 about the response variable covered by any of the $m$  covariates. In each node
@@ -351,7 +400,8 @@ of the adjusted $P$-values is less than a pre-specified nominal level $\alpha$
 and otherwise stop the algorithm. In this sense, $\alpha$
 may be seen as a unique parameter determining the size of the resulting trees.
 
-\paragraph{Splitting Criteria.}
+\subsection{Splitting criteria}
+
 Once we have selected a covariate in step 1 of the algorithm, the split itself can be
 established by any split criterion, including those established by
 \cite{classifica:1984} or \cite{Shih1999}. Instead of simple binary splits, 
@@ -400,7 +450,7 @@ ctree_control(minsplit = 20)
 requires the sum of the weights in both the left and right daughter 
 node to exceed the value of $20$.
 
-\paragraph{Missing Values and Surrogate Splits.}
+\subsection{Missing values and surrogate splits}
 
 If an observation $X_{ji}$ in covariate $X_j$ is missing, we set the
 corresponding case weight $w_i$ to zero for the computation of $\T_j(\LS, \w)$
@@ -416,7 +466,7 @@ surrogate splits can be controlled using
 ctree_control(maxsurrogate = 3)
 @
 
-\paragraph{Inspecting a Tree.}
+\subsection{Inspecting a tree}
 
 Once we have fitted a conditional tree via
 <<party-fitted, echo = TRUE>>=
@@ -426,9 +476,9 @@ we can inspect the results via a \texttt{print} method
 <<party-print, echo = TRUE>>=
 ct
 @
-or by looking at a graphical representation as in Figure \ref{party-plot1}.
+or by looking at a graphical representation as in Figure~\ref{party-plot1}.
 
-\begin{figure}[t]
+\begin{figure}[h]
 \begin{center}
 <<party-plot, echo = TRUE, fig = TRUE, height = 5, width = 8>>=
 plot(ct)
@@ -464,9 +514,12 @@ into by
 where(ct, newdata = ls[c(1,51,101),])
 @
 
-\section{Examples \label{examples}}
+\clearpage
 
-\paragraph{Univariate Continuous or Discrete Regression.}
+\section{Examples} \label{examples}
+
+\subsection{Univariate continuous or discrete regression}
+
 For a univariate numeric response $\Y \in \R$, the most natural influence function
 is the identity $h(\Y_i, (\Y_1, \dots, \Y_n)) = \Y_i$. 
 In case some observations with extremely large or small values have been
@@ -494,7 +547,8 @@ obtained by
 w_i(\x) \Y_i.
 \end{eqnarray*}
 
-\paragraph{Censored Regression.}
+\subsection{Censored regression}
+
 The influence function $h$ may be chosen as 
 Logrank or Savage scores taking censoring into
 account and one can proceed as for univariate continuous regression. This is
@@ -503,7 +557,8 @@ An alternative is the weighting scheme suggested by
 \cite{MolinaroDudiotvdLaan2003}. A weighted Kaplan-Meier curve for the case
 weights $\w(\x)$ can serve as prediction. 
 
-\paragraph{$J$-Class Classification.}
+\subsection{$J$-class classification}
+
 The nominal response variable at levels $1, \dots, J$ 
 is handled by influence
 functions $h(\Y_i, (\Y_1, \dots, \Y_n)) = e_J(\Y_i)$. Note that for a
@@ -517,7 +572,8 @@ The conditional class probabilities can be estimated via
 w_i(\x) I(\Y_i = y), \quad y = 1, \dots, J.
 \end{eqnarray*}
 
-\paragraph{Ordinal Regression.}
+\subsection{Ordinal regression}
+
 Ordinal response variables measured at $J$ levels, and ordinal covariates
 measured at $K$ levels, are associated with score vectors $\xi \in
 \R^J$ and $\gamma \in \R^K$, respectively. Those scores reflect the
@@ -580,9 +636,10 @@ coefficients $\M$ is a block matrix
 when one covariate is ordered but the response is not. For both $\Y$ and $X_j$
 being ordinal, the corresponding test is known as linear-by-linear association
 test \citep{Agresti2002}. Scores can be supplied to \texttt{ctree} using the
-\texttt{scores} argument, see Section \ref{illustrations} for an example.
+\texttt{scores} argument, see Section~\ref{illustrations} for an example.
 
-\paragraph{Multivariate Regression.}
+\subsection{Multivariate regression}
+
 For multivariate responses, the influence function is a combination of
 influence functions appropriate for any of the univariate response variables
 discussed in the previous paragraphs, e.g., indicators for multiple binary
@@ -592,7 +649,7 @@ for multiple failure times
 and the original observations or a rank transformation for multivariate regression 
 \citep{Death2002}.
 
-\section{Illustrations and Applications \label{illustrations}}
+\section{Illustrations and applications} \label{illustrations}
 
 In this section, we present regression problems which illustrate the
 potential fields of application of the methodology.  
@@ -603,7 +660,7 @@ For the stopping criterion a simple
 Bonferroni correction is used and we follow the usual convention by choosing
 the nominal level of the conditional independence tests as $\alpha = 0.05$.
 
-\paragraph{Tree Pipit Abundance.}
+\subsection{Tree pipit abundance}
 
 <<treepipit-ctree, echo = TRUE>>=
 data("treepipit", package = "coin")
@@ -642,7 +699,7 @@ in forestry enterprises: Cutting the overstorey with release of old
 oaks creates a perfect habitat for this indicator species
 of near natural forest environments. 
 
-\paragraph{Glaucoma \& Laser Scanning Images.}
+\subsection{Glaucoma and laser scanning images}
 
 <<glaucoma-ctree, echo = TRUE>>=
 data("GlaucomaM", package = "ipred")
@@ -662,7 +719,7 @@ structures inherent in the learning sample with subject matter knowledge.
 For $98$ patients and $98$ controls, matched by age
 and gender, $62$ covariates describing the eye morphology are available. The
 data is part of the 
-\texttt{ipred} package
+\pkg{ipred} package
 (\cite{Rnews:Peters+Hothorn+Lausen:2002}, \url{http://CRAN.R-project.org}).
 The first split in Figure~\ref{glaucoma} separates eyes with a volume 
 above reference less than
@@ -675,27 +732,18 @@ damage of the optic nerve. Further separation is achieved by the volume
 above surface global (\texttt{vasg}) and the volume above reference in the
 temporal part of the optic nerve head (\texttt{vart}).
 
-\begin{figure}[t]
+\begin{figure}[p]
 \begin{center}
-<<glaucoma-plot, echo = TRUE, fig = TRUE, height = 6, width = 10>>=
+<<glaucoma-plot, echo = FALSE, fig = TRUE, height = 6, width = 10>>=
 plot(gtree)
 @
 \caption{Conditional inference tree for the glaucoma data. For each inner node, the
 Bonferroni-adjusted $P$-values are given, the fraction of glaucomatous eyes
 is displayed for each terminal node. \label{glaucoma}}
-\end{center}
-\end{figure}
 
-The plot in Figure~\ref{glaucoma} shows the distribution of the classes in 
-the terminal nodes. This distribution can be shown for the inner nodes as
-well, namely by specifying the appropriate panel generating function
-(\texttt{node\_barplot} in our case), see Figure~\ref{glaucoma-inner}.
-
-\begin{figure}[ht!]
-\begin{center}
-<<glaucoma-plot-inner, echo = TRUE, fig = TRUE, height = 7, width = 10>>=
+<<glaucoma-plot-inner, echo = FALSE, fig = TRUE, height = 7, width = 10>>=
 plot(gtree, inner_panel = node_barplot, 
-     edge_panel = function(ctreeobj, ...) { function(...) invisible() }, tnex = 1)
+     edge_panel = function(...) invisible(), tnex = 1)
 @
 \caption{Conditional inference tree for the glaucoma data with the 
          fraction of glaucomatous eyes displayed for both inner and terminal
@@ -703,13 +751,28 @@ plot(gtree, inner_panel = node_barplot,
 \end{center}
 \end{figure}
 
+The plot in Figure~\ref{glaucoma} is generated by
 
-As mentioned in Section \ref{framework}, it might be interesting to have a
+<<glaucoma-plot2, echo = TRUE, eval = FALSE>>=
+plot(gtree)
+@
+
+and shows the distribution of the classes in 
+the terminal nodes. This distribution can be shown for the inner nodes as
+well, namely by specifying the appropriate panel generating function
+(\texttt{node\_barplot} in our case), see Figure~\ref{glaucoma-inner}.
+
+<<glaucoma-plot-inner, echo = TRUE, eval = FALSE>>=
+plot(gtree, inner_panel = node_barplot, 
+     edge_panel = function(...) invisible(), tnex = 1)
+@
+
+As mentioned in Section~\ref{framework}, it might be interesting to have a
 look at the split statistics the split point estimate was derived from.
 Those statistics can be extracted from the \texttt{splitstatistic} element
 of a split and one can easily produce scatterplots against the selected
 covariate. For all three inner nodes of \texttt{gtree}, we produce such a
-plot in Figure \ref{glaucoma-split}. For the root node, the estimated split point
+plot in Figure~\ref{glaucoma-split}. For the root node, the estimated split point
 seems very natural, since the process of split statistics seems to have a
 clear maximum indicating that the simple split point model is something
 reasonable to assume here. This is less obvious for nodes $2$ and,
@@ -746,12 +809,12 @@ table(Predict(gtree), GlaucomaM$Class)
 @
 When we are interested in conditional class probabilities, the
 \texttt{treeresponse} method must be used. A graphical representation is
-shown in Figure \ref{glaucoma-probplot}.
+shown in Figure~\ref{glaucoma-probplot}.
 
-\setkeys{Gin}{width=.6\textwidth}
+\setkeys{Gin}{width=.5\textwidth}
 \begin{figure}[ht!]
 \begin{center}
-<<glaucoma-classprob, echo = TRUE, fig = TRUE, height = 4, width = 4>>=
+<<glaucoma-classprob, echo = TRUE, fig = TRUE, height = 4, width = 5>>=
 prob <- sapply(treeresponse(gtree), function(x) x[1]) +
                runif(nrow(GlaucomaM), min = -0.01, max = 0.01)
 splitvar <- nodes(gtree, 1)[[1]]$psplit$variableName
@@ -767,7 +830,7 @@ legend(0.15, 0.7, pch = 1:2, legend = levels(GlaucomaM$Class), bty = "n")
 \end{center}
 \end{figure}
 
-\paragraph{Node Positive Breast Cancer.}
+\subsection{Node positive breast cancer}
 
 <<GBSGS-ctree, echo = TRUE>>=
 data("GBSG2", package = "ipred")  
@@ -797,7 +860,7 @@ treatment of node positive breast cancer patients. Here, we use
 Logrank scores as well. Complete data of seven prognostic factors of $686$
 women are used for prognostic modeling, the
 dataset is available within the 
-\texttt{ipred} package.
+\pkg{ipred} package.
 The number of positive lymph nodes
 (\texttt{pnodes}) and the progesterone receptor (\texttt{progrec}) have
 been identified as prognostic factors in the survival tree analysis
@@ -813,10 +876,9 @@ by means of the \texttt{treeresponse} method
 treeresponse(stree, newdata = GBSG2[1:2,])
 @
 
-\paragraph{Mammography Experience.}
+\subsection{Mammography experience}
 
 <<mammo-ctree, echo = TRUE>>=
-data("mammoexp", package = "party")
 mtree <- ctree(ME ~ ., data = mammoexp)
 @
 
@@ -848,15 +910,13 @@ benefits of the examination. For those women in (strong) disagreement with the f
 question above, low values of \texttt{benefit} identify persons being more likely to have 
 experienced such an examination at all. 
 
-
-\bibliographystyle{plainnat}
 \bibliography{partyrefs}
 
 \end{document}
 
 
 
-\paragraph{Hunting Spiders.}
+\subsection{Hunting spiders}
 
 Finally, we take a closer look at a challenging dataset on animal abundance
 first reported by \cite{AartSmeenk1975} and 
@@ -872,7 +932,7 @@ replications. The prognostic factors \texttt{twigs} and \texttt{water}
 found by \cite{Death2002} are confirmed by the model 
 shown in Figure~\ref{spider} which additionally identifies \texttt{reft}.
 The data are available in package 
-\texttt{mvpart} \citep{mvpart2004} at \url{http://CRAN.R-project.org}.
+\pkg{mvpart} \citep{mvpart2004} at \url{http://CRAN.R-project.org}.
 
 <<spider-ctree, echo = TRUE, eval = FALSE>>=
 data("spider", package = "mvpart")   
@@ -895,7 +955,6 @@ pvalue(it)
 
 \begin{figure}[t]
 \begin{center}
-<<<<<<< party.Rnw
 <<spider-plot, eval = FALSE, echo = TRUE, fig = TRUE>>=
 plot(sptree, terminal_panel = node_terminal)
 @

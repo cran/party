@@ -21,10 +21,10 @@
 00029            *splitstat, *dweights, *tweights, *dx, *dy;
 00030     <span class="keywordtype">double</span> cut, *twotab;
 00031     
-00032     nobs = <a class="code" href="Classes_8c.html#a89">get_nobs</a>(learnsample);
-00033     ninputs = <a class="code" href="Classes_8c.html#a90">get_ninputs</a>(learnsample);
-00034     splitctrl = <a class="code" href="Classes_8c.html#a95">get_splitctrl</a>(controls);
-00035     maxsurr = <a class="code" href="Classes_8c.html#a99">get_maxsurrogate</a>(splitctrl);
+00032     nobs = <a class="code" href="Classes_8c.html#a90">get_nobs</a>(learnsample);
+00033     ninputs = <a class="code" href="Classes_8c.html#a91">get_ninputs</a>(learnsample);
+00034     splitctrl = <a class="code" href="Classes_8c.html#a96">get_splitctrl</a>(controls);
+00035     maxsurr = <a class="code" href="Classes_8c.html#a100">get_maxsurrogate</a>(splitctrl);
 00036 
 00037     <span class="keywordflow">if</span> (maxsurr != LENGTH(<a class="code" href="S3Classes_8c.html#a10">S3get_surrogatesplits</a>(node)))
 00038         error(<span class="stringliteral">"nodes does not have %s surrogate splits"</span>, maxsurr);
@@ -36,8 +36,8 @@
 00044     tweights = Calloc(nobs, <span class="keywordtype">double</span>);
 00045     dweights = REAL(weights);
 00046     <span class="keywordflow">for</span> (i = 0; i &lt; nobs; i++) tweights[i] = dweights[i];
-00047     <span class="keywordflow">if</span> (<a class="code" href="Classes_8c.html#a79">has_missings</a>(inputs, jselect)) {
-00048         thiswhichNA = <a class="code" href="Classes_8c.html#a83">get_missings</a>(inputs, jselect);
+00047     <span class="keywordflow">if</span> (<a class="code" href="Classes_8c.html#a80">has_missings</a>(inputs, jselect)) {
+00048         thiswhichNA = <a class="code" href="Classes_8c.html#a84">get_missings</a>(inputs, jselect);
 00049         <span class="keywordflow">for</span> (k = 0; k &lt; LENGTH(thiswhichNA); k++)
 00050             tweights[INTEGER(thiswhichNA)[k] - 1] = 0.0;
 00051     }
@@ -45,7 +45,7 @@
 00053     expcovinf = GET_SLOT(fitmem, <a class="code" href="Classes_8c.html#a4">PL2_expcovinfssSym</a>);
 00054     <a class="code" href="LinearStatistic_8c.html#a2">C_ExpectCovarInfluence</a>(REAL(y), 1, REAL(weights), nobs, expcovinf);
 00055     
-00056     splitstat = REAL(<a class="code" href="Classes_8c.html#a88">get_splitstatistics</a>(fitmem));
+00056     splitstat = REAL(<a class="code" href="Classes_8c.html#a89">get_splitstatistics</a>(fitmem));
 00057     <span class="comment">/* &lt;FIXME&gt; extend `TreeFitMemory' to those as well ... */</span>
 00058     maxstat = Calloc(ninputs, <span class="keywordtype">double</span>);
 00059     cutpoint = Calloc(ninputs, <span class="keywordtype">double</span>);
@@ -63,29 +63,29 @@
 00071          cutpoint[j] = 0.0;
 00072 
 00073          <span class="comment">/* ordered input variables only (for the moment) */</span>
-00074          <span class="keywordflow">if</span> ((j + 1) == jselect || <a class="code" href="Classes_8c.html#a76">is_nominal</a>(inputs, j + 1))
+00074          <span class="keywordflow">if</span> ((j + 1) == jselect || <a class="code" href="Classes_8c.html#a77">is_nominal</a>(inputs, j + 1))
 00075              <span class="keywordflow">continue</span>;
 00076 
-00077          x = <a class="code" href="Classes_8c.html#a75">get_variable</a>(inputs, j + 1);
+00077          x = <a class="code" href="Classes_8c.html#a76">get_variable</a>(inputs, j + 1);
 00078 
-00079          <span class="keywordflow">if</span> (<a class="code" href="Classes_8c.html#a79">has_missings</a>(inputs, j + 1)) {
+00079          <span class="keywordflow">if</span> (<a class="code" href="Classes_8c.html#a80">has_missings</a>(inputs, j + 1)) {
 00080 
-00081              thisweights = REAL(<a class="code" href="Classes_8c.html#a91">get_weights</a>(fitmem, j + 1));
+00081              thisweights = REAL(<a class="code" href="Classes_8c.html#a92">get_weights</a>(fitmem, j + 1));
 00082              <span class="keywordflow">for</span> (i = 0; i &lt; nobs; i++) thisweights[i] = tweights[i];
-00083              thiswhichNA = <a class="code" href="Classes_8c.html#a83">get_missings</a>(inputs, j + 1);
+00083              thiswhichNA = <a class="code" href="Classes_8c.html#a84">get_missings</a>(inputs, j + 1);
 00084              <span class="keywordflow">for</span> (k = 0; k &lt; LENGTH(thiswhichNA); k++)
 00085                  thisweights[INTEGER(thiswhichNA)[k] - 1] = 0.0;
 00086                  
 00087              <a class="code" href="LinearStatistic_8c.html#a2">C_ExpectCovarInfluence</a>(REAL(y), 1, thisweights, nobs, expcovinf);
 00088              
 00089              <a class="code" href="Splits_8c.html#a0">C_split</a>(REAL(x), 1, REAL(y), 1, thisweights, nobs,
-00090                      INTEGER(<a class="code" href="Classes_8c.html#a80">get_ordering</a>(inputs, j + 1)), 0, 0, splitctrl,
+00090                      INTEGER(<a class="code" href="Classes_8c.html#a81">get_ordering</a>(inputs, j + 1)), 0, 0, splitctrl,
 00091                      GET_SLOT(fitmem, <a class="code" href="Classes_8c.html#a40">PL2_linexpcov2sampleSym</a>),
 00092                      expcovinf, &amp;cp, &amp;ms, splitstat);
 00093          } <span class="keywordflow">else</span> {
 00094          
 00095              <a class="code" href="Splits_8c.html#a0">C_split</a>(REAL(x), 1, REAL(y), 1, tweights, nobs,
-00096              INTEGER(<a class="code" href="Classes_8c.html#a80">get_ordering</a>(inputs, j + 1)), 0, 0, splitctrl,
+00096              INTEGER(<a class="code" href="Classes_8c.html#a81">get_ordering</a>(inputs, j + 1)), 0, 0, splitctrl,
 00097              GET_SLOT(fitmem, <a class="code" href="Classes_8c.html#a40">PL2_linexpcov2sampleSym</a>),
 00098              expcovinf, &amp;cp, &amp;ms, splitstat);
 00099          }
@@ -109,7 +109,7 @@
 00117         <a class="code" href="S3Classes_8c.html#a14">C_init_orderedsplit</a>(split, 0);
 00118         <a class="code" href="S3Classes_8c.html#a16">S3set_variableID</a>(split, order[j]);
 00119         REAL(<a class="code" href="S3Classes_8c.html#a23">S3get_splitpoint</a>(split))[0] = cut;
-00120         dx = REAL(<a class="code" href="Classes_8c.html#a75">get_variable</a>(inputs, order[j]));
+00120         dx = REAL(<a class="code" href="Classes_8c.html#a76">get_variable</a>(inputs, order[j]));
 00121         dy = REAL(y);
 00122 
 00123         <span class="comment">/* OK, this is a dirty hack: determine if the split </span>
@@ -152,7 +152,7 @@
 00177     weights = <a class="code" href="S3Classes_8c.html#a3">S3get_nodeweights</a>(node);
 00178     dweights = REAL(weights);
 00179     inputs = GET_SLOT(learnsample, <a class="code" href="Classes_8c.html#a48">PL2_inputsSym</a>);
-00180     nobs = <a class="code" href="Classes_8c.html#a89">get_nobs</a>(learnsample);
+00180     nobs = <a class="code" href="Classes_8c.html#a90">get_nobs</a>(learnsample);
 00181             
 00182     leftweights = REAL(<a class="code" href="S3Classes_8c.html#a3">S3get_nodeweights</a>(<a class="code" href="S3Classes_8c.html#a12">S3get_leftnode</a>(node)));
 00183     rightweights = REAL(<a class="code" href="S3Classes_8c.html#a3">S3get_nodeweights</a>(<a class="code" href="S3Classes_8c.html#a13">S3get_rightnode</a>(node)));
@@ -160,10 +160,10 @@
 00185 
 00186     <span class="comment">/* if the primary split has any missings */</span>
 00187     split = <a class="code" href="S3Classes_8c.html#a9">S3get_primarysplit</a>(node);
-00188     <span class="keywordflow">if</span> (<a class="code" href="Classes_8c.html#a79">has_missings</a>(inputs, <a class="code" href="S3Classes_8c.html#a17">S3get_variableID</a>(split))) {
+00188     <span class="keywordflow">if</span> (<a class="code" href="Classes_8c.html#a80">has_missings</a>(inputs, <a class="code" href="S3Classes_8c.html#a17">S3get_variableID</a>(split))) {
 00189 
 00190         <span class="comment">/* where are the missings? */</span>
-00191         whichNA = <a class="code" href="Classes_8c.html#a83">get_missings</a>(inputs, <a class="code" href="S3Classes_8c.html#a17">S3get_variableID</a>(split));
+00191         whichNA = <a class="code" href="Classes_8c.html#a84">get_missings</a>(inputs, <a class="code" href="S3Classes_8c.html#a17">S3get_variableID</a>(split));
 00192         iwhichNA = INTEGER(whichNA);
 00193         nna = LENGTH(whichNA);
 00194 
@@ -179,8 +179,8 @@
 00204                 <span class="keywordflow">if</span> (ns &gt;= LENGTH(surrsplit)) <span class="keywordflow">break</span>;
 00205             
 00206                 split = VECTOR_ELT(surrsplit, ns);
-00207                 <span class="keywordflow">if</span> (<a class="code" href="Classes_8c.html#a79">has_missings</a>(inputs, <a class="code" href="S3Classes_8c.html#a17">S3get_variableID</a>(split))) {
-00208                     <span class="keywordflow">if</span> (INTEGER(<a class="code" href="Classes_8c.html#a83">get_missings</a>(inputs, 
+00207                 <span class="keywordflow">if</span> (<a class="code" href="Classes_8c.html#a80">has_missings</a>(inputs, <a class="code" href="S3Classes_8c.html#a17">S3get_variableID</a>(split))) {
+00208                     <span class="keywordflow">if</span> (INTEGER(<a class="code" href="Classes_8c.html#a84">get_missings</a>(inputs, 
 00209                             <a class="code" href="S3Classes_8c.html#a17">S3get_variableID</a>(split)))[i]) {
 00210                         ns++;
 00211                         <span class="keywordflow">continue</span>;
@@ -188,7 +188,7 @@
 00213                 }
 00214 
 00215                 cutpoint = REAL(<a class="code" href="S3Classes_8c.html#a23">S3get_splitpoint</a>(split))[0];
-00216                 dx = REAL(<a class="code" href="Classes_8c.html#a75">get_variable</a>(inputs, <a class="code" href="S3Classes_8c.html#a17">S3get_variableID</a>(split)));
+00216                 dx = REAL(<a class="code" href="Classes_8c.html#a76">get_variable</a>(inputs, <a class="code" href="S3Classes_8c.html#a17">S3get_variableID</a>(split)));
 00217 
 00218                 <span class="keywordflow">if</span> (<a class="code" href="S3Classes_8c.html#a21">S3get_toleft</a>(split)) {
 00219                     <span class="keywordflow">if</span> (dx[i] &lt;= cutpoint) {
@@ -212,7 +212,7 @@
 00237         }
 00238     }
 00239 }
-</pre></div><hr size="1"><address style="align: right;"><small>Generated on Wed Jan 18 11:23:28 2006 for party by&nbsp;
+</pre></div><hr size="1"><address style="align: right;"><small>Generated on Thu Feb 16 09:11:59 2006 for party by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.2 </small></address>
 </body>

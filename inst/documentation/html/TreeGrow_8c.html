@@ -12,12 +12,12 @@
 <p>
 Include dependency graph for TreeGrow.c:<p><center><img src="TreeGrow_8c__incl.png" border="0" usemap="#TreeGrow.c_map" alt=""></center>
 <map name="TreeGrow.c_map">
-<area href="party_8h.html" shape="rect" coords="141,415,186,438" alt="">
+<area href="party_8h.html" shape="rect" coords="141,439,186,462" alt="">
 <area href="Classes_8h.html" shape="rect" coords="263,247,330,271" alt="">
 <area href="Utils_8h.html" shape="rect" coords="274,295,319,319" alt="">
 <area href="mvt_8h.html" shape="rect" coords="278,343,315,367" alt="">
 <area href="LinearStatistic_8h.html" shape="rect" coords="246,391,347,415" alt="">
-<area href="TestStatistic_8h.html" shape="rect" coords="251,438,342,462" alt="">
+<area href="TestStatistic_8h.html" shape="rect" coords="251,439,342,462" alt="">
 <area href="Distributions_8h.html" shape="rect" coords="251,486,342,510" alt="">
 <area href="Convenience_8h.html" shape="rect" coords="251,534,342,558" alt="">
 <area href="S3Classes_8h.html" shape="rect" coords="255,582,338,606" alt="">
@@ -26,24 +26,23 @@ Include dependency graph for TreeGrow.c:<p><center><img src="TreeGrow_8c__incl.p
 <area href="Node_8h.html" shape="rect" coords="273,726,321,750" alt="">
 <area href="Predict_8h.html" shape="rect" coords="267,774,326,798" alt="">
 <area href="SurrogateSplits_8h.html" shape="rect" coords="243,822,350,846" alt="">
+<area href="TreeGrow_8h.html" shape="rect" coords="259,870,334,894" alt="">
 </map>
 
 <p>
 <a href="TreeGrow_8c-source.html">Go to the source code of this file.</a><table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
 <tr><td colspan="2"><br><h2>Functions</h2></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="TreeGrow_8c.html#a0">C_TreeGrow</a> (SEXP node, SEXP learnsample, SEXP fitmem, SEXP controls, int *where, int *nodenum)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="TreeGrow_8c.html#a0">C_TreeGrow</a> (SEXP node, SEXP learnsample, SEXP fitmem, SEXP controls, int *where, int *nodenum, int depth)</td></tr>
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">SEXP&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="TreeGrow_8c.html#a1">R_TreeGrow</a> (SEXP learnsample, SEXP weights, SEXP fitmem, SEXP controls, SEXP where)</td></tr>
-
-<tr><td class="memItemLeft" nowrap align="right" valign="top">SEXP&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="TreeGrow_8c.html#a2">R_Ensemble</a> (SEXP learnsample, SEXP weights, SEXP fitmem, SEXP controls, SEXP ans)</td></tr>
 
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
 The tree growing recursion<p>
 <dl compact><dt><b>Author:</b></dt><dd><dl compact><dt><b>Author</b></dt><dd>hothorn </dd></dl>
 </dd></dl>
-<dl compact><dt><b>Date:</b></dt><dd><dl compact><dt><b>Date</b></dt><dd>2005/06/22 11:13:54 </dd></dl>
+<dl compact><dt><b>Date:</b></dt><dd><dl compact><dt><b>Date</b></dt><dd>2006-02-14 11:35:22 +0100 (Di, 14 Feb 2006) </dd></dl>
 </dd></dl>
 
 <p>
@@ -87,7 +86,13 @@ Definition in file <a class="el" href="TreeGrow_8c-source.html">TreeGrow.c</a>.<
           <td class="md" nowrap align="right"></td>
           <td class="md"></td>
           <td class="md" nowrap>int *&nbsp;</td>
-          <td class="mdname" nowrap> <em>nodenum</em></td>
+          <td class="mdname" nowrap> <em>nodenum</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>int&nbsp;</td>
+          <td class="mdname" nowrap> <em>depth</em></td>
         </tr>
         <tr>
           <td class="md"></td>
@@ -115,124 +120,34 @@ The main tree growing function, handles the recursion. <br>
     <tr><td valign="top"></td><td valign="top"><em>controls</em>&nbsp;</td><td>an object of class `TreeControl' </td></tr>
     <tr><td valign="top"></td><td valign="top"><em>where</em>&nbsp;</td><td>a pointer to an integer vector of n-elements </td></tr>
     <tr><td valign="top"></td><td valign="top"><em>nodenum</em>&nbsp;</td><td>a pointer to a integer vector of length 1 </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>depth</em>&nbsp;</td><td>an integer giving the depth of the current node </td></tr>
   </table>
 </dl>
 
 <p>
-Definition at line <a class="el" href="TreeGrow_8c-source.html#l00022">22</a> of file <a class="el" href="TreeGrow_8c-source.html">TreeGrow.c</a>.
+Definition at line <a class="el" href="TreeGrow_8c-source.html#l00023">23</a> of file <a class="el" href="TreeGrow_8c-source.html">TreeGrow.c</a>.
 <p>
-References <a class="el" href="Node_8c-source.html#l00048">C_Node()</a>, <a class="el" href="Predict_8c-source.html#l00021">C_splitnode()</a>, <a class="el" href="SurrogateSplits_8c-source.html#l00169">C_splitsurrogate()</a>, <a class="el" href="SurrogateSplits_8c-source.html#l00021">C_surrogates()</a>, <a class="el" href="Classes_8c-source.html#l00323">get_maxsurrogate()</a>, <a class="el" href="Classes_8c-source.html#l00283">get_nobs()</a>, <a class="el" href="Classes_8c-source.html#l00307">get_splitctrl()</a>, <a class="el" href="Classes_8c-source.html#l00343">get_stump()</a>, <a class="el" href="Classes_8c-source.html#l00315">get_tgctrl()</a>, <a class="el" href="S3Classes_8c-source.html#l00091">S3get_leftnode()</a>, <a class="el" href="S3Classes_8c-source.html#l00075">S3get_nodeterminal()</a>, <a class="el" href="S3Classes_8c-source.html#l00050">S3get_nodeweights()</a>, <a class="el" href="S3Classes_8c-source.html#l00095">S3get_rightnode()</a>, and <a class="el" href="S3Classes_8c-source.html#l00042">S3set_nodeID()</a>.
+References <a class="el" href="Node_8c-source.html#l00048">C_Node()</a>, <a class="el" href="Predict_8c-source.html#l00021">C_splitnode()</a>, <a class="el" href="SurrogateSplits_8c-source.html#l00169">C_splitsurrogate()</a>, <a class="el" href="SurrogateSplits_8c-source.html#l00021">C_surrogates()</a>, <a class="el" href="TreeGrow_8c-source.html#l00023">C_TreeGrow()</a>, <a class="el" href="Classes_8c-source.html#l00349">check_depth()</a>, <a class="el" href="Classes_8c-source.html#l00325">get_maxsurrogate()</a>, <a class="el" href="Classes_8c-source.html#l00285">get_nobs()</a>, <a class="el" href="Classes_8c-source.html#l00309">get_splitctrl()</a>, <a class="el" href="Classes_8c-source.html#l00345">get_stump()</a>, <a class="el" href="Classes_8c-source.html#l00317">get_tgctrl()</a>, <a class="el" href="S3Classes_8c-source.html#l00091">S3get_leftnode()</a>, <a class="el" href="S3Classes_8c-source.html#l00075">S3get_nodeterminal()</a>, <a class="el" href="S3Classes_8c-source.html#l00050">S3get_nodeweights()</a>, <a class="el" href="S3Classes_8c-source.html#l00095">S3get_rightnode()</a>, and <a class="el" href="S3Classes_8c-source.html#l00042">S3set_nodeID()</a>.
 <p>
-Referenced by <a class="el" href="TreeGrow_8c-source.html#l00107">R_Ensemble()</a>, and <a class="el" href="TreeGrow_8c-source.html#l00074">R_TreeGrow()</a>.
+Referenced by <a class="el" href="TreeGrow_8c-source.html#l00023">C_TreeGrow()</a>, <a class="el" href="RandomForest_8c-source.html#l00022">R_Ensemble()</a>, and <a class="el" href="TreeGrow_8c-source.html#l00080">R_TreeGrow()</a>.
 <p>
 Here is the call graph for this function:<p><center><img src="TreeGrow_8c_a0_cgraph.png" border="0" usemap="#TreeGrow_8c_a0_cgraph_map" alt=""></center>
 <map name="TreeGrow_8c_a0_cgraph_map">
-<area href="Node_8c.html#a1" shape="rect" coords="180,108,233,132" alt="">
-<area href="Classes_8c.html#a89" shape="rect" coords="346,206,407,230" alt="">
-<area href="Classes_8c.html#a95" shape="rect" coords="339,157,414,181" alt="">
-<area href="Classes_8c.html#a97" shape="rect" coords="346,58,407,82" alt="">
-<area href="Predict_8c.html#a0" shape="rect" coords="169,206,243,230" alt="">
-<area href="Classes_8c.html#a99" shape="rect" coords="321,254,433,278" alt="">
+<area href="Node_8c.html#a1" shape="rect" coords="180,57,233,81" alt="">
+<area href="Classes_8c.html#a90" shape="rect" coords="346,206,407,230" alt="">
+<area href="Classes_8c.html#a96" shape="rect" coords="339,133,414,157" alt="">
+<area href="Classes_8c.html#a98" shape="rect" coords="346,33,407,57" alt="">
+<area href="Predict_8c.html#a0" shape="rect" coords="169,254,243,278" alt="">
+<area href="Classes_8c.html#a100" shape="rect" coords="321,254,433,278" alt="">
 <area href="S3Classes_8c.html#a3" shape="rect" coords="317,329,437,353" alt="">
 <area href="SurrogateSplits_8c.html#a2" shape="rect" coords="156,403,257,427" alt="">
 <area href="S3Classes_8c.html#a12" shape="rect" coords="330,429,423,453" alt="">
 <area href="S3Classes_8c.html#a13" shape="rect" coords="326,502,427,526" alt="">
-<area href="SurrogateSplits_8c.html#a0" shape="rect" coords="164,254,249,278" alt="">
-<area href="Classes_8c.html#a104" shape="rect" coords="172,553,241,577" alt="">
-<area href="S3Classes_8c.html#a8" shape="rect" coords="145,601,267,625" alt="">
-<area href="S3Classes_8c.html#a1" shape="rect" coords="162,649,250,673" alt="">
-</map>
-    </td>
-  </tr>
-</table>
-<a class="anchor" name="a2" doxytag="TreeGrow.c::R_Ensemble"></a><p>
-<table class="mdTable" cellpadding="2" cellspacing="0">
-  <tr>
-    <td class="mdRow">
-      <table cellpadding="0" cellspacing="0" border="0">
-        <tr>
-          <td class="md" nowrap valign="top">SEXP R_Ensemble           </td>
-          <td class="md" valign="top">(&nbsp;</td>
-          <td class="md" nowrap valign="top">SEXP&nbsp;</td>
-          <td class="mdname" nowrap> <em>learnsample</em>, </td>
-        </tr>
-        <tr>
-          <td class="md" nowrap align="right"></td>
-          <td class="md"></td>
-          <td class="md" nowrap>SEXP&nbsp;</td>
-          <td class="mdname" nowrap> <em>weights</em>, </td>
-        </tr>
-        <tr>
-          <td class="md" nowrap align="right"></td>
-          <td class="md"></td>
-          <td class="md" nowrap>SEXP&nbsp;</td>
-          <td class="mdname" nowrap> <em>fitmem</em>, </td>
-        </tr>
-        <tr>
-          <td class="md" nowrap align="right"></td>
-          <td class="md"></td>
-          <td class="md" nowrap>SEXP&nbsp;</td>
-          <td class="mdname" nowrap> <em>controls</em>, </td>
-        </tr>
-        <tr>
-          <td class="md" nowrap align="right"></td>
-          <td class="md"></td>
-          <td class="md" nowrap>SEXP&nbsp;</td>
-          <td class="mdname" nowrap> <em>ans</em></td>
-        </tr>
-        <tr>
-          <td class="md"></td>
-          <td class="md">)&nbsp;</td>
-          <td class="md" colspan="2"></td>
-        </tr>
-      </table>
-    </td>
-  </tr>
-</table>
-<table cellspacing="5" cellpadding="0" border="0">
-  <tr>
-    <td>
-      &nbsp;
-    </td>
-    <td>
-
-<p>
-An experimental implementation of random forest like algorithms <br>
- <dl compact><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>learnsample</em>&nbsp;</td><td>an object of class `LearningSample' </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>weights</em>&nbsp;</td><td>a vector of case weights </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>fitmem</em>&nbsp;</td><td>an object of class `TreeFitMemory' </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>controls</em>&nbsp;</td><td>an object of class `TreeControl' </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>ans</em>&nbsp;</td><td>a list whose length determined the number of trees </td></tr>
-  </table>
-</dl>
-
-<p>
-Definition at line <a class="el" href="TreeGrow_8c-source.html#l00107">107</a> of file <a class="el" href="TreeGrow_8c-source.html">TreeGrow.c</a>.
-<p>
-References <a class="el" href="S3Classes_8c-source.html#l00011">C_init_node()</a>, <a class="el" href="TreeGrow_8c-source.html#l00022">C_TreeGrow()</a>, <a class="el" href="Classes_8c-source.html#l00323">get_maxsurrogate()</a>, <a class="el" href="Classes_8c-source.html#l00287">get_ninputs()</a>, <a class="el" href="Classes_8c-source.html#l00283">get_nobs()</a>, <a class="el" href="Classes_8c-source.html#l00307">get_splitctrl()</a>, <a class="el" href="Utils_8c-source.html#l00484">ncol()</a>, <a class="el" href="party_8h-source.html#l00041">NODE_LENGTH</a>, <a class="el" href="Classes_8c-source.html#l00012">PL2_jointtransfSym</a>, <a class="el" href="Classes_8c-source.html#l00012">PL2_responsesSym</a>, and <a class="el" href="S3Classes_8c-source.html#l00050">S3get_nodeweights()</a>.
-<p>
-Here is the call graph for this function:<p><center><img src="TreeGrow_8c_a2_cgraph.png" border="0" usemap="#TreeGrow_8c_a2_cgraph_map" alt=""></center>
-<map name="TreeGrow_8c_a2_cgraph_map">
-<area href="S3Classes_8c.html#a0" shape="rect" coords="470,134,545,158" alt="">
-<area href="TreeGrow_8c.html#a0" shape="rect" coords="148,554,228,578" alt="">
-<area href="Classes_8c.html#a90" shape="rect" coords="470,334,545,358" alt="">
-<area href="Classes_8c.html#a89" shape="rect" coords="477,481,538,505" alt="">
-<area href="Classes_8c.html#a95" shape="rect" coords="470,258,545,282" alt="">
-<area href="Utils_8c.html#a19" shape="rect" coords="489,209,526,233" alt="">
-<area href="Classes_8c.html#a99" shape="rect" coords="452,629,564,653" alt="">
-<area href="S3Classes_8c.html#a3" shape="rect" coords="448,704,568,728" alt="">
-<area href="Node_8c.html#a1" shape="rect" coords="310,209,364,233" alt="">
-<area href="Classes_8c.html#a97" shape="rect" coords="477,73,538,97" alt="">
-<area href="Predict_8c.html#a0" shape="rect" coords="300,358,374,382" alt="">
-<area href="SurrogateSplits_8c.html#a2" shape="rect" coords="286,852,388,876" alt="">
-<area href="S3Classes_8c.html#a12" shape="rect" coords="461,877,554,901" alt="">
-<area href="S3Classes_8c.html#a13" shape="rect" coords="457,952,558,976" alt="">
-<area href="SurrogateSplits_8c.html#a0" shape="rect" coords="294,604,380,628" alt="">
-<area href="Classes_8c.html#a104" shape="rect" coords="302,753,372,777" alt="">
-<area href="S3Classes_8c.html#a8" shape="rect" coords="276,457,398,481" alt="">
-<area href="S3Classes_8c.html#a1" shape="rect" coords="293,505,381,529" alt="">
+<area href="SurrogateSplits_8c.html#a0" shape="rect" coords="164,206,249,230" alt="">
+<area href="Classes_8c.html#a106" shape="rect" coords="165,553,247,577" alt="">
+<area href="Classes_8c.html#a105" shape="rect" coords="172,601,241,625" alt="">
+<area href="S3Classes_8c.html#a8" shape="rect" coords="145,649,267,673" alt="">
+<area href="S3Classes_8c.html#a1" shape="rect" coords="162,697,250,721" alt="">
 </map>
     </td>
   </tr>
@@ -301,35 +216,25 @@ R-interface to C_TreeGrow<br>
 </dl>
 
 <p>
-Definition at line <a class="el" href="TreeGrow_8c-source.html#l00074">74</a> of file <a class="el" href="TreeGrow_8c-source.html">TreeGrow.c</a>.
+Definition at line <a class="el" href="TreeGrow_8c-source.html#l00080">80</a> of file <a class="el" href="TreeGrow_8c-source.html">TreeGrow.c</a>.
 <p>
-References <a class="el" href="S3Classes_8c-source.html#l00011">C_init_node()</a>, <a class="el" href="TreeGrow_8c-source.html#l00022">C_TreeGrow()</a>, <a class="el" href="Classes_8c-source.html#l00323">get_maxsurrogate()</a>, <a class="el" href="Classes_8c-source.html#l00287">get_ninputs()</a>, <a class="el" href="Classes_8c-source.html#l00283">get_nobs()</a>, <a class="el" href="Classes_8c-source.html#l00307">get_splitctrl()</a>, <a class="el" href="Utils_8c-source.html#l00484">ncol()</a>, <a class="el" href="party_8h-source.html#l00041">NODE_LENGTH</a>, <a class="el" href="Classes_8c-source.html#l00012">PL2_jointtransfSym</a>, <a class="el" href="Classes_8c-source.html#l00012">PL2_responsesSym</a>, and <a class="el" href="S3Classes_8c-source.html#l00050">S3get_nodeweights()</a>.
+References <a class="el" href="S3Classes_8c-source.html#l00011">C_init_node()</a>, <a class="el" href="TreeGrow_8c-source.html#l00023">C_TreeGrow()</a>, <a class="el" href="Classes_8c-source.html#l00325">get_maxsurrogate()</a>, <a class="el" href="Classes_8c-source.html#l00289">get_ninputs()</a>, <a class="el" href="Classes_8c-source.html#l00285">get_nobs()</a>, <a class="el" href="Classes_8c-source.html#l00309">get_splitctrl()</a>, <a class="el" href="Utils_8c-source.html#l00484">ncol()</a>, <a class="el" href="party_8h-source.html#l00042">NODE_LENGTH</a>, <a class="el" href="Classes_8c-source.html#l00012">PL2_jointtransfSym</a>, <a class="el" href="Classes_8c-source.html#l00012">PL2_responsesSym</a>, and <a class="el" href="S3Classes_8c-source.html#l00050">S3get_nodeweights()</a>.
 <p>
 Here is the call graph for this function:<p><center><img src="TreeGrow_8c_a1_cgraph.png" border="0" usemap="#TreeGrow_8c_a1_cgraph_map" alt=""></center>
 <map name="TreeGrow_8c_a1_cgraph_map">
-<area href="S3Classes_8c.html#a0" shape="rect" coords="467,134,542,158" alt="">
-<area href="TreeGrow_8c.html#a0" shape="rect" coords="145,554,225,578" alt="">
-<area href="Classes_8c.html#a90" shape="rect" coords="467,334,542,358" alt="">
-<area href="Classes_8c.html#a89" shape="rect" coords="474,481,535,505" alt="">
-<area href="Classes_8c.html#a95" shape="rect" coords="467,258,542,282" alt="">
-<area href="Utils_8c.html#a19" shape="rect" coords="486,209,523,233" alt="">
-<area href="Classes_8c.html#a99" shape="rect" coords="449,629,561,653" alt="">
-<area href="S3Classes_8c.html#a3" shape="rect" coords="445,704,565,728" alt="">
-<area href="Node_8c.html#a1" shape="rect" coords="307,209,361,233" alt="">
-<area href="Classes_8c.html#a97" shape="rect" coords="474,73,535,97" alt="">
-<area href="Predict_8c.html#a0" shape="rect" coords="297,358,371,382" alt="">
-<area href="SurrogateSplits_8c.html#a2" shape="rect" coords="284,852,385,876" alt="">
-<area href="S3Classes_8c.html#a12" shape="rect" coords="458,877,551,901" alt="">
-<area href="S3Classes_8c.html#a13" shape="rect" coords="454,952,555,976" alt="">
-<area href="SurrogateSplits_8c.html#a0" shape="rect" coords="292,604,377,628" alt="">
-<area href="Classes_8c.html#a104" shape="rect" coords="299,753,369,777" alt="">
-<area href="S3Classes_8c.html#a8" shape="rect" coords="273,457,395,481" alt="">
-<area href="S3Classes_8c.html#a1" shape="rect" coords="290,505,378,529" alt="">
+<area href="S3Classes_8c.html#a0" shape="rect" coords="148,6,222,30" alt="">
+<area href="TreeGrow_8c.html#a0" shape="rect" coords="145,180,225,204" alt="">
+<area href="Classes_8c.html#a100" shape="rect" coords="278,76,390,100" alt="">
+<area href="Classes_8c.html#a90" shape="rect" coords="304,161,365,185" alt="">
+<area href="Classes_8c.html#a96" shape="rect" coords="297,219,372,243" alt="">
+<area href="S3Classes_8c.html#a3" shape="rect" coords="274,269,394,293" alt="">
+<area href="Classes_8c.html#a91" shape="rect" coords="148,329,222,353" alt="">
+<area href="Utils_8c.html#a19" shape="rect" coords="167,377,204,401" alt="">
 </map>
     </td>
   </tr>
 </table>
-<hr size="1"><address style="align: right;"><small>Generated on Wed Jan 18 11:23:57 2006 for party by&nbsp;
+<hr size="1"><address style="align: right;"><small>Generated on Thu Feb 16 09:12:37 2006 for party by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.2 </small></address>
 </body>

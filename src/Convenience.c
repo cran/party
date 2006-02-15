@@ -3,7 +3,7 @@
     Some convenience functions
     *\file Convenience.c
     *\author $Author: hothorn $
-    *\date $Date: 2005/08/31 07:27:04 $
+    *\date $Date: 2005-08-31 09:27:04 +0200 (Wed, 31 Aug 2005) $
 */
                 
 #include "party.h"

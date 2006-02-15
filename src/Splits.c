@@ -3,7 +3,7 @@
     Binary splits 
     *\file Splits.c
     *\author $Author: hothorn $
-    *\date $Date: 2005/10/19 14:40:37 $
+    *\date $Date: 2005-10-19 16:40:37 +0200 (Wed, 19 Oct 2005) $
 */
                 
 #include "party.h"

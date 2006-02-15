@@ -51,6 +51,8 @@ SEXP \hyperlink{Predict_8c_a16}{R\_\-weights} (SEXP tree, SEXP newinputs, SEXP m
 SEXP \hyperlink{Predict_8c_a17}{R\_\-predict\-RF} (SEXP forest, SEXP newinputs, SEXP mincriterion, SEXP oobpred)
 \item 
 SEXP \hyperlink{Predict_8c_a18}{R\_\-predict\-RF2} (SEXP forest, SEXP response, SEXP newinputs, SEXP mincriterion, SEXP oobpred)
+\item 
+SEXP \hyperlink{Predict_8c_a19}{R\_\-predict\-RF\_\-weights} (SEXP forest, SEXP newinputs, SEXP mincriterion, SEXP oobpred)
 \end{CompactItemize}
 
 
@@ -63,7 +65,7 @@ Node splitting and prediction
 \end{Desc}
 \begin{Desc}
 \item[Date:]\begin{Desc}
-\item[Date]2005/06/14 09:21:32 \end{Desc}
+\item[Date]2006-02-08 18:33:26 +0100 (Wed, 08 Feb 2006) \end{Desc}
 \end{Desc}
 
 
@@ -118,7 +120,7 @@ Definition at line 252 of file Predict.c.
 
 References S3get\_\-leftnode(), S3get\_\-node\-ID(), S3get\_\-nodeterminal(), and S3get\_\-rightnode().
 
-Referenced by C\_\-getpredictions(), C\_\-getweights(), R\_\-get\_\-nodebynum(), R\_\-predict\-RF(), and R\_\-predict\-RF2().
+Referenced by C\_\-getpredictions(), C\_\-getweights(), R\_\-get\_\-nodebynum(), R\_\-predict\-RF(), R\_\-predict\-RF2(), and R\_\-predict\-RF\_\-weights().
 
 Here is the call graph for this function:\begin{figure}[H]
 \begin{center}
@@ -145,7 +147,7 @@ Definition at line 316 of file Predict.c.
 
 References C\_\-get\_\-node(), and S3get\_\-node\-ID().
 
-Referenced by R\_\-get\_\-node\-ID(), R\_\-predict\-RF(), and R\_\-predict\-RF2().
+Referenced by R\_\-get\_\-node\-ID(), R\_\-predict\-RF(), R\_\-predict\-RF2(), and R\_\-predict\-RF\_\-weights().
 
 Here is the call graph for this function:\begin{figure}[H]
 \begin{center}
@@ -539,6 +541,30 @@ Here is the call graph for this function:\begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=322pt]{Predict_8c_a18_cgraph}
+\end{center}
+\end{figure}
+\hypertarget{Predict_8c_a19}{
+\index{Predict.c@{Predict.c}!R_predictRF_weights@{R\_\-predictRF\_\-weights}}
+\index{R_predictRF_weights@{R\_\-predictRF\_\-weights}!Predict.c@{Predict.c}}
+\subsubsection[R\_\-predictRF\_\-weights]{\setlength{\rightskip}{0pt plus 5cm}SEXP R\_\-predict\-RF\_\-weights (SEXP {\em forest}, SEXP {\em newinputs}, SEXP {\em mincriterion}, SEXP {\em oobpred})}}
+\label{Predict_8c_a19}
+
+
+Predictions weights from Random\-Forest objects \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em forest}]a list of trees \item[{\em newinputs}]an object of class `Variable\-Frame' \item[{\em mincriterion}]overwrites mincriterion used for tree growing \item[{\em oobpred}]a logical indicating out-of-bag predictions \end{description}
+\end{Desc}
+
+
+Definition at line 641 of file Predict.c.
+
+References C\_\-get\_\-nodebynum(), C\_\-get\_\-node\-ID(), get\_\-nobs(), S3get\_\-nodeweights(), and S3get\_\-prediction().
+
+Here is the call graph for this function:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=346pt]{Predict_8c_a19_cgraph}
 \end{center}
 \end{figure}
 \hypertarget{Predict_8c_a16}{
