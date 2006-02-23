@@ -60,8 +60,9 @@
 #define MAXABS			1
 #define QUADFORM		2
 
-/* type of multiplicity adjustment */
+/* type of criterion to be _maximized_! */
 #define BONFERRONI		1
 #define MONTECARLO		2
 #define AGGREGATED		3
-#define RAW			4
+#define UNIVARIATE		4
+#define TESTSTATISTIC		5

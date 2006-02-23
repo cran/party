@@ -1,6 +1,16 @@
 
 
-		CHANGES IN `party' VERSION 0.4-0 (2006-02-08)		
+		CHANGES IN `party' VERSION 0.8-1 (2006-02-23)
+
+    o    `testtype' can be Bonferroni, MonteCarlo, Univariate and
+         Teststatistic (instead of Raw)		
+
+    o    removed unnecessary constraint on weights in `cforest'
+
+    o    maximize raw test statistics for random forest by default.
+
+
+		CHANGES IN `party' VERSION 0.8-0 (2006-02-15)		
 
 
     o    `cforest', an implementation of Breiman's random forest ensemble

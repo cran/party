@@ -144,7 +144,7 @@ stopifnot(isequal(round(res[2],3), round(chis$p.value,3)))
 ### Multiple Variables
 gtctrl <- new("GlobalTestControl")
 tlev <- levels(gtctrl@testtype)   
-gtctrl@testtype <- factor("Raw", levels = tlev)
+gtctrl@testtype <- factor("Univariate", levels = tlev)
 
 mydata = data.frame(y = gl(2, 50), x1 = rnorm(100),
                     x2 = rnorm(100), x3 = rnorm(100))

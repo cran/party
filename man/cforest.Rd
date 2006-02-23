@@ -8,8 +8,9 @@
 \usage{
 cforest(formula, data = list(), subset = NULL, weights = NULL, 
         controls = ctree_control(teststattype = "maxabs", 
-            testtype = "Raw", mtry = 5, savesplitstats = FALSE), 
-        xtrafo = ptrafo, ytrafo = ptrafo, scores = NULL, B = 500)
+            testtype = "Teststatistic", mincriterion = qnorm(0.9), 
+            mtry = 5, savesplitstats = FALSE), 
+        xtrafo = ptrafo, ytrafo = ptrafo, scores = NULL, ntree = 500)
 }
 \arguments{
   \item{formula}{ a symbolic description of the model to be fit. }
@@ -27,7 +28,7 @@ cforest(formula, data = list(), subset = NULL, weights = NULL,
                 By default, the \code{\link{ptrafo}} function is applied.}
   \item{scores}{ an optional named list of scores to be attached to ordered
                factors.}
-  \item{B}{number of trees to grown.}
+  \item{ntree}{number of trees to grow.}
 }
 \details{
 
@@ -50,6 +51,9 @@ cforest(formula, data = list(), subset = NULL, weights = NULL,
   done with \code{\link[randomForest]{randomForest}}, for example fitting
   forests to censored response variables.
 
+  By default, raw test statitics are maximized and five inputs are randomly
+  examined for possible splits in each node.
+
 }
 \value{
   An object of class \code{\link{RandomForest-class}}.
@@ -66,14 +70,14 @@ cforest(formula, data = list(), subset = NULL, weights = NULL,
 
     ### honest (i.e., out-of-bag) cross-classification of
     ### true vs. predicted classes
-    table(mammoexp$ME, predict(cforest(ME ~ ., data = mammoexp, B = 50),
+    table(mammoexp$ME, predict(cforest(ME ~ ., data = mammoexp, ntree = 50),
                                OOB = TRUE))
 
     ### fit forest to censored response
     if (require("ipred")) {
 
         data("GBSG2", package = "ipred")
-        bst <- cforest(Surv(time, cens) ~ ., data = GBSG2, B = 50)
+        bst <- cforest(Surv(time, cens) ~ ., data = GBSG2, ntree = 50)
 
         ### estimate conditional Kaplan-Meier curves
         treeresponse(bst, newdata = GBSG2[1:2,], OOB = TRUE)

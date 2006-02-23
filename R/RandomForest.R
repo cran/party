@@ -1,9 +1,9 @@
 
-# $Id: RandomForest.R 2443 2006-02-09 17:24:51Z hothorn $
+# $Id: RandomForest.R 2475 2006-02-23 15:11:21Z hothorn $
 
 ### the fitting procedure
 cforestfit <- function(object, controls, weights = NULL, fitmem = NULL, 
-                       B = 500, ...) {
+                       ntree = 500, ...) {
 
     if (!extends(class(object), "LearningSample"))
         stop(sQuote("object"), " is not of class ", sQuote("LearningSample"))
@@ -20,16 +20,13 @@ cforestfit <- function(object, controls, weights = NULL, fitmem = NULL,
     if (length(weights) != object@nobs || storage.mode(weights) != "double")
         stop(sQuote("weights"), " are not a double vector of ", 
              object@nobs, " elements")
-    if (max(abs(floor(weights) -  weights)) > sqrt(.Machine$double.eps))
-        stop(sQuote("weights"), " contains real valued elements; currently
-             only integer values are allowed") 
 
     where <- rep(0, object@nobs)
     storage.mode(where) <- "integer"
 
     ### grow the tree
     ensemble <- .Call("R_Ensemble", object, weights, fitmem, controls,
-                      as.integer(B), PACKAGE = "party")
+                      as.integer(ntree), PACKAGE = "party")
 
     ### prepare the returned object
     RET <- new("RandomForest")
@@ -121,9 +118,10 @@ RandomForest <- new("StatModel",
 ### the top-level convenience function
 cforest <- function(formula, data = list(), subset = NULL, weights = NULL, 
                     controls = ctree_control(teststattype = "maxabs", 
-                                             testtype = "Raw", mtry = 5, 
+                                             testtype = "Teststatistic", 
+                                             mincriterion = qnorm(0.9), mtry = 5, 
                                              savesplitstats = FALSE),
-                    xtrafo = ptrafo, ytrafo = ptrafo, scores = NULL, B = 500) {
+                    xtrafo = ptrafo, ytrafo = ptrafo, scores = NULL, ntree = 500) {
 
     ### setup learning sample
     ls <- dpp(RandomForest, formula, data, subset, xtrafo = xtrafo, 
@@ -134,5 +132,5 @@ cforest <- function(formula, data = list(), subset = NULL, weights = NULL,
 
     ### fit and return a conditional tree
     fit(RandomForest, ls, controls = controls, weights = weights, 
-        fitmem = fitmem, B = B)
+        fitmem = fitmem, ntree = ntree)
 }

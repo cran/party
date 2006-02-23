@@ -51,7 +51,7 @@ names(GBSG2)
 
 tr <- ctree(Surv(time, cens) ~ ., data = GBSG2, 
             control = ctree_control(teststattype = "maxabs", 
-                                    testtype = "Raw"))
+                                    testtype = "Univariate"))
 tr
 plot(tr)
 

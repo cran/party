@@ -232,32 +232,33 @@
 00284                     error(<span class="stringliteral">"C_GlobalTest: aggregated global test not yet implemented"</span>);
 00285                     <span class="keywordflow">break</span>;
 00286             <span class="comment">/* raw */</span>
-00287             <span class="keywordflow">case</span> <a class="code" href="party_8h.html#a26">RAW</a>: <span class="keywordflow">break</span>;
-00288             <span class="keywordflow">default</span>: error(<span class="stringliteral">"C_GlobalTest: undefined value for type argument"</span>);
-00289                      <span class="keywordflow">break</span>;
-00290         }
-00291     }
-00292 }
-00293 
+00287             <span class="keywordflow">case</span> <a class="code" href="party_8h.html#a26">UNIVARIATE</a>: <span class="keywordflow">break</span>;
+00288             <span class="keywordflow">case</span> <a class="code" href="party_8h.html#a27">TESTSTATISTIC</a>: <span class="keywordflow">break</span>;
+00289             <span class="keywordflow">default</span>: error(<span class="stringliteral">"C_GlobalTest: undefined value for type argument"</span>);
+00290                      <span class="keywordflow">break</span>;
+00291         }
+00292     }
+00293 }
 00294 
-<a name="l00304"></a><a class="code" href="IndependenceTest_8c.html#a5">00304</a> SEXP <a class="code" href="IndependenceTest_8c.html#a5">R_GlobalTest</a>(SEXP learnsample, SEXP weights, SEXP fitmem, 
-00305                   SEXP varctrl, SEXP gtctrl) {
-00306 
-00307     SEXP ans, teststat, criterion;
-00308     
-00309     PROTECT(ans = allocVector(VECSXP, 2));
-00310     SET_VECTOR_ELT(ans, 0, 
-00311         teststat = allocVector(REALSXP, <a class="code" href="Classes_8c.html#a91">get_ninputs</a>(learnsample)));
-00312     SET_VECTOR_ELT(ans, 1, 
-00313         criterion = allocVector(REALSXP, <a class="code" href="Classes_8c.html#a91">get_ninputs</a>(learnsample)));
-00314 
-00315     <a class="code" href="IndependenceTest_8c.html#a4">C_GlobalTest</a>(learnsample, weights, fitmem, varctrl, gtctrl, 0, 
-00316                  REAL(teststat), REAL(criterion));
-00317     
-00318     UNPROTECT(1);
-00319     <span class="keywordflow">return</span>(ans);
-00320 }
-</pre></div><hr size="1"><address style="align: right;"><small>Generated on Thu Feb 16 09:11:58 2006 for party by&nbsp;
+00295 
+<a name="l00305"></a><a class="code" href="IndependenceTest_8c.html#a5">00305</a> SEXP <a class="code" href="IndependenceTest_8c.html#a5">R_GlobalTest</a>(SEXP learnsample, SEXP weights, SEXP fitmem, 
+00306                   SEXP varctrl, SEXP gtctrl) {
+00307 
+00308     SEXP ans, teststat, criterion;
+00309     
+00310     PROTECT(ans = allocVector(VECSXP, 2));
+00311     SET_VECTOR_ELT(ans, 0, 
+00312         teststat = allocVector(REALSXP, <a class="code" href="Classes_8c.html#a91">get_ninputs</a>(learnsample)));
+00313     SET_VECTOR_ELT(ans, 1, 
+00314         criterion = allocVector(REALSXP, <a class="code" href="Classes_8c.html#a91">get_ninputs</a>(learnsample)));
+00315 
+00316     <a class="code" href="IndependenceTest_8c.html#a4">C_GlobalTest</a>(learnsample, weights, fitmem, varctrl, gtctrl, 0, 
+00317                  REAL(teststat), REAL(criterion));
+00318     
+00319     UNPROTECT(1);
+00320     <span class="keywordflow">return</span>(ans);
+00321 }
+</pre></div><hr size="1"><address style="align: right;"><small>Generated on Thu Feb 23 16:02:21 2006 for party by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.2 </small></address>
 </body>

@@ -3,7 +3,7 @@
     Functions for variable selection in each node of a tree
     *\file IndependenceTest.c
     *\author $Author: hothorn $
-    *\date $Date: 2005-06-16 13:10:12 +0200 (Thu, 16 Jun 2005) $
+    *\date $Date: 2006-02-23 16:11:21 +0100 (Thu, 23 Feb 2006) $
 */
                 
 #include "party.h"
@@ -284,7 +284,8 @@ void C_GlobalTest(const SEXP learnsample, const SEXP weights,
                     error("C_GlobalTest: aggregated global test not yet implemented");
                     break;
             /* raw */
-            case RAW: break;
+            case UNIVARIATE: break;
+            case TESTSTATISTIC: break;
             default: error("C_GlobalTest: undefined value for type argument");
                      break;
         }

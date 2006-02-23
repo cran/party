@@ -8,7 +8,7 @@
 }
 \usage{
 ctree_control(teststattype = c("quadform", "maxabs"), 
-              testtype = c("Bonferroni", "MonteCarlo", "Raw"), 
+              testtype = c("Bonferroni", "MonteCarlo", "Univariate", "Teststatistic"), 
               mincriterion = 0.95, minsplit = 20, stump = FALSE, 
               nresample = 9999, maxsurrogate = 0, mtry = 0, 
               savesplitstats = TRUE, maxdepth = 0)

@@ -43,11 +43,10 @@ ctree(formula, data, subset = NULL, weights = NULL,
 
   The implementation utilizes a unified framework for conditional inference,
   or permutation tests, developed by Strasser and Weber (1999). The stop
-  criterion in step 1) is either based on a p-value 
-  (\code{teststattype = "Bonferroni"} 
-  or \code{teststattype = "MonteCarlo"} in \code{\link{ctree_control}})
-  or on the raw (standardized) test
-  statistic (\code{teststattype = "Raw"}). In both cases, the
+  criterion in step 1) is either based on multiplicity adjusted p-values 
+  (\code{testtype = "Bonferroni"} 
+  or \code{testtype = "MonteCarlo"} in \code{\link{ctree_control}})
+  or on the univariate p-values (\code{testtype = "Univariate"}). In both cases, the
   criterion is maximized, i.e., 1 - p-value is used. A split is implemented 
   when the criterion exceeds the value given by \code{mincriterion} as
   specified in \code{\link{ctree_control}}. For example, when 

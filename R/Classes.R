@@ -1,5 +1,5 @@
 
-# $Id: Classes.R 2464 2006-02-14 10:35:22Z hothorn $
+# $Id: Classes.R 2475 2006-02-23 15:11:21Z hothorn $
 
 ### Conditional Expectation and Covariance
 setClass(Class = "ExpectCovar",
@@ -121,7 +121,8 @@ setClass(Class = "GlobalTestControl",
     ),
     prototype = list(
         testtype = factor("Bonferroni", 
-            levels = c("Bonferroni", "MonteCarlo", "Aggregated", "Raw")),
+            levels = c("Bonferroni", "MonteCarlo", "Aggregated", 
+                       "Univariate", "Teststatistic")),
         nresample = as.integer(9999),
         randomsplits = FALSE,
         mtry = as.integer(0),

@@ -1,6 +1,6 @@
 
-R : Copyright 2005, The R Foundation for Statistical Computing
-Version 2.2.1  (2005-12-20 r36812)
+R : Copyright 2006, The R Foundation for Statistical Computing
+Version 2.3.0 Under development (unstable) (2006-02-14 r37355)
 ISBN 3-900051-07-0
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -41,28 +41,28 @@ Loading required package: class
 > gctorture(on = GCtorture)
 > 
 > data("GlaucomaM", package = "ipred")
-> rf <- cforest(Class ~ ., data = GlaucomaM, B = 100)
+> rf <- cforest(Class ~ ., data = GlaucomaM, ntree = 100)
 Warning message:
 no admissible split found 
 > stopifnot(mean(GlaucomaM$Class != predict(rf)) < 
 +           mean(GlaucomaM$Class != predict(rf, OOB = TRUE)))
 > 
 > data("GBSG2", package = "ipred")
-> rf <- cforest(Surv(time, cens) ~ ., data = GBSG2, B = 100)
-There were 27 warnings (use warnings() to see them)
+> rf <- cforest(Surv(time, cens) ~ ., data = GBSG2, ntree = 100)
+There were 50 or more warnings (use warnings() to see the first 50)
 > treeresponse(rf, newdata = GBSG2[1:2,])
 [[1]]
 Call: survival:::survfit(formula = resp, weights = w, subset = w > 
     0)
 
       n  events  median 0.95LCL 0.95UCL 
-  20076    7917    1990    1990    2018 
+  10569    4288    1814    1814    1989 
 
 [[2]]
 Call: survival:::survfit(formula = resp, weights = w, subset = w > 
     0)
 
       n  events  median 0.95LCL 0.95UCL 
-  10900    5323    1502    1481    1587 
+   4923    2350    1701    1587    1807 
 
 > 

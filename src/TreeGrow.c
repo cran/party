@@ -3,7 +3,7 @@
     The tree growing recursion
     *\file TreeGrow.c
     *\author $Author: hothorn $
-    *\date $Date: 2006-02-14 11:35:22 +0100 (Di, 14 Feb 2006) $
+    *\date $Date: 2006-02-23 16:11:21 +0100 (Thu, 23 Feb 2006) $
 */
 
 #include "party.h"

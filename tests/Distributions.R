@@ -93,7 +93,7 @@ varctrl <- new("VariableControl")
 varctrl@teststattype <- factor("maxabs", levels = c("maxabs", "quadform"))
 varctrl@pvalue <- TRUE
 gtctrl <- new("GlobalTestControl")
-gtctrl@testtype <- factor("Raw", levels = levels(gtctrl@testtype))
+gtctrl@testtype <- factor("Univariate", levels = levels(gtctrl@testtype))
 gtctrl@nresample <- as.integer(19999)
 
 pvals <- .Call("R_GlobalTest", ls, ls@weights, tm, varctrl, gtctrl)
