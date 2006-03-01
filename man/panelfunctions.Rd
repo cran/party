@@ -29,7 +29,7 @@ node_surv(ctreeobj, ylines = 2, id = TRUE, \dots)
 node_barplot(ctreeobj, col = "black", fill = "lightgray", ymax = NULL,
   ylines = 3, widths = 1, gap = NULL, id = TRUE)
 node_boxplot(ctreeobj, col = "black", fill = "lightgray",  width = 0.5,
-  yscale = NULL, ylines = 3, id = TRUE)
+  yscale = NULL, ylines = 3, cex = 0.5, id = TRUE)
 node_hist(ctreeobj, col = "black", fill = "lightgray", freq = FALSE,
   horizontal = TRUE, xscale = NULL, ymax = NULL, ylines = 3,
   id = TRUE, \dots)
@@ -37,7 +37,7 @@ node_density(ctreeobj, col = "black", rug = TRUE, horizontal = TRUE,
   xscale = NULL, yscale = NULL, ylines = 3, id = TRUE)
 
 node_scatterplot(mobobj, which = NULL, col = "black", linecol = "red",
-  cex = 0.5, jitter = FALSE, xscale = NULL, yscale = NULL, ylines = 1.5,
+  cex = 0.5, pch = NULL, jitter = FALSE, xscale = NULL, yscale = NULL, ylines = 1.5,
   id = TRUE, labels = FALSE)
 node_bivplot(mobobj, which = NULL, id = TRUE, pop = TRUE,
   pointcol = "black", pointcex = 0.5,
@@ -70,7 +70,8 @@ node_bivplot(mobobj, which = NULL, id = TRUE, pop = TRUE,
   \item{which}{ numeric or character vector indicating which of the regressor
     variables should be plotted (default = all).}
   \item{linecol}{ color for fitted model lines.}
-  \item{cex, pointcex}{ character extension of points in scatter plots.}
+  \item{cex, pointcex}{character extension of points in scatter plots.}
+  \item{pch}{plotting character of points in scatter plots.}
   \item{jitter}{logical. Should the points be jittered in y-direction?}
   \item{labels}{logical. Should axis labels be plotted?}
   \item{pop}{logical. Should the panel viewports be popped?}

@@ -1,5 +1,5 @@
 
-# $Id: ConditionalTree.R 2475 2006-02-23 15:11:21Z hothorn $
+# $Id: ConditionalTree.R 2500 2006-03-14 14:26:33Z hothorn $
 
 ### the fitting procedure
 ctreefit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
@@ -88,6 +88,12 @@ ctreefit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
 
         cdresp <- RET@cond_distr_response(newdata = newdata, 
                                           mincriterion = mincriterion, ...)
+
+        ### <FIXME> multivariate responses, we might want to return
+        ###         a data.frame
+        ### </FIXME>
+        if (object@responses@ninputs > 1) 
+            return(cdresp)        
 
         response <- object@responses
         ### classification: classes

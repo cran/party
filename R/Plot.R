@@ -1,5 +1,5 @@
 
-# $Id: Plot.R 2474 2006-02-16 16:24:37Z zeileis $
+# $Id: Plot.R 2525 2006-03-20 16:20:02Z zeileis $
 
 ## utility functions for querying the number of
 ## terminal nodes and the maximal depth of (sub-)trees
@@ -125,7 +125,7 @@ node_surv <- function(ctreeobj,
         ## main title
         top <- viewport(layout.pos.col=2, layout.pos.row=1)
         pushViewport(top)
-	mainlab <- paste(ifelse(id, paste("Node", node$nodeID, "(n = "), ""),
+	mainlab <- paste(ifelse(id, paste("Node", node$nodeID, "(n = "), "n = "),
 	                 sum(node$weights), ifelse(id, ")", ""), sep = "")
         grid.text(mainlab)
         popViewport()
@@ -139,7 +139,7 @@ node_surv <- function(ctreeobj,
         grid.lines(a$x/max(a$x), a$y)
         grid.xaxis()
         grid.yaxis()
-        grid.rect()
+        grid.rect(gp = gpar(fill = "transparent"))
         upViewport(2)
     }
 
@@ -185,7 +185,7 @@ node_barplot <- function(ctreeobj,
         widths <- rep(widths, length.out = np)
 	col <- rep(col, length.out = np)
 	fill <- rep(fill, length.out = np)
-	gap <- if (is.null(gap)) ifelse(np > 1, 0.1, 2)
+	if (is.null(gap)) gap <- ifelse(np > 1, 0.1, 2)
 	gap <- gap * sum(widths)	
 	if (is.null(ymax)) ymax <- 1
         yscale <- c(0, ymax)
@@ -205,7 +205,7 @@ node_barplot <- function(ctreeobj,
         ## main title
         top <- viewport(layout.pos.col=2, layout.pos.row=1)
         pushViewport(top)
-	mainlab <- paste(ifelse(id, paste("Node", node$nodeID, "(n = "), ""),
+	mainlab <- paste(ifelse(id, paste("Node", node$nodeID, "(n = "), "n = "),
 	                 sum(node$weights), ifelse(id, ")", ""), sep = "")
         grid.text(mainlab)
         popViewport()
@@ -230,7 +230,7 @@ node_barplot <- function(ctreeobj,
                   just = c("center", "top"),
 	          default.units = "native", check.overlap = TRUE)
         grid.yaxis()
-        grid.rect()
+        grid.rect(gp = gpar(fill = "transparent"))
         upViewport(2)
     }
     
@@ -244,6 +244,7 @@ node_boxplot <- function(ctreeobj,
 		         width = 0.5,
 		         yscale = NULL,
 		         ylines = 3,
+			 cex = 0.5,
 		         id = TRUE)
 {
     y <- response(ctreeobj)[[1]]
@@ -272,7 +273,7 @@ node_boxplot <- function(ctreeobj,
         ## main title
         top <- viewport(layout.pos.col=2, layout.pos.row=1)
         pushViewport(top)
-	mainlab <- paste(ifelse(id, paste("Node", node$nodeID, "(n = "), ""),
+	mainlab <- paste(ifelse(id, paste("Node", node$nodeID, "(n = "), "n = "),
 	                 sum(node$weights), ifelse(id, ")", ""), sep = "")
         grid.text(mainlab)
         popViewport()
@@ -313,11 +314,11 @@ node_boxplot <- function(ctreeobj,
             if (length(index) > 0)
                 grid.points(unit(rep.int(0.5, length(index)), "npc"), 
                             unit(x$out[index], "native"),
-                            size = unit(0.5, "char"), gp = gpar(col = col))
+                            size = unit(cex, "char"), gp = gpar(col = col))
         }
 	
         grid.yaxis()
-        grid.rect()
+        grid.rect(gp = gpar(fill = "transparent"))
         upViewport(2)
     }
     
@@ -377,7 +378,7 @@ node_hist <- function(ctreeobj,
         ## main title
         top <- viewport(layout.pos.col=2, layout.pos.row=1)
         pushViewport(top)
-	mainlab <- paste(ifelse(id, paste("Node", node$nodeID, "(n = "), ""),
+	mainlab <- paste(ifelse(id, paste("Node", node$nodeID, "(n = "), "n = "),
 	                 sum(node$weights), ifelse(id, ")", ""), sep = "")
         grid.text(mainlab)
         popViewport()
@@ -411,7 +412,7 @@ node_hist <- function(ctreeobj,
 	
         grid.xaxis()
         grid.yaxis()
-        grid.rect()
+        grid.rect(gp = gpar(fill = "transparent"))
         upViewport(2)
     }
     return(rval)
@@ -467,7 +468,7 @@ node_density <- function(ctreeobj,
         ## main title
         top <- viewport(layout.pos.col=2, layout.pos.row=1)
         pushViewport(top)
-	mainlab <- paste(ifelse(id, paste("Node", node$nodeID, "(n = "), ""),
+	mainlab <- paste(ifelse(id, paste("Node", node$nodeID, "(n = "), "n = "),
 	                 sum(node$weights), ifelse(id, ")", ""), sep = "")
         grid.text(mainlab)
         popViewport()
@@ -514,7 +515,7 @@ node_density <- function(ctreeobj,
 	
         grid.xaxis()
         grid.yaxis()
-        grid.rect()
+        grid.rect(gp = gpar(fill = "transparent"))
         upViewport(2)
     }
     

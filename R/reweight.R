@@ -10,3 +10,8 @@ reweight.glinearModel <- function(object, weights, ...) {
     fit <- glinearModel@fit    
     do.call("fit", c(list(object = object$ModelEnv, weights = weights), object$addargs))
 }
+
+reweight.survReg <- function(object, weights, ...) {
+     fit <- survReg@fit
+     do.call("fit", c(list(object = object$ModelEnv, weights = weights), object$addargs))
+}

@@ -1,6 +1,20 @@
 
+                CHANGES IN party VERSION 0.8-3 (2006-03-20)
+
+
+    o   `predict' returned nonsensical results in case a tree was 
+        fitted to a multivariate response variable. Now a list with one
+        element for each observation is returned.
+
+
+                CHANGES IN party VERSION 0.8-2 (2006-03-01)
+
+    o    plotting buglets fixed: improved axis in MOB plots,
+         correct (transparent) background on jpeg() and png() devices.
+
 
 		CHANGES IN `party' VERSION 0.8-1 (2006-02-23)
+
 
     o    `testtype' can be Bonferroni, MonteCarlo, Univariate and
          Teststatistic (instead of Raw)		

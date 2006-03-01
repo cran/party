@@ -267,7 +267,8 @@ mob_fit_fluctests <- function(obj, mf, minsplit, breakties) {
   rval <- list(pval = exp(pval), stat = stat, best = best)
   names(rval$pval) <- names(partvar)
   names(rval$stat) <- names(partvar)
-  names(rval$best) <- names(partvar)[rval$best]
+  if (!all(is.na(rval$best)))
+      names(rval$best) <- names(partvar)[rval$best]
   return(rval)
 }
 
