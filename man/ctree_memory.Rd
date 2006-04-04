@@ -32,7 +32,7 @@ ctree_memory(object, MPinv = FALSE)
 
     ### setup memory and controls 
     mem <- ctree_memory(ls)
-    ct <- ctree_control(teststattype = "maxabs")
+    ct <- ctree_control(teststat = "max")
 
     ### fit 50 trees on bootstrap samples
     bs <- rmultinom(50, nrow(airq), rep(1, nrow(airq))/nrow(airq))

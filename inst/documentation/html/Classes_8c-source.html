@@ -29,7 +29,7 @@
 00027     <a class="code" href="Classes_8c.html#a15">PL2_vSym</a>,
 00028     <a class="code" href="Classes_8c.html#a16">PL2_sSym</a>,
 00029     <a class="code" href="Classes_8c.html#a17">PL2_pSym</a>,
-00030     <a class="code" href="Classes_8c.html#a18">PL2_teststattypeSym</a>,
+00030     <a class="code" href="Classes_8c.html#a18">PL2_teststatSym</a>,
 00031     <a class="code" href="Classes_8c.html#a19">PL2_pvalueSym</a>,
 00032     <a class="code" href="Classes_8c.html#a20">PL2_tolSym</a>,
 00033     <a class="code" href="Classes_8c.html#a21">PL2_maxptsSym</a>,
@@ -94,7 +94,7 @@
 00092     <a class="code" href="Classes_8c.html#a15">PL2_vSym</a> = install(<span class="stringliteral">"v"</span>);
 00093     <a class="code" href="Classes_8c.html#a16">PL2_sSym</a> = install(<span class="stringliteral">"s"</span>);
 00094     <a class="code" href="Classes_8c.html#a17">PL2_pSym</a> = install(<span class="stringliteral">"p"</span>); 
-00095     <a class="code" href="Classes_8c.html#a18">PL2_teststattypeSym</a> = install(<span class="stringliteral">"teststattype"</span>);
+00095     <a class="code" href="Classes_8c.html#a18">PL2_teststatSym</a> = install(<span class="stringliteral">"teststat"</span>);
 00096     <a class="code" href="Classes_8c.html#a19">PL2_pvalueSym</a> = install(<span class="stringliteral">"pvalue"</span>);
 00097     <a class="code" href="Classes_8c.html#a20">PL2_tolSym</a> = install(<span class="stringliteral">"tol"</span>);
 00098     <a class="code" href="Classes_8c.html#a21">PL2_maxptsSym</a> = install(<span class="stringliteral">"maxpts"</span>);
@@ -148,8 +148,8 @@
 00146     <span class="keywordflow">return</span>(INTEGER(GET_SLOT(object, <a class="code" href="Classes_8c.html#a6">PL2_dimensionSym</a>))[0]);
 00147 }
 00148 
-<a name="l00149"></a><a class="code" href="Classes_8h.html#a60">00149</a> <span class="keywordtype">int</span> <a class="code" href="Classes_8c.html#a65">get_teststattype</a>(SEXP object) {
-00150     <span class="keywordflow">return</span>(INTEGER(GET_SLOT(object, <a class="code" href="Classes_8c.html#a18">PL2_teststattypeSym</a>))[0]);
+<a name="l00149"></a><a class="code" href="Classes_8h.html#a60">00149</a> <span class="keywordtype">int</span> <a class="code" href="Classes_8c.html#a65">get_teststat</a>(SEXP object) {
+00150     <span class="keywordflow">return</span>(INTEGER(GET_SLOT(object, <a class="code" href="Classes_8c.html#a18">PL2_teststatSym</a>))[0]);
 00151 }
 00152 
 <a name="l00153"></a><a class="code" href="Classes_8h.html#a62">00153</a> <span class="keywordtype">int</span> <a class="code" href="Classes_8c.html#a66">get_pvalue</a>(SEXP object) {
@@ -355,7 +355,7 @@
 00353     <span class="keywordflow">if</span> (maxdepth &lt; 1) error(<span class="stringliteral">"maxdepth is less than one"</span>);
 00354     <span class="keywordflow">return</span>(depth &lt;= maxdepth);
 00355 }
-</pre></div><hr size="1"><address style="align: right;"><small>Generated on Mon Mar 20 17:17:52 2006 for party by&nbsp;
+</pre></div><hr size="1"><address style="align: right;"><small>Generated on Tue Apr 4 13:20:28 2006 for party by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.2 </small></address>
 </body>

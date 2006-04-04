@@ -7,14 +7,14 @@
 
 }
 \usage{
-ctree_control(teststattype = c("quadform", "maxabs"), 
+ctree_control(teststat = c("quad", "max"), 
               testtype = c("Bonferroni", "MonteCarlo", "Univariate", "Teststatistic"), 
               mincriterion = 0.95, minsplit = 20, stump = FALSE, 
               nresample = 9999, maxsurrogate = 0, mtry = 0, 
               savesplitstats = TRUE, maxdepth = 0)
 }
 \arguments{
-  \item{teststattype}{ a character specifying the type of the test statistic
+  \item{teststat}{ a character specifying the type of the test statistic
                        to be applied. }
   \item{testtype}{ a character specifying how to compute the distribution of
                    the test statistic. }
@@ -39,7 +39,7 @@ ctree_control(teststattype = c("quadform", "maxabs"),
 }
 \details{
 
-  The arguments \code{teststattype}, \code{testtype} and \code{mincriterion}
+  The arguments \code{teststat}, \code{testtype} and \code{mincriterion}
   determine how the global null hypothesis of independence between all input
   variables and the response is tested (see \code{\link{ctree}}). The 
   argument \code{nresample} is the number of Monte-Carlo replications to be

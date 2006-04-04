@@ -342,14 +342,14 @@ The type of test statistic to be used can be specified by means of the
 \begin{Schunk}
 \begin{Sinput}
 R> ctree(y ~ x1 + x2, data = ls, 
-      control = ctree_control(teststattype = "maxabs"))
+      control = ctree_control(teststat = "max"))
 \end{Sinput}
 \end{Schunk}
 uses $c_\text{max}$ and 
 \begin{Schunk}
 \begin{Sinput}
 R> ctree(y ~ x1 + x2, data = ls, 
-      control = ctree_control(teststattype = "quadform"))
+      control = ctree_control(teststat = "quad"))
 \end{Sinput}
 \end{Schunk}
 takes $c_\text{quad}$ (the default).
@@ -384,8 +384,8 @@ g_m(X_{mi})^\top\right)^\top h(\Y_i, (\Y_1, \dots, \Y_n))^\top \right).
 However, this approach is less attractive for learning samples with
 missing values. Universally applicable approaches are multiple test 
 procedures based on $P_1, \dots, P_m$. 
-Simple Bonferroni-adjusted $P$-values $m
-P_j$, available via 
+Simple Bonferroni-adjusted $P$-values ($mP_j$ prior to version 0.8-4, now $1
+- (1 - P_j)^m$ is used), available via 
 <<party-Bonf, echo = TRUE, results = hide>>=
 ctree_control(testtype = "Bonferroni")
 @
@@ -739,7 +739,9 @@ plot(gtree)
 @
 \caption{Conditional inference tree for the glaucoma data. For each inner node, the
 Bonferroni-adjusted $P$-values are given, the fraction of glaucomatous eyes
-is displayed for each terminal node. \label{glaucoma}}
+is displayed for each terminal node. (Note: node 7 was not splitted prior to
+version 0.8-4 because of using another formulation of the
+Bonferroni-adjustment.) \label{glaucoma}}
 
 <<glaucoma-plot-inner, echo = FALSE, fig = TRUE, height = 7, width = 10>>=
 plot(gtree, inner_panel = node_barplot, 

@@ -1,4 +1,4 @@
-.TH "Classes.h" 3 "20 Mar 2006" "party" \" -*- nroff -*-
+.TH "Classes.h" 3 "4 Apr 2006" "party" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -13,7 +13,7 @@ Classes.h \-
 .RI "int \fBget_dimension\fP (SEXP object)"
 .br
 .ti -1c
-.RI "int \fBget_teststattype\fP (SEXP object)"
+.RI "int \fBget_teststat\fP (SEXP object)"
 .br
 .ti -1c
 .RI "double \fBget_tol\fP (SEXP object)"
@@ -200,7 +200,7 @@ Classes.h \-
 .RI "SEXP \fBPL2_pSym\fP"
 .br
 .ti -1c
-.RI "SEXP \fBPL2_teststattypeSym\fP"
+.RI "SEXP \fBPL2_teststatSym\fP"
 .br
 .ti -1c
 .RI "SEXP \fBPL2_pvalueSym\fP"
@@ -526,11 +526,11 @@ Definition at line 345 of file Classes.c.
 References PL2_stumpSym.
 .PP
 Referenced by C_TreeGrow().
-.SS "int get_teststattype (SEXP object)"
+.SS "int get_teststat (SEXP object)"
 .PP
 Definition at line 149 of file Classes.c.
 .PP
-References PL2_teststattypeSym.
+References PL2_teststatSym.
 .PP
 Referenced by C_GlobalTest(), C_IndependenceTest(), and C_TeststatPvalue().
 .SS "int get_testtype (SEXP object)"
@@ -856,11 +856,11 @@ Referenced by C_LinStatExpCovMPinv(), and party_init().
 Definition at line 12 of file Classes.c.
 .PP
 Referenced by C_MPinv(), CR_svd(), and party_init().
-.SS "SEXP \fBPL2_teststattypeSym\fP"
+.SS "SEXP \fBPL2_teststatSym\fP"
 .PP
 Definition at line 12 of file Classes.c.
 .PP
-Referenced by get_teststattype(), and party_init().
+Referenced by get_teststat(), and party_init().
 .SS "SEXP \fBPL2_testtypeSym\fP"
 .PP
 Definition at line 12 of file Classes.c.

@@ -38,7 +38,7 @@ y <- sapply(levels(yf), function(l) as.numeric(yf == l))
 weights <- rep(1, nrow(x))
 
 varctrl <- new("VariableControl")
-varctrl@teststattype <- factor("quadform", levels = c("maxabs", "quadform"))
+varctrl@teststat <- factor("quad", levels = c("max", "quad"))
 print(varctrl)
 lec <- new("LinStatExpectCovarMPinv", ncol(x), ncol(y))
 lec@rank <- 0
@@ -57,7 +57,7 @@ tmp <- x
 x <- y
 y <- tmp
 varctrl <- new("VariableControl")
-varctrl@teststattype <- factor("quadform", levels = c("maxabs", "quadform"))
+varctrl@teststat <- factor("quad", levels = c("max", "quad"))
 print(varctrl)
 lec <- new("LinStatExpectCovarMPinv", ncol(x), ncol(y))
 lec@rank <- 0
@@ -78,7 +78,7 @@ y <- sapply(levels(yf), function(l) as.numeric(yf == l))
 weights <- rep(1, nrow(x))
 
 varctrl <- new("VariableControl")
-varctrl@teststattype <- factor("quadform", levels = c("maxabs", "quadform"))
+varctrl@teststat <- factor("quad", levels = c("max", "quad"))
 print(varctrl)
 lec <- new("LinStatExpectCovarMPinv", ncol(x), ncol(y))
 lec@rank <- 0
@@ -126,7 +126,7 @@ y <- sapply(levels(yf), function(l) as.numeric(yf == l))
 weights <- rep(1, nrow(x))
 
 varctrl <- new("VariableControl")
-varctrl@teststattype <- factor("quadform", levels = c("maxabs", "quadform"))
+varctrl@teststat <- factor("quad", levels = c("max", "quad"))
 print(varctrl)
 lec <- new("LinStatExpectCovarMPinv", ncol(x), ncol(y))
 lec@rank <- 0

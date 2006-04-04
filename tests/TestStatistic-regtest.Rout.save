@@ -1,0 +1,63 @@
+
+R : Copyright 2006, The R Foundation for Statistical Computing
+Version 2.3.0 alpha (2006-04-04 r37647)
+ISBN 3-900051-07-0
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> 
+> set.seed(290875)
+> gctorture(on = FALSE)
+> library(party)
+Loading required package: survival
+Loading required package: splines
+Loading required package: grid
+Loading required package: modeltools
+Loading required package: coin
+Loading required package: mvtnorm
+Loading required package: zoo
+Loading required package: sandwich
+Loading required package: strucchange
+> gctorture(on = GCtorture)
+> 
+> ### get rid of the NAMESPACE
+> nsparty <- attach(NULL, name="ns-party")
+> .Internal(lib.fixup(asNamespace("party"), nsparty))
+> 
+> ### 
+> ###
+> ###    Regression tests for test statistics
+> ###    
+> ###    functions defined in file `./src/TestStatistic.c'    
+> 
+> ### tests for function C_maxabsTeststatistic
+> xf <- gl(3, 10)
+> yf <- gl(3, 10)[sample(1:30)]
+> x <- sapply(levels(xf), function(l) as.numeric(xf == l))
+> colnames(x) <- NULL
+> y <- sapply(levels(yf), function(l) as.numeric(yf == l))
+> colnames(y) <- NULL
+> weights <- sample(1:30)
+> linstat <- LinearStatistic(x, y, weights) 
+> expcov <- ExpectCovarLinearStatistic(x, y, weights)
+> maxabs <- max(abs(linstat - expcov@expectation) / sqrt(diag(expcov@covariance)))
+> stopifnot(isequal(maxabs, 
++     maxabsTestStatistic(linstat, expcov@expectation, expcov@covariance, 1e-10)))
+> expcov@covariance[1,1] <- 1e-12
+> stopifnot(isequal(maxabs,
++     maxabsTestStatistic(linstat, expcov@expectation, expcov@covariance, 1e-10)))
+> 
+> ### tests for function C_quadformTeststatistic
+> ### -> see LinearStatistic-regtest.R
+> 
+> 

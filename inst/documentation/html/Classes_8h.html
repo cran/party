@@ -35,7 +35,7 @@ This graph shows which files directly or indirectly include this file:<p><center
 <tr><td colspan="2"><br><h2>Functions</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Classes_8h.html#a59">get_dimension</a> (SEXP object)</td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Classes_8h.html#a60">get_teststattype</a> (SEXP object)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Classes_8h.html#a60">get_teststat</a> (SEXP object)</td></tr>
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Classes_8h.html#a61">get_tol</a> (SEXP object)</td></tr>
 
@@ -158,7 +158,7 @@ This graph shows which files directly or indirectly include this file:<p><center
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">SEXP&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Classes_8h.html#a17">PL2_pSym</a></td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">SEXP&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Classes_8h.html#a18">PL2_teststattypeSym</a></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">SEXP&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Classes_8h.html#a18">PL2_teststatSym</a></td></tr>
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">SEXP&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Classes_8h.html#a19">PL2_pvalueSym</a></td></tr>
 
@@ -1305,13 +1305,13 @@ References <a class="el" href="Classes_8c-source.html#l00012">PL2_stumpSym</a>.
 Referenced by <a class="el" href="TreeGrow_8c-source.html#l00023">C_TreeGrow()</a>.    </td>
   </tr>
 </table>
-<a class="anchor" name="a60" doxytag="Classes.h::get_teststattype"></a><p>
+<a class="anchor" name="a60" doxytag="Classes.h::get_teststat"></a><p>
 <table class="mdTable" cellpadding="2" cellspacing="0">
   <tr>
     <td class="mdRow">
       <table cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td class="md" nowrap valign="top">int get_teststattype           </td>
+          <td class="md" nowrap valign="top">int get_teststat           </td>
           <td class="md" valign="top">(&nbsp;</td>
           <td class="md" nowrap valign="top">SEXP&nbsp;</td>
           <td class="mdname1" valign="top" nowrap> <em>object</em>          </td>
@@ -1334,7 +1334,7 @@ Referenced by <a class="el" href="TreeGrow_8c-source.html#l00023">C_TreeGrow()</
 <p>
 Definition at line <a class="el" href="Classes_8c-source.html#l00149">149</a> of file <a class="el" href="Classes_8c-source.html">Classes.c</a>.
 <p>
-References <a class="el" href="Classes_8c-source.html#l00012">PL2_teststattypeSym</a>.
+References <a class="el" href="Classes_8c-source.html#l00012">PL2_teststatSym</a>.
 <p>
 Referenced by <a class="el" href="IndependenceTest_8c-source.html#l00157">C_GlobalTest()</a>, <a class="el" href="IndependenceTest_8c-source.html#l00081">C_IndependenceTest()</a>, and <a class="el" href="IndependenceTest_8c-source.html#l00021">C_TeststatPvalue()</a>.    </td>
   </tr>
@@ -3140,13 +3140,13 @@ Definition at line <a class="el" href="Classes_8c-source.html#l00012">12</a> of 
 Referenced by <a class="el" href="Utils_8c-source.html#l00128">C_MPinv()</a>, <a class="el" href="Utils_8c-source.html#l00097">CR_svd()</a>, and <a class="el" href="Classes_8c-source.html#l00076">party_init()</a>.    </td>
   </tr>
 </table>
-<a class="anchor" name="a18" doxytag="Classes.h::PL2_teststattypeSym"></a><p>
+<a class="anchor" name="a18" doxytag="Classes.h::PL2_teststatSym"></a><p>
 <table class="mdTable" cellpadding="2" cellspacing="0">
   <tr>
     <td class="mdRow">
       <table cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td class="md" nowrap valign="top">SEXP <a class="el" href="Classes_8h.html#a18">PL2_teststattypeSym</a>          </td>
+          <td class="md" nowrap valign="top">SEXP <a class="el" href="Classes_8h.html#a18">PL2_teststatSym</a>          </td>
         </tr>
       </table>
     </td>
@@ -3164,7 +3164,7 @@ Referenced by <a class="el" href="Utils_8c-source.html#l00128">C_MPinv()</a>, <a
 <p>
 Definition at line <a class="el" href="Classes_8c-source.html#l00012">12</a> of file <a class="el" href="Classes_8c-source.html">Classes.c</a>.
 <p>
-Referenced by <a class="el" href="Classes_8c-source.html#l00149">get_teststattype()</a>, and <a class="el" href="Classes_8c-source.html#l00076">party_init()</a>.    </td>
+Referenced by <a class="el" href="Classes_8c-source.html#l00149">get_teststat()</a>, and <a class="el" href="Classes_8c-source.html#l00076">party_init()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="a47" doxytag="Classes.h::PL2_testtypeSym"></a><p>
@@ -3491,7 +3491,7 @@ Definition at line <a class="el" href="Classes_8c-source.html#l00012">12</a> of 
 Referenced by <a class="el" href="Classes_8c-source.html#l00251">get_missings()</a>, and <a class="el" href="Classes_8c-source.html#l00076">party_init()</a>.    </td>
   </tr>
 </table>
-<hr size="1"><address style="align: right;"><small>Generated on Mon Mar 20 17:17:54 2006 for party by&nbsp;
+<hr size="1"><address style="align: right;"><small>Generated on Tue Apr 4 13:20:33 2006 for party by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.2 </small></address>
 </body>

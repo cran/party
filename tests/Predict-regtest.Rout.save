@@ -1,0 +1,80 @@
+
+R : Copyright 2006, The R Foundation for Statistical Computing
+Version 2.3.0 alpha (2006-04-04 r37647)
+ISBN 3-900051-07-0
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> 
+> set.seed(290875)
+> gctorture(on = FALSE)
+> library(party)
+Loading required package: survival
+Loading required package: splines
+Loading required package: grid
+Loading required package: modeltools
+Loading required package: coin
+Loading required package: mvtnorm
+Loading required package: zoo
+Loading required package: sandwich
+Loading required package: strucchange
+> if (!require(ipred))
++     stop("cannot load package ipred")
+Loading required package: ipred
+Loading required package: rpart
+Loading required package: MASS
+Loading required package: mlbench
+Loading required package: nnet
+Loading required package: class
+> if (!require(coin))
++     stop("cannot load package coin")
+> gctorture(on = GCtorture)
+> 
+> ### get rid of the NAMESPACE
+> nsparty <- attach(NULL, name="ns-party")
+> .Internal(lib.fixup(asNamespace("party"), nsparty))
+> 
+> data(treepipit, package = "coin")
+> ct <- ctree(counts ~ ., data = treepipit)
+> stopifnot(isequal(predict(ct), predict(ct, newdata = treepipit)))
+> 
+> 
+> data(GlaucomaM, package = "ipred")
+> ct <- ctree(Class ~ ., data = GlaucomaM)
+> stopifnot(isequal(predict(ct), predict(ct, newdata = GlaucomaM)))
+> stopifnot(isequal(predict(ct, type = "prob"), predict(ct, type = "prob", 
++                   newdata = GlaucomaM)))
+> 
+> data(GBSG2, package = "ipred")  
+> 
+> GBSG2tree <- ctree(Surv(time, cens) ~ ., data = GBSG2)
+> stopifnot(isequal(GBSG2tree@predict_response(), 
++           GBSG2tree@predict_response(newdata = GBSG2)))
+> stopifnot(isequal(GBSG2tree@cond_distr_response(), 
++           GBSG2tree@cond_distr_response(newdata = GBSG2)))
+> 
+> data(mammoexp)
+> attr(mammoexp$ME, "scores") <- 1:3   
+> attr(mammoexp$SYMPT, "scores") <- 1:4
+> attr(mammoexp$DECT, "scores") <- 1:3 
+> names(mammoexp)[names(mammoexp) == "SYMPT"] <- "symptoms"
+> names(mammoexp)[names(mammoexp) == "PB"] <- "benefit"
+> 
+> names(mammoexp)
+[1] "ME"       "symptoms" "benefit"  "HIST"     "BSE"      "DECT"    
+> mtree <- ctree(ME ~ ., data = mammoexp)
+Warning message:
+no admissible split found 
+> stopifnot(isequal(predict(mtree), predict(mtree, newdata = mammoexp)))
+> stopifnot(isequal(predict(mtree), predict(mtree, newdata = mammoexp)))
+> 

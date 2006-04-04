@@ -1,4 +1,4 @@
-.TH "Classes.c" 3 "20 Mar 2006" "party" \" -*- nroff -*-
+.TH "Classes.c" 3 "4 Apr 2006" "party" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -19,7 +19,7 @@ Classes.c \-
 .RI "int \fBget_dimension\fP (SEXP object)"
 .br
 .ti -1c
-.RI "int \fBget_teststattype\fP (SEXP object)"
+.RI "int \fBget_teststat\fP (SEXP object)"
 .br
 .ti -1c
 .RI "int \fBget_pvalue\fP (SEXP object)"
@@ -203,7 +203,7 @@ Classes.c \-
 .RI "SEXP \fBPL2_pSym\fP"
 .br
 .ti -1c
-.RI "SEXP \fBPL2_teststattypeSym\fP"
+.RI "SEXP \fBPL2_teststatSym\fP"
 .br
 .ti -1c
 .RI "SEXP \fBPL2_pvalueSym\fP"
@@ -564,11 +564,11 @@ Definition at line 345 of file Classes.c.
 References PL2_stumpSym.
 .PP
 Referenced by C_TreeGrow().
-.SS "int get_teststattype (SEXP object)"
+.SS "int get_teststat (SEXP object)"
 .PP
 Definition at line 149 of file Classes.c.
 .PP
-References PL2_teststattypeSym.
+References PL2_teststatSym.
 .PP
 Referenced by C_GlobalTest(), C_IndependenceTest(), and C_TeststatPvalue().
 .SS "int get_testtype (SEXP object)"
@@ -664,7 +664,7 @@ Referenced by C_GlobalTest(), C_MonteCarlo(), C_Node(), get_levels(), and get_sc
 .PP
 Definition at line 76 of file Classes.c.
 .PP
-References PL2_absepsSym, PL2_covarianceSym, PL2_dimensionSym, PL2_dontuseSym, PL2_dontusetmpSym, PL2_expcovinfssSym, PL2_expcovinfSym, PL2_expectationSym, PL2_gtctrlSym, PL2_has_missingsSym, PL2_inputsSym, PL2_is_censoredSym, PL2_is_nominalSym, PL2_is_ordinalSym, PL2_jobuSym, PL2_jobvSym, PL2_jointtransfSym, PL2_levelsSym, PL2_linearstatisticSym, PL2_linexpcov2sampleSym, PL2_maxdepthSym, PL2_maxptsSym, PL2_maxsurrogateSym, PL2_methodSym, PL2_minbucketSym, PL2_mincriterionSym, PL2_minprobSym, PL2_minsplitSym, PL2_MPinvSym, PL2_MscorematricesSym, PL2_mtrySym, PL2_ninputsSym, PL2_nobsSym, PL2_nresampleSym, PL2_orderingSym, PL2_pSym, PL2_pvalueSym, PL2_randomsplitsSym, PL2_rankSym, PL2_relepsSym, PL2_responsesSym, PL2_savesplitstatsSym, PL2_scoresSym, PL2_splitctrlSym, PL2_splitstatisticsSym, PL2_sSym, PL2_stumpSym, PL2_sumweightsSym, PL2_svdmemSym, PL2_svdSym, PL2_teststattypeSym, PL2_testtypeSym, PL2_tgctrlSym, PL2_tolSym, PL2_transformationsSym, PL2_uSym, PL2_varctrlSym, PL2_variablesSym, PL2_varmemorySym, PL2_varMmemorySym, PL2_vSym, PL2_weightsSym, and PL2_whichNASym.
+References PL2_absepsSym, PL2_covarianceSym, PL2_dimensionSym, PL2_dontuseSym, PL2_dontusetmpSym, PL2_expcovinfssSym, PL2_expcovinfSym, PL2_expectationSym, PL2_gtctrlSym, PL2_has_missingsSym, PL2_inputsSym, PL2_is_censoredSym, PL2_is_nominalSym, PL2_is_ordinalSym, PL2_jobuSym, PL2_jobvSym, PL2_jointtransfSym, PL2_levelsSym, PL2_linearstatisticSym, PL2_linexpcov2sampleSym, PL2_maxdepthSym, PL2_maxptsSym, PL2_maxsurrogateSym, PL2_methodSym, PL2_minbucketSym, PL2_mincriterionSym, PL2_minprobSym, PL2_minsplitSym, PL2_MPinvSym, PL2_MscorematricesSym, PL2_mtrySym, PL2_ninputsSym, PL2_nobsSym, PL2_nresampleSym, PL2_orderingSym, PL2_pSym, PL2_pvalueSym, PL2_randomsplitsSym, PL2_rankSym, PL2_relepsSym, PL2_responsesSym, PL2_savesplitstatsSym, PL2_scoresSym, PL2_splitctrlSym, PL2_splitstatisticsSym, PL2_sSym, PL2_stumpSym, PL2_sumweightsSym, PL2_svdmemSym, PL2_svdSym, PL2_teststatSym, PL2_testtypeSym, PL2_tgctrlSym, PL2_tolSym, PL2_transformationsSym, PL2_uSym, PL2_varctrlSym, PL2_variablesSym, PL2_varmemorySym, PL2_varMmemorySym, PL2_vSym, PL2_weightsSym, and PL2_whichNASym.
 .SH "Variable Documentation"
 .PP 
 .SS "SEXP \fBPL2_absepsSym\fP"
@@ -917,11 +917,11 @@ Referenced by C_LinStatExpCovMPinv(), and party_init().
 Definition at line 12 of file Classes.c.
 .PP
 Referenced by C_MPinv(), CR_svd(), and party_init().
-.SS "SEXP \fBPL2_teststattypeSym\fP"
+.SS "SEXP \fBPL2_teststatSym\fP"
 .PP
 Definition at line 12 of file Classes.c.
 .PP
-Referenced by get_teststattype(), and party_init().
+Referenced by get_teststat(), and party_init().
 .SS "SEXP \fBPL2_testtypeSym\fP"
 .PP
 Definition at line 12 of file Classes.c.

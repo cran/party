@@ -1,0 +1,179 @@
+
+R : Copyright 2006, The R Foundation for Statistical Computing
+Version 2.3.0 alpha (2006-04-04 r37647)
+ISBN 3-900051-07-0
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> 
+> set.seed(290875)
+> gctorture(on = FALSE)
+> library(party)
+Loading required package: survival
+Loading required package: splines
+Loading required package: grid
+Loading required package: modeltools
+Loading required package: coin
+Loading required package: mvtnorm
+Loading required package: zoo
+Loading required package: sandwich
+Loading required package: strucchange
+> gctorture(on = GCtorture)
+> 
+> ### get rid of the NAMESPACE
+> nsparty <- attach(NULL, name="ns-party")
+> .Internal(lib.fixup(asNamespace("party"), nsparty))
+> 
+> ### 
+> ###
+> ###    Regression tests for linear statistics, expectations and covariances
+> ###    
+> ###    functions defined in file `./src/LinearStatistics.c'    
+> 
+> ### tests for function C_LinearStatistic
+> ### Linear Statistics
+> x = matrix(c(rep.int(1,4), rep.int(0,6)), ncol = 1)
+> y = matrix(1:10, ncol = 1)
+> weights = rep(1, 10)
+> linstat = LinearStatistic(x, y, weights)
+> stopifnot(isequal(linstat, sum(1:4)))
+> 
+> weights[1] = 0
+> linstat = LinearStatistic(x, y, weights) 
+> stopifnot(isequal(linstat, sum(2:4)))
+> 
+> xf <- gl(3, 10)
+> yf <- gl(3, 10)[sample(1:30)]
+> x <- sapply(levels(xf), function(l) as.numeric(xf == l))
+> colnames(x) <- NULL
+> y <- sapply(levels(yf), function(l) as.numeric(yf == l))
+> colnames(y) <- NULL
+> weights <- sample(1:30)
+> linstat <- LinearStatistic(x, y, weights) 
+> stopifnot(isequal(linstat, as.vector(t(x) %*% diag(weights) %*% y)))
+> 
+> xf <- factor(cut(rnorm(6000), breaks = c(-Inf, -2, 0.5, Inf)))
+> x <- sapply(levels(xf), function(l) as.numeric(xf == l))
+> yf <- factor(cut(rnorm(6000), breaks = c(-Inf, -0.5, 1.5, Inf)))
+> y <- sapply(levels(yf), function(l) as.numeric(yf == l))
+> weights <- rep(1, nrow(x))
+> colnames(x) <- NULL
+> colnames(y) <- NULL
+> weights <- rep(1, 6000)
+> linstat <- LinearStatistic(x, y, weights)
+> stopifnot(isequal(as.vector(table(xf, yf)), linstat))
+> stopifnot(isequal(as.vector(t(x)%*%y), linstat))
+> 
+> 
+> ### tests for function C_ExpectCovarInfluence
+> eci <- ExpectCovarInfluence(y, weights)
+> isequal(eci@sumweights, sum(weights))
+[1] TRUE
+> isequal(eci@expectation, drop(weights %*% y / sum(weights)))
+[1] TRUE
+> ys <- t(t(y) - eci@expectation)
+> stopifnot(isequal(eci@covariance, (t(ys) %*% (weights * ys)) /
++                   sum(weights)))
+> 
+> ### tests for function C_ExpectCovarLinearStatistic
+> ### Conditional Expectation and Variance (via Kruskal-Wallis statistic)
+> 
+> ### case 1: p > 1, q = 1
+> group <- gl(3, 5)
+> x <- sapply(levels(group), function(l) as.numeric(group == l))
+> y <- matrix(1:15, ncol = 1)
+> weights <- rep(1, 15)
+> 
+> linstat <- LinearStatistic(x, y, weights)
+> expcov <- ExpectCovarLinearStatistic(x, y, weights)
+> KW <- quadformTestStatistic(linstat, expcov@expectation, expcov@covariance)
+> kts <- kruskal.test(y ~ group)$statistic
+> stopifnot(isequal(KW, kts))
+> 
+> ### case 2: p = 1, q > 1
+> linstat <- LinearStatistic(y, x, weights)
+> expcov <- ExpectCovarLinearStatistic(y, x, weights)
+> KW <- quadformTestStatistic(linstat, expcov@expectation, expcov@covariance)
+> kts <- kruskal.test(y ~ group)$statistic
+> stopifnot(isequal(KW, kts))
+> 
+> ### case 3: p = 1, q = 1
+> x <- x[,1,drop = FALSE]
+> linstat <- LinearStatistic(x, y, weights)
+> expcov <- ExpectCovarLinearStatistic(x, y, weights)
+> KW <- quadformTestStatistic(linstat, expcov@expectation, expcov@covariance)
+> kts <- kruskal.test(y ~ as.factor(x))$statistic
+> stopifnot(isequal(KW, kts))
+> 
+> ### case 4: p > 1, q > 1 via chisq.test
+> n <- 900
+> xf <- gl(3, n / 3)
+> yf <- gl(3, n / 3)[sample(1:n)]
+> x <- sapply(levels(xf), function(l) as.numeric(xf == l))
+> colnames(x) <- NULL
+> y <- sapply(levels(yf), function(l) as.numeric(yf == l))
+> colnames(y) <- NULL
+> weights <- rep(1, n)
+> linstat <- LinearStatistic(x, y, weights)
+> expcov <- ExpectCovarLinearStatistic(x, y, weights)
+> chi <- quadformTestStatistic(linstat, expcov@expectation, expcov@covariance)
+> chis <- chisq.test(table(xf, yf))$statistic
+> stopifnot(isequal(round(chi, 1), round(chis, 1)))
+> 
+> ### tests for function C_PermutedLinearStatistic
+> ### Linear Statistics with permuted indices
+> x <- matrix(rnorm(100), ncol = 2)
+> y <- matrix(rnorm(100), ncol = 2)
+> weights <- rep(1, 50)
+> indx <- 1:50
+> perm <- 1:50
+> stopifnot(isequal(LinearStatistic(x, y, weights), 
++                   PermutedLinearStatistic(x, y, indx, perm)))
+> x <- matrix(1:10000, ncol = 2)
+> y <- matrix(1:10000, ncol = 2)
+> 
+> for (i in 1:100) {
++   indx <- sample(1:ncol(y), replace = TRUE)
++   perm <- sample(1:ncol(y), replace = TRUE)
++ 
++   stopifnot(isequal(as.vector(t(x[indx,]) %*% y[perm, ]),
++                     PermutedLinearStatistic(x, y, indx, perm)))
++ }
+> 
+> ### tests for functions C_scmat{left,right}
+> ### matrices for left / right multiplication of a vectorized
+> ### linear statistic (mainly needed for handling ordinal variables)
+> ### matrices for linear combinations
+> xscores = as.double(1:5)
+> linstat = 1:(7*5)
+> scmatl = .Call("R_scmatleft", xscores, as.integer(length(linstat)), 
++                PACKAGE = "party")
+> lc = drop(scmatl %*% linstat)
+> res = drop(xscores %*% matrix(linstat, ncol = 7))
+> stopifnot(isequal(res, lc))
+> 
+> yscores <- as.double(1:7)
+> scmatr = .Call("R_scmatright", yscores, as.integer(length(linstat)), 
++                PACKAGE = "party")
+> stopifnot(isequal(scmatr %*% linstat, 
++                   matrix(linstat, ncol = 7) %*% yscores))
+> 
+> scmatr = .Call("R_scmatright", yscores, as.integer(length(lc)), 
++                PACKAGE = "party")
+> lc = scmatr %*% lc 
+> mcx = matrix(xscores, nrow = 1)
+> mcy = matrix(yscores, nrow = 1)
+> tsc = .Call("R_kronecker", mcy, mcx)
+> tlc = tsc %*% linstat
+> stopifnot(isequal(tlc, lc))
+> 

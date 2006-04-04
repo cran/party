@@ -1,5 +1,5 @@
 
-# $Id: Plot.R 2525 2006-03-20 16:20:02Z zeileis $
+# $Id: Plot.R 2544 2006-04-05 12:00:24Z zeileis $
 
 ## utility functions for querying the number of
 ## terminal nodes and the maximal depth of (sub-)trees
@@ -120,7 +120,7 @@ node_surv <- function(ctreeobj,
 			   name = paste("node_surv", node$nodeID, sep = ""))
 
         pushViewport(top_vp)
-        grid.rect(gp = gpar(fill = "white", col = NULL))
+        grid.rect(gp = gpar(fill = "white", col = 0))
 
         ## main title
         top <- viewport(layout.pos.col=2, layout.pos.row=1)
@@ -200,7 +200,7 @@ node_barplot <- function(ctreeobj,
 			   name = paste("node_barplot", node$nodeID, sep = ""))
 
         pushViewport(top_vp)
-        grid.rect(gp = gpar(fill = "white", col = NULL))
+        grid.rect(gp = gpar(fill = "white", col = 0))
 
         ## main title
         top <- viewport(layout.pos.col=2, layout.pos.row=1)
@@ -268,7 +268,7 @@ node_boxplot <- function(ctreeobj,
 			   name = paste("node_boxplot", node$nodeID, sep = ""))
 
         pushViewport(top_vp)
-        grid.rect(gp = gpar(fill = "white", col = NULL))
+        grid.rect(gp = gpar(fill = "white", col = 0))
 
         ## main title
         top <- viewport(layout.pos.col=2, layout.pos.row=1)
@@ -373,7 +373,7 @@ node_hist <- function(ctreeobj,
 			   name = paste("node_hist", node$nodeID, sep = ""))
 
         pushViewport(top_vp)
-        grid.rect(gp = gpar(fill = "white", col = NULL))
+        grid.rect(gp = gpar(fill = "white", col = 0))
 
         ## main title
         top <- viewport(layout.pos.col=2, layout.pos.row=1)
@@ -463,7 +463,7 @@ node_density <- function(ctreeobj,
 			   name = paste("node_density", node$nodeID, sep = ""))
 
         pushViewport(top_vp)
-        grid.rect(gp = gpar(fill = "white", col = NULL))
+        grid.rect(gp = gpar(fill = "white", col = 0))
 
         ## main title
         top <- viewport(layout.pos.col=2, layout.pos.row=1)
@@ -603,7 +603,7 @@ edge_simple <- function(treeobj, digits = 3, abbreviate = FALSE)
             if (left) split <- as.expression(bquote(phantom(0) <= .(split)))
                 else split <- as.expression(bquote(phantom(0) > .(split)))
         }
-        grid.rect(gp = gpar(fill = "white", col = NULL), 
+        grid.rect(gp = gpar(fill = "white", col = 0), 
                   width = unit(1, "strwidth", split)) 
         grid.text(split, just = "center")
     }

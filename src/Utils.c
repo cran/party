@@ -3,7 +3,7 @@
     Some commonly needed utility functions.
     *\file Utils.c
     *\author $Author: hothorn $
-    *\date $Date: 2006-01-17 16:28:01 +0100 (Tue, 17 Jan 2006) $
+    *\date $Date: 2006-04-05 16:24:23 +0200 (Wed, 05 Apr 2006) $
 */
                 
 #include "party.h"
@@ -485,6 +485,10 @@ int ncol(SEXP x) {
     return(INTEGER(getAttrib(x, R_DimSymbol))[1]);
 }
 
+/* compute index of variable with smallest p-value 
+   (and largest test statistic in case two or more p-values coincide -- 
+    should not happen anymore since we use 1 - (1 - p)^k for Bonferroni adjustment)
+*/
 int C_whichmax(double *pvalue, double *teststat, int ninputs) {
 
     int ans = -1, j;

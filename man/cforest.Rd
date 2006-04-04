@@ -7,7 +7,7 @@
 }
 \usage{
 cforest(formula, data = list(), subset = NULL, weights = NULL, 
-        controls = ctree_control(teststattype = "maxabs", 
+        controls = ctree_control(teststat = "max", 
             testtype = "Teststatistic", mincriterion = qnorm(0.9), 
             mtry = 5, savesplitstats = FALSE), 
         xtrafo = ptrafo, ytrafo = ptrafo, scores = NULL, ntree = 500)

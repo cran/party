@@ -65,7 +65,7 @@ ls <- new("LearningSample", inputs = inp, responses = resp,
           ninputs = inp@ninputs)
 tm <- ctree_memory(ls)
 varctrl <- new("VariableControl")
-varctrl@teststattype <- factor("maxabs", levels = c("maxabs", "quadform"))
+varctrl@teststat <- factor("max", levels = c("max", "quad"))
 varctrl@pvalue <- FALSE
 gtctrl <- new("GlobalTestControl")
 gtctrl@testtype <- factor("MonteCarlo", levels = levels(gtctrl@testtype))
@@ -90,7 +90,7 @@ ls <- new("LearningSample", inputs = inp, responses = resp,
           ninputs = inp@ninputs)
 tm <- ctree_memory(ls)
 varctrl <- new("VariableControl")
-varctrl@teststattype <- factor("maxabs", levels = c("maxabs", "quadform"))
+varctrl@teststat <- factor("max", levels = c("max", "quad"))
 varctrl@pvalue <- TRUE
 gtctrl <- new("GlobalTestControl")
 gtctrl@testtype <- factor("Univariate", levels = levels(gtctrl@testtype))

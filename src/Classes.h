@@ -18,7 +18,7 @@ extern SEXP
     PL2_vSym,
     PL2_sSym,
     PL2_pSym,
-    PL2_teststattypeSym,
+    PL2_teststatSym,
     PL2_pvalueSym,
     PL2_tolSym,
     PL2_maxptsSym,
@@ -64,7 +64,7 @@ extern SEXP
     PL2_tgctrlSym;
 
 int get_dimension(SEXP object);
-int get_teststattype(SEXP object);
+int get_teststat(SEXP object);
 double get_tol(SEXP object);
 int get_pvalue(SEXP object);
 int get_maxpts(SEXP object);

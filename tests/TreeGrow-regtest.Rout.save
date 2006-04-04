@@ -1,6 +1,6 @@
 
 R : Copyright 2006, The R Foundation for Statistical Computing
-Version 2.3.0 Under development (unstable) (2006-02-14 r37355)
+Version 2.3.0 alpha (2006-04-04 r37647)
 ISBN 3-900051-07-0
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -119,7 +119,7 @@ Number of observations:  86
 > tr <- ctree(Class ~ ., data = GlaucomaM)
 > tr
 
-	 Conditional inference tree with 4 terminal nodes
+	 Conditional inference tree with 5 terminal nodes
 
 Response:  Class 
 Inputs:  ag, at, as, an, ai, eag, eat, eas, ean, eai, abrg, abrt, abrs, abrn, abri, hic, mhcg, mhct, mhcs, mhcn, mhci, phcg, phct, phcs, phcn, phci, hvc, vbsg, vbst, vbss, vbsn, vbsi, vasg, vast, vass, vasn, vasi, vbrg, vbrt, vbrs, vbrn, vbri, varg, vart, vars, varn, vari, mdg, mdt, mds, mdn, mdi, tmg, tmt, tms, tmn, tmi, mr, rnf, mdic, emd, mv 
@@ -134,7 +134,10 @@ Number of observations:  196
   2) vasg > 0.046
     6)*  weights = 14 
 1) vari > 0.059
-  7)*  weights = 109 
+  7) tms <= -0.066; criterion = 0.951, statistic = 11.221
+    8)*  weights = 65 
+  7) tms > -0.066
+    9)*  weights = 44 
 > plot(tr)
 > 
 > data(GBSG2, package = "ipred")  
@@ -174,7 +177,7 @@ as.factor(GBSG2tree@where)=7 166     77   1701    1174    2018
  [7] "progrec"  "estrec"   "time"     "cens"    
 > 
 > tr <- ctree(Surv(time, cens) ~ ., data = GBSG2, 
-+             control = ctree_control(teststattype = "maxabs", 
++             control = ctree_control(teststat = "max", 
 +                                     testtype = "Univariate"))
 > tr
 

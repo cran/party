@@ -1,5 +1,5 @@
 
-# $Id: ConditionalTree.R 2500 2006-03-14 14:26:33Z hothorn $
+# $Id: ConditionalTree.R 2538 2006-04-04 15:47:15Z hothorn $
 
 ### the fitting procedure
 ctreefit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
@@ -179,20 +179,20 @@ setMethod("fit", signature = signature(model = "StatModel",
 )
 
 ### control the hyper parameters
-ctree_control <- function(teststattype = c("quadform", "maxabs"),
+ctree_control <- function(teststat = c("quad", "max"),
                           testtype = c("Bonferroni", "MonteCarlo", "Univariate", "Teststatistic"),
                           mincriterion = 0.95, minsplit = 20, stump = FALSE,
                           nresample = 9999, maxsurrogate = 0, mtry = 0, 
                           savesplitstats = TRUE, maxdepth = 0) {
 
-    teststattype <- match.arg(teststattype)
+    teststat <- match.arg(teststat)
     testtype <- match.arg(testtype)
     RET <- new("TreeControl")
-    if (teststattype %in% levels(RET@varctrl@teststattype)) {
-        RET@varctrl@teststattype <- factor(teststattype, 
-            levels = levels(RET@varctrl@teststattype))
+    if (teststat %in% levels(RET@varctrl@teststat)) {
+        RET@varctrl@teststat <- factor(teststat, 
+            levels = levels(RET@varctrl@teststat))
     } else {
-        stop(teststattype, " not defined")
+        stop(sQuote("teststat"), teststat, " not defined")
     }
 
     if (testtype %in% levels(RET@gtctrl@testtype))

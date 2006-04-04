@@ -1,4 +1,4 @@
-.TH "IndependenceTest.c" 3 "20 Mar 2006" "party" \" -*- nroff -*-
+.TH "IndependenceTest.c" 3 "4 Apr 2006" "party" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -85,7 +85,7 @@ Perform a global test on independence of a response and multiple inputs
 .PP
 Definition at line 157 of file IndependenceTest.c.
 .PP
-References AGGREGATED, BONFERRONI, C_ExpectCovarInfluence(), C_LinStatExpCov(), C_LinStatExpCovMPinv(), C_MLinearStatistic(), C_MonteCarlo(), C_SampleNoReplace(), C_TeststatCriterion(), get_dontuse(), get_dontusetmp(), get_missings(), get_Mscorematrix(), get_mtry(), get_ninputs(), get_nobs(), get_randomsplits(), get_teststattype(), get_testtype(), get_tol(), get_transformation(), get_varmemory(), get_varMmemory(), get_weights(), has_missings(), is_ordinal(), MONTECARLO, ncol(), nrow(), PL2_expcovinfSym, PL2_inputsSym, PL2_responsesSym, PL2_sumweightsSym, TESTSTATISTIC, and UNIVARIATE.
+References AGGREGATED, BONFERRONI, C_ExpectCovarInfluence(), C_LinStatExpCov(), C_LinStatExpCovMPinv(), C_MLinearStatistic(), C_MonteCarlo(), C_SampleNoReplace(), C_TeststatCriterion(), get_dontuse(), get_dontusetmp(), get_missings(), get_Mscorematrix(), get_mtry(), get_ninputs(), get_nobs(), get_randomsplits(), get_teststat(), get_testtype(), get_tol(), get_transformation(), get_varmemory(), get_varMmemory(), get_weights(), has_missings(), is_ordinal(), MONTECARLO, ncol(), nrow(), PL2_expcovinfSym, PL2_inputsSym, PL2_responsesSym, PL2_sumweightsSym, TESTSTATISTIC, and UNIVARIATE.
 .PP
 Referenced by C_Node(), and R_GlobalTest().
 .SS "void C_IndependenceTest (const SEXP x, const SEXP y, const SEXP weights, const SEXP ScoreMatrix, SEXP Mlinexpcov, const int ORDERED, SEXP linexpcov, SEXP varctrl, SEXP ans)"
@@ -119,7 +119,7 @@ Test of independence between x and y
 .PP
 Definition at line 81 of file IndependenceTest.c.
 .PP
-References C_LinStatExpCov(), C_LinStatExpCovMPinv(), C_MLinearStatistic(), C_TeststatPvalue(), get_teststattype(), get_tol(), ncol(), nrow(), and PL2_expcovinfSym.
+References C_LinStatExpCov(), C_LinStatExpCovMPinv(), C_MLinearStatistic(), C_TeststatPvalue(), get_teststat(), get_tol(), ncol(), nrow(), and PL2_expcovinfSym.
 .PP
 Referenced by R_IndependenceTest().
 .SS "void C_TeststatCriterion (const SEXP linexpcov, const SEXP varctrl, double * ans_teststat, double * ans_criterion)"
@@ -167,7 +167,7 @@ Computes the test statistic and, if requested, the corresponding P-value for a l
 .PP
 Definition at line 21 of file IndependenceTest.c.
 .PP
-References C_ConditionalPvalue(), C_TestStatistic(), get_abseps(), get_maxpts(), get_pvalue(), get_releps(), get_teststattype(), and get_tol().
+References C_ConditionalPvalue(), C_TestStatistic(), get_abseps(), get_maxpts(), get_pvalue(), get_releps(), get_teststat(), and get_tol().
 .PP
 Referenced by C_IndependenceTest(), and C_TeststatCriterion().
 .SS "SEXP R_GlobalTest (SEXP learnsample, SEXP weights, SEXP fitmem, SEXP varctrl, SEXP gtctrl)"

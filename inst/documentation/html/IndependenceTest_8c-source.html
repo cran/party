@@ -23,13 +23,13 @@
 00030     releps = <a class="code" href="Classes_8c.html#a70">get_releps</a>(varctrl);
 00031     
 00032     <span class="comment">/* compute the test statistic */</span>
-00033     ans_teststat[0] = <a class="code" href="Convenience_8c.html#a3">C_TestStatistic</a>(linexpcov, <a class="code" href="Classes_8c.html#a65">get_teststattype</a>(varctrl), 
+00033     ans_teststat[0] = <a class="code" href="Convenience_8c.html#a3">C_TestStatistic</a>(linexpcov, <a class="code" href="Classes_8c.html#a65">get_teststat</a>(varctrl), 
 00034                                   <a class="code" href="Classes_8c.html#a67">get_tol</a>(varctrl));
 00035 
 00036     <span class="comment">/* compute the p-value if requested */</span>                                  
 00037     <span class="keywordflow">if</span> (<a class="code" href="Classes_8c.html#a66">get_pvalue</a>(varctrl))
 00038         ans_pvalue[0] =  <a class="code" href="Convenience_8c.html#a4">C_ConditionalPvalue</a>(ans_teststat[0], linexpcov, 
-00039                                          <a class="code" href="Classes_8c.html#a65">get_teststattype</a>(varctrl),
+00039                                          <a class="code" href="Classes_8c.html#a65">get_teststat</a>(varctrl),
 00040                                          tol, &amp;maxpts, &amp;releps, &amp;abseps);
 00041     <span class="keywordflow">else</span>
 00042         ans_pvalue[0] = 1.0;
@@ -71,14 +71,14 @@
 00099         <span class="comment">/* for quadform type test statistics, compute the Moore-Penrose inverse</span>
 00100 <span class="comment">           of the covariance matrix</span>
 00101 <span class="comment">         */</span>
-00102         <span class="keywordflow">if</span> (<a class="code" href="Classes_8c.html#a65">get_teststattype</a>(varctrl) == 2) 
+00102         <span class="keywordflow">if</span> (<a class="code" href="Classes_8c.html#a65">get_teststat</a>(varctrl) == 2) 
 00103             <a class="code" href="Convenience_8c.html#a1">C_LinStatExpCovMPinv</a>(Mlinexpcov, <a class="code" href="Classes_8c.html#a67">get_tol</a>(varctrl));
 00104             
 00105         <span class="comment">/* compute test statistic and pvalue */</span>
 00106         <a class="code" href="IndependenceTest_8c.html#a0">C_TeststatPvalue</a>(Mlinexpcov, varctrl, &amp;REAL(ans)[0], &amp;REAL(ans)[1]);
 00107     } <span class="keywordflow">else</span> {
 00108         <span class="comment">/* for unordered variables */</span>
-00109         <span class="keywordflow">if</span>(<a class="code" href="Classes_8c.html#a65">get_teststattype</a>(varctrl) == 2) 
+00109         <span class="keywordflow">if</span>(<a class="code" href="Classes_8c.html#a65">get_teststat</a>(varctrl) == 2) 
 00110             <a class="code" href="Convenience_8c.html#a1">C_LinStatExpCovMPinv</a>(linexpcov, <a class="code" href="Classes_8c.html#a67">get_tol</a>(varctrl));
 00111         <a class="code" href="IndependenceTest_8c.html#a0">C_TeststatPvalue</a>(linexpcov, varctrl, &amp;REAL(ans)[0], &amp;REAL(ans)[1]);
 00112     }
@@ -196,12 +196,12 @@
 00248             <span class="keywordflow">if</span> (yORDERED || xORDERED) {
 00249                 Mxmem = <a class="code" href="Classes_8c.html#a86">get_varMmemory</a>(fitmem, j);
 00250                 <a class="code" href="Convenience_8c.html#a2">C_MLinearStatistic</a>(xmem, <a class="code" href="Classes_8c.html#a87">get_Mscorematrix</a>(fitmem, j), Mxmem);
-00251                 <span class="keywordflow">if</span> (<a class="code" href="Classes_8c.html#a65">get_teststattype</a>(varctrl) == 2)
+00251                 <span class="keywordflow">if</span> (<a class="code" href="Classes_8c.html#a65">get_teststat</a>(varctrl) == 2)
 00252                     <a class="code" href="Convenience_8c.html#a1">C_LinStatExpCovMPinv</a>(Mxmem, <a class="code" href="Classes_8c.html#a67">get_tol</a>(varctrl));
 00253                     <a class="code" href="IndependenceTest_8c.html#a1">C_TeststatCriterion</a>(Mxmem, varctrl, &amp;ans_teststat[j - 1], 
 00254                                         &amp;ans_criterion[j - 1]);
 00255             } <span class="keywordflow">else</span> {
-00256                 <span class="keywordflow">if</span>(<a class="code" href="Classes_8c.html#a65">get_teststattype</a>(varctrl) == 2)
+00256                 <span class="keywordflow">if</span>(<a class="code" href="Classes_8c.html#a65">get_teststat</a>(varctrl) == 2)
 00257                     <a class="code" href="Convenience_8c.html#a1">C_LinStatExpCovMPinv</a>(xmem, <a class="code" href="Classes_8c.html#a67">get_tol</a>(varctrl));
 00258                 <a class="code" href="IndependenceTest_8c.html#a1">C_TeststatCriterion</a>(xmem, varctrl, &amp;ans_teststat[j - 1], 
 00259                                     &amp;ans_criterion[j - 1]);
@@ -258,7 +258,7 @@
 00319     UNPROTECT(1);
 00320     <span class="keywordflow">return</span>(ans);
 00321 }
-</pre></div><hr size="1"><address style="align: right;"><small>Generated on Mon Mar 20 17:17:52 2006 for party by&nbsp;
+</pre></div><hr size="1"><address style="align: right;"><small>Generated on Tue Apr 4 13:20:28 2006 for party by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.2 </small></address>
 </body>

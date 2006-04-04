@@ -18,7 +18,7 @@ SEXP \hyperlink{Classes_8c_a63}{party\_\-init} (void)
 \item 
 int \hyperlink{Classes_8c_a64}{get\_\-dimension} (SEXP object)
 \item 
-int \hyperlink{Classes_8c_a65}{get\_\-teststattype} (SEXP object)
+int \hyperlink{Classes_8c_a65}{get\_\-teststat} (SEXP object)
 \item 
 int \hyperlink{Classes_8c_a66}{get\_\-pvalue} (SEXP object)
 \item 
@@ -141,7 +141,7 @@ SEXP \hyperlink{Classes_8c_a16}{PL2\_\-s\-Sym}
 \item 
 SEXP \hyperlink{Classes_8c_a17}{PL2\_\-p\-Sym}
 \item 
-SEXP \hyperlink{Classes_8c_a18}{PL2\_\-teststattype\-Sym}
+SEXP \hyperlink{Classes_8c_a18}{PL2\_\-teststat\-Sym}
 \item 
 SEXP \hyperlink{Classes_8c_a19}{PL2\_\-pvalue\-Sym}
 \item 
@@ -657,9 +657,9 @@ Definition at line 345 of file Classes.c.
 References PL2\_\-stump\-Sym.
 
 Referenced by C\_\-Tree\-Grow().\hypertarget{Classes_8c_a65}{
-\index{Classes.c@{Classes.c}!get_teststattype@{get\_\-teststattype}}
-\index{get_teststattype@{get\_\-teststattype}!Classes.c@{Classes.c}}
-\subsubsection[get\_\-teststattype]{\setlength{\rightskip}{0pt plus 5cm}int get\_\-teststattype (SEXP {\em object})}}
+\index{Classes.c@{Classes.c}!get_teststat@{get\_\-teststat}}
+\index{get_teststat@{get\_\-teststat}!Classes.c@{Classes.c}}
+\subsubsection[get\_\-teststat]{\setlength{\rightskip}{0pt plus 5cm}int get\_\-teststat (SEXP {\em object})}}
 \label{Classes_8c_a65}
 
 
@@ -667,7 +667,7 @@ Referenced by C\_\-Tree\-Grow().\hypertarget{Classes_8c_a65}{
 
 Definition at line 149 of file Classes.c.
 
-References PL2\_\-teststattype\-Sym.
+References PL2\_\-teststat\-Sym.
 
 Referenced by C\_\-Global\-Test(), C\_\-Independence\-Test(), and C\_\-Teststat\-Pvalue().\hypertarget{Classes_8c_a93}{
 \index{Classes.c@{Classes.c}!get_testtype@{get\_\-testtype}}
@@ -847,7 +847,7 @@ Referenced by C\_\-Global\-Test(), C\_\-Monte\-Carlo(), C\_\-Node(), get\_\-leve
 
 Definition at line 76 of file Classes.c.
 
-References PL2\_\-abseps\-Sym, PL2\_\-covariance\-Sym, PL2\_\-dimension\-Sym, PL2\_\-dontuse\-Sym, PL2\_\-dontusetmp\-Sym, PL2\_\-expcovinfss\-Sym, PL2\_\-expcovinf\-Sym, PL2\_\-expectation\-Sym, PL2\_\-gtctrl\-Sym, PL2\_\-has\_\-missings\-Sym, PL2\_\-inputs\-Sym, PL2\_\-is\_\-censored\-Sym, PL2\_\-is\_\-nominal\-Sym, PL2\_\-is\_\-ordinal\-Sym, PL2\_\-jobu\-Sym, PL2\_\-jobv\-Sym, PL2\_\-jointtransf\-Sym, PL2\_\-levels\-Sym, PL2\_\-linearstatistic\-Sym, PL2\_\-linexpcov2sample\-Sym, PL2\_\-maxdepth\-Sym, PL2\_\-maxpts\-Sym, PL2\_\-maxsurrogate\-Sym, PL2\_\-method\-Sym, PL2\_\-minbucket\-Sym, PL2\_\-mincriterion\-Sym, PL2\_\-minprob\-Sym, PL2\_\-minsplit\-Sym, PL2\_\-MPinv\-Sym, PL2\_\-Mscorematrices\-Sym, PL2\_\-mtry\-Sym, PL2\_\-ninputs\-Sym, PL2\_\-nobs\-Sym, PL2\_\-nresample\-Sym, PL2\_\-ordering\-Sym, PL2\_\-p\-Sym, PL2\_\-pvalue\-Sym, PL2\_\-randomsplits\-Sym, PL2\_\-rank\-Sym, PL2\_\-releps\-Sym, PL2\_\-responses\-Sym, PL2\_\-savesplitstats\-Sym, PL2\_\-scores\-Sym, PL2\_\-splitctrl\-Sym, PL2\_\-splitstatistics\-Sym, PL2\_\-s\-Sym, PL2\_\-stump\-Sym, PL2\_\-sumweights\-Sym, PL2\_\-svdmem\-Sym, PL2\_\-svd\-Sym, PL2\_\-teststattype\-Sym, PL2\_\-testtype\-Sym, PL2\_\-tgctrl\-Sym, PL2\_\-tol\-Sym, PL2\_\-transformations\-Sym, PL2\_\-u\-Sym, PL2\_\-varctrl\-Sym, PL2\_\-variables\-Sym, PL2\_\-varmemory\-Sym, PL2\_\-var\-Mmemory\-Sym, PL2\_\-v\-Sym, PL2\_\-weights\-Sym, and PL2\_\-which\-NASym.
+References PL2\_\-abseps\-Sym, PL2\_\-covariance\-Sym, PL2\_\-dimension\-Sym, PL2\_\-dontuse\-Sym, PL2\_\-dontusetmp\-Sym, PL2\_\-expcovinfss\-Sym, PL2\_\-expcovinf\-Sym, PL2\_\-expectation\-Sym, PL2\_\-gtctrl\-Sym, PL2\_\-has\_\-missings\-Sym, PL2\_\-inputs\-Sym, PL2\_\-is\_\-censored\-Sym, PL2\_\-is\_\-nominal\-Sym, PL2\_\-is\_\-ordinal\-Sym, PL2\_\-jobu\-Sym, PL2\_\-jobv\-Sym, PL2\_\-jointtransf\-Sym, PL2\_\-levels\-Sym, PL2\_\-linearstatistic\-Sym, PL2\_\-linexpcov2sample\-Sym, PL2\_\-maxdepth\-Sym, PL2\_\-maxpts\-Sym, PL2\_\-maxsurrogate\-Sym, PL2\_\-method\-Sym, PL2\_\-minbucket\-Sym, PL2\_\-mincriterion\-Sym, PL2\_\-minprob\-Sym, PL2\_\-minsplit\-Sym, PL2\_\-MPinv\-Sym, PL2\_\-Mscorematrices\-Sym, PL2\_\-mtry\-Sym, PL2\_\-ninputs\-Sym, PL2\_\-nobs\-Sym, PL2\_\-nresample\-Sym, PL2\_\-ordering\-Sym, PL2\_\-p\-Sym, PL2\_\-pvalue\-Sym, PL2\_\-randomsplits\-Sym, PL2\_\-rank\-Sym, PL2\_\-releps\-Sym, PL2\_\-responses\-Sym, PL2\_\-savesplitstats\-Sym, PL2\_\-scores\-Sym, PL2\_\-splitctrl\-Sym, PL2\_\-splitstatistics\-Sym, PL2\_\-s\-Sym, PL2\_\-stump\-Sym, PL2\_\-sumweights\-Sym, PL2\_\-svdmem\-Sym, PL2\_\-svd\-Sym, PL2\_\-teststat\-Sym, PL2\_\-testtype\-Sym, PL2\_\-tgctrl\-Sym, PL2\_\-tol\-Sym, PL2\_\-transformations\-Sym, PL2\_\-u\-Sym, PL2\_\-varctrl\-Sym, PL2\_\-variables\-Sym, PL2\_\-varmemory\-Sym, PL2\_\-var\-Mmemory\-Sym, PL2\_\-v\-Sym, PL2\_\-weights\-Sym, and PL2\_\-which\-NASym.
 
 \subsection{Variable Documentation}
 \hypertarget{Classes_8c_a22}{
@@ -1401,9 +1401,9 @@ Referenced by C\_\-Lin\-Stat\-Exp\-Cov\-MPinv(), and party\_\-init().\hypertarge
 Definition at line 12 of file Classes.c.
 
 Referenced by C\_\-MPinv(), CR\_\-svd(), and party\_\-init().\hypertarget{Classes_8c_a18}{
-\index{Classes.c@{Classes.c}!PL2_teststattypeSym@{PL2\_\-teststattypeSym}}
-\index{PL2_teststattypeSym@{PL2\_\-teststattypeSym}!Classes.c@{Classes.c}}
-\subsubsection[PL2\_\-teststattypeSym]{\setlength{\rightskip}{0pt plus 5cm}SEXP \hyperlink{Classes_8h_a18}{PL2\_\-teststattype\-Sym}}}
+\index{Classes.c@{Classes.c}!PL2_teststatSym@{PL2\_\-teststatSym}}
+\index{PL2_teststatSym@{PL2\_\-teststatSym}!Classes.c@{Classes.c}}
+\subsubsection[PL2\_\-teststatSym]{\setlength{\rightskip}{0pt plus 5cm}SEXP \hyperlink{Classes_8h_a18}{PL2\_\-teststat\-Sym}}}
 \label{Classes_8c_a18}
 
 
@@ -1411,7 +1411,7 @@ Referenced by C\_\-MPinv(), CR\_\-svd(), and party\_\-init().\hypertarget{Classe
 
 Definition at line 12 of file Classes.c.
 
-Referenced by get\_\-teststattype(), and party\_\-init().\hypertarget{Classes_8c_a49}{
+Referenced by get\_\-teststat(), and party\_\-init().\hypertarget{Classes_8c_a49}{
 \index{Classes.c@{Classes.c}!PL2_testtypeSym@{PL2\_\-testtypeSym}}
 \index{PL2_testtypeSym@{PL2\_\-testtypeSym}!Classes.c@{Classes.c}}
 \subsubsection[PL2\_\-testtypeSym]{\setlength{\rightskip}{0pt plus 5cm}SEXP \hyperlink{Classes_8h_a47}{PL2\_\-testtype\-Sym}}}

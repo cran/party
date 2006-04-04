@@ -50,7 +50,7 @@ survfit(Surv(time, cens) ~ as.factor(GBSG2tree@where), data = GBSG2)
 names(GBSG2)
 
 tr <- ctree(Surv(time, cens) ~ ., data = GBSG2, 
-            control = ctree_control(teststattype = "maxabs", 
+            control = ctree_control(teststat = "max", 
                                     testtype = "Univariate"))
 tr
 plot(tr)

@@ -57,7 +57,7 @@ node_scatterplot <- function(mobobj, which = NULL, col = "black", linecol = "red
                            height = unit(1, "npc") - unit(2, "lines"),
 			   name = paste("node_scatterplot", node$nodeID, sep = ""))
         pushViewport(top_vp)
-        grid.rect(gp = gpar(fill = "white", col = NULL))
+        grid.rect(gp = gpar(fill = "white", col = 0))
 
         ## main title
         top <- viewport(layout.pos.col = 2, layout.pos.row = 1)
@@ -268,7 +268,7 @@ node_bivplot <- function(mobobj, which = NULL, id = TRUE, pop = TRUE,
     			 width = unit(1, "npc"), height = unit(1, "npc") - unit(2, "lines"),
         		 name = paste("node_mob", node$nodeID, sep = ""))
       pushViewport(top_vp)
-      grid.rect(gp = gpar(fill = "white", col = NULL))
+      grid.rect(gp = gpar(fill = "white", col = 0))
 
       ## main title
       top <- viewport(layout.pos.col = 1, layout.pos.row = 1)

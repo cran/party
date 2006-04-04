@@ -1,6 +1,16 @@
 
-                CHANGES IN party VERSION 0.8-3 (2006-03-20)
+                CHANGES IN party VERSION 0.8-4 (2006-04-04)
 
+    o    renamed argument `teststattype' to `teststat' with defaults
+         c("quad", "max") in order to be compatible with the `coin' package, 
+         version >= 0.4-5
+
+    o    use `1 - (1 - p)^k' instead of `p * k' for Bonferroni-adjustment.
+         Node 7 for the `GlaucomaM' data is now splitted in addition (in tms).
+
+
+
+                CHANGES IN party VERSION 0.8-3 (2006-03-20)
 
     o   `predict' returned nonsensical results in case a tree was 
         fitted to a multivariate response variable. Now a list with one

@@ -3,7 +3,7 @@
     Functions for variable selection in each node of a tree
     *\file IndependenceTest.c
     *\author $Author: hothorn $
-    *\date $Date: 2006-02-23 16:11:21 +0100 (Thu, 23 Feb 2006) $
+    *\date $Date: 2006-04-05 16:24:23 +0200 (Wed, 05 Apr 2006) $
 */
                 
 #include "party.h"
@@ -30,13 +30,13 @@ void C_TeststatPvalue(const SEXP linexpcov, const SEXP varctrl,
     releps = get_releps(varctrl);
     
     /* compute the test statistic */
-    ans_teststat[0] = C_TestStatistic(linexpcov, get_teststattype(varctrl), 
+    ans_teststat[0] = C_TestStatistic(linexpcov, get_teststat(varctrl), 
                                   get_tol(varctrl));
 
     /* compute the p-value if requested */                                  
     if (get_pvalue(varctrl))
         ans_pvalue[0] =  C_ConditionalPvalue(ans_teststat[0], linexpcov, 
-                                         get_teststattype(varctrl),
+                                         get_teststat(varctrl),
                                          tol, &maxpts, &releps, &abseps);
     else
         ans_pvalue[0] = 1.0;
@@ -99,14 +99,14 @@ void C_IndependenceTest(const SEXP x, const SEXP y, const SEXP weights,
         /* for quadform type test statistics, compute the Moore-Penrose inverse
            of the covariance matrix
          */
-        if (get_teststattype(varctrl) == 2) 
+        if (get_teststat(varctrl) == 2) 
             C_LinStatExpCovMPinv(Mlinexpcov, get_tol(varctrl));
             
         /* compute test statistic and pvalue */
         C_TeststatPvalue(Mlinexpcov, varctrl, &REAL(ans)[0], &REAL(ans)[1]);
     } else {
         /* for unordered variables */
-        if(get_teststattype(varctrl) == 2) 
+        if(get_teststat(varctrl) == 2) 
             C_LinStatExpCovMPinv(linexpcov, get_tol(varctrl));
         C_TeststatPvalue(linexpcov, varctrl, &REAL(ans)[0], &REAL(ans)[1]);
     }
@@ -248,12 +248,12 @@ void C_GlobalTest(const SEXP learnsample, const SEXP weights,
             if (yORDERED || xORDERED) {
                 Mxmem = get_varMmemory(fitmem, j);
                 C_MLinearStatistic(xmem, get_Mscorematrix(fitmem, j), Mxmem);
-                if (get_teststattype(varctrl) == 2)
+                if (get_teststat(varctrl) == 2)
                     C_LinStatExpCovMPinv(Mxmem, get_tol(varctrl));
                     C_TeststatCriterion(Mxmem, varctrl, &ans_teststat[j - 1], 
                                         &ans_criterion[j - 1]);
             } else {
-                if(get_teststattype(varctrl) == 2)
+                if(get_teststat(varctrl) == 2)
                     C_LinStatExpCovMPinv(xmem, get_tol(varctrl));
                 C_TeststatCriterion(xmem, varctrl, &ans_teststat[j - 1], 
                                     &ans_criterion[j - 1]);
@@ -262,13 +262,10 @@ void C_GlobalTest(const SEXP learnsample, const SEXP weights,
 
         type = get_testtype(gtctrl);
         switch(type) {
-            /* Bonferroni */
+            /* Bonferroni: p_adj = 1 - (1 - p)^k */
             case BONFERRONI: 
-                    for (j = 0; j < ninputs; j++) {
-                        ans_criterion[j] = 1 - (1 - ans_criterion[j])*ninputs;
-                        if (ans_criterion[j] < 0) 
-                            ans_criterion[j] = 0.0;
-                    }
+                    for (j = 0; j < ninputs; j++)
+                        ans_criterion[j] = R_pow_di(ans_criterion[j], ninputs);
                     break;
             /* Monte-Carlo */
             case MONTECARLO: 
