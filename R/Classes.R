@@ -1,5 +1,5 @@
 
-# $Id: Classes.R 2538 2006-04-04 15:47:15Z hothorn $
+# $Id: Classes.R 2570 2006-04-23 17:45:59Z hothorn $
 
 ### Conditional Expectation and Covariance
 setClass(Class = "ExpectCovar",
@@ -152,6 +152,13 @@ setClass(Class = "TreeControl",
                      tgctrl = new("TreeGrowControl")
     )
 )
+
+setClass(Class = "ForestControl",
+    representation = representation(
+        ntree    = "integer",
+        replace  = "logical",
+        fraction = "numeric"),
+    contains = "TreeControl")
 
 setClass(Class = "VariableFrame",
     representation = representation(

@@ -73,7 +73,7 @@ Some commonly needed utility functions.
 \end{Desc}
 \begin{Desc}
 \item[Date:]\begin{Desc}
-\item[Date]2006-01-17 16:28:01 +0100 (Tue, 17 Jan 2006) \end{Desc}
+\item[Date]2006-04-05 16:24:23 +0200 (Wed, 05 Apr 2006) \end{Desc}
 \end{Desc}
 
 
@@ -90,7 +90,7 @@ Definition in file \hyperlink{Utils_8c-source}{Utils.c}.
 absolute value \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[{\em x}]numeric vector \item[{\em n}]length(x) \end{description}
+\item[{\em x}]numeric vector \item[{\em n}]length(x)\end{description}
 \end{Desc}
 
 
@@ -114,7 +114,7 @@ Referenced by C\_\-get\_\-node().
 Here is the call graph for this function:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=99pt]{Utils_8c_a17_cgraph}
+\includegraphics[width=94pt]{Utils_8c_a17_cgraph}
 \end{center}
 \end{figure}
 \hypertarget{Utils_8c_a0}{
@@ -128,7 +128,7 @@ Computes the Kronecker product of two matrices\par
  \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[{\em A}]matrix \item[{\em m}]nrow(A) \item[{\em n}]ncol(A) \item[{\em B}]matrix \item[{\em r}]nrow(B) \item[{\em s}]ncol(B) \item[{\em ans}]return value; a pointer to a REALSXP-vector of length (mr x ns) \end{description}
+\item[{\em A}]matrix \item[{\em m}]nrow(A) \item[{\em n}]ncol(A) \item[{\em B}]matrix \item[{\em r}]nrow(B) \item[{\em s}]ncol(B) \item[{\em ans}]return value; a pointer to a REALSXP-vector of length (mr x ns)\end{description}
 \end{Desc}
 
 
@@ -144,7 +144,7 @@ Referenced by C\_\-Expect\-Covar\-Linear\-Statistic(), and R\_\-kronecker().\hyp
 matrix product x $\ast$\% y \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[{\em x}]a matrix \item[{\em nrx}]number of rows of x \item[{\em ncx}]number of cols of x \item[{\em y}]a matrix \item[{\em nry}]number of rows of y \item[{\em ncy}]number of cols of y \item[{\em z}]a matrix of dimension nrx x ncy \end{description}
+\item[{\em x}]a matrix \item[{\em nrx}]number of rows of x \item[{\em ncx}]number of cols of x \item[{\em y}]a matrix \item[{\em nry}]number of rows of y \item[{\em ncy}]number of cols of y \item[{\em z}]a matrix of dimension nrx x ncy\end{description}
 \end{Desc}
 
 
@@ -160,7 +160,7 @@ Referenced by C\_\-MLinear\-Statistic(), R\_\-matprod(), and R\_\-predict\-RF2()
 matrix product x $\ast$\% t(y) \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[{\em x}]a matrix \item[{\em nrx}]number of rows of x \item[{\em ncx}]number of cols of x \item[{\em y}]a matrix \item[{\em nry}]number of rows of y \item[{\em ncy}]number of cols of y \item[{\em z}]a matrix of dimension nrx x ncy \end{description}
+\item[{\em x}]a matrix \item[{\em nrx}]number of rows of x \item[{\em ncx}]number of cols of x \item[{\em y}]a matrix \item[{\em nry}]number of rows of y \item[{\em ncy}]number of cols of y \item[{\em z}]a matrix of dimension nrx x ncy\end{description}
 \end{Desc}
 
 
@@ -176,7 +176,7 @@ Referenced by C\_\-MLinear\-Statistic(), and R\_\-matprod\-T().\hypertarget{Util
 the maximum of a double vector \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[{\em x}]vector \item[{\em n}]its length \end{description}
+\item[{\em x}]vector \item[{\em n}]its length\end{description}
 \end{Desc}
 
 
@@ -192,7 +192,7 @@ Referenced by C\_\-maxabs\-Test\-Statistic(), C\_\-Monte\-Carlo(), C\_\-Node(), 
 Moore-Penrose inverse of a matrix \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[{\em x}]matrix \item[{\em tol}]a tolerance bound \item[{\em svdmem}]an object of class `svd\_\-mem' \item[{\em ans}]return value; an object of class `Expect\-Covar\-MPinv' \end{description}
+\item[{\em x}]matrix \item[{\em tol}]a tolerance bound \item[{\em svdmem}]an object of class `svd\_\-mem' \item[{\em ans}]return value; an object of class `Expect\-Covar\-MPinv'\end{description}
 \end{Desc}
 
 
@@ -205,7 +205,7 @@ Referenced by C\_\-Lin\-Stat\-Exp\-Cov\-MPinv(), and R\_\-MPinv().
 Here is the call graph for this function:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=138pt]{Utils_8c_a3_cgraph}
+\includegraphics[width=134pt]{Utils_8c_a3_cgraph}
 \end{center}
 \end{figure}
 \hypertarget{Utils_8c_a13}{
@@ -218,13 +218,13 @@ Here is the call graph for this function:\begin{figure}[H]
 compute a permutation of a (random subset of) 0:(m-1) \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[{\em x}]an integer vector of length m \item[{\em m}]integer \item[{\em k}]integer \item[{\em ans}]an integer vector of length k \end{description}
+\item[{\em x}]an integer vector of length m \item[{\em m}]integer \item[{\em k}]integer \item[{\em ans}]an integer vector of length k\end{description}
 \end{Desc}
 
 
 Definition at line 397 of file Utils.c.
 
-Referenced by C\_\-Global\-Test(), C\_\-Monte\-Carlo(), R\_\-permute(), and R\_\-rsubset().\hypertarget{Utils_8c_a20}{
+Referenced by C\_\-Global\-Test(), C\_\-Monte\-Carlo(), R\_\-Ensemble(), R\_\-permute(), and R\_\-rsubset().\hypertarget{Utils_8c_a20}{
 \index{Utils.c@{Utils.c}!C_whichmax@{C\_\-whichmax}}
 \index{C_whichmax@{C\_\-whichmax}!Utils.c@{Utils.c}}
 \subsubsection[C\_\-whichmax]{\setlength{\rightskip}{0pt plus 5cm}int C\_\-whichmax (double $\ast$ {\em pvalue}, double $\ast$ {\em teststat}, int {\em ninputs})}}
@@ -233,7 +233,7 @@ Referenced by C\_\-Global\-Test(), C\_\-Monte\-Carlo(), R\_\-permute(), and R\_\
 
 
 
-Definition at line 488 of file Utils.c.
+Definition at line 492 of file Utils.c.
 
 Referenced by C\_\-Node(), and R\_\-whichmax().\hypertarget{Utils_8c_a2}{
 \index{Utils.c@{Utils.c}!CR_svd@{CR\_\-svd}}
@@ -245,7 +245,7 @@ Referenced by C\_\-Node(), and R\_\-whichmax().\hypertarget{Utils_8c_a2}{
 C- and R-interface to La\_\-svd (R/src/main/lapack.c) \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[{\em x}]matrix \item[{\em svdmem}]an object of class `svd\_\-mem' \end{description}
+\item[{\em x}]matrix \item[{\em svdmem}]an object of class `svd\_\-mem'\end{description}
 \end{Desc}
 
 
@@ -258,7 +258,7 @@ Referenced by C\_\-MPinv().
 Here is the call graph for this function:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=91pt]{Utils_8c_a2_cgraph}
+\includegraphics[width=87pt]{Utils_8c_a2_cgraph}
 \end{center}
 \end{figure}
 \hypertarget{Utils_8c_a16}{
@@ -271,7 +271,7 @@ Here is the call graph for this function:\begin{figure}[H]
 determine if i is element of the integer vector set \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[{\em i}]an integer \item[{\em iset}]a pointer to an integer vector \item[{\em p}]length(iset) \end{description}
+\item[{\em i}]an integer \item[{\em iset}]a pointer to an integer vector \item[{\em p}]length(iset)\end{description}
 \end{Desc}
 
 
@@ -309,7 +309,7 @@ Referenced by C\_\-Global\-Test(), C\_\-Independence\-Test(), C\_\-MLinear\-Stat
 R-interface to C\_\-abs \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[{\em x}]numeric vector \end{description}
+\item[{\em x}]numeric vector\end{description}
 \end{Desc}
 
 
@@ -320,7 +320,7 @@ References C\_\-abs().
 Here is the call graph for this function:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=84pt]{Utils_8c_a8_cgraph}
+\includegraphics[width=82pt]{Utils_8c_a8_cgraph}
 \end{center}
 \end{figure}
 \hypertarget{Utils_8c_a1}{
@@ -333,7 +333,7 @@ Here is the call graph for this function:\begin{figure}[H]
 R-interface to C\_\-kronecker \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[{\em A}]matrix \item[{\em B}]matrix \end{description}
+\item[{\em A}]matrix \item[{\em B}]matrix\end{description}
 \end{Desc}
 
 
@@ -344,7 +344,7 @@ References C\_\-kronecker().
 Here is the call graph for this function:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=117pt]{Utils_8c_a1_cgraph}
+\includegraphics[width=110pt]{Utils_8c_a1_cgraph}
 \end{center}
 \end{figure}
 \hypertarget{Utils_8c_a22}{
@@ -356,7 +356,7 @@ Here is the call graph for this function:\begin{figure}[H]
 
 
 
-Definition at line 523 of file Utils.c.\hypertarget{Utils_8c_a10}{
+Definition at line 527 of file Utils.c.\hypertarget{Utils_8c_a10}{
 \index{Utils.c@{Utils.c}!R_matprod@{R\_\-matprod}}
 \index{R_matprod@{R\_\-matprod}!Utils.c@{Utils.c}}
 \subsubsection[R\_\-matprod]{\setlength{\rightskip}{0pt plus 5cm}SEXP R\_\-matprod (SEXP {\em x}, SEXP {\em y})}}
@@ -366,7 +366,7 @@ Definition at line 523 of file Utils.c.\hypertarget{Utils_8c_a10}{
 R-interface to C\_\-matprod \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[{\em x}]a matrix \item[{\em y}]a matrix \end{description}
+\item[{\em x}]a matrix \item[{\em y}]a matrix\end{description}
 \end{Desc}
 
 
@@ -377,7 +377,7 @@ References C\_\-matprod(), ncol(), and nrow().
 Here is the call graph for this function:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=110pt]{Utils_8c_a10_cgraph}
+\includegraphics[width=102pt]{Utils_8c_a10_cgraph}
 \end{center}
 \end{figure}
 \hypertarget{Utils_8c_a12}{
@@ -390,7 +390,7 @@ Here is the call graph for this function:\begin{figure}[H]
 R-interface to C\_\-matprod\-T \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[{\em x}]a matrix \item[{\em y}]a matrix \end{description}
+\item[{\em x}]a matrix \item[{\em y}]a matrix\end{description}
 \end{Desc}
 
 
@@ -401,7 +401,7 @@ References C\_\-matprod\-T(), ncol(), and nrow().
 Here is the call graph for this function:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=117pt]{Utils_8c_a12_cgraph}
+\includegraphics[width=108pt]{Utils_8c_a12_cgraph}
 \end{center}
 \end{figure}
 \hypertarget{Utils_8c_a6}{
@@ -414,7 +414,7 @@ Here is the call graph for this function:\begin{figure}[H]
 R-interface to C\_\-max \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[{\em x}]numeric vector \end{description}
+\item[{\em x}]numeric vector\end{description}
 \end{Desc}
 
 
@@ -425,7 +425,7 @@ References C\_\-max().
 Here is the call graph for this function:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=90pt]{Utils_8c_a6_cgraph}
+\includegraphics[width=84pt]{Utils_8c_a6_cgraph}
 \end{center}
 \end{figure}
 \hypertarget{Utils_8c_a23}{
@@ -437,14 +437,14 @@ Here is the call graph for this function:\begin{figure}[H]
 
 
 
-Definition at line 555 of file Utils.c.
+Definition at line 559 of file Utils.c.
 
 References get\_\-jointtransf(), get\_\-transformation(), and get\_\-variable().
 
 Here is the call graph for this function:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=151pt]{Utils_8c_a23_cgraph}
+\includegraphics[width=139pt]{Utils_8c_a23_cgraph}
 \end{center}
 \end{figure}
 \hypertarget{Utils_8c_a4}{
@@ -457,7 +457,7 @@ Here is the call graph for this function:\begin{figure}[H]
 R-interface to C\_\-MPinv \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[{\em x}]matrix \item[{\em tol}]a tolerance bound \item[{\em svdmem}]an object of class `svd\_\-mem' \end{description}
+\item[{\em x}]matrix \item[{\em tol}]a tolerance bound \item[{\em svdmem}]an object of class `svd\_\-mem'\end{description}
 \end{Desc}
 
 
@@ -468,7 +468,7 @@ References C\_\-MPinv(), ncol(), nrow(), PL2\_\-MPinv\-Sym, PL2\_\-p\-Sym, and P
 Here is the call graph for this function:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=185pt]{Utils_8c_a4_cgraph}
+\includegraphics[width=181pt]{Utils_8c_a4_cgraph}
 \end{center}
 \end{figure}
 \hypertarget{Utils_8c_a14}{
@@ -481,7 +481,7 @@ Here is the call graph for this function:\begin{figure}[H]
 R-interface to C\_\-Sample\-No\-Replace: the permutation case \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[{\em m}]integer \end{description}
+\item[{\em m}]integer\end{description}
 \end{Desc}
 
 
@@ -492,7 +492,7 @@ References C\_\-Sample\-No\-Replace().
 Here is the call graph for this function:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=134pt]{Utils_8c_a14_cgraph}
+\includegraphics[width=125pt]{Utils_8c_a14_cgraph}
 \end{center}
 \end{figure}
 \hypertarget{Utils_8c_a15}{
@@ -505,7 +505,7 @@ Here is the call graph for this function:\begin{figure}[H]
 R-interface to C\_\-Sample\-No\-Replace: the subset case \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[{\em m}]integer \item[{\em k}]integer \end{description}
+\item[{\em m}]integer \item[{\em k}]integer\end{description}
 \end{Desc}
 
 
@@ -516,7 +516,7 @@ References C\_\-Sample\-No\-Replace().
 Here is the call graph for this function:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=130pt]{Utils_8c_a15_cgraph}
+\includegraphics[width=123pt]{Utils_8c_a15_cgraph}
 \end{center}
 \end{figure}
 \hypertarget{Utils_8c_a21}{
@@ -528,13 +528,13 @@ Here is the call graph for this function:\begin{figure}[H]
 
 
 
-Definition at line 513 of file Utils.c.
+Definition at line 517 of file Utils.c.
 
 References C\_\-whichmax().
 
 Here is the call graph for this function:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=120pt]{Utils_8c_a21_cgraph}
+\includegraphics[width=110pt]{Utils_8c_a21_cgraph}
 \end{center}
 \end{figure}

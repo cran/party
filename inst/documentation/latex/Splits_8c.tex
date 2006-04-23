@@ -8,7 +8,7 @@
 Include dependency graph for Splits.c:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=155pt]{Splits_8c__incl}
+\includegraphics[width=157pt]{Splits_8c__incl}
 \end{center}
 \end{figure}
 \subsection*{Functions}
@@ -50,7 +50,7 @@ Definition in file \hyperlink{Splits_8c-source}{Splits.c}.
 Search for a cutpoint in a ordered variable x maximizing a two-sample statistic w.r.t. (the influence function of ) the response variable y. \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[{\em x}]raw numeric measurements \item[{\em p}]dimension of the transformation \item[{\em y}]values of the influence function \item[{\em q}]dimension of the influence function \item[{\em weights}]case weights \item[{\em n}]number of observations \item[{\em orderx}]the ordering of the transformations, i.e. R$>$ order(x) \item[{\em score\_\-y}]the q-dim. score vector for y, if y is an ordered factor \item[{\em ORDERED}]a logical coding whether y is an ordered factor \item[{\em splitctrl}]an object of class `Split\-Control' \item[{\em linexpcov2sample}]an (uninitialized) object of class `Lin\-Stat\-Expect\-Covar' with p = 1 \item[{\em expcovinf}]an initialized object of class `Expect\-Covar\-Influence' \item[{\em cutpoint}]return value; pointer to a double for the cutpoint in x \item[{\em maxstat}]return value; pointer to a double for the maximal test statistic \item[{\em statistics}]return value; pointer to a n-dim double for the statistics \end{description}
+\item[{\em x}]raw numeric measurements \item[{\em p}]dimension of the transformation \item[{\em y}]values of the influence function \item[{\em q}]dimension of the influence function \item[{\em weights}]case weights \item[{\em n}]number of observations \item[{\em orderx}]the ordering of the transformations, i.e. R$>$ order(x) \item[{\em score\_\-y}]the q-dim. score vector for y, if y is an ordered factor \item[{\em ORDERED}]a logical coding whether y is an ordered factor \item[{\em splitctrl}]an object of class `Split\-Control' \item[{\em linexpcov2sample}]an (uninitialized) object of class `Lin\-Stat\-Expect\-Covar' with p = 1 \item[{\em expcovinf}]an initialized object of class `Expect\-Covar\-Influence' \item[{\em cutpoint}]return value; pointer to a double for the cutpoint in x \item[{\em maxstat}]return value; pointer to a double for the maximal test statistic \item[{\em statistics}]return value; pointer to a n-dim double for the statistics\end{description}
 \end{Desc}
 
 
@@ -63,7 +63,7 @@ Referenced by C\_\-Node(), C\_\-splitcategorical(), C\_\-surrogates(), and R\_\-
 Here is the call graph for this function:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=107pt]{Splits_8c_a0_cgraph}
+\includegraphics[width=101pt]{Splits_8c_a0_cgraph}
 \end{center}
 \end{figure}
 \hypertarget{Splits_8c_a2}{
@@ -76,7 +76,7 @@ Here is the call graph for this function:\begin{figure}[H]
 Search for a cutpoint in a unordered factor x maximizing a two-sample statistic w.r.t. (the influence function of ) the response variable y. \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[{\em codingx}]the coding of x, i.e. as.numeric(x) \item[{\em p}]dimension of the transformation \item[{\em y}]values of the influence function \item[{\em q}]dimension of the influence function \item[{\em weights}]case weights \item[{\em n}]number of observations \item[{\em codingx}]the coding of x, i.e. as.numeric(x) \item[{\em score\_\-y}]the q-dim. score vector for y, if y is an ordered factor \item[{\em ORDERED}]a logical coding whether y is an ordered factor \item[{\em standstat}]the vector of the standardized statistics for x, y, weights, score\_\-y \item[{\em splitctrl}]an object of class `Split\-Control' \item[{\em linexpcov2sample}]an (uninitialized) object of class `Lin\-Stat\-Expect\-Covar' with p = 1 \item[{\em expcovinf}]an initialized object of class `Expect\-Covar\-Influence' \item[{\em cutpoint}]return value; pointer to a double for the cutpoint in x \item[{\em levelset}]return value; pointer to a p-dim 0/1 integer \item[{\em maxstat}]return value; pointer to a double for the maximal test statistic \item[{\em statistics}]return value; pointer to a n-dim double for the statistics \end{description}
+\item[{\em codingx}]the coding of x, i.e. as.numeric(x) \item[{\em p}]dimension of the transformation \item[{\em y}]values of the influence function \item[{\em q}]dimension of the influence function \item[{\em weights}]case weights \item[{\em n}]number of observations \item[{\em codingx}]the coding of x, i.e. as.numeric(x) \item[{\em score\_\-y}]the q-dim. score vector for y, if y is an ordered factor \item[{\em ORDERED}]a logical coding whether y is an ordered factor \item[{\em standstat}]the vector of the standardized statistics for x, y, weights, score\_\-y \item[{\em splitctrl}]an object of class `Split\-Control' \item[{\em linexpcov2sample}]an (uninitialized) object of class `Lin\-Stat\-Expect\-Covar' with p = 1 \item[{\em expcovinf}]an initialized object of class `Expect\-Covar\-Influence' \item[{\em cutpoint}]return value; pointer to a double for the cutpoint in x \item[{\em levelset}]return value; pointer to a p-dim 0/1 integer \item[{\em maxstat}]return value; pointer to a double for the maximal test statistic \item[{\em statistics}]return value; pointer to a n-dim double for the statistics\end{description}
 \end{Desc}
 
 
@@ -89,7 +89,7 @@ Referenced by C\_\-Node(), and R\_\-splitcategorical().
 Here is the call graph for this function:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=172pt]{Splits_8c_a2_cgraph}
+\includegraphics[width=167pt]{Splits_8c_a2_cgraph}
 \end{center}
 \end{figure}
 \hypertarget{Splits_8c_a1}{
@@ -102,7 +102,7 @@ Here is the call graph for this function:\begin{figure}[H]
 R-interface to C\_\-split (does not handle ordered y's) \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[{\em x}]values of the transformation \item[{\em y}]values of the influence function \item[{\em weights}]case weights \item[{\em orderx}]the ordering of the transformations, i.e. R$>$ order(x) \item[{\em linexpcov2sample}]an (uninitialized) object of class `Lin\-Stat\-Expect\-Covar' with p = 1 \item[{\em expcovinf}]an initialized object of class `Expect\-Covar\-Influence' \item[{\em splitctrl}]an object of class `Split\-Control' \end{description}
+\item[{\em x}]values of the transformation \item[{\em y}]values of the influence function \item[{\em weights}]case weights \item[{\em orderx}]the ordering of the transformations, i.e. R$>$ order(x) \item[{\em linexpcov2sample}]an (uninitialized) object of class `Lin\-Stat\-Expect\-Covar' with p = 1 \item[{\em expcovinf}]an initialized object of class `Expect\-Covar\-Influence' \item[{\em splitctrl}]an object of class `Split\-Control'\end{description}
 \end{Desc}
 
 
@@ -113,7 +113,7 @@ References C\_\-split(), ncol(), and nrow().
 Here is the call graph for this function:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=147pt]{Splits_8c_a1_cgraph}
+\includegraphics[width=143pt]{Splits_8c_a1_cgraph}
 \end{center}
 \end{figure}
 \hypertarget{Splits_8c_a3}{
@@ -126,7 +126,7 @@ Here is the call graph for this function:\begin{figure}[H]
 R-interface to C\_\-splitcategorical (does not handle ordered y's) \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[{\em x}]the values of the x-transformation \item[{\em codingx}]the coding of x, i.e. as.numeric(x) \item[{\em y}]values of the influence function \item[{\em weights}]case weights \item[{\em linexpcov2sample}]an (uninitialized) object of class `Lin\-Stat\-Expect\-Covar' with p = 1 \item[{\em linexpcov}]an initialized object of class `Lin\-Stat\-Expect\-Covar' \item[{\em expcovinf}]an initialized object of class `Expect\-Covar\-Influence' \item[{\em splitctrl}]an object of class `Split\-Control' \end{description}
+\item[{\em x}]the values of the x-transformation \item[{\em codingx}]the coding of x, i.e. as.numeric(x) \item[{\em y}]values of the influence function \item[{\em weights}]case weights \item[{\em linexpcov2sample}]an (uninitialized) object of class `Lin\-Stat\-Expect\-Covar' with p = 1 \item[{\em linexpcov}]an initialized object of class `Lin\-Stat\-Expect\-Covar' \item[{\em expcovinf}]an initialized object of class `Expect\-Covar\-Influence' \item[{\em splitctrl}]an object of class `Split\-Control'\end{description}
 \end{Desc}
 
 
@@ -137,6 +137,6 @@ References C\_\-Lin\-Stat\-Exp\-Cov(), C\_\-splitcategorical(), C\_\-standardize
 Here is the call graph for this function:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=297pt]{Splits_8c_a3_cgraph}
+\includegraphics[width=284pt]{Splits_8c_a3_cgraph}
 \end{center}
 \end{figure}

@@ -1,8 +1,8 @@
 base referer
-rect $TestStatistic_8c.html#a2 165,55 306,79
-rect $TestStatistic_8c.html#a4 161,102 310,126
-rect $Classes_8c.html#a64 189,150 282,174
-rect $TestStatistic_8c.html#a1 358,31 470,55
-rect $Utils_8c.html#a5 390,79 438,102
-rect $Utils_8c.html#a7 541,7 586,31
-rect $TestStatistic_8c.html#a0 518,55 609,79
+rect $TestStatistic_8c.html#a2 173,56 330,80
+rect $TestStatistic_8c.html#a4 168,104 336,128
+rect $Classes_8c.html#a67 198,152 305,176
+rect $TestStatistic_8c.html#a1 385,32 513,56
+rect $Utils_8c.html#a5 417,80 481,104
+rect $Utils_8c.html#a7 588,8 646,32
+rect $TestStatistic_8c.html#a0 564,56 670,80

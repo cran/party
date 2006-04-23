@@ -1,4 +1,4 @@
-This is pdfeTeXk, Version 3.14159-1.10b-2.1 (Web2C 7.4.5) (format=pdflatex 2006.2.6)  12 APR 2006 09:29
+This is pdfeTeXk, Version 3.14159-1.10b-2.1 (Web2C 7.4.5) (format=pdflatex 2006.4.18)  24 APR 2006 18:56
 entering extended mode
  file:line:error style messages enabled.
 **\nonstopmode \input /home/hothorn/projects/cvs/Rpkgs/party/inst/doc/MOB.tex
@@ -341,16 +341,7 @@ LaTeX Font Info:    Try loading font information for T1+aess on input line 45.
 File: t1aess.fd 1997/11/16 Font definitions for T1/aess.
 ) [1
 
-{/var/lib/texmf/dvips/config/pdftex.map
-Warning: pdflatex (file /var/lib/texmf/dvips/config/pdftex.map): entry for `cme
-x7' already exists, duplicates ignored
-
-Warning: pdflatex (file /var/lib/texmf/dvips/config/pdftex.map): entry for `cme
-x8' already exists, duplicates ignored
-
-Warning: pdflatex (file /var/lib/texmf/dvips/config/pdftex.map): entry for `cme
-x9' already exists, duplicates ignored
-}]
+{/var/lib/texmf/dvips/config/pdftex.map}]
 Overfull \hbox (5.0pt too wide) has occurred while \output is active
 []/aer10/2 []
  []
@@ -437,28 +428,31 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 4719 strings out of 95257
- 66450 string characters out of 1187588
- 116109 words of memory out of 1000001
- 7650 multiletter control sequences out of 10000+50000
+ 4719 strings out of 94960
+ 66528 string characters out of 1182470
+ 116396 words of memory out of 1000001
+ 7674 multiletter control sequences out of 10000+50000
  45848 words of font info for 89 fonts, out of 500000 for 1000
- 19 hyphenation exceptions out of 1000
+ 198 hyphenation exceptions out of 1000
  35i,8n,34p,363b,325s stack positions out of 1500i,500n,5000p,200000b,5000s
  222 PDF objects out of 300000
  44 named destinations out of 131072
  137 words of extra memory for PDF output out of 65536
-</usr/share/texmf/fonts/type1/bluesky/cm/cmbx10.pfb> </var/cache/fonts/pk/ljf
-our/jknappen/tc/tctt1000.600pk></usr/share/texmf/fonts/type1/bluesky/cm/cmsy5.p
-fb></usr/share/texmf/fonts/type1/bluesky/cm/cmsltt10.pfb></usr/share/texmf/font
-s/type1/bluesky/cm/cmsl10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmss10.p
-fb></usr/share/texmf/fonts/type1/bluesky/cm/cmtt10.pfb></usr/share/texmf/fonts/
-type1/bluesky/cm/cmr7.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmmi7.pfb></
-usr/share/texmf/fonts/type1/bluesky/cm/cmsy7.pfb></usr/share/texmf/fonts/type1/
-bluesky/cm/cmmi10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmsy10.pfb></usr
-/share/texmf/fonts/type1/bluesky/cm/cmti10.pfb></usr/share/texmf/fonts/type1/bl
-uesky/cm/cmtt9.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr9.pfb></usr/shar
-e/texmf/fonts/type1/bluesky/cm/cmbx9.pfb></usr/share/texmf/fonts/type1/bluesky/
-cm/cmr10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmssbx10.pfb></usr/share/
-texmf/fonts/type1/bluesky/cm/cmtt12.pfb></usr/share/texmf/fonts/type1/bluesky/c
-m/cmbx12.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmb10.pfb>
-Output written on MOB.pdf (12 pages, 306211 bytes).
+{/usr/share/texmf/dvips/tetex/f7b6d320.enc}</usr/share/texmf/fonts/type1/blue
+sky/cm/cmbx10.pfb> </var/cache/fonts/pk/ljfour/jknappen/tc/tctt1000.600pk>{/usr
+/share/texmf/dvips/tetex/bbad153f.enc}</usr/share/texmf/fonts/type1/bluesky/cm/
+cmsy5.pfb>{/usr/share/texmf/dvips/tetex/09fbbfac.enc}</usr/share/texmf/fonts/ty
+pe1/bluesky/cm/cmsltt10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmsl10.pfb
+></usr/share/texmf/fonts/type1/bluesky/cm/cmss10.pfb></usr/share/texmf/fonts/ty
+pe1/bluesky/cm/cmtt10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr7.pfb>{/u
+sr/share/texmf/dvips/tetex/aae443f0.enc}</usr/share/texmf/fonts/type1/bluesky/c
+m/cmmi7.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmsy7.pfb></usr/share/texm
+f/fonts/type1/bluesky/cm/cmmi10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cm
+sy10.pfb>{/usr/share/texmf/dvips/tetex/74afc74c.enc}</usr/share/texmf/fonts/typ
+e1/bluesky/cm/cmti10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmtt9.pfb></u
+sr/share/texmf/fonts/type1/bluesky/cm/cmr9.pfb></usr/share/texmf/fonts/type1/bl
+uesky/cm/cmbx9.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr10.pfb></usr/sha
+re/texmf/fonts/type1/bluesky/cm/cmssbx10.pfb></usr/share/texmf/fonts/type1/blue
+sky/cm/cmtt12.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmbx12.pfb></usr/sha
+re/texmf/fonts/type1/bluesky/cm/cmb10.pfb>
+Output written on MOB.pdf (12 pages, 306653 bytes).

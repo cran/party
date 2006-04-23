@@ -3,7 +3,7 @@
     S4 classes for package `party'
     *\file Classes.c
     *\author $Author: hothorn $
-    *\date $Date: 2006-04-04 17:47:15 +0200 (Tue, 04 Apr 2006) $
+    *\date $Date: 2006-04-23 19:45:59 +0200 (Sun, 23 Apr 2006) $
 */
 
 #include "party.h"
@@ -71,7 +71,10 @@ SEXP
     PL2_dontusetmpSym,
     PL2_stumpSym,
     PL2_maxdepthSym,
-    PL2_tgctrlSym;
+    PL2_tgctrlSym,
+    PL2_ntreeSym,
+    PL2_replaceSym,
+    PL2_fractionSym;
 
 SEXP party_init(void) {
     PL2_expectationSym = install("expectation");
@@ -137,6 +140,9 @@ SEXP party_init(void) {
     PL2_stumpSym = install("stump"); 
     PL2_maxdepthSym = install("maxdepth"); 
     PL2_tgctrlSym = install("tgctrl"); 
+    PL2_ntreeSym = install("ntree"),
+    PL2_replaceSym = install("replace"),
+    PL2_fractionSym = install("fraction");
     return(R_NilValue);
 }
 
@@ -352,4 +358,16 @@ int check_depth(SEXP object, int depth) {
     if (maxdepth == 0) return(1);
     if (maxdepth < 1) error("maxdepth is less than one");
     return(depth <= maxdepth);
+}
+
+int get_ntree(SEXP object) {
+    return(INTEGER(GET_SLOT(object, PL2_ntreeSym))[0]);
+}
+
+int get_replace(SEXP object) {
+    return(INTEGER(GET_SLOT(object, PL2_replaceSym))[0]);
+}
+
+double get_fraction(SEXP object) {
+    return(REAL(GET_SLOT(object, PL2_fractionSym))[0]);
 }

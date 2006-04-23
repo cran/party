@@ -10,10 +10,11 @@ export(ctree, ctree_memory, ctree_control,
        where, nodes, conditionalTree,
        treeresponse, response, ptrafo, cforest,
        mob, mob_control,
-       reweight, sctest.mob)
+       reweight, sctest.mob, cforest_control)
 
 exportClasses("BinaryTree", "LearningSample", "SplittingNode",
-              "TerminalNode", "TreeControl", "RandomForest", "mob")
+              "TerminalNode", "TreeControl", "RandomForest", "mob",
+              "ForestControl")
 exportMethods("initialize", "fit")
 
 S3method(print, BinaryTree)

@@ -1,4 +1,14 @@
 
+                CHANGES IN party VERSION 0.8-5 (2006-04-25)
+
+    o    all hyper parameters to `cforest' are now controlled using
+         objects of a new class `ForestControl' which can be created using
+         `cforest_control()'. 
+
+    o    sampling of a fraction of the observations without replacement
+         is now available for the `cforest' implementation of random forest.
+
+
                 CHANGES IN party VERSION 0.8-4 (2006-04-04)
 
     o    renamed argument `teststattype' to `teststat' with defaults

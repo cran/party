@@ -1,4 +1,4 @@
-.TH "Utils.h" 3 "4 Apr 2006" "party" \" -*- nroff -*-
+.TH "Utils.h" 3 "24 Apr 2006" "party" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -59,7 +59,7 @@ absolute value
 .RS 4
 \fIx\fP numeric vector 
 .br
-\fIn\fP length(x) 
+\fIn\fP length(x)
 .RE
 .PP
 
@@ -94,7 +94,7 @@ Computes the Kronecker product of two matrices
 .br
 \fIs\fP ncol(B) 
 .br
-\fIans\fP return value; a pointer to a REALSXP-vector of length (mr x ns) 
+\fIans\fP return value; a pointer to a REALSXP-vector of length (mr x ns)
 .RE
 .PP
 
@@ -120,7 +120,7 @@ matrix product x *% y
 .br
 \fIncy\fP number of cols of y 
 .br
-\fIz\fP a matrix of dimension nrx x ncy 
+\fIz\fP a matrix of dimension nrx x ncy
 .RE
 .PP
 
@@ -146,7 +146,7 @@ matrix product x *% t(y)
 .br
 \fIncy\fP number of cols of y 
 .br
-\fIz\fP a matrix of dimension nrx x ncy 
+\fIz\fP a matrix of dimension nrx x ncy
 .RE
 .PP
 
@@ -162,7 +162,7 @@ the maximum of a double vector
 .RS 4
 \fIx\fP vector 
 .br
-\fIn\fP its length 
+\fIn\fP its length
 .RE
 .PP
 
@@ -182,7 +182,7 @@ Moore-Penrose inverse of a matrix
 .br
 \fIsvdmem\fP an object of class `svd_mem' 
 .br
-\fIans\fP return value; an object of class `ExpectCovarMPinv' 
+\fIans\fP return value; an object of class `ExpectCovarMPinv'
 .RE
 .PP
 
@@ -204,17 +204,17 @@ compute a permutation of a (random subset of) 0:(m-1)
 .br
 \fIk\fP integer 
 .br
-\fIans\fP an integer vector of length k 
+\fIans\fP an integer vector of length k
 .RE
 .PP
 
 .PP
 Definition at line 397 of file Utils.c.
 .PP
-Referenced by C_GlobalTest(), C_MonteCarlo(), R_permute(), and R_rsubset().
+Referenced by C_GlobalTest(), C_MonteCarlo(), R_Ensemble(), R_permute(), and R_rsubset().
 .SS "int C_whichmax (double * pvalue, double * teststat, int ninputs)"
 .PP
-Definition at line 488 of file Utils.c.
+Definition at line 492 of file Utils.c.
 .PP
 Referenced by C_Node(), and R_whichmax().
 .SS "int i_in_set (int i, int * iset, int p)"
@@ -227,7 +227,7 @@ determine if i is element of the integer vector set
 .br
 \fIiset\fP a pointer to an integer vector 
 .br
-\fIp\fP length(iset) 
+\fIp\fP length(iset)
 .RE
 .PP
 

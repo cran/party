@@ -7,10 +7,8 @@
 }
 \usage{
 cforest(formula, data = list(), subset = NULL, weights = NULL, 
-        controls = ctree_control(teststat = "max", 
-            testtype = "Teststatistic", mincriterion = qnorm(0.9), 
-            mtry = 5, savesplitstats = FALSE), 
-        xtrafo = ptrafo, ytrafo = ptrafo, scores = NULL, ntree = 500)
+        controls = cforest_control(),
+        xtrafo = ptrafo, ytrafo = ptrafo, scores = NULL)
 }
 \arguments{
   \item{formula}{ a symbolic description of the model to be fit. }
@@ -20,15 +18,14 @@ cforest(formula, data = list(), subset = NULL, weights = NULL,
   \item{weights}{ an optional vector of weights to be used in the fitting
                   process. Only non-negative integer valued weights are
                   allowed.}
-  \item{controls}{an object of class \code{\link{TreeControl}}, which can be
-                  obtained using \code{\link{ctree_control}}.}
+  \item{controls}{an object of class \code{\link{ForestControl-class}}, which can be
+                  obtained using \code{\link{cforest_control}}.}
   \item{xtrafo}{ a function to be applied to all input variables.
                 By default, the \code{\link{ptrafo}} function is applied.}
   \item{ytrafo}{ a function to be applied to all response variables.
                 By default, the \code{\link{ptrafo}} function is applied.}
   \item{scores}{ an optional named list of scores to be attached to ordered
                factors.}
-  \item{ntree}{number of trees to grow.}
 }
 \details{
 
@@ -38,7 +35,7 @@ cforest(formula, data = list(), subset = NULL, weights = NULL,
   
   Conditional inference trees, see \code{\link{ctree}}, are fitted to each
   of the \code{B} bootstrap samples of the learning sample. There are many
-  hyper parameters that can be controlled, see \code{\link{ctree_control}}.
+  hyper parameters that can be controlled, see \code{\link{cforest_control}}.
   You MUST NOT change anything you don't understand completely.
 
   The aggregation scheme works by averaging observation weights extracted
@@ -70,14 +67,16 @@ cforest(formula, data = list(), subset = NULL, weights = NULL,
 
     ### honest (i.e., out-of-bag) cross-classification of
     ### true vs. predicted classes
-    table(mammoexp$ME, predict(cforest(ME ~ ., data = mammoexp, ntree = 50),
+    table(mammoexp$ME, predict(cforest(ME ~ ., data = mammoexp, 
+                               control = cforest_control(ntree = 50)),
                                OOB = TRUE))
 
     ### fit forest to censored response
     if (require("ipred")) {
 
         data("GBSG2", package = "ipred")
-        bst <- cforest(Surv(time, cens) ~ ., data = GBSG2, ntree = 50)
+        bst <- cforest(Surv(time, cens) ~ ., data = GBSG2, 
+                   control = cforest_control(ntree = 50))
 
         ### estimate conditional Kaplan-Meier curves
         treeresponse(bst, newdata = GBSG2[1:2,], OOB = TRUE)

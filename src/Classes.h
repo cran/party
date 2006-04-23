@@ -61,8 +61,11 @@ extern SEXP
     PL2_dontuseSym,
     PL2_dontusetmpSym,
     PL2_stumpSym,
-    PL2_tgctrlSym;
-
+    PL2_tgctrlSym,
+    PL2_ntreeSym,
+    PL2_replaceSym,
+    PL2_fractionSym;
+            
 int get_dimension(SEXP object);
 int get_teststat(SEXP object);
 double get_tol(SEXP object);
@@ -107,3 +110,6 @@ SEXP get_tgctrl(SEXP object);
 SEXP get_splitstatistics(SEXP object);
 int get_savesplitstats(SEXP object);
 int check_depth(SEXP object, int depth);
+int get_ntree(SEXP object);
+int get_replace(SEXP object);
+double get_fraction(SEXP object);

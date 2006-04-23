@@ -1,4 +1,4 @@
-.TH "Utils.c" 3 "4 Apr 2006" "party" \" -*- nroff -*-
+.TH "Utils.c" 3 "24 Apr 2006" "party" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -100,7 +100,7 @@ hothorn
 \fBDate:\fP
 .RS 4
 \fBDate\fP.RS 4
-2006-01-17 16:28:01 +0100 (Tue, 17 Jan 2006) 
+2006-04-05 16:24:23 +0200 (Wed, 05 Apr 2006) 
 .RE
 .PP
 .RE
@@ -118,7 +118,7 @@ absolute value
 .RS 4
 \fIx\fP numeric vector 
 .br
-\fIn\fP length(x) 
+\fIn\fP length(x)
 .RE
 .PP
 
@@ -153,7 +153,7 @@ Computes the Kronecker product of two matrices
 .br
 \fIs\fP ncol(B) 
 .br
-\fIans\fP return value; a pointer to a REALSXP-vector of length (mr x ns) 
+\fIans\fP return value; a pointer to a REALSXP-vector of length (mr x ns)
 .RE
 .PP
 
@@ -179,7 +179,7 @@ matrix product x *% y
 .br
 \fIncy\fP number of cols of y 
 .br
-\fIz\fP a matrix of dimension nrx x ncy 
+\fIz\fP a matrix of dimension nrx x ncy
 .RE
 .PP
 
@@ -205,7 +205,7 @@ matrix product x *% t(y)
 .br
 \fIncy\fP number of cols of y 
 .br
-\fIz\fP a matrix of dimension nrx x ncy 
+\fIz\fP a matrix of dimension nrx x ncy
 .RE
 .PP
 
@@ -221,7 +221,7 @@ the maximum of a double vector
 .RS 4
 \fIx\fP vector 
 .br
-\fIn\fP its length 
+\fIn\fP its length
 .RE
 .PP
 
@@ -241,7 +241,7 @@ Moore-Penrose inverse of a matrix
 .br
 \fIsvdmem\fP an object of class `svd_mem' 
 .br
-\fIans\fP return value; an object of class `ExpectCovarMPinv' 
+\fIans\fP return value; an object of class `ExpectCovarMPinv'
 .RE
 .PP
 
@@ -263,17 +263,17 @@ compute a permutation of a (random subset of) 0:(m-1)
 .br
 \fIk\fP integer 
 .br
-\fIans\fP an integer vector of length k 
+\fIans\fP an integer vector of length k
 .RE
 .PP
 
 .PP
 Definition at line 397 of file Utils.c.
 .PP
-Referenced by C_GlobalTest(), C_MonteCarlo(), R_permute(), and R_rsubset().
+Referenced by C_GlobalTest(), C_MonteCarlo(), R_Ensemble(), R_permute(), and R_rsubset().
 .SS "int C_whichmax (double * pvalue, double * teststat, int ninputs)"
 .PP
-Definition at line 488 of file Utils.c.
+Definition at line 492 of file Utils.c.
 .PP
 Referenced by C_Node(), and R_whichmax().
 .SS "SEXP CR_svd (SEXP x, SEXP svdmem)"
@@ -284,7 +284,7 @@ C- and R-interface to La_svd (R/src/main/lapack.c)
 .RS 4
 \fIx\fP matrix 
 .br
-\fIsvdmem\fP an object of class `svd_mem' 
+\fIsvdmem\fP an object of class `svd_mem'
 .RE
 .PP
 
@@ -304,7 +304,7 @@ determine if i is element of the integer vector set
 .br
 \fIiset\fP a pointer to an integer vector 
 .br
-\fIp\fP length(iset) 
+\fIp\fP length(iset)
 .RE
 .PP
 
@@ -328,7 +328,7 @@ R-interface to C_abs
 .PP
 \fBParameters:\fP
 .RS 4
-\fIx\fP numeric vector 
+\fIx\fP numeric vector
 .RE
 .PP
 
@@ -344,7 +344,7 @@ R-interface to C_kronecker
 .RS 4
 \fIA\fP matrix 
 .br
-\fIB\fP matrix 
+\fIB\fP matrix
 .RE
 .PP
 
@@ -354,7 +354,7 @@ Definition at line 52 of file Utils.c.
 References C_kronecker().
 .SS "SEXP R_listplus (SEXP a, SEXP b, SEXP which)"
 .PP
-Definition at line 523 of file Utils.c.
+Definition at line 527 of file Utils.c.
 .SS "SEXP R_matprod (SEXP x, SEXP y)"
 .PP
 R-interface to C_matprod 
@@ -363,7 +363,7 @@ R-interface to C_matprod
 .RS 4
 \fIx\fP a matrix 
 .br
-\fIy\fP a matrix 
+\fIy\fP a matrix
 .RE
 .PP
 
@@ -379,7 +379,7 @@ R-interface to C_matprodT
 .RS 4
 \fIx\fP a matrix 
 .br
-\fIy\fP a matrix 
+\fIy\fP a matrix
 .RE
 .PP
 
@@ -393,7 +393,7 @@ R-interface to C_max
 .PP
 \fBParameters:\fP
 .RS 4
-\fIx\fP numeric vector 
+\fIx\fP numeric vector
 .RE
 .PP
 
@@ -403,7 +403,7 @@ Definition at line 238 of file Utils.c.
 References C_max().
 .SS "SEXP R_modify_response (SEXP x, SEXP vf)"
 .PP
-Definition at line 555 of file Utils.c.
+Definition at line 559 of file Utils.c.
 .PP
 References get_jointtransf(), get_transformation(), and get_variable().
 .SS "SEXP R_MPinv (SEXP x, SEXP tol, SEXP svdmem)"
@@ -416,7 +416,7 @@ R-interface to C_MPinv
 .br
 \fItol\fP a tolerance bound 
 .br
-\fIsvdmem\fP an object of class `svd_mem' 
+\fIsvdmem\fP an object of class `svd_mem'
 .RE
 .PP
 
@@ -430,7 +430,7 @@ R-interface to C_SampleNoReplace: the permutation case
 .PP
 \fBParameters:\fP
 .RS 4
-\fIm\fP integer 
+\fIm\fP integer
 .RE
 .PP
 
@@ -446,7 +446,7 @@ R-interface to C_SampleNoReplace: the subset case
 .RS 4
 \fIm\fP integer 
 .br
-\fIk\fP integer 
+\fIk\fP integer
 .RE
 .PP
 
@@ -456,7 +456,7 @@ Definition at line 436 of file Utils.c.
 References C_SampleNoReplace().
 .SS "SEXP R_whichmax (SEXP x, SEXP y)"
 .PP
-Definition at line 513 of file Utils.c.
+Definition at line 517 of file Utils.c.
 .PP
 References C_whichmax().
 .SH "Author"

@@ -1,14 +1,13 @@
 
-# $Id: RandomForest.R 2538 2006-04-04 15:47:15Z hothorn $
+# $Id: RandomForest.R 2570 2006-04-23 17:45:59Z hothorn $
 
 ### the fitting procedure
-cforestfit <- function(object, controls, weights = NULL, fitmem = NULL, 
-                       ntree = 500, ...) {
+cforestfit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
 
     if (!extends(class(object), "LearningSample"))
         stop(sQuote("object"), " is not of class ", sQuote("LearningSample"))
-    if (!extends(class(controls), "TreeControl"))
-        stop(sQuote("controls"), " is not of class ", sQuote("TreeControl"))
+    if (!extends(class(controls), "ForestControl"))
+        stop(sQuote("controls"), " is not of class ", sQuote("ForestControl"))
 
     if (is.null(fitmem)) 
         fitmem <- ctree_memory(object, TRUE)
@@ -26,7 +25,7 @@ cforestfit <- function(object, controls, weights = NULL, fitmem = NULL,
 
     ### grow the tree
     ensemble <- .Call("R_Ensemble", object, weights, fitmem, controls,
-                      as.integer(ntree), PACKAGE = "party")
+                      PACKAGE = "party")
 
     ### prepare the returned object
     RET <- new("RandomForest")
@@ -115,13 +114,29 @@ RandomForest <- new("StatModel",
                     predict = function(object, ...) 
                         object@predict_response(...))
 
+cforest_control <- function(teststat = "max", 
+                            testtype = "Teststatistic",
+                            mincriterion = qnorm(0.9),
+                            savesplitstats = FALSE,
+                            ntree = 500, mtry = 5, replace = TRUE, 
+                            fraction = 0.632, ...) {
+    RET <- ctree_control(teststat = teststat, testtype = testtype,
+                         mincriterion = mincriterion, 
+                         savesplitstats = savesplitstats, 
+                         mtry = mtry, ...)
+    class(RET) <- "ForestControl"
+    RET@ntree <- as.integer(ntree)
+    RET@replace <- replace
+    if (fraction > 0.99 || fraction < 0.01)
+        stop(sQuote("fraction"), " is not in between (0.01, 0.99)")
+    RET@fraction <- as.double(fraction)
+    RET
+}
+    
 ### the top-level convenience function
 cforest <- function(formula, data = list(), subset = NULL, weights = NULL, 
-                    controls = ctree_control(teststat = "max", 
-                                             testtype = "Teststatistic", 
-                                             mincriterion = qnorm(0.9), mtry = 5, 
-                                             savesplitstats = FALSE),
-                    xtrafo = ptrafo, ytrafo = ptrafo, scores = NULL, ntree = 500) {
+                    controls = cforest_control(),
+                    xtrafo = ptrafo, ytrafo = ptrafo, scores = NULL) {
 
     ### setup learning sample
     ls <- dpp(RandomForest, formula, data, subset, xtrafo = xtrafo, 
@@ -132,5 +147,5 @@ cforest <- function(formula, data = list(), subset = NULL, weights = NULL,
 
     ### fit and return a conditional tree
     fit(RandomForest, ls, controls = controls, weights = weights, 
-        fitmem = fitmem, ntree = ntree)
+        fitmem = fitmem)
 }

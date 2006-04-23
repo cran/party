@@ -1,4 +1,4 @@
-.TH "Classes.c" 3 "4 Apr 2006" "party" \" -*- nroff -*-
+.TH "Classes.c" 3 "24 Apr 2006" "party" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -143,6 +143,15 @@ Classes.c \-
 .br
 .ti -1c
 .RI "int \fBcheck_depth\fP (SEXP object, int depth)"
+.br
+.ti -1c
+.RI "int \fBget_ntree\fP (SEXP object)"
+.br
+.ti -1c
+.RI "int \fBget_replace\fP (SEXP object)"
+.br
+.ti -1c
+.RI "double \fBget_fraction\fP (SEXP object)"
 .br
 .in -1c
 .SS "Variables"
@@ -337,6 +346,15 @@ Classes.c \-
 .ti -1c
 .RI "SEXP \fBPL2_tgctrlSym\fP"
 .br
+.ti -1c
+.RI "SEXP \fBPL2_ntreeSym\fP"
+.br
+.ti -1c
+.RI "SEXP \fBPL2_replaceSym\fP"
+.br
+.ti -1c
+.RI "SEXP \fBPL2_fractionSym\fP"
+.br
 .in -1c
 .SH "Detailed Description"
 .PP 
@@ -353,7 +371,7 @@ hothorn
 \fBDate:\fP
 .RS 4
 \fBDate\fP.RS 4
-2006-02-14 11:35:22 +0100 (Di, 14 Feb 2006) 
+2006-04-23 19:45:59 +0200 (Sun, 23 Apr 2006) 
 .RE
 .PP
 .RE
@@ -365,306 +383,327 @@ Definition in file \fBClasses.c\fP.
 .PP 
 .SS "int check_depth (SEXP object, int depth)"
 .PP
-Definition at line 349 of file Classes.c.
+Definition at line 355 of file Classes.c.
 .PP
 References PL2_maxdepthSym.
 .PP
 Referenced by C_TreeGrow().
 .SS "double get_abseps (SEXP object)"
 .PP
-Definition at line 165 of file Classes.c.
+Definition at line 171 of file Classes.c.
 .PP
 References PL2_absepsSym.
 .PP
 Referenced by C_TeststatPvalue().
 .SS "int get_dimension (SEXP object)"
 .PP
-Definition at line 145 of file Classes.c.
+Definition at line 151 of file Classes.c.
 .PP
 References PL2_dimensionSym.
 .PP
 Referenced by C_ConditionalPvalue(), C_MLinearStatistic(), C_Node(), C_TestStatistic(), and R_splitcategorical().
 .SS "SEXP get_dontuse (SEXP object)"
 .PP
-Definition at line 337 of file Classes.c.
+Definition at line 343 of file Classes.c.
 .PP
 References PL2_dontuseSym.
 .PP
 Referenced by C_GlobalTest().
 .SS "SEXP get_dontusetmp (SEXP object)"
 .PP
-Definition at line 341 of file Classes.c.
+Definition at line 347 of file Classes.c.
 .PP
 References PL2_dontusetmpSym.
 .PP
 Referenced by C_GlobalTest().
+.SS "double get_fraction (SEXP object)"
+.PP
+Definition at line 371 of file Classes.c.
+.PP
+References PL2_fractionSym.
+.PP
+Referenced by R_Ensemble().
 .SS "SEXP get_gtctrl (SEXP object)"
 .PP
-Definition at line 313 of file Classes.c.
+Definition at line 319 of file Classes.c.
 .PP
 References PL2_gtctrlSym.
 .PP
 Referenced by C_Node().
 .SS "SEXP get_jointtransf (SEXP object)"
 .PP
-Definition at line 191 of file Classes.c.
+Definition at line 197 of file Classes.c.
 .PP
 References PL2_jointtransfSym.
 .PP
 Referenced by R_modify_response().
 .SS "SEXP get_levels (SEXP object, int variable)"
 .PP
-Definition at line 228 of file Classes.c.
+Definition at line 234 of file Classes.c.
 .PP
 References is_nominal(), is_ordinal(), and PL2_levelsSym.
 .PP
 Referenced by C_Node().
 .SS "int get_maxpts (SEXP object)"
 .PP
-Definition at line 161 of file Classes.c.
+Definition at line 167 of file Classes.c.
 .PP
 References PL2_maxptsSym.
 .PP
 Referenced by C_TeststatPvalue().
 .SS "int get_maxsurrogate (SEXP object)"
 .PP
-Definition at line 325 of file Classes.c.
+Definition at line 331 of file Classes.c.
 .PP
 References PL2_maxsurrogateSym.
 .PP
 Referenced by C_splitnode(), C_surrogates(), C_TreeGrow(), R_Ensemble(), R_Node(), and R_TreeGrow().
 .SS "double get_minbucket (SEXP object)"
 .PP
-Definition at line 181 of file Classes.c.
+Definition at line 187 of file Classes.c.
 .PP
 References PL2_minbucketSym.
 .PP
 Referenced by C_split().
 .SS "double get_mincriterion (SEXP object)"
 .PP
-Definition at line 321 of file Classes.c.
+Definition at line 327 of file Classes.c.
 .PP
 References PL2_mincriterionSym.
 .PP
 Referenced by C_Node().
 .SS "double get_minprob (SEXP object)"
 .PP
-Definition at line 177 of file Classes.c.
+Definition at line 183 of file Classes.c.
 .PP
 References PL2_minprobSym.
 .PP
 Referenced by C_split().
 .SS "double get_minsplit (SEXP object)"
 .PP
-Definition at line 173 of file Classes.c.
+Definition at line 179 of file Classes.c.
 .PP
 References PL2_minsplitSym.
 .PP
 Referenced by C_Node().
 .SS "SEXP get_missings (SEXP object, int variable)"
 .PP
-Definition at line 251 of file Classes.c.
+Definition at line 257 of file Classes.c.
 .PP
 References has_missings(), and PL2_whichNASym.
 .PP
 Referenced by C_get_node(), C_GlobalTest(), C_splitnode(), C_splitsurrogate(), and C_surrogates().
 .SS "SEXP get_Mscorematrix (SEXP object, int variable)"
 .PP
-Definition at line 272 of file Classes.c.
+Definition at line 278 of file Classes.c.
 .PP
 References PL2_MscorematricesSym.
 .PP
 Referenced by C_GlobalTest(), and C_MonteCarlo().
 .SS "int get_mtry (SEXP object)"
 .PP
-Definition at line 333 of file Classes.c.
+Definition at line 339 of file Classes.c.
 .PP
 References PL2_mtrySym.
 .PP
 Referenced by C_GlobalTest().
 .SS "int get_ninputs (SEXP object)"
 .PP
-Definition at line 289 of file Classes.c.
+Definition at line 295 of file Classes.c.
 .PP
 References PL2_ninputsSym.
 .PP
 Referenced by C_GlobalTest(), C_MonteCarlo(), C_Node(), C_splitnode(), C_surrogates(), R_Ensemble(), R_GlobalTest(), R_MonteCarlo(), R_Node(), and R_TreeGrow().
 .SS "int get_nobs (SEXP object)"
 .PP
-Definition at line 285 of file Classes.c.
+Definition at line 291 of file Classes.c.
 .PP
 References PL2_nobsSym.
 .PP
 Referenced by C_GlobalTest(), C_MonteCarlo(), C_Node(), C_predict(), C_splitnode(), C_splitsurrogate(), C_surrogates(), C_TreeGrow(), C_weights(), R_Ensemble(), R_get_nodeID(), R_Node(), R_predict(), R_predictRF(), R_predictRF2(), R_predictRF_weights(), R_TreeGrow(), and R_weights().
 .SS "int get_nresample (SEXP object)"
 .PP
-Definition at line 301 of file Classes.c.
+Definition at line 307 of file Classes.c.
 .PP
 References PL2_nresampleSym.
 .PP
 Referenced by C_MonteCarlo().
+.SS "int get_ntree (SEXP object)"
+.PP
+Definition at line 363 of file Classes.c.
+.PP
+References PL2_ntreeSym.
+.PP
+Referenced by R_Ensemble().
 .SS "SEXP get_ordering (SEXP object, int variable)"
 .PP
-Definition at line 217 of file Classes.c.
+Definition at line 223 of file Classes.c.
 .PP
 References is_nominal(), and PL2_orderingSym.
 .PP
 Referenced by C_Node(), and C_surrogates().
 .SS "int get_pvalue (SEXP object)"
 .PP
-Definition at line 153 of file Classes.c.
+Definition at line 159 of file Classes.c.
 .PP
 References PL2_pvalueSym.
 .PP
 Referenced by C_TeststatCriterion(), and C_TeststatPvalue().
 .SS "int get_randomsplits (SEXP object)"
 .PP
-Definition at line 329 of file Classes.c.
+Definition at line 335 of file Classes.c.
 .PP
 References PL2_randomsplitsSym.
 .PP
 Referenced by C_GlobalTest().
 .SS "double get_releps (SEXP object)"
 .PP
-Definition at line 169 of file Classes.c.
+Definition at line 175 of file Classes.c.
 .PP
 References PL2_relepsSym.
 .PP
 Referenced by C_TeststatPvalue().
+.SS "int get_replace (SEXP object)"
+.PP
+Definition at line 367 of file Classes.c.
+.PP
+References PL2_replaceSym.
+.PP
+Referenced by R_Ensemble().
 .SS "int get_savesplitstats (SEXP object)"
 .PP
-Definition at line 277 of file Classes.c.
+Definition at line 283 of file Classes.c.
 .PP
 References PL2_savesplitstatsSym.
 .PP
 Referenced by C_Node().
 .SS "SEXP get_scores (SEXP object, int variable)"
 .PP
-Definition at line 240 of file Classes.c.
+Definition at line 246 of file Classes.c.
 .PP
 References is_ordinal(), and PL2_scoresSym.
 .SS "SEXP get_splitctrl (SEXP object)"
 .PP
-Definition at line 309 of file Classes.c.
+Definition at line 315 of file Classes.c.
 .PP
 References PL2_splitctrlSym.
 .PP
 Referenced by C_Node(), C_splitnode(), C_surrogates(), C_TreeGrow(), R_Ensemble(), R_Node(), and R_TreeGrow().
 .SS "SEXP get_splitstatistics (SEXP object)"
 .PP
-Definition at line 281 of file Classes.c.
+Definition at line 287 of file Classes.c.
 .PP
 References PL2_splitstatisticsSym.
 .PP
 Referenced by C_Node(), and C_surrogates().
 .SS "int get_stump (SEXP object)"
 .PP
-Definition at line 345 of file Classes.c.
+Definition at line 351 of file Classes.c.
 .PP
 References PL2_stumpSym.
 .PP
 Referenced by C_TreeGrow().
 .SS "int get_teststat (SEXP object)"
 .PP
-Definition at line 149 of file Classes.c.
+Definition at line 155 of file Classes.c.
 .PP
 References PL2_teststatSym.
 .PP
 Referenced by C_GlobalTest(), C_IndependenceTest(), and C_TeststatPvalue().
 .SS "int get_testtype (SEXP object)"
 .PP
-Definition at line 297 of file Classes.c.
+Definition at line 303 of file Classes.c.
 .PP
 References PL2_testtypeSym.
 .PP
 Referenced by C_GlobalTest().
 .SS "SEXP get_tgctrl (SEXP object)"
 .PP
-Definition at line 317 of file Classes.c.
+Definition at line 323 of file Classes.c.
 .PP
 References PL2_tgctrlSym.
 .PP
 Referenced by C_Node(), and C_TreeGrow().
 .SS "double get_tol (SEXP object)"
 .PP
-Definition at line 157 of file Classes.c.
+Definition at line 163 of file Classes.c.
 .PP
 References PL2_tolSym.
 .PP
 Referenced by C_GlobalTest(), C_IndependenceTest(), C_Node(), C_split(), C_splitcategorical(), C_TeststatPvalue(), and R_splitcategorical().
 .SS "SEXP get_transformation (SEXP object, int variable)"
 .PP
-Definition at line 185 of file Classes.c.
+Definition at line 191 of file Classes.c.
 .PP
 References PL2_transformationsSym.
 .PP
 Referenced by C_GlobalTest(), C_MonteCarlo(), C_Node(), and R_modify_response().
 .SS "SEXP get_varctrl (SEXP object)"
 .PP
-Definition at line 305 of file Classes.c.
+Definition at line 311 of file Classes.c.
 .PP
 References PL2_varctrlSym.
 .PP
 Referenced by C_Node().
 .SS "SEXP get_variable (SEXP object, int variable)"
 .PP
-Definition at line 195 of file Classes.c.
+Definition at line 201 of file Classes.c.
 .PP
 References PL2_variablesSym.
 .PP
 Referenced by C_get_node(), C_Node(), C_splitnode(), C_splitsurrogate(), C_surrogates(), and R_modify_response().
 .SS "SEXP get_varmemory (SEXP object, int variable)"
 .PP
-Definition at line 262 of file Classes.c.
+Definition at line 268 of file Classes.c.
 .PP
 References PL2_varmemorySym.
 .PP
 Referenced by C_GlobalTest(), C_MonteCarlo(), and C_Node().
 .SS "SEXP get_varMmemory (SEXP object, int variable)"
 .PP
-Definition at line 267 of file Classes.c.
+Definition at line 273 of file Classes.c.
 .PP
 References PL2_varMmemorySym.
 .PP
 Referenced by C_GlobalTest(), and C_MonteCarlo().
 .SS "SEXP get_weights (SEXP object, int variable)"
 .PP
-Definition at line 293 of file Classes.c.
+Definition at line 299 of file Classes.c.
 .PP
 References PL2_weightsSym.
 .PP
 Referenced by C_GlobalTest(), C_Node(), and C_surrogates().
 .SS "int has_missings (SEXP object, int variable)"
 .PP
-Definition at line 213 of file Classes.c.
+Definition at line 219 of file Classes.c.
 .PP
 References PL2_has_missingsSym.
 .PP
 Referenced by C_get_node(), C_GlobalTest(), C_MonteCarlo(), C_Node(), C_splitnode(), C_splitsurrogate(), C_surrogates(), and get_missings().
 .SS "int is_censored (SEXP object, int variable)"
 .PP
-Definition at line 209 of file Classes.c.
+Definition at line 215 of file Classes.c.
 .PP
 References PL2_is_censoredSym.
 .SS "int is_nominal (SEXP object, int variable)"
 .PP
-Definition at line 201 of file Classes.c.
+Definition at line 207 of file Classes.c.
 .PP
 References PL2_is_nominalSym.
 .PP
 Referenced by C_Node(), C_surrogates(), get_levels(), and get_ordering().
 .SS "int is_ordinal (SEXP object, int variable)"
 .PP
-Definition at line 205 of file Classes.c.
+Definition at line 211 of file Classes.c.
 .PP
 References PL2_is_ordinalSym.
 .PP
 Referenced by C_GlobalTest(), C_MonteCarlo(), C_Node(), get_levels(), and get_scores().
 .SS "SEXP party_init (void)"
 .PP
-Definition at line 76 of file Classes.c.
+Definition at line 79 of file Classes.c.
 .PP
-References PL2_absepsSym, PL2_covarianceSym, PL2_dimensionSym, PL2_dontuseSym, PL2_dontusetmpSym, PL2_expcovinfssSym, PL2_expcovinfSym, PL2_expectationSym, PL2_gtctrlSym, PL2_has_missingsSym, PL2_inputsSym, PL2_is_censoredSym, PL2_is_nominalSym, PL2_is_ordinalSym, PL2_jobuSym, PL2_jobvSym, PL2_jointtransfSym, PL2_levelsSym, PL2_linearstatisticSym, PL2_linexpcov2sampleSym, PL2_maxdepthSym, PL2_maxptsSym, PL2_maxsurrogateSym, PL2_methodSym, PL2_minbucketSym, PL2_mincriterionSym, PL2_minprobSym, PL2_minsplitSym, PL2_MPinvSym, PL2_MscorematricesSym, PL2_mtrySym, PL2_ninputsSym, PL2_nobsSym, PL2_nresampleSym, PL2_orderingSym, PL2_pSym, PL2_pvalueSym, PL2_randomsplitsSym, PL2_rankSym, PL2_relepsSym, PL2_responsesSym, PL2_savesplitstatsSym, PL2_scoresSym, PL2_splitctrlSym, PL2_splitstatisticsSym, PL2_sSym, PL2_stumpSym, PL2_sumweightsSym, PL2_svdmemSym, PL2_svdSym, PL2_teststatSym, PL2_testtypeSym, PL2_tgctrlSym, PL2_tolSym, PL2_transformationsSym, PL2_uSym, PL2_varctrlSym, PL2_variablesSym, PL2_varmemorySym, PL2_varMmemorySym, PL2_vSym, PL2_weightsSym, and PL2_whichNASym.
+References PL2_absepsSym, PL2_covarianceSym, PL2_dimensionSym, PL2_dontuseSym, PL2_dontusetmpSym, PL2_expcovinfssSym, PL2_expcovinfSym, PL2_expectationSym, PL2_fractionSym, PL2_gtctrlSym, PL2_has_missingsSym, PL2_inputsSym, PL2_is_censoredSym, PL2_is_nominalSym, PL2_is_ordinalSym, PL2_jobuSym, PL2_jobvSym, PL2_jointtransfSym, PL2_levelsSym, PL2_linearstatisticSym, PL2_linexpcov2sampleSym, PL2_maxdepthSym, PL2_maxptsSym, PL2_maxsurrogateSym, PL2_methodSym, PL2_minbucketSym, PL2_mincriterionSym, PL2_minprobSym, PL2_minsplitSym, PL2_MPinvSym, PL2_MscorematricesSym, PL2_mtrySym, PL2_ninputsSym, PL2_nobsSym, PL2_nresampleSym, PL2_ntreeSym, PL2_orderingSym, PL2_pSym, PL2_pvalueSym, PL2_randomsplitsSym, PL2_rankSym, PL2_relepsSym, PL2_replaceSym, PL2_responsesSym, PL2_savesplitstatsSym, PL2_scoresSym, PL2_splitctrlSym, PL2_splitstatisticsSym, PL2_sSym, PL2_stumpSym, PL2_sumweightsSym, PL2_svdmemSym, PL2_svdSym, PL2_teststatSym, PL2_testtypeSym, PL2_tgctrlSym, PL2_tolSym, PL2_transformationsSym, PL2_uSym, PL2_varctrlSym, PL2_variablesSym, PL2_varmemorySym, PL2_varMmemorySym, PL2_vSym, PL2_weightsSym, and PL2_whichNASym.
 .SH "Variable Documentation"
 .PP 
 .SS "SEXP \fBPL2_absepsSym\fP"
@@ -707,6 +746,11 @@ Referenced by C_GlobalTest(), C_IndependenceTest(), C_MonteCarlo(), C_Node(), pa
 Definition at line 12 of file Classes.c.
 .PP
 Referenced by C_ExpectCovarInfluence(), C_ExpectCovarLinearStatistic(), C_MLinearStatistic(), C_Node(), C_split(), C_TestStatistic(), party_init(), R_ExpectCovarInfluence(), R_ExpectCovarLinearStatistic(), and R_splitcategorical().
+.SS "SEXP \fBPL2_fractionSym\fP"
+.PP
+Definition at line 12 of file Classes.c.
+.PP
+Referenced by get_fraction(), and party_init().
 .SS "SEXP \fBPL2_gtctrlSym\fP"
 .PP
 Definition at line 12 of file Classes.c.
@@ -837,6 +881,11 @@ Referenced by get_nobs(), and party_init().
 Definition at line 12 of file Classes.c.
 .PP
 Referenced by get_nresample(), and party_init().
+.SS "SEXP \fBPL2_ntreeSym\fP"
+.PP
+Definition at line 12 of file Classes.c.
+.PP
+Referenced by get_ntree(), and party_init().
 .SS "SEXP \fBPL2_orderingSym\fP"
 .PP
 Definition at line 12 of file Classes.c.
@@ -867,6 +916,11 @@ Referenced by C_ConditionalPvalue(), C_MPinv(), party_init(), and R_MPinv().
 Definition at line 12 of file Classes.c.
 .PP
 Referenced by get_releps(), and party_init().
+.SS "SEXP \fBPL2_replaceSym\fP"
+.PP
+Definition at line 12 of file Classes.c.
+.PP
+Referenced by get_replace(), and party_init().
 .SS "SEXP \fBPL2_responsesSym\fP"
 .PP
 Definition at line 12 of file Classes.c.

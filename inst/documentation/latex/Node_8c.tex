@@ -48,7 +48,7 @@ Definition in file \hyperlink{Node_8c-source}{Node.c}.
 The main function for all node computations \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[{\em node}]an initialized node (an S3 object!) \item[{\em learnsample}]an object of class `Learning\-Sample' \item[{\em weights}]case weights \item[{\em fitmem}]an object of class `Tree\-Fit\-Memory' \item[{\em controls}]an object of class `Tree\-Control' \item[{\em TERMINAL}]logical indicating if this node will be a terminal node \end{description}
+\item[{\em node}]an initialized node (an S3 object!) \item[{\em learnsample}]an object of class `Learning\-Sample' \item[{\em weights}]case weights \item[{\em fitmem}]an object of class `Tree\-Fit\-Memory' \item[{\em controls}]an object of class `Tree\-Control' \item[{\em TERMINAL}]logical indicating if this node will be a terminal node\end{description}
 \end{Desc}
 
 
@@ -61,7 +61,7 @@ Referenced by C\_\-Tree\-Grow(), and R\_\-Node().
 Here is the call graph for this function:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=231pt]{Node_8c_a1_cgraph}
+\includegraphics[width=228pt]{Node_8c_a1_cgraph}
 \end{center}
 \end{figure}
 \hypertarget{Node_8c_a0}{
@@ -74,7 +74,7 @@ Here is the call graph for this function:\begin{figure}[H]
 Compute prediction of a node \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[{\em y}]the response variable (raw numeric values or dummy encoded factor) \item[{\em n}]number of observations \item[{\em q}]number of columns of y \item[{\em weights}]case weights \item[{\em sweights}]sum of case weights \item[{\em ans}]return value; the q-dimensional predictions \end{description}
+\item[{\em y}]the response variable (raw numeric values or dummy encoded factor) \item[{\em n}]number of observations \item[{\em q}]number of columns of y \item[{\em weights}]case weights \item[{\em sweights}]sum of case weights \item[{\em ans}]return value; the q-dimensional predictions\end{description}
 \end{Desc}
 
 
@@ -90,7 +90,7 @@ Referenced by C\_\-Node().\hypertarget{Node_8c_a2}{
 R-interface to C\_\-Node \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[{\em learnsample}]an object of class `Learning\-Sample' \item[{\em weights}]case weights \item[{\em fitmem}]an object of class `Tree\-Fit\-Memory' \item[{\em controls}]an object of class `Tree\-Control' \end{description}
+\item[{\em learnsample}]an object of class `Learning\-Sample' \item[{\em weights}]case weights \item[{\em fitmem}]an object of class `Tree\-Fit\-Memory' \item[{\em controls}]an object of class `Tree\-Control'\end{description}
 \end{Desc}
 
 
@@ -101,6 +101,6 @@ References C\_\-init\_\-node(), C\_\-Node(), get\_\-maxsurrogate(), get\_\-ninpu
 Here is the call graph for this function:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=169pt]{Node_8c_a2_cgraph}
+\includegraphics[width=164pt]{Node_8c_a2_cgraph}
 \end{center}
 \end{figure}

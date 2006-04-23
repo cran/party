@@ -1,6 +1,6 @@
 
 R : Copyright 2006, The R Foundation for Statistical Computing
-Version 2.3.0 alpha (2006-04-04 r37647)
+Version 2.3.0 (2006-04-24)
 ISBN 3-900051-07-0
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -83,7 +83,7 @@ Loading required package: strucchange
 	Approximative Maxstat Test
 
 data:  y by x 
-T = 1.1008, p-value = 0.9
+maxT = 1.1008, p-value = 0.9
 sample estimates:
 cutpoint in  x 
       1.337766 
@@ -99,7 +99,7 @@ cutpoint in  x
 	Approximative Maxstat Test
 
 data:  Surv(month, cens) by EF 
-T = 3.5647, p-value = 0.1
+maxT = 3.5647, p-value = 0.1
 sample estimates:
 cutpoint in  EF 
              39 
