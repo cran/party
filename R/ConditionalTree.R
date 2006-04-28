@@ -1,5 +1,5 @@
 
-# $Id: ConditionalTree.R 2538 2006-04-04 15:47:15Z hothorn $
+# $Id: ConditionalTree.R 2577 2006-04-28 11:26:39Z hothorn $
 
 ### the fitting procedure
 ctreefit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
@@ -216,6 +216,7 @@ ctree_control <- function(teststat = c("quad", "max"),
     RET@tgctrl@stump <- stump
     RET@tgctrl@maxdepth <- as.integer(maxdepth)
     RET@tgctrl@savesplitstats <- savesplitstats
+    val <- validObject(RET)
     RET
 }
 

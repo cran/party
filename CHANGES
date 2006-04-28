@@ -1,4 +1,12 @@
 
+                CHANGES IN party VERSION 0.8-6 (2006-05-22)
+
+    o    add some validity checks for hyper parameters
+
+    o    add function `varimp' for computing variable importance
+         measures for some random forests (this is still experimental and
+         thus not exported yet, so use `party:::varimp')
+
                 CHANGES IN party VERSION 0.8-5 (2006-04-25)
 
     o    all hyper parameters to `cforest' are now controlled using

@@ -1,6 +1,6 @@
 
 R : Copyright 2006, The R Foundation for Statistical Computing
-Version 2.3.0 alpha (2006-04-04 r37647)
+Version 2.3.0 (2006-04-24)
 ISBN 3-900051-07-0
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -68,4 +68,22 @@ Number of observations:  250
 +            control =  ctree_control(testtype = "Monte", stump = TRUE))
 > stopifnot(isequal(a@tree$psplit, b@tree$psplit))  
 > stopifnot(isequal(a@tree$criterion$statistic, b@tree$criterion$statistic))
+> 
+> ### we did not check the hyper parameters
+> try(cforest_control(minsplit = -1))
+Error in validObject(object@splitctrl) : invalid class "SplitControl" object: FALSE
+In addition: Warning message:
+no negative values allowed in objects of class ‘SplitControl’ in: validityMethod(object) 
+> try(cforest_control(ntree = -1))
+Error in validObject(RET) : invalid class "ForestControl" object: FALSE
+In addition: Warning message:
+‘ntree’ must be equal or greater 1 in: validityMethod(object) 
+> try(cforest_control(maxdepth = -1))
+Error in validObject(object@tgctrl) : invalid class "TreeGrowControl" object: FALSE
+In addition: Warning message:
+‘maxdepth’ must be positive in: validityMethod(object) 
+> try(cforest_control(nresample = 10))
+Error in validObject(object@gtctrl) : invalid class "GlobalTestControl" object: FALSE
+In addition: Warning message:
+‘nresample’ must be larger than 100 in: validityMethod(object) 
 > 

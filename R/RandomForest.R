@@ -1,5 +1,5 @@
 
-# $Id: RandomForest.R 2570 2006-04-23 17:45:59Z hothorn $
+# $Id: RandomForest.R 2617 2006-05-22 11:51:00Z hothorn $
 
 ### the fitting procedure
 cforestfit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
@@ -127,9 +127,8 @@ cforest_control <- function(teststat = "max",
     class(RET) <- "ForestControl"
     RET@ntree <- as.integer(ntree)
     RET@replace <- replace
-    if (fraction > 0.99 || fraction < 0.01)
-        stop(sQuote("fraction"), " is not in between (0.01, 0.99)")
     RET@fraction <- as.double(fraction)
+    val <- validObject(RET)
     RET
 }
     
@@ -148,4 +147,76 @@ cforest <- function(formula, data = list(), subset = NULL, weights = NULL,
     ### fit and return a conditional tree
     fit(RandomForest, ls, controls = controls, weights = weights, 
         fitmem = fitmem)
+}
+
+###
+### variable importance for `cforest'
+###
+### see ?importance (in `randomForest'), too
+###
+###
+
+### extract ID of _all_ variables the tree uses for splitting
+varIDs <- function(node) {
+
+    v <- c()
+    foo <- function(node) {
+        if (node[[4]]) return(NULL)
+        v <<- c(v, node[[5]][[1]])
+        foo(node[[8]])
+        foo(node[[9]])
+    }
+    foo(node)
+    return(v)
+}
+
+varimp <- function(x, mincriterion = 0.0) {
+
+    inputs <- x@data@get("input")
+    response <- x@responses
+    if (length(response@variables) != 1)
+        stop("cannot compute variable importance measure for multivariate response")
+    y <- x@responses@variables[[1]]
+    inp <- initVariableFrame(inputs, trafo = NULL) 
+    if (!all(complete.cases(inp@variables)))
+        stop("cannot compute variable importance measure with missing values")
+    tmp <- inp
+    jt <- response@jointtransf
+
+    CLASS <- all(response@is_nominal || response@is_ordinal)
+    if (CLASS) {
+        error <- function(p, oob) 
+            mean((levels(y)[sapply(p, which.max)] != y)[oob])
+    } else {
+        error <- function(x, oob) mean((unlist(x) - y)[oob]^2)
+    }
+
+    perror <- matrix(0, nrow = length(x@ensemble), ncol = ncol(inputs))
+    colnames(perror) <- colnames(inputs)
+
+    for (b in 1:length(x@ensemble)) {
+
+        tree <- x@ensemble[[b]]
+        oob <- tree[[2]] == 0
+
+        p <- .Call("R_predict", tree, inp, mincriterion,
+                   PACKAGE = "party")
+        eoob <- error(p, oob)
+
+        for (j in unique(varIDs(tree))) {
+            perm <- sample(which(oob))
+            tmp@variables[[j]][which(oob)] <- tmp@variables[[j]][perm]
+            ### <FIXME> check for NA's
+            ### tmp@whichNA[[j]] <- which(is.na(tmp@variables[[j]]))
+            ### </FIXME>
+
+            p <- .Call("R_predict", tree, tmp, mincriterion,
+                       PACKAGE = "party")
+
+            perror[b, j] <- (error(p, oob) - eoob)
+            tmp <- inp
+        }
+    }
+    data.frame("MeanDecreaseAccuracy" = colMeans(perror), 
+               "Standard Deviation" = apply(perror, 2, sd))
 }

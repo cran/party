@@ -1,5 +1,5 @@
 
-# $Id: Classes.R 2570 2006-04-23 17:45:59Z hothorn $
+# $Id: Classes.R 2577 2006-04-28 11:26:39Z hothorn $
 
 ### Conditional Expectation and Covariance
 setClass(Class = "ExpectCovar",
@@ -108,7 +108,20 @@ setClass(Class = "SplitControl",
     ),
     prototype = list(minprob = 0.01, minsplit = 20, 
                      minbucket = 7, tol = 1e-10, maxsurrogate = as.integer(0)
-    )
+    ),
+    validity = function(object) {
+        if (any(c(object@minsplit, object@minbucket, 
+                  object@tol, object@maxsurrogate) < 0)) {
+            warning("no negative values allowed in objects of class ", 
+                    sQuote("SplitControl"))
+            return(FALSE)
+        }
+        if (object@minprob < 0.01 || object@minprob > 0.99) {
+            warning(sQuote("minprob"), " must be in (0.01, 0.99)")
+            return(FALSE)
+        }
+        return(TRUE)
+    }
 )
 
 setClass(Class = "GlobalTestControl",
@@ -127,7 +140,22 @@ setClass(Class = "GlobalTestControl",
         randomsplits = FALSE,
         mtry = as.integer(0),
         mincriterion = 0.95
-    )
+    ),
+    validity = function(object) {
+        if (object@mincriterion < 0) {
+            warning(sQuote("mincriterion"), " must not be negative")
+            return(FALSE)
+        }
+        if (object@mtry < 0) {
+            warning(sQuote("mtry"), " must be positive")
+            return(FALSE)
+        }
+        if (object@nresample < 100) {
+            warning(sQuote("nresample"), " must be larger than 100")
+            return(FALSE)
+        }
+        return(TRUE)
+    },
 )
 
 setClass(Class = "TreeGrowControl",
@@ -136,7 +164,14 @@ setClass(Class = "TreeGrowControl",
         maxdepth        = "integer",
         savesplitstats  = "logical"
     ),
-    prototype = list(stump = FALSE, maxdepth = as.integer(0), savesplitstats = TRUE)
+    prototype = list(stump = FALSE, maxdepth = as.integer(0), savesplitstats = TRUE),
+    validity = function(object) {
+        if (object@maxdepth < 0) {
+            warning(sQuote("maxdepth"), " must be positive")
+            return(FALSE)
+        }
+        return(TRUE)
+    }
 )
 
 setClass(Class = "TreeControl",
@@ -150,7 +185,13 @@ setClass(Class = "TreeControl",
                      splitctrl = new("SplitControl"),
                      gtctrl = new("GlobalTestControl"),
                      tgctrl = new("TreeGrowControl")
-    )
+    ),
+    validity = function(object) {
+        (validObject(object@varctrl) && 
+        validObject(object@splitctrl)) &&
+        (validObject(object@gtctrl) &&
+        validObject(object@tgctrl))
+    }
 )
 
 setClass(Class = "ForestControl",
@@ -158,7 +199,19 @@ setClass(Class = "ForestControl",
         ntree    = "integer",
         replace  = "logical",
         fraction = "numeric"),
-    contains = "TreeControl")
+    contains = "TreeControl",
+    validity = function(object) {
+        if (object@ntree < 1) {
+            warning(sQuote("ntree"), " must be equal or greater 1")
+            return(FALSE)
+        }
+        if (object@fraction < 0.01 || object@fraction > 0.99) {
+            warning(sQuote("fraction"), " must be in (0.01, 0.99)")
+            return(FALSE)
+        }
+        return(TRUE)
+    }
+)
 
 setClass(Class = "VariableFrame",
     representation = representation(

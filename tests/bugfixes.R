@@ -22,3 +22,9 @@ b <- ctree(y ~ x + z, data = df,
            control =  ctree_control(testtype = "Monte", stump = TRUE))
 stopifnot(isequal(a@tree$psplit, b@tree$psplit))  
 stopifnot(isequal(a@tree$criterion$statistic, b@tree$criterion$statistic))
+
+### we did not check the hyper parameters
+try(cforest_control(minsplit = -1))
+try(cforest_control(ntree = -1))
+try(cforest_control(maxdepth = -1))
+try(cforest_control(nresample = 10))
