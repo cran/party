@@ -1,5 +1,6 @@
 \name{cforest}
 \alias{cforest}
+\alias{varimp}
 \title{ Random Forest }
 \description{
     An implementation of the random forest and bagging ensemble algorithms
@@ -9,6 +10,7 @@
 cforest(formula, data = list(), subset = NULL, weights = NULL, 
         controls = cforest_control(),
         xtrafo = ptrafo, ytrafo = ptrafo, scores = NULL)
+varimp(x, mincriterion = 0.0)
 }
 \arguments{
   \item{formula}{ a symbolic description of the model to be fit. }
@@ -26,6 +28,10 @@ cforest(formula, data = list(), subset = NULL, weights = NULL,
                 By default, the \code{\link{ptrafo}} function is applied.}
   \item{scores}{ an optional named list of scores to be attached to ordered
                factors.}
+  \item{x}{ an object as returned by \code{cforest}.}
+  \item{mincriterion}{ the value of the test statistic or 1 - p-value that
+                       must be exceeded in order make use of a split. 
+                       See \code{\link{ctree_control}}.}
 }
 \details{
 
@@ -51,6 +57,9 @@ cforest(formula, data = list(), subset = NULL, weights = NULL,
   By default, raw test statitics are maximized and five inputs are randomly
   examined for possible splits in each node.
 
+  Function \code{varimp} can be used to compute variable importance measures
+  similar to those computed by \code{\link[randomForest]{importance}}.
+
 }
 \value{
   An object of class \code{\link{RandomForest-class}}.
@@ -61,6 +70,10 @@ cforest(formula, data = list(), subset = NULL, weights = NULL,
 
     Torsten Hothorn, Berthold Lausen, Axel Benner and Martin Radespiel-Troeger
     (2004). Bagging Survival Trees. \emph{Statistics in Medicine}, \bold{23}(1), 77--91.
+
+    Torsten Hothorn, Peter Buhlmann, Sandrine Dudoit, Annette Molinaro 
+    and Mark J. van der Laan (2006). Survival Ensembles. \emph{Biostatistics}, 
+    \bold{7}(3), 355--373.
 
 }
 \examples{

@@ -6,6 +6,7 @@
 %% packages
 \usepackage{amsmath}
 \SweaveOpts{engine=R}
+%% neet no \usepackage{Sweave}
 
 %% commands
 \newcommand{\ui}{\underline{i}}

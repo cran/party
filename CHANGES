@@ -1,4 +1,13 @@
 
+                CHANGES IN party VERSION 0.8-8 (2006-08-23)
+
+    o    export `varimp' (variable importance measures for cforest())
+
+    o    documentation updates
+
+    o    add codetools checks
+
+
                 CHANGES IN party VERSION 0.8-7 (2006-07-17)
 
     o    REAL(NULL) now gives an error in C code and scores could be 

@@ -9,6 +9,7 @@
 \usepackage{amsmath}
 \usepackage{thumbpdf}
 \usepackage{rotating}
+%% need no \usepackage{Sweave}
 
 %% commands
 \renewcommand{\Prob}{\mathbb{P} }
