@@ -1,4 +1,12 @@
 
+                CHANGES IN party VERSION 0.8-7 (2006-07-17)
+
+    o    REAL(NULL) now gives an error in C code and scores could be 
+         potentially NULL: fixed for the time being.
+
+    o    add `show' method for BinaryTree and RandomForest objects
+
+
                 CHANGES IN party VERSION 0.8-6 (2006-05-22)
 
     o    add some validity checks for hyper parameters
@@ -6,6 +14,7 @@
     o    add function `varimp' for computing variable importance
          measures for some random forests (this is still experimental and
          thus not exported yet, so use `party:::varimp')
+
 
                 CHANGES IN party VERSION 0.8-5 (2006-04-25)
 
@@ -27,7 +36,6 @@
          Node 7 for the `GlaucomaM' data is now splitted in addition (in tms).
 
 
-
                 CHANGES IN party VERSION 0.8-3 (2006-03-20)
 
     o   `predict' returned nonsensical results in case a tree was 
@@ -43,7 +51,6 @@
 
 		CHANGES IN `party' VERSION 0.8-1 (2006-02-23)
 
-
     o    `testtype' can be Bonferroni, MonteCarlo, Univariate and
          Teststatistic (instead of Raw)		
 
@@ -53,7 +60,6 @@
 
 
 		CHANGES IN `party' VERSION 0.8-0 (2006-02-15)		
-
 
     o    `cforest', an implementation of Breiman's random forest ensemble
          algorithm based on conditional inference trees (`ctree') has been
@@ -77,7 +83,6 @@
 
 		CHANGES IN `party' VERSION 0.3-6 (2006-02-06)
 
-
     o    use a different way to deal with NAMESPACEs during in tests/*.R
          following a suggestion by Prof. Brian D. Ripley
 
@@ -86,30 +91,25 @@
 
 		CHANGES IN `party' VERSION 0.3-5 (2006-02-02)
 
-
     o    make R CMD check happy and move src/README to inst/README
 
 
 		CHANGES IN `party' VERSION 0.3-4 (2006-01-18)
-
 
     o    documentation updates
 
 
 		CHANGES IN `party' VERSION 0.3-3 (2006-01-18)
 
-
     o    some new convenience functions, not exported
 
 
 		CHANGES IN `party' VERSION 0.3-2 (2006-01-12)
 
-
     o    isequal must not check equality of attributes
 
 
 		CHANGES IN `party' VERSION 0.3-1 (2005-12-02)
-
 
     o    fix bug introduced in version 0.3-0: coin:::factor_trafo applies
          treatment contrasts in case of a binary factor but we need the full
@@ -120,7 +120,6 @@
 
 		CHANGES IN `party' VERSION 0.3-0 (2005-11-29)
 
-
     o    `ytrafo' and `xtrafo' functions make use of `coin:::trafo' now,
          i.e. the handling of influence functions and transformations
          has been unified in packages `party' and `coin'
@@ -128,13 +127,11 @@
 
 		CHANGES IN `party' VERSION 0.2-10 (2005-11-08)
 
-
     o    new slot `data' in BinaryTree objects, slots inputnames and levels 
          have been removed
 
 
 		CHANGES IN `party' VERSION 0.2-9 (2005-10-19)
-
 
     o    splits in categorical variables could have failed due 
          to weired internal checks
@@ -142,33 +139,26 @@
 
 		CHANGES IN `party' VERSION 0.2-8 (2005-08-06)
 
-
     o    fix problems reported by codetools
 
 
 		CHANGES IN `party' VERSION 0.2-7 (2005-08-31)
-
 
     o    extract inputs using menv@get("input", data = newdata) in predict
 
 
 		CHANGES IN `party' VERSION 0.2-6 (2005-08-29)
 
-
     o   make gfortran happy
 
 
-
 		CHANGES IN `party' VERSION 0.2-5 (2005-08-19)
-
 
     o    ctree() now searches the global environment for variables given
          in `formula' when the `data' argument is unspecified.
 
 
-
 		CHANGES IN `party' VERSION 0.2-4 (2005-07-07)
-
 
     o    names of `criterion' element in `SplittingNode' objects were wrong
 
@@ -176,17 +166,13 @@
          were potentially wrong
 
 
-
 		CHANGES IN `party' VERSION 0.2-3 (2005-06-29)
-
 
     o   print and plot only levels which are available in a node (for nominal
         splits)
 
 
-
 		CHANGES IN `party' VERSION 0.2-2 (2005-06-27)
-
 
     o   ./src/Makedeps will be automatically generated (on Windows)
         and must not be part of the source-package.

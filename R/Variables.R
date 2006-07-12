@@ -1,5 +1,5 @@
 
-# $Id: Variables.R 2433 2006-01-17 15:28:01Z hothorn $
+# $Id: Variables.R 2674 2006-07-12 20:07:24Z hothorn $
 
 ptrafo <- function(data, numeric_trafo = id_trafo, 
    factor_trafo = function(x) model.matrix(~ x - 1), 
@@ -32,7 +32,10 @@ initVariableFrame.df <- function(obj, trafo = ptrafo, scores = NULL, ...) {
     }
 
     RET@scores <- lapply(obj, function(x) {
-        sc <- NULL
+        ### <FIXME> REAL(NULL) now gives an error in C code
+        ###         handle scores more intelligently 
+        ### </FIXME>
+        sc <- 0
         if (is.ordered(x)) {
             sc <- attr(x, "scores")
             if (is.null(sc)) sc <- 1:nlevels(x)

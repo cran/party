@@ -15,7 +15,7 @@ export(ctree, ctree_memory, ctree_control,
 exportClasses("BinaryTree", "LearningSample", "SplittingNode",
               "TerminalNode", "TreeControl", "RandomForest", "mob",
               "ForestControl")
-exportMethods("initialize", "fit")
+exportMethods("initialize", "fit", "show")
 
 S3method(print, BinaryTree)
 S3method(print, nominalSplit)

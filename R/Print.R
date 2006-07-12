@@ -1,5 +1,5 @@
 
-# $Id: Print.R 2438 2006-02-08 17:33:26Z hothorn $
+# $Id: Print.R 2674 2006-07-12 20:07:24Z hothorn $
 
 prettysplit <- function(x, inames = NULL, ilevels = NULL) {
     if (length(x) == 4)
@@ -145,3 +145,7 @@ print.RandomForest <- function(x, ...) {
     cat("Number of observations: ", x@responses@nobs, "\n\n")
     invisible(x)
 }
+
+setMethod("show", "BinaryTree", function(object) print(object))
+setMethod("show", "RandomForest", function(object) print(object))
+

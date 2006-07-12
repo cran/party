@@ -1,6 +1,6 @@
 
-R : Copyright 2006, The R Foundation for Statistical Computing
-Version 2.3.0 (2006-04-24)
+R version 2.4.0 Under development (unstable) (2006-07-16 r38625)
+Copyright (C) 2006 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -33,6 +33,14 @@ Loading required package: strucchange
 Loading required package: ipred
 Loading required package: rpart
 Loading required package: MASS
+
+Attaching package: 'MASS'
+
+
+	The following object(s) are masked from package:strucchange :
+
+	 SP500 
+
 Loading required package: mlbench
 Loading required package: nnet
 Loading required package: class

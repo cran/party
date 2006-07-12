@@ -4,6 +4,7 @@
 \alias{weights}
 \alias{weights-methods}
 \alias{weights,BinaryTree-method}
+\alias{show,BinaryTree-method}
 \alias{where}
 \alias{where-methods}
 \alias{where,BinaryTree-method}

@@ -26,7 +26,7 @@ stopifnot(isequal(1 - pchisq(t, df = df), ### P-values!!!
           .Call("R_quadformConditionalPvalue", t, df)))
 
 stopifnot(isequal(2*pnorm(-t), 
-          .Call("R_maxabsConditionalPvalue", t, matrix(1), 1, 0.0, 0.0, 0.0)))
+          .Call("R_maxabsConditionalPvalue", t, matrix(1), as.integer(1), 0.0, 0.0, 0.0)))
 
 
 maxpts <- 25000

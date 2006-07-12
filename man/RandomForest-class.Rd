@@ -3,6 +3,7 @@
 \alias{RandomForest-class}
 \alias{treeresponse,RandomForest-method}
 \alias{weights,RandomForest-method}
+\alias{show,RandomForest-method}
 
 \title{Class "RandomForest"}
 \description{A class for representing random forest ensembles. }
