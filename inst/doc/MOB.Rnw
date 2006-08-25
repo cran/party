@@ -21,7 +21,7 @@
 
 \title{\pkg{party} with the \code{mob}: Model-based Recursive Partitioning in \proglang{R}}
 \Plaintitle{party with the mob: Model-based Recursive Partitioning in R}
-\Shorttitle{\pkg{party} with the \code{mob}}
+\Shorttitle{\pkg{party} with the \texttt{mob}}
 
 \Keywords{parametric models, object-orientation, recursive partitioning}
 

@@ -1,5 +1,5 @@
 
-# $Id: RandomForest.R 2617 2006-05-22 11:51:00Z hothorn $
+# $Id: RandomForest.R 2741 2006-08-24 08:38:04Z hothorn $
 
 ### the fitting procedure
 cforestfit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
@@ -128,7 +128,8 @@ cforest_control <- function(teststat = "max",
     RET@ntree <- as.integer(ntree)
     RET@replace <- replace
     RET@fraction <- as.double(fraction)
-    val <- validObject(RET)
+    if (!validObject(RET))
+        stop("RET is not a valid object of class", class(RET))
     RET
 }
     
@@ -181,12 +182,12 @@ varimp <- function(x, mincriterion = 0.0) {
     if (!all(complete.cases(inp@variables)))
         stop("cannot compute variable importance measure with missing values")
     tmp <- inp
-    jt <- response@jointtransf
+    ### jt <- response@jointtransf
 
     CLASS <- all(response@is_nominal || response@is_ordinal)
     if (CLASS) {
-        error <- function(p, oob) 
-            mean((levels(y)[sapply(p, which.max)] != y)[oob])
+        error <- function(x, oob) 
+            mean((levels(y)[sapply(x, which.max)] != y)[oob])
     } else {
         error <- function(x, oob) mean((unlist(x) - y)[oob]^2)
     }

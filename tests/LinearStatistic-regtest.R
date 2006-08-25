@@ -121,30 +121,3 @@ for (i in 1:100) {
   stopifnot(isequal(as.vector(t(x[indx,]) %*% y[perm, ]),
                     PermutedLinearStatistic(x, y, indx, perm)))
 }
-
-### tests for functions C_scmat{left,right}
-### matrices for left / right multiplication of a vectorized
-### linear statistic (mainly needed for handling ordinal variables)
-### matrices for linear combinations
-xscores = as.double(1:5)
-linstat = 1:(7*5)
-scmatl = .Call("R_scmatleft", xscores, as.integer(length(linstat)), 
-               PACKAGE = "party")
-lc = drop(scmatl %*% linstat)
-res = drop(xscores %*% matrix(linstat, ncol = 7))
-stopifnot(isequal(res, lc))
-
-yscores <- as.double(1:7)
-scmatr = .Call("R_scmatright", yscores, as.integer(length(linstat)), 
-               PACKAGE = "party")
-stopifnot(isequal(scmatr %*% linstat, 
-                  matrix(linstat, ncol = 7) %*% yscores))
-
-scmatr = .Call("R_scmatright", yscores, as.integer(length(lc)), 
-               PACKAGE = "party")
-lc = scmatr %*% lc 
-mcx = matrix(xscores, nrow = 1)
-mcy = matrix(yscores, nrow = 1)
-tsc = .Call("R_kronecker", mcy, mcx)
-tlc = tsc %*% linstat
-stopifnot(isequal(tlc, lc))

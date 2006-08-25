@@ -23,7 +23,8 @@ cforest_control(teststat = "max",
                        must be exceeded in order to implement a split. }
   \item{mtry}{ number of input variables randomly sampled as candidates 
                at each node for random forest like algorithms. The default
-               \code{mtry = 0} means that no random selection takes place.}
+               \code{mtry = 0} means that no random selection takes place
+               and bagging is performed.}
   \item{savesplitstats}{ a logical determining if the process of standardized
                          two-sample statistics for split point estimate
                          is saved for each primary split.}

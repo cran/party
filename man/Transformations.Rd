@@ -1,14 +1,14 @@
 \name{Transformations}
 \alias{ptrafo}
+\alias{ff_trafo}
 \title{ Function for Data Transformations }
 \description{
   Transformations of Response or Input Variables
 }
 \usage{
-ptrafo(data, numeric_trafo = id_trafo, 
-    factor_trafo = function(x) model.matrix(~ x - 1), 
-    surv_trafo = logrank_trafo, 
-    var_trafo = NULL)
+ptrafo(data, numeric_trafo = id_trafo, factor_trafo = ff_trafo,
+    surv_trafo = logrank_trafo, var_trafo = NULL)
+ff_trafo(x)
 }
 \arguments{
   \item{data}{an object of class \code{data.frame}.}
@@ -24,6 +24,7 @@ ptrafo(data, numeric_trafo = id_trafo,
     matrix with \code{nrow(data)} rows and an arbitrary number of columns.}
   \item{var_trafo}{an optional named list of functions to be applied to the
                    corresponding variables in \code{data}.}
+  \item{x}{ a factor}
 }
 \details{
 
@@ -40,8 +41,11 @@ ptrafo(data, numeric_trafo = id_trafo,
 }
 \examples{
 
-### rank a variable
-ptrafo(data.frame(y = 1:20), numeric_trafo = rank)
+  ### rank a variable
+  ptrafo(data.frame(y = 1:20), numeric_trafo = rank)
+
+  ### dummy coding of a factor
+  ptrafo(data.frame(y = gl(3, 9)))
 
 }
 \keyword{manip}

@@ -1,5 +1,5 @@
 
-R version 2.4.0 Under development (unstable) (2006-07-16 r38625)
+R version 2.4.0 Under development (unstable) (2006-08-22 r38955)
 Copyright (C) 2006 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 
@@ -26,6 +26,14 @@ Loading required package: modeltools
 Loading required package: coin
 Loading required package: mvtnorm
 Loading required package: zoo
+
+Attaching package: 'zoo'
+
+
+	The following object(s) are masked from package:base :
+
+	 rapply 
+
 Loading required package: sandwich
 Loading required package: strucchange
 > gctorture(on = GCtorture)
@@ -51,7 +59,7 @@ Loading required package: strucchange
 > lec <- new("LinStatExpectCovar", ncol(x), ncol(y))
 > 
 > res <- .Call("R_IndependenceTest", x, y, weights,  
-+               NULL, NULL, lec, varctrl, PACKAGE = "party")
++               lec, varctrl, PACKAGE = "party")
 > print(res)
 [1] 0.3991795 0.6897610
 > wmw <- wilcox.test(xval ~ yf, exact = FALSE, correct = FALSE)
@@ -100,7 +108,7 @@ Slot "releps":
 > lec@svdmem <- new("svd_mem", ncol(x) * ncol(y))
 > 
 > res <- .Call("R_IndependenceTest", x, y, weights,  
-+               NULL, NULL, lec, varctrl, PACKAGE = "party")
++               lec, varctrl, PACKAGE = "party")
 > print(res)
 [1] 0.6219672 0.7327259
 > kw <- kruskal.test(xval ~ yf)
@@ -146,7 +154,7 @@ Slot "releps":
 > lec@svdmem <- new("svd_mem", ncol(x) * ncol(y))
 > 
 > res <- .Call("R_IndependenceTest", x, y, weights,  
-+               NULL, NULL, lec, varctrl, PACKAGE = "party")
++               lec, varctrl, PACKAGE = "party")
 > print(res)
 [1] 0.6219672 0.7327259
 > kw <- kruskal.test(xval ~ yf)
@@ -194,7 +202,7 @@ Slot "releps":
 > lec@svdmem <- new("svd_mem", ncol(x) * ncol(y))
 > 
 > res <- .Call("R_IndependenceTest", x, y, weights,  
-+               NULL, NULL, lec, varctrl, PACKAGE = "party")
++               lec, varctrl, PACKAGE = "party")
 > print(res)
 [1] 1.334778 0.855448
 > chis <- chisq.test(table(xf, yf), correct = FALSE)
@@ -218,7 +226,7 @@ X-squared = 1.335, df = 4, p-value = 0.8554
 > lec <- new("LinStatExpectCovar", ncol(x), ncol(y))
 > 
 > res <- .Call("R_IndependenceTest", x, y, weights,
-+               NULL, NULL, lec, varctrl, PACKAGE = "party")
++               lec, varctrl, PACKAGE = "party")
 > print(res)
 [1] 1.5378968 0.1240738
 > wmw <- wilcox.test(xval ~ yf, exact = FALSE, correct = FALSE)
@@ -236,7 +244,7 @@ alternative hypothesis: true mu is not equal to 0
 > lec <- new("LinStatExpectCovar", ncol(y), ncol(x))
 > 
 > res <- .Call("R_IndependenceTest", y, x, weights,
-+               NULL, NULL, lec, varctrl, PACKAGE = "party")
++               lec, varctrl, PACKAGE = "party")
 > print(res)
 [1] 1.5378968 0.1240738
 > wmw <- wilcox.test(xval ~ yf, exact = FALSE, correct = FALSE)
@@ -285,7 +293,7 @@ Slot "releps":
 > lec@svdmem <- new("svd_mem", ncol(x) * ncol(y))
 > 
 > res <- .Call("R_IndependenceTest", x, y, weights,  
-+               NULL, NULL, lec, varctrl, PACKAGE = "party")
++               lec, varctrl, PACKAGE = "party")
 > print(res)
 [1] 2.1737015 0.7038467
 > chis <- chisq.test(table(xf, yf), correct = FALSE)

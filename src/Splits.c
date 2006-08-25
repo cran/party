@@ -3,7 +3,7 @@
     Binary splits 
     *\file Splits.c
     *\author $Author: hothorn $
-    *\date $Date: 2005-10-19 16:40:37 +0200 (Wed, 19 Oct 2005) $
+    *\date $Date: 2006-08-25 10:53:10 +0200 (Fri, 25 Aug 2006) $
 */
                 
 #include "party.h"
@@ -19,8 +19,6 @@
     *\param weights case weights
     *\param n number of observations
     *\param orderx the ordering of the transformations, i.e. R> order(x)
-    *\param score_y the q-dim. score vector for y, if y is an ordered factor
-    *\param ORDERED a logical coding whether y is an ordered factor
     *\param splitctrl an object of class `SplitControl'
     *\param linexpcov2sample an (uninitialized) object of class 
                              `LinStatExpectCovar' with p = 1
@@ -35,15 +33,15 @@
 void C_split(const double *x, int p,
              const double *y, int q,
              const double *weights, int n,
-             const int *orderx, const double *score_y,
-             const int ORDERED, SEXP splitctrl, SEXP linexpcov2sample, 
+             const int *orderx,
+             SEXP splitctrl, SEXP linexpcov2sample, 
              SEXP expcovinf, double *cutpoint, double *maxstat, 
              double *statistics) {
 
     double *dExp_y, *dCov_y, *dlinstat, *dexpect, *dcovar, 
            tol, sweights, minprob, minbucket, w, tx, f1, f2, f1w, f2ww, tmp;
     double minobs, maxobs, xmax;
-    int lastj, i, j, k, l;
+    int lastj, i, j, k;
 
     if (p != 1) error("C_split: p not equal to one");
     tol = get_tol(splitctrl);
@@ -121,44 +119,19 @@ void C_split(const double *x, int p,
 
             /* compute the linear statistic and expectation and 
              * covariance if needed */
-            if (ORDERED) {
-                for (k = 0; k < q; k++)
-                    dlinstat[0] += score_y[k] * y[n * k + j] * weights[j];
-
-                /* do not consider those splits */
-                if (w > minobs) {
-                    dexpect[0] = 0.0;
-                    for (k = 0; k < q; k++) {
-                        dexpect[0] += score_y[k] * w * dExp_y[k];
-                    }
-                    dcovar[0] = 0.0;
-                    f1w = f1 * w;
-                    f2ww = f2 * w * w;
-                    for (k = 0; k < q; k++) {
-                        for (l = 0; l < q; l++) {
-                            dcovar[0] += score_y[k] * 
-                            (f1w * dCov_y[k*q + l] - f2ww * dCov_y[k*q + l]) * 
-                            score_y[l];
-                        }
-                    }
-                } else {
-                    continue;
-                }
-            } else {
-                for (k = 0; k < q; k++)
-                    dlinstat[k] += y[n * k + j] * weights[j];
+            for (k = 0; k < q; k++)
+                dlinstat[k] += y[n * k + j] * weights[j];
  
-                if (w > minobs) {
-                    for (k = 0; k < q; k++)
-                        dexpect[k] = w * dExp_y[k];
+            if (w > minobs) {
+                for (k = 0; k < q; k++)
+                    dexpect[k] = w * dExp_y[k];
 
-                    f1w = f1 * w;
-                    f2ww = f2 * w * w;
-                    for (k = 0; k < q*q; k++)
-                        dcovar[k] = f1w * dCov_y[k] - f2ww * dCov_y[k];
-                } else {
-                    continue;
-                }
+                f1w = f1 * w;
+                f2ww = f2 * w * w;
+                for (k = 0; k < q*q; k++)
+                    dcovar[k] = f1w * dCov_y[k] - f2ww * dCov_y[k];
+            } else {
+                continue;
             }
         
             /* the absolute standardized test statistic, to be maximized */
@@ -210,7 +183,7 @@ SEXP R_split(SEXP x, SEXP y, SEXP weights, SEXP orderx, SEXP linexpcov2sample,
     SET_VECTOR_ELT(ans, 2, statistics = allocVector(REALSXP, nrow(x)));
     
     C_split(REAL(x), ncol(x), REAL(y), ncol(y), REAL(weights), nrow(x),
-            INTEGER(orderx), NULL, 0, splitctrl, linexpcov2sample, expcovinf,
+            INTEGER(orderx), splitctrl, linexpcov2sample, expcovinf,
             REAL(cutpoint), REAL(maxstat), REAL(statistics));
     UNPROTECT(1);
     return(ans);
@@ -227,10 +200,8 @@ SEXP R_split(SEXP x, SEXP y, SEXP weights, SEXP orderx, SEXP linexpcov2sample,
     *\param weights case weights
     *\param n number of observations
     *\param codingx the coding of x, i.e. as.numeric(x)
-    *\param score_y the q-dim. score vector for y, if y is an ordered factor
-    *\param ORDERED a logical coding whether y is an ordered factor
     *\param standstat the vector of the standardized statistics for x, y, 
-                      weights, score_y 
+                      weights 
     *\param splitctrl an object of class `SplitControl'
     *\param linexpcov2sample an (uninitialized) object of class 
                              `LinStatExpectCovar' with p = 1
@@ -246,7 +217,6 @@ SEXP R_split(SEXP x, SEXP y, SEXP weights, SEXP orderx, SEXP linexpcov2sample,
 void C_splitcategorical(const int *codingx, int p,
                         const double *y, int q,
                         const double *weights, int n,
-                        const double *score_y, const int ORDERED, 
                         double *standstat,
                         SEXP splitctrl, SEXP linexpcov2sample, 
                         SEXP expcovinf, double *cutpoint, int *levelset, 
@@ -263,8 +233,6 @@ void C_splitcategorical(const int *codingx, int p,
     irank = Calloc(p, int);
     tmptmpx = Calloc(n, double);
 
-    if (ORDERED) q = 1;
-    
     /* for all response variables (aka: dummy variables) */
     for (j = 0; j < q; j++) {
     
@@ -290,8 +258,8 @@ void C_splitcategorical(const int *codingx, int p,
         rsort_with_index(tmptmpx, ordertmpx, n);
 
         /* search for a cutpoint (now we do have an ordering) */
-        C_split(tmpx, 1, y, q, weights, n, ordertmpx, score_y,
-                ORDERED, splitctrl, linexpcov2sample,
+        C_split(tmpx, 1, y, q, weights, n, ordertmpx,
+                splitctrl, linexpcov2sample,
                 expcovinf, cutpoint, maxstat, statistics);
 
         /* if we have seen an improvement: save this segmentation 
@@ -359,7 +327,7 @@ SEXP R_splitcategorical(SEXP x, SEXP codingx, SEXP y, SEXP weights,
     SET_VECTOR_ELT(ans, 3, levelset = allocVector(INTSXP, ncol(x)));
     
     C_splitcategorical(INTEGER(codingx), ncol(x), REAL(y), ncol(y), REAL(weights), 
-                       nrow(x), NULL, 0, standstat, 
+                       nrow(x), standstat, 
                        splitctrl, linexpcov2sample, expcovinf, 
                        REAL(cutpoint), INTEGER(levelset), REAL(maxstat), 
                        REAL(statistics));

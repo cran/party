@@ -1,0 +1,68 @@
+.TH "RandomForest.c" 3 "25 Aug 2006" "party" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+RandomForest.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'party.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "SEXP \fBR_Ensemble\fP (SEXP learnsample, SEXP weights, SEXP fitmem, SEXP controls)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Random forest with conditional inference trees
+.PP
+\fBAuthor:\fP
+.RS 4
+\fBAuthor\fP.RS 4
+hothorn 
+.RE
+.PP
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+\fBDate\fP.RS 4
+2006-04-23 19:45:59 +0200 (Sun, 23 Apr 2006) 
+.RE
+.PP
+.RE
+.PP
+
+.PP
+Definition in file \fBRandomForest.c\fP.
+.SH "Function Documentation"
+.PP 
+.SS "SEXP R_Ensemble (SEXP learnsample, SEXP weights, SEXP fitmem, SEXP controls)"
+.PP
+An experimental implementation of random forest like algorithms 
+.br
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlearnsample\fP an object of class `LearningSample' 
+.br
+\fIweights\fP a vector of case weights 
+.br
+\fIfitmem\fP an object of class `TreeFitMemory' 
+.br
+\fIcontrols\fP an object of class `TreeControl'
+.RE
+.PP
+
+.PP
+Definition at line 21 of file RandomForest.c.
+.PP
+References C_init_node(), C_SampleNoReplace(), C_TreeGrow(), get_fraction(), get_maxsurrogate(), get_ninputs(), get_nobs(), get_ntree(), get_replace(), get_splitctrl(), ncol(), NODE_LENGTH, PL2_jointtransfSym, PL2_responsesSym, and S3get_nodeweights().
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for party from the source code.

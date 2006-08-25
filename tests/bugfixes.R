@@ -8,6 +8,9 @@ gctorture(on = GCtorture)
 nsparty <- attach(NULL, name="ns-party")
 .Internal(lib.fixup(asNamespace("party"), nsparty))
 
+### check if doxygen documentation is there
+stopifnot(nchar(system.file("documentation/html/index.html", package = "party")) > 29)
+
 ### check nominal level printing
 set.seed(290875)
 x <- gl(5, 50)
@@ -28,3 +31,16 @@ try(cforest_control(minsplit = -1))
 try(cforest_control(ntree = -1))
 try(cforest_control(maxdepth = -1))
 try(cforest_control(nresample = 10))
+
+### NA handling for factors and in random forest
+### more than one (ordinal) response variable
+xo <- ordered(x)
+x[sample(1:length(x), 10)] <- NA
+cforest(y + xo ~ x + z, data = df, 
+        control = cforest_control(ntree = 50))
+
+### make sure minsplit is OK in the presence of missing values
+### spotted by Han Lee <Han.Lee@GeodeCapital.com>
+load("t1.RData")
+tr <- try(ctree(p ~., data = t1))
+stopifnot(!inherits(tr, "try-error"))

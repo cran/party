@@ -129,7 +129,7 @@ Class \code{"BinaryTreePartition"}, directly.
 
   ### don't use the mean but the median as prediction in each terminal node
   pmedian <- sapply(weights(airct), function(w) 
-                                        median(airq$Ozone[rep(1:nrow(airq), w)]))
+                 median(airq$Ozone[rep(1:nrow(airq), w)]))
 
   plot(airq$Ozone, pmean, col = "red")
   points(airq$Ozone, pmedian, col = "blue")

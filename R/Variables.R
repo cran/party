@@ -1,9 +1,22 @@
 
-# $Id: Variables.R 2674 2006-07-12 20:07:24Z hothorn $
+# $Id: Variables.R 2749 2006-08-25 11:06:44Z hothorn $
+
+### factor handling
+ff_trafo <- function(x) {
+    ### temporarily define `na.pass' as na.action
+    opt <- options()
+    on.exit(options(opt))
+    options(na.action = na.pass)
+    ### construct design matrix _without_ intercept
+    mm <- model.matrix(~ x - 1)
+    colnames(mm) <- levels(x)  
+    ### remove unused levels   
+    mm <- mm[,colSums(mm, na.rm = TRUE) > 0,drop = FALSE]
+    return(mm)
+}
 
 ptrafo <- function(data, numeric_trafo = id_trafo, 
-   factor_trafo = function(x) model.matrix(~ x - 1), 
-   surv_trafo = logrank_trafo, var_trafo = NULL)
+   factor_trafo = ff_trafo, surv_trafo = logrank_trafo, var_trafo = NULL)
 
     trafo(data = data, numeric_trafo = numeric_trafo, factor_trafo =
           factor_trafo, surv_trafo = surv_trafo, var_trafo = var_trafo)
@@ -27,14 +40,13 @@ initVariableFrame.df <- function(obj, trafo = ptrafo, scores = NULL, ...) {
             if (!(is.factor(obj[[n]]) && is.ordered(obj[[n]])) || 
                 nlevels(obj[[n]]) != length(scores[[n]]))
                 stop("cannot assign scores to variable ", sQuote(n))
+            if (any(order(scores[[n]]) != 1:length(scores[[n]])))
+                stop("scores are not increasingly ordered")
             attr(obj[[n]], "scores") <- scores[[n]]
         }
     }
 
     RET@scores <- lapply(obj, function(x) {
-        ### <FIXME> REAL(NULL) now gives an error in C code
-        ###         handle scores more intelligently 
-        ### </FIXME>
         sc <- 0
         if (is.ordered(x)) {
             sc <- attr(x, "scores")
@@ -73,15 +85,14 @@ initVariableFrame.df <- function(obj, trafo = ptrafo, scores = NULL, ...) {
             ordering[[j]] <- as.integer(order(xt[[j]]))
 
         if (is.factor(x)) {
-
-            ### <FIXME> storage mode of nominal and ordered 
-            ### factors are different!!!       
-            if (!is_ordinal[j]) {
-                storage.mode(obj[[j]]) <- "integer"
-            } else {
+            ### replace ordinal factors by their numeric scores
+            if (is_ordinal[j]) {
+                xt[[j]] <- matrix(RET@scores[[j]][obj[[j]]], ncol = 1)
+                storage.mode(xt[[j]]) <- "double"
                 storage.mode(obj[[j]]) <- "double"
+            } else {
+                storage.mode(obj[[j]]) <- "integer"
             }
-            ### </FIXME>
         } else {
             storage.mode(obj[[j]]) <- "double"
         }

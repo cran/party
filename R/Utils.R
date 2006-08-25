@@ -1,5 +1,5 @@
 
-# $Id: Utils.R 2432 2006-01-12 10:47:48Z hothorn $
+# $Id: Utils.R 2741 2006-08-24 08:38:04Z hothorn $
 
 ### Wrapper for functions defined in ./src/Utilsc
 
@@ -9,6 +9,7 @@ qsvd <- function(x) {
 
     svdmem <- new("svd_mem", ncol(x)) 
     dummy <- .Call("CR_svd", x, svdmem, PACKAGE = "party")
+    rm(dummy)
     return(svdmem@svd)
 }
 

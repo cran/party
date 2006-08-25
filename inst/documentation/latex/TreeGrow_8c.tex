@@ -1,0 +1,90 @@
+\hypertarget{TreeGrow_8c}{
+\section{Tree\-Grow.c File Reference}
+\label{TreeGrow_8c}\index{TreeGrow.c@{TreeGrow.c}}
+}
+{\tt \#include \char`\"{}party.h\char`\"{}}\par
+
+
+Include dependency graph for Tree\-Grow.c:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=166pt]{TreeGrow_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void \hyperlink{TreeGrow_8c_a0}{C\_\-Tree\-Grow} (SEXP node, SEXP learnsample, SEXP fitmem, SEXP controls, int $\ast$where, int $\ast$nodenum, int depth)
+\item 
+SEXP \hyperlink{TreeGrow_8c_a1}{R\_\-Tree\-Grow} (SEXP learnsample, SEXP weights, SEXP fitmem, SEXP controls, SEXP where)
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+The tree growing recursion
+
+\begin{Desc}
+\item[Author:]\begin{Desc}
+\item[Author]hothorn \end{Desc}
+\end{Desc}
+\begin{Desc}
+\item[Date:]\begin{Desc}
+\item[Date]2006-02-23 16:11:21 +0100 (Thu, 23 Feb 2006) \end{Desc}
+\end{Desc}
+
+
+Definition in file \hyperlink{TreeGrow_8c-source}{Tree\-Grow.c}.
+
+\subsection{Function Documentation}
+\hypertarget{TreeGrow_8c_a0}{
+\index{TreeGrow.c@{Tree\-Grow.c}!C_TreeGrow@{C\_\-TreeGrow}}
+\index{C_TreeGrow@{C\_\-TreeGrow}!TreeGrow.c@{Tree\-Grow.c}}
+\subsubsection[C\_\-TreeGrow]{\setlength{\rightskip}{0pt plus 5cm}void C\_\-Tree\-Grow (SEXP {\em node}, SEXP {\em learnsample}, SEXP {\em fitmem}, SEXP {\em controls}, int $\ast$ {\em where}, int $\ast$ {\em nodenum}, int {\em depth})}}
+\label{TreeGrow_8c_a0}
+
+
+The main tree growing function, handles the recursion. \par
+ \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em node}]a list representing the current node \item[{\em learnsample}]an object of class `Learning\-Sample' \item[{\em fitmem}]an object of class `Tree\-Fit\-Memory' \item[{\em controls}]an object of class `Tree\-Control' \item[{\em where}]a pointer to an integer vector of n-elements \item[{\em nodenum}]a pointer to a integer vector of length 1 \item[{\em depth}]an integer giving the depth of the current node\end{description}
+\end{Desc}
+
+
+Definition at line 23 of file Tree\-Grow.c.
+
+References C\_\-Node(), C\_\-splitnode(), C\_\-splitsurrogate(), C\_\-surrogates(), C\_\-Tree\-Grow(), check\_\-depth(), get\_\-maxsurrogate(), get\_\-nobs(), get\_\-splitctrl(), get\_\-stump(), get\_\-tgctrl(), S3get\_\-leftnode(), S3get\_\-nodeterminal(), S3get\_\-nodeweights(), S3get\_\-rightnode(), and S3set\_\-node\-ID().
+
+Referenced by C\_\-Tree\-Grow(), R\_\-Ensemble(), and R\_\-Tree\-Grow().
+
+Here is the call graph for this function:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=196pt]{TreeGrow_8c_a0_cgraph}
+\end{center}
+\end{figure}
+\hypertarget{TreeGrow_8c_a1}{
+\index{TreeGrow.c@{Tree\-Grow.c}!R_TreeGrow@{R\_\-TreeGrow}}
+\index{R_TreeGrow@{R\_\-TreeGrow}!TreeGrow.c@{Tree\-Grow.c}}
+\subsubsection[R\_\-TreeGrow]{\setlength{\rightskip}{0pt plus 5cm}SEXP R\_\-Tree\-Grow (SEXP {\em learnsample}, SEXP {\em weights}, SEXP {\em fitmem}, SEXP {\em controls}, SEXP {\em where})}}
+\label{TreeGrow_8c_a1}
+
+
+R-interface to C\_\-Tree\-Grow\par
+ \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em learnsample}]an object of class `Learning\-Sample' \item[{\em weights}]a vector of case weights \item[{\em fitmem}]an object of class `Tree\-Fit\-Memory' \item[{\em controls}]an object of class `Tree\-Control' \item[{\em where}]a vector of node indices for each observation\end{description}
+\end{Desc}
+
+
+Definition at line 80 of file Tree\-Grow.c.
+
+References C\_\-init\_\-node(), C\_\-Tree\-Grow(), get\_\-maxsurrogate(), get\_\-ninputs(), get\_\-nobs(), get\_\-splitctrl(), ncol(), NODE\_\-LENGTH, PL2\_\-jointtransf\-Sym, PL2\_\-responses\-Sym, and S3get\_\-nodeweights().
+
+Here is the call graph for this function:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=180pt]{TreeGrow_8c_a1_cgraph}
+\end{center}
+\end{figure}

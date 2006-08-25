@@ -1,5 +1,5 @@
 
-# $Id: Plot.R 2544 2006-04-05 12:00:24Z zeileis $
+# $Id: Plot.R 2745 2006-08-24 16:30:59Z zeileis $
 
 ## utility functions for querying the number of
 ## terminal nodes and the maximal depth of (sub-)trees
@@ -149,51 +149,64 @@ class(node_surv) <- "grapcon_generator"
 
 node_barplot <- function(ctreeobj,
                          col = "black",
-      		         fill = "lightgray",
+      		         fill = NULL,
+			 beside = TRUE,
 		         ymax = NULL,
-		         ylines = 3,
+		         ylines = NULL,
 		         widths = 1,
 		         gap = NULL,
+			 reverse = FALSE,
 		         id = TRUE)
-{
-   getMaxPred <- function(x) {
-     mp <- max(x$prediction)
-     mpl <- ifelse(x$terminal, 0, getMaxPred(x$left))
-     mpr <- ifelse(x$terminal, 0, getMaxPred(x$right))
-     return(max(c(mp, mpl, mpr)))
-   }
+{   
+    getMaxPred <- function(x) {
+      mp <- max(x$prediction)
+      mpl <- ifelse(x$terminal, 0, getMaxPred(x$left))
+      mpr <- ifelse(x$terminal, 0, getMaxPred(x$right))
+      return(max(c(mp, mpl, mpr)))
+    }
 
     y <- response(ctreeobj)[[1]]
-    if (is.factor(y)) {
+    
+    if(is.factor(y)) {
         ylevels <- levels(y)
-        if (is.null(ymax)) 
-            ymax <- 1.1
+        if(is.null(ymax)) ymax <- if(beside) 1.1 else 1
+	if(is.null(gap)) gap <- if(beside) 0.1 else 0
     } else {
-        if (is.null(ymax)) 
-            ymax <- getMaxPred(ctreeobj@tree) * 1.1
+        if(is.null(ymax)) ymax <- getMaxPred(ctreeobj@tree) * 1.1
         ylevels <- seq(along = ctreeobj@tree$prediction)
-        if (length(ylevels) < 2) 
-            ylevels <- ""
+        if(length(ylevels) < 2) ylevels <- ""
+	if(is.null(gap)) gap <- 1
     }
+
+    if(is.null(fill))
+      fill <- if(beside) "lightgray" else gray.colors(length(ylevels))
      
+    if(is.null(ylines))
+      ylines <- if(beside) c(3, 1) else c(1.5, 2.5)
+
     ### panel function for barplots in nodes
     rval <- function(node) {
     
         ## parameter setup
         pred <- node$prediction
+	if(reverse) {
+	  pred <- rev(pred)
+	  ylevels <- rev(ylevels)
+	}
         np <- length(pred)
-        widths <- rep(widths, length.out = np)
-	col <- rep(col, length.out = np)
-	fill <- rep(fill, length.out = np)
-	if (is.null(gap)) gap <- ifelse(np > 1, 0.1, 2)
-	gap <- gap * sum(widths)	
-	if (is.null(ymax)) ymax <- 1
+	nc <- if(beside) np else 1
+
+	fill <- rep(fill, length.out = np)	
+        widths <- rep(widths, length.out = nc)
+	col <- rep(col, length.out = nc)
+	ylines <- rep(ylines, length.out = 2)
+
+	gap <- gap * sum(widths)
         yscale <- c(0, ymax)
-        xscale <- c(0, sum(widths) + (np+1)*gap)
+        xscale <- c(0, sum(widths) + (nc+1)*gap)
 
         top_vp <- viewport(layout = grid.layout(nrow = 2, ncol = 3,
-                           widths = unit(c(ylines, 1, 1), 
-                                         c("lines", "null", "lines")),
+                           widths = unit(c(ylines[1], 1, ylines[2]), c("lines", "null", "lines")),
                            heights = unit(c(1, 1), c("lines", "null"))),
                            width = unit(1, "npc"), 
                            height = unit(1, "npc") - unit(2, "lines"),
@@ -217,19 +230,44 @@ node_barplot <- function(ctreeobj,
 
         pushViewport(plot)
 	
-	xcenter <- cumsum(widths+gap) - widths/2
-	for (i in 1:np) {
+	if(beside) {
+  	  xcenter <- cumsum(widths+gap) - widths/2
+	  for (i in 1:np) {
             grid.rect(x = xcenter[i], y = 0, height = pred[i], 
                       width = widths[i],
-	             just = c("center", "bottom"), default.units = "native",
-	             gp = gpar(col = col[i], fill = fill[i]))
+	              just = c("center", "bottom"), default.units = "native",
+	              gp = gpar(col = col[i], fill = fill[i]))
+	  }
+          if(length(xcenter) > 1) grid.xaxis(at = xcenter, label = FALSE)
+	  grid.text(ylevels, x = xcenter, y = unit(-1, "lines"), 
+                    just = c("center", "top"),
+	            default.units = "native", check.overlap = TRUE)
+          grid.yaxis()
+	} else {
+  	  ycenter <- cumsum(pred) - pred/2
+
+	  for (i in 1:np) {
+            grid.rect(x = xscale[2]/2, y = ycenter[i], height = pred[i], 
+                      width = widths[1],
+	              just = "center", default.units = "native",
+	              gp = gpar(col = col[i], fill = fill[i]))
+	  }
+          if(np > 1) {
+	    grid.text(ylevels[1], x = unit(-1, "lines"), y = 0,
+                      just = c("left", "center"), rot = 90,
+	              default.units = "native", check.overlap = TRUE)
+	    grid.text(ylevels[np], x = unit(-1, "lines"), y = ymax,
+                      just = c("right", "center"), rot = 90,
+	              default.units = "native", check.overlap = TRUE)
+	  }
+          if(np > 2) {
+	    grid.text(ylevels[-c(1,np)], x = unit(-1, "lines"), y = ycenter[-c(1,np)],
+                      just = "center", rot = 90,
+	              default.units = "native", check.overlap = TRUE)
+	  }
+          grid.yaxis(main = FALSE)	
 	}
-        if (length(xcenter) > 1) 
-            grid.xaxis(at = xcenter, label = FALSE)
-	grid.text(ylevels, x = xcenter, y = unit(-1, "lines"), 
-                  just = c("center", "top"),
-	          default.units = "native", check.overlap = TRUE)
-        grid.yaxis()
+	
         grid.rect(gp = gpar(fill = "transparent"))
         upViewport(2)
     }

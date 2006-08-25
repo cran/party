@@ -1,5 +1,5 @@
 
-# $Id: Classes.R 2577 2006-04-28 11:26:39Z hothorn $
+# $Id: Classes.R 2748 2006-08-25 08:53:10Z hothorn $
 
 ### Conditional Expectation and Covariance
 setClass(Class = "ExpectCovar",
@@ -61,16 +61,13 @@ setClass(Class = "TreeFitMemory",
         linexpcov2sample  = "LinStatExpectCovar",
         weights           = "list",
         varmemory         = "list",
-        varMmemory        = "list",
-        Mscorematrices    = "list",
         dontuse           = "logical",
         dontusetmp        = "logical",
         splitstatistics   = "numeric"
     ), 
     validity = function(object) {
         ni <- length(dontuse)
-        all(sapply(object@Mscorematrices, class) == "matrix") &&
-        (length(varmemory) == ni && length(dontusetmp) == ni)
+        length(varmemory) == ni && length(dontusetmp) == ni
     }
 )
 

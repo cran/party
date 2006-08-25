@@ -26,19 +26,21 @@ node_terminal(ctreeobj, digits = 3, abbreviate = FALSE,
   fill = c("lightgray", "white"), id = TRUE)
 edge_simple(treeobj, digits = 3, abbreviate = FALSE)
 node_surv(ctreeobj, ylines = 2, id = TRUE, \dots)
-node_barplot(ctreeobj, col = "black", fill = "lightgray", ymax = NULL,
-  ylines = 3, widths = 1, gap = NULL, id = TRUE)
-node_boxplot(ctreeobj, col = "black", fill = "lightgray",  width = 0.5,
-  yscale = NULL, ylines = 3, cex = 0.5, id = TRUE)
-node_hist(ctreeobj, col = "black", fill = "lightgray", freq = FALSE,
-  horizontal = TRUE, xscale = NULL, ymax = NULL, ylines = 3,
-  id = TRUE, \dots)
-node_density(ctreeobj, col = "black", rug = TRUE, horizontal = TRUE,
-  xscale = NULL, yscale = NULL, ylines = 3, id = TRUE)
-
-node_scatterplot(mobobj, which = NULL, col = "black", linecol = "red",
-  cex = 0.5, pch = NULL, jitter = FALSE, xscale = NULL, yscale = NULL, ylines = 1.5,
-  id = TRUE, labels = FALSE)
+node_barplot(ctreeobj, col = "black", fill = NULL, beside = TRUE,
+  ymax = NULL, ylines = NULL, widths = 1, gap = NULL, 
+  reverse = FALSE, id = TRUE)
+node_boxplot(ctreeobj, col = "black", fill = "lightgray", 
+  width = 0.5,  yscale = NULL, ylines = 3, cex = 0.5, id = TRUE)
+node_hist(ctreeobj, col = "black", fill = "lightgray", 
+  freq = FALSE, horizontal = TRUE, xscale = NULL, ymax = NULL, 
+  ylines = 3, id = TRUE, \dots)
+node_density(ctreeobj, col = "black", rug = TRUE, 
+  horizontal = TRUE, xscale = NULL, yscale = NULL, ylines = 3, 
+  id = TRUE)
+node_scatterplot(mobobj, which = NULL, col = "black", 
+  linecol = "red", cex = 0.5, pch = NULL, jitter = FALSE, 
+  xscale = NULL, yscale = NULL, ylines = 1.5, id = TRUE, 
+  labels = FALSE)
 node_bivplot(mobobj, which = NULL, id = TRUE, pop = TRUE,
   pointcol = "black", pointcex = 0.5,
   boxcol = "black", boxwidth = 0.5, boxfill = "lightgray",
@@ -51,7 +53,7 @@ node_bivplot(mobobj, which = NULL, id = TRUE, pop = TRUE,
   \item{mobobj}{ an object of class \code{mob}.}
   \item{digits}{ integer, used for formating numbers. }
   \item{abbreviate}{ logical indicating whether strings should be 
-                     abbreviated. }
+    abbreviated. }
   \item{col, pointcol}{ a color for points and lines. }
   \item{fill}{ a color to filling rectangles. }
   \item{pval}{ logical. Should p values be plotted?}
@@ -63,9 +65,12 @@ node_bivplot(mobobj, which = NULL, id = TRUE, pop = TRUE,
   \item{yscale}{ limits in y-direction}
   \item{xscale}{ limits in x-direction}
   \item{ymax}{ upper limit in y-direction}
+  \item{beside}{ logical indicating if barplots should be side by side or stacked. }
+  \item{reverse}{logical indicating whether the order of levels should be reversed
+    for barplots.}
   \item{horizontal}{ logical indicating if the plots should be horizontal. }
   \item{freq}{logical; if \code{TRUE}, the histogram graphic is a representation
-              of frequencies. If \code{FALSE}, probabilities are plotted.}
+    of frequencies. If \code{FALSE}, probabilities are plotted.}
   \item{rug}{logical indicating if a rug representation should be added. }
   \item{which}{ numeric or character vector indicating which of the regressor
     variables should be plotted (default = all).}
@@ -141,7 +146,8 @@ node_bivplot(mobobj, which = NULL, id = TRUE, pop = TRUE,
   ## change colors
   plot(airct, tp_args = list(col = "blue", fill = hsv(2/3, 0.5, 1)))
   ## equivalent to
-  plot(airct, terminal_panel = node_boxplot(airct, col = "blue", fill = hsv(2/3, 0.5, 1)))
+  plot(airct, terminal_panel = node_boxplot(airct, col = "blue", 
+                                            fill = hsv(2/3, 0.5, 1)))
 
   ### very simple; the mean is given in each terminal node
   plot(airct, type = "simple")
@@ -150,6 +156,7 @@ node_bivplot(mobobj, which = NULL, id = TRUE, pop = TRUE,
   plot(airct, terminal_panel = node_density)
     
   ### histograms 
-  plot(airct, terminal_panel = node_hist(airct, ymax = 0.06, xscale = c(0, 250)))
+  plot(airct, terminal_panel = node_hist(airct, ymax = 0.06, 
+                                         xscale = c(0, 250)))
 }
 \keyword{hplot}

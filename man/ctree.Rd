@@ -1,7 +1,7 @@
-\name{Conditional Trees}
+\name{Conditional Inference Trees}
 \alias{ctree}
 \alias{conditionalTree}
-\title{ Conditional Trees }
+\title{ Conditional Inference Trees }
 \description{
   Recursive partitioning for continuous, censored, ordered, nominal and
   multivariate response variables in a conditional inference framework. 
@@ -30,7 +30,7 @@ ctree(formula, data, subset = NULL, weights = NULL,
 }
 \details{
 
-  Conditional trees estimate a regression relationship by binary recursive
+  Conditional inference trees estimate a regression relationship by binary recursive
   partitioning in a conditional inference framework. Roughly, the algorithm
   works as follows: 1) Test the global null hypothesis of independence between
   any of the input variables and the response (which may be multivariate as well). 
@@ -62,7 +62,7 @@ ctree(formula, data, subset = NULL, weights = NULL,
   c(1,5,6))}, for example.
 
   For a general description of the methodology see Hothorn, Hornik and
-  Zeileis (2006).
+  Zeileis (2006) and Hothorn, Hornik, van de Wiel and Zeileis (2006).
 
 }
 \value{
@@ -70,13 +70,17 @@ ctree(formula, data, subset = NULL, weights = NULL,
 }
 \references{ 
 
+   Helmut Strasser and Christian Weber (1999). On the asymptotic theory of permutation
+   statistics. \emph{Mathematical Methods of Statistics}, \bold{8}, 220--250.
+
+   Torsten Hothorn, Kurt Hornik, Mark A. van de Wiel and Achim Zeileis (2006).
+   A Lego System for Conditional Inference. \emph{The American Statistician},
+   \bold{60}(3), 257--263.
+
    Torsten Hothorn, Kurt Hornik and Achim Zeileis (2006). Unbiased Recursive
    Partitioning: A Conditional Inference Framework. \emph{Journal of
    Computational and Graphical Statistics} (accepted). Preprint available
    from \url{http://statmath.wu-wien.ac.at/~zeileis/papers/Hothorn+Hornik+Zeileis-2006.pdf}
-
-   Helmut Strasser and Christian Weber (1999). On the asymptotic theory of permutation
-   statistics. \emph{Mathematical Methods of Statistics}, \bold{8}, 220--250.
 
 }
 \examples{
@@ -113,5 +117,10 @@ ctree(formula, data, subset = NULL, weights = NULL,
         treeresponse(GBSG2ct, newdata = GBSG2[1:2,])        
     }
 
+    ### if you are interested in the internals:
+    \dontrun{
+        browseURL(system.file("documentation/html/index.html", 
+                              package = "party"))
+    }
 }
 \keyword{tree}

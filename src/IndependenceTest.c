@@ -3,7 +3,7 @@
     Functions for variable selection in each node of a tree
     *\file IndependenceTest.c
     *\author $Author: hothorn $
-    *\date $Date: 2006-04-05 16:24:23 +0200 (Wed, 05 Apr 2006) $
+    *\date $Date: 2006-08-31 11:25:22 +0200 (Thu, 31 Aug 2006) $
 */
                 
 #include "party.h"
@@ -70,17 +70,13 @@ void C_TeststatCriterion(const SEXP linexpcov, const SEXP varctrl,
     *\param x values of the transformation
     *\param y values of the influence function
     *\param weights case weights
-    *\param ScoreMatrix for ordinal variables, the score matrix M
-    *\param Mlinexpcov an object of class `VariableControl' for MT
-    *\param ORDERED logical
     *\param linexpcov an object of class `VariableControl' for T
     *\param varctrl an object of class `VariableControl'
     *\param ans; return value, a double vector (teststat, pvalue)
 */
 
 void C_IndependenceTest(const SEXP x, const SEXP y, const SEXP weights, 
-                        const SEXP ScoreMatrix, SEXP Mlinexpcov, 
-                        const int ORDERED, SEXP linexpcov, SEXP varctrl, 
+                        SEXP linexpcov, SEXP varctrl, 
                         SEXP ans) {
     
     /* compute linear statistic and its conditional expectation and
@@ -90,26 +86,10 @@ void C_IndependenceTest(const SEXP x, const SEXP y, const SEXP weights,
                     REAL(weights), nrow(x), 1, 
                     GET_SLOT(linexpcov, PL2_expcovinfSym), linexpcov);
 
-    /* if one (or both) variables are ordered multiply linear statistic,
-       expectation and covariance
-     */
-    if (ORDERED) {
-        C_MLinearStatistic(linexpcov, ScoreMatrix, Mlinexpcov);
-        
-        /* for quadform type test statistics, compute the Moore-Penrose inverse
-           of the covariance matrix
-         */
-        if (get_teststat(varctrl) == 2) 
-            C_LinStatExpCovMPinv(Mlinexpcov, get_tol(varctrl));
-            
-        /* compute test statistic and pvalue */
-        C_TeststatPvalue(Mlinexpcov, varctrl, &REAL(ans)[0], &REAL(ans)[1]);
-    } else {
-        /* for unordered variables */
-        if(get_teststat(varctrl) == 2) 
-            C_LinStatExpCovMPinv(linexpcov, get_tol(varctrl));
-        C_TeststatPvalue(linexpcov, varctrl, &REAL(ans)[0], &REAL(ans)[1]);
-    }
+    /* compute test statistic */
+    if (get_teststat(varctrl) == 2) 
+        C_LinStatExpCovMPinv(linexpcov, get_tol(varctrl));
+    C_TeststatPvalue(linexpcov, varctrl, &REAL(ans)[0], &REAL(ans)[1]);
 }
 
 
@@ -118,24 +98,16 @@ void C_IndependenceTest(const SEXP x, const SEXP y, const SEXP weights,
     *\param x values of the transformation
     *\param y values of the influence function
     *\param weights case weights
-    *\param ScoreMatrix for ordinal variables, the score matrix M
-    *\param Mlinexpcov an object of class `VariableControl' for MT
     *\param linexpcov an object of class `VariableControl' for T
     *\param varctrl an object of class `VariableControl'
 */
 
-SEXP R_IndependenceTest(SEXP x, SEXP y, SEXP weights, SEXP ScoreMatrix, 
-                        SEXP Mlinexpcov, SEXP linexpcov, SEXP varctrl) {
+SEXP R_IndependenceTest(SEXP x, SEXP y, SEXP weights, SEXP linexpcov, SEXP varctrl) {
                         
     SEXP ans;
-    int scores = 0;
     
     PROTECT(ans = allocVector(REALSXP, 2));
-    if (ScoreMatrix != R_NilValue && Mlinexpcov != R_NilValue)
-        scores = 1;
-        
-    C_IndependenceTest(x, y, weights, ScoreMatrix, Mlinexpcov, scores, 
-                       linexpcov, varctrl, ans);
+    C_IndependenceTest(x, y, weights, linexpcov, varctrl, ans);
     UNPROTECT(1);
     return(ans);
 }
@@ -159,10 +131,10 @@ void C_GlobalTest(const SEXP learnsample, const SEXP weights,
                   const SEXP gtctrl, const double minsplit, 
                   double *ans_teststat, double *ans_criterion) {
 
-    int ninputs, nobs, yORDERED, xORDERED, j, i, k, RECALC = 1, type;
-    SEXP responses, inputs, y, x, xmem, Mxmem, expcovinf;
+    int ninputs, nobs, j, i, k, RECALC = 1, type;
+    SEXP responses, inputs, y, x, xmem, expcovinf;
     SEXP thiswhichNA;
-    double *thisweights, *dweights, *pvaltmp;
+    double *thisweights, *dweights, *pvaltmp, stweights = 0.0;
     int *ithiswhichNA, RANDOM, mtry, *randomvar, *index;
     int *dontuse, *dontusetmp;
     
@@ -172,7 +144,6 @@ void C_GlobalTest(const SEXP learnsample, const SEXP weights,
     inputs = GET_SLOT(learnsample, PL2_inputsSym);
     dweights = REAL(weights);
     
-    yORDERED = is_ordinal(responses, 1);
     y = get_transformation(responses, 1);
     
     expcovinf = GET_SLOT(fitmem, PL2_expcovinfSym);
@@ -226,7 +197,6 @@ void C_GlobalTest(const SEXP learnsample, const SEXP weights,
             }
         
             x = get_transformation(inputs, j);
-            xORDERED = is_ordinal(inputs, j);
 
             xmem = get_varmemory(fitmem, j);
             if (!has_missings(inputs, j)) {
@@ -240,24 +210,30 @@ void C_GlobalTest(const SEXP learnsample, const SEXP weights,
                 for (i = 0; i < nobs; i++) thisweights[i] = dweights[i];
                 for (k = 0; k < LENGTH(thiswhichNA); k++)
                     thisweights[ithiswhichNA[k] - 1] = 0.0;
+
+                /* check if minsplit criterion is still met 
+                   in the presence of missing values
+                   bug spotted by Han Lee <Han.Lee@geodecapital.com>
+                       fixed 2006-08-31
+                */
+                stweights = 0.0;
+                for (i = 0; i < nobs; i++) stweights += thisweights[i];
+                if (stweights < minsplit) {
+                    ans_teststat[j - 1] = 0.0;
+                    ans_criterion[j - 1] = 0.0;
+                    continue; 
+                }
+
                 C_LinStatExpCov(REAL(x), ncol(x), REAL(y), ncol(y),
                                 thisweights, nrow(x), RECALC, 
                                 GET_SLOT(xmem, PL2_expcovinfSym),
                                 xmem);
             }
-            if (yORDERED || xORDERED) {
-                Mxmem = get_varMmemory(fitmem, j);
-                C_MLinearStatistic(xmem, get_Mscorematrix(fitmem, j), Mxmem);
-                if (get_teststat(varctrl) == 2)
-                    C_LinStatExpCovMPinv(Mxmem, get_tol(varctrl));
-                    C_TeststatCriterion(Mxmem, varctrl, &ans_teststat[j - 1], 
-                                        &ans_criterion[j - 1]);
-            } else {
-                if(get_teststat(varctrl) == 2)
-                    C_LinStatExpCovMPinv(xmem, get_tol(varctrl));
-                C_TeststatCriterion(xmem, varctrl, &ans_teststat[j - 1], 
-                                    &ans_criterion[j - 1]);
-            }
+
+            if (get_teststat(varctrl) == 2)
+                C_LinStatExpCovMPinv(xmem, get_tol(varctrl));
+            C_TeststatCriterion(xmem, varctrl, &ans_teststat[j - 1], 
+                                &ans_criterion[j - 1]);
         }                
 
         type = get_testtype(gtctrl);

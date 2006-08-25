@@ -42,13 +42,16 @@ data("BostonHousing", package = "mlbench")
 BostonHousing$lstat <- log(BostonHousing$lstat)
 BostonHousing$rm <- BostonHousing$rm^2
 ## as well as partitioning variables (for fluctuation testing)
-BostonHousing$chas <- factor(BostonHousing$chas, levels = 0:1, labels = c("no", "yes"))
+BostonHousing$chas <- factor(BostonHousing$chas, levels = 0:1, 
+                             labels = c("no", "yes"))
 BostonHousing$rad <- factor(BostonHousing$rad, ordered = TRUE)
 
 ## partition the linear regression model medv ~ lstat + rm
 ## with respect to all remaining variables:
-fm <- mob(medv ~ lstat + rm | zn + indus + chas + nox + age + dis + rad + tax + crim + b + ptratio,
-  control = mob_control(minsplit = 40), data = BostonHousing, model = linearModel)
+fm <- mob(medv ~ lstat + rm | zn + indus + chas + nox + age + dis + 
+                              rad + tax + crim + b + ptratio,
+  control = mob_control(minsplit = 40), data = BostonHousing, 
+  model = linearModel)
 
 ## visualize medv ~ lstat and medv ~ rm
 plot(fm)
@@ -61,14 +64,18 @@ plot(fm, tp_args = list(which = 2), tnex = 2)
 plot(fm, tp_args = list(fitmean = FALSE))
 
 ## mixed numerical and categorical regressors 
-fm2 <- mob(medv ~ lstat + rm + chas | zn + indus + nox + age + dis + rad,
-  control = mob_control(minsplit = 100), data = BostonHousing, model = linearModel)
+fm2 <- mob(medv ~ lstat + rm + chas | zn + indus + nox + age + 
+                                      dis + rad,
+  control = mob_control(minsplit = 100), data = BostonHousing, 
+  model = linearModel)
 plot(fm2)
 
 ## recursive partitioning of a logistic regression model
 data("PimaIndiansDiabetes", package = "mlbench")
-fmPID <- mob(diabetes ~ glucose | pregnant + pressure + triceps + insulin + mass + pedigree + age,
-  data = PimaIndiansDiabetes, model = glinearModel, family = binomial())
+fmPID <- mob(diabetes ~ glucose | pregnant + pressure + triceps + 
+                                  insulin + mass + pedigree + age,
+  data = PimaIndiansDiabetes, model = glinearModel, 
+  family = binomial())
 ## default plot: spinograms with breaks from five point summary
 plot(fmPID)
 ## use the breaks from hist() instead

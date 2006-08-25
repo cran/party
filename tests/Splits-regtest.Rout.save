@@ -1,5 +1,5 @@
 
-R version 2.4.0 Under development (unstable) (2006-07-16 r38625)
+R version 2.4.0 Under development (unstable) (2006-08-22 r38955)
 Copyright (C) 2006 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 
@@ -26,6 +26,14 @@ Loading required package: modeltools
 Loading required package: coin
 Loading required package: mvtnorm
 Loading required package: zoo
+
+Attaching package: 'zoo'
+
+
+	The following object(s) are masked from package:base :
+
+	 rapply 
+
 Loading required package: sandwich
 Loading required package: strucchange
 > gctorture(on = GCtorture)
@@ -85,10 +93,11 @@ Loading required package: strucchange
 data:  y by x 
 maxT = 1.1008, p-value = 0.9
 sample estimates:
-cutpoint in  x 
-      1.337766 
+$cutpoint
+[1] 1.337766
 
-> stopifnot(isequal(split[[1]], ms$estimate))
+
+> stopifnot(isequal(split[[1]], ms$estimate[[1]]))
 > stopifnot(isequal(split[[2]], ms$statistic))
 > stopifnot(isequal(max(split[[3]]), ms$statistic))
 > 
@@ -101,8 +110,9 @@ cutpoint in  x
 data:  Surv(month, cens) by EF 
 maxT = 3.5647, p-value = 0.1
 sample estimates:
-cutpoint in  EF 
-             39 
+$cutpoint
+[1] 39
+
 
 > splitctrl <- new("SplitControl")
 > splitctrl@minprob <- 0.1
@@ -110,7 +120,7 @@ cutpoint in  EF
 > 
 > split <- Split(hohnloser$EF, logrank_trafo(Surv(hohnloser$month, hohnloser$cens)),
 +                rep(1, nrow(hohnloser)), splitctrl)
-> stopifnot(isequal(split[[1]], ms$estimate))
+> stopifnot(isequal(split[[1]], ms$estimate[[1]]))
 > stopifnot(isequal(split[[2]], ms$statistic))
 > stopifnot(isequal(max(split[[3]]), ms$statistic))
 > 

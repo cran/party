@@ -3,7 +3,7 @@
     Suggorgate splits
     *\file SurrogateSplits.c
     *\author $Author: hothorn $
-    *\date $Date: 2005-06-14 11:21:32 +0200 (Tue, 14 Jun 2005) $
+    *\date $Date: 2006-08-25 10:53:10 +0200 (Fri, 25 Aug 2006) $
 */
                 
 #include "party.h"
@@ -87,13 +87,13 @@ void C_surrogates(SEXP node, SEXP learnsample, SEXP weights, SEXP controls,
              C_ExpectCovarInfluence(REAL(y), 1, thisweights, nobs, expcovinf);
              
              C_split(REAL(x), 1, REAL(y), 1, thisweights, nobs,
-                     INTEGER(get_ordering(inputs, j + 1)), 0, 0, splitctrl,
+                     INTEGER(get_ordering(inputs, j + 1)), splitctrl,
                      GET_SLOT(fitmem, PL2_linexpcov2sampleSym),
                      expcovinf, &cp, &ms, splitstat);
          } else {
          
              C_split(REAL(x), 1, REAL(y), 1, tweights, nobs,
-             INTEGER(get_ordering(inputs, j + 1)), 0, 0, splitctrl,
+             INTEGER(get_ordering(inputs, j + 1)), splitctrl,
              GET_SLOT(fitmem, PL2_linexpcov2sampleSym),
              expcovinf, &cp, &ms, splitstat);
          }

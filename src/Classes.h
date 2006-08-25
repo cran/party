@@ -46,8 +46,6 @@ extern SEXP
     PL2_linexpcov2sampleSym, 
     PL2_weightsSym, 
     PL2_varmemorySym, 
-    PL2_varMmemorySym, 
-    PL2_MscorematricesSym,
     PL2_responsesSym, 
     PL2_inputsSym,
     PL2_testtypeSym, 
@@ -89,8 +87,6 @@ SEXP get_levels(SEXP object, int variable);
 SEXP get_scores(SEXP object, int variable); 
 SEXP get_whichNA(SEXP object, int variable);
 SEXP get_varmemory(SEXP object, int variable);
-SEXP get_varMmemory(SEXP object, int variable);
-SEXP get_Mscorematrix(SEXP object, int variable);
 int get_nobs(SEXP object);
 int get_ninputs(SEXP object);
 SEXP get_weights(SEXP object, int variable);

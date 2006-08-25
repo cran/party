@@ -1,0 +1,57 @@
+
+R version 2.4.0 Under development (unstable) (2006-08-22 r38955)
+Copyright (C) 2006 The R Foundation for Statistical Computing
+ISBN 3-900051-07-0
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> 
+> ### check potential coding problems via `codetools'
+> if (require("codetools")) {
++     library("party")
++     print(checkUsagePackage("party"))
++ }
+Loading required package: codetools
+Loading required package: survival
+Loading required package: splines
+Loading required package: grid
+Loading required package: modeltools
+Loading required package: coin
+Loading required package: mvtnorm
+Loading required package: zoo
+
+Attaching package: 'zoo'
+
+
+	The following object(s) are masked from package:base :
+
+	 rapply 
+
+Loading required package: sandwich
+Loading required package: strucchange
+edge_simple : <anonymous>: no visible global function definition for phantom
+edge_simple : <anonymous>: no visible global function definition for .
+edge_simple : <anonymous>: no visible global function definition for phantom
+edge_simple : <anonymous>: no visible global function definition for .
+mob_fit_fluctests: local variable beta assigned but may not be used
+node_bivplot : num_fun: no visible global function definition for cd_plot
+node_bivplot : num_fun: no visible global function definition for spine
+node_bivplot : cat_fun: no visible global function definition for spine
+node_density: local variable xr assigned but may not be used
+node_density: local variable yr assigned but may not be used
+residuals.mob: local variable newinput assigned but may not be used
+reweight.glinearModel: local variable fit assigned but may not be used
+reweight.linearModel: local variable fit assigned but may not be used
+reweight.survReg: local variable fit assigned but may not be used
+NULL
+> 

@@ -1,6 +1,6 @@
-\name{Control Hyper Parameters}
+\name{Control ctree Hyper Parameters}
 \alias{ctree_control}
-\title{ Control for Conditional Tree Models }
+\title{ Control for Conditional Inference Trees }
 \description{
 
   Various parameters that control aspects of the `ctree' fit.
@@ -8,7 +8,8 @@
 }
 \usage{
 ctree_control(teststat = c("quad", "max"), 
-              testtype = c("Bonferroni", "MonteCarlo", "Univariate", "Teststatistic"), 
+              testtype = c("Bonferroni", "MonteCarlo", 
+                           "Univariate", "Teststatistic"), 
               mincriterion = 0.95, minsplit = 20, stump = FALSE, 
               nresample = 9999, maxsurrogate = 0, mtry = 0, 
               savesplitstats = TRUE, maxdepth = 0)

@@ -1,5 +1,5 @@
 
-R version 2.4.0 Under development (unstable) (2006-07-16 r38625)
+R version 2.4.0 Under development (unstable) (2006-08-22 r38955)
 Copyright (C) 2006 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 
@@ -26,6 +26,14 @@ Loading required package: modeltools
 Loading required package: coin
 Loading required package: mvtnorm
 Loading required package: zoo
+
+Attaching package: 'zoo'
+
+
+	The following object(s) are masked from package:base :
+
+	 rapply 
+
 Loading required package: sandwich
 Loading required package: strucchange
 > if (!require(mvtnorm))

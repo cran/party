@@ -1,0 +1,50 @@
+.TH "TreeGrow.h" 3 "25 Aug 2006" "party" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+TreeGrow.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBC_TreeGrow\fP (SEXP node, SEXP learnsample, SEXP fitmem, SEXP controls, int *where, int *nodenum, int depth)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "void C_TreeGrow (SEXP node, SEXP learnsample, SEXP fitmem, SEXP controls, int * where, int * nodenum, int depth)"
+.PP
+The main tree growing function, handles the recursion. 
+.br
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInode\fP a list representing the current node 
+.br
+\fIlearnsample\fP an object of class `LearningSample' 
+.br
+\fIfitmem\fP an object of class `TreeFitMemory' 
+.br
+\fIcontrols\fP an object of class `TreeControl' 
+.br
+\fIwhere\fP a pointer to an integer vector of n-elements 
+.br
+\fInodenum\fP a pointer to a integer vector of length 1 
+.br
+\fIdepth\fP an integer giving the depth of the current node
+.RE
+.PP
+
+.PP
+Definition at line 23 of file TreeGrow.c.
+.PP
+References C_Node(), C_splitnode(), C_splitsurrogate(), C_surrogates(), C_TreeGrow(), check_depth(), get_maxsurrogate(), get_nobs(), get_splitctrl(), get_stump(), get_tgctrl(), S3get_leftnode(), S3get_nodeterminal(), S3get_nodeweights(), S3get_rightnode(), and S3set_nodeID().
+.PP
+Referenced by C_TreeGrow(), R_Ensemble(), and R_TreeGrow().
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for party from the source code.

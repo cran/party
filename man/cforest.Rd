@@ -36,26 +36,30 @@ varimp(x, mincriterion = 0.0)
 \details{
 
   This implementation of the random forest (and bagging) algorithm differs
-  from the reference implementation in \code{\link[randomForest]{randomForest}]}
+  from the reference implementation in \code{\link[randomForest]{randomForest}}
   with respect to the base learner used and the aggregation scheme applied.
   
   Conditional inference trees, see \code{\link{ctree}}, are fitted to each
-  of the \code{B} bootstrap samples of the learning sample. There are many
+  of the \code{ntree} (defined via \code{\link{cforest_control}}) 
+  bootstrap samples of the learning sample. There are many
   hyper parameters that can be controlled, see \code{\link{cforest_control}}.
   You MUST NOT change anything you don't understand completely.
 
   The aggregation scheme works by averaging observation weights extracted
-  from each of the \code{B} trees and NOT by averaging predictions directly.
+  from each of the \code{ntree} trees and NOT by averaging predictions directly.
   See Hothorn et al. (2004) for a description. 
 
   Ensembles of conditional inference trees have not yet been extensively
   tested, so this routine is meant for the expert user only and its current
   state is rather experimental. However, there are some things that can't be
   done with \code{\link[randomForest]{randomForest}}, for example fitting
-  forests to censored response variables.
+  forests to censored response variables or to multivariate and 
+  ordered responses.
 
   By default, raw test statitics are maximized and five inputs are randomly
-  examined for possible splits in each node.
+  examined for possible splits in each node. Note that this implies 
+  biased internal variable selection which might affect variable 
+  importance measures derived from such a forest.
 
   Function \code{varimp} can be used to compute variable importance measures
   similar to those computed by \code{\link[randomForest]{importance}}.

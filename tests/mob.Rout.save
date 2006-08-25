@@ -1,5 +1,5 @@
 
-R version 2.4.0 Under development (unstable) (2006-07-16 r38625)
+R version 2.4.0 Under development (unstable) (2006-08-22 r38955)
 Copyright (C) 2006 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 
@@ -23,6 +23,14 @@ Loading required package: modeltools
 Loading required package: coin
 Loading required package: mvtnorm
 Loading required package: zoo
+
+Attaching package: 'zoo'
+
+
+	The following object(s) are masked from package:base :
+
+	 rapply 
+
 Loading required package: sandwich
 Loading required package: strucchange
 > 
@@ -299,12 +307,12 @@ F-statistic: 148.8 on 2 and 150 DF,  p-value: < 2.2e-16
 
 -------------------------------------------
 Fluctuation tests of splitting variables:
-              pregnant  pressure     triceps   insulin         mass    pedigree
-statistic 2.988568e+01 7.5028009 15.94104656 6.5968798 4.881000e+01 18.33529248
-p.value   1.080668e-04 0.9745212  0.09443482 0.9951636 5.006389e-09  0.03262343
+              pregnant  pressure    triceps  insulin         mass    pedigree
+statistic 2.988542e+01 7.5024235 15.9409542 6.596930 4.880982e+01 18.33476114
+p.value   1.080811e-04 0.9745357  0.0944386 0.995163 5.006878e-09  0.03263157
                    age
-statistic 4.351454e+01
-p.value   8.545400e-08
+statistic 4.351412e+01
+p.value   8.547321e-08
 
 Best splitting variable: mass
 Perform split? yes
@@ -316,8 +324,8 @@ mass <= 26.3; criterion = 1, statistic = 48.81
 -------------------------------------------
 Fluctuation tests of splitting variables:
             pregnant pressure  triceps   insulin       mass  pedigree       age
-statistic 10.3922724 4.353803 5.911438 3.7858362 10.4749354 3.6263313 6.0978350
-p.value    0.4903414 0.999824 0.986890 0.9999888  0.4785391 0.9999958 0.9817752
+statistic 10.3924070 4.353740 5.911229 3.7855726 10.4748907 3.6263026 6.0978662
+p.value    0.4903221 0.999824 0.986895 0.9999888  0.4785454 0.9999958 0.9817742
 
 Best splitting variable: mass
 Perform split? no
@@ -325,12 +333,12 @@ Perform split? no
 
 -------------------------------------------
 Fluctuation tests of splitting variables:
-              pregnant   pressure   triceps   insulin     mass    pedigree
-statistic 26.739121881 10.5022779 7.3468058 7.8963949 9.154590 17.96439322
-p.value    0.000512744  0.6314467 0.9743999 0.9463538 0.825481  0.03643852
+              pregnant   pressure  triceps   insulin     mass    pedigree
+statistic 2.673912e+01 10.5022763 7.346804 7.8963977 9.154591 17.96438828
+p.value   5.127454e-04  0.6314469 0.974400 0.9463536 0.825481  0.03643861
                    age
-statistic 3.498467e+01
-p.value   7.615150e-06
+statistic 3.498466e+01
+p.value   7.615182e-06
 
 Best splitting variable: age
 Perform split? yes
@@ -342,10 +350,10 @@ age <= 30; criterion = 1, statistic = 34.985
 -------------------------------------------
 Fluctuation tests of splitting variables:
            pregnant  pressure   triceps    insulin      mass  pedigree
-statistic 4.3749993 9.7025158 7.6614572 13.6970740 5.4287860 5.6404196
-p.value   0.9999817 0.6805075 0.9289403  0.1891210 0.9988324 0.9978877
+statistic 4.3749991 9.7025161 7.6614571 13.6970752 5.4287861 5.6404196
+p.value   0.9999817 0.6805075 0.9289403  0.1891209 0.9988324 0.9978877
                 age
-statistic 6.3088817
+statistic 6.3088818
 p.value   0.9902905
 
 Best splitting variable: insulin
@@ -354,9 +362,12 @@ Perform split? no
 
 -------------------------------------------
 Fluctuation tests of splitting variables:
-          pregnant pressure   triceps   insulin       mass pedigree        age
-statistic 7.728289 2.246709 3.6078323 4.9703207 10.1369449 11.90042 12.9698472
-p.value   0.921978 1.000000 0.9999999 0.9997265  0.6112689  0.36264  0.2480068
+          pregnant pressure   triceps   insulin       mass   pedigree
+statistic 7.728290 2.246709 3.6078314 4.9703223 10.1369437 11.9004129
+p.value   0.921978 1.000000 0.9999999 0.9997265  0.6112691  0.3626408
+                 age
+statistic 12.9698452
+p.value    0.2480070
 
 Best splitting variable: age
 Perform split? no

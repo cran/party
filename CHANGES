@@ -1,4 +1,20 @@
 
+
+                CHANGES IN party VERSION 0.9-0 (yyyy-mm-dd)
+
+    o    node_barplot() can now also draw stacked barplots.
+
+    o    simplify handling of ordinal variables. It is now possible
+         to have multiple (ordinal) response variables.
+
+    o    some documentation updates
+
+    o    fix problems with NA handling for factors
+
+    o    make sure minsplit criterion applies in the presence of missing
+         values. Bug spotted by Han Lee <Han.Lee@geodecapital.com>.
+
+
                 CHANGES IN party VERSION 0.8-8 (2006-08-23)
 
     o    export `varimp' (variable importance measures for cforest())

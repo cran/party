@@ -117,13 +117,16 @@ data("BostonHousing", package = "mlbench")
 BostonHousing$lstat <- log(BostonHousing$lstat)
 BostonHousing$rm <- BostonHousing$rm^2
 ## as well as partitioning variables (for fluctuation testing)
-BostonHousing$chas <- factor(BostonHousing$chas, levels = 0:1, labels = c("no", "yes"))
+BostonHousing$chas <- factor(BostonHousing$chas, levels = 0:1, 
+                             labels = c("no", "yes"))
 BostonHousing$rad <- factor(BostonHousing$rad, ordered = TRUE)
 
 ## partition the linear regression model medv ~ lstat + rm
 ## with respect to all remaining variables:
-fmBH <- mob(medv ~ lstat + rm | zn + indus + chas + nox + age + dis + rad + tax + crim + b + ptratio,
-  control = mob_control(minsplit = 40), data = BostonHousing, model = linearModel)
+fmBH <- mob(medv ~ lstat + rm | zn + indus + chas + nox + age + 
+                                dis + rad + tax + crim + b + ptratio,
+  control = mob_control(minsplit = 40), data = BostonHousing, 
+  model = linearModel)
 
 ## print the resulting tree
 fmBH
@@ -155,8 +158,10 @@ AIC(fmBH)
 data("PimaIndiansDiabetes", package = "mlbench")
 ## partition logistic regression diabetes ~ glucose 
 ## wth respect to all remaining variables
-fmPID <- mob(diabetes ~ glucose | pregnant + pressure + triceps + insulin + mass + pedigree + age,
-  data = PimaIndiansDiabetes, model = glinearModel, family = binomial())
+fmPID <- mob(diabetes ~ glucose | pregnant + pressure + triceps + 
+                                  insulin + mass + pedigree + age,
+  data = PimaIndiansDiabetes, model = glinearModel, 
+  family = binomial())
 
 ## fitted model
 coef(fmPID)

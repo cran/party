@@ -1,5 +1,5 @@
 
-# $Id: ConditionalTree.R 2577 2006-04-28 11:26:39Z hothorn $
+# $Id: ConditionalTree.R 2741 2006-08-24 08:38:04Z hothorn $
 
 ### the fitting procedure
 ctreefit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
@@ -216,7 +216,8 @@ ctree_control <- function(teststat = c("quad", "max"),
     RET@tgctrl@stump <- stump
     RET@tgctrl@maxdepth <- as.integer(maxdepth)
     RET@tgctrl@savesplitstats <- savesplitstats
-    val <- validObject(RET)
+    if (!validObject(RET))
+        stop("RET is not a valid object of class", class(RET))
     RET
 }
 

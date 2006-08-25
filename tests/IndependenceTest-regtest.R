@@ -25,7 +25,7 @@ varctrl <- new("VariableControl")
 lec <- new("LinStatExpectCovar", ncol(x), ncol(y))
 
 res <- .Call("R_IndependenceTest", x, y, weights,  
-              NULL, NULL, lec, varctrl, PACKAGE = "party")
+              lec, varctrl, PACKAGE = "party")
 print(res)
 wmw <- wilcox.test(xval ~ yf, exact = FALSE, correct = FALSE)
 print(wmw)
@@ -46,7 +46,7 @@ lec@MPinv <- matrix(0, nrow = ncol(x) * ncol(y), ncol = ncol(x) * ncol(y))
 lec@svdmem <- new("svd_mem", ncol(x) * ncol(y))
 
 res <- .Call("R_IndependenceTest", x, y, weights,  
-              NULL, NULL, lec, varctrl, PACKAGE = "party")
+              lec, varctrl, PACKAGE = "party")
 print(res)
 kw <- kruskal.test(xval ~ yf)
 print(kw)
@@ -65,7 +65,7 @@ lec@MPinv <- matrix(0, nrow = ncol(x) * ncol(y), ncol = ncol(x) * ncol(y))
 lec@svdmem <- new("svd_mem", ncol(x) * ncol(y))
 
 res <- .Call("R_IndependenceTest", x, y, weights,  
-              NULL, NULL, lec, varctrl, PACKAGE = "party")
+              lec, varctrl, PACKAGE = "party")
 print(res)
 kw <- kruskal.test(xval ~ yf)
 print(kw)
@@ -86,7 +86,7 @@ lec@MPinv <- matrix(0, nrow = ncol(x) * ncol(y), ncol = ncol(x) * ncol(y))
 lec@svdmem <- new("svd_mem", ncol(x) * ncol(y))
 
 res <- .Call("R_IndependenceTest", x, y, weights,  
-              NULL, NULL, lec, varctrl, PACKAGE = "party")
+              lec, varctrl, PACKAGE = "party")
 print(res)
 chis <- chisq.test(table(xf, yf), correct = FALSE)
 print(chis)
@@ -103,7 +103,7 @@ varctrl <- new("VariableControl")
 lec <- new("LinStatExpectCovar", ncol(x), ncol(y))
 
 res <- .Call("R_IndependenceTest", x, y, weights,
-              NULL, NULL, lec, varctrl, PACKAGE = "party")
+              lec, varctrl, PACKAGE = "party")
 print(res)
 wmw <- wilcox.test(xval ~ yf, exact = FALSE, correct = FALSE)
 print(wmw)
@@ -113,7 +113,7 @@ varctrl <- new("VariableControl")
 lec <- new("LinStatExpectCovar", ncol(y), ncol(x))
 
 res <- .Call("R_IndependenceTest", y, x, weights,
-              NULL, NULL, lec, varctrl, PACKAGE = "party")
+              lec, varctrl, PACKAGE = "party")
 print(res)
 wmw <- wilcox.test(xval ~ yf, exact = FALSE, correct = FALSE)
 print(wmw)
@@ -134,7 +134,7 @@ lec@MPinv <- matrix(0, nrow = ncol(x) * ncol(y), ncol = ncol(x) * ncol(y))
 lec@svdmem <- new("svd_mem", ncol(x) * ncol(y))
 
 res <- .Call("R_IndependenceTest", x, y, weights,  
-              NULL, NULL, lec, varctrl, PACKAGE = "party")
+              lec, varctrl, PACKAGE = "party")
 print(res)
 chis <- chisq.test(table(xf, yf), correct = FALSE)
 print(chis)

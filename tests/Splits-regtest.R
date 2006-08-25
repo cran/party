@@ -53,7 +53,7 @@ splitctrl <- new("SplitControl")
 split <- Split(x, y, weights, splitctrl)
 mydata <- data.frame(y, x)
 ms <- show(maxstat_test(y ~ x, data = mydata, distribution = approximate(10)))
-stopifnot(isequal(split[[1]], ms$estimate))
+stopifnot(isequal(split[[1]], ms$estimate[[1]]))
 stopifnot(isequal(split[[2]], ms$statistic))
 stopifnot(isequal(max(split[[3]]), ms$statistic))
 
@@ -66,7 +66,7 @@ splitctrl@minsplit <- as.integer(5)
 
 split <- Split(hohnloser$EF, logrank_trafo(Surv(hohnloser$month, hohnloser$cens)),
                rep(1, nrow(hohnloser)), splitctrl)
-stopifnot(isequal(split[[1]], ms$estimate))
+stopifnot(isequal(split[[1]], ms$estimate[[1]]))
 stopifnot(isequal(split[[2]], ms$statistic))
 stopifnot(isequal(max(split[[3]]), ms$statistic))
 

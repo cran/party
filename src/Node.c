@@ -3,7 +3,7 @@
     Node computations
     *\file Node.c
     *\author $Author: hothorn $
-    *\date $Date: 2005-10-19 16:40:43 +0200 (Wed, 19 Oct 2005) $
+    *\date $Date: 2006-08-25 10:53:10 +0200 (Fri, 25 Aug 2006) $
 */
                 
 #include "party.h"
@@ -48,7 +48,7 @@ void C_prediction(const double *y, int n, int q, const double *weights,
 void C_Node(SEXP node, SEXP learnsample, SEXP weights, 
             SEXP fitmem, SEXP controls, int TERMINAL) {
     
-    int nobs, ninputs, jselect, yORDERED, q, j, k, i;
+    int nobs, ninputs, jselect, q, j, k, i;
     double mincriterion, sweights, *dprediction;
     double *teststat, *pvalue, smax, cutpoint = 0.0, maxstat = 0.0;
     double *standstat, *splitstat;
@@ -66,7 +66,6 @@ void C_Node(SEXP node, SEXP learnsample, SEXP weights,
     mincriterion = get_mincriterion(gtctrl);
     responses = GET_SLOT(learnsample, PL2_responsesSym);
     inputs = GET_SLOT(learnsample, PL2_inputsSym);
-    yORDERED = is_ordinal(responses, 1); 
     y = get_transformation(responses, 1);
     q = ncol(y);
     joint = GET_SLOT(responses, PL2_jointtransfSym);
@@ -136,9 +135,7 @@ void C_Node(SEXP node, SEXP learnsample, SEXP weights,
                 }
 
                 C_split(REAL(x), 1, REAL(y), q, REAL(weights), nobs,
-                        INTEGER(get_ordering(inputs, jselect)), 
-                        REAL(VECTOR_ELT(GET_SLOT(responses, PL2_scoresSym), 0)),
-                        yORDERED, splitctrl, 
+                        INTEGER(get_ordering(inputs, jselect)), splitctrl, 
                         GET_SLOT(fitmem, PL2_linexpcov2sampleSym),
                         expcovinf, REAL(S3get_splitpoint(split)), &maxstat,
                         splitstat);
@@ -174,9 +171,7 @@ void C_Node(SEXP node, SEXP learnsample, SEXP weights,
                  C_splitcategorical(INTEGER(x), 
                                     LENGTH(get_levels(inputs, jselect)), 
                                     REAL(y), q, REAL(weights), 
-                                    nobs, REAL(VECTOR_ELT(GET_SLOT(responses, 
-                                               PL2_scoresSym), 0)),
-                                    yORDERED, standstat, splitctrl, 
+                                    nobs, standstat, splitctrl, 
                                     GET_SLOT(fitmem, PL2_linexpcov2sampleSym),
                                     expcovinf, &cutpoint, 
                                     INTEGER(S3get_splitpoint(split)),
