@@ -17,6 +17,14 @@ mob <- function(formula, weights, data = list(),
       ff <- attr(modeltools:::ParseFormula(formula), "formula")
       ff$input[[3]] <- ff$input[[2]]
       ff$input[[2]] <- ff$response[[2]]
+      ### <FIXME> we can't handle missing values properly yet
+      cc <- complete.cases(data)
+      if (!all(cc)) {
+          warning(sum(cc), " missing values in ", 
+                  sQuote("data"), " have been removed")
+          data <- data[cc,]
+      }
+      ### </FIXME>
       dpp(model, as.formula(ff$input), other = list(part = as.formula(ff$blocks)), data = data)
     }
     formula <- mobpp(formula, data, model)

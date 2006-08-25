@@ -1,5 +1,4 @@
 
-import(methods)
 importFrom(coin, logrank_trafo)
 
 export(ctree, ctree_memory, ctree_control, 

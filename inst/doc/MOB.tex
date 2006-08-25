@@ -5,7 +5,7 @@
 
 %% packages
 \usepackage{amsmath}
-\SweaveOpts{engine=R}
+
 %% neet no \usepackage{Sweave}
 
 %% commands
@@ -194,18 +194,41 @@ values.
 Thus, the model $\mathcal{M}$ used is \code{linearModel} from the \pkg{modeltools}
 package which is automatically loaded together with \pkg{party}.
 
-<<>>=
-library("party")
-@
+\begin{Schunk}
+\begin{Sinput}
+> library("party")
+\end{Sinput}
+\begin{Soutput}
+Loading required package: survival
+Loading required package: splines
+Loading required package: grid
+Loading required package: modeltools
+Loading required package: coin
+Loading required package: mvtnorm
+Loading required package: zoo
+
+Attaching package: 'zoo'
+
+
+	The following object(s) are masked from package:base :
+
+	 rapply 
+
+Loading required package: sandwich
+Loading required package: strucchange
+\end{Soutput}
+\end{Schunk}
 
 The data set is available in package \pkg{mlbench} via
 
-<<>>=
-data("BostonHousing", package = "mlbench")
-@
+\begin{Schunk}
+\begin{Sinput}
+> data("BostonHousing", package = "mlbench")
+\end{Sinput}
+\end{Schunk}
 
-and provides $n = \Sexpr{NROW(BostonHousing)}$ observations of the median value of owner-occupied
-homes in Boston (in USD~1000) along with $\Sexpr{NCOL(BostonHousing)}$ covariates including in particular
+and provides $n = 506$ observations of the median value of owner-occupied
+homes in Boston (in USD~1000) along with $14$ covariates including in particular
 the number of rooms per dwelling (\code{rm}) and the percentage
 of lower status of the population (\code{lstat}). A segment-wise linear relationship between
 the value and these two variables is very intuitive, whereas the shape of the influence
@@ -215,10 +238,12 @@ and \verb:log(lstat): with $k = 3$ regression coefficients is employed and
 partitioned with respect to all $\ell = 11$ remaining variables. To facilitate subsequent
 commands, the transformations are explicitely stored in \code{BostonHousing}:
 
-<<>>=
-BostonHousing$lstat <- log(BostonHousing$lstat)
-BostonHousing$rm <- BostonHousing$rm^2
-@
+\begin{Schunk}
+\begin{Sinput}
+> BostonHousing$lstat <- log(BostonHousing$lstat)
+> BostonHousing$rm <- BostonHousing$rm^2
+\end{Sinput}
+\end{Schunk}
 
 Choosing appropriate
 transformations of the dependent variable and the regressors that enter the linear
@@ -232,10 +257,13 @@ with Charles river) and should thus be turned into a factor. Furthermore, the va
 \code{rad} is an index of accessibility to radial highways and takes only 9 distinct
 values. Thus it is most appropriately treated as an ordered factor.
 
-<<>>=
-BostonHousing$chas <- factor(BostonHousing$chas, levels = 0:1, labels = c("no", "yes"))
-BostonHousing$rad <- factor(BostonHousing$rad, ordered = TRUE)
-@
+\begin{Schunk}
+\begin{Sinput}
+> BostonHousing$chas <- factor(BostonHousing$chas, levels = 0:1, 
++     labels = c("no", "yes"))
+> BostonHousing$rad <- factor(BostonHousing$rad, ordered = TRUE)
+\end{Sinput}
+\end{Schunk}
 
 Both transformations only affect the parameter stability test chosen (step~2), not the splitting
 procedure (step~3).
@@ -245,10 +273,12 @@ by OLS, the instability is assessed using a Bonferroni-corrected
 significance level of $\alpha = 0.05$ and the nodes are split with a required minimal
 segment size of $40$ observations. The control parameters are thus set to
 
-<<>>=
-ctrl <- mob_control(alpha = 0.05, bonferroni = TRUE, minsplit = 40,
-  objfun = deviance, verbose = TRUE)
-@
+\begin{Schunk}
+\begin{Sinput}
+> ctrl <- mob_control(alpha = 0.05, bonferroni = TRUE, minsplit = 40, 
++     objfun = deviance, verbose = TRUE)
+\end{Sinput}
+\end{Schunk}
 
 Actually, all of these settings are the defaults except \code{minsplit = 40} and
 \code{verbose = TRUE} which causes some information about the fitting process
@@ -260,10 +290,119 @@ that takes the model specification of the linear regression model \verb:medv ~ l
 plus all partitioning variables, along with the \code{data} set, the \code{control}
 settings and the \code{model} to be used.
 
-<<>>=
-fmBH <- mob(medv ~ lstat + rm | zn + indus + chas + nox + age + dis + rad + tax + crim + b + ptratio,
-  data = BostonHousing, control = ctrl, model = linearModel)
-@
+\begin{Schunk}
+\begin{Sinput}
+> fmBH <- mob(medv ~ lstat + rm | zn + indus + chas + nox + age + 
++     dis + rad + tax + crim + b + ptratio, data = BostonHousing, 
++     control = ctrl, model = linearModel)
+\end{Sinput}
+\begin{Soutput}
+-------------------------------------------
+Fluctuation tests of splitting variables:
+                    zn        indus         chas          nox          age
+statistic 3.363356e+01 6.532322e+01 2.275635e+01 8.136281e+01 3.675850e+01
+p.value   1.176113e-04 1.603635e-11 4.993053e-04 4.138241e-15 2.608438e-05
+                   dis          rad          tax         crim            b
+statistic 6.903150e+01 1.153641e+02 9.068440e+01 8.655065e+01 3.627629e+01
+p.value   2.397851e-12 7.087680e-13 3.257864e-17 2.801011e-16 3.294641e-05
+               ptratio
+statistic 7.221524e+01
+p.value   4.666898e-13
+
+Best splitting variable: tax
+Perform split? yes
+-------------------------------------------
+
+Node properties:
+tax <= 432; criterion = 1, statistic = 115.364
+
+-------------------------------------------
+Fluctuation tests of splitting variables:
+                    zn       indus      chas          nox        age
+statistic 27.785009791 21.33293464 8.0272421 23.774323202 11.9204284
+p.value    0.001494064  0.02851930 0.4005192  0.009518732  0.7666366
+                   dis          rad          tax         crim         b
+statistic 24.268011081 50.481593270 3.523250e+01 3.276813e+01 9.0363245
+p.value    0.007601532  0.003437763 4.275527e-05 1.404487e-04 0.9871502
+               ptratio
+statistic 4.510680e+01
+p.value   3.309747e-07
+
+Best splitting variable: ptratio
+Perform split? yes
+-------------------------------------------
+
+Node properties:
+ptratio <= 15.2; criterion = 1, statistic = 50.482
+
+-------------------------------------------
+Fluctuation tests of splitting variables:
+                    zn       indus        chas         nox         age
+statistic 3.233350e+01 22.26864036 12.93407112 22.10510234 20.41295354
+p.value   1.229678e-04  0.01504788  0.05259509  0.01622098  0.03499731
+                 dis          rad          tax        crim         b
+statistic 17.7204735 5.526565e+01 2.879128e+01 20.28503194 6.5549665
+p.value    0.1091769 7.112214e-04 6.916307e-04  0.03706934 0.9999522
+               ptratio
+statistic 4.789850e+01
+p.value   4.738855e-08
+
+Best splitting variable: ptratio
+Perform split? yes
+-------------------------------------------
+
+Node properties:
+ptratio <= 19.6; criterion = 1, statistic = 55.266
+
+-------------------------------------------
+Fluctuation tests of splitting variables:
+                 zn      indus      chas        nox       age        dis
+statistic 14.971474 14.6477733 7.1172962 14.3455158 8.2176363 16.1112185
+p.value    0.280361  0.3134649 0.5405005  0.3467974 0.9906672  0.1847818
+                  rad          tax     crim         b    ptratio
+statistic 43.17824350 3.447271e+01 9.340075 8.7773142 10.8469969
+p.value    0.03281124 4.281939e-05 0.952996 0.9772696  0.8202694
+
+Best splitting variable: tax
+Perform split? yes
+-------------------------------------------
+
+Node properties:
+tax <= 265; criterion = 1, statistic = 43.178
+
+-------------------------------------------
+Fluctuation tests of splitting variables:
+                 zn     indus     chas      nox        age       dis        rad
+statistic 11.998039 7.3971233 7.227770 9.293619 14.3023962 8.9239826 33.1746444
+p.value    0.574642 0.9931875 0.522447 0.911962  0.2886603 0.9389895  0.3926249
+                 tax       crim         b    ptratio
+statistic 16.6666129 11.7143758 9.9050903 11.5927528
+p.value    0.1206412  0.6153455 0.8539893  0.6328381
+
+Best splitting variable: tax
+Perform split? no
+-------------------------------------------
+
+-------------------------------------------
+Fluctuation tests of splitting variables:
+                  zn     indus         chas         nox       age        dis
+statistic 10.9187926 9.0917078 2.754081e+01 17.39203006 4.6282349 11.9581600
+p.value    0.7091039 0.9172303 4.987667e-05  0.08922543 0.9999992  0.5607267
+                rad        tax     crim        b   ptratio
+statistic 0.2557803 10.9076165 3.711175 3.158329 9.8865054
+p.value   1.0000000  0.7106612 1.000000 1.000000 0.8410064
+
+Best splitting variable: chas
+Perform split? yes
+-------------------------------------------
+
+Splitting factor variable, objective function: 
+ no 
+Inf 
+
+No admissable split found in ‘chas’
+\end{Soutput}
+\end{Schunk}
 
 The result is the fitted model \code{fmBH} of class ``\code{mob}'' that contains
 the tree with a fitted linear regression associated with every node. Printing
@@ -271,16 +410,59 @@ this object will show the splits, their $p$ values and call the \code{print()} m
 for the model in each terminal node (i.e., this simply relies on a \code{print()}
 method being available for the fitted model and re-uses it).
 
-<<>>=
-fmBH
-@
+\begin{Schunk}
+\begin{Sinput}
+> fmBH
+\end{Sinput}
+\begin{Soutput}
+1) tax <= 432; criterion = 1, statistic = 115.364
+  2) ptratio <= 15.2; criterion = 1, statistic = 50.482
+    3)*  weights = 72 
+Terminal node model
+Linear model with coefficients:
+(Intercept)        lstat           rm  
+     9.2349      -4.9391       0.6859  
+
+  2) ptratio > 15.2
+    4) ptratio <= 19.6; criterion = 1, statistic = 55.266
+      5) tax <= 265; criterion = 1, statistic = 43.178
+        6)*  weights = 63 
+Terminal node model
+Linear model with coefficients:
+(Intercept)        lstat           rm  
+     3.9637      -2.7663       0.6881  
+
+      5) tax > 265
+        7)*  weights = 162 
+Terminal node model
+Linear model with coefficients:
+(Intercept)        lstat           rm  
+    -1.7984      -0.2677       0.6539  
+
+    4) ptratio > 19.6
+      8)*  weights = 56 
+Terminal node model
+Linear model with coefficients:
+(Intercept)        lstat           rm  
+    17.5865      -4.6190       0.3387  
+
+1) tax > 432
+  9)*  weights = 153 
+Terminal node model
+Linear model with coefficients:
+(Intercept)        lstat           rm  
+    68.2971     -16.3540      -0.1478  
+\end{Soutput}
+\end{Schunk}
 
 Looking at the printed output is typically rather tedious, a visualization via
 the \code{plot()} method
 
-<<eval=FALSE>>=
-plot(fmBH)
-@
+\begin{Schunk}
+\begin{Sinput}
+> plot(fmBH)
+\end{Sinput}
+\end{Schunk}
 
 is much easier to interpret. By default, this produces partial scatter plots of the
 variable $y$ against each of the regressors $x_i$ in the terminal nodes. Each scatter
@@ -289,9 +471,6 @@ plot also shows the fitted values, i.e., a project of the fitted hyperplane.
 \setkeys{Gin}{width=\textwidth}
 \begin{figure}[p]
 \begin{center}
-<<BostonHousing-plot,echo=FALSE,results=hide,fig=TRUE,height=8,width=12,include=FALSE>>=
-plot(fmBH)
-@
 \includegraphics[width=18cm,keepaspectratio,angle=90]{MOB-BostonHousing-plot}
 \caption{\label{fig:BostonHousing} Linear-regression-based tree for the Boston housing data.
 The plots in the leaves give partial scatter plots for \code{rm} (upper panel) and 
@@ -312,43 +491,96 @@ for the terminal nodes, but a \code{node} argument can be set to the node IDs of
 As an example, the regression coefficients for the terminal node models can be easily 
 extracted by
 
-<<>>=
-coef(fmBH)
-@
+\begin{Schunk}
+\begin{Sinput}
+> coef(fmBH)
+\end{Sinput}
+\begin{Soutput}
+  (Intercept)      lstat         rm
+3    9.234880  -4.939096  0.6859136
+6    3.963720  -2.766287  0.6881287
+7   -1.798387  -0.267707  0.6538864
+8   17.586490  -4.618975  0.3386744
+9   68.297087 -16.354006 -0.1477939
+\end{Soutput}
+\end{Schunk}
 
 reflecting the differences of the models that can also be seen in the the associated
 \code{plot()}. Even more information is available in a \code{summary()}, e.g., for node 7:
 
-<<>>=
-summary(fmBH, node = 7)
-@
+\begin{Schunk}
+\begin{Sinput}
+> summary(fmBH, node = 7)
+\end{Sinput}
+\begin{Soutput}
+Call:
+NULL
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-9.092  0.000  0.000  0.000 10.236 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -1.79839    2.84702  -0.632    0.529    
+lstat       -0.26771    0.69581  -0.385    0.701    
+rm           0.65389    0.03757  17.404   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
+
+Residual standard error: 2.652 on 159 degrees of freedom
+Multiple R-Squared: 0.8173,	Adjusted R-squared: 0.815 
+F-statistic: 355.6 on 2 and 159 DF,  p-value: < 2.2e-16 
+\end{Soutput}
+\end{Schunk}
 
 The test statistics and $p$~values computed in each node, can be extracted analogously
 by using the method for the function \code{sctest()} (for performing \underline{s}tructural
 \underline{c}hange \underline{test}s).
 
-<<>>=
-sctest(fmBH, node = 7)
-@
+\begin{Schunk}
+\begin{Sinput}
+> sctest(fmBH, node = 7)
+\end{Sinput}
+\begin{Soutput}
+                 zn     indus     chas      nox        age       dis        rad
+statistic 11.998039 7.3971233 7.227770 9.293619 14.3023962 8.9239826 33.1746444
+p.value    0.574642 0.9931875 0.522447 0.911962  0.2886603 0.9389895  0.3926249
+                 tax       crim         b    ptratio
+statistic 16.6666129 11.7143758 9.9050903 11.5927528
+p.value    0.1206412  0.6153455 0.8539893  0.6328381
+\end{Soutput}
+\end{Schunk}
 
 For summarizing the quality of the fit, we could compute the mean squared error, log-likelihood
 or AIC:
 
-<<>>=
-mean(residuals(fmBH)^2)
-logLik(fmBH)
-AIC(fmBH)
-@
+\begin{Schunk}
+\begin{Sinput}
+> mean(residuals(fmBH)^2)
+\end{Sinput}
+\begin{Soutput}
+[1] 12.03518
+\end{Soutput}
+\begin{Sinput}
+> logLik(fmBH)
+\end{Sinput}
+\begin{Soutput}
+'log Lik.' -1310.506 (df=24)
+\end{Soutput}
+\begin{Sinput}
+> AIC(fmBH)
+\end{Sinput}
+\begin{Soutput}
+[1] 2669.013
+\end{Soutput}
+\end{Schunk}
 
-<<echo=FALSE>>=
-nt <- NROW(coef(fmBH))
-nk <- NCOL(coef(fmBH))
-@
 
 As the \code{logLik()} method simply re-uses the method for \code{linearModel} objects,
-this does not only report $\Sexpr{(nk+1)*nt-1}$ estimated parameters ($\Sexpr{nk}$ parameters in
-each of the $\Sexpr{nt}$ terminal nodes plus $\Sexpr{nt} - 1$ split points) but
-$\Sexpr{(nk+2)*nt-1}$ parameters because each terminal node is additionally associated with a 
+this does not only report $19$ estimated parameters ($3$ parameters in
+each of the $5$ terminal nodes plus $5 - 1$ split points) but
+$24$ parameters because each terminal node is additionally associated with a 
 variance estimate. However, for the fitting process, the variance was treated as a nuisance 
 parameter as we employed OLS estimation (rather than fully-specified ML estimation). 
 
@@ -358,12 +590,14 @@ parameter as we employed OLS estimation (rather than fully-specified ML estimati
 Another popular benchmark data set for binary classifications is the Pima Indians
 diabetes database which is also available from \pkg{mlbench}:
 
-<<>>=
-data("PimaIndiansDiabetes", package = "mlbench")
-@
+\begin{Schunk}
+\begin{Sinput}
+> data("PimaIndiansDiabetes", package = "mlbench")
+\end{Sinput}
+\end{Schunk}
 
-It provides diabetes test results for $n = \Sexpr{NROW(PimaIndiansDiabetes)}$ women
-along with $\Sexpr{NCOL(PimaIndiansDiabetes)}$ covariates including in particular
+It provides diabetes test results for $n = 768$ women
+along with $9$ covariates including in particular
 the plasma glucose concentration \code{glucose} as an important predictor for diabetes.
 Fitting a logistic regression model \verb:diabetes ~ glucose: seems to be straightforward,
 whereas the influence of the remaining variables should again be learned by recursive
@@ -377,23 +611,26 @@ segment size of $20$ observations. Hence, all control parameters correspond to t
 default values in \verb:mob_control(): and do not have to be set explicitely in 
 the \code{mob()} call:
 
-<<>>=
-fmPID <- mob(diabetes ~ glucose | pregnant + pressure + triceps + insulin + mass + pedigree + age,
-  data = PimaIndiansDiabetes, model = glinearModel, family = binomial())
-@
+\begin{Schunk}
+\begin{Sinput}
+> fmPID <- mob(diabetes ~ glucose | pregnant + pressure + triceps + 
++     insulin + mass + pedigree + age, data = PimaIndiansDiabetes, 
++     model = glinearModel, family = binomial())
+\end{Sinput}
+\end{Schunk}
 
 To visualize this, we simply call again:
 
-<<eval=FALSE>>=
-plot(fmPID)
-@
+\begin{Schunk}
+\begin{Sinput}
+> plot(fmPID)
+\end{Sinput}
+\end{Schunk}
 
 \setkeys{Gin}{width=\textwidth}
 \begin{figure}[bth]
 \begin{center}
-<<PimaIndiansDiabetes-plot,echo=FALSE,results=hide,fig=TRUE,height=6,width=9>>=
-plot(fmPID)
-@
+\includegraphics{MOB-PimaIndiansDiabetes-plot}
 \caption{\label{fig:PimaIndiansDiabetes} Logistic-regression-based tree for the Pima Indians
 diabetes data. The plots in the leaves give spinograms for \code{diabetes} versus 
 \code{glucose}.}
@@ -419,16 +656,27 @@ The model tree distinguishes three different groups:
 The same interpretation can also be drawn from the coefficient estimates
 and the corresponding odds ratios (with respect to glucose):
 
-<<>>=
-coef(fmPID)
-exp(coef(fmPID)[,2])
-@  
+\begin{Schunk}
+\begin{Sinput}
+> coef(fmPID)
+\end{Sinput}
+\begin{Soutput}
+  (Intercept)    glucose
+2   -9.951510 0.05870786
+4   -6.705586 0.04683748
+5   -2.770954 0.02353582
+\end{Soutput}
+\begin{Sinput}
+> exp(coef(fmPID)[, 2])
+\end{Sinput}
+\begin{Soutput}
+       2        4        5 
+1.060465 1.047952 1.023815 
+\end{Soutput}
+\end{Schunk}
 
-<<echo=FALSE>>=
-risk <- round(100 * (exp(coef(fmPID)[,2])-1), digits = 1)
-@
 
-i.e., the odds increase by \Sexpr{risk[1]}\%, \Sexpr{risk[2]}\% and \Sexpr{risk[3]}\%
+i.e., the odds increase by 6\%, 4.8\% and 2.4\%
 with respect to glucose in the three groups.
 
 

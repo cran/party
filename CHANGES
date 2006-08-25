@@ -1,6 +1,13 @@
 
+                CHANGES IN party VERSION 0.9-1 (2006-09-07)
 
-                CHANGES IN party VERSION 0.9-0 (yyyy-mm-dd)
+    o    mob() can't currently handle missing values,
+         they are removed and a warning is given.
+
+    o    add `methods' to Depends:
+
+
+                CHANGES IN party VERSION 0.9-0 (2006-08-31)
 
     o    node_barplot() can now also draw stacked barplots.
 
