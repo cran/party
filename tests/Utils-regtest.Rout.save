@@ -1,5 +1,5 @@
 
-R version 2.4.0 Under development (unstable) (2006-08-22 r38955)
+R version 2.4.0 alpha (2006-09-06 r39158)
 Copyright (C) 2006 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 
@@ -36,8 +36,8 @@ Attaching package: 'zoo'
 
 Loading required package: sandwich
 Loading required package: strucchange
-> if (!require(MASS, quietly = TRUE))
-+     stop("cannot load package MASS")
+Loading required package: vcd
+Loading required package: MASS
 
 Attaching package: 'MASS'
 
@@ -46,6 +46,18 @@ Attaching package: 'MASS'
 
 	 SP500 
 
+Loading required package: colorspace
+Creating a new generic function for 'plot' in 'colorspace'
+
+Attaching package: 'colorspace'
+
+
+	The following object(s) are masked from package:grDevices :
+
+	 hcl 
+
+> if (!require(MASS, quietly = TRUE))
++     stop("cannot load package MASS")
 > gctorture(on = GCtorture)         
 > 
 > ### get rid of the NAMESPACE

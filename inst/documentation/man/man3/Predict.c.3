@@ -1,4 +1,4 @@
-.TH "Predict.c" 3 "25 Aug 2006" "party" \" -*- nroff -*-
+.TH "Predict.c" 3 "8 Sep 2006" "party" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -137,7 +137,7 @@ Get the node with nodeID `nodenum'
 .RS 4
 \fIsubtree\fP a tree 
 .br
-\fInodenum\fP a nodeID
+\fInodenum\fP a nodeID 
 .RE
 .PP
 
@@ -161,7 +161,7 @@ Get the nodeID for a new observation
 .br
 \fImincriterion\fP overwrites mincriterion used for tree growing 
 .br
-\fInumobs\fP observation number
+\fInumobs\fP observation number 
 .RE
 .PP
 
@@ -185,7 +185,7 @@ Get the weights for a new observation
 .br
 \fImincriterion\fP overwrites mincriterion used for tree growing 
 .br
-\fInumobs\fP observation number
+\fInumobs\fP observation number 
 .RE
 .PP
 
@@ -209,7 +209,7 @@ Get the prediction of a new observation
 .br
 \fImincriterion\fP overwrites mincriterion used for tree growing 
 .br
-\fInumobs\fP observation number
+\fInumobs\fP observation number 
 .RE
 .PP
 
@@ -231,7 +231,7 @@ Get the predictions from `where' nodes
 .br
 \fIwhere\fP vector of nodeID's 
 .br
-\fIans\fP return value
+\fIans\fP return value 
 .RE
 .PP
 
@@ -253,7 +253,7 @@ Get the weights from `where' nodes
 .br
 \fIwhere\fP vector of nodeID's 
 .br
-\fIans\fP return value
+\fIans\fP return value 
 .RE
 .PP
 
@@ -277,7 +277,7 @@ Get all predictions for `newinputs'
 .br
 \fImincriterion\fP overwrites mincriterion used for tree growing 
 .br
-\fIans\fP return value
+\fIans\fP return value 
 .RE
 .PP
 
@@ -326,7 +326,7 @@ Get the weights for all observations in `newinputs'
 .br
 \fImincriterion\fP overwrites mincriterion used for tree growing 
 .br
-\fIans\fP return value
+\fIans\fP return value 
 .RE
 .PP
 
@@ -350,7 +350,7 @@ R-Interface to C_get_node
 .br
 \fImincriterion\fP overwrites mincriterion used for tree growing 
 .br
-\fInumobs\fP observation number
+\fInumobs\fP observation number 
 .RE
 .PP
 
@@ -368,7 +368,7 @@ R-Interface to C_get_nodenum
 .RS 4
 \fIsubtree\fP a tree 
 .br
-\fInodenum\fP a nodeID
+\fInodenum\fP a nodeID 
 .RE
 .PP
 
@@ -388,7 +388,7 @@ R-Interface to C_get_nodeID
 .br
 \fInewinputs\fP an object of class `VariableFrame' 
 .br
-\fImincriterion\fP overwrites mincriterion used for tree growing
+\fImincriterion\fP overwrites mincriterion used for tree growing 
 .RE
 .PP
 
@@ -406,7 +406,7 @@ R-Interface to C_getpredictions
 .RS 4
 \fItree\fP a tree 
 .br
-\fIwhere\fP vector of nodeID's
+\fIwhere\fP vector of nodeID's 
 .RE
 .PP
 
@@ -424,7 +424,7 @@ R-Interface to C_getweigts
 .RS 4
 \fItree\fP a tree 
 .br
-\fIwhere\fP vector of nodeID's
+\fIwhere\fP vector of nodeID's 
 .RE
 .PP
 
@@ -444,7 +444,7 @@ R-Interface to C_predict
 .br
 \fInewinputs\fP an object of class `VariableFrame' 
 .br
-\fImincriterion\fP overwrites mincriterion used for tree growing
+\fImincriterion\fP overwrites mincriterion used for tree growing 
 .RE
 .PP
 
@@ -464,7 +464,7 @@ Predictions from RandomForest objects
 .br
 \fImincriterion\fP overwrites mincriterion used for tree growing 
 .br
-\fIoobpred\fP a logical indicating out-of-bag predictions
+\fIoobpred\fP a logical indicating out-of-bag predictions 
 .RE
 .PP
 
@@ -486,14 +486,14 @@ Predictions from RandomForest objects, based in total weights
 .br
 \fImincriterion\fP overwrites mincriterion used for tree growing 
 .br
-\fIoobpred\fP a logical indicating out-of-bag predictions
+\fIoobpred\fP a logical indicating out-of-bag predictions 
 .RE
 .PP
 
 .PP
 Definition at line 576 of file Predict.c.
 .PP
-References C_get_nodebynum(), C_get_nodeID(), C_matprod(), get_nobs(), ncol(), nrow(), and S3get_nodeweights().
+References C_get_nodebynum(), C_get_nodeID(), get_nobs(), ncol(), nrow(), and S3get_nodeweights().
 .SS "SEXP R_predictRF_weights (SEXP forest, SEXP newinputs, SEXP mincriterion, SEXP oobpred)"
 .PP
 Predictions weights from RandomForest objects 
@@ -506,7 +506,7 @@ Predictions weights from RandomForest objects
 .br
 \fImincriterion\fP overwrites mincriterion used for tree growing 
 .br
-\fIoobpred\fP a logical indicating out-of-bag predictions
+\fIoobpred\fP a logical indicating out-of-bag predictions 
 .RE
 .PP
 
@@ -526,7 +526,7 @@ R-Interface to C_weights
 .br
 \fInewinputs\fP an object of class `VariableFrame' 
 .br
-\fImincriterion\fP overwrites mincriterion used for tree growing
+\fImincriterion\fP overwrites mincriterion used for tree growing 
 .RE
 .PP
 

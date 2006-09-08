@@ -7,37 +7,37 @@
 This graph shows which files directly or indirectly include this file:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=175pt]{LinearStatistic_8h__dep__incl}
+\includegraphics[width=176pt]{LinearStatistic_8h__dep__incl}
 \end{center}
 \end{figure}
 \subsection*{Functions}
 \begin{CompactItemize}
 \item 
-void \hyperlink{LinearStatistic_8h_a0}{C\_\-Linear\-Statistic} (const double $\ast$x, const int p, const double $\ast$y, const int q, const double $\ast$weights, const int n, double $\ast$ans)
+void \hyperlink{LinearStatistic_8h_aefa2a9406bb30b323715e3db41da637}{C\_\-Linear\-Statistic} (const double $\ast$x, const int p, const double $\ast$y, const int q, const double $\ast$weights, const int n, double $\ast$ans)
 \item 
-void \hyperlink{LinearStatistic_8h_a1}{C\_\-Expect\-Covar\-Influence} (const double $\ast$y, const int q, const double $\ast$weights, const int n, SEXP ans)
+void \hyperlink{LinearStatistic_8h_e2f62abe13ee5b625141b5d4a496d832}{C\_\-Expect\-Covar\-Influence} (const double $\ast$y, const int q, const double $\ast$weights, const int n, SEXP ans)
 \item 
-void \hyperlink{LinearStatistic_8h_a2}{C\_\-Expect\-Covar\-Linear\-Statistic} (const double $\ast$x, const int p, const double $\ast$y, const int q, const double $\ast$weights, const int n, const SEXP expcovinf, SEXP ans)
+void \hyperlink{LinearStatistic_8h_94a0805ea258af79d426c095feee399a}{C\_\-Expect\-Covar\-Linear\-Statistic} (const double $\ast$x, const int p, const double $\ast$y, const int q, const double $\ast$weights, const int n, const SEXP expcovinf, SEXP ans)
 \item 
-void \hyperlink{LinearStatistic_8h_a3}{C\_\-Permuted\-Linear\-Statistic} (const double $\ast$x, const int p, const double $\ast$y, const int q, const int n, const int nperm, const int $\ast$indx, const int $\ast$perm, double $\ast$ans)
+void \hyperlink{LinearStatistic_8h_a34b0f12fac36231a105d6dc903bfe89}{C\_\-Permuted\-Linear\-Statistic} (const double $\ast$x, const int p, const double $\ast$y, const int q, const int n, const int nperm, const int $\ast$indx, const int $\ast$perm, double $\ast$ans)
 \item 
-SEXP \hyperlink{LinearStatistic_8h_a4}{R\_\-Expect\-Covar\-Influence} (SEXP y, SEXP weights)
+SEXP \hyperlink{LinearStatistic_8h_6216ea560644c08002fb32756ae67dcc}{R\_\-Expect\-Covar\-Influence} (SEXP y, SEXP weights)
 \end{CompactItemize}
 
 
 \subsection{Function Documentation}
-\hypertarget{LinearStatistic_8h_a1}{
+\hypertarget{LinearStatistic_8h_e2f62abe13ee5b625141b5d4a496d832}{
 \index{LinearStatistic.h@{Linear\-Statistic.h}!C_ExpectCovarInfluence@{C\_\-ExpectCovarInfluence}}
 \index{C_ExpectCovarInfluence@{C\_\-ExpectCovarInfluence}!LinearStatistic.h@{Linear\-Statistic.h}}
 \subsubsection[C\_\-ExpectCovarInfluence]{\setlength{\rightskip}{0pt plus 5cm}void C\_\-Expect\-Covar\-Influence (const double $\ast$ {\em y}, const int {\em q}, const double $\ast$ {\em weights}, const int {\em n}, SEXP {\em ans})}}
-\label{LinearStatistic_8h_a1}
+\label{LinearStatistic_8h_e2f62abe13ee5b625141b5d4a496d832}
 
 
 Conditional expectation and covariance of the influence function\par
  \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[{\em y}]values of the influence function \item[{\em q}]dimension of the influence function \item[{\em weights}]case weights \item[{\em n}]number of observations \item[{\em ans}]return value; an object of class `Expect\-Covar\-Influence'\end{description}
+\item[{\em y}]values of the influence function \item[{\em q}]dimension of the influence function \item[{\em weights}]case weights \item[{\em n}]number of observations \item[{\em ans}]return value; an object of class `Expect\-Covar\-Influence' \end{description}
 \end{Desc}
 
 
@@ -45,79 +45,69 @@ Definition at line 101 of file Linear\-Statistic.c.
 
 References PL2\_\-covariance\-Sym, PL2\_\-expectation\-Sym, and PL2\_\-sumweights\-Sym.
 
-Referenced by C\_\-Global\-Test(), C\_\-Lin\-Stat\-Exp\-Cov(), C\_\-surrogates(), and R\_\-Expect\-Covar\-Influence().\hypertarget{LinearStatistic_8h_a2}{
+Referenced by C\_\-Global\-Test(), C\_\-Lin\-Stat\-Exp\-Cov(), and R\_\-Expect\-Covar\-Influence().\hypertarget{LinearStatistic_8h_94a0805ea258af79d426c095feee399a}{
 \index{LinearStatistic.h@{Linear\-Statistic.h}!C_ExpectCovarLinearStatistic@{C\_\-ExpectCovarLinearStatistic}}
 \index{C_ExpectCovarLinearStatistic@{C\_\-ExpectCovarLinearStatistic}!LinearStatistic.h@{Linear\-Statistic.h}}
 \subsubsection[C\_\-ExpectCovarLinearStatistic]{\setlength{\rightskip}{0pt plus 5cm}void C\_\-Expect\-Covar\-Linear\-Statistic (const double $\ast$ {\em x}, const int {\em p}, const double $\ast$ {\em y}, const int {\em q}, const double $\ast$ {\em weights}, const int {\em n}, const SEXP {\em expcovinf}, SEXP {\em ans})}}
-\label{LinearStatistic_8h_a2}
+\label{LinearStatistic_8h_94a0805ea258af79d426c095feee399a}
 
 
 Conditional expectation and covariance of the a linear statistic\par
  \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[{\em x}]values of the transformation \item[{\em p}]dimension of the transformation \item[{\em y}]values of the influence function \item[{\em q}]dimension of the influence function \item[{\em weights}]case weights \item[{\em n}]number of observations \item[{\em expcovinf}]an object of class `Expect\-Covar\-Influence' \item[{\em ans}]return value; an object of class `Expect\-Covar'\end{description}
+\item[{\em x}]values of the transformation \item[{\em p}]dimension of the transformation \item[{\em y}]values of the influence function \item[{\em q}]dimension of the influence function \item[{\em weights}]case weights \item[{\em n}]number of observations \item[{\em expcovinf}]an object of class `Expect\-Covar\-Influence' \item[{\em ans}]return value; an object of class `Expect\-Covar' \end{description}
 \end{Desc}
 
 
 Definition at line 213 of file Linear\-Statistic.c.
 
-References C\_\-kronecker(), PL2\_\-covariance\-Sym, PL2\_\-expectation\-Sym, and PL2\_\-sumweights\-Sym.
+References PL2\_\-covariance\-Sym, PL2\_\-expectation\-Sym, and PL2\_\-sumweights\-Sym.
 
-Referenced by C\_\-Lin\-Stat\-Exp\-Cov(), and R\_\-Expect\-Covar\-Linear\-Statistic().
-
-Here is the call graph for this function:\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=148pt]{LinearStatistic_8h_a2_cgraph}
-\end{center}
-\end{figure}
-\hypertarget{LinearStatistic_8h_a0}{
+Referenced by C\_\-Lin\-Stat\-Exp\-Cov(), and R\_\-Expect\-Covar\-Linear\-Statistic().\hypertarget{LinearStatistic_8h_aefa2a9406bb30b323715e3db41da637}{
 \index{LinearStatistic.h@{Linear\-Statistic.h}!C_LinearStatistic@{C\_\-LinearStatistic}}
 \index{C_LinearStatistic@{C\_\-LinearStatistic}!LinearStatistic.h@{Linear\-Statistic.h}}
 \subsubsection[C\_\-LinearStatistic]{\setlength{\rightskip}{0pt plus 5cm}void C\_\-Linear\-Statistic (const double $\ast$ {\em x}, const int {\em p}, const double $\ast$ {\em y}, const int {\em q}, const double $\ast$ {\em weights}, const int {\em n}, double $\ast$ {\em ans})}}
-\label{LinearStatistic_8h_a0}
+\label{LinearStatistic_8h_aefa2a9406bb30b323715e3db41da637}
 
 
 Computes the linear statistic, formula (1) in the paper\par
  \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[{\em x}]values of the transformation \item[{\em p}]dimension of the transformation \item[{\em y}]values of the influence function \item[{\em q}]dimension of the influence function \item[{\em weights}]case weights \item[{\em n}]number of observations \item[{\em ans}]return value; a pointer to a REALSXP-vector of length pq\end{description}
+\item[{\em x}]values of the transformation \item[{\em p}]dimension of the transformation \item[{\em y}]values of the influence function \item[{\em q}]dimension of the influence function \item[{\em weights}]case weights \item[{\em n}]number of observations \item[{\em ans}]return value; a pointer to a REALSXP-vector of length pq \end{description}
 \end{Desc}
 
 
 Definition at line 23 of file Linear\-Statistic.c.
 
-Referenced by C\_\-Lin\-Stat\-Exp\-Cov(), C\_\-Monte\-Carlo(), and R\_\-Linear\-Statistic().\hypertarget{LinearStatistic_8h_a3}{
+Referenced by C\_\-Lin\-Stat\-Exp\-Cov(), and R\_\-Linear\-Statistic().\hypertarget{LinearStatistic_8h_a34b0f12fac36231a105d6dc903bfe89}{
 \index{LinearStatistic.h@{Linear\-Statistic.h}!C_PermutedLinearStatistic@{C\_\-PermutedLinearStatistic}}
 \index{C_PermutedLinearStatistic@{C\_\-PermutedLinearStatistic}!LinearStatistic.h@{Linear\-Statistic.h}}
 \subsubsection[C\_\-PermutedLinearStatistic]{\setlength{\rightskip}{0pt plus 5cm}void C\_\-Permuted\-Linear\-Statistic (const double $\ast$ {\em x}, const int {\em p}, const double $\ast$ {\em y}, const int {\em q}, const int {\em n}, const int {\em nperm}, const int $\ast$ {\em indx}, const int $\ast$ {\em perm}, double $\ast$ {\em ans})}}
-\label{LinearStatistic_8h_a3}
+\label{LinearStatistic_8h_a34b0f12fac36231a105d6dc903bfe89}
 
 
 Linear Statistic with permuted indices\par
  \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[{\em x}]values of the transformation \item[{\em p}]dimension of the transformation \item[{\em y}]values of the influence function \item[{\em q}]dimension of the influence function \item[{\em n}]number of observations \item[{\em nperm}]number of permutations \item[{\em indx}]indices for the x-part \item[{\em perm}](permuted) indices for the y-part \item[{\em ans}]return value; a pointer to a REALSXP-vector of length pq\end{description}
+\item[{\em x}]values of the transformation \item[{\em p}]dimension of the transformation \item[{\em y}]values of the influence function \item[{\em q}]dimension of the influence function \item[{\em n}]number of observations \item[{\em nperm}]number of permutations \item[{\em indx}]indices for the x-part \item[{\em perm}](permuted) indices for the y-part \item[{\em ans}]return value; a pointer to a REALSXP-vector of length pq \end{description}
 \end{Desc}
 
 
-Definition at line 351 of file Linear\-Statistic.c.
-
-Referenced by C\_\-Monte\-Carlo(), and R\_\-Permuted\-Linear\-Statistic().\hypertarget{LinearStatistic_8h_a4}{
+Definition at line 351 of file Linear\-Statistic.c.\hypertarget{LinearStatistic_8h_6216ea560644c08002fb32756ae67dcc}{
 \index{LinearStatistic.h@{Linear\-Statistic.h}!R_ExpectCovarInfluence@{R\_\-ExpectCovarInfluence}}
 \index{R_ExpectCovarInfluence@{R\_\-ExpectCovarInfluence}!LinearStatistic.h@{Linear\-Statistic.h}}
 \subsubsection[R\_\-ExpectCovarInfluence]{\setlength{\rightskip}{0pt plus 5cm}SEXP R\_\-Expect\-Covar\-Influence (SEXP {\em y}, SEXP {\em weights})}}
-\label{LinearStatistic_8h_a4}
+\label{LinearStatistic_8h_6216ea560644c08002fb32756ae67dcc}
 
 
 R-interface to C\_\-Expect\-Covar\-Influence\par
  \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[{\em y}]values of the influence function \item[{\em weights}]case weights\end{description}
+\item[{\em y}]values of the influence function \item[{\em weights}]case weights \end{description}
 \end{Desc}
 
 
@@ -128,6 +118,6 @@ References C\_\-Expect\-Covar\-Influence(), ncol(), nrow(), PL2\_\-covariance\-S
 Here is the call graph for this function:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=164pt]{LinearStatistic_8h_a4_cgraph}
+\includegraphics[width=164pt]{LinearStatistic_8h_6216ea560644c08002fb32756ae67dcc_cgraph}
 \end{center}
 \end{figure}

@@ -1,4 +1,4 @@
-.TH "Convenience.h" 3 "25 Aug 2006" "party" \" -*- nroff -*-
+.TH "Convenience.h" 3 "8 Sep 2006" "party" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -45,7 +45,7 @@ Compute asymptotic conditional P-value
 .br
 \fIreleps\fP argument to C_maxabsConditionalPvalue 
 .br
-\fIabseps\fP argument to C_maxabsConditionalPvalue
+\fIabseps\fP argument to C_maxabsConditionalPvalue 
 .RE
 .PP
 
@@ -79,7 +79,7 @@ Linear statistic of x, y, and weights and its conditional expectation and covari
 .br
 \fIexpcovinf\fP an object of class `ExpectCovarInfluence' 
 .br
-\fIans\fP return value; an object of class `LinStatExpectCovar'
+\fIans\fP return value; an object of class `LinStatExpectCovar' 
 .RE
 .PP
 
@@ -88,7 +88,7 @@ Definition at line 26 of file Convenience.c.
 .PP
 References C_ExpectCovarInfluence(), C_ExpectCovarLinearStatistic(), C_LinearStatistic(), and PL2_linearstatisticSym.
 .PP
-Referenced by C_GlobalTest(), C_IndependenceTest(), and R_splitcategorical().
+Referenced by C_IndependenceTest(), and R_splitcategorical().
 .SS "void C_LinStatExpCovMPinv (SEXP linexpcov, double tol)"
 .PP
 Moore-Penrose inverse of the covariance matrix 
@@ -99,7 +99,7 @@ Moore-Penrose inverse of the covariance matrix
 .RS 4
 \fIlinexpcov\fP an object of class `LinStatExpectCovarMPinv' 
 .br
-\fItol\fP tolerance
+\fItol\fP tolerance 
 .RE
 .PP
 
@@ -108,7 +108,7 @@ Definition at line 46 of file Convenience.c.
 .PP
 References C_MPinv(), PL2_covarianceSym, and PL2_svdmemSym.
 .PP
-Referenced by C_GlobalTest(), and C_IndependenceTest().
+Referenced by C_IndependenceTest().
 .SS "void C_MLinearStatistic (SEXP linexpcov, SEXP ScoreMatrix, SEXP ans)"
 .PP
 .SS "double C_TestStatistic (const SEXP linexpcov, const int type, const double tol)"
@@ -121,7 +121,7 @@ Compute test statistic
 .br
 \fItype\fP integer, 1 (maxabs) or 2 (quadform) 
 .br
-\fItol\fP tolerance
+\fItol\fP tolerance 
 .RE
 .PP
 

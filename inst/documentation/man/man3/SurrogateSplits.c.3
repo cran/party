@@ -1,4 +1,4 @@
-.TH "SurrogateSplits.c" 3 "25 Aug 2006" "party" \" -*- nroff -*-
+.TH "SurrogateSplits.c" 3 "8 Sep 2006" "party" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -57,7 +57,7 @@ Split with missing values
 .RS 4
 \fInode\fP the current node with primary and surrogate splits specified 
 .br
-\fIlearnsample\fP learning sample
+\fIlearnsample\fP learning sample 
 .RE
 .PP
 
@@ -95,7 +95,7 @@ enable nominal surrogate split variables as well
 .PP
 Definition at line 21 of file SurrogateSplits.c.
 .PP
-References C_ExpectCovarInfluence(), C_init_orderedsplit(), C_split(), get_maxsurrogate(), get_missings(), get_ninputs(), get_nobs(), get_ordering(), get_splitctrl(), get_splitstatistics(), get_variable(), get_weights(), has_missings(), is_nominal(), PL2_expcovinfssSym, PL2_inputsSym, PL2_linexpcov2sampleSym, S3get_nodeweights(), S3get_primarysplit(), S3get_splitpoint(), S3get_surrogatesplits(), S3get_variableID(), S3set_toleft(), S3set_variableID(), and SPLIT_LENGTH.
+References get_maxsurrogate(), get_missings(), get_ninputs(), get_nobs(), get_splitctrl(), has_missings(), PL2_inputsSym, S3get_nodeweights(), S3get_primarysplit(), S3get_surrogatesplits(), and S3get_variableID().
 .PP
 Referenced by C_TreeGrow(), and R_surrogates().
 .SS "SEXP R_surrogates (SEXP node, SEXP learnsample, SEXP weights, SEXP controls, SEXP fitmem)"
@@ -114,7 +114,7 @@ R-interface to C_surrogates
 .br
 \fIcontrols\fP an object of class `TreeControl' 
 .br
-\fIfitmem\fP an object of class `TreeFitMemory'
+\fIfitmem\fP an object of class `TreeFitMemory' 
 .RE
 .PP
 

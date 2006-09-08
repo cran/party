@@ -3,7 +3,7 @@
     The tree growing recursion
     *\file TreeGrow.c
     *\author $Author: hothorn $
-    *\date $Date: 2006-02-23 16:11:21 +0100 (Thu, 23 Feb 2006) $
+    *\date $Date: 2006-09-08 13:44:04 +0200 (Fri, 08 Sep 2006) $
 */
 
 #include "party.h"
@@ -82,6 +82,8 @@ SEXP R_TreeGrow(SEXP learnsample, SEXP weights, SEXP fitmem, SEXP controls, SEXP
      SEXP ans, nweights;
      double *dnweights, *dweights;
      int nobs, i, nodenum = 1;
+
+     GetRNGstate();
      
      nobs = get_nobs(learnsample);
      PROTECT(ans = allocVector(VECSXP, NODE_LENGTH));
@@ -95,6 +97,9 @@ SEXP R_TreeGrow(SEXP learnsample, SEXP weights, SEXP fitmem, SEXP controls, SEXP
      for (i = 0; i < nobs; i++) dnweights[i] = dweights[i];
      
      C_TreeGrow(ans, learnsample, fitmem, controls, INTEGER(where), &nodenum, 1);
+     
+     PutRNGstate();
+     
      UNPROTECT(1);
      return(ans);
 }

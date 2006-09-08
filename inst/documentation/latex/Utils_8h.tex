@@ -7,62 +7,62 @@
 This graph shows which files directly or indirectly include this file:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=153pt]{Utils_8h__dep__incl}
+\includegraphics[width=154pt]{Utils_8h__dep__incl}
 \end{center}
 \end{figure}
 \subsection*{Functions}
 \begin{CompactItemize}
 \item 
-void \hyperlink{Utils_8h_a0}{C\_\-kronecker} (const double $\ast$A, const int m, const int n, const double $\ast$B, const int r, const int s, double $\ast$ans)
+void \hyperlink{Utils_8h_12e882779ecd0445c3a0dd9ac85dfeee}{C\_\-kronecker} (const double $\ast$A, const int m, const int n, const double $\ast$B, const int r, const int s, double $\ast$ans)
 \item 
-SEXP \hyperlink{Utils_8h_a1}{La\_\-svd} (SEXP jobu, SEXP jobv, SEXP x, SEXP s, SEXP u, SEXP v, SEXP method)
+SEXP \hyperlink{Utils_8h_572286b2fd0bd9993473cfd0c6b165c0}{La\_\-svd} (SEXP jobu, SEXP jobv, SEXP x, SEXP s, SEXP u, SEXP v, SEXP method)
 \item 
-void \hyperlink{Utils_8h_a2}{C\_\-Sample\-No\-Replace} (int $\ast$x, int m, int k, int $\ast$ans)
+void \hyperlink{Utils_8h_f7c710920d1496d23fdabad9b1d0e18c}{C\_\-Sample\-No\-Replace} (int $\ast$x, int m, int k, int $\ast$ans)
 \item 
-void \hyperlink{Utils_8h_a3}{C\_\-MPinv} (SEXP x, double tol, SEXP svdmem, SEXP ans)
+void \hyperlink{Utils_8h_c0d5c2fe971923d7a1b1869dffabddb1}{C\_\-MPinv} (SEXP x, double tol, SEXP svdmem, SEXP ans)
 \item 
-double \hyperlink{Utils_8h_a4}{C\_\-max} (const double $\ast$x, const int n)
+double \hyperlink{Utils_8h_5b306a6923d1155e6ce877cf6fa12a42}{C\_\-max} (const double $\ast$x, const int n)
 \item 
-void \hyperlink{Utils_8h_a5}{C\_\-abs} (double $\ast$x, int n)
+void \hyperlink{Utils_8h_a5479e1fef3da77537e06730826379e1}{C\_\-abs} (double $\ast$x, int n)
 \item 
-void \hyperlink{Utils_8h_a6}{C\_\-matprod} (double $\ast$x, int nrx, int ncx, double $\ast$y, int nry, int ncy, double $\ast$z)
+void \hyperlink{Utils_8h_4a31a46e68c52043a6db487de647f774}{C\_\-matprod} (double $\ast$x, int nrx, int ncx, double $\ast$y, int nry, int ncy, double $\ast$z)
 \item 
-void \hyperlink{Utils_8h_a7}{C\_\-matprod\-T} (double $\ast$x, int nrx, int ncx, double $\ast$y, int nry, int ncy, double $\ast$z)
+void \hyperlink{Utils_8h_9097078e7e5f9b9e900a49f07b99efff}{C\_\-matprod\-T} (double $\ast$x, int nrx, int ncx, double $\ast$y, int nry, int ncy, double $\ast$z)
 \item 
-int \hyperlink{Utils_8h_a8}{nrow} (SEXP x)
+int \hyperlink{Utils_8h_eeb672a71c45ead28b7b354414f2427a}{nrow} (SEXP x)
 \item 
-int \hyperlink{Utils_8h_a9}{ncol} (SEXP y)
+int \hyperlink{Utils_8h_d91bea0afb4613aab593f6311318a63c}{ncol} (SEXP y)
 \item 
-int \hyperlink{Utils_8h_a10}{C\_\-whichmax} (double $\ast$pvalue, double $\ast$teststat, int ninputs)
+int \hyperlink{Utils_8h_2a701345082320c18e49d8e7e8150d64}{C\_\-whichmax} (double $\ast$pvalue, double $\ast$teststat, int ninputs)
 \item 
-int \hyperlink{Utils_8h_a11}{i\_\-in\_\-set} (int i, int $\ast$iset, int p)
+int \hyperlink{Utils_8h_ae969040bb060d2874fd969e20675bbb}{i\_\-in\_\-set} (int i, int $\ast$iset, int p)
 \item 
-int \hyperlink{Utils_8h_a12}{C\_\-i\_\-in\_\-set} (int i, SEXP set)
+int \hyperlink{Utils_8h_ff0eae9aa0175cd8fe73324707418ce0}{C\_\-i\_\-in\_\-set} (int i, SEXP set)
 \end{CompactItemize}
 
 
 \subsection{Function Documentation}
-\hypertarget{Utils_8h_a5}{
+\hypertarget{Utils_8h_a5479e1fef3da77537e06730826379e1}{
 \index{Utils.h@{Utils.h}!C_abs@{C\_\-abs}}
 \index{C_abs@{C\_\-abs}!Utils.h@{Utils.h}}
 \subsubsection[C\_\-abs]{\setlength{\rightskip}{0pt plus 5cm}void C\_\-abs (double $\ast$ {\em x}, int {\em n})}}
-\label{Utils_8h_a5}
+\label{Utils_8h_a5479e1fef3da77537e06730826379e1}
 
 
 absolute value \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[{\em x}]numeric vector \item[{\em n}]length(x)\end{description}
+\item[{\em x}]numeric vector \item[{\em n}]length(x) \end{description}
 \end{Desc}
 
 
 Definition at line 259 of file Utils.c.
 
-Referenced by C\_\-absstandardize(), and R\_\-abs().\hypertarget{Utils_8h_a12}{
+Referenced by C\_\-absstandardize(), and R\_\-abs().\hypertarget{Utils_8h_ff0eae9aa0175cd8fe73324707418ce0}{
 \index{Utils.h@{Utils.h}!C_i_in_set@{C\_\-i\_\-in\_\-set}}
 \index{C_i_in_set@{C\_\-i\_\-in\_\-set}!Utils.h@{Utils.h}}
 \subsubsection[C\_\-i\_\-in\_\-set]{\setlength{\rightskip}{0pt plus 5cm}int C\_\-i\_\-in\_\-set (int {\em i}, SEXP {\em set})}}
-\label{Utils_8h_a12}
+\label{Utils_8h_ff0eae9aa0175cd8fe73324707418ce0}
 
 
 
@@ -76,85 +76,85 @@ Referenced by C\_\-get\_\-node().
 Here is the call graph for this function:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=94pt]{Utils_8h_a12_cgraph}
+\includegraphics[width=94pt]{Utils_8h_ff0eae9aa0175cd8fe73324707418ce0_cgraph}
 \end{center}
 \end{figure}
-\hypertarget{Utils_8h_a0}{
+\hypertarget{Utils_8h_12e882779ecd0445c3a0dd9ac85dfeee}{
 \index{Utils.h@{Utils.h}!C_kronecker@{C\_\-kronecker}}
 \index{C_kronecker@{C\_\-kronecker}!Utils.h@{Utils.h}}
 \subsubsection[C\_\-kronecker]{\setlength{\rightskip}{0pt plus 5cm}void C\_\-kronecker (const double $\ast$ {\em A}, const int {\em m}, const int {\em n}, const double $\ast$ {\em B}, const int {\em r}, const int {\em s}, double $\ast$ {\em ans})}}
-\label{Utils_8h_a0}
+\label{Utils_8h_12e882779ecd0445c3a0dd9ac85dfeee}
 
 
 Computes the Kronecker product of two matrices\par
  \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[{\em A}]matrix \item[{\em m}]nrow(A) \item[{\em n}]ncol(A) \item[{\em B}]matrix \item[{\em r}]nrow(B) \item[{\em s}]ncol(B) \item[{\em ans}]return value; a pointer to a REALSXP-vector of length (mr x ns)\end{description}
+\item[{\em A}]matrix \item[{\em m}]nrow(A) \item[{\em n}]ncol(A) \item[{\em B}]matrix \item[{\em r}]nrow(B) \item[{\em s}]ncol(B) \item[{\em ans}]return value; a pointer to a REALSXP-vector of length (mr x ns) \end{description}
 \end{Desc}
 
 
 Definition at line 23 of file Utils.c.
 
-Referenced by C\_\-Expect\-Covar\-Linear\-Statistic(), and R\_\-kronecker().\hypertarget{Utils_8h_a6}{
+Referenced by R\_\-kronecker().\hypertarget{Utils_8h_4a31a46e68c52043a6db487de647f774}{
 \index{Utils.h@{Utils.h}!C_matprod@{C\_\-matprod}}
 \index{C_matprod@{C\_\-matprod}!Utils.h@{Utils.h}}
 \subsubsection[C\_\-matprod]{\setlength{\rightskip}{0pt plus 5cm}void C\_\-matprod (double $\ast$ {\em x}, int {\em nrx}, int {\em ncx}, double $\ast$ {\em y}, int {\em nry}, int {\em ncy}, double $\ast$ {\em z})}}
-\label{Utils_8h_a6}
+\label{Utils_8h_4a31a46e68c52043a6db487de647f774}
 
 
 matrix product x $\ast$\% y \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[{\em x}]a matrix \item[{\em nrx}]number of rows of x \item[{\em ncx}]number of cols of x \item[{\em y}]a matrix \item[{\em nry}]number of rows of y \item[{\em ncy}]number of cols of y \item[{\em z}]a matrix of dimension nrx x ncy\end{description}
+\item[{\em x}]a matrix \item[{\em nrx}]number of rows of x \item[{\em ncx}]number of cols of x \item[{\em y}]a matrix \item[{\em nry}]number of rows of y \item[{\em ncy}]number of cols of y \item[{\em z}]a matrix of dimension nrx x ncy \end{description}
 \end{Desc}
 
 
 Definition at line 297 of file Utils.c.
 
-Referenced by R\_\-matprod(), and R\_\-predict\-RF2().\hypertarget{Utils_8h_a7}{
+Referenced by R\_\-matprod().\hypertarget{Utils_8h_9097078e7e5f9b9e900a49f07b99efff}{
 \index{Utils.h@{Utils.h}!C_matprodT@{C\_\-matprodT}}
 \index{C_matprodT@{C\_\-matprodT}!Utils.h@{Utils.h}}
 \subsubsection[C\_\-matprodT]{\setlength{\rightskip}{0pt plus 5cm}void C\_\-matprod\-T (double $\ast$ {\em x}, int {\em nrx}, int {\em ncx}, double $\ast$ {\em y}, int {\em nry}, int {\em ncy}, double $\ast$ {\em z})}}
-\label{Utils_8h_a7}
+\label{Utils_8h_9097078e7e5f9b9e900a49f07b99efff}
 
 
 matrix product x $\ast$\% t(y) \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[{\em x}]a matrix \item[{\em nrx}]number of rows of x \item[{\em ncx}]number of cols of x \item[{\em y}]a matrix \item[{\em nry}]number of rows of y \item[{\em ncy}]number of cols of y \item[{\em z}]a matrix of dimension nrx x ncy\end{description}
+\item[{\em x}]a matrix \item[{\em nrx}]number of rows of x \item[{\em ncx}]number of cols of x \item[{\em y}]a matrix \item[{\em nry}]number of rows of y \item[{\em ncy}]number of cols of y \item[{\em z}]a matrix of dimension nrx x ncy \end{description}
 \end{Desc}
 
 
 Definition at line 349 of file Utils.c.
 
-Referenced by R\_\-matprod\-T().\hypertarget{Utils_8h_a4}{
+Referenced by R\_\-matprod\-T().\hypertarget{Utils_8h_5b306a6923d1155e6ce877cf6fa12a42}{
 \index{Utils.h@{Utils.h}!C_max@{C\_\-max}}
 \index{C_max@{C\_\-max}!Utils.h@{Utils.h}}
 \subsubsection[C\_\-max]{\setlength{\rightskip}{0pt plus 5cm}double C\_\-max (const double $\ast$ {\em x}, const int {\em n})}}
-\label{Utils_8h_a4}
+\label{Utils_8h_5b306a6923d1155e6ce877cf6fa12a42}
 
 
 the maximum of a double vector \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[{\em x}]vector \item[{\em n}]its length\end{description}
+\item[{\em x}]vector \item[{\em n}]its length \end{description}
 \end{Desc}
 
 
 Definition at line 222 of file Utils.c.
 
-Referenced by C\_\-maxabs\-Test\-Statistic(), C\_\-Monte\-Carlo(), C\_\-Node(), and R\_\-max().\hypertarget{Utils_8h_a3}{
+Referenced by C\_\-maxabs\-Test\-Statistic(), C\_\-Node(), and R\_\-max().\hypertarget{Utils_8h_c0d5c2fe971923d7a1b1869dffabddb1}{
 \index{Utils.h@{Utils.h}!C_MPinv@{C\_\-MPinv}}
 \index{C_MPinv@{C\_\-MPinv}!Utils.h@{Utils.h}}
 \subsubsection[C\_\-MPinv]{\setlength{\rightskip}{0pt plus 5cm}void C\_\-MPinv (SEXP {\em x}, double {\em tol}, SEXP {\em svdmem}, SEXP {\em ans})}}
-\label{Utils_8h_a3}
+\label{Utils_8h_c0d5c2fe971923d7a1b1869dffabddb1}
 
 
 Moore-Penrose inverse of a matrix \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[{\em x}]matrix \item[{\em tol}]a tolerance bound \item[{\em svdmem}]an object of class `svd\_\-mem' \item[{\em ans}]return value; an object of class `Expect\-Covar\-MPinv'\end{description}
+\item[{\em x}]matrix \item[{\em tol}]a tolerance bound \item[{\em svdmem}]an object of class `svd\_\-mem' \item[{\em ans}]return value; an object of class `Expect\-Covar\-MPinv' \end{description}
 \end{Desc}
 
 
@@ -167,81 +167,79 @@ Referenced by C\_\-Lin\-Stat\-Exp\-Cov\-MPinv(), and R\_\-MPinv().
 Here is the call graph for this function:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=134pt]{Utils_8h_a3_cgraph}
+\includegraphics[width=91pt]{Utils_8h_c0d5c2fe971923d7a1b1869dffabddb1_cgraph}
 \end{center}
 \end{figure}
-\hypertarget{Utils_8h_a2}{
+\hypertarget{Utils_8h_f7c710920d1496d23fdabad9b1d0e18c}{
 \index{Utils.h@{Utils.h}!C_SampleNoReplace@{C\_\-SampleNoReplace}}
 \index{C_SampleNoReplace@{C\_\-SampleNoReplace}!Utils.h@{Utils.h}}
 \subsubsection[C\_\-SampleNoReplace]{\setlength{\rightskip}{0pt plus 5cm}void C\_\-Sample\-No\-Replace (int $\ast$ {\em x}, int {\em m}, int {\em k}, int $\ast$ {\em ans})}}
-\label{Utils_8h_a2}
+\label{Utils_8h_f7c710920d1496d23fdabad9b1d0e18c}
 
 
 compute a permutation of a (random subset of) 0:(m-1) \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[{\em x}]an integer vector of length m \item[{\em m}]integer \item[{\em k}]integer \item[{\em ans}]an integer vector of length k\end{description}
+\item[{\em x}]an integer vector of length m \item[{\em m}]integer \item[{\em k}]integer \item[{\em ans}]an integer vector of length k \end{description}
 \end{Desc}
 
 
 Definition at line 397 of file Utils.c.
 
-Referenced by C\_\-Global\-Test(), C\_\-Monte\-Carlo(), R\_\-Ensemble(), R\_\-permute(), and R\_\-rsubset().\hypertarget{Utils_8h_a10}{
+Referenced by R\_\-Ensemble(), R\_\-permute(), and R\_\-rsubset().\hypertarget{Utils_8h_2a701345082320c18e49d8e7e8150d64}{
 \index{Utils.h@{Utils.h}!C_whichmax@{C\_\-whichmax}}
 \index{C_whichmax@{C\_\-whichmax}!Utils.h@{Utils.h}}
 \subsubsection[C\_\-whichmax]{\setlength{\rightskip}{0pt plus 5cm}int C\_\-whichmax (double $\ast$ {\em pvalue}, double $\ast$ {\em teststat}, int {\em ninputs})}}
-\label{Utils_8h_a10}
+\label{Utils_8h_2a701345082320c18e49d8e7e8150d64}
 
 
 
 
 Definition at line 492 of file Utils.c.
 
-Referenced by C\_\-Node(), and R\_\-whichmax().\hypertarget{Utils_8h_a11}{
+Referenced by C\_\-Node(), and R\_\-whichmax().\hypertarget{Utils_8h_ae969040bb060d2874fd969e20675bbb}{
 \index{Utils.h@{Utils.h}!i_in_set@{i\_\-in\_\-set}}
 \index{i_in_set@{i\_\-in\_\-set}!Utils.h@{Utils.h}}
 \subsubsection[i\_\-in\_\-set]{\setlength{\rightskip}{0pt plus 5cm}int i\_\-in\_\-set (int {\em i}, int $\ast$ {\em iset}, int {\em p})}}
-\label{Utils_8h_a11}
+\label{Utils_8h_ae969040bb060d2874fd969e20675bbb}
 
 
 determine if i is element of the integer vector set \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[{\em i}]an integer \item[{\em iset}]a pointer to an integer vector \item[{\em p}]length(iset)\end{description}
+\item[{\em i}]an integer \item[{\em iset}]a pointer to an integer vector \item[{\em p}]length(iset) \end{description}
 \end{Desc}
 
 
 Definition at line 458 of file Utils.c.
 
-Referenced by C\_\-i\_\-in\_\-set(), and C\_\-splitnode().\hypertarget{Utils_8h_a1}{
+Referenced by C\_\-i\_\-in\_\-set(), and C\_\-splitnode().\hypertarget{Utils_8h_572286b2fd0bd9993473cfd0c6b165c0}{
 \index{Utils.h@{Utils.h}!La_svd@{La\_\-svd}}
 \index{La_svd@{La\_\-svd}!Utils.h@{Utils.h}}
 \subsubsection[La\_\-svd]{\setlength{\rightskip}{0pt plus 5cm}SEXP La\_\-svd (SEXP {\em jobu}, SEXP {\em jobv}, SEXP {\em x}, SEXP {\em s}, SEXP {\em u}, SEXP {\em v}, SEXP {\em method})}}
-\label{Utils_8h_a1}
+\label{Utils_8h_572286b2fd0bd9993473cfd0c6b165c0}
 
 
-
-
-Referenced by CR\_\-svd().\hypertarget{Utils_8h_a9}{
+\hypertarget{Utils_8h_d91bea0afb4613aab593f6311318a63c}{
 \index{Utils.h@{Utils.h}!ncol@{ncol}}
 \index{ncol@{ncol}!Utils.h@{Utils.h}}
 \subsubsection[ncol]{\setlength{\rightskip}{0pt plus 5cm}int ncol (SEXP {\em y})}}
-\label{Utils_8h_a9}
+\label{Utils_8h_d91bea0afb4613aab593f6311318a63c}
 
 
 
 
 Definition at line 484 of file Utils.c.
 
-Referenced by C\_\-Global\-Test(), C\_\-Independence\-Test(), C\_\-Monte\-Carlo(), C\_\-Node(), C\_\-splitnode(), R\_\-Ensemble(), R\_\-Expect\-Covar\-Influence(), R\_\-Expect\-Covar\-Linear\-Statistic(), R\_\-Linear\-Statistic(), R\_\-matprod(), R\_\-matprod\-T(), R\_\-MPinv(), R\_\-Node(), R\_\-Permuted\-Linear\-Statistic(), R\_\-predict\-RF2(), R\_\-split(), R\_\-splitcategorical(), and R\_\-Tree\-Grow().\hypertarget{Utils_8h_a8}{
+Referenced by C\_\-Global\-Test(), C\_\-Independence\-Test(), C\_\-Node(), C\_\-splitnode(), R\_\-Ensemble(), R\_\-Expect\-Covar\-Influence(), R\_\-Expect\-Covar\-Linear\-Statistic(), R\_\-Linear\-Statistic(), R\_\-matprod(), R\_\-matprod\-T(), R\_\-MPinv(), R\_\-Node(), R\_\-predict\-RF2(), R\_\-split(), R\_\-splitcategorical(), and R\_\-Tree\-Grow().\hypertarget{Utils_8h_eeb672a71c45ead28b7b354414f2427a}{
 \index{Utils.h@{Utils.h}!nrow@{nrow}}
 \index{nrow@{nrow}!Utils.h@{Utils.h}}
 \subsubsection[nrow]{\setlength{\rightskip}{0pt plus 5cm}int nrow (SEXP {\em x})}}
-\label{Utils_8h_a8}
+\label{Utils_8h_eeb672a71c45ead28b7b354414f2427a}
 
 
 
 
 Definition at line 480 of file Utils.c.
 
-Referenced by C\_\-Global\-Test(), C\_\-Independence\-Test(), R\_\-Expect\-Covar\-Influence(), R\_\-Expect\-Covar\-Linear\-Statistic(), R\_\-Linear\-Statistic(), R\_\-matprod(), R\_\-matprod\-T(), R\_\-maxabs\-Conditional\-Pvalue(), R\_\-MPinv(), R\_\-Permuted\-Linear\-Statistic(), R\_\-predict\-RF2(), R\_\-split(), and R\_\-splitcategorical().
+Referenced by C\_\-Independence\-Test(), R\_\-Expect\-Covar\-Influence(), R\_\-Expect\-Covar\-Linear\-Statistic(), R\_\-Linear\-Statistic(), R\_\-matprod(), R\_\-matprod\-T(), R\_\-maxabs\-Conditional\-Pvalue(), R\_\-MPinv(), R\_\-Permuted\-Linear\-Statistic(), R\_\-predict\-RF2(), R\_\-split(), and R\_\-splitcategorical().

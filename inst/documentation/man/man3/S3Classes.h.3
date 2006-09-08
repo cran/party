@@ -1,4 +1,4 @@
-.TH "S3Classes.h" 3 "25 Aug 2006" "party" \" -*- nroff -*-
+.TH "S3Classes.h" 3 "8 Sep 2006" "party" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -110,7 +110,7 @@ Definition at line 99 of file S3Classes.c.
 .PP
 References S3_ORDERED, S3_SPLITPOINT, S3_SPLITSTATISTICS, S3_TABLE, S3_TOLEFT, S3_VARIABLEID, and SPLIT_LENGTH.
 .PP
-Referenced by C_Node(), and C_surrogates().
+Referenced by C_Node().
 .SS "SEXP S3get_criterion (SEXP node)"
 .PP
 Definition at line 63 of file S3Classes.c.
@@ -152,7 +152,7 @@ Definition at line 50 of file S3Classes.c.
 .PP
 References S3_WEIGHTS.
 .PP
-Referenced by C_get_node(), C_get_nodeweights(), C_getweights(), C_splitnode(), C_splitsurrogate(), C_surrogates(), C_TreeGrow(), R_Ensemble(), R_predictRF(), R_predictRF2(), R_predictRF_weights(), and R_TreeGrow().
+Referenced by C_get_node(), C_get_nodeweights(), C_getweights(), C_splitnode(), C_splitsurrogate(), C_surrogates(), C_TreeGrow(), R_predictRF(), R_predictRF2(), R_predictRF_weights(), and R_TreeGrow().
 .SS "SEXP S3get_prediction (SEXP node)"
 .PP
 Definition at line 87 of file S3Classes.c.
@@ -180,7 +180,7 @@ Definition at line 174 of file S3Classes.c.
 .PP
 References S3_SPLITPOINT.
 .PP
-Referenced by C_get_node(), C_Node(), C_splitnode(), C_splitsurrogate(), and C_surrogates().
+Referenced by C_get_node(), C_Node(), C_splitnode(), and C_splitsurrogate().
 .SS "SEXP S3get_splitstatistics (SEXP split)"
 .PP
 Definition at line 178 of file S3Classes.c.
@@ -242,8 +242,6 @@ Referenced by C_TreeGrow().
 Definition at line 71 of file S3Classes.c.
 .PP
 References S3_TERMINAL.
-.PP
-Referenced by C_Node().
 .SS "void S3set_nominal (SEXP split)"
 .PP
 Definition at line 161 of file S3Classes.c.
@@ -259,15 +257,13 @@ References S3_ORDERED.
 Definition at line 169 of file S3Classes.c.
 .PP
 References S3_TOLEFT.
-.PP
-Referenced by C_surrogates().
 .SS "void S3set_variableID (SEXP split, int variableID)"
 .PP
 Definition at line 145 of file S3Classes.c.
 .PP
 References S3_VARIABLEID.
 .PP
-Referenced by C_Node(), and C_surrogates().
+Referenced by C_Node().
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for party from the source code.

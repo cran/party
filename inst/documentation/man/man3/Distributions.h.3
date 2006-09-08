@@ -1,4 +1,4 @@
-.TH "Distributions.h" 3 "25 Aug 2006" "party" \" -*- nroff -*-
+.TH "Distributions.h" 3 "8 Sep 2006" "party" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -43,14 +43,12 @@ Conditional asymptotic P-value of a maxabs-type test statistic
 .br
 \fIabseps\fP absolute error 
 .br
-\fItol\fP tolerance
+\fItol\fP tolerance 
 .RE
 .PP
 
 .PP
 Definition at line 52 of file Distributions.c.
-.PP
-References mvtdst.
 .PP
 Referenced by C_ConditionalPvalue(), and R_maxabsConditionalPvalue().
 .SS "void C_MonteCarlo (double * criterion, SEXP learnsample, SEXP weights, SEXP fitmem, SEXP varctrl, SEXP gtctrl, double * ans_pvalues)"
@@ -71,16 +69,16 @@ Monte-Carlo approximation to the conditional pvalues
 .br
 \fIgtctrl\fP an object of class `GlobalTestControl' 
 .br
-\fIans_pvalues\fP return values; vector of adjusted pvalues
+\fIans_pvalues\fP return values; vector of adjusted pvalues 
 .RE
 .PP
 
 .PP
 Definition at line 169 of file Distributions.c.
 .PP
-References C_LinearStatistic(), C_max(), C_PermutedLinearStatistic(), C_SampleNoReplace(), C_TeststatCriterion(), get_ninputs(), get_nobs(), get_nresample(), get_transformation(), get_varmemory(), has_missings(), ncol(), PL2_expcovinfSym, PL2_inputsSym, PL2_linearstatisticSym, PL2_responsesSym, and PL2_sumweightsSym.
+References get_ninputs(), get_nobs(), get_nresample(), get_transformation(), PL2_expcovinfSym, PL2_inputsSym, PL2_responsesSym, and PL2_sumweightsSym.
 .PP
-Referenced by C_GlobalTest(), and R_MonteCarlo().
+Referenced by R_MonteCarlo().
 .SS "double C_quadformConditionalPvalue (const double tstat, const double df)"
 .PP
 Conditional asymptotic P-value of a quadratic form
@@ -91,7 +89,7 @@ Conditional asymptotic P-value of a quadratic form
 .RS 4
 \fItstat\fP test statistic 
 .br
-\fIdf\fP degree of freedom
+\fIdf\fP degree of freedom 
 .RE
 .PP
 

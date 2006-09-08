@@ -1,4 +1,4 @@
-.TH "IndependenceTest.h" 3 "25 Aug 2006" "party" \" -*- nroff -*-
+.TH "IndependenceTest.h" 3 "8 Sep 2006" "party" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -43,14 +43,14 @@ Perform a global test on independence of a response and multiple inputs
 .br
 \fIans_teststat\fP return value; vector of test statistics 
 .br
-\fIans_criterion\fP return value; vector of node criteria (adjusted) pvalues or raw test statistics
+\fIans_criterion\fP return value; vector of node criteria (adjusted) pvalues or raw test statistics 
 .RE
 .PP
 
 .PP
 Definition at line 129 of file IndependenceTest.c.
 .PP
-References AGGREGATED, BONFERRONI, C_ExpectCovarInfluence(), C_LinStatExpCov(), C_LinStatExpCovMPinv(), C_MonteCarlo(), C_SampleNoReplace(), C_TeststatCriterion(), get_dontuse(), get_dontusetmp(), get_missings(), get_mtry(), get_ninputs(), get_nobs(), get_randomsplits(), get_teststat(), get_testtype(), get_tol(), get_transformation(), get_varmemory(), get_weights(), has_missings(), MONTECARLO, ncol(), nrow(), PL2_expcovinfSym, PL2_inputsSym, PL2_responsesSym, PL2_sumweightsSym, TESTSTATISTIC, and UNIVARIATE.
+References C_ExpectCovarInfluence(), get_ninputs(), get_nobs(), get_transformation(), ncol(), PL2_expcovinfSym, PL2_inputsSym, PL2_responsesSym, and PL2_sumweightsSym.
 .PP
 Referenced by C_Node(), and R_GlobalTest().
 .SS "void C_TeststatCriterion (const SEXP linexpcov, const SEXP varctrl, double * ans_teststat, double * ans_criterion)"
@@ -67,7 +67,7 @@ Computes the test statistic and the node criterion
 .br
 \fIans_teststat;\fP return value, the test statistic 
 .br
-\fIans_criterion;\fP return value, thep-value
+\fIans_criterion;\fP return value, thep-value 
 .RE
 .PP
 
@@ -75,8 +75,6 @@ Computes the test statistic and the node criterion
 Definition at line 53 of file IndependenceTest.c.
 .PP
 References C_TeststatPvalue(), and get_pvalue().
-.PP
-Referenced by C_GlobalTest(), and C_MonteCarlo().
 .SS "void C_TeststatPvalue (const SEXP linexpcov, const SEXP varctrl, double * ans_teststat, double * ans_pvalue)"
 .PP
 Computes the test statistic and, if requested, the corresponding P-value for a linear statistic 
@@ -91,7 +89,7 @@ Computes the test statistic and, if requested, the corresponding P-value for a l
 .br
 \fIans_teststat;\fP return value, the test statistic 
 .br
-\fIans_pvalue;\fP return value, the p-value
+\fIans_pvalue;\fP return value, the p-value 
 .RE
 .PP
 

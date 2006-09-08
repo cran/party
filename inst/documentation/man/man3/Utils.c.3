@@ -1,4 +1,4 @@
-.TH "Utils.c" 3 "25 Aug 2006" "party" \" -*- nroff -*-
+.TH "Utils.c" 3 "8 Sep 2006" "party" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -118,7 +118,7 @@ absolute value
 .RS 4
 \fIx\fP numeric vector 
 .br
-\fIn\fP length(x)
+\fIn\fP length(x) 
 .RE
 .PP
 
@@ -153,14 +153,14 @@ Computes the Kronecker product of two matrices
 .br
 \fIs\fP ncol(B) 
 .br
-\fIans\fP return value; a pointer to a REALSXP-vector of length (mr x ns)
+\fIans\fP return value; a pointer to a REALSXP-vector of length (mr x ns) 
 .RE
 .PP
 
 .PP
 Definition at line 23 of file Utils.c.
 .PP
-Referenced by C_ExpectCovarLinearStatistic(), and R_kronecker().
+Referenced by R_kronecker().
 .SS "void C_matprod (double * x, int nrx, int ncx, double * y, int nry, int ncy, double * z)"
 .PP
 matrix product x *% y 
@@ -179,14 +179,14 @@ matrix product x *% y
 .br
 \fIncy\fP number of cols of y 
 .br
-\fIz\fP a matrix of dimension nrx x ncy
+\fIz\fP a matrix of dimension nrx x ncy 
 .RE
 .PP
 
 .PP
 Definition at line 297 of file Utils.c.
 .PP
-Referenced by R_matprod(), and R_predictRF2().
+Referenced by R_matprod().
 .SS "void C_matprodT (double * x, int nrx, int ncx, double * y, int nry, int ncy, double * z)"
 .PP
 matrix product x *% t(y) 
@@ -205,7 +205,7 @@ matrix product x *% t(y)
 .br
 \fIncy\fP number of cols of y 
 .br
-\fIz\fP a matrix of dimension nrx x ncy
+\fIz\fP a matrix of dimension nrx x ncy 
 .RE
 .PP
 
@@ -221,14 +221,14 @@ the maximum of a double vector
 .RS 4
 \fIx\fP vector 
 .br
-\fIn\fP its length
+\fIn\fP its length 
 .RE
 .PP
 
 .PP
 Definition at line 222 of file Utils.c.
 .PP
-Referenced by C_maxabsTestStatistic(), C_MonteCarlo(), C_Node(), and R_max().
+Referenced by C_maxabsTestStatistic(), C_Node(), and R_max().
 .SS "void C_MPinv (SEXP x, double tol, SEXP svdmem, SEXP ans)"
 .PP
 Moore-Penrose inverse of a matrix 
@@ -241,7 +241,7 @@ Moore-Penrose inverse of a matrix
 .br
 \fIsvdmem\fP an object of class `svd_mem' 
 .br
-\fIans\fP return value; an object of class `ExpectCovarMPinv'
+\fIans\fP return value; an object of class `ExpectCovarMPinv' 
 .RE
 .PP
 
@@ -263,14 +263,14 @@ compute a permutation of a (random subset of) 0:(m-1)
 .br
 \fIk\fP integer 
 .br
-\fIans\fP an integer vector of length k
+\fIans\fP an integer vector of length k 
 .RE
 .PP
 
 .PP
 Definition at line 397 of file Utils.c.
 .PP
-Referenced by C_GlobalTest(), C_MonteCarlo(), R_Ensemble(), R_permute(), and R_rsubset().
+Referenced by R_Ensemble(), R_permute(), and R_rsubset().
 .SS "int C_whichmax (double * pvalue, double * teststat, int ninputs)"
 .PP
 Definition at line 492 of file Utils.c.
@@ -284,14 +284,14 @@ C- and R-interface to La_svd (R/src/main/lapack.c)
 .RS 4
 \fIx\fP matrix 
 .br
-\fIsvdmem\fP an object of class `svd_mem'
+\fIsvdmem\fP an object of class `svd_mem' 
 .RE
 .PP
 
 .PP
 Definition at line 97 of file Utils.c.
 .PP
-References La_svd(), PL2_jobuSym, PL2_jobvSym, PL2_methodSym, PL2_pSym, PL2_sSym, PL2_svdSym, PL2_uSym, and PL2_vSym.
+References PL2_pSym, PL2_uSym, and PL2_vSym.
 .PP
 Referenced by C_MPinv().
 .SS "int i_in_set (int i, int * iset, int p)"
@@ -304,7 +304,7 @@ determine if i is element of the integer vector set
 .br
 \fIiset\fP a pointer to an integer vector 
 .br
-\fIp\fP length(iset)
+\fIp\fP length(iset) 
 .RE
 .PP
 
@@ -316,19 +316,19 @@ Referenced by C_i_in_set(), and C_splitnode().
 .PP
 Definition at line 484 of file Utils.c.
 .PP
-Referenced by C_GlobalTest(), C_IndependenceTest(), C_MonteCarlo(), C_Node(), C_splitnode(), R_Ensemble(), R_ExpectCovarInfluence(), R_ExpectCovarLinearStatistic(), R_LinearStatistic(), R_matprod(), R_matprodT(), R_MPinv(), R_Node(), R_PermutedLinearStatistic(), R_predictRF2(), R_split(), R_splitcategorical(), and R_TreeGrow().
+Referenced by C_GlobalTest(), C_IndependenceTest(), C_Node(), C_splitnode(), R_Ensemble(), R_ExpectCovarInfluence(), R_ExpectCovarLinearStatistic(), R_LinearStatistic(), R_matprod(), R_matprodT(), R_MPinv(), R_Node(), R_predictRF2(), R_split(), R_splitcategorical(), and R_TreeGrow().
 .SS "int nrow (SEXP x)"
 .PP
 Definition at line 480 of file Utils.c.
 .PP
-Referenced by C_GlobalTest(), C_IndependenceTest(), R_ExpectCovarInfluence(), R_ExpectCovarLinearStatistic(), R_LinearStatistic(), R_matprod(), R_matprodT(), R_maxabsConditionalPvalue(), R_MPinv(), R_PermutedLinearStatistic(), R_predictRF2(), R_split(), and R_splitcategorical().
+Referenced by C_IndependenceTest(), R_ExpectCovarInfluence(), R_ExpectCovarLinearStatistic(), R_LinearStatistic(), R_matprod(), R_matprodT(), R_maxabsConditionalPvalue(), R_MPinv(), R_PermutedLinearStatistic(), R_predictRF2(), R_split(), and R_splitcategorical().
 .SS "SEXP R_abs (SEXP x)"
 .PP
 R-interface to C_abs 
 .PP
 \fBParameters:\fP
 .RS 4
-\fIx\fP numeric vector
+\fIx\fP numeric vector 
 .RE
 .PP
 
@@ -344,7 +344,7 @@ R-interface to C_kronecker
 .RS 4
 \fIA\fP matrix 
 .br
-\fIB\fP matrix
+\fIB\fP matrix 
 .RE
 .PP
 
@@ -363,7 +363,7 @@ R-interface to C_matprod
 .RS 4
 \fIx\fP a matrix 
 .br
-\fIy\fP a matrix
+\fIy\fP a matrix 
 .RE
 .PP
 
@@ -379,7 +379,7 @@ R-interface to C_matprodT
 .RS 4
 \fIx\fP a matrix 
 .br
-\fIy\fP a matrix
+\fIy\fP a matrix 
 .RE
 .PP
 
@@ -393,7 +393,7 @@ R-interface to C_max
 .PP
 \fBParameters:\fP
 .RS 4
-\fIx\fP numeric vector
+\fIx\fP numeric vector 
 .RE
 .PP
 
@@ -416,7 +416,7 @@ R-interface to C_MPinv
 .br
 \fItol\fP a tolerance bound 
 .br
-\fIsvdmem\fP an object of class `svd_mem'
+\fIsvdmem\fP an object of class `svd_mem' 
 .RE
 .PP
 
@@ -430,7 +430,7 @@ R-interface to C_SampleNoReplace: the permutation case
 .PP
 \fBParameters:\fP
 .RS 4
-\fIm\fP integer
+\fIm\fP integer 
 .RE
 .PP
 
@@ -446,7 +446,7 @@ R-interface to C_SampleNoReplace: the subset case
 .RS 4
 \fIm\fP integer 
 .br
-\fIk\fP integer
+\fIk\fP integer 
 .RE
 .PP
 

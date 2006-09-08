@@ -1,4 +1,4 @@
-.TH "TreeGrow.c" 3 "25 Aug 2006" "party" \" -*- nroff -*-
+.TH "TreeGrow.c" 3 "8 Sep 2006" "party" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -34,7 +34,7 @@ hothorn
 \fBDate:\fP
 .RS 4
 \fBDate\fP.RS 4
-2006-02-23 16:11:21 +0100 (Thu, 23 Feb 2006) 
+2006-09-08 13:44:04 +0200 (Fri, 08 Sep 2006) 
 .RE
 .PP
 .RE
@@ -64,7 +64,7 @@ The main tree growing function, handles the recursion.
 .br
 \fInodenum\fP a pointer to a integer vector of length 1 
 .br
-\fIdepth\fP an integer giving the depth of the current node
+\fIdepth\fP an integer giving the depth of the current node 
 .RE
 .PP
 
@@ -73,7 +73,7 @@ Definition at line 23 of file TreeGrow.c.
 .PP
 References C_Node(), C_splitnode(), C_splitsurrogate(), C_surrogates(), C_TreeGrow(), check_depth(), get_maxsurrogate(), get_nobs(), get_splitctrl(), get_stump(), get_tgctrl(), S3get_leftnode(), S3get_nodeterminal(), S3get_nodeweights(), S3get_rightnode(), and S3set_nodeID().
 .PP
-Referenced by C_TreeGrow(), R_Ensemble(), and R_TreeGrow().
+Referenced by C_TreeGrow(), and R_TreeGrow().
 .SS "SEXP R_TreeGrow (SEXP learnsample, SEXP weights, SEXP fitmem, SEXP controls, SEXP where)"
 .PP
 R-interface to C_TreeGrow
@@ -90,7 +90,7 @@ R-interface to C_TreeGrow
 .br
 \fIcontrols\fP an object of class `TreeControl' 
 .br
-\fIwhere\fP a vector of node indices for each observation
+\fIwhere\fP a vector of node indices for each observation 
 .RE
 .PP
 

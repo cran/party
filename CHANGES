@@ -1,4 +1,9 @@
 
+                CHANGES IN party VERSION 0.9-3 (2006-09-08)
+
+    o    don't call RNG functions in mvt (this is done in C code, once)
+
+
                 CHANGES IN party VERSION 0.9-2 (2006-09-07)
 
     o    mob() can't currently handle missing values,
