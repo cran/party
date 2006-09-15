@@ -1,4 +1,11 @@
 
+                CHANGES IN party VERSION 0.9-4 (2006-09-15)
+
+    o   make sure `maxsurrogates' exceeds number of input variables
+
+    o   fix problems reported by valgrind
+
+
                 CHANGES IN party VERSION 0.9-3 (2006-09-08)
 
     o    don't call RNG functions in mvt (this is done in C code, once)

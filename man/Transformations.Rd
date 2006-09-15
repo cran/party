@@ -32,6 +32,9 @@ ff_trafo(x)
   according to the classes of the elements. See \code{\link[coin]{trafo}}
   for more documentation and examples.
 
+  In the presence of missing values, one needs to make sure that all
+  user-supplied functions deal with that. 
+
 }
 \value{
 
@@ -42,7 +45,8 @@ ff_trafo(x)
 \examples{
 
   ### rank a variable
-  ptrafo(data.frame(y = 1:20), numeric_trafo = rank)
+  ptrafo(data.frame(y = 1:20), 
+         numeric_trafo = function(x) rank(x, na.last = "keep"))
 
   ### dummy coding of a factor
   ptrafo(data.frame(y = gl(3, 9)))

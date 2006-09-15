@@ -44,3 +44,10 @@ cforest(y + xo ~ x + z, data = df,
 load("t1.RData")
 tr <- try(ctree(p ~., data = t1))
 stopifnot(!inherits(tr, "try-error"))
+
+### make sure number of surrogate splits exceeds number of inputs by 1
+### spotted by Henric Nilsson <henric.nilsson@phadia.com>
+airq <- subset(airquality, !is.na(Ozone))
+tr <- try(ctree(Ozone ~ Wind, data = airq,
+          controls = ctree_control(maxsurrogate = 3)))
+stopifnot(inherits(tr, "try-error"))

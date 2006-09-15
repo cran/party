@@ -1,5 +1,5 @@
 
-R version 2.4.0 alpha (2006-09-06 r39158)
+R version 2.4.0 alpha (2006-09-15 r39323)
 Copyright (C) 2006 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 
@@ -140,4 +140,12 @@ There were 50 or more warnings (use warnings() to see the first 50)
 > load("t1.RData")
 > tr <- try(ctree(p ~., data = t1))
 > stopifnot(!inherits(tr, "try-error"))
+> 
+> ### make sure number of surrogate splits exceeds number of inputs by 1
+> ### spotted by Henric Nilsson <henric.nilsson@phadia.com>
+> airq <- subset(airquality, !is.na(Ozone))
+> tr <- try(ctree(Ozone ~ Wind, data = airq,
++           controls = ctree_control(maxsurrogate = 3)))
+Error in model@fit(data, ...) : cannot set up 3 surrogate splits with only 1 input variable(s)
+> stopifnot(inherits(tr, "try-error"))
 > 

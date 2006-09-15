@@ -1,7 +1,7 @@
 Package: party
 Title: A Laboratory for Recursive Part(y)itioning
-Date: $Date: 2006-09-08 13:44:04 +0200 (Fri, 08 Sep 2006) $
-Version: 0.9-3
+Date: $Date: 2006-09-15 13:41:45 +0200 (Fri, 15 Sep 2006) $
+Version: 0.9-4
 Author: Torsten Hothorn, Kurt Hornik and Achim Zeileis
 Maintainer: Torsten Hothorn <Torsten.Hothorn@R-project.org>
 Description: A computational toolbox for recursive partitioning.
@@ -20,8 +20,8 @@ Description: A computational toolbox for recursive partitioning.
   visualizing tree-structured regression models is available.
 Depends: R (>= 2.0.1), methods, survival, grid, modeltools (>= 0.2-6), coin (>= 0.4-10),
   zoo, sandwich (>= 1.1-1), strucchange, vcd
-Suggests: ipred, mlbench
+Suggests: ipred, mlbench, colorspace
 LazyLoad: yes
 LazyData: yes
 License: GPL
-Packaged: Fri Sep  8 14:07:07 2006; hothorn
+Packaged: Fri Sep 15 13:43:58 2006; hothorn

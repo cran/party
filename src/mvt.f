@@ -1,5 +1,5 @@
 *
-*    $Id: mvt.f 2937 2006-09-08 11:44:04Z hothorn $
+*    $Id: mvt.f 2975 2006-09-15 11:31:18Z hothorn $
 *
       SUBROUTINE MVTDST( N, NU, LOWER, UPPER, INFIN, CORREL, DELTA, 
      &           MAXPTS, ABSEPS, RELEPS, TOL, ERROR, VALUE, INFORM )
@@ -1255,6 +1255,13 @@
       INFORM = 1
       INTVLS = 0
       VARPRD = 0
+
+*     begin valgrind fix: 
+*     ==21597== Conditional jump or move depends on uninitialised value(s)
+*     ==21597==    at 0x6577265: mvkbrv_ (mvt.f:1294) 
+      ABSERR = 0
+*     end
+
       IF ( MINVLS .GE. 0 ) THEN
          DO K = 1, NF
             FINEST(K) = 0
