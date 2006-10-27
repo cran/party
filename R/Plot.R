@@ -1,5 +1,5 @@
 
-# $Id: Plot.R 2745 2006-08-24 16:30:59Z zeileis $
+# $Id: Plot.R 3043 2006-10-09 14:23:30Z hothorn $
 
 ## utility functions for querying the number of
 ## terminal nodes and the maximal depth of (sub-)trees
@@ -632,8 +632,8 @@ edge_simple <- function(treeobj, digits = 3, abbreviate = FALSE)
 
         if (!ordered) {
             if (length(split) > 1) 
-                split <- paste("\{", paste(split, collapse = ", "), 
-    	                       "\}", sep="")
+                split <- paste("{", paste(split, collapse = ", "), 
+    	                       "}", sep="")
         } else {
             ### <FIXME> phantom and . functions cannot be found by
             ###         codetools

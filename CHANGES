@@ -1,4 +1,14 @@
 
+                CHANGES IN party VERSION 0.9-5 (2006-10-27)
+
+    o   adjusted p values computed with testtype = "MonteCarlo"
+        did not take dimensionality of the underlying linear statistics
+        into account. It is now ensured that _p values_ are resampled,
+        not test statistics.
+
+    o   fix escape problems
+
+
                 CHANGES IN party VERSION 0.9-4 (2006-09-15)
 
     o   make sure `maxsurrogates' exceeds number of input variables

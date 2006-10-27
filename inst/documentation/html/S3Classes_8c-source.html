@@ -28,7 +28,7 @@
 <a name="l00014"></a>00014          terminal, prediction;
 <a name="l00015"></a>00015 
 <a name="l00016"></a>00016     <span class="keywordflow">if</span> (LENGTH(node) &lt; <a class="code" href="party_8h.html#2594b3a85c654c34048133cb81ad0fab">NODE_LENGTH</a>)
-<a name="l00017"></a>00017         error(<span class="stringliteral">"node is not a list with at least %s elements"</span>, <a class="code" href="party_8h.html#2594b3a85c654c34048133cb81ad0fab">NODE_LENGTH</a>);
+<a name="l00017"></a>00017         error(<span class="stringliteral">"node is not a list with at least %d elements"</span>, <a class="code" href="party_8h.html#2594b3a85c654c34048133cb81ad0fab">NODE_LENGTH</a>);
 <a name="l00018"></a>00018         
 <a name="l00019"></a>00019     SET_VECTOR_ELT(node, <a class="code" href="party_8h.html#2da0c160b5b1b6ae134b58720c204e32">S3_NODEID</a>, nodeID = allocVector(INTSXP, 1));
 <a name="l00020"></a>00020     <span class="keywordflow">if</span> (nobs &gt; 0) 
@@ -115,7 +115,7 @@
 <a name="l00101"></a>00101     SEXP variableID, splitpoint, splitstatistics, ordered, toleft;
 <a name="l00102"></a>00102     
 <a name="l00103"></a>00103     <span class="keywordflow">if</span> (LENGTH(split) &lt; <a class="code" href="party_8h.html#27e42cfa9f63fb89059ef54f981d76fa">SPLIT_LENGTH</a>)
-<a name="l00104"></a>00104         error(<span class="stringliteral">"split is not a list with at least %s elements"</span>, <a class="code" href="party_8h.html#27e42cfa9f63fb89059ef54f981d76fa">SPLIT_LENGTH</a>);
+<a name="l00104"></a>00104         error(<span class="stringliteral">"split is not a list with at least %d elements"</span>, <a class="code" href="party_8h.html#27e42cfa9f63fb89059ef54f981d76fa">SPLIT_LENGTH</a>);
 <a name="l00105"></a>00105         
 <a name="l00106"></a>00106     SET_VECTOR_ELT(split, <a class="code" href="party_8h.html#fe45cf6305b9f8e720fcbcfea32e8a79">S3_VARIABLEID</a>, 
 <a name="l00107"></a>00107                    variableID = allocVector(INTSXP, 1));
@@ -139,7 +139,7 @@
 <a name="l00125"></a>00125     SEXP variableID, splitpoint, splitstatistics, ordered, toleft, table;
 <a name="l00126"></a>00126     
 <a name="l00127"></a>00127     <span class="keywordflow">if</span> (LENGTH(split) &lt; <a class="code" href="party_8h.html#27e42cfa9f63fb89059ef54f981d76fa">SPLIT_LENGTH</a>)
-<a name="l00128"></a>00128         error(<span class="stringliteral">"split is not a list with at least %s elements"</span>, <a class="code" href="party_8h.html#27e42cfa9f63fb89059ef54f981d76fa">SPLIT_LENGTH</a>);
+<a name="l00128"></a>00128         error(<span class="stringliteral">"split is not a list with at least %d elements"</span>, <a class="code" href="party_8h.html#27e42cfa9f63fb89059ef54f981d76fa">SPLIT_LENGTH</a>);
 <a name="l00129"></a>00129 
 <a name="l00130"></a>00130     SET_VECTOR_ELT(split, <a class="code" href="party_8h.html#fe45cf6305b9f8e720fcbcfea32e8a79">S3_VARIABLEID</a>, variableID = allocVector(INTSXP, 1));
 <a name="l00131"></a>00131     SET_VECTOR_ELT(split, <a class="code" href="party_8h.html#b98a5267036c4722529cbf1d28405d5c">S3_ORDERED</a>, ordered = allocVector(LGLSXP, 1));
@@ -206,7 +206,7 @@
 <a name="l00192"></a>00192        error(<span class="stringliteral">"split does not have a table element"</span>);
 <a name="l00193"></a>00193    <span class="keywordflow">return</span>(ans);
 <a name="l00194"></a>00194 }
-</pre></div><hr size="1"><address style="align: right;"><small>Generated on Fri Sep 8 13:44:13 2006 for party by&nbsp;
+</pre></div><hr size="1"><address style="align: right;"><small>Generated on Fri Oct 27 09:42:39 2006 for party by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6 </small></address>
 </body>

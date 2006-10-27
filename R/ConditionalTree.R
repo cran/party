@@ -1,5 +1,5 @@
 
-# $Id: ConditionalTree.R 2741 2006-08-24 08:38:04Z hothorn $
+# $Id: ConditionalTree.R 3012 2006-09-30 14:57:16Z hothorn $
 
 ### the fitting procedure
 ctreefit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
@@ -201,7 +201,7 @@ ctree_control <- function(teststat = c("quad", "max"),
     else
         stop(testtype, " not defined")
 
-    if (RET@gtctrl@testtype %in% c("MonteCarlo", "Teststatistic")) 
+    if (RET@gtctrl@testtype == "Teststatistic")
         RET@varctrl@pvalue <- FALSE
 
     RET@gtctrl@nresample <- as.integer(nresample)

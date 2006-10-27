@@ -6,11 +6,13 @@ citEntry(entry="Article",
                              as.person("Achim Zeileis")),
          journal      = "Journal of Computational and Graphical Statistics",
          year         = "2006",
-         note         = "accepted for publication",
+         volume       = "15",
+         number       = "3",
+         pages        = "651--674",
 
          textVersion =
          paste("Torsten Hothorn, Kurt Hornik and Achim Zeileis (2006).",
                "Unbiased Recursive Partitioning: A Conditional Inference Framework.",
-               "Journal of Computational and Graphical Statistics (accepted for publication).")
+               "Journal of Computational and Graphical Statistics, 15(3), 651--674.")
 )
 

@@ -8,6 +8,10 @@
 \SweaveOpts{engine=R}
 %% neet no \usepackage{Sweave}
 
+<<setup, echo = FALSE, results = hide>>=
+require("party")
+@
+
 %% commands
 \newcommand{\ui}{\underline{i}}
 \newcommand{\oi}{\overline{\imath}}

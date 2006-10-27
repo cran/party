@@ -1,5 +1,5 @@
 
-# $Id: Print.R 2674 2006-07-12 20:07:24Z hothorn $
+# $Id: Print.R 3043 2006-10-09 14:23:30Z hothorn $
 
 prettysplit <- function(x, inames = NULL, ilevels = NULL) {
     if (length(x) == 4)
@@ -94,7 +94,7 @@ print.nominalSplit <- function(x, left = TRUE, ...) {
         lev <- levels[!as.logical(x$splitpoint) & (tab > 0)]
     }
 
-    txt <- paste("\{", paste(lev, collapse = ", "), "\}", collapse = "", sep = "")
+    txt <- paste("{", paste(lev, collapse = ", "), "}", collapse = "", sep = "")
     cat(x$variableName, "==", txt)
 }
 

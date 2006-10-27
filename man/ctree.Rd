@@ -79,7 +79,8 @@ ctree(formula, data, subset = NULL, weights = NULL,
 
    Torsten Hothorn, Kurt Hornik and Achim Zeileis (2006). Unbiased Recursive
    Partitioning: A Conditional Inference Framework. \emph{Journal of
-   Computational and Graphical Statistics} (accepted). Preprint available
+   Computational and Graphical Statistics}, \bold{15}(3), 651--674. 
+   Preprint available
    from \url{http://statmath.wu-wien.ac.at/~zeileis/papers/Hothorn+Hornik+Zeileis-2006.pdf}
 
 }

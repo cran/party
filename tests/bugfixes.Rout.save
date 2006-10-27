@@ -1,5 +1,5 @@
 
-R version 2.4.0 alpha (2006-09-15 r39323)
+R version 2.5.0 Under development (unstable) (2006-10-25 r39730)
 Copyright (C) 2006 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 
@@ -38,16 +38,8 @@ Loading required package: sandwich
 Loading required package: strucchange
 Loading required package: vcd
 Loading required package: MASS
-
-Attaching package: 'MASS'
-
-
-	The following object(s) are masked from package:strucchange :
-
-	 SP500 
-
 Loading required package: colorspace
-Creating a new generic function for 'plot' in 'colorspace'
+Creating a new generic function for "plot" in "colorspace"
 
 Attaching package: 'colorspace'
 

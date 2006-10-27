@@ -58,7 +58,7 @@ ctree_control(teststat = c("quad", "max"),
   It might be informative to look at scatterplots of input variables against
   the standardized two-sample split statistics, those are available when
   \code{savesplitstats = TRUE}. Each node is then associated with a vector
-  those length is determined by the number of observations in the learning
+  whose length is determined by the number of observations in the learning
   sample and thus much more memory is required.
 
 }
