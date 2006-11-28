@@ -1,4 +1,9 @@
 
+                CHANGES IN party VERSION 0.9-6 (2006-11-28)
+
+    o   R-2.5.0 does not allow to change the storage.mode of factors
+
+
                 CHANGES IN party VERSION 0.9-5 (2006-10-27)
 
     o   adjusted p values computed with testtype = "MonteCarlo"

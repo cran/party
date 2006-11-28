@@ -1,5 +1,5 @@
 
-# $Id: Variables.R 2749 2006-08-25 11:06:44Z hothorn $
+# $Id: Variables.R 3147 2006-11-28 16:17:19Z hothorn $
 
 ### factor handling
 ff_trafo <- function(x) {
@@ -89,6 +89,8 @@ initVariableFrame.df <- function(obj, trafo = ptrafo, scores = NULL, ...) {
             if (is_ordinal[j]) {
                 xt[[j]] <- matrix(RET@scores[[j]][obj[[j]]], ncol = 1)
                 storage.mode(xt[[j]]) <- "double"
+                ### R 2.5.0 does not allow to change the storage mode of factors
+                class(obj[[j]]) <- "was_ordered"
                 storage.mode(obj[[j]]) <- "double"
             } else {
                 storage.mode(obj[[j]]) <- "integer"

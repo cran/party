@@ -41,7 +41,9 @@
 \examples{
 
   ### fit tree with attached scores (equal to the default values)
-  ctree(ME ~ .,data = mammoexp, 
+  mtree <- ctree(ME ~ .,data = mammoexp, 
         scores = list(ME = 1:3, SYMPT = 1:4, DECT = 1:3))
+  mtree
+  plot(mtree)
 }
 \keyword{datasets}

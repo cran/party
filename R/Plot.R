@@ -1,5 +1,5 @@
 
-# $Id: Plot.R 3043 2006-10-09 14:23:30Z hothorn $
+# $Id: Plot.R 3147 2006-11-28 16:17:19Z hothorn $
 
 ## utility functions for querying the number of
 ## terminal nodes and the maximal depth of (sub-)trees
@@ -167,7 +167,7 @@ node_barplot <- function(ctreeobj,
 
     y <- response(ctreeobj)[[1]]
     
-    if(is.factor(y)) {
+    if(is.factor(y) || class(y) == "was_ordered") {
         ylevels <- levels(y)
         if(is.null(ymax)) ymax <- if(beside) 1.1 else 1
 	if(is.null(gap)) gap <- if(beside) 0.1 else 0
@@ -820,6 +820,7 @@ plot.BinaryTree <- function(x, main = NULL, type = c("extended", "simple"),
             terminal_panel <- switch(class(response(x)[[1]])[1],
 	                             "Surv" = node_surv,
                                      "factor" = node_barplot,
+                                     "was_ordered" = node_barplot,
                                      "ordered" = node_barplot,
                                      node_boxplot)
         if (is.null(tnex)) tnex <- 2

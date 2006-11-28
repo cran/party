@@ -1,5 +1,5 @@
 
-# $Id: RandomForest.R 2741 2006-08-24 08:38:04Z hothorn $
+# $Id: RandomForest.R 3130 2006-11-16 14:00:43Z hothorn $
 
 ### the fitting procedure
 cforestfit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
@@ -16,6 +16,7 @@ cforestfit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
 
     if (is.null(weights))
         weights <- object@weights
+    storage.mode(weights) <- "double"
     if (length(weights) != object@nobs || storage.mode(weights) != "double")
         stop(sQuote("weights"), " are not a double vector of ", 
              object@nobs, " elements")
