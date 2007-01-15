@@ -1,5 +1,5 @@
 
-R version 2.5.0 Under development (unstable) (2006-10-25 r39730)
+R version 2.4.1 (2006-12-18)
 Copyright (C) 2006 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 
@@ -23,6 +23,7 @@ Loading required package: survival
 Loading required package: splines
 Loading required package: grid
 Loading required package: modeltools
+Loading required package: stats4
 Loading required package: coin
 Loading required package: mvtnorm
 Loading required package: zoo
@@ -39,15 +40,6 @@ Loading required package: strucchange
 Loading required package: vcd
 Loading required package: MASS
 Loading required package: colorspace
-Creating a new generic function for "plot" in "colorspace"
-
-Attaching package: 'colorspace'
-
-
-	The following object(s) are masked from package:grDevices :
-
-	 hcl 
-
 > gctorture(on = GCtorture)
 > 
 > "hohnloser" <-

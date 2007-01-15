@@ -3,7 +3,7 @@
     Node computations
     *\file Node.c
     *\author $Author: hothorn $
-    *\date $Date: 2006-08-25 10:53:10 +0200 (Fri, 25 Aug 2006) $
+    *\date $Date: 2007-01-15 11:24:41 +0100 (Mon, 15 Jan 2007) $
 */
                 
 #include "party.h"
@@ -52,8 +52,8 @@ void C_Node(SEXP node, SEXP learnsample, SEXP weights,
     double mincriterion, sweights, *dprediction;
     double *teststat, *pvalue, smax, cutpoint = 0.0, maxstat = 0.0;
     double *standstat, *splitstat;
-    SEXP responses, inputs, y, x, expcovinf, thisweights, linexpcov;
-    SEXP varctrl, splitctrl, gtctrl, tgctrl, split, joint;
+    SEXP responses, inputs, x, expcovinf, thisweights, linexpcov;
+    SEXP varctrl, splitctrl, gtctrl, tgctrl, split, jointy;
     double *dxtransf, *dweights;
     int *itable;
     
@@ -66,9 +66,8 @@ void C_Node(SEXP node, SEXP learnsample, SEXP weights,
     mincriterion = get_mincriterion(gtctrl);
     responses = GET_SLOT(learnsample, PL2_responsesSym);
     inputs = GET_SLOT(learnsample, PL2_inputsSym);
-    y = get_transformation(responses, 1);
-    q = ncol(y);
-    joint = GET_SLOT(responses, PL2_jointtransfSym);
+    jointy = get_jointtransf(responses);
+    q = ncol(jointy);
 
     /* <FIXME> we compute C_GlobalTest even for TERMINAL nodes! </FIXME> */
 
@@ -86,7 +85,7 @@ void C_Node(SEXP node, SEXP learnsample, SEXP weights,
 
     /* <FIXME> feed raw numeric values OR dummy encoded factors as y 
        Problem: what happens for survival times ? */
-    C_prediction(REAL(joint), nobs, ncol(joint), REAL(weights), 
+    C_prediction(REAL(jointy), nobs, q, REAL(weights), 
                      sweights, dprediction);
     /* </FIXME> */
 
@@ -134,7 +133,7 @@ void C_Node(SEXP node, SEXP learnsample, SEXP weights,
                     splitstat = REAL(get_splitstatistics(fitmem));
                 }
 
-                C_split(REAL(x), 1, REAL(y), q, REAL(weights), nobs,
+                C_split(REAL(x), 1, REAL(jointy), q, REAL(weights), nobs,
                         INTEGER(get_ordering(inputs, jselect)), splitctrl, 
                         GET_SLOT(fitmem, PL2_linexpcov2sampleSym),
                         expcovinf, REAL(S3get_splitpoint(split)), &maxstat,
@@ -170,7 +169,7 @@ void C_Node(SEXP node, SEXP learnsample, SEXP weights,
  
                  C_splitcategorical(INTEGER(x), 
                                     LENGTH(get_levels(inputs, jselect)), 
-                                    REAL(y), q, REAL(weights), 
+                                    REAL(jointy), q, REAL(weights), 
                                     nobs, standstat, splitctrl, 
                                     GET_SLOT(fitmem, PL2_linexpcov2sampleSym),
                                     expcovinf, &cutpoint, 
@@ -232,8 +231,7 @@ SEXP R_Node(SEXP learnsample, SEXP weights, SEXP fitmem, SEXP controls) {
      PROTECT(ans = allocVector(VECSXP, NODE_LENGTH));
      C_init_node(ans, get_nobs(learnsample), get_ninputs(learnsample), 
                  get_maxsurrogate(get_splitctrl(controls)),
-                 ncol(GET_SLOT(GET_SLOT(learnsample, PL2_responsesSym), 
-                      PL2_jointtransfSym)));
+                 ncol(get_jointtransf(GET_SLOT(learnsample, PL2_responsesSym))));
 
      C_Node(ans, learnsample, weights, fitmem, controls, 0);
      UNPROTECT(1);

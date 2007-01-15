@@ -1,7 +1,7 @@
 base referer
-rect $IndependenceTest_8c.html#0de2357bd1d38058c0cfc68c3e743b34 161,92 262,116
-rect $Classes_8c.html#9117d8f57ea1378c725c7299d6cc2923 352,8 442,32
-rect $LinearStatistic_8c.html#e2f62abe13ee5b625141b5d4a496d832 313,56 481,80
+rect $IndependenceTest_8c.html#0de2357bd1d38058c0cfc68c3e743b34 161,116 262,140
+rect $Classes_8c.html#9117d8f57ea1378c725c7299d6cc2923 352,200 442,224
+rect $LinearStatistic_8c.html#e2f62abe13ee5b625141b5d4a496d832 313,8 481,32
+rect $Classes_8c.html#92501238ed4186984387bea505162ece 344,56 450,80
 rect $Classes_8c.html#45df17685bc6c95d03fb65b6f6214de0 358,104 436,128
-rect $Classes_8c.html#20a55355301b5f90ec48b9114d1ff597 330,152 464,176
-rect $Utils_8c.html#f1f46cc3e98630497a1ccb21d943fe65 374,200 420,224
+rect $Utils_8c.html#f1f46cc3e98630497a1ccb21d943fe65 374,152 420,176

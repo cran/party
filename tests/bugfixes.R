@@ -51,3 +51,12 @@ airq <- subset(airquality, !is.na(Ozone))
 tr <- try(ctree(Ozone ~ Wind, data = airq,
           controls = ctree_control(maxsurrogate = 3)))
 stopifnot(inherits(tr, "try-error"))
+
+### ctree() used only the first of a multivariate response
+### spotted by Henric Nilsson <henric.nilsson@phadia.com>
+airq <- subset(airquality, complete.cases(Ozone, Solar.R))
+airOzoSol1 <- ctree(Ozone + Solar.R ~ Wind + Temp + Month + Day,
+                    data = airq)
+airOzoSol2 <- ctree(Solar.R + Ozone ~ Wind + Temp + Month + Day,
+                    data = airq)
+stopifnot(isequal(airOzoSol1@where, airOzoSol2@where))

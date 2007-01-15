@@ -241,7 +241,8 @@ values. Thus it is most appropriately treated as an ordered factor.
 
 \begin{Schunk}
 \begin{Sinput}
-> BostonHousing$chas <- factor(BostonHousing$chas, levels = 0:1, labels = c("no", "yes"))
+> BostonHousing$chas <- factor(BostonHousing$chas, levels = 0:1, 
++     labels = c("no", "yes"))
 > BostonHousing$rad <- factor(BostonHousing$rad, ordered = TRUE)
 \end{Sinput}
 \end{Schunk}
@@ -256,8 +257,8 @@ segment size of $40$ observations. The control parameters are thus set to
 
 \begin{Schunk}
 \begin{Sinput}
-> ctrl <- mob_control(alpha = 0.05, bonferroni = TRUE, minsplit = 40,
-+   objfun = deviance, verbose = TRUE)
+> ctrl <- mob_control(alpha = 0.05, bonferroni = TRUE, minsplit = 40, 
++     objfun = deviance, verbose = TRUE)
 \end{Sinput}
 \end{Schunk}
 
@@ -273,8 +274,9 @@ settings and the \code{model} to be used.
 
 \begin{Schunk}
 \begin{Sinput}
-> fmBH <- mob(medv ~ lstat + rm | zn + indus + chas + nox + age + dis + rad + tax + crim + b + ptratio,
-+   data = BostonHousing, control = ctrl, model = linearModel)
+> fmBH <- mob(medv ~ lstat + rm | zn + indus + chas + nox + age + 
++     dis + rad + tax + crim + b + ptratio, data = BostonHousing, 
++     control = ctrl, model = linearModel)
 \end{Sinput}
 \begin{Soutput}
 -------------------------------------------
@@ -593,8 +595,9 @@ the \code{mob()} call:
 
 \begin{Schunk}
 \begin{Sinput}
-> fmPID <- mob(diabetes ~ glucose | pregnant + pressure + triceps + insulin + mass + pedigree + age,
-+   data = PimaIndiansDiabetes, model = glinearModel, family = binomial())
+> fmPID <- mob(diabetes ~ glucose | pregnant + pressure + triceps + 
++     insulin + mass + pedigree + age, data = PimaIndiansDiabetes, 
++     model = glinearModel, family = binomial())
 \end{Sinput}
 \end{Schunk}
 
@@ -646,7 +649,7 @@ and the corresponding odds ratios (with respect to glucose):
 5   -2.770954 0.02353582
 \end{Soutput}
 \begin{Sinput}
-> exp(coef(fmPID)[,2])
+> exp(coef(fmPID)[, 2])
 \end{Sinput}
 \begin{Soutput}
        2        4        5 

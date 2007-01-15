@@ -89,7 +89,7 @@ Get the terminal node for obs. number `numobs' of `newinputs' \par
 \item[\hyperlink{todo__todo000002}{Todo}]handle surrogate splits \end{Desc}
 
 
-Definition at line 122 of file Predict.c.
+Definition at line 120 of file Predict.c.
 
 References C\_\-i\_\-in\_\-set(), get\_\-missings(), get\_\-variable(), has\_\-missings(), S3get\_\-leftnode(), S3get\_\-maxcriterion(), S3get\_\-nodeterminal(), S3get\_\-nodeweights(), S3get\_\-primarysplit(), S3get\_\-rightnode(), S3get\_\-splitpoint(), S3get\_\-surrogatesplits(), S3get\_\-toleft(), S3get\_\-variable\-ID(), and S3is\_\-ordered().
 
@@ -116,7 +116,7 @@ Get the node with node\-ID `nodenum' \par
 \end{Desc}
 
 
-Definition at line 252 of file Predict.c.
+Definition at line 250 of file Predict.c.
 
 References S3get\_\-leftnode(), S3get\_\-node\-ID(), S3get\_\-nodeterminal(), and S3get\_\-rightnode().
 
@@ -143,7 +143,7 @@ Get the node\-ID for a new observation \par
 \end{Desc}
 
 
-Definition at line 316 of file Predict.c.
+Definition at line 314 of file Predict.c.
 
 References C\_\-get\_\-node(), and S3get\_\-node\-ID().
 
@@ -170,7 +170,7 @@ Get the weights for a new observation \par
 \end{Desc}
 
 
-Definition at line 301 of file Predict.c.
+Definition at line 299 of file Predict.c.
 
 References C\_\-get\_\-node(), and S3get\_\-nodeweights().
 
@@ -197,7 +197,7 @@ Get the prediction of a new observation\par
 \end{Desc}
 
 
-Definition at line 286 of file Predict.c.
+Definition at line 284 of file Predict.c.
 
 References C\_\-get\_\-node(), and S3get\_\-prediction().
 
@@ -224,7 +224,7 @@ Get the predictions from `where' nodes\par
 \end{Desc}
 
 
-Definition at line 394 of file Predict.c.
+Definition at line 392 of file Predict.c.
 
 References C\_\-get\_\-nodebynum(), and S3get\_\-prediction().
 
@@ -251,7 +251,7 @@ Get the weights from `where' nodes\par
 \end{Desc}
 
 
-Definition at line 435 of file Predict.c.
+Definition at line 433 of file Predict.c.
 
 References C\_\-get\_\-nodebynum(), and S3get\_\-nodeweights().
 
@@ -278,7 +278,7 @@ Get all predictions for `newinputs' \par
 \end{Desc}
 
 
-Definition at line 353 of file Predict.c.
+Definition at line 351 of file Predict.c.
 
 References C\_\-get\_\-prediction(), and get\_\-nobs().
 
@@ -309,7 +309,7 @@ Split a node according to a splitting rule \par
 
 Definition at line 21 of file Predict.c.
 
-References C\_\-init\_\-node(), get\_\-maxsurrogate(), get\_\-missings(), get\_\-ninputs(), get\_\-nobs(), get\_\-splitctrl(), get\_\-variable(), has\_\-missings(), i\_\-in\_\-set(), ncol(), NODE\_\-LENGTH, PL2\_\-inputs\-Sym, PL2\_\-jointtransf\-Sym, PL2\_\-responses\-Sym, S3\_\-LEFT, S3\_\-RIGHT, S3get\_\-nodeweights(), S3get\_\-primarysplit(), S3get\_\-splitpoint(), S3get\_\-variable\-ID(), and S3is\_\-ordered().
+References C\_\-init\_\-node(), get\_\-jointtransf(), get\_\-maxsurrogate(), get\_\-missings(), get\_\-ninputs(), get\_\-nobs(), get\_\-splitctrl(), get\_\-variable(), has\_\-missings(), i\_\-in\_\-set(), ncol(), NODE\_\-LENGTH, PL2\_\-inputs\-Sym, PL2\_\-responses\-Sym, S3\_\-LEFT, S3\_\-RIGHT, S3get\_\-nodeweights(), S3get\_\-primarysplit(), S3get\_\-splitpoint(), S3get\_\-variable\-ID(), and S3is\_\-ordered().
 
 Referenced by C\_\-Tree\-Grow().
 
@@ -333,7 +333,7 @@ Get the weights for all observations in `newinputs' \begin{Desc}
 \end{Desc}
 
 
-Definition at line 477 of file Predict.c.
+Definition at line 475 of file Predict.c.
 
 References C\_\-get\_\-nodeweights(), and get\_\-nobs().
 
@@ -360,7 +360,7 @@ R-Interface to C\_\-get\_\-node \par
 \end{Desc}
 
 
-Definition at line 239 of file Predict.c.
+Definition at line 237 of file Predict.c.
 
 References C\_\-get\_\-node().
 
@@ -385,7 +385,7 @@ R-Interface to C\_\-get\_\-nodenum \par
 \end{Desc}
 
 
-Definition at line 273 of file Predict.c.
+Definition at line 271 of file Predict.c.
 
 References C\_\-get\_\-nodebynum().
 
@@ -410,7 +410,7 @@ R-Interface to C\_\-get\_\-node\-ID \par
 \end{Desc}
 
 
-Definition at line 330 of file Predict.c.
+Definition at line 328 of file Predict.c.
 
 References C\_\-get\_\-node\-ID(), and get\_\-nobs().
 
@@ -435,7 +435,7 @@ R-Interface to C\_\-getpredictions\par
 \end{Desc}
 
 
-Definition at line 415 of file Predict.c.
+Definition at line 413 of file Predict.c.
 
 References C\_\-getpredictions().
 
@@ -460,7 +460,7 @@ R-Interface to C\_\-getweigts \par
 \end{Desc}
 
 
-Definition at line 456 of file Predict.c.
+Definition at line 454 of file Predict.c.
 
 References C\_\-getweights().
 
@@ -485,7 +485,7 @@ R-Interface to C\_\-predict \par
 \end{Desc}
 
 
-Definition at line 374 of file Predict.c.
+Definition at line 372 of file Predict.c.
 
 References C\_\-predict(), and get\_\-nobs().
 
@@ -509,7 +509,7 @@ Predictions from Random\-Forest objects \begin{Desc}
 \end{Desc}
 
 
-Definition at line 520 of file Predict.c.
+Definition at line 518 of file Predict.c.
 
 References C\_\-get\_\-nodebynum(), C\_\-get\_\-node\-ID(), get\_\-nobs(), S3get\_\-nodeweights(), and S3get\_\-prediction().
 
@@ -533,7 +533,7 @@ Predictions from Random\-Forest objects, based in total weights \begin{Desc}
 \end{Desc}
 
 
-Definition at line 576 of file Predict.c.
+Definition at line 574 of file Predict.c.
 
 References C\_\-get\_\-nodebynum(), C\_\-get\_\-node\-ID(), get\_\-nobs(), ncol(), nrow(), and S3get\_\-nodeweights().
 
@@ -557,7 +557,7 @@ Predictions weights from Random\-Forest objects \begin{Desc}
 \end{Desc}
 
 
-Definition at line 641 of file Predict.c.
+Definition at line 639 of file Predict.c.
 
 References C\_\-get\_\-nodebynum(), C\_\-get\_\-node\-ID(), get\_\-nobs(), S3get\_\-nodeweights(), and S3get\_\-prediction().
 
@@ -582,7 +582,7 @@ R-Interface to C\_\-weights \par
 \end{Desc}
 
 
-Definition at line 499 of file Predict.c.
+Definition at line 497 of file Predict.c.
 
 References C\_\-weights(), and get\_\-nobs().
 

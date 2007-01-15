@@ -1,4 +1,10 @@
 
+                CHANGES IN party VERSION 0.9-7 (2007-01-15)
+
+    o   fix problems with multivariate response variables
+        (spotted by Henric Nilsson <henric.nilsson@sorch.se>)
+
+
                 CHANGES IN party VERSION 0.9-6 (2006-11-28)
 
     o   R-2.5.0 does not allow to change the storage.mode of factors

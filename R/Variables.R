@@ -1,5 +1,5 @@
 
-# $Id: Variables.R 3147 2006-11-28 16:17:19Z hothorn $
+# $Id: Variables.R 3211 2007-01-15 10:24:41Z hothorn $
 
 ### factor handling
 ff_trafo <- function(x) {
@@ -103,7 +103,9 @@ initVariableFrame.df <- function(obj, trafo = ptrafo, scores = NULL, ...) {
         jt[nas, attr(jt, "assign") == j] <- 0
     }            
 
-    RET@jointtransf <- jt
+    ### jt may have been altered (scores etc.)
+    RET@jointtransf <- as.matrix(as.data.frame(xt))
+    attr(RET@jointtransf, "assign") <- rep(1:length(xt), sapply(xt, ncol))
     RET@transformations <- xt
     RET@is_nominal <- is_nominal
     RET@is_ordinal <- is_ordinal

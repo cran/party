@@ -3,7 +3,7 @@
     Random forest with conditional inference trees
     *\file RandomForest.c
     *\author $Author: hothorn $
-    *\date $Date: 2006-09-08 13:44:04 +0200 (Fri, 08 Sep 2006) $
+    *\date $Date: 2007-01-15 11:24:41 +0100 (Mon, 15 Jan 2007) $
 */
 
 #include "party.h"
@@ -60,9 +60,8 @@ SEXP R_Ensemble(SEXP learnsample, SEXP weights, SEXP fitmem, SEXP controls) {
      
          C_init_node(tree, nobs, get_ninputs(learnsample), 
                      get_maxsurrogate(get_splitctrl(controls)),
-                     ncol(GET_SLOT(GET_SLOT(learnsample, PL2_responsesSym), 
-                          PL2_jointtransfSym)));
-                          
+                     ncol(get_jointtransf(GET_SLOT(learnsample, 
+                                                   PL2_responsesSym))));
 
          /* generate altered weights for perturbation */
          if (replace) {
