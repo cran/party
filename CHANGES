@@ -1,4 +1,9 @@
 
+                CHANGES IN party VERSION 0.9-8 (2007-01-xx)
+
+    o   thicker median lines in boxplots
+
+
                 CHANGES IN party VERSION 0.9-7 (2007-01-15)
 
     o   fix problems with multivariate response variables

@@ -1,5 +1,5 @@
 
-# $Id: Plot.R 3147 2006-11-28 16:17:19Z hothorn $
+# $Id: Plot.R 3213 2007-01-15 12:09:27Z zeileis $
 
 ## utility functions for querying the number of
 ## terminal nodes and the maximal depth of (sub-)trees
@@ -332,14 +332,11 @@ node_boxplot <- function(ctreeobj,
         grid.lines(unit(0.5, "npc"), 
                    unit(x$stats[1:2], "native"), gp = gpar(col = col, lty = 2))
         grid.rect(unit(0.5, "npc"), unit(x$stats[2], "native"), 
-                  width = unit(width, "npc"), height = unit(diff(x$stats[2:3]), "native"),
+                  width = unit(width, "npc"), height = unit(diff(x$stats[c(2, 4)]), "native"),
                   just = c("center", "bottom"), 
                   gp = gpar(col = col, fill = fill))
-        grid.rect(unit(0.5, "npc"), unit(x$stats[3], "native"),
-                  width = unit(width, "npc"), 
-                  height = unit(diff(x$stats[3:4]), "native"),
-                  just = c("center", "bottom"), 
-                  gp = gpar(col = col, fill = fill))
+        grid.lines(unit(c(0.5 - width/2, 0.5+width/2), "npc"), 
+                   unit(x$stats[3], "native"), gp = gpar(col = col, lwd = 2))
         grid.lines(unit(0.5, "npc"), unit(x$stats[4:5], "native"), 
                    gp = gpar(col = col, lty = 2))
         grid.lines(unit(c(xl, xr), "npc"), unit(x$stats[5], "native"), 
