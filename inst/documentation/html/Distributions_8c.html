@@ -62,7 +62,7 @@ Include dependency graph for Distributions.c:<p><center><img src="Distributions_
 Conditional Distributions<p>
 <dl compact><dt><b>Author:</b></dt><dd><dl compact><dt><b>Author</b></dt><dd>hothorn </dd></dl>
 </dd></dl>
-<dl compact><dt><b>Date:</b></dt><dd><dl compact><dt><b>Date</b></dt><dd>2007-01-15 11:24:41 +0100 (Mon, 15 Jan 2007) </dd></dl>
+<dl compact><dt><b>Date:</b></dt><dd><dl compact><dt><b>Date</b></dt><dd>2007-02-02 11:22:45 +0100 (Fri, 02 Feb 2007) </dd></dl>
 </dd></dl>
 
 <p>
@@ -230,16 +230,16 @@ Monte-Carlo approximation to the conditional pvalues <dl compact><dt><b>Paramete
 <p>
 Definition at line <a class="el" href="Distributions_8c-source.html#l00169">169</a> of file <a class="el" href="Distributions_8c-source.html">Distributions.c</a>.
 <p>
-References <a class="el" href="Classes_8c-source.html#l00193">get_jointtransf()</a>, <a class="el" href="Classes_8c-source.html#l00281">get_ninputs()</a>, <a class="el" href="Classes_8c-source.html#l00277">get_nobs()</a>, <a class="el" href="Classes_8c-source.html#l00293">get_nresample()</a>, <a class="el" href="Classes_8c-source.html#l00012">PL2_expcovinfSym</a>, <a class="el" href="Classes_8c-source.html#l00012">PL2_inputsSym</a>, <a class="el" href="Classes_8c-source.html#l00012">PL2_responsesSym</a>, and <a class="el" href="Classes_8c-source.html#l00012">PL2_sumweightsSym</a>.
+References <a class="el" href="Classes_8c-source.html#l00288">get_ninputs()</a>, <a class="el" href="Classes_8c-source.html#l00284">get_nobs()</a>, <a class="el" href="Classes_8c-source.html#l00300">get_nresample()</a>, <a class="el" href="Classes_8c-source.html#l00195">get_test_trafo()</a>, <a class="el" href="Classes_8c-source.html#l00012">PL2_expcovinfSym</a>, <a class="el" href="Classes_8c-source.html#l00012">PL2_inputsSym</a>, <a class="el" href="Classes_8c-source.html#l00012">PL2_responsesSym</a>, and <a class="el" href="Classes_8c-source.html#l00012">PL2_sumweightsSym</a>.
 <p>
 Referenced by <a class="el" href="Distributions_8c-source.html#l00278">R_MonteCarlo()</a>.
 <p>
 Here is the call graph for this function:<p><center><img src="Distributions_8c_662bfb70585ca9948ff29d7ed370273b_cgraph.png" border="0" usemap="#Distributions_8c_662bfb70585ca9948ff29d7ed370273b_cgraph_map" alt=""></center>
 <map name="Distributions_8c_662bfb70585ca9948ff29d7ed370273b_cgraph_map">
-<area href="Classes_8c.html#92501238ed4186984387bea505162ece" shape="rect" coords="167,8,274,32" alt="">
-<area href="Classes_8c.html#9117d8f57ea1378c725c7299d6cc2923" shape="rect" coords="175,56,266,80" alt="">
-<area href="Classes_8c.html#45df17685bc6c95d03fb65b6f6214de0" shape="rect" coords="182,104,259,128" alt="">
-<area href="Classes_8c.html#af696af616c142e55ea0758690d20d7c" shape="rect" coords="166,152,275,176" alt="">
+<area href="Classes_8c.html#9117d8f57ea1378c725c7299d6cc2923" shape="rect" coords="175,8,266,32" alt="">
+<area href="Classes_8c.html#45df17685bc6c95d03fb65b6f6214de0" shape="rect" coords="182,56,259,80" alt="">
+<area href="Classes_8c.html#af696af616c142e55ea0758690d20d7c" shape="rect" coords="166,104,275,128" alt="">
+<area href="Classes_8c.html#9ec50a13a7c7e82143cced16ff4f3968" shape="rect" coords="169,152,273,176" alt="">
 </map>
     </td>
   </tr>
@@ -448,15 +448,15 @@ R-interface to C_MonteCarlo <br>
 <p>
 Definition at line <a class="el" href="Distributions_8c-source.html#l00278">278</a> of file <a class="el" href="Distributions_8c-source.html">Distributions.c</a>.
 <p>
-References <a class="el" href="Distributions_8c-source.html#l00169">C_MonteCarlo()</a>, and <a class="el" href="Classes_8c-source.html#l00281">get_ninputs()</a>.
+References <a class="el" href="Distributions_8c-source.html#l00169">C_MonteCarlo()</a>, and <a class="el" href="Classes_8c-source.html#l00288">get_ninputs()</a>.
 <p>
 Here is the call graph for this function:<p><center><img src="Distributions_8c_06bd58bb395eb700a056db4498c4db9c_cgraph.png" border="0" usemap="#Distributions_8c_06bd58bb395eb700a056db4498c4db9c_cgraph_map" alt=""></center>
 <map name="Distributions_8c_06bd58bb395eb700a056db4498c4db9c_cgraph_map">
 <area href="Distributions_8c.html#662bfb70585ca9948ff29d7ed370273b" shape="rect" coords="166,58,273,82" alt="">
 <area href="Classes_8c.html#9117d8f57ea1378c725c7299d6cc2923" shape="rect" coords="333,9,424,33" alt="">
-<area href="Classes_8c.html#92501238ed4186984387bea505162ece" shape="rect" coords="325,57,432,81" alt="">
-<area href="Classes_8c.html#45df17685bc6c95d03fb65b6f6214de0" shape="rect" coords="340,105,417,129" alt="">
-<area href="Classes_8c.html#af696af616c142e55ea0758690d20d7c" shape="rect" coords="324,153,433,177" alt="">
+<area href="Classes_8c.html#45df17685bc6c95d03fb65b6f6214de0" shape="rect" coords="340,57,417,81" alt="">
+<area href="Classes_8c.html#af696af616c142e55ea0758690d20d7c" shape="rect" coords="324,105,433,129" alt="">
+<area href="Classes_8c.html#9ec50a13a7c7e82143cced16ff4f3968" shape="rect" coords="326,153,430,177" alt="">
 </map>
     </td>
   </tr>
@@ -515,7 +515,7 @@ Here is the call graph for this function:<p><center><img src="Distributions_8c_f
     </td>
   </tr>
 </table>
-<hr size="1"><address style="align: right;"><small>Generated on Mon Jan 22 17:38:09 2007 for party by&nbsp;
+<hr size="1"><address style="align: right;"><small>Generated on Fri Feb 2 11:29:50 2007 for party by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6 </small></address>
 </body>

@@ -9,7 +9,7 @@
 }
 
 \usage{
-mob_control(alpha = 0.05, bonferroni = TRUE, minsplit = 20,
+mob_control(alpha = 0.05, bonferroni = TRUE, minsplit = 20, trim = 0.1,
   objfun = deviance, breakties = FALSE, verbose = FALSE)
 }
 
@@ -20,6 +20,9 @@ mob_control(alpha = 0.05, bonferroni = TRUE, minsplit = 20,
   \item{bonferroni}{logical. Should \eqn{p} values be Bonferroni corrected?}
   \item{minsplit}{integer. The minimum number of observations (sum of the
     weights) in a node.}
+  \item{trim}{numeric. This specifies the trimming in the parameter instability
+    test for the numerical variables. If smaller than 1, it is interpreted
+    as the fraction relative to the current node size.}
   \item{objfun}{function. A function for extracting the minimized value of
     the objective function from a fitted model in a node.}
   \item{breakties}{logical. Should ties in numeric variables be broken

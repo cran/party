@@ -44,6 +44,7 @@ mob_fit_setupnode <- function(obj, mf, weights, control) {
     alpha <- control$alpha
     bonferroni <- control$bonferroni
     minsplit <- control$minsplit
+    trim <- control$trim
     objfun <- control$objfun
     verbose <- control$verbose
     breakties <- control$breakties
@@ -58,7 +59,7 @@ mob_fit_setupnode <- function(obj, mf, weights, control) {
     }
 
     ### variable selection via fluctuation tests
-    test <- try(mob_fit_fluctests(obj, mf, minsplit = minsplit, breakties = breakties))
+    test <- try(mob_fit_fluctests(obj, mf, minsplit = minsplit, trim = trim, breakties = breakties))
 
     if(bonferroni) {
       pval1 <- pmin(1, sum(!is.na(test$pval)) * test$pval)
@@ -145,7 +146,7 @@ mob_fit_setupnode <- function(obj, mf, weights, control) {
 ### conduct all M-fluctuation tests of fitted obj 
 ### with respect to each variable from a set of
 ### potential partitioning variables in mf
-mob_fit_fluctests <- function(obj, mf, minsplit, breakties) {
+mob_fit_fluctests <- function(obj, mf, minsplit, trim, breakties) {
   ## Cramer-von Mises statistic might be supported in future versions
   CvM <- FALSE
   
@@ -185,9 +186,10 @@ mob_fit_fluctests <- function(obj, mf, minsplit, breakties) {
   if(CvM) {
     if(k > 25) k <- 25 #Z# also issue warning
     critval <- get("sc.meanL2")[as.character(k), ]
-  } else {    
-    from <- minsplit
-    to <- n - minsplit
+  } else {
+    from <- if(trim > 1) trim else ceiling(n * trim)
+    from <- max(from, minsplit)
+    to <- n - from
     lambda <- ((n-from)*to)/(from*(n-to))
 
     beta <- get("sc.beta.sup")

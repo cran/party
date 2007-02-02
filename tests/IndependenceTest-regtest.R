@@ -150,7 +150,7 @@ mydata = data.frame(y = gl(2, 50), x1 = rnorm(100),
                     x2 = rnorm(100), x3 = rnorm(100))
 inp <- initVariableFrame(mydata[,c("x1", "x2", "x3"),drop = FALSE], 
     trafo = function(data) ptrafo(data, numeric_trafo = rank))
-resp <- initVariableFrame(mydata[,"y",drop = FALSE], trafo = NULL)
+resp <- initVariableFrame(mydata[,"y",drop = FALSE], trafo = NULL, response = TRUE)
 ls <- new("LearningSample", inputs = inp, responses = resp,
           weights = rep(1, inp@nobs), nobs = nrow(mydata), 
           ninputs = inp@ninputs)
@@ -171,7 +171,7 @@ gtctrl@testtype <- factor("MonteCarlo", levels = tlev)
 gtctrl@nresample <- as.integer(19999)
 inp <- initVariableFrame(mydata[,"x1",drop = FALSE], trafo = function(data)
     ptrafo(data, numeric_trafo = rank))
-resp <- initVariableFrame(mydata[,"y",drop = FALSE], trafo = NULL)
+resp <- initVariableFrame(mydata[,"y",drop = FALSE], trafo = NULL, response = TRUE)
 ls <- new("LearningSample", inputs = inp, responses = resp,
           weights = rep(1, inp@nobs), nobs = nrow(mydata), 
           ninputs = as.integer(1))

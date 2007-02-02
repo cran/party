@@ -3,7 +3,7 @@
     Node splitting and prediction
     *\file Predict.c
     *\author $Author: hothorn $
-    *\date $Date: 2007-01-15 11:24:41 +0100 (Mon, 15 Jan 2007) $
+    *\date $Date: 2007-02-02 11:22:45 +0100 (Fri, 02 Feb 2007) $
 */
                 
 #include "party.h"
@@ -37,7 +37,7 @@ void C_splitnode(SEXP node, SEXP learnsample, SEXP control) {
     SET_VECTOR_ELT(node, S3_LEFT, leftnode = allocVector(VECSXP, NODE_LENGTH));
     C_init_node(leftnode, nobs, 
         get_ninputs(learnsample), get_maxsurrogate(get_splitctrl(control)),
-        ncol(get_jointtransf(GET_SLOT(learnsample, PL2_responsesSym))));
+        ncol(get_predict_trafo(GET_SLOT(learnsample, PL2_responsesSym))));
     leftweights = REAL(S3get_nodeweights(leftnode));
 
     /* set up memory for the right daughter */
@@ -45,7 +45,7 @@ void C_splitnode(SEXP node, SEXP learnsample, SEXP control) {
                    rightnode = allocVector(VECSXP, NODE_LENGTH));
     C_init_node(rightnode, nobs, 
         get_ninputs(learnsample), get_maxsurrogate(get_splitctrl(control)),
-        ncol(get_jointtransf(GET_SLOT(learnsample, PL2_responsesSym))));
+        ncol(get_predict_trafo(GET_SLOT(learnsample, PL2_responsesSym))));
     rightweights = REAL(S3get_nodeweights(rightnode));
 
     /* split according to the primary split */

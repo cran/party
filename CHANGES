@@ -1,5 +1,15 @@
 
-                CHANGES IN party VERSION 0.9-8 (2007-01-xx)
+                CHANGES IN party VERSION 0.9-9 (2007-02-02)
+
+    o   internal changes to data objects: joint transformations
+        only necessary for response variables (new class `ResponseFrame')
+        but we need to distinguish between testing (using ranks, for
+        example) and prediction (means of raw data!).
+
+        Problem spotted by Henric Nilsson <nilsson.henric@gmail.com>.
+
+
+                CHANGES IN party VERSION 0.9-8 (2007-01-15)
 
     o   thicker median lines in boxplots
 

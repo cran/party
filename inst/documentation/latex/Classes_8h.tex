@@ -35,7 +35,9 @@ double \hyperlink{Classes_8h_0794d3cb26a60105140165d6dea3d70d}{get\_\-minbucket}
 \item 
 SEXP \hyperlink{Classes_8h_20a55355301b5f90ec48b9114d1ff597}{get\_\-transformation} (SEXP object, int variable)
 \item 
-SEXP \hyperlink{Classes_8h_92501238ed4186984387bea505162ece}{get\_\-jointtransf} (SEXP object)
+SEXP \hyperlink{Classes_8h_9ec50a13a7c7e82143cced16ff4f3968}{get\_\-test\_\-trafo} (SEXP object)
+\item 
+SEXP \hyperlink{Classes_8h_b86d70ff194260cc9bd391d3ff55b157}{get\_\-predict\_\-trafo} (SEXP object)
 \item 
 SEXP \hyperlink{Classes_8h_0f91efa916e815ec7d90c6f9516f18e4}{get\_\-variable} (SEXP object, int variable)
 \item 
@@ -180,7 +182,9 @@ SEXP \hyperlink{Classes_8h_6cad742d32f0ac66eb12db5312c062b6}{PL2\_\-has\_\-missi
 \item 
 SEXP \hyperlink{Classes_8h_48fecaa469261c6beb2abb11970a29ef}{PL2\_\-which\-NASym}
 \item 
-SEXP \hyperlink{Classes_8h_5a37b090d1da3bdefffc166c05c57d54}{PL2\_\-jointtransf\-Sym}
+SEXP \hyperlink{Classes_8h_16a47750f3b0a7e3261132bc24c1cdde}{PL2\_\-test\_\-trafo\-Sym}
+\item 
+SEXP \hyperlink{Classes_8h_727b86d73186990d5620eb01e39b2707}{PL2\_\-predict\_\-trafo\-Sym}
 \item 
 SEXP \hyperlink{Classes_8h_eb411e47896a840cc77dd3cae74533d8}{PL2\_\-nobs\-Sym}
 \item 
@@ -244,7 +248,7 @@ SEXP \hyperlink{Classes_8h_3beca0734adb10de599aa3c2e2d9f329}{PL2\_\-fraction\-Sy
 
 
 
-Definition at line 341 of file Classes.c.
+Definition at line 348 of file Classes.c.
 
 References PL2\_\-maxdepth\-Sym.
 
@@ -257,7 +261,7 @@ Referenced by C\_\-Tree\-Grow().\hypertarget{Classes_8h_4e2233c1c47758c555f99235
 
 
 
-Definition at line 167 of file Classes.c.
+Definition at line 169 of file Classes.c.
 
 References PL2\_\-abseps\-Sym.
 
@@ -270,7 +274,7 @@ Referenced by C\_\-Teststat\-Pvalue().\hypertarget{Classes_8h_8bc9164a2291bb7f61
 
 
 
-Definition at line 147 of file Classes.c.
+Definition at line 149 of file Classes.c.
 
 References PL2\_\-dimension\-Sym.
 
@@ -283,7 +287,7 @@ Referenced by C\_\-Conditional\-Pvalue(), C\_\-Node(), C\_\-Test\-Statistic(), a
 
 
 
-Definition at line 329 of file Classes.c.
+Definition at line 336 of file Classes.c.
 
 References PL2\_\-dontuse\-Sym.\hypertarget{Classes_8h_3c02aa6a5a00bc0ca460e78540fa064c}{
 \index{Classes.h@{Classes.h}!get_dontusetmp@{get\_\-dontusetmp}}
@@ -294,7 +298,7 @@ References PL2\_\-dontuse\-Sym.\hypertarget{Classes_8h_3c02aa6a5a00bc0ca460e7854
 
 
 
-Definition at line 333 of file Classes.c.
+Definition at line 340 of file Classes.c.
 
 References PL2\_\-dontusetmp\-Sym.\hypertarget{Classes_8h_3367507eb875c7601cdb9d77f15b5871}{
 \index{Classes.h@{Classes.h}!get_fraction@{get\_\-fraction}}
@@ -305,7 +309,7 @@ References PL2\_\-dontusetmp\-Sym.\hypertarget{Classes_8h_3367507eb875c7601cdb9d
 
 
 
-Definition at line 357 of file Classes.c.
+Definition at line 364 of file Classes.c.
 
 References PL2\_\-fraction\-Sym.
 
@@ -318,24 +322,11 @@ Referenced by R\_\-Ensemble().\hypertarget{Classes_8h_43fe1d056590d0d70d3a72beda
 
 
 
-Definition at line 305 of file Classes.c.
+Definition at line 312 of file Classes.c.
 
 References PL2\_\-gtctrl\-Sym.
 
-Referenced by C\_\-Node().\hypertarget{Classes_8h_92501238ed4186984387bea505162ece}{
-\index{Classes.h@{Classes.h}!get_jointtransf@{get\_\-jointtransf}}
-\index{get_jointtransf@{get\_\-jointtransf}!Classes.h@{Classes.h}}
-\subsubsection[get\_\-jointtransf]{\setlength{\rightskip}{0pt plus 5cm}SEXP get\_\-jointtransf (SEXP {\em object})}}
-\label{Classes_8h_92501238ed4186984387bea505162ece}
-
-
-
-
-Definition at line 193 of file Classes.c.
-
-References PL2\_\-jointtransf\-Sym.
-
-Referenced by C\_\-Global\-Test(), C\_\-Monte\-Carlo(), C\_\-Node(), C\_\-splitnode(), R\_\-Ensemble(), R\_\-modify\_\-response(), R\_\-Node(), and R\_\-Tree\-Grow().\hypertarget{Classes_8h_0e317821da8f3bc0fb6da5006abb81f6}{
+Referenced by C\_\-Node().\hypertarget{Classes_8h_0e317821da8f3bc0fb6da5006abb81f6}{
 \index{Classes.h@{Classes.h}!get_levels@{get\_\-levels}}
 \index{get_levels@{get\_\-levels}!Classes.h@{Classes.h}}
 \subsubsection[get\_\-levels]{\setlength{\rightskip}{0pt plus 5cm}SEXP get\_\-levels (SEXP {\em object}, int {\em variable})}}
@@ -344,7 +335,7 @@ Referenced by C\_\-Global\-Test(), C\_\-Monte\-Carlo(), C\_\-Node(), C\_\-splitn
 
 
 
-Definition at line 230 of file Classes.c.
+Definition at line 237 of file Classes.c.
 
 References is\_\-nominal(), is\_\-ordinal(), and PL2\_\-levels\-Sym.
 
@@ -365,7 +356,7 @@ Here is the call graph for this function:\begin{figure}[H]
 
 
 
-Definition at line 163 of file Classes.c.
+Definition at line 165 of file Classes.c.
 
 References PL2\_\-maxpts\-Sym.
 
@@ -378,7 +369,7 @@ Referenced by C\_\-Teststat\-Pvalue().\hypertarget{Classes_8h_b89e4da7a60580c3ad
 
 
 
-Definition at line 317 of file Classes.c.
+Definition at line 324 of file Classes.c.
 
 References PL2\_\-maxsurrogate\-Sym.
 
@@ -391,7 +382,7 @@ Referenced by C\_\-splitnode(), C\_\-surrogates(), C\_\-Tree\-Grow(), R\_\-Ensem
 
 
 
-Definition at line 183 of file Classes.c.
+Definition at line 185 of file Classes.c.
 
 References PL2\_\-minbucket\-Sym.\hypertarget{Classes_8h_3578ef4fb8f0c3ecd7d166687acde94a}{
 \index{Classes.h@{Classes.h}!get_mincriterion@{get\_\-mincriterion}}
@@ -402,7 +393,7 @@ References PL2\_\-minbucket\-Sym.\hypertarget{Classes_8h_3578ef4fb8f0c3ecd7d1666
 
 
 
-Definition at line 313 of file Classes.c.
+Definition at line 320 of file Classes.c.
 
 References PL2\_\-mincriterion\-Sym.
 
@@ -415,7 +406,7 @@ Referenced by C\_\-Node().\hypertarget{Classes_8h_f7aaeccefe1bfbb1737ac3403a85c8
 
 
 
-Definition at line 179 of file Classes.c.
+Definition at line 181 of file Classes.c.
 
 References PL2\_\-minprob\-Sym.\hypertarget{Classes_8h_024b7f74a61afa9b3eb465a98f35584c}{
 \index{Classes.h@{Classes.h}!get_minsplit@{get\_\-minsplit}}
@@ -426,7 +417,7 @@ References PL2\_\-minprob\-Sym.\hypertarget{Classes_8h_024b7f74a61afa9b3eb465a98
 
 
 
-Definition at line 175 of file Classes.c.
+Definition at line 177 of file Classes.c.
 
 References PL2\_\-minsplit\-Sym.
 
@@ -439,7 +430,7 @@ Referenced by C\_\-Node().\hypertarget{Classes_8h_fd6cfc2dd239b138d91e92a8ce9353
 
 
 
-Definition at line 253 of file Classes.c.
+Definition at line 260 of file Classes.c.
 
 References has\_\-missings(), and PL2\_\-which\-NASym.
 
@@ -460,7 +451,7 @@ Here is the call graph for this function:\begin{figure}[H]
 
 
 
-Definition at line 325 of file Classes.c.
+Definition at line 332 of file Classes.c.
 
 References PL2\_\-mtry\-Sym.\hypertarget{Classes_8h_9117d8f57ea1378c725c7299d6cc2923}{
 \index{Classes.h@{Classes.h}!get_ninputs@{get\_\-ninputs}}
@@ -471,7 +462,7 @@ References PL2\_\-mtry\-Sym.\hypertarget{Classes_8h_9117d8f57ea1378c725c7299d6cc
 
 
 
-Definition at line 281 of file Classes.c.
+Definition at line 288 of file Classes.c.
 
 References PL2\_\-ninputs\-Sym.
 
@@ -484,7 +475,7 @@ Referenced by C\_\-Global\-Test(), C\_\-Monte\-Carlo(), C\_\-Node(), C\_\-splitn
 
 
 
-Definition at line 277 of file Classes.c.
+Definition at line 284 of file Classes.c.
 
 References PL2\_\-nobs\-Sym.
 
@@ -497,7 +488,7 @@ Referenced by C\_\-Global\-Test(), C\_\-Monte\-Carlo(), C\_\-Node(), C\_\-predic
 
 
 
-Definition at line 293 of file Classes.c.
+Definition at line 300 of file Classes.c.
 
 References PL2\_\-nresample\-Sym.
 
@@ -510,7 +501,7 @@ Referenced by C\_\-Monte\-Carlo().\hypertarget{Classes_8h_899349b79a444c39ff2385
 
 
 
-Definition at line 349 of file Classes.c.
+Definition at line 356 of file Classes.c.
 
 References PL2\_\-ntree\-Sym.
 
@@ -523,7 +514,7 @@ Referenced by R\_\-Ensemble().\hypertarget{Classes_8h_a160107e2d687d3fa2411af7e2
 
 
 
-Definition at line 219 of file Classes.c.
+Definition at line 226 of file Classes.c.
 
 References is\_\-nominal(), and PL2\_\-ordering\-Sym.
 
@@ -535,7 +526,20 @@ Here is the call graph for this function:\begin{figure}[H]
 \includegraphics[width=105pt]{Classes_8h_a160107e2d687d3fa2411af7e25763ef_cgraph}
 \end{center}
 \end{figure}
-\hypertarget{Classes_8h_309a9064403a71aba540cad646ba5854}{
+\hypertarget{Classes_8h_b86d70ff194260cc9bd391d3ff55b157}{
+\index{Classes.h@{Classes.h}!get_predict_trafo@{get\_\-predict\_\-trafo}}
+\index{get_predict_trafo@{get\_\-predict\_\-trafo}!Classes.h@{Classes.h}}
+\subsubsection[get\_\-predict\_\-trafo]{\setlength{\rightskip}{0pt plus 5cm}SEXP get\_\-predict\_\-trafo (SEXP {\em object})}}
+\label{Classes_8h_b86d70ff194260cc9bd391d3ff55b157}
+
+
+
+
+Definition at line 199 of file Classes.c.
+
+References PL2\_\-predict\_\-trafo\-Sym.
+
+Referenced by C\_\-Node(), C\_\-splitnode(), R\_\-Ensemble(), R\_\-modify\_\-response(), R\_\-Node(), R\_\-set\_\-response(), and R\_\-Tree\-Grow().\hypertarget{Classes_8h_309a9064403a71aba540cad646ba5854}{
 \index{Classes.h@{Classes.h}!get_pvalue@{get\_\-pvalue}}
 \index{get_pvalue@{get\_\-pvalue}!Classes.h@{Classes.h}}
 \subsubsection[get\_\-pvalue]{\setlength{\rightskip}{0pt plus 5cm}int get\_\-pvalue (SEXP {\em object})}}
@@ -544,7 +548,7 @@ Here is the call graph for this function:\begin{figure}[H]
 
 
 
-Definition at line 155 of file Classes.c.
+Definition at line 157 of file Classes.c.
 
 References PL2\_\-pvalue\-Sym.
 
@@ -557,7 +561,7 @@ Referenced by C\_\-Teststat\-Criterion(), and C\_\-Teststat\-Pvalue().\hypertarg
 
 
 
-Definition at line 321 of file Classes.c.
+Definition at line 328 of file Classes.c.
 
 References PL2\_\-randomsplits\-Sym.\hypertarget{Classes_8h_a17053ff24db1859af60e2d71baf924c}{
 \index{Classes.h@{Classes.h}!get_releps@{get\_\-releps}}
@@ -568,7 +572,7 @@ References PL2\_\-randomsplits\-Sym.\hypertarget{Classes_8h_a17053ff24db1859af60
 
 
 
-Definition at line 171 of file Classes.c.
+Definition at line 173 of file Classes.c.
 
 References PL2\_\-releps\-Sym.
 
@@ -581,7 +585,7 @@ Referenced by C\_\-Teststat\-Pvalue().\hypertarget{Classes_8h_2c31f2150a75ae6749
 
 
 
-Definition at line 353 of file Classes.c.
+Definition at line 360 of file Classes.c.
 
 References PL2\_\-replace\-Sym.
 
@@ -594,7 +598,7 @@ Referenced by R\_\-Ensemble().\hypertarget{Classes_8h_2c17918334d53626178a38518f
 
 
 
-Definition at line 269 of file Classes.c.
+Definition at line 276 of file Classes.c.
 
 References PL2\_\-savesplitstats\-Sym.
 
@@ -607,7 +611,7 @@ Referenced by C\_\-Node().\hypertarget{Classes_8h_ba4726f56726372030e1e104b2f2b0
 
 
 
-Definition at line 242 of file Classes.c.
+Definition at line 249 of file Classes.c.
 
 References is\_\-ordinal(), and PL2\_\-scores\-Sym.
 
@@ -626,7 +630,7 @@ Here is the call graph for this function:\begin{figure}[H]
 
 
 
-Definition at line 301 of file Classes.c.
+Definition at line 308 of file Classes.c.
 
 References PL2\_\-splitctrl\-Sym.
 
@@ -639,7 +643,7 @@ Referenced by C\_\-Node(), C\_\-splitnode(), C\_\-surrogates(), C\_\-Tree\-Grow(
 
 
 
-Definition at line 273 of file Classes.c.
+Definition at line 280 of file Classes.c.
 
 References PL2\_\-splitstatistics\-Sym.
 
@@ -652,11 +656,24 @@ Referenced by C\_\-Node().\hypertarget{Classes_8h_c7779f00dc36c589dd24e3b4f6247b
 
 
 
-Definition at line 337 of file Classes.c.
+Definition at line 344 of file Classes.c.
 
 References PL2\_\-stump\-Sym.
 
-Referenced by C\_\-Tree\-Grow().\hypertarget{Classes_8h_847e08eb9fce554539de3106ea03e9e2}{
+Referenced by C\_\-Tree\-Grow().\hypertarget{Classes_8h_9ec50a13a7c7e82143cced16ff4f3968}{
+\index{Classes.h@{Classes.h}!get_test_trafo@{get\_\-test\_\-trafo}}
+\index{get_test_trafo@{get\_\-test\_\-trafo}!Classes.h@{Classes.h}}
+\subsubsection[get\_\-test\_\-trafo]{\setlength{\rightskip}{0pt plus 5cm}SEXP get\_\-test\_\-trafo (SEXP {\em object})}}
+\label{Classes_8h_9ec50a13a7c7e82143cced16ff4f3968}
+
+
+
+
+Definition at line 195 of file Classes.c.
+
+References PL2\_\-test\_\-trafo\-Sym.
+
+Referenced by C\_\-Global\-Test(), C\_\-Monte\-Carlo(), C\_\-Node(), R\_\-modify\_\-response(), and R\_\-set\_\-response().\hypertarget{Classes_8h_847e08eb9fce554539de3106ea03e9e2}{
 \index{Classes.h@{Classes.h}!get_teststat@{get\_\-teststat}}
 \index{get_teststat@{get\_\-teststat}!Classes.h@{Classes.h}}
 \subsubsection[get\_\-teststat]{\setlength{\rightskip}{0pt plus 5cm}int get\_\-teststat (SEXP {\em object})}}
@@ -665,7 +682,7 @@ Referenced by C\_\-Tree\-Grow().\hypertarget{Classes_8h_847e08eb9fce554539de3106
 
 
 
-Definition at line 151 of file Classes.c.
+Definition at line 153 of file Classes.c.
 
 References PL2\_\-teststat\-Sym.
 
@@ -678,7 +695,7 @@ Referenced by C\_\-Independence\-Test(), and C\_\-Teststat\-Pvalue().\hypertarge
 
 
 
-Definition at line 289 of file Classes.c.
+Definition at line 296 of file Classes.c.
 
 References PL2\_\-testtype\-Sym.\hypertarget{Classes_8h_a88e9e2563188b5500b48a6efaee9734}{
 \index{Classes.h@{Classes.h}!get_tgctrl@{get\_\-tgctrl}}
@@ -689,7 +706,7 @@ References PL2\_\-testtype\-Sym.\hypertarget{Classes_8h_a88e9e2563188b5500b48a6e
 
 
 
-Definition at line 309 of file Classes.c.
+Definition at line 316 of file Classes.c.
 
 References PL2\_\-tgctrl\-Sym.
 
@@ -702,7 +719,7 @@ Referenced by C\_\-Node(), and C\_\-Tree\-Grow().\hypertarget{Classes_8h_aa5df34
 
 
 
-Definition at line 159 of file Classes.c.
+Definition at line 161 of file Classes.c.
 
 References PL2\_\-tol\-Sym.
 
@@ -715,7 +732,7 @@ Referenced by C\_\-Independence\-Test(), C\_\-Node(), C\_\-split(), C\_\-splitca
 
 
 
-Definition at line 187 of file Classes.c.
+Definition at line 189 of file Classes.c.
 
 References PL2\_\-transformations\-Sym.
 
@@ -728,7 +745,7 @@ Referenced by C\_\-Node(), and R\_\-modify\_\-response().\hypertarget{Classes_8h
 
 
 
-Definition at line 297 of file Classes.c.
+Definition at line 304 of file Classes.c.
 
 References PL2\_\-varctrl\-Sym.
 
@@ -741,7 +758,7 @@ Referenced by C\_\-Node().\hypertarget{Classes_8h_0f91efa916e815ec7d90c6f9516f18
 
 
 
-Definition at line 197 of file Classes.c.
+Definition at line 204 of file Classes.c.
 
 References PL2\_\-variables\-Sym.
 
@@ -754,7 +771,7 @@ Referenced by C\_\-get\_\-node(), C\_\-Node(), C\_\-splitnode(), C\_\-splitsurro
 
 
 
-Definition at line 264 of file Classes.c.
+Definition at line 271 of file Classes.c.
 
 References PL2\_\-varmemory\-Sym.
 
@@ -767,7 +784,7 @@ Referenced by C\_\-Node().\hypertarget{Classes_8h_7088b22be6072c314107cab4e2bf7d
 
 
 
-Definition at line 285 of file Classes.c.
+Definition at line 292 of file Classes.c.
 
 References PL2\_\-weights\-Sym.
 
@@ -787,7 +804,7 @@ Referenced by C\_\-Node().\hypertarget{Classes_8h_e3c823841d28ac07932df6cf545563
 
 
 
-Definition at line 215 of file Classes.c.
+Definition at line 222 of file Classes.c.
 
 References PL2\_\-has\_\-missings\-Sym.
 
@@ -800,7 +817,7 @@ Referenced by C\_\-get\_\-node(), C\_\-Node(), C\_\-splitnode(), C\_\-splitsurro
 
 
 
-Definition at line 211 of file Classes.c.
+Definition at line 218 of file Classes.c.
 
 References PL2\_\-is\_\-censored\-Sym.\hypertarget{Classes_8h_f836613ade2cdc01c401b574fc1e7fdb}{
 \index{Classes.h@{Classes.h}!is_nominal@{is\_\-nominal}}
@@ -811,7 +828,7 @@ References PL2\_\-is\_\-censored\-Sym.\hypertarget{Classes_8h_f836613ade2cdc01c4
 
 
 
-Definition at line 203 of file Classes.c.
+Definition at line 210 of file Classes.c.
 
 References PL2\_\-is\_\-nominal\-Sym.
 
@@ -824,7 +841,7 @@ Referenced by C\_\-Node(), get\_\-levels(), and get\_\-ordering().\hypertarget{C
 
 
 
-Definition at line 207 of file Classes.c.
+Definition at line 214 of file Classes.c.
 
 References PL2\_\-is\_\-ordinal\-Sym.
 
@@ -1018,18 +1035,7 @@ Referenced by party\_\-init().\hypertarget{Classes_8h_faaa2e8cc7b0f2244d84dcd517
 
 Definition at line 12 of file Classes.c.
 
-Referenced by party\_\-init().\hypertarget{Classes_8h_5a37b090d1da3bdefffc166c05c57d54}{
-\index{Classes.h@{Classes.h}!PL2_jointtransfSym@{PL2\_\-jointtransfSym}}
-\index{PL2_jointtransfSym@{PL2\_\-jointtransfSym}!Classes.h@{Classes.h}}
-\subsubsection[PL2\_\-jointtransfSym]{\setlength{\rightskip}{0pt plus 5cm}SEXP \hyperlink{Classes_8h_5a37b090d1da3bdefffc166c05c57d54}{PL2\_\-jointtransf\-Sym}}}
-\label{Classes_8h_5a37b090d1da3bdefffc166c05c57d54}
-
-
-
-
-Definition at line 12 of file Classes.c.
-
-Referenced by get\_\-jointtransf(), party\_\-init(), and R\_\-set\_\-response().\hypertarget{Classes_8h_780ff4fae7d4b234b757caf5cec27a35}{
+Referenced by party\_\-init().\hypertarget{Classes_8h_780ff4fae7d4b234b757caf5cec27a35}{
 \index{Classes.h@{Classes.h}!PL2_levelsSym@{PL2\_\-levelsSym}}
 \index{PL2_levelsSym@{PL2\_\-levelsSym}!Classes.h@{Classes.h}}
 \subsubsection[PL2\_\-levelsSym]{\setlength{\rightskip}{0pt plus 5cm}SEXP \hyperlink{Classes_8h_780ff4fae7d4b234b757caf5cec27a35}{PL2\_\-levels\-Sym}}}
@@ -1214,7 +1220,18 @@ Referenced by get\_\-ntree(), and party\_\-init().\hypertarget{Classes_8h_6a6f78
 
 Definition at line 12 of file Classes.c.
 
-Referenced by get\_\-ordering(), and party\_\-init().\hypertarget{Classes_8h_d088d7d8474d9c927044da9ba5f37837}{
+Referenced by get\_\-ordering(), and party\_\-init().\hypertarget{Classes_8h_727b86d73186990d5620eb01e39b2707}{
+\index{Classes.h@{Classes.h}!PL2_predict_trafoSym@{PL2\_\-predict\_\-trafoSym}}
+\index{PL2_predict_trafoSym@{PL2\_\-predict\_\-trafoSym}!Classes.h@{Classes.h}}
+\subsubsection[PL2\_\-predict\_\-trafoSym]{\setlength{\rightskip}{0pt plus 5cm}SEXP \hyperlink{Classes_8h_727b86d73186990d5620eb01e39b2707}{PL2\_\-predict\_\-trafo\-Sym}}}
+\label{Classes_8h_727b86d73186990d5620eb01e39b2707}
+
+
+
+
+Definition at line 12 of file Classes.c.
+
+Referenced by get\_\-predict\_\-trafo(), and party\_\-init().\hypertarget{Classes_8h_d088d7d8474d9c927044da9ba5f37837}{
 \index{Classes.h@{Classes.h}!PL2_pSym@{PL2\_\-pSym}}
 \index{PL2_pSym@{PL2\_\-pSym}!Classes.h@{Classes.h}}
 \subsubsection[PL2\_\-pSym]{\setlength{\rightskip}{0pt plus 5cm}SEXP \hyperlink{Classes_8h_d088d7d8474d9c927044da9ba5f37837}{PL2\_\-p\-Sym}}}
@@ -1368,7 +1385,18 @@ Referenced by C\_\-Lin\-Stat\-Exp\-Cov\-MPinv(), and party\_\-init().\hypertarge
 
 Definition at line 12 of file Classes.c.
 
-Referenced by C\_\-MPinv(), and party\_\-init().\hypertarget{Classes_8h_e430cc10639e774cf1b3daa8bbbe5496}{
+Referenced by C\_\-MPinv(), and party\_\-init().\hypertarget{Classes_8h_16a47750f3b0a7e3261132bc24c1cdde}{
+\index{Classes.h@{Classes.h}!PL2_test_trafoSym@{PL2\_\-test\_\-trafoSym}}
+\index{PL2_test_trafoSym@{PL2\_\-test\_\-trafoSym}!Classes.h@{Classes.h}}
+\subsubsection[PL2\_\-test\_\-trafoSym]{\setlength{\rightskip}{0pt plus 5cm}SEXP \hyperlink{Classes_8h_16a47750f3b0a7e3261132bc24c1cdde}{PL2\_\-test\_\-trafo\-Sym}}}
+\label{Classes_8h_16a47750f3b0a7e3261132bc24c1cdde}
+
+
+
+
+Definition at line 12 of file Classes.c.
+
+Referenced by get\_\-test\_\-trafo(), and party\_\-init().\hypertarget{Classes_8h_e430cc10639e774cf1b3daa8bbbe5496}{
 \index{Classes.h@{Classes.h}!PL2_teststatSym@{PL2\_\-teststatSym}}
 \index{PL2_teststatSym@{PL2\_\-teststatSym}!Classes.h@{Classes.h}}
 \subsubsection[PL2\_\-teststatSym]{\setlength{\rightskip}{0pt plus 5cm}SEXP \hyperlink{Classes_8h_e430cc10639e774cf1b3daa8bbbe5496}{PL2\_\-teststat\-Sym}}}

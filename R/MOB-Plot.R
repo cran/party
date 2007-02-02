@@ -103,10 +103,15 @@ node_bivplot <- function(mobobj, which = NULL, id = TRUE, pop = TRUE,
   boxcol = "black", boxwidth = 0.5, boxfill = "lightgray",
   fitmean = TRUE, linecol = "red",
   cdplot = FALSE, fivenum = TRUE, breaks = NULL,
+  ylines = NULL, xlab = FALSE, ylab = FALSE,
   ...)
 {
     ## obtain dependent variable
-    y <- response(mobobj)[[1]]
+    y <- response(mobobj)
+    if(isTRUE(ylab)) ylab <- names(y)
+    if(identical(ylab, FALSE)) ylab <- ""
+    if(is.null(ylines)) ylines <- ifelse(identical(ylab, ""), 0, 2)
+    y <- y[[1]]
 
     ## obtain explanatory variables
     X <- try(mobobj@data@get("input"), silent = TRUE)
@@ -128,6 +133,8 @@ node_bivplot <- function(mobobj, which = NULL, id = TRUE, pop = TRUE,
     if(is.null(which)) which <- 1:NCOL(X)
     X <- X[,which,drop=FALSE]
     k <- NCOL(X)
+    xlab <- if(!identical(xlab, FALSE)) { if(isTRUE(xlab)) colnames(X) else rep(xlab, length.out = k) }
+      else rep("", k)
   
     ## set up appropriate panel functions
     if(is.factor(y)) {
@@ -136,7 +143,7 @@ node_bivplot <- function(mobobj, which = NULL, id = TRUE, pop = TRUE,
       if(!require("vcd")) stop("the `vcd' package is required for CD plots")
       if(cdplot) {
         num_fun <- function(x, y, yfit, i, name, ...) {
-          cd_plot(x, y, xlab = "", ylab = "", name = name, newpage = FALSE,
+          cd_plot(x, y, xlab = xlab[i], ylab = ylab, name = name, newpage = FALSE,
 	    margins = rep(1.5, 4), pop = FALSE, ...)
     	  if(fitmean) {
 	    #FIXME# downViewport(name = name)
@@ -155,7 +162,7 @@ node_bivplot <- function(mobobj, which = NULL, id = TRUE, pop = TRUE,
 	  if(is.list(breaks)) breaks else list(breaks)
 	}
         num_fun <- function(x, y, yfit, i, name, ...) {
-          spine(x, y, xlab = "", ylab = "", name = name, newpage = FALSE,
+          spine(x, y, xlab = xlab[i], ylab = ylab, name = name, newpage = FALSE,
 	    margins = rep(1.5, 4), pop = FALSE, breaks = xscale[[i]], ...)
     	  if(fitmean) {
 	    #FIXME# downViewport(name = name)
@@ -174,7 +181,7 @@ node_bivplot <- function(mobobj, which = NULL, id = TRUE, pop = TRUE,
         }
       }
       cat_fun <- function(x, y, yfit, i, name, ...) {
-        spine(x, y, xlab = "", ylab = "", name = name, newpage = FALSE,
+        spine(x, y, xlab = xlab[i], ylab = ylab, name = name, newpage = FALSE,
 	  margins = rep(1.5, 4), pop = FALSE, ...)
     	if(fitmean) {
 	  #FIXME# downViewport(name = name)
@@ -206,15 +213,17 @@ node_bivplot <- function(mobobj, which = NULL, id = TRUE, pop = TRUE,
         grid.xaxis(at = c(ceiling(xscale[1,i]*10), floor(xscale[2,i]*10))/10)
         grid.yaxis(at = c(ceiling(yscale[1]), floor(yscale[2])))
 	grid.rect(gp = gpar(fill = "transparent"))
+        if(ylab != "") grid.text(ylab, y = unit(0.5, "npc"), x = unit(-2.5, "lines"), rot = 90)
+        if(xlab[i] != "") grid.text(xlab[i], x = unit(0.5, "npc"), y = unit(-2, "lines"))                
         if(pop) popViewport() else upViewport()
       }
       cat_fun <- function(x, y, yfit, i, name, ...) {
-        xlab <- levels(x)
+        xlev <- levels(x)
         pushViewport(plotViewport(margins = rep(1.5, 4), name = name,
 	  yscale = yscale, xscale = c(0.3, xscale[2,i]+0.7)))
 
-        for(i in seq(along = xlab)) {
-	  by <- boxplot(y[x == xlab[i]], plot = FALSE)
+        for(i in seq(along = xlev)) {
+	  by <- boxplot(y[x == xlev[i]], plot = FALSE)
           xl <- i - boxwidth/4
 	  xr <- i + boxwidth/4
 
@@ -246,13 +255,16 @@ node_bivplot <- function(mobobj, which = NULL, id = TRUE, pop = TRUE,
 	}
   	if(fitmean) {
 	  yfit <- unlist(tapply(yfit, x, mean))
-          grid.lines(seq(along = xlab), yfit, default.units = "native", gp = gpar(col = linecol))
-          grid.points(seq(along = xlab), yfit, default.units = "native",
+          grid.lines(seq(along = xlev), yfit, default.units = "native", gp = gpar(col = linecol))
+          grid.points(seq(along = xlev), yfit, default.units = "native",
 	    gp = gpar(col = linecol, cex = pointcex), pch = 19)
 	}
         grid.rect(gp = gpar(fill = "transparent"))
-        grid.xaxis(at = 1:length(xlab), label = xlab)
+        grid.xaxis(at = 1:length(xlev), label = xlev)
         grid.yaxis(at = c(ceiling(yscale[1]), floor(yscale[2])))      
+
+        if(ylab != "") grid.text(ylab, y = unit(0.5, "npc"), x = unit(-3, "lines"), rot = 90)
+        if(xlab[i] != "") grid.text(xlab[i], x = unit(0.5, "npc"), y = unit(-2, "lines"))                
         if(pop) popViewport() else upViewport()
       }    
     }    
@@ -263,15 +275,15 @@ node_bivplot <- function(mobobj, which = NULL, id = TRUE, pop = TRUE,
       y <- rep(y, node$weights)
 
       ## set up top viewport
-      top_vp <- viewport(layout = grid.layout(nrow = k, ncol = 1,
-    			 widths = unit(1, "null"), heights = unit(k, "null")),
+      top_vp <- viewport(layout = grid.layout(nrow = k, ncol = 2,
+    			 widths = unit(c(ylines, 1), c("lines", "null")), heights = unit(k, "null")),
     			 width = unit(1, "npc"), height = unit(1, "npc") - unit(2, "lines"),
         		 name = paste("node_mob", node$nodeID, sep = ""))
       pushViewport(top_vp)
       grid.rect(gp = gpar(fill = "white", col = 0))
 
       ## main title
-      top <- viewport(layout.pos.col = 1, layout.pos.row = 1)
+      top <- viewport(layout.pos.col = 2, layout.pos.row = 1)
       pushViewport(top)
       mainlab <- paste(ifelse(id, paste("Node", node$nodeID, "(n = "), ""),
         	       sum(node$weights), ifelse(id, ")", ""), sep = "")
@@ -287,7 +299,7 @@ node_bivplot <- function(mobobj, which = NULL, id = TRUE, pop = TRUE,
         yfit <- rep(fitted(mobobj), node$weights)[o]
 
         ## select panel
-    	plot_vpi <- viewport(layout.pos.col = 1, layout.pos.row = i)
+    	plot_vpi <- viewport(layout.pos.col = 2, layout.pos.row = i)
     	pushViewport(plot_vpi)
 
     	## call panel function

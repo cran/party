@@ -1,5 +1,5 @@
 
-# $Id: RandomForest.R 3130 2006-11-16 14:00:43Z hothorn $
+# $Id: RandomForest.R 3259 2007-02-02 10:22:45Z hothorn $
 
 ### the fitting procedure
 cforestfit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
@@ -53,7 +53,7 @@ cforestfit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
 
         ### classification: estimated class probabilities
         ### regression: the means, not really a distribution
-        RET <- lapply(pw, function(w) w %*% response@jointtransf / sum(w))
+        RET <- lapply(pw, function(w) w %*% response@predict_trafo / sum(w))
         return(RET)
     }
 

@@ -3,7 +3,7 @@
     Some commonly needed utility functions.
     *\file Utils.c
     *\author $Author: hothorn $
-    *\date $Date: 2006-09-08 14:24:11 +0200 (Fri, 08 Sep 2006) $
+    *\date $Date: 2007-02-02 11:22:45 +0100 (Fri, 02 Feb 2007) $
 */
                 
 #include "party.h"
@@ -568,7 +568,11 @@ SEXP R_modify_response(SEXP x, SEXP vf) {
     for (i = 0; i < n; i++)
         tar[i] = src[i];
 
-    tar = REAL(get_jointtransf(vf));
+    tar = REAL(get_test_trafo(vf));
+    for (i = 0; i < n; i++)
+        tar[i] = src[i];
+
+    tar = REAL(get_predict_trafo(vf));
     for (i = 0; i < n; i++)
         tar[i] = src[i];
 

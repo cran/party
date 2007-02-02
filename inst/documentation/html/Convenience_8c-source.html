@@ -107,7 +107,7 @@
 <a name="l00136"></a>00136 
 <a name="l00143"></a><a class="code" href="Convenience_8c.html#a1e8edb4fa73a26e73bc153c45a867b0">00143</a> <span class="keywordtype">void</span> <a class="code" href="Convenience_8c.html#a1e8edb4fa73a26e73bc153c45a867b0">R_set_response</a>(SEXP learnsample, SEXP y) {
 <a name="l00144"></a>00144 
-<a name="l00145"></a>00145     <span class="keywordtype">double</span> *v, *t, *j, *dy;
+<a name="l00145"></a>00145     <span class="keywordtype">double</span> *v, *t, *j, *dy, *p;
 <a name="l00146"></a>00146     <span class="keywordtype">int</span> i, n;
 <a name="l00147"></a>00147     
 <a name="l00148"></a>00148     n = LENGTH(y);
@@ -120,16 +120,17 @@
 <a name="l00155"></a>00155                                  <a class="code" href="Classes_8c.html#94e141e6d1a1315e28d142860b5f987e">PL2_variablesSym</a>), 0));
 <a name="l00156"></a>00156     t = REAL(VECTOR_ELT(GET_SLOT(GET_SLOT(learnsample, <a class="code" href="Classes_8c.html#9ad5f5cd65458d95a8ffae2d450ec850">PL2_responsesSym</a>), 
 <a name="l00157"></a>00157                                  <a class="code" href="Classes_8c.html#6f387307dcb17869091e08e6c7d5a5c5">PL2_transformationsSym</a>), 0));
-<a name="l00158"></a>00158     j = REAL(GET_SLOT(GET_SLOT(learnsample, <a class="code" href="Classes_8c.html#9ad5f5cd65458d95a8ffae2d450ec850">PL2_responsesSym</a>), 
-<a name="l00159"></a>00159                       <a class="code" href="Classes_8c.html#5a37b090d1da3bdefffc166c05c57d54">PL2_jointtransfSym</a>));
+<a name="l00158"></a>00158     j = REAL(<a class="code" href="Classes_8c.html#9ec50a13a7c7e82143cced16ff4f3968">get_test_trafo</a>(GET_SLOT(learnsample, <a class="code" href="Classes_8c.html#9ad5f5cd65458d95a8ffae2d450ec850">PL2_responsesSym</a>)));
+<a name="l00159"></a>00159     p = REAL(<a class="code" href="Classes_8c.html#b86d70ff194260cc9bd391d3ff55b157">get_predict_trafo</a>(GET_SLOT(learnsample, <a class="code" href="Classes_8c.html#9ad5f5cd65458d95a8ffae2d450ec850">PL2_responsesSym</a>)));
 <a name="l00160"></a>00160     
 <a name="l00161"></a>00161     <span class="keywordflow">for</span> (i = 0; i &lt; n; i++) {
 <a name="l00162"></a>00162         v[i] = dy[i];
 <a name="l00163"></a>00163         t[i] = dy[i];
 <a name="l00164"></a>00164         j[i] = dy[i];
-<a name="l00165"></a>00165     }
-<a name="l00166"></a>00166 }
-</pre></div><hr size="1"><address style="align: right;"><small>Generated on Mon Jan 22 17:37:53 2007 for party by&nbsp;
+<a name="l00165"></a>00165         p[i] = dy[i];
+<a name="l00166"></a>00166     }
+<a name="l00167"></a>00167 }
+</pre></div><hr size="1"><address style="align: right;"><small>Generated on Fri Feb 2 11:29:32 2007 for party by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6 </small></address>
 </body>

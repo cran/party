@@ -1,11 +1,11 @@
 
-# $Id: Memory.R 2748 2006-08-25 08:53:10Z hothorn $
+# $Id: Memory.R 3259 2007-02-02 10:22:45Z hothorn $
 
 ctree_memory <- function(object, MPinv = FALSE) {
 
     inputs <- object@inputs
     responses <- object@responses
-    q <- ncol(responses@jointtransf)
+    q <- ncol(responses@test_trafo)
     nobs <- inputs@nobs
     ninputs <- inputs@ninputs
     RET <- new("TreeFitMemory")

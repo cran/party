@@ -1,5 +1,5 @@
 
-# $Id: Classes.R 2748 2006-08-25 08:53:10Z hothorn $
+# $Id: Classes.R 3260 2007-02-02 10:51:10Z hothorn $
 
 ### Conditional Expectation and Covariance
 setClass(Class = "ExpectCovar",
@@ -222,14 +222,20 @@ setClass(Class = "VariableFrame",
         scores          = "list",
         has_missings    = "logical", 
         whichNA         = "list",
-        jointtransf     = "matrix",
         nobs            = "integer",
         ninputs         = "integer")
 )
 
+setClass(Class = "ResponseFrame",
+    representation = representation(
+        test_trafo = "matrix",
+        predict_trafo = "matrix"
+    ), contains = "VariableFrame"
+)   
+
 setClass(Class = "LearningSample",
     representation = representation(
-        responses = "VariableFrame",
+        responses = "ResponseFrame",
         inputs    = "VariableFrame",
         weights   = "numeric",
         nobs      = "integer",
@@ -243,6 +249,7 @@ setClass(Class = "LearningSample",
 ### the S3 classes. 
 setClass(Class = "SplittingNode", contains = "list")
 setClass(Class = "TerminalNode", contains = "list")
+setClass(Class = "TerminalModelNode", contains = "list")
 setClass(Class = "orderedSplit", contains = "list")
 setClass(Class = "nominalSplit", contains = "list")
 

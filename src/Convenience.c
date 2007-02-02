@@ -3,7 +3,7 @@
     Some convenience functions
     *\file Convenience.c
     *\author $Author: hothorn $
-    *\date $Date: 2006-08-25 14:38:21 +0200 (Fri, 25 Aug 2006) $
+    *\date $Date: 2007-02-02 11:22:45 +0100 (Fri, 02 Feb 2007) $
 */
                 
 #include "party.h"
@@ -142,7 +142,7 @@ SEXP R_get_response(SEXP learnsample) {
 
 void R_set_response(SEXP learnsample, SEXP y) {
 
-    double *v, *t, *j, *dy;
+    double *v, *t, *j, *dy, *p;
     int i, n;
     
     n = LENGTH(y);
@@ -155,12 +155,13 @@ void R_set_response(SEXP learnsample, SEXP y) {
                                  PL2_variablesSym), 0));
     t = REAL(VECTOR_ELT(GET_SLOT(GET_SLOT(learnsample, PL2_responsesSym), 
                                  PL2_transformationsSym), 0));
-    j = REAL(GET_SLOT(GET_SLOT(learnsample, PL2_responsesSym), 
-                      PL2_jointtransfSym));
+    j = REAL(get_test_trafo(GET_SLOT(learnsample, PL2_responsesSym)));
+    p = REAL(get_predict_trafo(GET_SLOT(learnsample, PL2_responsesSym)));
     
     for (i = 0; i < n; i++) {
         v[i] = dy[i];
         t[i] = dy[i];
         j[i] = dy[i];
+        p[i] = dy[i];
     }
 }

@@ -1,4 +1,4 @@
-.TH "Node.c" 3 "22 Jan 2007" "party" \" -*- nroff -*-
+.TH "Node.c" 3 "2 Feb 2007" "party" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -37,7 +37,7 @@ hothorn
 \fBDate:\fP
 .RS 4
 \fBDate\fP.RS 4
-2007-01-15 11:24:41 +0100 (Mon, 15 Jan 2007) 
+2007-02-02 11:22:45 +0100 (Fri, 02 Feb 2007) 
 .RE
 .PP
 .RE
@@ -70,7 +70,7 @@ The main function for all node computations
 .PP
 Definition at line 48 of file Node.c.
 .PP
-References C_GlobalTest(), C_init_nominalsplit(), C_init_orderedsplit(), C_max(), C_prediction(), C_split(), C_splitcategorical(), C_standardize(), C_whichmax(), get_dimension(), get_gtctrl(), get_jointtransf(), get_levels(), get_mincriterion(), get_minsplit(), get_ninputs(), get_nobs(), get_ordering(), get_savesplitstats(), get_splitctrl(), get_splitstatistics(), get_tgctrl(), get_tol(), get_transformation(), get_varctrl(), get_variable(), get_varmemory(), get_weights(), has_missings(), is_nominal(), ncol(), PL2_covarianceSym, PL2_expcovinfSym, PL2_expectationSym, PL2_inputsSym, PL2_linearstatisticSym, PL2_linexpcov2sampleSym, PL2_responsesSym, PL2_sumweightsSym, S3get_criterion(), S3get_maxcriterion(), S3get_prediction(), S3get_primarysplit(), S3get_splitpoint(), S3get_splitstatistics(), S3get_table(), S3get_teststat(), and S3set_variableID().
+References C_GlobalTest(), C_init_nominalsplit(), C_init_orderedsplit(), C_max(), C_prediction(), C_split(), C_splitcategorical(), C_standardize(), C_whichmax(), get_dimension(), get_gtctrl(), get_levels(), get_mincriterion(), get_minsplit(), get_ninputs(), get_nobs(), get_ordering(), get_predict_trafo(), get_savesplitstats(), get_splitctrl(), get_splitstatistics(), get_test_trafo(), get_tgctrl(), get_tol(), get_transformation(), get_varctrl(), get_variable(), get_varmemory(), get_weights(), has_missings(), is_nominal(), ncol(), PL2_covarianceSym, PL2_expcovinfSym, PL2_expectationSym, PL2_inputsSym, PL2_linearstatisticSym, PL2_linexpcov2sampleSym, PL2_responsesSym, PL2_sumweightsSym, S3get_criterion(), S3get_maxcriterion(), S3get_prediction(), S3get_primarysplit(), S3get_splitpoint(), S3get_splitstatistics(), S3get_table(), S3get_teststat(), and S3set_variableID().
 .PP
 Referenced by C_TreeGrow(), and R_Node().
 .SS "void C_prediction (const double * y, int n, int q, const double * weights, const double sweights, double * ans)"
@@ -114,9 +114,9 @@ R-interface to C_Node
 .PP
 
 .PP
-Definition at line 227 of file Node.c.
+Definition at line 228 of file Node.c.
 .PP
-References C_init_node(), C_Node(), get_jointtransf(), get_maxsurrogate(), get_ninputs(), get_nobs(), get_splitctrl(), ncol(), NODE_LENGTH, and PL2_responsesSym.
+References C_init_node(), C_Node(), get_maxsurrogate(), get_ninputs(), get_nobs(), get_predict_trafo(), get_splitctrl(), ncol(), NODE_LENGTH, and PL2_responsesSym.
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for party from the source code.

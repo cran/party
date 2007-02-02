@@ -1,5 +1,5 @@
 
-# $Id: Variables.R 3211 2007-01-15 10:24:41Z hothorn $
+# $Id: Variables.R 3259 2007-02-02 10:22:45Z hothorn $
 
 ### factor handling
 ff_trafo <- function(x) {
@@ -22,9 +22,21 @@ ptrafo <- function(data, numeric_trafo = id_trafo,
           factor_trafo, surv_trafo = surv_trafo, var_trafo = var_trafo)
 
 
-initVariableFrame.df <- function(obj, trafo = ptrafo, scores = NULL, ...) {
+initVariableFrame.df <- function(obj, trafo = ptrafo, scores = NULL, response = FALSE, ...) {
 
-    RET <- new("VariableFrame", nrow(obj), ncol(obj))
+    if (response) {
+        RET <- new("ResponseFrame", nrow(obj), ncol(obj))
+        tmp <- lapply(obj, function(x) {
+            if (is.factor(x)) return(ff_trafo(x))
+            ### FIXME
+            if (inherits(x, "Surv")) return(logrank_trafo(x))
+            return(x)
+        })
+        RET@predict_trafo <- as.matrix(as.data.frame(tmp))
+        storage.mode(RET@predict_trafo) <- "double"
+    } else {
+        RET <- new("VariableFrame", nrow(obj), ncol(obj))
+    }
     
     is_ordinal <- sapply(obj, is.ordered)
     is_nominal <- sapply(obj, is.factor) & !is_ordinal
@@ -63,6 +75,7 @@ initVariableFrame.df <- function(obj, trafo = ptrafo, scores = NULL, ...) {
     xt <- vector(mode = "list", length = ncol(obj))
     for (i in 1:ncol(obj))
         xt[[i]] <- jt[,attr(jt, "assign") == i, drop = FALSE]
+    rm(jt)
 
     ### ordering
     ordering <- lapply(obj, function(x) {
@@ -100,12 +113,8 @@ initVariableFrame.df <- function(obj, trafo = ptrafo, scores = NULL, ...) {
         }
         nas <- is.na(x)
         xt[[j]][nas] <- 0
-        jt[nas, attr(jt, "assign") == j] <- 0
     }            
 
-    ### jt may have been altered (scores etc.)
-    RET@jointtransf <- as.matrix(as.data.frame(xt))
-    attr(RET@jointtransf, "assign") <- rep(1:length(xt), sapply(xt, ncol))
     RET@transformations <- xt
     RET@is_nominal <- is_nominal
     RET@is_ordinal <- is_ordinal
@@ -115,6 +124,11 @@ initVariableFrame.df <- function(obj, trafo = ptrafo, scores = NULL, ...) {
     RET@ordering <- ordering
     RET@has_missings <- has_missings
     RET@whichNA <- whichNA
+
+    if (response) {
+        RET@test_trafo <- as.matrix(as.data.frame(xt))
+        storage.mode(RET@test_trafo) <- "double"
+    }
     RET
 }
 

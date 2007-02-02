@@ -363,16 +363,19 @@ Another popular benchmark data set for binary classifications is the Pima Indian
 diabetes database which is also available from \pkg{mlbench}:
 
 <<>>=
-data("PimaIndiansDiabetes", package = "mlbench")
+data("PimaIndiansDiabetes2", package = "mlbench")
+PimaIndiansDiabetes <- na.omit(PimaIndiansDiabetes2[,-c(4, 5)])
 @
 
-It provides diabetes test results for $n = \Sexpr{NROW(PimaIndiansDiabetes)}$ women
+After omitting missing values (and the variables \verb:triceps: and \verb:insulin: which
+are missing for most women), the data set provides diabetes test results for
+$n = \Sexpr{NROW(PimaIndiansDiabetes)}$ women
 along with $\Sexpr{NCOL(PimaIndiansDiabetes)}$ covariates including in particular
 the plasma glucose concentration \code{glucose} as an important predictor for diabetes.
 Fitting a logistic regression model \verb:diabetes ~ glucose: seems to be straightforward,
 whereas the influence of the remaining variables should again be learned by recursive
 partitioning. This will yield a model tree with $k = 2$ regression coefficients in each terminal
-node, partitioned with respect to the remaining $\ell = 11$ remaining variables.
+node, partitioned with respect to the remaining $\ell = 5$ remaining variables.
 
 The model is estimated by ML employing the \code{glinearModel}, 
 the instability is assessed using a Bonferroni-corrected
@@ -382,7 +385,7 @@ default values in \verb:mob_control(): and do not have to be set explicitely in
 the \code{mob()} call:
 
 <<>>=
-fmPID <- mob(diabetes ~ glucose | pregnant + pressure + triceps + insulin + mass + pedigree + age,
+fmPID <- mob(diabetes ~ glucose | pregnant + pressure + mass + pedigree + age,
   data = PimaIndiansDiabetes, model = glinearModel, family = binomial())
 @
 

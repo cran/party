@@ -67,3 +67,4 @@ tr <- ctree(ME ~ ., data = mammoexp)
 tr
 plot(tr)
 
+treeresponse(tr, newdata = mammoexp[1:5,])

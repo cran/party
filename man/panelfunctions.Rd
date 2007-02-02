@@ -45,7 +45,8 @@ node_bivplot(mobobj, which = NULL, id = TRUE, pop = TRUE,
   pointcol = "black", pointcex = 0.5,
   boxcol = "black", boxwidth = 0.5, boxfill = "lightgray",
   fitmean = TRUE, linecol = "red",
-  cdplot = FALSE, fivenum = TRUE, breaks = NULL, \dots)
+  cdplot = FALSE, fivenum = TRUE, breaks = NULL,
+  ylines = NULL, xlab = FALSE, ylab = FALSE, \dots)
 }
 \arguments{
   \item{ctreeobj}{ an object of class \code{BinaryTree}.}
@@ -91,6 +92,9 @@ node_bivplot(mobobj, which = NULL, id = TRUE, pop = TRUE,
   \item{breaks}{a (list of) numeric vector(s) of breaks for the spinograms. If set to \code{NULL}
     (the default), the \code{breaks} are chosen according to the \code{fivenum}
     argument.}
+  \item{xlab, ylab}{ character with x- and y-axis labels. Can also be logical: if \code{FALSE}
+    axis labels are surpressed, if \code{TRUE} they are taken from the underlying data.
+    Can be a vector of labels for \code{xlab}. }
   \item{\dots}{ additional arguments passed to callies.}
 }
 

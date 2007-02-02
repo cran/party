@@ -3,7 +3,7 @@
     S4 classes for package `party'
     *\file Classes.c
     *\author $Author: hothorn $
-    *\date $Date: 2006-08-25 10:53:10 +0200 (Fri, 25 Aug 2006) $
+    *\date $Date: 2007-02-02 11:22:45 +0100 (Fri, 02 Feb 2007) $
 */
 
 #include "party.h"
@@ -46,7 +46,8 @@ SEXP
     PL2_scoresSym, 
     PL2_has_missingsSym, 
     PL2_whichNASym, 
-    PL2_jointtransfSym, 
+    PL2_test_trafoSym, 
+    PL2_predict_trafoSym, 
     PL2_nobsSym, 
     PL2_ninputsSym,
     PL2_linexpcov2sampleSym, 
@@ -112,7 +113,8 @@ SEXP party_init(void) {
     PL2_scoresSym = install("scores"); 
     PL2_has_missingsSym = install("has_missings"); 
     PL2_whichNASym = install("whichNA"); 
-    PL2_jointtransfSym = install("jointtransf"); 
+    PL2_test_trafoSym = install("test_trafo"); 
+    PL2_predict_trafoSym = install("predict_trafo"); 
     PL2_nobsSym = install("nobs"); 
     PL2_ninputsSym = install("ninputs"); 
     PL2_linexpcov2sampleSym = install("linexpcov2sample"); 
@@ -190,9 +192,14 @@ SEXP get_transformation(SEXP object, int variable) {
                variable - 1));
 }
 
-SEXP get_jointtransf(SEXP object) {
-    return(GET_SLOT(object, PL2_jointtransfSym));
+SEXP get_test_trafo(SEXP object) {
+    return(GET_SLOT(object, PL2_test_trafoSym));
 }
+
+SEXP get_predict_trafo(SEXP object) {
+    return(GET_SLOT(object, PL2_predict_trafoSym));
+}
+
 
 SEXP get_variable(SEXP object, int variable) {
     return(VECTOR_ELT(

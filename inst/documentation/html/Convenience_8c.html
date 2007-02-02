@@ -62,7 +62,7 @@ Include dependency graph for Convenience.c:<p><center><img src="Convenience_8c__
 Some convenience functions<p>
 <dl compact><dt><b>Author:</b></dt><dd><dl compact><dt><b>Author</b></dt><dd>hothorn </dd></dl>
 </dd></dl>
-<dl compact><dt><b>Date:</b></dt><dd><dl compact><dt><b>Date</b></dt><dd>2006-08-25 14:38:21 +0200 (Fri, 25 Aug 2006) </dd></dl>
+<dl compact><dt><b>Date:</b></dt><dd><dl compact><dt><b>Date</b></dt><dd>2007-02-02 11:22:45 +0100 (Fri, 02 Feb 2007) </dd></dl>
 </dd></dl>
 
 <p>
@@ -146,7 +146,7 @@ Compute asymptotic conditional P-value <dl compact><dt><b>Parameters:</b></dt><d
 <p>
 Definition at line <a class="el" href="Convenience_8c-source.html#l00099">99</a> of file <a class="el" href="Convenience_8c-source.html">Convenience.c</a>.
 <p>
-References <a class="el" href="Distributions_8c-source.html#l00052">C_maxabsConditionalPvalue()</a>, <a class="el" href="Distributions_8c-source.html#l00018">C_quadformConditionalPvalue()</a>, <a class="el" href="Classes_8c-source.html#l00147">get_dimension()</a>, <a class="el" href="party_8h-source.html#l00060">MAXABS</a>, <a class="el" href="Classes_8c-source.html#l00012">PL2_covarianceSym</a>, <a class="el" href="Classes_8c-source.html#l00012">PL2_rankSym</a>, and <a class="el" href="party_8h-source.html#l00061">QUADFORM</a>.
+References <a class="el" href="Distributions_8c-source.html#l00052">C_maxabsConditionalPvalue()</a>, <a class="el" href="Distributions_8c-source.html#l00018">C_quadformConditionalPvalue()</a>, <a class="el" href="Classes_8c-source.html#l00149">get_dimension()</a>, <a class="el" href="party_8h-source.html#l00060">MAXABS</a>, <a class="el" href="Classes_8c-source.html#l00012">PL2_covarianceSym</a>, <a class="el" href="Classes_8c-source.html#l00012">PL2_rankSym</a>, and <a class="el" href="party_8h-source.html#l00061">QUADFORM</a>.
 <p>
 Referenced by <a class="el" href="IndependenceTest_8c-source.html#l00021">C_TeststatPvalue()</a>.
 <p>
@@ -374,7 +374,7 @@ Compute test statistic <dl compact><dt><b>Parameters:</b></dt><dd>
 <p>
 Definition at line <a class="el" href="Convenience_8c-source.html#l00059">59</a> of file <a class="el" href="Convenience_8c-source.html">Convenience.c</a>.
 <p>
-References <a class="el" href="TestStatistic_8c-source.html#l00066">C_maxabsTestStatistic()</a>, <a class="el" href="TestStatistic_8c-source.html#l00110">C_quadformTestStatistic()</a>, <a class="el" href="Classes_8c-source.html#l00147">get_dimension()</a>, <a class="el" href="Classes_8c-source.html#l00012">PL2_covarianceSym</a>, <a class="el" href="Classes_8c-source.html#l00012">PL2_expectationSym</a>, <a class="el" href="Classes_8c-source.html#l00012">PL2_linearstatisticSym</a>, and <a class="el" href="Classes_8c-source.html#l00012">PL2_MPinvSym</a>.
+References <a class="el" href="TestStatistic_8c-source.html#l00066">C_maxabsTestStatistic()</a>, <a class="el" href="TestStatistic_8c-source.html#l00110">C_quadformTestStatistic()</a>, <a class="el" href="Classes_8c-source.html#l00149">get_dimension()</a>, <a class="el" href="Classes_8c-source.html#l00012">PL2_covarianceSym</a>, <a class="el" href="Classes_8c-source.html#l00012">PL2_expectationSym</a>, <a class="el" href="Classes_8c-source.html#l00012">PL2_linearstatisticSym</a>, and <a class="el" href="Classes_8c-source.html#l00012">PL2_MPinvSym</a>.
 <p>
 Referenced by <a class="el" href="IndependenceTest_8c-source.html#l00021">C_TeststatPvalue()</a>.
 <p>
@@ -474,16 +474,18 @@ change the values of the response variable in a learning sample <dl compact><dt>
 <p>
 Definition at line <a class="el" href="Convenience_8c-source.html#l00143">143</a> of file <a class="el" href="Convenience_8c-source.html">Convenience.c</a>.
 <p>
-References <a class="el" href="Classes_8c-source.html#l00012">PL2_jointtransfSym</a>, <a class="el" href="Classes_8c-source.html#l00012">PL2_responsesSym</a>, <a class="el" href="Classes_8c-source.html#l00012">PL2_transformationsSym</a>, <a class="el" href="Classes_8c-source.html#l00012">PL2_variablesSym</a>, and <a class="el" href="Convenience_8c-source.html#l00131">R_get_response()</a>.
+References <a class="el" href="Classes_8c-source.html#l00199">get_predict_trafo()</a>, <a class="el" href="Classes_8c-source.html#l00195">get_test_trafo()</a>, <a class="el" href="Classes_8c-source.html#l00012">PL2_responsesSym</a>, <a class="el" href="Classes_8c-source.html#l00012">PL2_transformationsSym</a>, <a class="el" href="Classes_8c-source.html#l00012">PL2_variablesSym</a>, and <a class="el" href="Convenience_8c-source.html#l00131">R_get_response()</a>.
 <p>
 Here is the call graph for this function:<p><center><img src="Convenience_8c_a1e8edb4fa73a26e73bc153c45a867b0_cgraph.png" border="0" usemap="#Convenience_8c_a1e8edb4fa73a26e73bc153c45a867b0_cgraph_map" alt=""></center>
 <map name="Convenience_8c_a1e8edb4fa73a26e73bc153c45a867b0_cgraph_map">
-<area href="Convenience_8c.html#5253d5c6a188d9b7a1318c91d958047d" shape="rect" coords="176,8,296,32" alt="">
+<area href="Classes_8c.html#b86d70ff194260cc9bd391d3ff55b157" shape="rect" coords="176,8,298,32" alt="">
+<area href="Classes_8c.html#9ec50a13a7c7e82143cced16ff4f3968" shape="rect" coords="185,56,289,80" alt="">
+<area href="Convenience_8c.html#5253d5c6a188d9b7a1318c91d958047d" shape="rect" coords="177,104,297,128" alt="">
 </map>
     </td>
   </tr>
 </table>
-<hr size="1"><address style="align: right;"><small>Generated on Mon Jan 22 17:38:03 2007 for party by&nbsp;
+<hr size="1"><address style="align: right;"><small>Generated on Fri Feb 2 11:29:44 2007 for party by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6 </small></address>
 </body>

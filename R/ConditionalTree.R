@@ -1,5 +1,5 @@
 
-# $Id: ConditionalTree.R 3130 2006-11-16 14:00:43Z hothorn $
+# $Id: ConditionalTree.R 3259 2007-02-02 10:22:45Z hothorn $
 
 ### the fitting procedure
 ctreefit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
@@ -154,7 +154,7 @@ ctreedpp <- function(formula, data = list(), subset = NULL,
     if (any(is.na(response)))
         stop("missing values in response variable not allowed")
 
-    resp <- initVariableFrame(response, trafo = ytrafo)
+    resp <- initVariableFrame(response, trafo = ytrafo, response = TRUE)
 
     RET <- new("LearningSample", inputs = inp, responses = resp,
                weights = rep(1, inp@nobs), nobs = inp@nobs,

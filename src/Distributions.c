@@ -3,7 +3,7 @@
     Conditional Distributions
     *\file Distributions.c
     *\author $Author: hothorn $
-    *\date $Date: 2007-01-15 11:24:41 +0100 (Mon, 15 Jan 2007) $
+    *\date $Date: 2007-02-02 11:22:45 +0100 (Fri, 02 Feb 2007) $
 */
                 
 #include "party.h"
@@ -184,7 +184,7 @@ void C_MonteCarlo(double *criterion, SEXP learnsample, SEXP weights,
     B = get_nresample(gtctrl);
     
     /* y = get_transformation(responses, 1); */
-    y = get_jointtransf(responses);
+    y = get_test_trafo(responses);
     
     expcovinf = GET_SLOT(fitmem, PL2_expcovinfSym);
 

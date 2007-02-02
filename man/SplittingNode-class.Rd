@@ -2,6 +2,7 @@
 \docType{class}
 \alias{SplittingNode-class}
 \alias{TerminalNode-class}
+\alias{TerminalModelNode-class}
 
 \title{Class "SplittingNode"}
 \description{  

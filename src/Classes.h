@@ -37,7 +37,8 @@ extern SEXP
     PL2_scoresSym, 
     PL2_has_missingsSym, 
     PL2_whichNASym, 
-    PL2_jointtransfSym, 
+    PL2_test_trafoSym, 
+    PL2_predict_trafoSym, 
     PL2_nobsSym, 
     PL2_ninputsSym,
     PL2_linexpcov2sampleSym, 
@@ -75,7 +76,8 @@ double get_minsplit(SEXP object);
 double get_minprob(SEXP object);
 double get_minbucket(SEXP object);
 SEXP get_transformation(SEXP object, int variable);
-SEXP get_jointtransf(SEXP object);
+SEXP get_test_trafo(SEXP object);
+SEXP get_predict_trafo(SEXP object);
 SEXP get_variable(SEXP object, int variable);
 int is_nominal(SEXP object, int variable);
 int is_ordinal(SEXP object, int variable);

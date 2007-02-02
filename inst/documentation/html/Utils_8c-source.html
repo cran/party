@@ -461,19 +461,23 @@
 <a name="l00568"></a>00568     <span class="keywordflow">for</span> (i = 0; i &lt; n; i++)
 <a name="l00569"></a>00569         tar[i] = src[i];
 <a name="l00570"></a>00570 
-<a name="l00571"></a>00571     tar = REAL(<a class="code" href="Classes_8c.html#92501238ed4186984387bea505162ece">get_jointtransf</a>(vf));
+<a name="l00571"></a>00571     tar = REAL(<a class="code" href="Classes_8c.html#9ec50a13a7c7e82143cced16ff4f3968">get_test_trafo</a>(vf));
 <a name="l00572"></a>00572     <span class="keywordflow">for</span> (i = 0; i &lt; n; i++)
 <a name="l00573"></a>00573         tar[i] = src[i];
 <a name="l00574"></a>00574 
-<a name="l00575"></a>00575     tar = REAL(<a class="code" href="Classes_8c.html#0f91efa916e815ec7d90c6f9516f18e4">get_variable</a>(vf, 1));
+<a name="l00575"></a>00575     tar = REAL(<a class="code" href="Classes_8c.html#b86d70ff194260cc9bd391d3ff55b157">get_predict_trafo</a>(vf));
 <a name="l00576"></a>00576     <span class="keywordflow">for</span> (i = 0; i &lt; n; i++)
 <a name="l00577"></a>00577         tar[i] = src[i];
-<a name="l00578"></a>00578                                           
-<a name="l00579"></a>00579     <span class="keywordflow">return</span>(R_NilValue);
-<a name="l00580"></a>00580 }
-<a name="l00581"></a>00581 
-<a name="l00582"></a><a class="code" href="Utils_8c.html#f9a6700f5486c12cebdcf2f5fd1fcf73">00582</a> <span class="keywordtype">double</span> F77_SUB(<a class="code" href="Utils_8c.html#f9a6700f5486c12cebdcf2f5fd1fcf73">unifrnd</a>)(void) { <span class="keywordflow">return</span> unif_rand(); }
-</pre></div><hr size="1"><address style="align: right;"><small>Generated on Mon Jan 22 17:37:53 2007 for party by&nbsp;
+<a name="l00578"></a>00578 
+<a name="l00579"></a>00579     tar = REAL(<a class="code" href="Classes_8c.html#0f91efa916e815ec7d90c6f9516f18e4">get_variable</a>(vf, 1));
+<a name="l00580"></a>00580     <span class="keywordflow">for</span> (i = 0; i &lt; n; i++)
+<a name="l00581"></a>00581         tar[i] = src[i];
+<a name="l00582"></a>00582                                           
+<a name="l00583"></a>00583     <span class="keywordflow">return</span>(R_NilValue);
+<a name="l00584"></a>00584 }
+<a name="l00585"></a>00585 
+<a name="l00586"></a><a class="code" href="Utils_8c.html#f9a6700f5486c12cebdcf2f5fd1fcf73">00586</a> <span class="keywordtype">double</span> F77_SUB(<a class="code" href="Utils_8c.html#f9a6700f5486c12cebdcf2f5fd1fcf73">unifrnd</a>)(void) { <span class="keywordflow">return</span> unif_rand(); }
+</pre></div><hr size="1"><address style="align: right;"><small>Generated on Fri Feb 2 11:29:33 2007 for party by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6 </small></address>
 </body>
