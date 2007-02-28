@@ -21,8 +21,6 @@ Objects can be created by calls of the form \code{new("LearningSample", ...)}.
                         observations. }
     \item{\code{ninputs}:}{Object of class \code{"integer"}, the number of
                            input variables.}
-    \item{\code{menv}:}{Object of class \code{"ModelEnv"}, a model
-                        environment, see \code{\link[modeltools]{ModelEnv-class}}.}
   }
 }
 \section{Methods}{

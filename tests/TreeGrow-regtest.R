@@ -68,3 +68,21 @@ tr
 plot(tr)
 
 treeresponse(tr, newdata = mammoexp[1:5,])
+
+### check different user interfaces
+data("iris")
+x <- as.matrix(iris[,colnames(iris) != "Species"])
+y <- iris[,"Species"]
+newx <- x
+
+ls <- LearningSample(x, y)
+p1 <- unlist(treeresponse(ctree(Species ~ ., data = iris), newdata = as.data.frame(newx)))
+p2 <- unlist(treeresponse(ctreefit(ls, control = ctree_control()), newdata = as.matrix(newx)))
+stopifnot(identical(max(abs(p1 - p2)), 0))
+
+set.seed(29)
+p1 <- unlist(treeresponse(cforestfit(ls, control = cforest_control(mtry = 1)), newdata = as.matrix(newx)))
+set.seed(29)
+p2 <- unlist(treeresponse(cforest(Species ~ ., data = iris, control = cforest_control(mtry = 1)), 
+             newdata = as.data.frame(newx)))
+stopifnot(identical(max(abs(p1 - p2)), 0))

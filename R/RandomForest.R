@@ -1,5 +1,5 @@
 
-# $Id: RandomForest.R 3259 2007-02-02 10:22:45Z hothorn $
+# $Id: RandomForest.R 3301 2007-02-20 09:17:01Z hothorn $
 
 ### the fitting procedure
 cforestfit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
@@ -32,7 +32,8 @@ cforestfit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
     RET <- new("RandomForest")
     RET@ensemble <- ensemble
     RET@responses <- object@responses
-    RET@data <- object@menv
+    if (inherits(object, "LearningSampleFormula"))
+        RET@data <- object@menv
 
     ### (estimated) conditional distribution of the response given the
     ### covariates
@@ -92,12 +93,7 @@ cforestfit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
     RET@prediction_weights <- function(newdata = NULL, 
                                        mincriterion = 0, OOB = FALSE) {
 
-        if (is.null(newdata)) {
-            newinp <- object@inputs
-        } else {
-            newinp <- object@menv@get("input", data = newdata)
-            newinp <- initVariableFrame(newinp, trafo = NULL)
-        }
+        newinp <- newinputs(object, newdata)
 
         return(.Call("R_predictRF_weights", ensemble, newinp, mincriterion,
                      OOB && is.null(newdata), PACKAGE = "party"))

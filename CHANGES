@@ -1,4 +1,15 @@
 
+                CHANGES IN party VERSION 0.9-10 (2007-02-28)
+
+    o   internal infrastructure for fit(x, y) interfaces,
+        including a VariableFrame method for matrices.
+
+    o   deal with factors with only one level and variables where
+        all observations are NA
+
+    o   don't compute design matrices in `ModelEnvFormula'
+
+
                 CHANGES IN party VERSION 0.9-9 (2007-02-02)
 
     o   internal changes to data objects: joint transformations

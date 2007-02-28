@@ -1,5 +1,5 @@
 
-# $Id: ConditionalTree.R 3259 2007-02-02 10:22:45Z hothorn $
+# $Id: ConditionalTree.R 3301 2007-02-20 09:17:01Z hothorn $
 
 ### the fitting procedure
 ctreefit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
@@ -40,19 +40,15 @@ ctreefit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
     RET@tree <- tree
     RET@where <- where
     RET@responses <- object@responses
-    RET@data <- object@menv
+    if (inherits(object, "LearningSampleFormula"))
+        RET@data <- object@menv
 
     ### get terminal node numbers
     RET@get_where <- function(newdata = NULL, mincriterion = 0, ...) {
 
         if (is.null(newdata) && mincriterion == 0) return(where)
 
-        if (is.null(newdata)) {
-            newinp <- object@inputs
-        } else {
-            newinp <- object@menv@get("input", data = newdata)
-            newinp <- initVariableFrame(newinp, trafo = NULL)
-        }
+        newinp <- newinputs(object, newdata)
 
         .Call("R_get_nodeID", tree, newinp, mincriterion, PACKAGE = "party")
     }
@@ -145,7 +141,8 @@ ctreedpp <- function(formula, data = list(), subset = NULL,
                      scores = NULL, ...) {
 
     dat <- ModelEnvFormula(formula = formula, data = data, 
-                           subset = subset, ...)
+                           subset = subset, designMatrix = FALSE, 
+                           responseMatrix = FALSE, ...)
     inp <- initVariableFrame(dat@get("input"), trafo = xtrafo, 
                              scores = scores)
 
@@ -156,7 +153,7 @@ ctreedpp <- function(formula, data = list(), subset = NULL,
 
     resp <- initVariableFrame(response, trafo = ytrafo, response = TRUE)
 
-    RET <- new("LearningSample", inputs = inp, responses = resp,
+    RET <- new("LearningSampleFormula", inputs = inp, responses = resp,
                weights = rep(1, inp@nobs), nobs = inp@nobs,
                ninputs = inp@ninputs, menv = dat)
     RET

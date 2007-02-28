@@ -1,5 +1,5 @@
 
-# $Id: Classes.R 3260 2007-02-02 10:51:10Z hothorn $
+# $Id: Classes.R 3301 2007-02-20 09:17:01Z hothorn $
 
 ### Conditional Expectation and Covariance
 setClass(Class = "ExpectCovar",
@@ -239,9 +239,14 @@ setClass(Class = "LearningSample",
         inputs    = "VariableFrame",
         weights   = "numeric",
         nobs      = "integer",
-        ninputs   = "integer",
-        menv      = "ModelEnv"
+        ninputs   = "integer"
     )
+)
+
+setClass(Class = "LearningSampleFormula",
+    representation = representation(
+        menv      = "ModelEnv"
+    ), contains = "LearningSample"
 )
 
 ### the tree structure itself is a list, 

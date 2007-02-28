@@ -60,3 +60,11 @@ airOzoSol1 <- ctree(Ozone + Solar.R ~ Wind + Temp + Month + Day,
 airOzoSol2 <- ctree(Solar.R + Ozone ~ Wind + Temp + Month + Day,
                     data = airq)
 stopifnot(isequal(airOzoSol1@where, airOzoSol2@where))
+
+### one variable with all values missing
+dat <- data.frame(y = rnorm(100), x1 = runif(100), x2 = rep(NA, 100))
+ctree(y ~ x1 + x2, data = dat)
+
+### one factor with only one level
+dat$x2 <- factor(rep(0, 100))
+try(ctree(y ~ x1 + x2, data = dat))

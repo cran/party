@@ -1,6 +1,6 @@
 
-R version 2.4.1 (2006-12-18)
-Copyright (C) 2006 The R Foundation for Statistical Computing
+R version 2.5.0 Under development (unstable) (2007-02-26 r40806)
+Copyright (C) 2007 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -22,6 +22,14 @@ Type 'q()' to quit R.
 +     print(checkUsagePackage("party"))
 + }
 Loading required package: codetools
+
+Attaching package: 'codetools'
+
+
+	The following object(s) are masked from package:base :
+
+	 callCC 
+
 Loading required package: survival
 Loading required package: splines
 Loading required package: grid
@@ -43,16 +51,12 @@ Loading required package: strucchange
 Loading required package: vcd
 Loading required package: MASS
 Loading required package: colorspace
-edge_simple : <anonymous>: no visible global function definition for phantom
-edge_simple : <anonymous>: no visible global function definition for .
-edge_simple : <anonymous>: no visible global function definition for phantom
-edge_simple : <anonymous>: no visible global function definition for .
-mob_fit_fluctests: local variable beta assigned but may not be used
-node_density: local variable xr assigned but may not be used
-node_density: local variable yr assigned but may not be used
-residuals.mob: local variable newinput assigned but may not be used
-reweight.glinearModel: local variable fit assigned but may not be used
-reweight.linearModel: local variable fit assigned but may not be used
-reweight.survReg: local variable fit assigned but may not be used
+mob_fit_fluctests: local variable ‘beta’ assigned but may not be used
+node_density: local variable ‘xr’ assigned but may not be used
+node_density: local variable ‘yr’ assigned but may not be used
+residuals.mob: local variable ‘newinput’ assigned but may not be used
+reweight.glinearModel: local variable ‘fit’ assigned but may not be used
+reweight.linearModel: local variable ‘fit’ assigned but may not be used
+reweight.survReg: local variable ‘fit’ assigned but may not be used
 NULL
 > 
