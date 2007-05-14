@@ -9,7 +9,6 @@ extern SEXP
     PL2_dimensionSym,
     PL2_MPinvSym,
     PL2_rankSym,
-    PL2_svdSym,
     PL2_svdmemSym,
     PL2_methodSym,
     PL2_jobuSym, 

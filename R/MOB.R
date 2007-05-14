@@ -7,7 +7,7 @@
 ## generic function mob creates objects of class "mob"
 setClass("mob", contains = "BinaryTree")
 
-mob <- function(formula, weights, data = list(),
+mob <- function(formula, weights, data = list(), na.action = na.omit,
   model = glinearModel, control = mob_control(), ...)
 {
   if(inherits(formula, "formula")) {
@@ -17,15 +17,8 @@ mob <- function(formula, weights, data = list(),
       ff <- attr(modeltools:::ParseFormula(formula), "formula")
       ff$input[[3]] <- ff$input[[2]]
       ff$input[[2]] <- ff$response[[2]]
-      ### <FIXME> we can't handle missing values properly yet
-      cc <- complete.cases(data)
-      if (!all(cc)) {
-          warning(sum(cc), " missing values in ", 
-                  sQuote("data"), " have been removed")
-          data <- data[cc,]
-      }
-      ### </FIXME>
-      dpp(model, as.formula(ff$input), other = list(part = as.formula(ff$blocks)), data = data)
+      dpp(model, as.formula(ff$input), other = list(part = as.formula(ff$blocks)), 
+          data = data, na.action = na.action)
     }
     formula <- mobpp(formula, data, model)
   }
@@ -35,6 +28,7 @@ mob <- function(formula, weights, data = list(),
   fm <- fit(model, formula, ...)
 
 
+  where <- integer(length(weights))
   ## the main recursion function
   mob_fit <- function(obj, mf, weights, control) {
     ### fit a model for the current node
@@ -47,11 +41,13 @@ mob <- function(formula, weights, data = list(),
                    terminal = TRUE, prediction = 0, model = obj)
       class(node) <- "TerminalNodeModel"
       node$nodeID <- as.integer(nodeid)
+      where[weights > 0] <<- as.integer(nodeid)
       nodeid <<- nodeid + 1
       return(node)
     }
     thisnode <- mob_fit_setupnode(obj, mf, weights, control)
     thisnode$nodeID <- as.integer(nodeid)
+    where[weights > 0] <<- as.integer(nodeid)
     nodeid <<- nodeid + 1
     thisnode$model <- obj
 
@@ -81,17 +77,17 @@ mob <- function(formula, weights, data = list(),
   ## package into return object
   rval <- new("mob", tree = tr, 
     responses = initVariableFrame(formula@get("response"), trafo = NULL, response = TRUE),
-    data = formula)
+    data = formula, where = where)
   return(rval)
 }
 
 ## control splitting parameters
 mob_control <- function(alpha = 0.05, bonferroni = TRUE, minsplit = 20, trim = 0.1,
-  objfun = deviance, breakties = FALSE, verbose = FALSE)
+  objfun = deviance, breakties = FALSE, parm = NULL, verbose = FALSE)
 {
   rval <- list(alpha = alpha, bonferroni = bonferroni, minsplit = minsplit,
                trim = ifelse(is.null(trim), minsplit, trim),
-               objfun = objfun, breakties = breakties, verbose = verbose)
+               objfun = objfun, breakties = breakties, parm = parm, verbose = verbose)
   class(rval) <- "mob_control"
   return(rval)
 }

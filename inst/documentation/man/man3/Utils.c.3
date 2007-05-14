@@ -1,4 +1,4 @@
-.TH "Utils.c" 3 "20 Feb 2007" "party" \" -*- nroff -*-
+.TH "Utils.c" 3 "20 Jun 2007" "party" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -17,6 +17,9 @@ Utils.c \-
 .br
 .ti -1c
 .RI "SEXP \fBR_kronecker\fP (SEXP A, SEXP B)"
+.br
+.ti -1c
+.RI "void \fBCR_La_svd\fP (SEXP jobu, SEXP jobv, SEXP x, SEXP s, SEXP u, SEXP v, SEXP method, SEXP val)"
 .br
 .ti -1c
 .RI "SEXP \fBCR_svd\fP (SEXP x, SEXP svdmem)"
@@ -61,6 +64,9 @@ Utils.c \-
 .RI "SEXP \fBR_rsubset\fP (SEXP m, SEXP k)"
 .br
 .ti -1c
+.RI "void \fBC_ProbSampleNoReplace\fP (int n, double *p, int *perm, int nans, int *ans)"
+.br
+.ti -1c
 .RI "int \fBi_in_set\fP (int i, int *iset, int p)"
 .br
 .ti -1c
@@ -87,6 +93,9 @@ Utils.c \-
 .ti -1c
 .RI "double F77_SUB() \fBunifrnd\fP (void)"
 .br
+.ti -1c
+.RI "void \fBC_SampleSplitting\fP (int n, double *prob, int *weights, int k)"
+.br
 .in -1c
 .SH "Detailed Description"
 .PP 
@@ -103,7 +112,7 @@ hothorn
 \fBDate:\fP
 .RS 4
 \fBDate\fP.RS 4
-2007-02-02 11:22:45 +0100 (Fri, 02 Feb 2007) 
+2007-06-08 16:58:30 +0200 (Fri, 08 Jun 2007) 
 .RE
 .PP
 .RE
@@ -126,12 +135,12 @@ absolute value
 .PP
 
 .PP
-Definition at line 259 of file Utils.c.
+Definition at line 319 of file Utils.c.
 .PP
 Referenced by C_absstandardize(), and R_abs().
 .SS "int C_i_in_set (int i, SEXP set)"
 .PP
-Definition at line 473 of file Utils.c.
+Definition at line 568 of file Utils.c.
 .PP
 References i_in_set().
 .PP
@@ -187,7 +196,7 @@ matrix product x *% y
 .PP
 
 .PP
-Definition at line 297 of file Utils.c.
+Definition at line 357 of file Utils.c.
 .PP
 Referenced by R_matprod().
 .SS "void C_matprodT (double * x, int nrx, int ncx, double * y, int nry, int ncy, double * z)"
@@ -213,7 +222,7 @@ matrix product x *% t(y)
 .PP
 
 .PP
-Definition at line 349 of file Utils.c.
+Definition at line 409 of file Utils.c.
 .PP
 Referenced by R_matprodT().
 .SS "double C_max (const double * x, const int n)"
@@ -229,7 +238,7 @@ the maximum of a double vector
 .PP
 
 .PP
-Definition at line 222 of file Utils.c.
+Definition at line 282 of file Utils.c.
 .PP
 Referenced by C_maxabsTestStatistic(), C_Node(), and R_max().
 .SS "void C_MPinv (SEXP x, double tol, SEXP svdmem, SEXP ans)"
@@ -249,11 +258,16 @@ Moore-Penrose inverse of a matrix
 .PP
 
 .PP
-Definition at line 128 of file Utils.c.
+Definition at line 188 of file Utils.c.
 .PP
 References CR_svd(), PL2_MPinvSym, PL2_rankSym, and PL2_svdSym.
 .PP
 Referenced by C_LinStatExpCovMPinv(), and R_MPinv().
+.SS "void C_ProbSampleNoReplace (int n, double * p, int * perm, int nans, int * ans)"
+.PP
+Definition at line 512 of file Utils.c.
+.PP
+Referenced by C_SampleSplitting().
 .SS "void C_SampleNoReplace (int * x, int m, int k, int * ans)"
 .PP
 compute a permutation of a (random subset of) 0:(m-1) 
@@ -271,17 +285,44 @@ compute a permutation of a (random subset of) 0:(m-1)
 .PP
 
 .PP
-Definition at line 397 of file Utils.c.
+Definition at line 457 of file Utils.c.
 .PP
-Referenced by R_Ensemble(), R_permute(), and R_rsubset().
+Referenced by R_permute(), and R_rsubset().
+.SS "void C_SampleSplitting (int n, double * prob, int * weights, int k)"
+.PP
+Definition at line 683 of file Utils.c.
+.PP
+References C_ProbSampleNoReplace().
 .SS "int C_whichmax (double * pvalue, double * teststat, int ninputs)"
 .PP
-Definition at line 492 of file Utils.c.
+Definition at line 587 of file Utils.c.
 .PP
 Referenced by C_Node(), and R_whichmax().
+.SS "void CR_La_svd (SEXP jobu, SEXP jobv, SEXP x, SEXP s, SEXP u, SEXP v, SEXP method, SEXP val)"
+.PP
+C- and R-interface to La_svd 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIjobu\fP 
+.br
+\fIjobv\fP x  s 
+.br
+\fIu\fP 
+.br
+\fIv\fP 
+.br
+\fImethod\fP 
+.br
+\fIval\fP svd slot of svdmem object 
+.RE
+.PP
+
+.PP
+Definition at line 103 of file Utils.c.
 .SS "SEXP CR_svd (SEXP x, SEXP svdmem)"
 .PP
-C- and R-interface to La_svd (R/src/main/lapack.c) 
+C- and R-interface to CR_La_svd 
 .PP
 \fBParameters:\fP
 .RS 4
@@ -292,7 +333,7 @@ C- and R-interface to La_svd (R/src/main/lapack.c)
 .PP
 
 .PP
-Definition at line 97 of file Utils.c.
+Definition at line 157 of file Utils.c.
 .PP
 References PL2_pSym, PL2_uSym, and PL2_vSym.
 .PP
@@ -312,17 +353,17 @@ determine if i is element of the integer vector set
 .PP
 
 .PP
-Definition at line 458 of file Utils.c.
+Definition at line 553 of file Utils.c.
 .PP
 Referenced by C_i_in_set(), and C_splitnode().
 .SS "int ncol (SEXP x)"
 .PP
-Definition at line 484 of file Utils.c.
+Definition at line 579 of file Utils.c.
 .PP
-Referenced by C_GlobalTest(), C_IndependenceTest(), C_Node(), C_splitnode(), R_Ensemble(), R_ExpectCovarInfluence(), R_ExpectCovarLinearStatistic(), R_LinearStatistic(), R_matprod(), R_matprodT(), R_MPinv(), R_Node(), R_predictRF2(), R_split(), R_splitcategorical(), and R_TreeGrow().
+Referenced by C_GlobalTest(), C_IndependenceTest(), C_Node(), C_splitnode(), R_ExpectCovarInfluence(), R_ExpectCovarLinearStatistic(), R_LinearStatistic(), R_matprod(), R_matprodT(), R_MPinv(), R_Node(), R_predictRF2(), R_split(), R_splitcategorical(), and R_TreeGrow().
 .SS "int nrow (SEXP x)"
 .PP
-Definition at line 480 of file Utils.c.
+Definition at line 575 of file Utils.c.
 .PP
 Referenced by C_IndependenceTest(), R_ExpectCovarInfluence(), R_ExpectCovarLinearStatistic(), R_LinearStatistic(), R_matprod(), R_matprodT(), R_maxabsConditionalPvalue(), R_MPinv(), R_PermutedLinearStatistic(), R_predictRF2(), R_split(), and R_splitcategorical().
 .SS "SEXP R_abs (SEXP x)"
@@ -336,7 +377,7 @@ R-interface to C_abs
 .PP
 
 .PP
-Definition at line 271 of file Utils.c.
+Definition at line 331 of file Utils.c.
 .PP
 References C_abs().
 .SS "SEXP R_kronecker (SEXP A, SEXP B)"
@@ -357,7 +398,7 @@ Definition at line 52 of file Utils.c.
 References C_kronecker().
 .SS "SEXP R_listplus (SEXP a, SEXP b, SEXP which)"
 .PP
-Definition at line 527 of file Utils.c.
+Definition at line 622 of file Utils.c.
 .SS "SEXP R_matprod (SEXP x, SEXP y)"
 .PP
 R-interface to C_matprod 
@@ -371,7 +412,7 @@ R-interface to C_matprod
 .PP
 
 .PP
-Definition at line 318 of file Utils.c.
+Definition at line 378 of file Utils.c.
 .PP
 References C_matprod(), ncol(), and nrow().
 .SS "SEXP R_matprodT (SEXP x, SEXP y)"
@@ -387,7 +428,7 @@ R-interface to C_matprodT
 .PP
 
 .PP
-Definition at line 370 of file Utils.c.
+Definition at line 430 of file Utils.c.
 .PP
 References C_matprodT(), ncol(), and nrow().
 .SS "SEXP R_max (SEXP x)"
@@ -401,12 +442,12 @@ R-interface to C_max
 .PP
 
 .PP
-Definition at line 238 of file Utils.c.
+Definition at line 298 of file Utils.c.
 .PP
 References C_max().
 .SS "SEXP R_modify_response (SEXP x, SEXP vf)"
 .PP
-Definition at line 559 of file Utils.c.
+Definition at line 654 of file Utils.c.
 .PP
 References get_predict_trafo(), get_test_trafo(), get_transformation(), and get_variable().
 .SS "SEXP R_MPinv (SEXP x, SEXP tol, SEXP svdmem)"
@@ -424,7 +465,7 @@ R-interface to C_MPinv
 .PP
 
 .PP
-Definition at line 187 of file Utils.c.
+Definition at line 247 of file Utils.c.
 .PP
 References C_MPinv(), ncol(), nrow(), PL2_MPinvSym, PL2_pSym, and PL2_rankSym.
 .SS "SEXP R_permute (SEXP m)"
@@ -438,7 +479,7 @@ R-interface to C_SampleNoReplace: the permutation case
 .PP
 
 .PP
-Definition at line 416 of file Utils.c.
+Definition at line 476 of file Utils.c.
 .PP
 References C_SampleNoReplace().
 .SS "SEXP R_rsubset (SEXP m, SEXP k)"
@@ -454,17 +495,17 @@ R-interface to C_SampleNoReplace: the subset case
 .PP
 
 .PP
-Definition at line 436 of file Utils.c.
+Definition at line 496 of file Utils.c.
 .PP
 References C_SampleNoReplace().
 .SS "SEXP R_whichmax (SEXP x, SEXP y)"
 .PP
-Definition at line 517 of file Utils.c.
+Definition at line 612 of file Utils.c.
 .PP
 References C_whichmax().
 .SS "double F77_SUB() unifrnd (void)"
 .PP
-Definition at line 586 of file Utils.c.
+Definition at line 681 of file Utils.c.
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for party from the source code.

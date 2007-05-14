@@ -18,8 +18,14 @@ varimp(x, mincriterion = 0.0)
   \item{subset}{ an optional vector specifying a subset of observations to be
                  used in the fitting process.}
   \item{weights}{ an optional vector of weights to be used in the fitting
-                  process. Only non-negative integer valued weights are
-                  allowed.}
+                  process. Non-negative integer valued weights are
+                  allowed as well as non-negative real weights.
+                  Observations are sampled (with or without replacement)
+                  according to probabilities \code{weights / sum(weights)}.
+                  The fraction of observations to be sampled (without replacement)
+                  is computed based on the sum of the weights if all weights
+                  are integer-valued and based on the number of weights greater zero
+                  else. }
   \item{controls}{an object of class \code{\link{ForestControl-class}}, which can be
                   obtained using \code{\link{cforest_control}}.}
   \item{xtrafo}{ a function to be applied to all input variables.

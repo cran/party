@@ -48,6 +48,7 @@ mob_fit_setupnode <- function(obj, mf, weights, control) {
     objfun <- control$objfun
     verbose <- control$verbose
     breakties <- control$breakties
+    parm <- control$parm
 
     ### if too few observations: no split = return terminal node
     if (sum(weights) < 2 * minsplit) {
@@ -59,7 +60,8 @@ mob_fit_setupnode <- function(obj, mf, weights, control) {
     }
 
     ### variable selection via fluctuation tests
-    test <- try(mob_fit_fluctests(obj, mf, minsplit = minsplit, trim = trim, breakties = breakties))
+    test <- try(mob_fit_fluctests(obj, mf, minsplit = minsplit, trim = trim,
+      breakties = breakties, parm = parm))
 
     if(bonferroni) {
       pval1 <- pmin(1, sum(!is.na(test$pval)) * test$pval)
@@ -146,7 +148,7 @@ mob_fit_setupnode <- function(obj, mf, weights, control) {
 ### conduct all M-fluctuation tests of fitted obj 
 ### with respect to each variable from a set of
 ### potential partitioning variables in mf
-mob_fit_fluctests <- function(obj, mf, minsplit, trim, breakties) {
+mob_fit_fluctests <- function(obj, mf, minsplit, trim, breakties, parm) {
   ## Cramer-von Mises statistic might be supported in future versions
   CvM <- FALSE
   
@@ -181,6 +183,10 @@ mob_fit_fluctests <- function(obj, mf, minsplit, trim, breakties) {
   process <- process/sqrt(n)
   J12 <- root.matrix(crossprod(process))
   process <- t(chol2inv(chol(J12)) %*% t(process))  
+
+  ## select parameters to test
+  if(!is.null(parm)) process <- process[, parm, drop = FALSE]
+  k <- NCOL(process)
 
   ## get critical values for CvM statistic
   if(CvM) {

@@ -32,7 +32,7 @@ cforest_control(teststat = "max",
   \item{replace}{ a logical indicating whether sampling of observations is 
                  done with or without replacement.}
   \item{fraction}{ fraction of number of observations to draw without 
-                   replacement (\code{replace = TRUE}).}
+                   replacement (only relevant if \code{replace = TRUE}).}
   \item{\dots}{ additional arguments to be passed to 
                 \code{\link{ctree_control}}.}
 }

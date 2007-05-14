@@ -1,4 +1,4 @@
-.TH "Utils.h" 3 "20 Feb 2007" "party" \" -*- nroff -*-
+.TH "Utils.h" 3 "20 Jun 2007" "party" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -48,6 +48,9 @@ Utils.h \-
 .ti -1c
 .RI "int \fBC_i_in_set\fP (int i, SEXP set)"
 .br
+.ti -1c
+.RI "void \fBC_SampleSplitting\fP (int n, double *prob, int *weights, int k)"
+.br
 .in -1c
 .SH "Function Documentation"
 .PP 
@@ -64,12 +67,12 @@ absolute value
 .PP
 
 .PP
-Definition at line 259 of file Utils.c.
+Definition at line 319 of file Utils.c.
 .PP
 Referenced by C_absstandardize(), and R_abs().
 .SS "int C_i_in_set (int i, SEXP set)"
 .PP
-Definition at line 473 of file Utils.c.
+Definition at line 568 of file Utils.c.
 .PP
 References i_in_set().
 .PP
@@ -125,7 +128,7 @@ matrix product x *% y
 .PP
 
 .PP
-Definition at line 297 of file Utils.c.
+Definition at line 357 of file Utils.c.
 .PP
 Referenced by R_matprod().
 .SS "void C_matprodT (double * x, int nrx, int ncx, double * y, int nry, int ncy, double * z)"
@@ -151,7 +154,7 @@ matrix product x *% t(y)
 .PP
 
 .PP
-Definition at line 349 of file Utils.c.
+Definition at line 409 of file Utils.c.
 .PP
 Referenced by R_matprodT().
 .SS "double C_max (const double * x, const int n)"
@@ -167,7 +170,7 @@ the maximum of a double vector
 .PP
 
 .PP
-Definition at line 222 of file Utils.c.
+Definition at line 282 of file Utils.c.
 .PP
 Referenced by C_maxabsTestStatistic(), C_Node(), and R_max().
 .SS "void C_MPinv (SEXP x, double tol, SEXP svdmem, SEXP ans)"
@@ -187,7 +190,7 @@ Moore-Penrose inverse of a matrix
 .PP
 
 .PP
-Definition at line 128 of file Utils.c.
+Definition at line 188 of file Utils.c.
 .PP
 References CR_svd(), PL2_MPinvSym, PL2_rankSym, and PL2_svdSym.
 .PP
@@ -209,12 +212,17 @@ compute a permutation of a (random subset of) 0:(m-1)
 .PP
 
 .PP
-Definition at line 397 of file Utils.c.
+Definition at line 457 of file Utils.c.
 .PP
-Referenced by R_Ensemble(), R_permute(), and R_rsubset().
+Referenced by R_permute(), and R_rsubset().
+.SS "void C_SampleSplitting (int n, double * prob, int * weights, int k)"
+.PP
+Definition at line 683 of file Utils.c.
+.PP
+References C_ProbSampleNoReplace().
 .SS "int C_whichmax (double * pvalue, double * teststat, int ninputs)"
 .PP
-Definition at line 492 of file Utils.c.
+Definition at line 587 of file Utils.c.
 .PP
 Referenced by C_Node(), and R_whichmax().
 .SS "int i_in_set (int i, int * iset, int p)"
@@ -232,19 +240,19 @@ determine if i is element of the integer vector set
 .PP
 
 .PP
-Definition at line 458 of file Utils.c.
+Definition at line 553 of file Utils.c.
 .PP
 Referenced by C_i_in_set(), and C_splitnode().
 .SS "SEXP La_svd (SEXP jobu, SEXP jobv, SEXP x, SEXP s, SEXP u, SEXP v, SEXP method)"
 .PP
 .SS "int ncol (SEXP y)"
 .PP
-Definition at line 484 of file Utils.c.
+Definition at line 579 of file Utils.c.
 .PP
-Referenced by C_GlobalTest(), C_IndependenceTest(), C_Node(), C_splitnode(), R_Ensemble(), R_ExpectCovarInfluence(), R_ExpectCovarLinearStatistic(), R_LinearStatistic(), R_matprod(), R_matprodT(), R_MPinv(), R_Node(), R_predictRF2(), R_split(), R_splitcategorical(), and R_TreeGrow().
+Referenced by C_GlobalTest(), C_IndependenceTest(), C_Node(), C_splitnode(), R_ExpectCovarInfluence(), R_ExpectCovarLinearStatistic(), R_LinearStatistic(), R_matprod(), R_matprodT(), R_MPinv(), R_Node(), R_predictRF2(), R_split(), R_splitcategorical(), and R_TreeGrow().
 .SS "int nrow (SEXP x)"
 .PP
-Definition at line 480 of file Utils.c.
+Definition at line 575 of file Utils.c.
 .PP
 Referenced by C_IndependenceTest(), R_ExpectCovarInfluence(), R_ExpectCovarLinearStatistic(), R_LinearStatistic(), R_matprod(), R_matprodT(), R_maxabsConditionalPvalue(), R_MPinv(), R_PermutedLinearStatistic(), R_predictRF2(), R_split(), and R_splitcategorical().
 .SH "Author"

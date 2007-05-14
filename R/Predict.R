@@ -1,5 +1,5 @@
 
-# $Id: Predict.R 2463 2006-02-14 09:07:14Z hothorn $
+# $Id: Predict.R 3537 2007-06-11 11:38:24Z hothorn $
 
 predict.BinaryTree <- function(object, ...) {
     conditionalTree@predict(object, ...)
@@ -47,8 +47,10 @@ weights.RandomForest <- function(object, newdata = NULL, OOB = FALSE, ...)
 setGeneric("where", function(object, ...) standardGeneric("where"))
 
 setMethod("where", signature = signature(object = "BinaryTree"),
-    definition = function(object, newdata = NULL, ...)
-        object@get_where(newdata = newdata, ...)
+    definition = function(object, newdata = NULL, ...) {
+        if(is.null(newdata)) object@where
+	    else object@get_where(newdata = newdata, ...)
+    }
 )
 
 

@@ -18,6 +18,8 @@ void \hyperlink{Utils_8c_12e882779ecd0445c3a0dd9ac85dfeee}{C\_\-kronecker} (cons
 \item 
 SEXP \hyperlink{Utils_8c_95f5ed4c75d42e2e98ed09c9c9d48ff5}{R\_\-kronecker} (SEXP A, SEXP B)
 \item 
+void \hyperlink{Utils_8c_1395c7ea6c536d8214e033e8f599e803}{CR\_\-La\_\-svd} (SEXP jobu, SEXP jobv, SEXP x, SEXP s, SEXP u, SEXP v, SEXP method, SEXP val)
+\item 
 SEXP \hyperlink{Utils_8c_4534205c84c2784248b60818d7c2f3d6}{CR\_\-svd} (SEXP x, SEXP svdmem)
 \item 
 void \hyperlink{Utils_8c_c0d5c2fe971923d7a1b1869dffabddb1}{C\_\-MPinv} (SEXP x, double tol, SEXP svdmem, SEXP ans)
@@ -46,6 +48,8 @@ SEXP \hyperlink{Utils_8c_dfb2cc4acd2e6897f67e6467e241aba6}{R\_\-permute} (SEXP m
 \item 
 SEXP \hyperlink{Utils_8c_2f3955eb1326f77826baad7194f6ea67}{R\_\-rsubset} (SEXP m, SEXP k)
 \item 
+void \hyperlink{Utils_8c_ddcc956c37a6db1886b633ee484cee1b}{C\_\-Prob\-Sample\-No\-Replace} (int n, double $\ast$p, int $\ast$perm, int nans, int $\ast$ans)
+\item 
 int \hyperlink{Utils_8c_ae969040bb060d2874fd969e20675bbb}{i\_\-in\_\-set} (int i, int $\ast$iset, int p)
 \item 
 int \hyperlink{Utils_8c_ff0eae9aa0175cd8fe73324707418ce0}{C\_\-i\_\-in\_\-set} (int i, SEXP set)
@@ -63,6 +67,8 @@ SEXP \hyperlink{Utils_8c_e4355e64aefaea19f42be248fec1f47d}{R\_\-listplus} (SEXP 
 SEXP \hyperlink{Utils_8c_cfdb060aa1651f62dab395e2158f982e}{R\_\-modify\_\-response} (SEXP x, SEXP vf)
 \item 
 double F77\_\-SUB() \hyperlink{Utils_8c_f9a6700f5486c12cebdcf2f5fd1fcf73}{unifrnd} (void)
+\item 
+void \hyperlink{Utils_8c_88c1a807c7856d57d07d10027d588602}{C\_\-Sample\-Splitting} (int n, double $\ast$prob, int $\ast$weights, int k)
 \end{CompactItemize}
 
 
@@ -75,7 +81,7 @@ Some commonly needed utility functions.
 \end{Desc}
 \begin{Desc}
 \item[Date:]\begin{Desc}
-\item[Date]2007-02-02 11:22:45 +0100 (Fri, 02 Feb 2007) \end{Desc}
+\item[Date]2007-06-08 16:58:30 +0200 (Fri, 08 Jun 2007) \end{Desc}
 \end{Desc}
 
 
@@ -96,7 +102,7 @@ absolute value \begin{Desc}
 \end{Desc}
 
 
-Definition at line 259 of file Utils.c.
+Definition at line 319 of file Utils.c.
 
 Referenced by C\_\-absstandardize(), and R\_\-abs().\hypertarget{Utils_8c_ff0eae9aa0175cd8fe73324707418ce0}{
 \index{Utils.c@{Utils.c}!C_i_in_set@{C\_\-i\_\-in\_\-set}}
@@ -107,7 +113,7 @@ Referenced by C\_\-absstandardize(), and R\_\-abs().\hypertarget{Utils_8c_ff0eae
 
 
 
-Definition at line 473 of file Utils.c.
+Definition at line 568 of file Utils.c.
 
 References i\_\-in\_\-set().
 
@@ -150,7 +156,7 @@ matrix product x $\ast$\% y \begin{Desc}
 \end{Desc}
 
 
-Definition at line 297 of file Utils.c.
+Definition at line 357 of file Utils.c.
 
 Referenced by R\_\-matprod().\hypertarget{Utils_8c_9097078e7e5f9b9e900a49f07b99efff}{
 \index{Utils.c@{Utils.c}!C_matprodT@{C\_\-matprodT}}
@@ -166,7 +172,7 @@ matrix product x $\ast$\% t(y) \begin{Desc}
 \end{Desc}
 
 
-Definition at line 349 of file Utils.c.
+Definition at line 409 of file Utils.c.
 
 Referenced by R\_\-matprod\-T().\hypertarget{Utils_8c_5b306a6923d1155e6ce877cf6fa12a42}{
 \index{Utils.c@{Utils.c}!C_max@{C\_\-max}}
@@ -182,7 +188,7 @@ the maximum of a double vector \begin{Desc}
 \end{Desc}
 
 
-Definition at line 222 of file Utils.c.
+Definition at line 282 of file Utils.c.
 
 Referenced by C\_\-maxabs\-Test\-Statistic(), C\_\-Node(), and R\_\-max().\hypertarget{Utils_8c_c0d5c2fe971923d7a1b1869dffabddb1}{
 \index{Utils.c@{Utils.c}!C_MPinv@{C\_\-MPinv}}
@@ -198,7 +204,7 @@ Moore-Penrose inverse of a matrix \begin{Desc}
 \end{Desc}
 
 
-Definition at line 128 of file Utils.c.
+Definition at line 188 of file Utils.c.
 
 References CR\_\-svd(), PL2\_\-MPinv\-Sym, PL2\_\-rank\-Sym, and PL2\_\-svd\-Sym.
 
@@ -210,7 +216,18 @@ Here is the call graph for this function:\begin{figure}[H]
 \includegraphics[width=91pt]{Utils_8c_c0d5c2fe971923d7a1b1869dffabddb1_cgraph}
 \end{center}
 \end{figure}
-\hypertarget{Utils_8c_f7c710920d1496d23fdabad9b1d0e18c}{
+\hypertarget{Utils_8c_ddcc956c37a6db1886b633ee484cee1b}{
+\index{Utils.c@{Utils.c}!C_ProbSampleNoReplace@{C\_\-ProbSampleNoReplace}}
+\index{C_ProbSampleNoReplace@{C\_\-ProbSampleNoReplace}!Utils.c@{Utils.c}}
+\subsubsection[C\_\-ProbSampleNoReplace]{\setlength{\rightskip}{0pt plus 5cm}void C\_\-Prob\-Sample\-No\-Replace (int {\em n}, double $\ast$ {\em p}, int $\ast$ {\em perm}, int {\em nans}, int $\ast$ {\em ans})}}
+\label{Utils_8c_ddcc956c37a6db1886b633ee484cee1b}
+
+
+
+
+Definition at line 512 of file Utils.c.
+
+Referenced by C\_\-Sample\-Splitting().\hypertarget{Utils_8c_f7c710920d1496d23fdabad9b1d0e18c}{
 \index{Utils.c@{Utils.c}!C_SampleNoReplace@{C\_\-SampleNoReplace}}
 \index{C_SampleNoReplace@{C\_\-SampleNoReplace}!Utils.c@{Utils.c}}
 \subsubsection[C\_\-SampleNoReplace]{\setlength{\rightskip}{0pt plus 5cm}void C\_\-Sample\-No\-Replace (int $\ast$ {\em x}, int {\em m}, int {\em k}, int $\ast$ {\em ans})}}
@@ -224,9 +241,28 @@ compute a permutation of a (random subset of) 0:(m-1) \begin{Desc}
 \end{Desc}
 
 
-Definition at line 397 of file Utils.c.
+Definition at line 457 of file Utils.c.
 
-Referenced by R\_\-Ensemble(), R\_\-permute(), and R\_\-rsubset().\hypertarget{Utils_8c_2a701345082320c18e49d8e7e8150d64}{
+Referenced by R\_\-permute(), and R\_\-rsubset().\hypertarget{Utils_8c_88c1a807c7856d57d07d10027d588602}{
+\index{Utils.c@{Utils.c}!C_SampleSplitting@{C\_\-SampleSplitting}}
+\index{C_SampleSplitting@{C\_\-SampleSplitting}!Utils.c@{Utils.c}}
+\subsubsection[C\_\-SampleSplitting]{\setlength{\rightskip}{0pt plus 5cm}void C\_\-Sample\-Splitting (int {\em n}, double $\ast$ {\em prob}, int $\ast$ {\em weights}, int {\em k})}}
+\label{Utils_8c_88c1a807c7856d57d07d10027d588602}
+
+
+
+
+Definition at line 683 of file Utils.c.
+
+References C\_\-Prob\-Sample\-No\-Replace().
+
+Here is the call graph for this function:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=153pt]{Utils_8c_88c1a807c7856d57d07d10027d588602_cgraph}
+\end{center}
+\end{figure}
+\hypertarget{Utils_8c_2a701345082320c18e49d8e7e8150d64}{
 \index{Utils.c@{Utils.c}!C_whichmax@{C\_\-whichmax}}
 \index{C_whichmax@{C\_\-whichmax}!Utils.c@{Utils.c}}
 \subsubsection[C\_\-whichmax]{\setlength{\rightskip}{0pt plus 5cm}int C\_\-whichmax (double $\ast$ {\em pvalue}, double $\ast$ {\em teststat}, int {\em ninputs})}}
@@ -235,23 +271,37 @@ Referenced by R\_\-Ensemble(), R\_\-permute(), and R\_\-rsubset().\hypertarget{U
 
 
 
-Definition at line 492 of file Utils.c.
+Definition at line 587 of file Utils.c.
 
-Referenced by C\_\-Node(), and R\_\-whichmax().\hypertarget{Utils_8c_4534205c84c2784248b60818d7c2f3d6}{
+Referenced by C\_\-Node(), and R\_\-whichmax().\hypertarget{Utils_8c_1395c7ea6c536d8214e033e8f599e803}{
+\index{Utils.c@{Utils.c}!CR_La_svd@{CR\_\-La\_\-svd}}
+\index{CR_La_svd@{CR\_\-La\_\-svd}!Utils.c@{Utils.c}}
+\subsubsection[CR\_\-La\_\-svd]{\setlength{\rightskip}{0pt plus 5cm}void CR\_\-La\_\-svd (SEXP {\em jobu}, SEXP {\em jobv}, SEXP {\em x}, SEXP {\em s}, SEXP {\em u}, SEXP {\em v}, SEXP {\em method}, SEXP {\em val})}}
+\label{Utils_8c_1395c7ea6c536d8214e033e8f599e803}
+
+
+C- and R-interface to La\_\-svd \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em jobu}]\item[{\em jobv}]x  s \item[{\em u}]\item[{\em v}]\item[{\em method}]\item[{\em val}]svd slot of svdmem object \end{description}
+\end{Desc}
+
+
+Definition at line 103 of file Utils.c.\hypertarget{Utils_8c_4534205c84c2784248b60818d7c2f3d6}{
 \index{Utils.c@{Utils.c}!CR_svd@{CR\_\-svd}}
 \index{CR_svd@{CR\_\-svd}!Utils.c@{Utils.c}}
 \subsubsection[CR\_\-svd]{\setlength{\rightskip}{0pt plus 5cm}SEXP CR\_\-svd (SEXP {\em x}, SEXP {\em svdmem})}}
 \label{Utils_8c_4534205c84c2784248b60818d7c2f3d6}
 
 
-C- and R-interface to La\_\-svd (R/src/main/lapack.c) \begin{Desc}
+C- and R-interface to CR\_\-La\_\-svd \begin{Desc}
 \item[Parameters:]
 \begin{description}
 \item[{\em x}]matrix \item[{\em svdmem}]an object of class `svd\_\-mem' \end{description}
 \end{Desc}
 
 
-Definition at line 97 of file Utils.c.
+Definition at line 157 of file Utils.c.
 
 References PL2\_\-p\-Sym, PL2\_\-u\-Sym, and PL2\_\-v\-Sym.
 
@@ -269,7 +319,7 @@ determine if i is element of the integer vector set \begin{Desc}
 \end{Desc}
 
 
-Definition at line 458 of file Utils.c.
+Definition at line 553 of file Utils.c.
 
 Referenced by C\_\-i\_\-in\_\-set(), and C\_\-splitnode().\hypertarget{Utils_8c_f1f46cc3e98630497a1ccb21d943fe65}{
 \index{Utils.c@{Utils.c}!ncol@{ncol}}
@@ -280,9 +330,9 @@ Referenced by C\_\-i\_\-in\_\-set(), and C\_\-splitnode().\hypertarget{Utils_8c_
 
 
 
-Definition at line 484 of file Utils.c.
+Definition at line 579 of file Utils.c.
 
-Referenced by C\_\-Global\-Test(), C\_\-Independence\-Test(), C\_\-Node(), C\_\-splitnode(), R\_\-Ensemble(), R\_\-Expect\-Covar\-Influence(), R\_\-Expect\-Covar\-Linear\-Statistic(), R\_\-Linear\-Statistic(), R\_\-matprod(), R\_\-matprod\-T(), R\_\-MPinv(), R\_\-Node(), R\_\-predict\-RF2(), R\_\-split(), R\_\-splitcategorical(), and R\_\-Tree\-Grow().\hypertarget{Utils_8c_eeb672a71c45ead28b7b354414f2427a}{
+Referenced by C\_\-Global\-Test(), C\_\-Independence\-Test(), C\_\-Node(), C\_\-splitnode(), R\_\-Expect\-Covar\-Influence(), R\_\-Expect\-Covar\-Linear\-Statistic(), R\_\-Linear\-Statistic(), R\_\-matprod(), R\_\-matprod\-T(), R\_\-MPinv(), R\_\-Node(), R\_\-predict\-RF2(), R\_\-split(), R\_\-splitcategorical(), and R\_\-Tree\-Grow().\hypertarget{Utils_8c_eeb672a71c45ead28b7b354414f2427a}{
 \index{Utils.c@{Utils.c}!nrow@{nrow}}
 \index{nrow@{nrow}!Utils.c@{Utils.c}}
 \subsubsection[nrow]{\setlength{\rightskip}{0pt plus 5cm}int nrow (SEXP {\em x})}}
@@ -291,7 +341,7 @@ Referenced by C\_\-Global\-Test(), C\_\-Independence\-Test(), C\_\-Node(), C\_\-
 
 
 
-Definition at line 480 of file Utils.c.
+Definition at line 575 of file Utils.c.
 
 Referenced by C\_\-Independence\-Test(), R\_\-Expect\-Covar\-Influence(), R\_\-Expect\-Covar\-Linear\-Statistic(), R\_\-Linear\-Statistic(), R\_\-matprod(), R\_\-matprod\-T(), R\_\-maxabs\-Conditional\-Pvalue(), R\_\-MPinv(), R\_\-Permuted\-Linear\-Statistic(), R\_\-predict\-RF2(), R\_\-split(), and R\_\-splitcategorical().\hypertarget{Utils_8c_0d9b1b1601f9e2760200af93d21c59af}{
 \index{Utils.c@{Utils.c}!R_abs@{R\_\-abs}}
@@ -307,7 +357,7 @@ R-interface to C\_\-abs \begin{Desc}
 \end{Desc}
 
 
-Definition at line 271 of file Utils.c.
+Definition at line 331 of file Utils.c.
 
 References C\_\-abs().
 
@@ -350,7 +400,7 @@ Here is the call graph for this function:\begin{figure}[H]
 
 
 
-Definition at line 527 of file Utils.c.\hypertarget{Utils_8c_36672b428d262a38ef8d14000f92f0f5}{
+Definition at line 622 of file Utils.c.\hypertarget{Utils_8c_36672b428d262a38ef8d14000f92f0f5}{
 \index{Utils.c@{Utils.c}!R_matprod@{R\_\-matprod}}
 \index{R_matprod@{R\_\-matprod}!Utils.c@{Utils.c}}
 \subsubsection[R\_\-matprod]{\setlength{\rightskip}{0pt plus 5cm}SEXP R\_\-matprod (SEXP {\em x}, SEXP {\em y})}}
@@ -364,7 +414,7 @@ R-interface to C\_\-matprod \begin{Desc}
 \end{Desc}
 
 
-Definition at line 318 of file Utils.c.
+Definition at line 378 of file Utils.c.
 
 References C\_\-matprod(), ncol(), and nrow().
 
@@ -388,7 +438,7 @@ R-interface to C\_\-matprod\-T \begin{Desc}
 \end{Desc}
 
 
-Definition at line 370 of file Utils.c.
+Definition at line 430 of file Utils.c.
 
 References C\_\-matprod\-T(), ncol(), and nrow().
 
@@ -412,7 +462,7 @@ R-interface to C\_\-max \begin{Desc}
 \end{Desc}
 
 
-Definition at line 238 of file Utils.c.
+Definition at line 298 of file Utils.c.
 
 References C\_\-max().
 
@@ -431,7 +481,7 @@ Here is the call graph for this function:\begin{figure}[H]
 
 
 
-Definition at line 559 of file Utils.c.
+Definition at line 654 of file Utils.c.
 
 References get\_\-predict\_\-trafo(), get\_\-test\_\-trafo(), get\_\-transformation(), and get\_\-variable().
 
@@ -455,7 +505,7 @@ R-interface to C\_\-MPinv \begin{Desc}
 \end{Desc}
 
 
-Definition at line 187 of file Utils.c.
+Definition at line 247 of file Utils.c.
 
 References C\_\-MPinv(), ncol(), nrow(), PL2\_\-MPinv\-Sym, PL2\_\-p\-Sym, and PL2\_\-rank\-Sym.
 
@@ -479,7 +529,7 @@ R-interface to C\_\-Sample\-No\-Replace: the permutation case \begin{Desc}
 \end{Desc}
 
 
-Definition at line 416 of file Utils.c.
+Definition at line 476 of file Utils.c.
 
 References C\_\-Sample\-No\-Replace().
 
@@ -503,7 +553,7 @@ R-interface to C\_\-Sample\-No\-Replace: the subset case \begin{Desc}
 \end{Desc}
 
 
-Definition at line 436 of file Utils.c.
+Definition at line 496 of file Utils.c.
 
 References C\_\-Sample\-No\-Replace().
 
@@ -522,7 +572,7 @@ Here is the call graph for this function:\begin{figure}[H]
 
 
 
-Definition at line 517 of file Utils.c.
+Definition at line 612 of file Utils.c.
 
 References C\_\-whichmax().
 
@@ -541,4 +591,4 @@ Here is the call graph for this function:\begin{figure}[H]
 
 
 
-Definition at line 586 of file Utils.c.
+Definition at line 681 of file Utils.c.

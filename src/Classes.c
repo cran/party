@@ -3,7 +3,7 @@
     S4 classes for package `party'
     *\file Classes.c
     *\author $Author: hothorn $
-    *\date $Date: 2007-02-02 11:22:45 +0100 (Fri, 02 Feb 2007) $
+    *\date $Date: 2007-06-20 18:11:19 +0200 (Wed, 20 Jun 2007) $
 */
 
 #include "party.h"
@@ -18,7 +18,6 @@ SEXP
     PL2_dimensionSym,
     PL2_MPinvSym,  
     PL2_rankSym,
-    PL2_svdSym,
     PL2_svdmemSym,
     PL2_methodSym,
     PL2_jobuSym, 
@@ -85,7 +84,6 @@ SEXP party_init(void) {
     PL2_dimensionSym = install("dimension");
     PL2_MPinvSym = install("MPinv");
     PL2_rankSym = install("rank");
-    PL2_svdSym = install("svd");
     PL2_svdmemSym = install("svdmem");
     PL2_methodSym = install("method");
     PL2_jobuSym = install("jobu");

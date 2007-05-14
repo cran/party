@@ -22,7 +22,7 @@
 }
 
 \usage{
-mob(formula, weights, data = list(), model = glinearModel,
+mob(formula, weights, data = list(), na.action = na.omit, model = glinearModel,
   control = mob_control(), \dots)
 
 \method{predict}{mob}(object, newdata = NULL, type = c("response", "node"), \dots)
@@ -39,6 +39,8 @@ mob(formula, weights, data = list(), model = glinearModel,
   \item{weights}{An optional vector of weights to be used in the fitting
     process. Only non-negative integer valued weights are allowed (default = 1).}
   \item{data}{A data frame containing the variables in the model.}
+  \item{na.action}{A function which indicates what should happen when the data
+    contain \code{NA}s, defaulting to \code{\link[stats]{na.omit}}.}
   \item{model}{A model of class \code{\link[modeltools]{StatModel-class}}. See details
     for requirements.}
   \item{control}{A list with control parameters as returned by

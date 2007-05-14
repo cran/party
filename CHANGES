@@ -1,4 +1,21 @@
 
+                CHANGES IN party VERSION 0.9-11 (2007-06-11)
+
+    o   populate `where' slot in `mob' objects.
+
+    o   `mob_control' now has an `na.action' argument
+
+    o   cforest with replace = FALSE, fraction = ...
+        can now deal with weights (spotted by Carolin Strobl
+        <carolin.strobl@stat.uni-muenchen.de>)
+
+    o   interface to LAPACK (`dgesdd' for computing a SVD)
+        directly. As a side-effect, the svdmem class can be 
+        simplified and no memory allocation during 
+        tree growing is necessary (which results in a measureable
+        performance gain)
+
+
                 CHANGES IN party VERSION 0.9-10 (2007-02-28)
 
     o   internal infrastructure for fit(x, y) interfaces,

@@ -26,9 +26,9 @@
 <a name="l00021"></a><a class="code" href="RandomForest_8c.html#1d975bfdaf516bceb762e16659920f8a">00021</a> SEXP <a class="code" href="RandomForest_8c.html#1d975bfdaf516bceb762e16659920f8a">R_Ensemble</a>(SEXP learnsample, SEXP weights, SEXP fitmem, SEXP controls) {
 <a name="l00022"></a>00022             
 <a name="l00023"></a>00023      SEXP nweights, tree, where, ans;
-<a name="l00024"></a>00024      <span class="keywordtype">double</span> *dnweights, *dweights, sw = 0.0, *prob, fraction;
+<a name="l00024"></a>00024      <span class="keywordtype">double</span> *dnweights, *dweights, sw = 0.0, *prob, tmp;
 <a name="l00025"></a>00025      <span class="keywordtype">int</span> nobs, i, b, B , nodenum = 1, *iweights, *iweightstmp, 
-<a name="l00026"></a>00026          *iwhere, replace;
+<a name="l00026"></a>00026          *iwhere, replace, fraction, wgrzero = 0, realweights = 0;
 <a name="l00027"></a>00027      
 <a name="l00028"></a>00028      B = <a class="code" href="Classes_8c.html#899349b79a444c39ff23856bd802e096">get_ntree</a>(controls);
 <a name="l00029"></a>00029      nobs = <a class="code" href="Classes_8c.html#45df17685bc6c95d03fb65b6f6214de0">get_nobs</a>(learnsample);
@@ -40,65 +40,74 @@
 <a name="l00035"></a>00035      prob = Calloc(nobs, <span class="keywordtype">double</span>);
 <a name="l00036"></a>00036      dweights = REAL(weights);
 <a name="l00037"></a>00037 
-<a name="l00038"></a>00038      <span class="keywordflow">for</span> (i = 0; i &lt; nobs; i++)
-<a name="l00039"></a>00039          sw += dweights[i];
-<a name="l00040"></a>00040      <span class="keywordflow">for</span> (i = 0; i &lt; nobs; i++)
-<a name="l00041"></a>00041          prob[i] = dweights[i]/sw;
-<a name="l00042"></a>00042 
-<a name="l00043"></a>00043      replace = <a class="code" href="Classes_8c.html#2c31f2150a75ae67496074deeaea1f96">get_replace</a>(controls);
-<a name="l00044"></a>00044      fraction = <a class="code" href="Classes_8c.html#3367507eb875c7601cdb9d77f15b5871">get_fraction</a>(controls) * nobs;
-<a name="l00045"></a>00045 
-<a name="l00046"></a>00046      <span class="keywordflow">if</span> (!replace) {
-<a name="l00047"></a>00047          <span class="keywordflow">if</span> (fraction &lt; 10)
-<a name="l00048"></a>00048              error(<span class="stringliteral">"fraction of %f is too small"</span>, fraction);
-<a name="l00049"></a>00049      }
-<a name="l00050"></a>00050 
-<a name="l00051"></a>00051      <span class="comment">/* &lt;FIXME&gt; can we call those guys ONCE? what about the deeper</span>
-<a name="l00052"></a>00052 <span class="comment">         calls??? &lt;/FIXME&gt; */</span>
-<a name="l00053"></a>00053      GetRNGstate();
-<a name="l00054"></a>00054   
-<a name="l00055"></a>00055      <span class="keywordflow">for</span> (b  = 0; b &lt; B; b++) {
-<a name="l00056"></a>00056          SET_VECTOR_ELT(ans, b, tree = allocVector(VECSXP, <a class="code" href="party_8h.html#2594b3a85c654c34048133cb81ad0fab">NODE_LENGTH</a> + 1));
-<a name="l00057"></a>00057          SET_VECTOR_ELT(tree, <a class="code" href="party_8h.html#2594b3a85c654c34048133cb81ad0fab">NODE_LENGTH</a>, where = allocVector(INTSXP, nobs));
-<a name="l00058"></a>00058          iwhere = INTEGER(where);
-<a name="l00059"></a>00059          <span class="keywordflow">for</span> (i = 0; i &lt; nobs; i++) iwhere[i] = 0;
-<a name="l00060"></a>00060      
-<a name="l00061"></a>00061          <a class="code" href="S3Classes_8c.html#f837f0cf74c62c53c74138c4dbb9acc0">C_init_node</a>(tree, nobs, <a class="code" href="Classes_8c.html#9117d8f57ea1378c725c7299d6cc2923">get_ninputs</a>(learnsample), 
-<a name="l00062"></a>00062                      <a class="code" href="Classes_8c.html#b89e4da7a60580c3adbe7c4f4935581c">get_maxsurrogate</a>(<a class="code" href="Classes_8c.html#d914bd038dca4d2a1b9847f46bdb78f9">get_splitctrl</a>(controls)),
-<a name="l00063"></a>00063                      <a class="code" href="Utils_8c.html#f1f46cc3e98630497a1ccb21d943fe65">ncol</a>(<a class="code" href="Classes_8c.html#b86d70ff194260cc9bd391d3ff55b157">get_predict_trafo</a>(GET_SLOT(learnsample, 
-<a name="l00064"></a>00064                                                    <a class="code" href="Classes_8c.html#9ad5f5cd65458d95a8ffae2d450ec850">PL2_responsesSym</a>))));
-<a name="l00065"></a>00065 
-<a name="l00066"></a>00066          <span class="comment">/* generate altered weights for perturbation */</span>
-<a name="l00067"></a>00067          <span class="keywordflow">if</span> (replace) {
-<a name="l00068"></a>00068              <span class="comment">/* weights for a bootstrap sample */</span>
-<a name="l00069"></a>00069              rmultinom((<span class="keywordtype">int</span>) sw, prob, nobs, iweights);
-<a name="l00070"></a>00070          } <span class="keywordflow">else</span> {
-<a name="l00071"></a>00071              <span class="comment">/* weights for sample splitting */</span>
-<a name="l00072"></a>00072              <a class="code" href="Utils_8c.html#f7c710920d1496d23fdabad9b1d0e18c">C_SampleNoReplace</a>(iweightstmp, nobs, nobs, iweights);
-<a name="l00073"></a>00073              <span class="keywordflow">for</span> (i = 0; i &lt; nobs; i++) {
-<a name="l00074"></a>00074                  <span class="keywordflow">if</span> (iweights[i] &lt; fraction) {
-<a name="l00075"></a>00075                      iweights[i] = 1;
-<a name="l00076"></a>00076                  } <span class="keywordflow">else</span> {
-<a name="l00077"></a>00077                     iweights[i] = 0;
-<a name="l00078"></a>00078                  } 
-<a name="l00079"></a>00079              }
-<a name="l00080"></a>00080          }
+<a name="l00038"></a>00038      <span class="keywordflow">for</span> (i = 0; i &lt; nobs; i++) {
+<a name="l00039"></a>00039          <span class="comment">/* sum of weights */</span>
+<a name="l00040"></a>00040          sw += dweights[i];
+<a name="l00041"></a>00041          <span class="comment">/* number of weights &gt; 0 */</span>
+<a name="l00042"></a>00042          <span class="keywordflow">if</span> (dweights[i] &gt; 0) wgrzero++;
+<a name="l00043"></a>00043          <span class="comment">/* case weights or real weights? */</span>
+<a name="l00044"></a>00044          <span class="keywordflow">if</span> (dweights[i] - ftrunc(dweights[i]) &gt; 0) 
+<a name="l00045"></a>00045              realweights = 1;
+<a name="l00046"></a>00046      }
+<a name="l00047"></a>00047      <span class="keywordflow">for</span> (i = 0; i &lt; nobs; i++)
+<a name="l00048"></a>00048          prob[i] = dweights[i]/sw;
+<a name="l00049"></a>00049 
+<a name="l00050"></a>00050      replace = <a class="code" href="Classes_8c.html#2c31f2150a75ae67496074deeaea1f96">get_replace</a>(controls);
+<a name="l00051"></a>00051      <span class="comment">/* fraction of number of obs with weight &gt; 0 */</span>
+<a name="l00052"></a>00052      <span class="keywordflow">if</span> (realweights) {
+<a name="l00053"></a>00053          <span class="comment">/* fraction of number of obs with weight &gt; 0 for real weights*/</span>
+<a name="l00054"></a>00054          tmp = (<a class="code" href="Classes_8c.html#3367507eb875c7601cdb9d77f15b5871">get_fraction</a>(controls) * wgrzero);
+<a name="l00055"></a>00055      } <span class="keywordflow">else</span> {
+<a name="l00056"></a>00056          <span class="comment">/* fraction of sum of weights for case weights */</span>
+<a name="l00057"></a>00057          tmp = (<a class="code" href="Classes_8c.html#3367507eb875c7601cdb9d77f15b5871">get_fraction</a>(controls) * sw);
+<a name="l00058"></a>00058      }
+<a name="l00059"></a>00059      fraction = (int) ftrunc(tmp);
+<a name="l00060"></a>00060      <span class="keywordflow">if</span> (ftrunc(tmp) &lt; tmp) fraction++;
+<a name="l00061"></a>00061 
+<a name="l00062"></a>00062      <span class="keywordflow">if</span> (!replace) {
+<a name="l00063"></a>00063          <span class="keywordflow">if</span> (fraction &lt; 10)
+<a name="l00064"></a>00064              error(<span class="stringliteral">"fraction of %f is too small"</span>, fraction);
+<a name="l00065"></a>00065      }
+<a name="l00066"></a>00066 
+<a name="l00067"></a>00067      <span class="comment">/* &lt;FIXME&gt; can we call those guys ONCE? what about the deeper</span>
+<a name="l00068"></a>00068 <span class="comment">         calls??? &lt;/FIXME&gt; */</span>
+<a name="l00069"></a>00069      GetRNGstate();
+<a name="l00070"></a>00070   
+<a name="l00071"></a>00071      <span class="keywordflow">for</span> (b  = 0; b &lt; B; b++) {
+<a name="l00072"></a>00072          SET_VECTOR_ELT(ans, b, tree = allocVector(VECSXP, <a class="code" href="party_8h.html#2594b3a85c654c34048133cb81ad0fab">NODE_LENGTH</a> + 1));
+<a name="l00073"></a>00073          SET_VECTOR_ELT(tree, <a class="code" href="party_8h.html#2594b3a85c654c34048133cb81ad0fab">NODE_LENGTH</a>, where = allocVector(INTSXP, nobs));
+<a name="l00074"></a>00074          iwhere = INTEGER(where);
+<a name="l00075"></a>00075          <span class="keywordflow">for</span> (i = 0; i &lt; nobs; i++) iwhere[i] = 0;
+<a name="l00076"></a>00076      
+<a name="l00077"></a>00077          <a class="code" href="S3Classes_8c.html#f837f0cf74c62c53c74138c4dbb9acc0">C_init_node</a>(tree, nobs, <a class="code" href="Classes_8c.html#9117d8f57ea1378c725c7299d6cc2923">get_ninputs</a>(learnsample), 
+<a name="l00078"></a>00078                      <a class="code" href="Classes_8c.html#b89e4da7a60580c3adbe7c4f4935581c">get_maxsurrogate</a>(<a class="code" href="Classes_8c.html#d914bd038dca4d2a1b9847f46bdb78f9">get_splitctrl</a>(controls)),
+<a name="l00079"></a>00079                      <a class="code" href="Utils_8c.html#f1f46cc3e98630497a1ccb21d943fe65">ncol</a>(<a class="code" href="Classes_8c.html#b86d70ff194260cc9bd391d3ff55b157">get_predict_trafo</a>(GET_SLOT(learnsample, 
+<a name="l00080"></a>00080                                                    <a class="code" href="Classes_8c.html#9ad5f5cd65458d95a8ffae2d450ec850">PL2_responsesSym</a>))));
 <a name="l00081"></a>00081 
-<a name="l00082"></a>00082          nweights = <a class="code" href="S3Classes_8c.html#c3785782483b5bf4afe9d606e280f3ca">S3get_nodeweights</a>(tree);
-<a name="l00083"></a>00083          dnweights = REAL(nweights);
-<a name="l00084"></a>00084          <span class="keywordflow">for</span> (i = 0; i &lt; nobs; i++) dnweights[i] = (<span class="keywordtype">double</span>) iweights[i];
-<a name="l00085"></a>00085      
-<a name="l00086"></a>00086          <a class="code" href="TreeGrow_8c.html#67d352c38f59d30c7b9954bf5d3a57ad">C_TreeGrow</a>(tree, learnsample, fitmem, controls, iwhere, &amp;nodenum, 1);
-<a name="l00087"></a>00087          nodenum = 1;
-<a name="l00088"></a>00088      }
-<a name="l00089"></a>00089 
-<a name="l00090"></a>00090      PutRNGstate();
-<a name="l00091"></a>00091 
-<a name="l00092"></a>00092      Free(prob); Free(iweights); Free(iweightstmp);
-<a name="l00093"></a>00093      UNPROTECT(1);
-<a name="l00094"></a>00094      <span class="keywordflow">return</span>(ans);
-<a name="l00095"></a>00095 }
-</pre></div><hr size="1"><address style="align: right;"><small>Generated on Tue Feb 20 11:11:58 2007 for party by&nbsp;
+<a name="l00082"></a>00082          <span class="comment">/* generate altered weights for perturbation */</span>
+<a name="l00083"></a>00083          <span class="keywordflow">if</span> (replace) {
+<a name="l00084"></a>00084              <span class="comment">/* weights for a bootstrap sample */</span>
+<a name="l00085"></a>00085              rmultinom((<span class="keywordtype">int</span>) sw, prob, nobs, iweights);
+<a name="l00086"></a>00086          } <span class="keywordflow">else</span> {
+<a name="l00087"></a>00087              <span class="comment">/* weights for sample splitting */</span>
+<a name="l00088"></a>00088              <a class="code" href="Utils_8c.html#88c1a807c7856d57d07d10027d588602">C_SampleSplitting</a>(nobs, prob, iweights, fraction);
+<a name="l00089"></a>00089          }
+<a name="l00090"></a>00090 
+<a name="l00091"></a>00091          nweights = <a class="code" href="S3Classes_8c.html#c3785782483b5bf4afe9d606e280f3ca">S3get_nodeweights</a>(tree);
+<a name="l00092"></a>00092          dnweights = REAL(nweights);
+<a name="l00093"></a>00093          <span class="keywordflow">for</span> (i = 0; i &lt; nobs; i++) dnweights[i] = (<span class="keywordtype">double</span>) iweights[i];
+<a name="l00094"></a>00094      
+<a name="l00095"></a>00095          <a class="code" href="TreeGrow_8c.html#67d352c38f59d30c7b9954bf5d3a57ad">C_TreeGrow</a>(tree, learnsample, fitmem, controls, iwhere, &amp;nodenum, 1);
+<a name="l00096"></a>00096          nodenum = 1;
+<a name="l00097"></a>00097      }
+<a name="l00098"></a>00098 
+<a name="l00099"></a>00099      PutRNGstate();
+<a name="l00100"></a>00100 
+<a name="l00101"></a>00101      Free(prob); Free(iweights); Free(iweightstmp);
+<a name="l00102"></a>00102      UNPROTECT(1);
+<a name="l00103"></a>00103      <span class="keywordflow">return</span>(ans);
+<a name="l00104"></a>00104 }
+</pre></div><hr size="1"><address style="align: right;"><small>Generated on Wed Jun 20 15:55:33 2007 for party by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6 </small></address>
 </body>

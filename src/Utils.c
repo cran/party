@@ -3,7 +3,7 @@
     Some commonly needed utility functions.
     *\file Utils.c
     *\author $Author: hothorn $
-    *\date $Date: 2007-02-02 11:22:45 +0100 (Fri, 02 Feb 2007) $
+    *\date $Date: 2007-06-20 18:11:19 +0200 (Wed, 20 Jun 2007) $
 */
                 
 #include "party.h"
@@ -89,7 +89,64 @@ SEXP R_kronecker (SEXP A, SEXP B) {
 
 
 /**
-    C- and R-interface to La_svd (R/src/main/lapack.c)
+    C- and R-interface to La_svd 
+    *\param jobu
+    *\param jobv
+    *\parm x
+    *\parm s
+    *\param u
+    *\param v
+    *\param method
+    *\param val svd slot of svdmem object
+*/
+
+void CR_La_svd(SEXP jobu, SEXP jobv, SEXP x, SEXP s, SEXP u, SEXP v,
+               SEXP method)
+{
+    int *xdims, n, p, lwork, info = 0;
+    double *work, *xvals, tmp;
+    char *meth;
+
+    if (!(isString(jobu) && isString(jobv)))
+	error(("'jobu' and 'jobv' must be character strings"));
+    if (!isString(method))
+	error(("'method' must be a character string"));
+    meth = CHAR(STRING_ELT(method, 0));
+    xdims = INTEGER(coerceVector(getAttrib(x, R_DimSymbol), INTSXP));
+    n = xdims[0]; p = xdims[1];
+    xvals = Calloc(n * p, double);
+    /* work on a copy of x */
+    Memcpy(xvals, REAL(x), (size_t) (n * p));
+
+    {
+	int ldu = INTEGER(getAttrib(u, R_DimSymbol))[0],
+	    ldvt = INTEGER(getAttrib(v, R_DimSymbol))[0];
+	int *iwork= (int *) R_alloc(8*(n<p ? n : p), sizeof(int));
+
+	/* ask for optimal size of work array */
+	lwork = -1;
+	F77_CALL(dgesdd)(CHAR(STRING_ELT(jobu, 0)),
+			 &n, &p, xvals, &n, REAL(s),
+			 REAL(u), &ldu,
+			 REAL(v), &ldvt,
+			 &tmp, &lwork, iwork, &info);
+	if (info != 0)
+	    error(("error code %d from Lapack routine '%s'"), info, "dgesdd");
+	lwork = (int) tmp;
+	work = Calloc(lwork, double);
+	F77_CALL(dgesdd)(CHAR(STRING_ELT(jobu, 0)),
+			 &n, &p, xvals, &n, REAL(s),
+			 REAL(u), &ldu,
+			 REAL(v), &ldvt,
+			 work, &lwork, iwork, &info);
+	if (info != 0)
+	    error(("error code %d from Lapack routine '%s'"), info, "dgesdd");
+    }
+    Free(work); Free(xvals);
+}
+
+/**
+    C- and R-interface to CR_La_svd
     *\param x matrix
     *\param svdmem an object of class `svd_mem'
 */
@@ -105,14 +162,15 @@ SEXP CR_svd (SEXP x, SEXP svdmem) {
     du = REAL(GET_SLOT(svdmem, PL2_uSym));
     dv = REAL(GET_SLOT(svdmem, PL2_vSym));
     p = INTEGER(GET_SLOT(svdmem, PL2_pSym))[0];
+    if (nrow(x) != p) error("svd p x error");
     for (i = 0; i < p*p; i++) {
         du[i] = 0.0;
         dv[i] = 0.0;
     }
-    SET_SLOT(svdmem, PL2_svdSym, La_svd(GET_SLOT(svdmem, PL2_jobuSym), 
+    CR_La_svd(GET_SLOT(svdmem, PL2_jobuSym), 
         GET_SLOT(svdmem, PL2_jobvSym), x, GET_SLOT(svdmem, PL2_sSym), 
         GET_SLOT(svdmem, PL2_uSym), GET_SLOT(svdmem, PL2_vSym), 
-        GET_SLOT(svdmem, PL2_methodSym)));
+        GET_SLOT(svdmem, PL2_methodSym));
     return(R_NilValue);
 }
 
@@ -136,12 +194,11 @@ void C_MPinv (SEXP x, double tol, SEXP svdmem, SEXP ans) {
     dMPinv = REAL(GET_SLOT(ans, PL2_MPinvSym));
 
     dummy = CR_svd(x, svdmem);
-    svdx = GET_SLOT(svdmem, PL2_svdSym);
-    d = VECTOR_ELT(svdx, 0);
+    d = GET_SLOT(svdmem, PL2_sSym);
     dd = REAL(d);
-    u = VECTOR_ELT(svdx, 1);
+    u = GET_SLOT(svdmem, PL2_uSym);
     du = REAL(u);
-    vt = VECTOR_ELT(svdx, 2);
+    vt = GET_SLOT(svdmem, PL2_vSym);
     dvt = REAL(vt);
     p = LENGTH(d);
 
@@ -447,6 +504,41 @@ SEXP R_rsubset(SEXP m, SEXP k) {
     return(ans);
 }
 
+/* Unequal probability sampling; without-replacement case */
+
+void C_ProbSampleNoReplace(int n, double *p, int *perm,
+                           int nans, int *ans)
+{
+    double rT, mass, totalmass;
+    int i, j, k, n1;
+
+    /* Record element identities */
+    for (i = 0; i < n; i++)
+	perm[i] = i + 1;
+
+    /* Sort probabilities into descending order */
+    /* Order element identities in parallel */
+    revsort(p, perm, n);
+
+    /* Compute the sample */
+    totalmass = 1;
+    for (i = 0, n1 = n-1; i < nans; i++, n1--) {
+	rT = totalmass * unif_rand();
+	mass = 0;
+	for (j = 0; j < n1; j++) {
+	    mass += p[j];
+	    if (rT <= mass)
+		break;
+	}
+	ans[i] = perm[j];
+	totalmass -= p[j];
+	for(k = j; k < n1; k++) {
+	    p[k] = p[k + 1];
+	    perm[k] = perm[k + 1];
+	}
+    }
+}
+
 
 /**
     determine if i is element of the integer vector set
@@ -584,3 +676,21 @@ SEXP R_modify_response(SEXP x, SEXP vf) {
 }
 
 double F77_SUB(unifrnd)(void) { return unif_rand(); }
+
+void C_SampleSplitting(int n, double *prob, int *weights, int k) {
+
+    int i;
+    double *tmpprob;
+    int *ans, *perm;
+
+    tmpprob = Calloc(n, double);
+    perm = Calloc(n, int);
+    ans = Calloc(k, int);
+    for (i = 0; i < n; i++) tmpprob[i] = prob[i];
+
+    C_ProbSampleNoReplace(n, tmpprob, perm, k, ans);
+    for (i = 0; i < n; i++) weights[i] = 0;
+    for (i = 0; i < k; i++)
+        weights[ans[i] - 1] = 1;
+    Free(tmpprob); Free(perm); Free(ans);
+}

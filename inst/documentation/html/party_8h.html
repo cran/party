@@ -24,6 +24,7 @@
 <code>#include &lt;Rinternals.h&gt;</code><br>
 <code>#include &lt;Rdefines.h&gt;</code><br>
 <code>#include &lt;R_ext/Applic.h&gt;</code><br>
+<code>#include &lt;R_ext/Lapack.h&gt;</code><br>
 <code>#include &quot;<a class="el" href="Classes_8h-source.html">Classes.h</a>&quot;</code><br>
 <code>#include &quot;<a class="el" href="Utils_8h-source.html">Utils.h</a>&quot;</code><br>
 <code>#include &quot;<a class="el" href="mvt_8h-source.html">mvt.h</a>&quot;</code><br>
@@ -42,20 +43,20 @@
 <p>
 Include dependency graph for party.h:<p><center><img src="party_8h__incl.png" border="0" usemap="#party.h_map" alt=""></center>
 <map name="party.h_map">
-<area href="Classes_8h.html" shape="rect" coords="165,248,245,272" alt="">
-<area href="Utils_8h.html" shape="rect" coords="175,296,234,320" alt="">
-<area href="mvt_8h.html" shape="rect" coords="178,344,231,368" alt="">
-<area href="LinearStatistic_8h.html" shape="rect" coords="146,392,263,416" alt="">
-<area href="TestStatistic_8h.html" shape="rect" coords="153,440,257,464" alt="">
-<area href="Distributions_8h.html" shape="rect" coords="151,488,258,512" alt="">
-<area href="Convenience_8h.html" shape="rect" coords="150,536,259,560" alt="">
-<area href="S3Classes_8h.html" shape="rect" coords="157,584,253,608" alt="">
-<area href="IndependenceTest_8h.html" shape="rect" coords="134,632,275,656" alt="">
-<area href="Splits_8h.html" shape="rect" coords="171,680,238,704" alt="">
-<area href="Node_8h.html" shape="rect" coords="173,728,237,752" alt="">
-<area href="Predict_8h.html" shape="rect" coords="167,776,242,800" alt="">
-<area href="SurrogateSplits_8h.html" shape="rect" coords="143,824,266,848" alt="">
-<area href="TreeGrow_8h.html" shape="rect" coords="159,872,250,896" alt="">
+<area href="Classes_8h.html" shape="rect" coords="172,296,252,320" alt="">
+<area href="Utils_8h.html" shape="rect" coords="182,344,241,368" alt="">
+<area href="mvt_8h.html" shape="rect" coords="185,392,238,416" alt="">
+<area href="LinearStatistic_8h.html" shape="rect" coords="153,440,270,464" alt="">
+<area href="TestStatistic_8h.html" shape="rect" coords="158,488,265,512" alt="">
+<area href="Distributions_8h.html" shape="rect" coords="158,536,265,560" alt="">
+<area href="Convenience_8h.html" shape="rect" coords="157,584,266,608" alt="">
+<area href="S3Classes_8h.html" shape="rect" coords="164,632,260,656" alt="">
+<area href="IndependenceTest_8h.html" shape="rect" coords="140,680,284,704" alt="">
+<area href="Splits_8h.html" shape="rect" coords="178,728,245,752" alt="">
+<area href="Node_8h.html" shape="rect" coords="180,776,244,800" alt="">
+<area href="Predict_8h.html" shape="rect" coords="174,824,249,848" alt="">
+<area href="SurrogateSplits_8h.html" shape="rect" coords="150,872,273,896" alt="">
+<area href="TreeGrow_8h.html" shape="rect" coords="166,920,257,944" alt="">
 </map>
 
 <p>
@@ -161,7 +162,7 @@ This graph shows which files directly or indirectly include this file:<p><center
 <p>
 
 <p>
-Definition at line <a class="el" href="party_8h-source.html#l00066">66</a> of file <a class="el" href="party_8h-source.html">party.h</a>.    </td>
+Definition at line <a class="el" href="party_8h-source.html#l00067">67</a> of file <a class="el" href="party_8h-source.html">party.h</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="e58f101919f3367c51322fc2995f8286"></a><!-- doxytag: member="party.h::BONFERRONI" ref="e58f101919f3367c51322fc2995f8286" args="" --><p>
@@ -186,7 +187,7 @@ Definition at line <a class="el" href="party_8h-source.html#l00066">66</a> of fi
 <p>
 
 <p>
-Definition at line <a class="el" href="party_8h-source.html#l00064">64</a> of file <a class="el" href="party_8h-source.html">party.h</a>.    </td>
+Definition at line <a class="el" href="party_8h-source.html#l00065">65</a> of file <a class="el" href="party_8h-source.html">party.h</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="9f26fcd39efae230d792a03c810c87a8"></a><!-- doxytag: member="party.h::CRITERION_LENGTH" ref="9f26fcd39efae230d792a03c810c87a8" args="" --><p>
@@ -211,7 +212,7 @@ Definition at line <a class="el" href="party_8h-source.html#l00064">64</a> of fi
 <p>
 
 <p>
-Definition at line <a class="el" href="party_8h-source.html#l00048">48</a> of file <a class="el" href="party_8h-source.html">party.h</a>.
+Definition at line <a class="el" href="party_8h-source.html#l00049">49</a> of file <a class="el" href="party_8h-source.html">party.h</a>.
 <p>
 Referenced by <a class="el" href="S3Classes_8c-source.html#l00011">C_init_node()</a>.    </td>
   </tr>
@@ -238,7 +239,7 @@ Referenced by <a class="el" href="S3Classes_8c-source.html#l00011">C_init_node()
 <p>
 
 <p>
-Definition at line <a class="el" href="party_8h-source.html#l00060">60</a> of file <a class="el" href="party_8h-source.html">party.h</a>.
+Definition at line <a class="el" href="party_8h-source.html#l00061">61</a> of file <a class="el" href="party_8h-source.html">party.h</a>.
 <p>
 Referenced by <a class="el" href="Convenience_8c-source.html#l00099">C_ConditionalPvalue()</a>.    </td>
   </tr>
@@ -265,7 +266,7 @@ Referenced by <a class="el" href="Convenience_8c-source.html#l00099">C_Condition
 <p>
 
 <p>
-Definition at line <a class="el" href="party_8h-source.html#l00065">65</a> of file <a class="el" href="party_8h-source.html">party.h</a>.    </td>
+Definition at line <a class="el" href="party_8h-source.html#l00066">66</a> of file <a class="el" href="party_8h-source.html">party.h</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="2594b3a85c654c34048133cb81ad0fab"></a><!-- doxytag: member="party.h::NODE_LENGTH" ref="2594b3a85c654c34048133cb81ad0fab" args="" --><p>
@@ -290,9 +291,9 @@ Definition at line <a class="el" href="party_8h-source.html#l00065">65</a> of fi
 <p>
 
 <p>
-Definition at line <a class="el" href="party_8h-source.html#l00042">42</a> of file <a class="el" href="party_8h-source.html">party.h</a>.
+Definition at line <a class="el" href="party_8h-source.html#l00043">43</a> of file <a class="el" href="party_8h-source.html">party.h</a>.
 <p>
-Referenced by <a class="el" href="S3Classes_8c-source.html#l00011">C_init_node()</a>, <a class="el" href="Predict_8c-source.html#l00021">C_splitnode()</a>, <a class="el" href="RandomForest_8c-source.html#l00021">R_Ensemble()</a>, <a class="el" href="Node_8c-source.html#l00228">R_Node()</a>, and <a class="el" href="TreeGrow_8c-source.html#l00080">R_TreeGrow()</a>.    </td>
+Referenced by <a class="el" href="S3Classes_8c-source.html#l00011">C_init_node()</a>, <a class="el" href="Predict_8c-source.html#l00021">C_splitnode()</a>, <a class="el" href="Node_8c-source.html#l00228">R_Node()</a>, and <a class="el" href="TreeGrow_8c-source.html#l00080">R_TreeGrow()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="2bb5fe1fde38878e1bc17e63950e3267"></a><!-- doxytag: member="party.h::QUADFORM" ref="2bb5fe1fde38878e1bc17e63950e3267" args="" --><p>
@@ -317,7 +318,7 @@ Referenced by <a class="el" href="S3Classes_8c-source.html#l00011">C_init_node()
 <p>
 
 <p>
-Definition at line <a class="el" href="party_8h-source.html#l00061">61</a> of file <a class="el" href="party_8h-source.html">party.h</a>.
+Definition at line <a class="el" href="party_8h-source.html#l00062">62</a> of file <a class="el" href="party_8h-source.html">party.h</a>.
 <p>
 Referenced by <a class="el" href="Convenience_8c-source.html#l00099">C_ConditionalPvalue()</a>.    </td>
   </tr>
@@ -344,7 +345,7 @@ Referenced by <a class="el" href="Convenience_8c-source.html#l00099">C_Condition
 <p>
 
 <p>
-Definition at line <a class="el" href="party_8h-source.html#l00035">35</a> of file <a class="el" href="party_8h-source.html">party.h</a>.
+Definition at line <a class="el" href="party_8h-source.html#l00036">36</a> of file <a class="el" href="party_8h-source.html">party.h</a>.
 <p>
 Referenced by <a class="el" href="S3Classes_8c-source.html#l00011">C_init_node()</a>, <a class="el" href="S3Classes_8c-source.html#l00063">S3get_criterion()</a>, <a class="el" href="S3Classes_8c-source.html#l00067">S3get_maxcriterion()</a>, and <a class="el" href="S3Classes_8c-source.html#l00059">S3get_teststat()</a>.    </td>
   </tr>
@@ -371,7 +372,7 @@ Referenced by <a class="el" href="S3Classes_8c-source.html#l00011">C_init_node()
 <p>
 
 <p>
-Definition at line <a class="el" href="party_8h-source.html#l00046">46</a> of file <a class="el" href="party_8h-source.html">party.h</a>.
+Definition at line <a class="el" href="party_8h-source.html#l00047">47</a> of file <a class="el" href="party_8h-source.html">party.h</a>.
 <p>
 Referenced by <a class="el" href="S3Classes_8c-source.html#l00011">C_init_node()</a>, and <a class="el" href="S3Classes_8c-source.html#l00063">S3get_criterion()</a>.    </td>
   </tr>
@@ -398,7 +399,7 @@ Referenced by <a class="el" href="S3Classes_8c-source.html#l00011">C_init_node()
 <p>
 
 <p>
-Definition at line <a class="el" href="party_8h-source.html#l00040">40</a> of file <a class="el" href="party_8h-source.html">party.h</a>.
+Definition at line <a class="el" href="party_8h-source.html#l00041">41</a> of file <a class="el" href="party_8h-source.html">party.h</a>.
 <p>
 Referenced by <a class="el" href="Predict_8c-source.html#l00021">C_splitnode()</a>, and <a class="el" href="S3Classes_8c-source.html#l00091">S3get_leftnode()</a>.    </td>
   </tr>
@@ -425,7 +426,7 @@ Referenced by <a class="el" href="Predict_8c-source.html#l00021">C_splitnode()</
 <p>
 
 <p>
-Definition at line <a class="el" href="party_8h-source.html#l00047">47</a> of file <a class="el" href="party_8h-source.html">party.h</a>.
+Definition at line <a class="el" href="party_8h-source.html#l00048">48</a> of file <a class="el" href="party_8h-source.html">party.h</a>.
 <p>
 Referenced by <a class="el" href="S3Classes_8c-source.html#l00011">C_init_node()</a>, and <a class="el" href="S3Classes_8c-source.html#l00067">S3get_maxcriterion()</a>.    </td>
   </tr>
@@ -452,7 +453,7 @@ Referenced by <a class="el" href="S3Classes_8c-source.html#l00011">C_init_node()
 <p>
 
 <p>
-Definition at line <a class="el" href="party_8h-source.html#l00033">33</a> of file <a class="el" href="party_8h-source.html">party.h</a>.
+Definition at line <a class="el" href="party_8h-source.html#l00034">34</a> of file <a class="el" href="party_8h-source.html">party.h</a>.
 <p>
 Referenced by <a class="el" href="S3Classes_8c-source.html#l00011">C_init_node()</a>, <a class="el" href="S3Classes_8c-source.html#l00046">S3get_nodeID()</a>, and <a class="el" href="S3Classes_8c-source.html#l00042">S3set_nodeID()</a>.    </td>
   </tr>
@@ -479,7 +480,7 @@ Referenced by <a class="el" href="S3Classes_8c-source.html#l00011">C_init_node()
 <p>
 
 <p>
-Definition at line <a class="el" href="party_8h-source.html#l00052">52</a> of file <a class="el" href="party_8h-source.html">party.h</a>.
+Definition at line <a class="el" href="party_8h-source.html#l00053">53</a> of file <a class="el" href="party_8h-source.html">party.h</a>.
 <p>
 Referenced by <a class="el" href="S3Classes_8c-source.html#l00123">C_init_nominalsplit()</a>, <a class="el" href="S3Classes_8c-source.html#l00099">C_init_orderedsplit()</a>, <a class="el" href="S3Classes_8c-source.html#l00153">S3is_ordered()</a>, <a class="el" href="S3Classes_8c-source.html#l00161">S3set_nominal()</a>, and <a class="el" href="S3Classes_8c-source.html#l00157">S3set_ordered()</a>.    </td>
   </tr>
@@ -506,7 +507,7 @@ Referenced by <a class="el" href="S3Classes_8c-source.html#l00123">C_init_nomina
 <p>
 
 <p>
-Definition at line <a class="el" href="party_8h-source.html#l00039">39</a> of file <a class="el" href="party_8h-source.html">party.h</a>.
+Definition at line <a class="el" href="party_8h-source.html#l00040">40</a> of file <a class="el" href="party_8h-source.html">party.h</a>.
 <p>
 Referenced by <a class="el" href="S3Classes_8c-source.html#l00011">C_init_node()</a>, and <a class="el" href="S3Classes_8c-source.html#l00087">S3get_prediction()</a>.    </td>
   </tr>
@@ -533,7 +534,7 @@ Referenced by <a class="el" href="S3Classes_8c-source.html#l00011">C_init_node()
 <p>
 
 <p>
-Definition at line <a class="el" href="party_8h-source.html#l00037">37</a> of file <a class="el" href="party_8h-source.html">party.h</a>.
+Definition at line <a class="el" href="party_8h-source.html#l00038">38</a> of file <a class="el" href="party_8h-source.html">party.h</a>.
 <p>
 Referenced by <a class="el" href="S3Classes_8c-source.html#l00011">C_init_node()</a>, and <a class="el" href="S3Classes_8c-source.html#l00079">S3get_primarysplit()</a>.    </td>
   </tr>
@@ -560,7 +561,7 @@ Referenced by <a class="el" href="S3Classes_8c-source.html#l00011">C_init_node()
 <p>
 
 <p>
-Definition at line <a class="el" href="party_8h-source.html#l00041">41</a> of file <a class="el" href="party_8h-source.html">party.h</a>.
+Definition at line <a class="el" href="party_8h-source.html#l00042">42</a> of file <a class="el" href="party_8h-source.html">party.h</a>.
 <p>
 Referenced by <a class="el" href="Predict_8c-source.html#l00021">C_splitnode()</a>, and <a class="el" href="S3Classes_8c-source.html#l00095">S3get_rightnode()</a>.    </td>
   </tr>
@@ -587,7 +588,7 @@ Referenced by <a class="el" href="Predict_8c-source.html#l00021">C_splitnode()</
 <p>
 
 <p>
-Definition at line <a class="el" href="party_8h-source.html#l00053">53</a> of file <a class="el" href="party_8h-source.html">party.h</a>.
+Definition at line <a class="el" href="party_8h-source.html#l00054">54</a> of file <a class="el" href="party_8h-source.html">party.h</a>.
 <p>
 Referenced by <a class="el" href="S3Classes_8c-source.html#l00123">C_init_nominalsplit()</a>, <a class="el" href="S3Classes_8c-source.html#l00099">C_init_orderedsplit()</a>, and <a class="el" href="S3Classes_8c-source.html#l00174">S3get_splitpoint()</a>.    </td>
   </tr>
@@ -614,7 +615,7 @@ Referenced by <a class="el" href="S3Classes_8c-source.html#l00123">C_init_nomina
 <p>
 
 <p>
-Definition at line <a class="el" href="party_8h-source.html#l00054">54</a> of file <a class="el" href="party_8h-source.html">party.h</a>.
+Definition at line <a class="el" href="party_8h-source.html#l00055">55</a> of file <a class="el" href="party_8h-source.html">party.h</a>.
 <p>
 Referenced by <a class="el" href="S3Classes_8c-source.html#l00123">C_init_nominalsplit()</a>, <a class="el" href="S3Classes_8c-source.html#l00099">C_init_orderedsplit()</a>, and <a class="el" href="S3Classes_8c-source.html#l00178">S3get_splitstatistics()</a>.    </td>
   </tr>
@@ -641,7 +642,7 @@ Referenced by <a class="el" href="S3Classes_8c-source.html#l00123">C_init_nomina
 <p>
 
 <p>
-Definition at line <a class="el" href="party_8h-source.html#l00038">38</a> of file <a class="el" href="party_8h-source.html">party.h</a>.
+Definition at line <a class="el" href="party_8h-source.html#l00039">39</a> of file <a class="el" href="party_8h-source.html">party.h</a>.
 <p>
 Referenced by <a class="el" href="S3Classes_8c-source.html#l00011">C_init_node()</a>, and <a class="el" href="S3Classes_8c-source.html#l00083">S3get_surrogatesplits()</a>.    </td>
   </tr>
@@ -668,7 +669,7 @@ Referenced by <a class="el" href="S3Classes_8c-source.html#l00011">C_init_node()
 <p>
 
 <p>
-Definition at line <a class="el" href="party_8h-source.html#l00045">45</a> of file <a class="el" href="party_8h-source.html">party.h</a>.
+Definition at line <a class="el" href="party_8h-source.html#l00046">46</a> of file <a class="el" href="party_8h-source.html">party.h</a>.
 <p>
 Referenced by <a class="el" href="S3Classes_8c-source.html#l00011">C_init_node()</a>, and <a class="el" href="S3Classes_8c-source.html#l00059">S3get_teststat()</a>.    </td>
   </tr>
@@ -695,7 +696,7 @@ Referenced by <a class="el" href="S3Classes_8c-source.html#l00011">C_init_node()
 <p>
 
 <p>
-Definition at line <a class="el" href="party_8h-source.html#l00056">56</a> of file <a class="el" href="party_8h-source.html">party.h</a>.
+Definition at line <a class="el" href="party_8h-source.html#l00057">57</a> of file <a class="el" href="party_8h-source.html">party.h</a>.
 <p>
 Referenced by <a class="el" href="S3Classes_8c-source.html#l00123">C_init_nominalsplit()</a>, <a class="el" href="S3Classes_8c-source.html#l00099">C_init_orderedsplit()</a>, and <a class="el" href="S3Classes_8c-source.html#l00187">S3get_table()</a>.    </td>
   </tr>
@@ -722,7 +723,7 @@ Referenced by <a class="el" href="S3Classes_8c-source.html#l00123">C_init_nomina
 <p>
 
 <p>
-Definition at line <a class="el" href="party_8h-source.html#l00036">36</a> of file <a class="el" href="party_8h-source.html">party.h</a>.
+Definition at line <a class="el" href="party_8h-source.html#l00037">37</a> of file <a class="el" href="party_8h-source.html">party.h</a>.
 <p>
 Referenced by <a class="el" href="S3Classes_8c-source.html#l00011">C_init_node()</a>, <a class="el" href="S3Classes_8c-source.html#l00075">S3get_nodeterminal()</a>, and <a class="el" href="S3Classes_8c-source.html#l00071">S3set_nodeterminal()</a>.    </td>
   </tr>
@@ -749,7 +750,7 @@ Referenced by <a class="el" href="S3Classes_8c-source.html#l00011">C_init_node()
 <p>
 
 <p>
-Definition at line <a class="el" href="party_8h-source.html#l00055">55</a> of file <a class="el" href="party_8h-source.html">party.h</a>.
+Definition at line <a class="el" href="party_8h-source.html#l00056">56</a> of file <a class="el" href="party_8h-source.html">party.h</a>.
 <p>
 Referenced by <a class="el" href="S3Classes_8c-source.html#l00123">C_init_nominalsplit()</a>, <a class="el" href="S3Classes_8c-source.html#l00099">C_init_orderedsplit()</a>, <a class="el" href="S3Classes_8c-source.html#l00165">S3get_toleft()</a>, and <a class="el" href="S3Classes_8c-source.html#l00169">S3set_toleft()</a>.    </td>
   </tr>
@@ -776,7 +777,7 @@ Referenced by <a class="el" href="S3Classes_8c-source.html#l00123">C_init_nomina
 <p>
 
 <p>
-Definition at line <a class="el" href="party_8h-source.html#l00051">51</a> of file <a class="el" href="party_8h-source.html">party.h</a>.
+Definition at line <a class="el" href="party_8h-source.html#l00052">52</a> of file <a class="el" href="party_8h-source.html">party.h</a>.
 <p>
 Referenced by <a class="el" href="S3Classes_8c-source.html#l00123">C_init_nominalsplit()</a>, <a class="el" href="S3Classes_8c-source.html#l00099">C_init_orderedsplit()</a>, <a class="el" href="S3Classes_8c-source.html#l00149">S3get_variableID()</a>, and <a class="el" href="S3Classes_8c-source.html#l00145">S3set_variableID()</a>.    </td>
   </tr>
@@ -803,7 +804,7 @@ Referenced by <a class="el" href="S3Classes_8c-source.html#l00123">C_init_nomina
 <p>
 
 <p>
-Definition at line <a class="el" href="party_8h-source.html#l00034">34</a> of file <a class="el" href="party_8h-source.html">party.h</a>.
+Definition at line <a class="el" href="party_8h-source.html#l00035">35</a> of file <a class="el" href="party_8h-source.html">party.h</a>.
 <p>
 Referenced by <a class="el" href="S3Classes_8c-source.html#l00011">C_init_node()</a>, and <a class="el" href="S3Classes_8c-source.html#l00050">S3get_nodeweights()</a>.    </td>
   </tr>
@@ -830,7 +831,7 @@ Referenced by <a class="el" href="S3Classes_8c-source.html#l00011">C_init_node()
 <p>
 
 <p>
-Definition at line <a class="el" href="party_8h-source.html#l00057">57</a> of file <a class="el" href="party_8h-source.html">party.h</a>.
+Definition at line <a class="el" href="party_8h-source.html#l00058">58</a> of file <a class="el" href="party_8h-source.html">party.h</a>.
 <p>
 Referenced by <a class="el" href="S3Classes_8c-source.html#l00011">C_init_node()</a>, <a class="el" href="S3Classes_8c-source.html#l00123">C_init_nominalsplit()</a>, and <a class="el" href="S3Classes_8c-source.html#l00099">C_init_orderedsplit()</a>.    </td>
   </tr>
@@ -857,7 +858,7 @@ Referenced by <a class="el" href="S3Classes_8c-source.html#l00011">C_init_node()
 <p>
 
 <p>
-Definition at line <a class="el" href="party_8h-source.html#l00068">68</a> of file <a class="el" href="party_8h-source.html">party.h</a>.    </td>
+Definition at line <a class="el" href="party_8h-source.html#l00069">69</a> of file <a class="el" href="party_8h-source.html">party.h</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="2fb8ad2edef6428fdcdbf04184164698"></a><!-- doxytag: member="party.h::UNIVARIATE" ref="2fb8ad2edef6428fdcdbf04184164698" args="" --><p>
@@ -882,10 +883,10 @@ Definition at line <a class="el" href="party_8h-source.html#l00068">68</a> of fi
 <p>
 
 <p>
-Definition at line <a class="el" href="party_8h-source.html#l00067">67</a> of file <a class="el" href="party_8h-source.html">party.h</a>.    </td>
+Definition at line <a class="el" href="party_8h-source.html#l00068">68</a> of file <a class="el" href="party_8h-source.html">party.h</a>.    </td>
   </tr>
 </table>
-<hr size="1"><address style="align: right;"><small>Generated on Tue Feb 20 11:12:41 2007 for party by&nbsp;
+<hr size="1"><address style="align: right;"><small>Generated on Wed Jun 20 15:56:23 2007 for party by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6 </small></address>
 </body>

@@ -1,5 +1,5 @@
 
-# $Id: Classes.R 3301 2007-02-20 09:17:01Z hothorn $
+# $Id: Classes.R 3567 2007-06-20 16:11:19Z hothorn $
 
 ### Conditional Expectation and Covariance
 setClass(Class = "ExpectCovar",
@@ -31,7 +31,6 @@ setClass(Class = "LinStatExpectCovar",
 ### Memory for C_svd
 setClass(Class = "svd_mem",
     representation = representation(
-        svd    = "list",
         method = "character",
         jobu   = "character",
         jobv   = "character",

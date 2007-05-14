@@ -3,7 +3,7 @@
     Random forest with conditional inference trees
     *\file RandomForest.c
     *\author $Author: hothorn $
-    *\date $Date: 2007-02-02 11:22:45 +0100 (Fri, 02 Feb 2007) $
+    *\date $Date: 2007-06-20 18:11:19 +0200 (Wed, 20 Jun 2007) $
 */
 
 #include "party.h"
@@ -21,9 +21,9 @@
 SEXP R_Ensemble(SEXP learnsample, SEXP weights, SEXP fitmem, SEXP controls) {
             
      SEXP nweights, tree, where, ans;
-     double *dnweights, *dweights, sw = 0.0, *prob, fraction;
+     double *dnweights, *dweights, sw = 0.0, *prob, tmp;
      int nobs, i, b, B , nodenum = 1, *iweights, *iweightstmp, 
-         *iwhere, replace;
+         *iwhere, replace, fraction, wgrzero = 0, realweights = 0;
      
      B = get_ntree(controls);
      nobs = get_nobs(learnsample);
@@ -35,13 +35,29 @@ SEXP R_Ensemble(SEXP learnsample, SEXP weights, SEXP fitmem, SEXP controls) {
      prob = Calloc(nobs, double);
      dweights = REAL(weights);
 
-     for (i = 0; i < nobs; i++)
+     for (i = 0; i < nobs; i++) {
+         /* sum of weights */
          sw += dweights[i];
+         /* number of weights > 0 */
+         if (dweights[i] > 0) wgrzero++;
+         /* case weights or real weights? */
+         if (dweights[i] - ftrunc(dweights[i]) > 0) 
+             realweights = 1;
+     }
      for (i = 0; i < nobs; i++)
          prob[i] = dweights[i]/sw;
 
      replace = get_replace(controls);
-     fraction = get_fraction(controls) * nobs;
+     /* fraction of number of obs with weight > 0 */
+     if (realweights) {
+         /* fraction of number of obs with weight > 0 for real weights*/
+         tmp = (get_fraction(controls) * wgrzero);
+     } else {
+         /* fraction of sum of weights for case weights */
+         tmp = (get_fraction(controls) * sw);
+     }
+     fraction = (int) ftrunc(tmp);
+     if (ftrunc(tmp) < tmp) fraction++;
 
      if (!replace) {
          if (fraction < 10)
@@ -69,14 +85,7 @@ SEXP R_Ensemble(SEXP learnsample, SEXP weights, SEXP fitmem, SEXP controls) {
              rmultinom((int) sw, prob, nobs, iweights);
          } else {
              /* weights for sample splitting */
-             C_SampleNoReplace(iweightstmp, nobs, nobs, iweights);
-             for (i = 0; i < nobs; i++) {
-                 if (iweights[i] < fraction) {
-                     iweights[i] = 1;
-                 } else {
-                    iweights[i] = 0;
-                 } 
-             }
+             C_SampleSplitting(nobs, prob, iweights, fraction);
          }
 
          nweights = S3get_nodeweights(tree);

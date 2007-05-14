@@ -10,7 +10,7 @@
 
 \usage{
 mob_control(alpha = 0.05, bonferroni = TRUE, minsplit = 20, trim = 0.1,
-  objfun = deviance, breakties = FALSE, verbose = FALSE)
+  objfun = deviance, breakties = FALSE, parm = NULL, verbose = FALSE)
 }
 
 \arguments{
@@ -27,6 +27,9 @@ mob_control(alpha = 0.05, bonferroni = TRUE, minsplit = 20, trim = 0.1,
     the objective function from a fitted model in a node.}
   \item{breakties}{logical. Should ties in numeric variables be broken
     randomly for computing the associated parameter instability test?}
+  \item{parm}{numeric or character. Number or name of model parameters
+    included in the parameter instability tests (by default all parameters
+    are included).}
   \item{verbose}{logical. Should information about the fitting process
     of \code{\link{mob}} (such as test statistics, \eqn{p} values, selected
     splitting variables and split points) be printed to the screen?}

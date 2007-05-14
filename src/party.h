@@ -8,6 +8,7 @@
 #include <Rinternals.h>
 #include <Rdefines.h>
 #include <R_ext/Applic.h> /* for dgemm */
+#include <R_ext/Lapack.h> /* for dgesdd */
 
 /* include private header files: this need to be restricted */
 
