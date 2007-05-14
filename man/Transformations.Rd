@@ -6,8 +6,9 @@
   Transformations of Response or Input Variables
 }
 \usage{
-ptrafo(data, numeric_trafo = id_trafo, factor_trafo = ff_trafo,
-    surv_trafo = logrank_trafo, var_trafo = NULL)
+ptrafo(data, numeric_trafo = id_trafo, factor_trafo = ff_trafo, 
+    ordered_trafo = of_trafo, surv_trafo = logrank_trafo, 
+    var_trafo = NULL)
 ff_trafo(x)
 }
 \arguments{
@@ -15,6 +16,9 @@ ff_trafo(x)
   \item{numeric_trafo}{a function to by applied to \code{numeric} 
     elements of \code{data} returning a matrix with \code{nrow(data)}
     rows and an arbitrary number of columns.}
+  \item{ordered_trafo}{a function to by applied to \code{ordered}
+    elements of \code{data} returning a matrix with \code{nrow(data)}
+    rows and an arbitrary number of columns (usually some scores).}
   \item{factor_trafo}{a function to by applied to \code{factor}
     elements of \code{data} returning a matrix with \code{nrow(data)}
     rows and an arbitrary number of columns (usually a dummy or contrast 

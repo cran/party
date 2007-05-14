@@ -18,11 +18,12 @@ ff_trafo <- function(x) {
     return(mm)
 }
 
-ptrafo <- function(data, numeric_trafo = id_trafo, 
-   factor_trafo = ff_trafo, surv_trafo = logrank_trafo, var_trafo = NULL)
+ptrafo <- function(data, numeric_trafo = id_trafo, factor_trafo = ff_trafo, 
+    ordered_trafo = of_trafo, surv_trafo = logrank_trafo, var_trafo = NULL)
 
     trafo(data = data, numeric_trafo = numeric_trafo, factor_trafo =
-          factor_trafo, surv_trafo = surv_trafo, var_trafo = var_trafo)
+          factor_trafo, ordered_trafo = ordered_trafo, 
+          surv_trafo = surv_trafo, var_trafo = var_trafo)
 
 
 initVariableFrame.df <- function(obj, trafo = ptrafo, scores = NULL, response = FALSE, ...) {
@@ -102,9 +103,7 @@ initVariableFrame.df <- function(obj, trafo = ptrafo, scores = NULL, response = 
             ordering[[j]] <- as.integer(order(xt[[j]]))
 
         if (is.factor(x)) {
-            ### replace ordinal factors by their numeric scores
             if (is_ordinal[j]) {
-                xt[[j]] <- matrix(RET@scores[[j]][obj[[j]]], ncol = 1)
                 storage.mode(xt[[j]]) <- "double"
                 ### R 2.5.0 does not allow to change the storage mode of factors
                 class(obj[[j]]) <- "was_ordered"

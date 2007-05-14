@@ -1,4 +1,9 @@
 
+                CHANGES IN party VERSION 0.9-11 (2007-06-28)
+
+    o   adjust to coin 0.6-4
+
+
                 CHANGES IN party VERSION 0.9-11 (2007-06-11)
 
     o   populate `where' slot in `mob' objects.
