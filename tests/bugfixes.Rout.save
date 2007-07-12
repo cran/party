@@ -1,5 +1,5 @@
 
-R version 2.5.0 (2007-04-23)
+R version 2.5.1 (2007-06-27)
 Copyright (C) 2007 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 
@@ -175,22 +175,35 @@ factors at only one level may lead to problems in: factor_trafo(x)
 > n <- nrow(airq)
 > w <- double(n)
 > 
-> ### case weights
-> x <- runif(w)
-> w[x > 0.5] <- 1
-> w[x > 0.9] <- 2
 > 
-> rf <- cforest(Ozone ~ .,data = airq, weights = w, control = cctrl)
-> rfw <- sapply(rf@ensemble, function(x) x[[2]])
-> stopifnot(all(colSums(rfw) == ceiling(sum(w) / 2)))
-> stopifnot(max(abs(rfw[w == 0,])) == 0)
+> if (FALSE) {
++ ### forest objects have weights remove in 0.9-13
++ 
++ ### case weights
++ x <- runif(w)
++ w[x > 0.5] <- 1
++ w[x > 0.9] <- 2
++ 
++ rf <- cforest(Ozone ~ .,data = airq, weights = w, control = cctrl)
++ rfw <- sapply(rf@ensemble, function(x) x[[2]])
++ stopifnot(all(colSums(rfw) == ceiling(sum(w) / 2)))
++ stopifnot(max(abs(rfw[w == 0,])) == 0)
++ 
++ ### real weights
++ w <- runif(n)
++ w[1:10] <- 0
++ rf <- cforest(Ozone ~ .,data = airq, weights = w, control = cctrl)
++ rfw <- sapply(rf@ensemble, function(x) x[[2]])
++ stopifnot(all(colSums(rfw) == ceiling(sum(w > 0) / 2)))
++ stopifnot(max(abs(rfw[w == 0,])) == 0)
++ }
 > 
-> ### real weights
-> w <- runif(n)
-> w[1:10] <- 0
-> rf <- cforest(Ozone ~ .,data = airq, weights = w, control = cctrl)
-> rfw <- sapply(rf@ensemble, function(x) x[[2]])
-> stopifnot(all(colSums(rfw) == ceiling(sum(w > 0) / 2)))
-> stopifnot(max(abs(rfw[w == 0,])) == 0)
+> ### cforest with multivariate response
+> df <- data.frame(y1 = rnorm(100), y2 = rnorm(100), x1 = runif(100), x2 = runif(100))
+> df$y1[df$x1 < 0.5] <- df$y1[df$x1 < 0.5] + 1
+> cf <- cforest(y1 + y2 ~ x1 + x2, data = df)
+There were 50 or more warnings (use warnings() to see the first 50)
+> pr <- predict(cf)
+> stopifnot(nrow(pr) == nrow(df) || ncol(pr) != 2)
 > 
 > 

@@ -1,5 +1,5 @@
 
-# $Id: ConditionalTree.R 3301 2007-02-20 09:17:01Z hothorn $
+# $Id: ConditionalTree.R 3655 2007-07-23 07:44:00Z hothorn $
 
 ### the fitting procedure
 ctreefit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
@@ -39,6 +39,7 @@ ctreefit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
     RET <- new("BinaryTree")
     RET@tree <- tree
     RET@where <- where
+    RET@weights <- weights
     RET@responses <- object@responses
     if (inherits(object, "LearningSampleFormula"))
         RET@data <- object@menv
@@ -64,13 +65,15 @@ ctreefit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
         ### survival: estimated Kaplan-Meier
         if (any(response@is_censored)) {
             swh <- sort(unique(wh))
-            w <- .Call("R_getweights", tree, swh,
-                       PACKAGE = "party")
+#            w <- .Call("R_getweights", tree, swh,
+#                       PACKAGE = "party")
             RET <- vector(mode = "list", length = length(wh))
             resp <- response@variables[[1]]
-            for (i in 1:length(swh))
+            for (i in 1:length(swh)) {
+                w <- weights * (where == swh[i])
                 RET[wh == swh[i]] <- list(survival:::survfit(resp,
-                    weights = w[[i]], subset = w[[i]] > 0))
+                    weights = w, subset = w > 0))
+            }
             return(RET)
         }
 
@@ -124,12 +127,12 @@ ctreefit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
         wh <- RET@get_where(newdata = newdata, mincriterion = mincriterion)
 
         swh <- sort(unique(wh))
-        w <- .Call("R_getweights", tree, swh,
-                   PACKAGE = "party")
+#        w <- .Call("R_getweights", tree, swh,
+#                   PACKAGE = "party")
         RET <- vector(mode = "list", length = length(wh))   
         
         for (i in 1:length(swh))
-            RET[wh == swh[i]] <- list(w[[i]])
+            RET[wh == swh[i]] <- list(weights * (where == swh[i]))
         return(RET)
     }
     return(RET)

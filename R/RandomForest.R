@@ -1,5 +1,5 @@
 
-# $Id: RandomForest.R 3301 2007-02-20 09:17:01Z hothorn $
+# $Id: RandomForest.R 3655 2007-07-23 07:44:00Z hothorn $
 
 ### the fitting procedure
 cforestfit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
@@ -21,16 +21,17 @@ cforestfit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
         stop(sQuote("weights"), " are not a double vector of ", 
              object@nobs, " elements")
 
-    where <- rep(0, object@nobs)
-    storage.mode(where) <- "integer"
-
     ### grow the tree
-    ensemble <- .Call("R_Ensemble", object, weights, fitmem, controls,
+    bweights <- vector(mode = "list", length = controls@ntree)
+    bwhere <- vector(mode = "list", length = controls@ntree)
+    ensemble <- .Call("R_Ensemble", object, weights, bwhere, bweights, fitmem, controls,
                       PACKAGE = "party")
 
     ### prepare the returned object
     RET <- new("RandomForest")
     RET@ensemble <- ensemble
+    RET@where <- bwhere
+    RET@weights <- bweights
     RET@responses <- object@responses
     if (inherits(object, "LearningSampleFormula"))
         RET@data <- object@menv
@@ -80,12 +81,10 @@ cforestfit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
         }
 
         ### regression: mean (median would be possible)
-        RET <- unlist(cdresp)
-        RET <- matrix(unlist(RET),
-                      nrow = length(RET), byrow = TRUE)
+        RET <- matrix(unlist(cdresp),
+                      nrow = length(cdresp), byrow = TRUE)
         ### <FIXME> what about multivariate responses?
-        if (response@ninputs == 1)
-            colnames(RET) <- names(response@variables)
+        colnames(RET) <- names(response@variables)
         ### </FIXME>
         return(RET)
     }
@@ -95,8 +94,9 @@ cforestfit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
 
         newinp <- newinputs(object, newdata)
 
-        return(.Call("R_predictRF_weights", ensemble, newinp, mincriterion,
-                     OOB && is.null(newdata), PACKAGE = "party"))
+        return(.Call("R_predictRF_weights", ensemble, bwhere, bweights, 
+                     newinp, mincriterion, OOB && is.null(newdata), 
+                     PACKAGE = "party"))
     }
     return(RET)
 }

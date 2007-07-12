@@ -3,7 +3,7 @@
     Conditional Distributions
     *\file Distributions.c
     *\author $Author: hothorn $
-    *\date $Date: 2007-02-02 11:22:45 +0100 (Fri, 02 Feb 2007) $
+    *\date $Date: 2007-07-12 18:49:01 +0200 (Thu, 12 Jul 2007) $
 */
                 
 #include "party.h"
@@ -106,7 +106,7 @@ double C_maxabsConditionalPvalue(const double tstat, const double *Sigma,
         
     /* call FORTRAN subroutine */
     F77_CALL(mvtdst)(n, nu, lower, upper, infin, corr, delta, 
-                     maxpts, abseps, releps, tol, myerror, prob, inform);
+                     maxpts, abseps, releps, myerror, prob, inform);
                          
     /* inform == 0 means: everything is OK */
     switch (inform[0]) {

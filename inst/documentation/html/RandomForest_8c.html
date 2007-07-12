@@ -45,19 +45,53 @@ Include dependency graph for RandomForest.c:<p><center><img src="RandomForest_8c
 <a href="RandomForest_8c-source.html">Go to the source code of this file.</a><table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
 <tr><td colspan="2"><br><h2>Functions</h2></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">SEXP&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="RandomForest_8c.html#1d975bfdaf516bceb762e16659920f8a">R_Ensemble</a> (SEXP learnsample, SEXP weights, SEXP fitmem, SEXP controls)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="RandomForest_8c.html#ccce6f00d55276c0a01b30651f1c206c">C_remove_weights</a> (SEXP subtree)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">SEXP&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="RandomForest_8c.html#4f54420cb561055a4e545f7e1359fb87">R_Ensemble</a> (SEXP learnsample, SEXP weights, SEXP bwhere, SEXP bweights, SEXP fitmem, SEXP controls)</td></tr>
 
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
 Random forest with conditional inference trees<p>
 <dl compact><dt><b>Author:</b></dt><dd><dl compact><dt><b>Author</b></dt><dd>hothorn </dd></dl>
 </dd></dl>
-<dl compact><dt><b>Date:</b></dt><dd><dl compact><dt><b>Date</b></dt><dd>2007-06-11 14:09:03 +0200 (Mon, 11 Jun 2007) </dd></dl>
+<dl compact><dt><b>Date:</b></dt><dd><dl compact><dt><b>Date</b></dt><dd>2007-07-23 10:02:09 +0200 (Mon, 23 Jul 2007) </dd></dl>
 </dd></dl>
 
 <p>
 Definition in file <a class="el" href="RandomForest_8c-source.html">RandomForest.c</a>.<hr><h2>Function Documentation</h2>
-<a class="anchor" name="1d975bfdaf516bceb762e16659920f8a"></a><!-- doxytag: member="RandomForest.c::R_Ensemble" ref="1d975bfdaf516bceb762e16659920f8a" args="(SEXP learnsample, SEXP weights, SEXP fitmem, SEXP controls)" --><p>
+<a class="anchor" name="ccce6f00d55276c0a01b30651f1c206c"></a><!-- doxytag: member="RandomForest.c::C_remove_weights" ref="ccce6f00d55276c0a01b30651f1c206c" args="(SEXP subtree)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">void C_remove_weights           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">SEXP&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap> <em>subtree</em>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definition at line <a class="el" href="RandomForest_8c-source.html#l00011">11</a> of file <a class="el" href="RandomForest_8c-source.html">RandomForest.c</a>.
+<p>
+Referenced by <a class="el" href="RandomForest_8c-source.html#l00011">C_remove_weights()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="4f54420cb561055a4e545f7e1359fb87"></a><!-- doxytag: member="RandomForest.c::R_Ensemble" ref="4f54420cb561055a4e545f7e1359fb87" args="(SEXP learnsample, SEXP weights, SEXP bwhere, SEXP bweights, SEXP fitmem, SEXP controls)" --><p>
 <table class="mdTable" cellpadding="2" cellspacing="0">
   <tr>
     <td class="mdRow">
@@ -73,6 +107,18 @@ Definition in file <a class="el" href="RandomForest_8c-source.html">RandomForest
           <td class="md"></td>
           <td class="md" nowrap>SEXP&nbsp;</td>
           <td class="mdname" nowrap> <em>weights</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>SEXP&nbsp;</td>
+          <td class="mdname" nowrap> <em>bwhere</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>SEXP&nbsp;</td>
+          <td class="mdname" nowrap> <em>bweights</em>, </td>
         </tr>
         <tr>
           <td class="md" nowrap align="right"></td>
@@ -108,25 +154,27 @@ An experimental implementation of random forest like algorithms <br>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"></td><td valign="top"><em>learnsample</em>&nbsp;</td><td>an object of class `LearningSample' </td></tr>
     <tr><td valign="top"></td><td valign="top"><em>weights</em>&nbsp;</td><td>a vector of case weights </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>bwhere</em>&nbsp;</td><td>integer matrix (n x ntree) for terminal node numbers </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>bweights</em>&nbsp;</td><td>double matrix (n x ntree) for bootstrap case weights </td></tr>
     <tr><td valign="top"></td><td valign="top"><em>fitmem</em>&nbsp;</td><td>an object of class `TreeFitMemory' </td></tr>
     <tr><td valign="top"></td><td valign="top"><em>controls</em>&nbsp;</td><td>an object of class `TreeControl' </td></tr>
   </table>
 </dl>
 
 <p>
-Definition at line <a class="el" href="RandomForest_8c-source.html#l00021">21</a> of file <a class="el" href="RandomForest_8c-source.html">RandomForest.c</a>.
+Definition at line <a class="el" href="RandomForest_8c-source.html#l00033">33</a> of file <a class="el" href="RandomForest_8c-source.html">RandomForest.c</a>.
 <p>
-References <a class="el" href="Classes_8c-source.html#l00284">get_nobs()</a>, and <a class="el" href="Classes_8c-source.html#l00356">get_ntree()</a>.
+References <a class="el" href="Classes_8c-source.html#l00282">get_nobs()</a>, and <a class="el" href="Classes_8c-source.html#l00354">get_ntree()</a>.
 <p>
-Here is the call graph for this function:<p><center><img src="RandomForest_8c_1d975bfdaf516bceb762e16659920f8a_cgraph.png" border="0" usemap="#RandomForest_8c_1d975bfdaf516bceb762e16659920f8a_cgraph_map" alt=""></center>
-<map name="RandomForest_8c_1d975bfdaf516bceb762e16659920f8a_cgraph_map">
+Here is the call graph for this function:<p><center><img src="RandomForest_8c_4f54420cb561055a4e545f7e1359fb87_cgraph.png" border="0" usemap="#RandomForest_8c_4f54420cb561055a4e545f7e1359fb87_cgraph_map" alt=""></center>
+<map name="RandomForest_8c_4f54420cb561055a4e545f7e1359fb87_cgraph_map">
 <area href="Classes_8c.html#45df17685bc6c95d03fb65b6f6214de0" shape="rect" coords="156,8,233,32" alt="">
 <area href="Classes_8c.html#899349b79a444c39ff23856bd802e096" shape="rect" coords="156,56,233,80" alt="">
 </map>
     </td>
   </tr>
 </table>
-<hr size="1"><address style="align: right;"><small>Generated on Wed Jun 20 15:56:44 2007 for party by&nbsp;
+<hr size="1"><address style="align: right;"><small>Generated on Mon Jul 23 10:07:00 2007 for party by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6 </small></address>
 </body>

@@ -3,24 +3,26 @@
     Random forest with conditional inference trees
     *\file RandomForest.c
     *\author $Author: hothorn $
-    *\date $Date: 2007-06-20 18:11:19 +0200 (Wed, 20 Jun 2007) $
+    *\date $Date: 2007-07-23 10:09:38 +0200 (Mon, 23 Jul 2007) $
 */
 
 #include "party.h"
-
 
 /**
     An experimental implementation of random forest like algorithms \n
     *\param learnsample an object of class `LearningSample'
     *\param weights a vector of case weights
+    *\param bwhere integer matrix (n x ntree) for terminal node numbers
+    *\param bweights double matrix (n x ntree) for bootstrap case weights
     *\param fitmem an object of class `TreeFitMemory'
     *\param controls an object of class `TreeControl'
 */
 
 
-SEXP R_Ensemble(SEXP learnsample, SEXP weights, SEXP fitmem, SEXP controls) {
+SEXP R_Ensemble(SEXP learnsample, SEXP weights, SEXP bwhere, SEXP bweights, 
+                SEXP fitmem, SEXP controls) {
             
-     SEXP nweights, tree, where, ans;
+     SEXP nweights, tree, where, ans, bw;
      double *dnweights, *dweights, sw = 0.0, *prob, tmp;
      int nobs, i, b, B , nodenum = 1, *iweights, *iweightstmp, 
          *iwhere, replace, fraction, wgrzero = 0, realweights = 0;
@@ -70,7 +72,9 @@ SEXP R_Ensemble(SEXP learnsample, SEXP weights, SEXP fitmem, SEXP controls) {
   
      for (b  = 0; b < B; b++) {
          SET_VECTOR_ELT(ans, b, tree = allocVector(VECSXP, NODE_LENGTH + 1));
-         SET_VECTOR_ELT(tree, NODE_LENGTH, where = allocVector(INTSXP, nobs));
+         SET_VECTOR_ELT(bwhere, b, where = allocVector(INTSXP, nobs));
+         SET_VECTOR_ELT(bweights, b, bw = allocVector(REALSXP, nobs));
+         
          iwhere = INTEGER(where);
          for (i = 0; i < nobs; i++) iwhere[i] = 0;
      
@@ -90,10 +94,14 @@ SEXP R_Ensemble(SEXP learnsample, SEXP weights, SEXP fitmem, SEXP controls) {
 
          nweights = S3get_nodeweights(tree);
          dnweights = REAL(nweights);
-         for (i = 0; i < nobs; i++) dnweights[i] = (double) iweights[i];
+         for (i = 0; i < nobs; i++) {
+             REAL(bw)[i] = (double) iweights[i];
+             dnweights[i] = REAL(bw)[i];
+         }
      
          C_TreeGrow(tree, learnsample, fitmem, controls, iwhere, &nodenum, 1);
          nodenum = 1;
+         C_remove_weights(tree);
      }
 
      PutRNGstate();

@@ -40,7 +40,8 @@
 #define S3_PREDICTION		6    /* prediction */
 #define S3_LEFT			7    /* left */
 #define S3_RIGHT		8    /* right */
-#define NODE_LENGTH		9    /* 9 elements in total */
+#define S3_SUMWEIGHTS           9    /* sum of weights in this node */
+#define NODE_LENGTH		10   /* 9 elements in total */
 
 /* S3 list elements in `criterion' element of `SplittingNode's */
 #define S3_STATISTICS		0    /* statistics */

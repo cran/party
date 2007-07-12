@@ -40,6 +40,8 @@ int \hyperlink{Utils_8h_ae969040bb060d2874fd969e20675bbb}{i\_\-in\_\-set} (int i
 int \hyperlink{Utils_8h_ff0eae9aa0175cd8fe73324707418ce0}{C\_\-i\_\-in\_\-set} (int i, SEXP set)
 \item 
 void \hyperlink{Utils_8h_88c1a807c7856d57d07d10027d588602}{C\_\-Sample\-Splitting} (int n, double $\ast$prob, int $\ast$weights, int k)
+\item 
+void \hyperlink{Utils_8h_ccce6f00d55276c0a01b30651f1c206c}{C\_\-remove\_\-weights} (SEXP subtree)
 \end{CompactItemize}
 
 
@@ -58,7 +60,7 @@ absolute value \begin{Desc}
 \end{Desc}
 
 
-Definition at line 319 of file Utils.c.
+Definition at line 315 of file Utils.c.
 
 Referenced by C\_\-absstandardize(), and R\_\-abs().\hypertarget{Utils_8h_ff0eae9aa0175cd8fe73324707418ce0}{
 \index{Utils.h@{Utils.h}!C_i_in_set@{C\_\-i\_\-in\_\-set}}
@@ -69,7 +71,7 @@ Referenced by C\_\-absstandardize(), and R\_\-abs().\hypertarget{Utils_8h_ff0eae
 
 
 
-Definition at line 568 of file Utils.c.
+Definition at line 564 of file Utils.c.
 
 References i\_\-in\_\-set().
 
@@ -112,7 +114,7 @@ matrix product x $\ast$\% y \begin{Desc}
 \end{Desc}
 
 
-Definition at line 357 of file Utils.c.
+Definition at line 353 of file Utils.c.
 
 Referenced by R\_\-matprod().\hypertarget{Utils_8h_9097078e7e5f9b9e900a49f07b99efff}{
 \index{Utils.h@{Utils.h}!C_matprodT@{C\_\-matprodT}}
@@ -128,7 +130,7 @@ matrix product x $\ast$\% t(y) \begin{Desc}
 \end{Desc}
 
 
-Definition at line 409 of file Utils.c.
+Definition at line 405 of file Utils.c.
 
 Referenced by R\_\-matprod\-T().\hypertarget{Utils_8h_5b306a6923d1155e6ce877cf6fa12a42}{
 \index{Utils.h@{Utils.h}!C_max@{C\_\-max}}
@@ -144,7 +146,7 @@ the maximum of a double vector \begin{Desc}
 \end{Desc}
 
 
-Definition at line 282 of file Utils.c.
+Definition at line 278 of file Utils.c.
 
 Referenced by C\_\-maxabs\-Test\-Statistic(), C\_\-Node(), and R\_\-max().\hypertarget{Utils_8h_c0d5c2fe971923d7a1b1869dffabddb1}{
 \index{Utils.h@{Utils.h}!C_MPinv@{C\_\-MPinv}}
@@ -160,16 +162,35 @@ Moore-Penrose inverse of a matrix \begin{Desc}
 \end{Desc}
 
 
-Definition at line 188 of file Utils.c.
+Definition at line 185 of file Utils.c.
 
-References CR\_\-svd(), PL2\_\-MPinv\-Sym, PL2\_\-rank\-Sym, and PL2\_\-svd\-Sym.
+References CR\_\-svd(), PL2\_\-MPinv\-Sym, PL2\_\-rank\-Sym, PL2\_\-s\-Sym, PL2\_\-u\-Sym, and PL2\_\-v\-Sym.
 
 Referenced by C\_\-Lin\-Stat\-Exp\-Cov\-MPinv(), and R\_\-MPinv().
 
 Here is the call graph for this function:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=91pt]{Utils_8h_c0d5c2fe971923d7a1b1869dffabddb1_cgraph}
+\includegraphics[width=128pt]{Utils_8h_c0d5c2fe971923d7a1b1869dffabddb1_cgraph}
+\end{center}
+\end{figure}
+\hypertarget{Utils_8h_ccce6f00d55276c0a01b30651f1c206c}{
+\index{Utils.h@{Utils.h}!C_remove_weights@{C\_\-remove\_\-weights}}
+\index{C_remove_weights@{C\_\-remove\_\-weights}!Utils.h@{Utils.h}}
+\subsubsection[C\_\-remove\_\-weights]{\setlength{\rightskip}{0pt plus 5cm}void C\_\-remove\_\-weights (SEXP {\em subtree})}}
+\label{Utils_8h_ccce6f00d55276c0a01b30651f1c206c}
+
+
+Remove weights vector from each node of a tree (in order to save memory) $\backslash$$\ast$param subtree a tree 
+
+Definition at line 11 of file Random\-Forest.c.
+
+References C\_\-remove\_\-weights(), S3\_\-WEIGHTS, S3get\_\-leftnode(), S3get\_\-nodeterminal(), and S3get\_\-rightnode().
+
+Here is the call graph for this function:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=140pt]{Utils_8h_ccce6f00d55276c0a01b30651f1c206c_cgraph}
 \end{center}
 \end{figure}
 \hypertarget{Utils_8h_f7c710920d1496d23fdabad9b1d0e18c}{
@@ -186,7 +207,7 @@ compute a permutation of a (random subset of) 0:(m-1) \begin{Desc}
 \end{Desc}
 
 
-Definition at line 457 of file Utils.c.
+Definition at line 453 of file Utils.c.
 
 Referenced by R\_\-permute(), and R\_\-rsubset().\hypertarget{Utils_8h_88c1a807c7856d57d07d10027d588602}{
 \index{Utils.h@{Utils.h}!C_SampleSplitting@{C\_\-SampleSplitting}}
@@ -197,7 +218,7 @@ Referenced by R\_\-permute(), and R\_\-rsubset().\hypertarget{Utils_8h_88c1a807c
 
 
 
-Definition at line 683 of file Utils.c.
+Definition at line 679 of file Utils.c.
 
 References C\_\-Prob\-Sample\-No\-Replace().
 
@@ -216,7 +237,7 @@ Here is the call graph for this function:\begin{figure}[H]
 
 
 
-Definition at line 587 of file Utils.c.
+Definition at line 583 of file Utils.c.
 
 Referenced by C\_\-Node(), and R\_\-whichmax().\hypertarget{Utils_8h_ae969040bb060d2874fd969e20675bbb}{
 \index{Utils.h@{Utils.h}!i_in_set@{i\_\-in\_\-set}}
@@ -232,7 +253,7 @@ determine if i is element of the integer vector set \begin{Desc}
 \end{Desc}
 
 
-Definition at line 553 of file Utils.c.
+Definition at line 549 of file Utils.c.
 
 Referenced by C\_\-i\_\-in\_\-set(), and C\_\-splitnode().\hypertarget{Utils_8h_572286b2fd0bd9993473cfd0c6b165c0}{
 \index{Utils.h@{Utils.h}!La_svd@{La\_\-svd}}
@@ -250,9 +271,9 @@ Referenced by C\_\-i\_\-in\_\-set(), and C\_\-splitnode().\hypertarget{Utils_8h_
 
 
 
-Definition at line 579 of file Utils.c.
+Definition at line 575 of file Utils.c.
 
-Referenced by C\_\-Global\-Test(), C\_\-Independence\-Test(), C\_\-Node(), C\_\-splitnode(), R\_\-Expect\-Covar\-Influence(), R\_\-Expect\-Covar\-Linear\-Statistic(), R\_\-Linear\-Statistic(), R\_\-matprod(), R\_\-matprod\-T(), R\_\-MPinv(), R\_\-Node(), R\_\-predict\-RF2(), R\_\-split(), R\_\-splitcategorical(), and R\_\-Tree\-Grow().\hypertarget{Utils_8h_eeb672a71c45ead28b7b354414f2427a}{
+Referenced by C\_\-Global\-Test(), C\_\-Independence\-Test(), C\_\-Node(), C\_\-splitnode(), R\_\-Expect\-Covar\-Influence(), R\_\-Expect\-Covar\-Linear\-Statistic(), R\_\-Linear\-Statistic(), R\_\-matprod(), R\_\-matprod\-T(), R\_\-MPinv(), R\_\-Node(), R\_\-split(), R\_\-splitcategorical(), and R\_\-Tree\-Grow().\hypertarget{Utils_8h_eeb672a71c45ead28b7b354414f2427a}{
 \index{Utils.h@{Utils.h}!nrow@{nrow}}
 \index{nrow@{nrow}!Utils.h@{Utils.h}}
 \subsubsection[nrow]{\setlength{\rightskip}{0pt plus 5cm}int nrow (SEXP {\em x})}}
@@ -261,6 +282,6 @@ Referenced by C\_\-Global\-Test(), C\_\-Independence\-Test(), C\_\-Node(), C\_\-
 
 
 
-Definition at line 575 of file Utils.c.
+Definition at line 571 of file Utils.c.
 
-Referenced by C\_\-Independence\-Test(), R\_\-Expect\-Covar\-Influence(), R\_\-Expect\-Covar\-Linear\-Statistic(), R\_\-Linear\-Statistic(), R\_\-matprod(), R\_\-matprod\-T(), R\_\-maxabs\-Conditional\-Pvalue(), R\_\-MPinv(), R\_\-Permuted\-Linear\-Statistic(), R\_\-predict\-RF2(), R\_\-split(), and R\_\-splitcategorical().
+Referenced by C\_\-Independence\-Test(), CR\_\-svd(), R\_\-Expect\-Covar\-Influence(), R\_\-Expect\-Covar\-Linear\-Statistic(), R\_\-Linear\-Statistic(), R\_\-matprod(), R\_\-matprod\-T(), R\_\-maxabs\-Conditional\-Pvalue(), R\_\-MPinv(), R\_\-Permuted\-Linear\-Statistic(), R\_\-split(), and R\_\-splitcategorical().

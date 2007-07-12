@@ -61,34 +61,35 @@
 <a name="l00040"></a><a class="code" href="party_8h.html#dab41315603030e3d85038f40225e8e8">00040</a> <span class="preprocessor">#define S3_PREDICTION           6    </span><span class="comment">/* prediction */</span>
 <a name="l00041"></a><a class="code" href="party_8h.html#e6b64412ed72a9b5f4af50dbdeb46f5f">00041</a> <span class="preprocessor">#define S3_LEFT                 7    </span><span class="comment">/* left */</span>
 <a name="l00042"></a><a class="code" href="party_8h.html#e884fc8af7f5510edd5102e07bf1bf7c">00042</a> <span class="preprocessor">#define S3_RIGHT                8    </span><span class="comment">/* right */</span>
-<a name="l00043"></a><a class="code" href="party_8h.html#2594b3a85c654c34048133cb81ad0fab">00043</a> <span class="preprocessor">#define NODE_LENGTH             9    </span><span class="comment">/* 9 elements in total */</span>
-<a name="l00044"></a>00044 
-<a name="l00045"></a>00045 <span class="comment">/* S3 list elements in `criterion' element of `SplittingNode's */</span>
-<a name="l00046"></a><a class="code" href="party_8h.html#7d9196a92b820e0fc23e59cdc69ae6c2">00046</a> <span class="preprocessor">#define S3_STATISTICS           0    </span><span class="comment">/* statistics */</span>
-<a name="l00047"></a><a class="code" href="party_8h.html#52cb7f77de1df6dd9b93078908c52816">00047</a> <span class="preprocessor">#define S3_iCRITERION           1    </span><span class="comment">/* criterion */</span>
-<a name="l00048"></a><a class="code" href="party_8h.html#70a64de1fafbdb4e40d57b867589ff97">00048</a> <span class="preprocessor">#define S3_MAXCRITERION         2    </span><span class="comment">/* max(criterion) */</span>
-<a name="l00049"></a><a class="code" href="party_8h.html#9f26fcd39efae230d792a03c810c87a8">00049</a> <span class="preprocessor">#define CRITERION_LENGTH        3    </span><span class="comment">/* 3 elements in total */</span>
-<a name="l00050"></a>00050 
-<a name="l00051"></a>00051 <span class="comment">/* S3 list elements in `orderedSplit's or `nominalSplit's */</span>
-<a name="l00052"></a><a class="code" href="party_8h.html#fe45cf6305b9f8e720fcbcfea32e8a79">00052</a> <span class="preprocessor">#define S3_VARIABLEID           0    </span><span class="comment">/* variableID */</span>
-<a name="l00053"></a><a class="code" href="party_8h.html#b98a5267036c4722529cbf1d28405d5c">00053</a> <span class="preprocessor">#define S3_ORDERED              1    </span><span class="comment">/* ordered */</span>
-<a name="l00054"></a><a class="code" href="party_8h.html#de7a9f1e1a374e0afa0e2b7d813cc0e7">00054</a> <span class="preprocessor">#define S3_SPLITPOINT           2    </span><span class="comment">/* splitpoint */</span>
-<a name="l00055"></a><a class="code" href="party_8h.html#727d68d7c6c0d885ff374a8779ebaab3">00055</a> <span class="preprocessor">#define S3_SPLITSTATISTICS      3    </span><span class="comment">/* splitstatistics */</span>
-<a name="l00056"></a><a class="code" href="party_8h.html#e11d1d0e0fea5c655d40bd14dbf67e29">00056</a> <span class="preprocessor">#define S3_TOLEFT               4    </span><span class="comment">/* toleft */</span>
-<a name="l00057"></a><a class="code" href="party_8h.html#ea4e21f37dd3fddc02ad6d030e7f0e8f">00057</a> <span class="preprocessor">#define S3_TABLE                5    </span><span class="comment">/* table for nominal splits */</span>
-<a name="l00058"></a><a class="code" href="party_8h.html#27e42cfa9f63fb89059ef54f981d76fa">00058</a> <span class="preprocessor">#define SPLIT_LENGTH            6    </span><span class="comment">/* 6 elements in total */</span>
-<a name="l00059"></a>00059 
-<a name="l00060"></a>00060 <span class="comment">/* type of test statistic */</span>
-<a name="l00061"></a><a class="code" href="party_8h.html#519bce0ae6bcf7c9ea49e687104a7e89">00061</a> <span class="preprocessor">#define MAXABS                  1</span>
-<a name="l00062"></a><a class="code" href="party_8h.html#2bb5fe1fde38878e1bc17e63950e3267">00062</a> <span class="preprocessor"></span><span class="preprocessor">#define QUADFORM                2</span>
-<a name="l00063"></a>00063 <span class="preprocessor"></span>
-<a name="l00064"></a>00064 <span class="comment">/* type of criterion to be _maximized_! */</span>
-<a name="l00065"></a><a class="code" href="party_8h.html#e58f101919f3367c51322fc2995f8286">00065</a> <span class="preprocessor">#define BONFERRONI              1</span>
-<a name="l00066"></a><a class="code" href="party_8h.html#fe09ae6cccfcacdf668872522cf79528">00066</a> <span class="preprocessor"></span><span class="preprocessor">#define MONTECARLO              2</span>
-<a name="l00067"></a><a class="code" href="party_8h.html#4df9c9469e4a30c16e8b9cdb2c95fd4f">00067</a> <span class="preprocessor"></span><span class="preprocessor">#define AGGREGATED              3</span>
-<a name="l00068"></a><a class="code" href="party_8h.html#2fb8ad2edef6428fdcdbf04184164698">00068</a> <span class="preprocessor"></span><span class="preprocessor">#define UNIVARIATE              4</span>
-<a name="l00069"></a><a class="code" href="party_8h.html#a37c25590457814f19baaa576ef3e54f">00069</a> <span class="preprocessor"></span><span class="preprocessor">#define TESTSTATISTIC           5</span>
-</pre></div><hr size="1"><address style="align: right;"><small>Generated on Wed Jun 20 15:55:33 2007 for party by&nbsp;
+<a name="l00043"></a><a class="code" href="party_8h.html#03408349cc8dbd04a36733dfebffbacf">00043</a> <span class="preprocessor">#define S3_SUMWEIGHTS           9    </span><span class="comment">/* sum of weights in this node */</span>
+<a name="l00044"></a><a class="code" href="party_8h.html#2594b3a85c654c34048133cb81ad0fab">00044</a> <span class="preprocessor">#define NODE_LENGTH             10   </span><span class="comment">/* 9 elements in total */</span>
+<a name="l00045"></a>00045 
+<a name="l00046"></a>00046 <span class="comment">/* S3 list elements in `criterion' element of `SplittingNode's */</span>
+<a name="l00047"></a><a class="code" href="party_8h.html#7d9196a92b820e0fc23e59cdc69ae6c2">00047</a> <span class="preprocessor">#define S3_STATISTICS           0    </span><span class="comment">/* statistics */</span>
+<a name="l00048"></a><a class="code" href="party_8h.html#52cb7f77de1df6dd9b93078908c52816">00048</a> <span class="preprocessor">#define S3_iCRITERION           1    </span><span class="comment">/* criterion */</span>
+<a name="l00049"></a><a class="code" href="party_8h.html#70a64de1fafbdb4e40d57b867589ff97">00049</a> <span class="preprocessor">#define S3_MAXCRITERION         2    </span><span class="comment">/* max(criterion) */</span>
+<a name="l00050"></a><a class="code" href="party_8h.html#9f26fcd39efae230d792a03c810c87a8">00050</a> <span class="preprocessor">#define CRITERION_LENGTH        3    </span><span class="comment">/* 3 elements in total */</span>
+<a name="l00051"></a>00051 
+<a name="l00052"></a>00052 <span class="comment">/* S3 list elements in `orderedSplit's or `nominalSplit's */</span>
+<a name="l00053"></a><a class="code" href="party_8h.html#fe45cf6305b9f8e720fcbcfea32e8a79">00053</a> <span class="preprocessor">#define S3_VARIABLEID           0    </span><span class="comment">/* variableID */</span>
+<a name="l00054"></a><a class="code" href="party_8h.html#b98a5267036c4722529cbf1d28405d5c">00054</a> <span class="preprocessor">#define S3_ORDERED              1    </span><span class="comment">/* ordered */</span>
+<a name="l00055"></a><a class="code" href="party_8h.html#de7a9f1e1a374e0afa0e2b7d813cc0e7">00055</a> <span class="preprocessor">#define S3_SPLITPOINT           2    </span><span class="comment">/* splitpoint */</span>
+<a name="l00056"></a><a class="code" href="party_8h.html#727d68d7c6c0d885ff374a8779ebaab3">00056</a> <span class="preprocessor">#define S3_SPLITSTATISTICS      3    </span><span class="comment">/* splitstatistics */</span>
+<a name="l00057"></a><a class="code" href="party_8h.html#e11d1d0e0fea5c655d40bd14dbf67e29">00057</a> <span class="preprocessor">#define S3_TOLEFT               4    </span><span class="comment">/* toleft */</span>
+<a name="l00058"></a><a class="code" href="party_8h.html#ea4e21f37dd3fddc02ad6d030e7f0e8f">00058</a> <span class="preprocessor">#define S3_TABLE                5    </span><span class="comment">/* table for nominal splits */</span>
+<a name="l00059"></a><a class="code" href="party_8h.html#27e42cfa9f63fb89059ef54f981d76fa">00059</a> <span class="preprocessor">#define SPLIT_LENGTH            6    </span><span class="comment">/* 6 elements in total */</span>
+<a name="l00060"></a>00060 
+<a name="l00061"></a>00061 <span class="comment">/* type of test statistic */</span>
+<a name="l00062"></a><a class="code" href="party_8h.html#519bce0ae6bcf7c9ea49e687104a7e89">00062</a> <span class="preprocessor">#define MAXABS                  1</span>
+<a name="l00063"></a><a class="code" href="party_8h.html#2bb5fe1fde38878e1bc17e63950e3267">00063</a> <span class="preprocessor"></span><span class="preprocessor">#define QUADFORM                2</span>
+<a name="l00064"></a>00064 <span class="preprocessor"></span>
+<a name="l00065"></a>00065 <span class="comment">/* type of criterion to be _maximized_! */</span>
+<a name="l00066"></a><a class="code" href="party_8h.html#e58f101919f3367c51322fc2995f8286">00066</a> <span class="preprocessor">#define BONFERRONI              1</span>
+<a name="l00067"></a><a class="code" href="party_8h.html#fe09ae6cccfcacdf668872522cf79528">00067</a> <span class="preprocessor"></span><span class="preprocessor">#define MONTECARLO              2</span>
+<a name="l00068"></a><a class="code" href="party_8h.html#4df9c9469e4a30c16e8b9cdb2c95fd4f">00068</a> <span class="preprocessor"></span><span class="preprocessor">#define AGGREGATED              3</span>
+<a name="l00069"></a><a class="code" href="party_8h.html#2fb8ad2edef6428fdcdbf04184164698">00069</a> <span class="preprocessor"></span><span class="preprocessor">#define UNIVARIATE              4</span>
+<a name="l00070"></a><a class="code" href="party_8h.html#a37c25590457814f19baaa576ef3e54f">00070</a> <span class="preprocessor"></span><span class="preprocessor">#define TESTSTATISTIC           5</span>
+</pre></div><hr size="1"><address style="align: right;"><small>Generated on Mon Jul 23 10:05:58 2007 for party by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6 </small></address>
 </body>

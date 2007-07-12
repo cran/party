@@ -1,4 +1,4 @@
-.TH "RandomForest.c" 3 "20 Jun 2007" "party" \" -*- nroff -*-
+.TH "RandomForest.c" 3 "23 Jul 2007" "party" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -13,7 +13,10 @@ RandomForest.c \-
 
 .in +1c
 .ti -1c
-.RI "SEXP \fBR_Ensemble\fP (SEXP learnsample, SEXP weights, SEXP fitmem, SEXP controls)"
+.RI "void \fBC_remove_weights\fP (SEXP subtree)"
+.br
+.ti -1c
+.RI "SEXP \fBR_Ensemble\fP (SEXP learnsample, SEXP weights, SEXP bwhere, SEXP bweights, SEXP fitmem, SEXP controls)"
 .br
 .in -1c
 .SH "Detailed Description"
@@ -31,7 +34,7 @@ hothorn
 \fBDate:\fP
 .RS 4
 \fBDate\fP.RS 4
-2007-06-11 14:09:03 +0200 (Mon, 11 Jun 2007) 
+2007-07-23 10:02:09 +0200 (Mon, 23 Jul 2007) 
 .RE
 .PP
 .RE
@@ -41,7 +44,12 @@ hothorn
 Definition in file \fBRandomForest.c\fP.
 .SH "Function Documentation"
 .PP 
-.SS "SEXP R_Ensemble (SEXP learnsample, SEXP weights, SEXP fitmem, SEXP controls)"
+.SS "void C_remove_weights (SEXP subtree)"
+.PP
+Definition at line 11 of file RandomForest.c.
+.PP
+Referenced by C_remove_weights().
+.SS "SEXP R_Ensemble (SEXP learnsample, SEXP weights, SEXP bwhere, SEXP bweights, SEXP fitmem, SEXP controls)"
 .PP
 An experimental implementation of random forest like algorithms 
 .br
@@ -53,6 +61,10 @@ An experimental implementation of random forest like algorithms
 .br
 \fIweights\fP a vector of case weights 
 .br
+\fIbwhere\fP integer matrix (n x ntree) for terminal node numbers 
+.br
+\fIbweights\fP double matrix (n x ntree) for bootstrap case weights 
+.br
 \fIfitmem\fP an object of class `TreeFitMemory' 
 .br
 \fIcontrols\fP an object of class `TreeControl' 
@@ -60,7 +72,7 @@ An experimental implementation of random forest like algorithms
 .PP
 
 .PP
-Definition at line 21 of file RandomForest.c.
+Definition at line 33 of file RandomForest.c.
 .PP
 References get_nobs(), and get_ntree().
 .SH "Author"

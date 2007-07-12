@@ -175,380 +175,212 @@
 <a name="l00179"></a>00179             }
 <a name="l00180"></a>00180 
 <a name="l00181"></a>00181             <span class="comment">/* if this was not successful, we go with the majority */</span>
-<a name="l00182"></a>00182             weights = <a class="code" href="S3Classes_8c.html#c3785782483b5bf4afe9d606e280f3ca">S3get_nodeweights</a>(<a class="code" href="S3Classes_8c.html#5917f57e141432fd1e4f58a16b9149aa">S3get_leftnode</a>(subtree));
-<a name="l00183"></a>00183             dweights = REAL(weights);
-<a name="l00184"></a>00184             swleft = 0.0;
-<a name="l00185"></a>00185             <span class="keywordflow">for</span> (i = 0; i &lt; LENGTH(weights); i++)
-<a name="l00186"></a>00186                 swleft += dweights[i];
-<a name="l00187"></a>00187             weights = <a class="code" href="S3Classes_8c.html#c3785782483b5bf4afe9d606e280f3ca">S3get_nodeweights</a>(<a class="code" href="S3Classes_8c.html#14a38e81ed758a64367dc190f0e8229b">S3get_rightnode</a>(subtree));
-<a name="l00188"></a>00188             dweights = REAL(weights);
-<a name="l00189"></a>00189             swright = 0.0;
-<a name="l00190"></a>00190             <span class="keywordflow">for</span> (i = 0; i &lt; LENGTH(weights); i++)
-<a name="l00191"></a>00191                 swright += dweights[i];
-<a name="l00192"></a>00192             <span class="keywordflow">if</span> (swleft &gt; swright) {
-<a name="l00193"></a>00193                 <span class="keywordflow">return</span>(<a class="code" href="Predict_8c.html#dcd61d38c7c43d241d09a600b70fe3c5">C_get_node</a>(<a class="code" href="S3Classes_8c.html#5917f57e141432fd1e4f58a16b9149aa">S3get_leftnode</a>(subtree), 
-<a name="l00194"></a>00194                                   newinputs, mincriterion, numobs));
-<a name="l00195"></a>00195             } <span class="keywordflow">else</span> {
-<a name="l00196"></a>00196                 <span class="keywordflow">return</span>(<a class="code" href="Predict_8c.html#dcd61d38c7c43d241d09a600b70fe3c5">C_get_node</a>(<a class="code" href="S3Classes_8c.html#14a38e81ed758a64367dc190f0e8229b">S3get_rightnode</a>(subtree), 
-<a name="l00197"></a>00197                                   newinputs, mincriterion, numobs));
-<a name="l00198"></a>00198             }
-<a name="l00199"></a>00199         }
-<a name="l00200"></a>00200     }
-<a name="l00201"></a>00201     
-<a name="l00202"></a>00202     <span class="keywordflow">if</span> (<a class="code" href="S3Classes_8c.html#54ed9f6b46c69d550ceea1a525287ecf">S3is_ordered</a>(split)) {
-<a name="l00203"></a>00203         cutpoint = REAL(<a class="code" href="S3Classes_8c.html#acf87d496fd3b07bafd171c92404212a">S3get_splitpoint</a>(split))[0];
-<a name="l00204"></a>00204         x = REAL(<a class="code" href="Classes_8c.html#0f91efa916e815ec7d90c6f9516f18e4">get_variable</a>(newinputs, 
-<a name="l00205"></a>00205                      <a class="code" href="S3Classes_8c.html#583f9148949f93b5fe894feb6567ca0d">S3get_variableID</a>(split)))[numobs];
-<a name="l00206"></a>00206         <span class="keywordflow">if</span> (x &lt;= cutpoint) {
-<a name="l00207"></a>00207             <span class="keywordflow">return</span>(<a class="code" href="Predict_8c.html#dcd61d38c7c43d241d09a600b70fe3c5">C_get_node</a>(<a class="code" href="S3Classes_8c.html#5917f57e141432fd1e4f58a16b9149aa">S3get_leftnode</a>(subtree), 
-<a name="l00208"></a>00208                               newinputs, mincriterion, numobs));
-<a name="l00209"></a>00209         } <span class="keywordflow">else</span> {
-<a name="l00210"></a>00210             <span class="keywordflow">return</span>(<a class="code" href="Predict_8c.html#dcd61d38c7c43d241d09a600b70fe3c5">C_get_node</a>(<a class="code" href="S3Classes_8c.html#14a38e81ed758a64367dc190f0e8229b">S3get_rightnode</a>(subtree), 
-<a name="l00211"></a>00211                               newinputs, mincriterion, numobs));
-<a name="l00212"></a>00212         }
-<a name="l00213"></a>00213     } <span class="keywordflow">else</span> {
-<a name="l00214"></a>00214         levelset = INTEGER(<a class="code" href="S3Classes_8c.html#acf87d496fd3b07bafd171c92404212a">S3get_splitpoint</a>(split));
-<a name="l00215"></a>00215         level = INTEGER(<a class="code" href="Classes_8c.html#0f91efa916e815ec7d90c6f9516f18e4">get_variable</a>(newinputs, 
-<a name="l00216"></a>00216                             <a class="code" href="S3Classes_8c.html#583f9148949f93b5fe894feb6567ca0d">S3get_variableID</a>(split)))[numobs];
-<a name="l00217"></a>00217         <span class="comment">/* level is in 1, ..., K */</span>
-<a name="l00218"></a>00218         <span class="keywordflow">if</span> (levelset[level - 1]) {
-<a name="l00219"></a>00219             <span class="keywordflow">return</span>(<a class="code" href="Predict_8c.html#dcd61d38c7c43d241d09a600b70fe3c5">C_get_node</a>(<a class="code" href="S3Classes_8c.html#5917f57e141432fd1e4f58a16b9149aa">S3get_leftnode</a>(subtree), newinputs, 
-<a name="l00220"></a>00220                               mincriterion, numobs));
-<a name="l00221"></a>00221         } <span class="keywordflow">else</span> {
-<a name="l00222"></a>00222             <span class="keywordflow">return</span>(<a class="code" href="Predict_8c.html#dcd61d38c7c43d241d09a600b70fe3c5">C_get_node</a>(<a class="code" href="S3Classes_8c.html#14a38e81ed758a64367dc190f0e8229b">S3get_rightnode</a>(subtree), newinputs, 
-<a name="l00223"></a>00223                               mincriterion, numobs));
-<a name="l00224"></a>00224         }
-<a name="l00225"></a>00225     }
-<a name="l00226"></a>00226 }
-<a name="l00227"></a>00227 
-<a name="l00228"></a>00228 
-<a name="l00237"></a><a class="code" href="Predict_8c.html#dec31e3aa985e0af16ccaeac31237640">00237</a> SEXP <a class="code" href="Predict_8c.html#dec31e3aa985e0af16ccaeac31237640">R_get_node</a>(SEXP subtree, SEXP newinputs, SEXP mincriterion, 
-<a name="l00238"></a>00238                 SEXP numobs) {
-<a name="l00239"></a>00239     <span class="keywordflow">return</span>(<a class="code" href="Predict_8c.html#dcd61d38c7c43d241d09a600b70fe3c5">C_get_node</a>(subtree, newinputs, REAL(mincriterion)[0],
-<a name="l00240"></a>00240                       INTEGER(numobs)[0] - 1));
-<a name="l00241"></a>00241 }
-<a name="l00242"></a>00242 
-<a name="l00243"></a>00243 
-<a name="l00250"></a><a class="code" href="Predict_8c.html#201fdee9dc7e3e71e90ea6609ed353cb">00250</a> SEXP <a class="code" href="Predict_8c.html#201fdee9dc7e3e71e90ea6609ed353cb">C_get_nodebynum</a>(SEXP subtree, <span class="keywordtype">int</span> nodenum) {
-<a name="l00251"></a>00251     
-<a name="l00252"></a>00252     <span class="keywordflow">if</span> (nodenum == <a class="code" href="S3Classes_8c.html#136b05ff188fc291196cc9d37d52e862">S3get_nodeID</a>(subtree)) <span class="keywordflow">return</span>(subtree);
-<a name="l00253"></a>00253 
-<a name="l00254"></a>00254     <span class="keywordflow">if</span> (<a class="code" href="S3Classes_8c.html#b8834f319068d2a248a5d6328cd10dc5">S3get_nodeterminal</a>(subtree)) 
-<a name="l00255"></a>00255         error(<span class="stringliteral">"no node with number %d\n"</span>, nodenum);
+<a name="l00182"></a>00182             swleft = <a class="code" href="S3Classes_8c.html#d5b760cf2b547dc128273948f78b7a3c">S3get_sumweights</a>(<a class="code" href="S3Classes_8c.html#5917f57e141432fd1e4f58a16b9149aa">S3get_leftnode</a>(subtree));
+<a name="l00183"></a>00183             swright = <a class="code" href="S3Classes_8c.html#d5b760cf2b547dc128273948f78b7a3c">S3get_sumweights</a>(<a class="code" href="S3Classes_8c.html#14a38e81ed758a64367dc190f0e8229b">S3get_rightnode</a>(subtree));
+<a name="l00184"></a>00184             <span class="keywordflow">if</span> (swleft &gt; swright) {
+<a name="l00185"></a>00185                 <span class="keywordflow">return</span>(<a class="code" href="Predict_8c.html#dcd61d38c7c43d241d09a600b70fe3c5">C_get_node</a>(<a class="code" href="S3Classes_8c.html#5917f57e141432fd1e4f58a16b9149aa">S3get_leftnode</a>(subtree), 
+<a name="l00186"></a>00186                                   newinputs, mincriterion, numobs));
+<a name="l00187"></a>00187             } <span class="keywordflow">else</span> {
+<a name="l00188"></a>00188                 <span class="keywordflow">return</span>(<a class="code" href="Predict_8c.html#dcd61d38c7c43d241d09a600b70fe3c5">C_get_node</a>(<a class="code" href="S3Classes_8c.html#14a38e81ed758a64367dc190f0e8229b">S3get_rightnode</a>(subtree), 
+<a name="l00189"></a>00189                                   newinputs, mincriterion, numobs));
+<a name="l00190"></a>00190             }
+<a name="l00191"></a>00191         }
+<a name="l00192"></a>00192     }
+<a name="l00193"></a>00193     
+<a name="l00194"></a>00194     <span class="keywordflow">if</span> (<a class="code" href="S3Classes_8c.html#54ed9f6b46c69d550ceea1a525287ecf">S3is_ordered</a>(split)) {
+<a name="l00195"></a>00195         cutpoint = REAL(<a class="code" href="S3Classes_8c.html#acf87d496fd3b07bafd171c92404212a">S3get_splitpoint</a>(split))[0];
+<a name="l00196"></a>00196         x = REAL(<a class="code" href="Classes_8c.html#0f91efa916e815ec7d90c6f9516f18e4">get_variable</a>(newinputs, 
+<a name="l00197"></a>00197                      <a class="code" href="S3Classes_8c.html#583f9148949f93b5fe894feb6567ca0d">S3get_variableID</a>(split)))[numobs];
+<a name="l00198"></a>00198         <span class="keywordflow">if</span> (x &lt;= cutpoint) {
+<a name="l00199"></a>00199             <span class="keywordflow">return</span>(<a class="code" href="Predict_8c.html#dcd61d38c7c43d241d09a600b70fe3c5">C_get_node</a>(<a class="code" href="S3Classes_8c.html#5917f57e141432fd1e4f58a16b9149aa">S3get_leftnode</a>(subtree), 
+<a name="l00200"></a>00200                               newinputs, mincriterion, numobs));
+<a name="l00201"></a>00201         } <span class="keywordflow">else</span> {
+<a name="l00202"></a>00202             <span class="keywordflow">return</span>(<a class="code" href="Predict_8c.html#dcd61d38c7c43d241d09a600b70fe3c5">C_get_node</a>(<a class="code" href="S3Classes_8c.html#14a38e81ed758a64367dc190f0e8229b">S3get_rightnode</a>(subtree), 
+<a name="l00203"></a>00203                               newinputs, mincriterion, numobs));
+<a name="l00204"></a>00204         }
+<a name="l00205"></a>00205     } <span class="keywordflow">else</span> {
+<a name="l00206"></a>00206         levelset = INTEGER(<a class="code" href="S3Classes_8c.html#acf87d496fd3b07bafd171c92404212a">S3get_splitpoint</a>(split));
+<a name="l00207"></a>00207         level = INTEGER(<a class="code" href="Classes_8c.html#0f91efa916e815ec7d90c6f9516f18e4">get_variable</a>(newinputs, 
+<a name="l00208"></a>00208                             <a class="code" href="S3Classes_8c.html#583f9148949f93b5fe894feb6567ca0d">S3get_variableID</a>(split)))[numobs];
+<a name="l00209"></a>00209         <span class="comment">/* level is in 1, ..., K */</span>
+<a name="l00210"></a>00210         <span class="keywordflow">if</span> (levelset[level - 1]) {
+<a name="l00211"></a>00211             <span class="keywordflow">return</span>(<a class="code" href="Predict_8c.html#dcd61d38c7c43d241d09a600b70fe3c5">C_get_node</a>(<a class="code" href="S3Classes_8c.html#5917f57e141432fd1e4f58a16b9149aa">S3get_leftnode</a>(subtree), newinputs, 
+<a name="l00212"></a>00212                               mincriterion, numobs));
+<a name="l00213"></a>00213         } <span class="keywordflow">else</span> {
+<a name="l00214"></a>00214             <span class="keywordflow">return</span>(<a class="code" href="Predict_8c.html#dcd61d38c7c43d241d09a600b70fe3c5">C_get_node</a>(<a class="code" href="S3Classes_8c.html#14a38e81ed758a64367dc190f0e8229b">S3get_rightnode</a>(subtree), newinputs, 
+<a name="l00215"></a>00215                               mincriterion, numobs));
+<a name="l00216"></a>00216         }
+<a name="l00217"></a>00217     }
+<a name="l00218"></a>00218 }
+<a name="l00219"></a>00219 
+<a name="l00220"></a>00220 
+<a name="l00229"></a><a class="code" href="Predict_8c.html#dec31e3aa985e0af16ccaeac31237640">00229</a> SEXP <a class="code" href="Predict_8c.html#dec31e3aa985e0af16ccaeac31237640">R_get_node</a>(SEXP subtree, SEXP newinputs, SEXP mincriterion, 
+<a name="l00230"></a>00230                 SEXP numobs) {
+<a name="l00231"></a>00231     <span class="keywordflow">return</span>(<a class="code" href="Predict_8c.html#dcd61d38c7c43d241d09a600b70fe3c5">C_get_node</a>(subtree, newinputs, REAL(mincriterion)[0],
+<a name="l00232"></a>00232                       INTEGER(numobs)[0] - 1));
+<a name="l00233"></a>00233 }
+<a name="l00234"></a>00234 
+<a name="l00235"></a>00235 
+<a name="l00242"></a><a class="code" href="Predict_8c.html#201fdee9dc7e3e71e90ea6609ed353cb">00242</a> SEXP <a class="code" href="Predict_8c.html#201fdee9dc7e3e71e90ea6609ed353cb">C_get_nodebynum</a>(SEXP subtree, <span class="keywordtype">int</span> nodenum) {
+<a name="l00243"></a>00243     
+<a name="l00244"></a>00244     <span class="keywordflow">if</span> (nodenum == <a class="code" href="S3Classes_8c.html#136b05ff188fc291196cc9d37d52e862">S3get_nodeID</a>(subtree)) <span class="keywordflow">return</span>(subtree);
+<a name="l00245"></a>00245 
+<a name="l00246"></a>00246     <span class="keywordflow">if</span> (<a class="code" href="S3Classes_8c.html#b8834f319068d2a248a5d6328cd10dc5">S3get_nodeterminal</a>(subtree)) 
+<a name="l00247"></a>00247         error(<span class="stringliteral">"no node with number %d\n"</span>, nodenum);
+<a name="l00248"></a>00248 
+<a name="l00249"></a>00249     <span class="keywordflow">if</span> (nodenum &lt; <a class="code" href="S3Classes_8c.html#136b05ff188fc291196cc9d37d52e862">S3get_nodeID</a>(<a class="code" href="S3Classes_8c.html#14a38e81ed758a64367dc190f0e8229b">S3get_rightnode</a>(subtree))) {
+<a name="l00250"></a>00250         <span class="keywordflow">return</span>(<a class="code" href="Predict_8c.html#201fdee9dc7e3e71e90ea6609ed353cb">C_get_nodebynum</a>(<a class="code" href="S3Classes_8c.html#5917f57e141432fd1e4f58a16b9149aa">S3get_leftnode</a>(subtree), nodenum));
+<a name="l00251"></a>00251     } <span class="keywordflow">else</span> {
+<a name="l00252"></a>00252         <span class="keywordflow">return</span>(<a class="code" href="Predict_8c.html#201fdee9dc7e3e71e90ea6609ed353cb">C_get_nodebynum</a>(<a class="code" href="S3Classes_8c.html#14a38e81ed758a64367dc190f0e8229b">S3get_rightnode</a>(subtree), nodenum));
+<a name="l00253"></a>00253     }
+<a name="l00254"></a>00254 }
+<a name="l00255"></a>00255 
 <a name="l00256"></a>00256 
-<a name="l00257"></a>00257     <span class="keywordflow">if</span> (nodenum &lt; <a class="code" href="S3Classes_8c.html#136b05ff188fc291196cc9d37d52e862">S3get_nodeID</a>(<a class="code" href="S3Classes_8c.html#14a38e81ed758a64367dc190f0e8229b">S3get_rightnode</a>(subtree))) {
-<a name="l00258"></a>00258         <span class="keywordflow">return</span>(<a class="code" href="Predict_8c.html#201fdee9dc7e3e71e90ea6609ed353cb">C_get_nodebynum</a>(<a class="code" href="S3Classes_8c.html#5917f57e141432fd1e4f58a16b9149aa">S3get_leftnode</a>(subtree), nodenum));
-<a name="l00259"></a>00259     } <span class="keywordflow">else</span> {
-<a name="l00260"></a>00260         <span class="keywordflow">return</span>(<a class="code" href="Predict_8c.html#201fdee9dc7e3e71e90ea6609ed353cb">C_get_nodebynum</a>(<a class="code" href="S3Classes_8c.html#14a38e81ed758a64367dc190f0e8229b">S3get_rightnode</a>(subtree), nodenum));
-<a name="l00261"></a>00261     }
-<a name="l00262"></a>00262 }
-<a name="l00263"></a>00263 
-<a name="l00264"></a>00264 
-<a name="l00271"></a><a class="code" href="Predict_8c.html#4a30a8aa916f294059b6e2cbcb9e29d5">00271</a> SEXP <a class="code" href="Predict_8c.html#4a30a8aa916f294059b6e2cbcb9e29d5">R_get_nodebynum</a>(SEXP subtree, SEXP nodenum) {
-<a name="l00272"></a>00272     <span class="keywordflow">return</span>(<a class="code" href="Predict_8c.html#201fdee9dc7e3e71e90ea6609ed353cb">C_get_nodebynum</a>(subtree, INTEGER(nodenum)[0]));
-<a name="l00273"></a>00273 }
-<a name="l00274"></a>00274 
-<a name="l00275"></a>00275 
-<a name="l00284"></a><a class="code" href="Predict_8c.html#c4f4e806a78c376b13802ed2cf1e7b65">00284</a> SEXP <a class="code" href="Predict_8c.html#c4f4e806a78c376b13802ed2cf1e7b65">C_get_prediction</a>(SEXP subtree, SEXP newinputs, 
-<a name="l00285"></a>00285                       <span class="keywordtype">double</span> mincriterion, <span class="keywordtype">int</span> numobs) {
-<a name="l00286"></a>00286     <span class="keywordflow">return</span>(<a class="code" href="S3Classes_8c.html#70a340b301b4e383107c92cbbeb4ae20">S3get_prediction</a>(<a class="code" href="Predict_8c.html#dcd61d38c7c43d241d09a600b70fe3c5">C_get_node</a>(subtree, newinputs, 
-<a name="l00287"></a>00287                             mincriterion, numobs)));
-<a name="l00288"></a>00288 }
-<a name="l00289"></a>00289 
-<a name="l00290"></a>00290 
-<a name="l00299"></a><a class="code" href="Predict_8c.html#cbb3e45d03e1b544c94bf639b191a953">00299</a> SEXP <a class="code" href="Predict_8c.html#cbb3e45d03e1b544c94bf639b191a953">C_get_nodeweights</a>(SEXP subtree, SEXP newinputs, 
-<a name="l00300"></a>00300                        <span class="keywordtype">double</span> mincriterion, <span class="keywordtype">int</span> numobs) {
-<a name="l00301"></a>00301     <span class="keywordflow">return</span>(<a class="code" href="S3Classes_8c.html#c3785782483b5bf4afe9d606e280f3ca">S3get_nodeweights</a>(<a class="code" href="Predict_8c.html#dcd61d38c7c43d241d09a600b70fe3c5">C_get_node</a>(subtree, newinputs, 
-<a name="l00302"></a>00302                              mincriterion, numobs)));
-<a name="l00303"></a>00303 }
-<a name="l00304"></a>00304 
-<a name="l00305"></a>00305 
-<a name="l00314"></a><a class="code" href="Predict_8c.html#d9d49b6a210f5c09a2a1d1aa496859ce">00314</a> <span class="keywordtype">int</span> <a class="code" href="Predict_8c.html#d9d49b6a210f5c09a2a1d1aa496859ce">C_get_nodeID</a>(SEXP subtree, SEXP newinputs,
-<a name="l00315"></a>00315                   <span class="keywordtype">double</span> mincriterion, <span class="keywordtype">int</span> numobs) {
-<a name="l00316"></a>00316      <span class="keywordflow">return</span>(<a class="code" href="S3Classes_8c.html#136b05ff188fc291196cc9d37d52e862">S3get_nodeID</a>(<a class="code" href="Predict_8c.html#dcd61d38c7c43d241d09a600b70fe3c5">C_get_node</a>(subtree, newinputs, 
-<a name="l00317"></a>00317             mincriterion, numobs)));
-<a name="l00318"></a>00318 }
-<a name="l00319"></a>00319 
-<a name="l00320"></a>00320 
-<a name="l00328"></a><a class="code" href="Predict_8c.html#c0668d268fe5a4bad29fbf4ead39c526">00328</a> SEXP <a class="code" href="Predict_8c.html#c0668d268fe5a4bad29fbf4ead39c526">R_get_nodeID</a>(SEXP tree, SEXP newinputs, SEXP mincriterion) {
-<a name="l00329"></a>00329 
-<a name="l00330"></a>00330     SEXP ans;
-<a name="l00331"></a>00331     <span class="keywordtype">int</span> nobs, i, *dans;
-<a name="l00332"></a>00332             
-<a name="l00333"></a>00333     nobs = <a class="code" href="Classes_8c.html#45df17685bc6c95d03fb65b6f6214de0">get_nobs</a>(newinputs);
-<a name="l00334"></a>00334     PROTECT(ans = allocVector(INTSXP, nobs));
-<a name="l00335"></a>00335     dans = INTEGER(ans);
-<a name="l00336"></a>00336     <span class="keywordflow">for</span> (i = 0; i &lt; nobs; i++)
-<a name="l00337"></a>00337          dans[i] = <a class="code" href="Predict_8c.html#d9d49b6a210f5c09a2a1d1aa496859ce">C_get_nodeID</a>(tree, newinputs, REAL(mincriterion)[0], i);
-<a name="l00338"></a>00338     UNPROTECT(1);
-<a name="l00339"></a>00339     <span class="keywordflow">return</span>(ans);
-<a name="l00340"></a>00340 }
-<a name="l00341"></a>00341 
-<a name="l00342"></a>00342 
-<a name="l00351"></a><a class="code" href="Predict_8c.html#ac36eff20575604b5d7558d512601d64">00351</a> <span class="keywordtype">void</span> <a class="code" href="Predict_8c.html#ac36eff20575604b5d7558d512601d64">C_predict</a>(SEXP tree, SEXP newinputs, <span class="keywordtype">double</span> mincriterion, SEXP ans) {
-<a name="l00352"></a>00352     
-<a name="l00353"></a>00353     <span class="keywordtype">int</span> nobs, i;
-<a name="l00354"></a>00354     
-<a name="l00355"></a>00355     nobs = <a class="code" href="Classes_8c.html#45df17685bc6c95d03fb65b6f6214de0">get_nobs</a>(newinputs);    
-<a name="l00356"></a>00356     <span class="keywordflow">if</span> (LENGTH(ans) != nobs) 
-<a name="l00357"></a>00357         error(<span class="stringliteral">"ans is not of length %d\n"</span>, nobs);
-<a name="l00358"></a>00358         
-<a name="l00359"></a>00359     <span class="keywordflow">for</span> (i = 0; i &lt; nobs; i++)
-<a name="l00360"></a>00360         SET_VECTOR_ELT(ans, i, <a class="code" href="Predict_8c.html#c4f4e806a78c376b13802ed2cf1e7b65">C_get_prediction</a>(tree, newinputs, 
-<a name="l00361"></a>00361                        mincriterion, i));
-<a name="l00362"></a>00362 }
-<a name="l00363"></a>00363 
-<a name="l00364"></a>00364 
-<a name="l00372"></a><a class="code" href="Predict_8c.html#9a5170a24bc00b727527b80cec5ca60a">00372</a> SEXP <a class="code" href="Predict_8c.html#9a5170a24bc00b727527b80cec5ca60a">R_predict</a>(SEXP tree, SEXP newinputs, SEXP mincriterion) {
-<a name="l00373"></a>00373 
-<a name="l00374"></a>00374     SEXP ans;
-<a name="l00375"></a>00375     <span class="keywordtype">int</span> nobs;
-<a name="l00376"></a>00376     
-<a name="l00377"></a>00377     nobs = <a class="code" href="Classes_8c.html#45df17685bc6c95d03fb65b6f6214de0">get_nobs</a>(newinputs);
-<a name="l00378"></a>00378     PROTECT(ans = allocVector(VECSXP, nobs));
-<a name="l00379"></a>00379     <a class="code" href="Predict_8c.html#ac36eff20575604b5d7558d512601d64">C_predict</a>(tree, newinputs, REAL(mincriterion)[0], ans);
-<a name="l00380"></a>00380     UNPROTECT(1);
-<a name="l00381"></a>00381     <span class="keywordflow">return</span>(ans);
-<a name="l00382"></a>00382 }
-<a name="l00383"></a>00383 
-<a name="l00384"></a>00384 
-<a name="l00392"></a><a class="code" href="Predict_8c.html#8964e7493ed9cb96c271b168b721e329">00392</a> <span class="keywordtype">void</span> <a class="code" href="Predict_8c.html#8964e7493ed9cb96c271b168b721e329">C_getpredictions</a>(SEXP tree, SEXP where, SEXP ans) {
-<a name="l00393"></a>00393 
-<a name="l00394"></a>00394     <span class="keywordtype">int</span> nobs, i, *iwhere;
-<a name="l00395"></a>00395     
-<a name="l00396"></a>00396     nobs = LENGTH(where);
-<a name="l00397"></a>00397     iwhere = INTEGER(where);
-<a name="l00398"></a>00398     <span class="keywordflow">if</span> (LENGTH(ans) != nobs)
-<a name="l00399"></a>00399         error(<span class="stringliteral">"ans is not of length %d\n"</span>, nobs);
-<a name="l00400"></a>00400         
-<a name="l00401"></a>00401     <span class="keywordflow">for</span> (i = 0; i &lt; nobs; i++)
-<a name="l00402"></a>00402         SET_VECTOR_ELT(ans, i, <a class="code" href="S3Classes_8c.html#70a340b301b4e383107c92cbbeb4ae20">S3get_prediction</a>(
-<a name="l00403"></a>00403             <a class="code" href="Predict_8c.html#201fdee9dc7e3e71e90ea6609ed353cb">C_get_nodebynum</a>(tree, iwhere[i])));
-<a name="l00404"></a>00404 }
-<a name="l00405"></a>00405 
+<a name="l00263"></a><a class="code" href="Predict_8c.html#4a30a8aa916f294059b6e2cbcb9e29d5">00263</a> SEXP <a class="code" href="Predict_8c.html#4a30a8aa916f294059b6e2cbcb9e29d5">R_get_nodebynum</a>(SEXP subtree, SEXP nodenum) {
+<a name="l00264"></a>00264     <span class="keywordflow">return</span>(<a class="code" href="Predict_8c.html#201fdee9dc7e3e71e90ea6609ed353cb">C_get_nodebynum</a>(subtree, INTEGER(nodenum)[0]));
+<a name="l00265"></a>00265 }
+<a name="l00266"></a>00266 
+<a name="l00267"></a>00267 
+<a name="l00276"></a><a class="code" href="Predict_8c.html#c4f4e806a78c376b13802ed2cf1e7b65">00276</a> SEXP <a class="code" href="Predict_8c.html#c4f4e806a78c376b13802ed2cf1e7b65">C_get_prediction</a>(SEXP subtree, SEXP newinputs, 
+<a name="l00277"></a>00277                       <span class="keywordtype">double</span> mincriterion, <span class="keywordtype">int</span> numobs) {
+<a name="l00278"></a>00278     <span class="keywordflow">return</span>(<a class="code" href="S3Classes_8c.html#70a340b301b4e383107c92cbbeb4ae20">S3get_prediction</a>(<a class="code" href="Predict_8c.html#dcd61d38c7c43d241d09a600b70fe3c5">C_get_node</a>(subtree, newinputs, 
+<a name="l00279"></a>00279                             mincriterion, numobs)));
+<a name="l00280"></a>00280 }
+<a name="l00281"></a>00281 
+<a name="l00282"></a>00282 
+<a name="l00291"></a><a class="code" href="Predict_8c.html#cbb3e45d03e1b544c94bf639b191a953">00291</a> SEXP <a class="code" href="Predict_8c.html#cbb3e45d03e1b544c94bf639b191a953">C_get_nodeweights</a>(SEXP subtree, SEXP newinputs, 
+<a name="l00292"></a>00292                        <span class="keywordtype">double</span> mincriterion, <span class="keywordtype">int</span> numobs) {
+<a name="l00293"></a>00293     <span class="keywordflow">return</span>(<a class="code" href="S3Classes_8c.html#c3785782483b5bf4afe9d606e280f3ca">S3get_nodeweights</a>(<a class="code" href="Predict_8c.html#dcd61d38c7c43d241d09a600b70fe3c5">C_get_node</a>(subtree, newinputs, 
+<a name="l00294"></a>00294                              mincriterion, numobs)));
+<a name="l00295"></a>00295 }
+<a name="l00296"></a>00296 
+<a name="l00297"></a>00297 
+<a name="l00306"></a><a class="code" href="Predict_8c.html#d9d49b6a210f5c09a2a1d1aa496859ce">00306</a> <span class="keywordtype">int</span> <a class="code" href="Predict_8c.html#d9d49b6a210f5c09a2a1d1aa496859ce">C_get_nodeID</a>(SEXP subtree, SEXP newinputs,
+<a name="l00307"></a>00307                   <span class="keywordtype">double</span> mincriterion, <span class="keywordtype">int</span> numobs) {
+<a name="l00308"></a>00308      <span class="keywordflow">return</span>(<a class="code" href="S3Classes_8c.html#136b05ff188fc291196cc9d37d52e862">S3get_nodeID</a>(<a class="code" href="Predict_8c.html#dcd61d38c7c43d241d09a600b70fe3c5">C_get_node</a>(subtree, newinputs, 
+<a name="l00309"></a>00309             mincriterion, numobs)));
+<a name="l00310"></a>00310 }
+<a name="l00311"></a>00311 
+<a name="l00312"></a>00312 
+<a name="l00320"></a><a class="code" href="Predict_8c.html#c0668d268fe5a4bad29fbf4ead39c526">00320</a> SEXP <a class="code" href="Predict_8c.html#c0668d268fe5a4bad29fbf4ead39c526">R_get_nodeID</a>(SEXP tree, SEXP newinputs, SEXP mincriterion) {
+<a name="l00321"></a>00321 
+<a name="l00322"></a>00322     SEXP ans;
+<a name="l00323"></a>00323     <span class="keywordtype">int</span> nobs, i, *dans;
+<a name="l00324"></a>00324             
+<a name="l00325"></a>00325     nobs = <a class="code" href="Classes_8c.html#45df17685bc6c95d03fb65b6f6214de0">get_nobs</a>(newinputs);
+<a name="l00326"></a>00326     PROTECT(ans = allocVector(INTSXP, nobs));
+<a name="l00327"></a>00327     dans = INTEGER(ans);
+<a name="l00328"></a>00328     <span class="keywordflow">for</span> (i = 0; i &lt; nobs; i++)
+<a name="l00329"></a>00329          dans[i] = <a class="code" href="Predict_8c.html#d9d49b6a210f5c09a2a1d1aa496859ce">C_get_nodeID</a>(tree, newinputs, REAL(mincriterion)[0], i);
+<a name="l00330"></a>00330     UNPROTECT(1);
+<a name="l00331"></a>00331     <span class="keywordflow">return</span>(ans);
+<a name="l00332"></a>00332 }
+<a name="l00333"></a>00333 
+<a name="l00334"></a>00334 
+<a name="l00343"></a><a class="code" href="Predict_8c.html#ac36eff20575604b5d7558d512601d64">00343</a> <span class="keywordtype">void</span> <a class="code" href="Predict_8c.html#ac36eff20575604b5d7558d512601d64">C_predict</a>(SEXP tree, SEXP newinputs, <span class="keywordtype">double</span> mincriterion, SEXP ans) {
+<a name="l00344"></a>00344     
+<a name="l00345"></a>00345     <span class="keywordtype">int</span> nobs, i;
+<a name="l00346"></a>00346     
+<a name="l00347"></a>00347     nobs = <a class="code" href="Classes_8c.html#45df17685bc6c95d03fb65b6f6214de0">get_nobs</a>(newinputs);    
+<a name="l00348"></a>00348     <span class="keywordflow">if</span> (LENGTH(ans) != nobs) 
+<a name="l00349"></a>00349         error(<span class="stringliteral">"ans is not of length %d\n"</span>, nobs);
+<a name="l00350"></a>00350         
+<a name="l00351"></a>00351     <span class="keywordflow">for</span> (i = 0; i &lt; nobs; i++)
+<a name="l00352"></a>00352         SET_VECTOR_ELT(ans, i, <a class="code" href="Predict_8c.html#c4f4e806a78c376b13802ed2cf1e7b65">C_get_prediction</a>(tree, newinputs, 
+<a name="l00353"></a>00353                        mincriterion, i));
+<a name="l00354"></a>00354 }
+<a name="l00355"></a>00355 
+<a name="l00356"></a>00356 
+<a name="l00364"></a><a class="code" href="Predict_8c.html#9a5170a24bc00b727527b80cec5ca60a">00364</a> SEXP <a class="code" href="Predict_8c.html#9a5170a24bc00b727527b80cec5ca60a">R_predict</a>(SEXP tree, SEXP newinputs, SEXP mincriterion) {
+<a name="l00365"></a>00365 
+<a name="l00366"></a>00366     SEXP ans;
+<a name="l00367"></a>00367     <span class="keywordtype">int</span> nobs;
+<a name="l00368"></a>00368     
+<a name="l00369"></a>00369     nobs = <a class="code" href="Classes_8c.html#45df17685bc6c95d03fb65b6f6214de0">get_nobs</a>(newinputs);
+<a name="l00370"></a>00370     PROTECT(ans = allocVector(VECSXP, nobs));
+<a name="l00371"></a>00371     <a class="code" href="Predict_8c.html#ac36eff20575604b5d7558d512601d64">C_predict</a>(tree, newinputs, REAL(mincriterion)[0], ans);
+<a name="l00372"></a>00372     UNPROTECT(1);
+<a name="l00373"></a>00373     <span class="keywordflow">return</span>(ans);
+<a name="l00374"></a>00374 }
+<a name="l00375"></a>00375 
+<a name="l00376"></a>00376 
+<a name="l00384"></a><a class="code" href="Predict_8c.html#8964e7493ed9cb96c271b168b721e329">00384</a> <span class="keywordtype">void</span> <a class="code" href="Predict_8c.html#8964e7493ed9cb96c271b168b721e329">C_getpredictions</a>(SEXP tree, SEXP where, SEXP ans) {
+<a name="l00385"></a>00385 
+<a name="l00386"></a>00386     <span class="keywordtype">int</span> nobs, i, *iwhere;
+<a name="l00387"></a>00387     
+<a name="l00388"></a>00388     nobs = LENGTH(where);
+<a name="l00389"></a>00389     iwhere = INTEGER(where);
+<a name="l00390"></a>00390     <span class="keywordflow">if</span> (LENGTH(ans) != nobs)
+<a name="l00391"></a>00391         error(<span class="stringliteral">"ans is not of length %d\n"</span>, nobs);
+<a name="l00392"></a>00392         
+<a name="l00393"></a>00393     <span class="keywordflow">for</span> (i = 0; i &lt; nobs; i++)
+<a name="l00394"></a>00394         SET_VECTOR_ELT(ans, i, <a class="code" href="S3Classes_8c.html#70a340b301b4e383107c92cbbeb4ae20">S3get_prediction</a>(
+<a name="l00395"></a>00395             <a class="code" href="Predict_8c.html#201fdee9dc7e3e71e90ea6609ed353cb">C_get_nodebynum</a>(tree, iwhere[i])));
+<a name="l00396"></a>00396 }
+<a name="l00397"></a>00397 
+<a name="l00398"></a>00398 
+<a name="l00405"></a><a class="code" href="Predict_8c.html#a508a31f1fd7cd3668ad81eb0d00dd66">00405</a> SEXP <a class="code" href="Predict_8c.html#a508a31f1fd7cd3668ad81eb0d00dd66">R_getpredictions</a>(SEXP tree, SEXP where) {
 <a name="l00406"></a>00406 
-<a name="l00413"></a><a class="code" href="Predict_8c.html#a508a31f1fd7cd3668ad81eb0d00dd66">00413</a> SEXP <a class="code" href="Predict_8c.html#a508a31f1fd7cd3668ad81eb0d00dd66">R_getpredictions</a>(SEXP tree, SEXP where) {
-<a name="l00414"></a>00414 
-<a name="l00415"></a>00415     SEXP ans;
-<a name="l00416"></a>00416     <span class="keywordtype">int</span> nobs;
-<a name="l00417"></a>00417             
-<a name="l00418"></a>00418     nobs = LENGTH(where);
-<a name="l00419"></a>00419     PROTECT(ans = allocVector(VECSXP, nobs));
-<a name="l00420"></a>00420     <a class="code" href="Predict_8c.html#8964e7493ed9cb96c271b168b721e329">C_getpredictions</a>(tree, where, ans);
-<a name="l00421"></a>00421     UNPROTECT(1);
-<a name="l00422"></a>00422     <span class="keywordflow">return</span>(ans);
-<a name="l00423"></a>00423 }                        
-<a name="l00424"></a>00424 
-<a name="l00425"></a>00425 
-<a name="l00433"></a><a class="code" href="Predict_8c.html#1e3892117a14a178e707acf56ab56f5c">00433</a> <span class="keywordtype">void</span> <a class="code" href="Predict_8c.html#1e3892117a14a178e707acf56ab56f5c">C_getweights</a>(SEXP tree, SEXP where, SEXP ans) {
-<a name="l00434"></a>00434 
-<a name="l00435"></a>00435     <span class="keywordtype">int</span> nobs, i, *iwhere;
-<a name="l00436"></a>00436     
-<a name="l00437"></a>00437     nobs = LENGTH(where);
-<a name="l00438"></a>00438     iwhere = INTEGER(where);
-<a name="l00439"></a>00439     <span class="keywordflow">if</span> (LENGTH(ans) != nobs)
-<a name="l00440"></a>00440         error(<span class="stringliteral">"ans is not of length %d\n"</span>, nobs);
-<a name="l00441"></a>00441         
-<a name="l00442"></a>00442     <span class="keywordflow">for</span> (i = 0; i &lt; nobs; i++)
-<a name="l00443"></a>00443         SET_VECTOR_ELT(ans, i, <a class="code" href="S3Classes_8c.html#c3785782483b5bf4afe9d606e280f3ca">S3get_nodeweights</a>(
-<a name="l00444"></a>00444             <a class="code" href="Predict_8c.html#201fdee9dc7e3e71e90ea6609ed353cb">C_get_nodebynum</a>(tree, iwhere[i])));
-<a name="l00445"></a>00445 }
-<a name="l00446"></a>00446 
-<a name="l00447"></a>00447 
-<a name="l00454"></a><a class="code" href="Predict_8c.html#f255340d550e1387709b1674467c31b9">00454</a> SEXP <a class="code" href="Predict_8c.html#f255340d550e1387709b1674467c31b9">R_getweights</a>(SEXP tree, SEXP where) {
-<a name="l00455"></a>00455 
-<a name="l00456"></a>00456     SEXP ans;
-<a name="l00457"></a>00457     <span class="keywordtype">int</span> nobs;
-<a name="l00458"></a>00458             
-<a name="l00459"></a>00459     nobs = LENGTH(where);
-<a name="l00460"></a>00460     PROTECT(ans = allocVector(VECSXP, nobs));
-<a name="l00461"></a>00461     <a class="code" href="Predict_8c.html#1e3892117a14a178e707acf56ab56f5c">C_getweights</a>(tree, where, ans);
-<a name="l00462"></a>00462     UNPROTECT(1);
-<a name="l00463"></a>00463     <span class="keywordflow">return</span>(ans);
-<a name="l00464"></a>00464 }                        
-<a name="l00465"></a>00465 
-<a name="l00466"></a>00466 
-<a name="l00475"></a><a class="code" href="Predict_8c.html#830785cf09ef008b28bd8577feb6d06b">00475</a> <span class="keywordtype">void</span> <a class="code" href="Predict_8c.html#830785cf09ef008b28bd8577feb6d06b">C_weights</a>(SEXP tree, SEXP newinputs, 
-<a name="l00476"></a>00476                <span class="keywordtype">double</span> mincriterion, SEXP ans) {
-<a name="l00477"></a>00477     
-<a name="l00478"></a>00478     <span class="keywordtype">int</span> nobs, i;
-<a name="l00479"></a>00479     
-<a name="l00480"></a>00480     nobs = <a class="code" href="Classes_8c.html#45df17685bc6c95d03fb65b6f6214de0">get_nobs</a>(newinputs);    
-<a name="l00481"></a>00481     <span class="keywordflow">if</span> (LENGTH(ans) != nobs) 
-<a name="l00482"></a>00482         error(<span class="stringliteral">"ans is not of length %d\n"</span>, nobs);
-<a name="l00483"></a>00483         
-<a name="l00484"></a>00484     <span class="keywordflow">for</span> (i = 0; i &lt; nobs; i++)
-<a name="l00485"></a>00485         SET_VECTOR_ELT(ans, i, <a class="code" href="Predict_8c.html#cbb3e45d03e1b544c94bf639b191a953">C_get_nodeweights</a>(tree, newinputs, 
-<a name="l00486"></a>00486                        mincriterion, i));
-<a name="l00487"></a>00487 }
-<a name="l00488"></a>00488 
-<a name="l00489"></a>00489 
-<a name="l00497"></a><a class="code" href="Predict_8c.html#0f24ac195825953e630d3386b4d98f97">00497</a> SEXP <a class="code" href="Predict_8c.html#0f24ac195825953e630d3386b4d98f97">R_weights</a>(SEXP tree, SEXP newinputs, SEXP mincriterion) {
-<a name="l00498"></a>00498 
-<a name="l00499"></a>00499     SEXP ans;
-<a name="l00500"></a>00500     <span class="keywordtype">int</span> nobs;
-<a name="l00501"></a>00501     
-<a name="l00502"></a>00502     nobs = <a class="code" href="Classes_8c.html#45df17685bc6c95d03fb65b6f6214de0">get_nobs</a>(newinputs);
-<a name="l00503"></a>00503     PROTECT(ans = allocVector(VECSXP, nobs));
-<a name="l00504"></a>00504     <a class="code" href="Predict_8c.html#830785cf09ef008b28bd8577feb6d06b">C_weights</a>(tree, newinputs, REAL(mincriterion)[0], ans);
-<a name="l00505"></a>00505     UNPROTECT(1);
-<a name="l00506"></a>00506     <span class="keywordflow">return</span>(ans);
-<a name="l00507"></a>00507 }
-<a name="l00508"></a>00508 
-<a name="l00509"></a>00509 
-<a name="l00518"></a><a class="code" href="Predict_8c.html#20dd01c361767edbfc62abf55ce30ff1">00518</a> SEXP <a class="code" href="Predict_8c.html#20dd01c361767edbfc62abf55ce30ff1">R_predictRF</a>(SEXP forest, SEXP newinputs, SEXP mincriterion, SEXP oobpred) {
-<a name="l00519"></a>00519 
-<a name="l00520"></a>00520     SEXP ans, tmp, tree;
-<a name="l00521"></a>00521     <span class="keywordtype">int</span> ntrees, nobs, i, b, j, q, iwhere, oob = 0, count = 0;
-<a name="l00522"></a>00522     
-<a name="l00523"></a>00523     <span class="keywordflow">if</span> (LOGICAL(oobpred)[0]) oob = 1;
-<a name="l00524"></a>00524     
-<a name="l00525"></a>00525     nobs = <a class="code" href="Classes_8c.html#45df17685bc6c95d03fb65b6f6214de0">get_nobs</a>(newinputs);
-<a name="l00526"></a>00526     ntrees = LENGTH(forest);
-<a name="l00527"></a>00527     q = LENGTH(<a class="code" href="S3Classes_8c.html#70a340b301b4e383107c92cbbeb4ae20">S3get_prediction</a>(
-<a name="l00528"></a>00528                    <a class="code" href="Predict_8c.html#201fdee9dc7e3e71e90ea6609ed353cb">C_get_nodebynum</a>(VECTOR_ELT(forest, 0), 1)));
-<a name="l00529"></a>00529 
-<a name="l00530"></a>00530     <span class="keywordflow">if</span> (oob) {
-<a name="l00531"></a>00531         <span class="keywordflow">if</span> (LENGTH(<a class="code" href="S3Classes_8c.html#c3785782483b5bf4afe9d606e280f3ca">S3get_nodeweights</a>(
-<a name="l00532"></a>00532                        <a class="code" href="Predict_8c.html#201fdee9dc7e3e71e90ea6609ed353cb">C_get_nodebynum</a>(VECTOR_ELT(forest, 0), 1))) != nobs)
-<a name="l00533"></a>00533             error(<span class="stringliteral">"number of observations don't match"</span>);
-<a name="l00534"></a>00534     }    
-<a name="l00535"></a>00535     
-<a name="l00536"></a>00536     PROTECT(ans = allocVector(VECSXP, nobs));
-<a name="l00537"></a>00537     
-<a name="l00538"></a>00538     <span class="keywordflow">for</span> (i = 0; i &lt; nobs; i++) {
-<a name="l00539"></a>00539         count = 0;
-<a name="l00540"></a>00540         SET_VECTOR_ELT(ans, i, allocVector(REALSXP, q));
-<a name="l00541"></a>00541         <span class="keywordflow">for</span> (j = 0; j &lt; q; j++)
-<a name="l00542"></a>00542                     REAL(VECTOR_ELT(ans, i))[j] = 0.0;
-<a name="l00543"></a>00543         <span class="keywordflow">for</span> (b = 0; b &lt; ntrees; b++) {
-<a name="l00544"></a>00544             tree = VECTOR_ELT(forest, b);
-<a name="l00545"></a>00545 
-<a name="l00546"></a>00546             <span class="keywordflow">if</span> (oob &amp;&amp; 
-<a name="l00547"></a>00547                 REAL(<a class="code" href="S3Classes_8c.html#c3785782483b5bf4afe9d606e280f3ca">S3get_nodeweights</a>(<a class="code" href="Predict_8c.html#201fdee9dc7e3e71e90ea6609ed353cb">C_get_nodebynum</a>(tree, 1)))[i] &gt; 0.0) 
-<a name="l00548"></a>00548                 <span class="keywordflow">continue</span>;
-<a name="l00549"></a>00549 
-<a name="l00550"></a>00550             iwhere = <a class="code" href="Predict_8c.html#d9d49b6a210f5c09a2a1d1aa496859ce">C_get_nodeID</a>(tree, newinputs, REAL(mincriterion)[0], i);
-<a name="l00551"></a>00551             tmp = <a class="code" href="S3Classes_8c.html#70a340b301b4e383107c92cbbeb4ae20">S3get_prediction</a>(<a class="code" href="Predict_8c.html#201fdee9dc7e3e71e90ea6609ed353cb">C_get_nodebynum</a>(tree, iwhere));
-<a name="l00552"></a>00552             <span class="keywordflow">for</span> (j = 0; j &lt; q; j++)
-<a name="l00553"></a>00553                 REAL(VECTOR_ELT(ans, i))[j] += REAL(tmp)[j];
-<a name="l00554"></a>00554             count++;
-<a name="l00555"></a>00555         }
-<a name="l00556"></a>00556         <span class="keywordflow">if</span> (count == 0) 
-<a name="l00557"></a>00557             error(<span class="stringliteral">"cannot compute out-of-bag predictions for obs "</span>, i + 1);
-<a name="l00558"></a>00558         <span class="keywordflow">for</span> (j = 0; j &lt; q; j++)
-<a name="l00559"></a>00559             REAL(VECTOR_ELT(ans, i))[j] = REAL(VECTOR_ELT(ans, i))[j] / count;
-<a name="l00560"></a>00560     }
-<a name="l00561"></a>00561     UNPROTECT(1);
-<a name="l00562"></a>00562     <span class="keywordflow">return</span>(ans);
-<a name="l00563"></a>00563 }
-<a name="l00564"></a>00564 
-<a name="l00574"></a><a class="code" href="Predict_8c.html#a4f23088af5379408f00d3809656d0da">00574</a> SEXP <a class="code" href="Predict_8c.html#a4f23088af5379408f00d3809656d0da">R_predictRF2</a>(SEXP forest, SEXP response, SEXP newinputs, 
-<a name="l00575"></a>00575                   SEXP mincriterion, SEXP oobpred) {
-<a name="l00576"></a>00576 
-<a name="l00577"></a>00577     SEXP ans, tmp, tree, w;
-<a name="l00578"></a>00578     <span class="keywordtype">int</span> ntrees, nobs, i, b, j, q, n, iwhere, oob = 0;
-<a name="l00579"></a>00579     <span class="keywordtype">double</span> *dtmp, *dw, sumw = 0.0;
-<a name="l00580"></a>00580 
-<a name="l00581"></a>00581     <span class="keywordflow">if</span> (LOGICAL(oobpred)[0]) oob = 1;
-<a name="l00582"></a>00582     
-<a name="l00583"></a>00583     nobs = <a class="code" href="Classes_8c.html#45df17685bc6c95d03fb65b6f6214de0">get_nobs</a>(newinputs);
-<a name="l00584"></a>00584     ntrees = LENGTH(forest);
-<a name="l00585"></a>00585     n = <a class="code" href="Utils_8c.html#eeb672a71c45ead28b7b354414f2427a">nrow</a>(response);
-<a name="l00586"></a>00586     q = <a class="code" href="Utils_8c.html#f1f46cc3e98630497a1ccb21d943fe65">ncol</a>(response);
-<a name="l00587"></a>00587 
-<a name="l00588"></a>00588     <span class="keywordflow">if</span> (oob) {
-<a name="l00589"></a>00589         <span class="keywordflow">if</span> (n != nobs)
-<a name="l00590"></a>00590             error(<span class="stringliteral">"number of observations don't match"</span>);
-<a name="l00591"></a>00591     }    
-<a name="l00592"></a>00592     
-<a name="l00593"></a>00593     PROTECT(ans = allocVector(VECSXP, nobs));
-<a name="l00594"></a>00594     PROTECT(w = allocMatrix(REALSXP, 1, n));
-<a name="l00595"></a>00595     dw = REAL(w);
-<a name="l00596"></a>00596     
-<a name="l00597"></a>00597     <span class="keywordflow">for</span> (i = 0; i &lt; nobs; i++) {
-<a name="l00598"></a>00598 
-<a name="l00599"></a>00599         SET_VECTOR_ELT(ans, i, allocVector(REALSXP, q));
-<a name="l00600"></a>00600         <span class="keywordflow">for</span> (j = 0; j &lt; n; j++)
-<a name="l00601"></a>00601             dw[j] = 0.0;
-<a name="l00602"></a>00602 
-<a name="l00603"></a>00603         <span class="keywordflow">for</span> (b = 0; b &lt; ntrees; b++) {
-<a name="l00604"></a>00604             tree = VECTOR_ELT(forest, b);
-<a name="l00605"></a>00605 
-<a name="l00606"></a>00606             <span class="keywordflow">if</span> (oob &amp;&amp; 
-<a name="l00607"></a>00607                 REAL(<a class="code" href="S3Classes_8c.html#c3785782483b5bf4afe9d606e280f3ca">S3get_nodeweights</a>(<a class="code" href="Predict_8c.html#201fdee9dc7e3e71e90ea6609ed353cb">C_get_nodebynum</a>(tree, 1)))[i] &gt; 0.0) 
-<a name="l00608"></a>00608                 <span class="keywordflow">continue</span>;
-<a name="l00609"></a>00609 
-<a name="l00610"></a>00610             iwhere = <a class="code" href="Predict_8c.html#d9d49b6a210f5c09a2a1d1aa496859ce">C_get_nodeID</a>(tree, newinputs, REAL(mincriterion)[0], i);
-<a name="l00611"></a>00611             tmp = <a class="code" href="S3Classes_8c.html#c3785782483b5bf4afe9d606e280f3ca">S3get_nodeweights</a>(<a class="code" href="Predict_8c.html#201fdee9dc7e3e71e90ea6609ed353cb">C_get_nodebynum</a>(tree, iwhere));
-<a name="l00612"></a>00612             dtmp = REAL(tmp);
-<a name="l00613"></a>00613             
-<a name="l00614"></a>00614             <span class="keywordflow">for</span> (j = 0; j &lt; n; j++)
-<a name="l00615"></a>00615                 dw[j] += dtmp[j];
-<a name="l00616"></a>00616         }
-<a name="l00617"></a>00617         
-<a name="l00618"></a>00618         <a class="code" href="Utils_8c.html#4a31a46e68c52043a6db487de647f774">C_matprod</a>(dw, 1, n, REAL(response), n, q, REAL(VECTOR_ELT(ans, i)));
-<a name="l00619"></a>00619 
-<a name="l00620"></a>00620         sumw = 0.0;
-<a name="l00621"></a>00621         <span class="keywordflow">for</span> (j = 0; j &lt; n; j++)
-<a name="l00622"></a>00622             sumw += dw[j];
-<a name="l00623"></a>00623 
-<a name="l00624"></a>00624         <span class="keywordflow">for</span> (j = 0; j &lt; q; j++)
-<a name="l00625"></a>00625             REAL(VECTOR_ELT(ans, i))[j] = REAL(VECTOR_ELT(ans, i))[j] / sumw;
-<a name="l00626"></a>00626     }
-<a name="l00627"></a>00627     UNPROTECT(2);
-<a name="l00628"></a>00628     <span class="keywordflow">return</span>(ans);
-<a name="l00629"></a>00629 }
-<a name="l00630"></a>00630 
-<a name="l00639"></a><a class="code" href="Predict_8c.html#b1c6e1c0c34af27c7f587b53deb4dc4f">00639</a> SEXP <a class="code" href="Predict_8c.html#b1c6e1c0c34af27c7f587b53deb4dc4f">R_predictRF_weights</a>(SEXP forest, SEXP newinputs, SEXP mincriterion, SEXP oobpred) {
-<a name="l00640"></a>00640 
-<a name="l00641"></a>00641     SEXP ans, tree, bw;
-<a name="l00642"></a>00642     <span class="keywordtype">int</span> ntrees, nobs, i, b, j, q, iwhere, oob = 0, count = 0, ntrain;
-<a name="l00643"></a>00643     <span class="keywordtype">double</span> *dtmp;
-<a name="l00644"></a>00644     
-<a name="l00645"></a>00645     <span class="keywordflow">if</span> (LOGICAL(oobpred)[0]) oob = 1;
-<a name="l00646"></a>00646     
-<a name="l00647"></a>00647     nobs = <a class="code" href="Classes_8c.html#45df17685bc6c95d03fb65b6f6214de0">get_nobs</a>(newinputs);
-<a name="l00648"></a>00648     ntrees = LENGTH(forest);
-<a name="l00649"></a>00649     q = LENGTH(<a class="code" href="S3Classes_8c.html#70a340b301b4e383107c92cbbeb4ae20">S3get_prediction</a>(
-<a name="l00650"></a>00650                    <a class="code" href="Predict_8c.html#201fdee9dc7e3e71e90ea6609ed353cb">C_get_nodebynum</a>(VECTOR_ELT(forest, 0), 1)));
-<a name="l00651"></a>00651 
-<a name="l00652"></a>00652     <span class="keywordflow">if</span> (oob) {
-<a name="l00653"></a>00653         <span class="keywordflow">if</span> (LENGTH(<a class="code" href="S3Classes_8c.html#c3785782483b5bf4afe9d606e280f3ca">S3get_nodeweights</a>(
-<a name="l00654"></a>00654                        <a class="code" href="Predict_8c.html#201fdee9dc7e3e71e90ea6609ed353cb">C_get_nodebynum</a>(VECTOR_ELT(forest, 0), 1))) != nobs)
-<a name="l00655"></a>00655             error(<span class="stringliteral">"number of observations don't match"</span>);
-<a name="l00656"></a>00656     }    
-<a name="l00657"></a>00657     
-<a name="l00658"></a>00658     tree = VECTOR_ELT(forest, 0);
-<a name="l00659"></a>00659     ntrain = LENGTH(<a class="code" href="S3Classes_8c.html#c3785782483b5bf4afe9d606e280f3ca">S3get_nodeweights</a>(<a class="code" href="Predict_8c.html#201fdee9dc7e3e71e90ea6609ed353cb">C_get_nodebynum</a>(tree, 1)));
-<a name="l00660"></a>00660     
-<a name="l00661"></a>00661     PROTECT(ans = allocVector(VECSXP, nobs));
-<a name="l00662"></a>00662     
-<a name="l00663"></a>00663     <span class="keywordflow">for</span> (i = 0; i &lt; nobs; i++) {
-<a name="l00664"></a>00664         count = 0;
-<a name="l00665"></a>00665         SET_VECTOR_ELT(ans, i, bw = allocVector(REALSXP, ntrain));
-<a name="l00666"></a>00666         <span class="keywordflow">for</span> (j = 0; j &lt; ntrain; j++)
-<a name="l00667"></a>00667             REAL(bw)[j] = 0.0;
-<a name="l00668"></a>00668         <span class="keywordflow">for</span> (b = 0; b &lt; ntrees; b++) {
-<a name="l00669"></a>00669             tree = VECTOR_ELT(forest, b);
-<a name="l00670"></a>00670 
-<a name="l00671"></a>00671             <span class="keywordflow">if</span> (oob &amp;&amp; 
-<a name="l00672"></a>00672                 REAL(<a class="code" href="S3Classes_8c.html#c3785782483b5bf4afe9d606e280f3ca">S3get_nodeweights</a>(<a class="code" href="Predict_8c.html#201fdee9dc7e3e71e90ea6609ed353cb">C_get_nodebynum</a>(tree, 1)))[i] &gt; 0.0) 
-<a name="l00673"></a>00673                 <span class="keywordflow">continue</span>;
-<a name="l00674"></a>00674 
-<a name="l00675"></a>00675             iwhere = <a class="code" href="Predict_8c.html#d9d49b6a210f5c09a2a1d1aa496859ce">C_get_nodeID</a>(tree, newinputs, REAL(mincriterion)[0], i);
-<a name="l00676"></a>00676             dtmp = REAL(<a class="code" href="S3Classes_8c.html#c3785782483b5bf4afe9d606e280f3ca">S3get_nodeweights</a>(<a class="code" href="Predict_8c.html#201fdee9dc7e3e71e90ea6609ed353cb">C_get_nodebynum</a>(tree, iwhere)));
-<a name="l00677"></a>00677             <span class="keywordflow">for</span> (j = 0; j &lt; ntrain; j++)
-<a name="l00678"></a>00678                 REAL(bw)[j] += dtmp[j];
-<a name="l00679"></a>00679             count++;
-<a name="l00680"></a>00680         }
-<a name="l00681"></a>00681         <span class="keywordflow">if</span> (count == 0) 
-<a name="l00682"></a>00682             error(<span class="stringliteral">"cannot compute out-of-bag predictions for obs "</span>, i + 1);
-<a name="l00683"></a>00683     }
-<a name="l00684"></a>00684     UNPROTECT(1);
-<a name="l00685"></a>00685     <span class="keywordflow">return</span>(ans);
-<a name="l00686"></a>00686 }
-</pre></div><hr size="1"><address style="align: right;"><small>Generated on Wed Jun 20 15:55:33 2007 for party by&nbsp;
+<a name="l00407"></a>00407     SEXP ans;
+<a name="l00408"></a>00408     <span class="keywordtype">int</span> nobs;
+<a name="l00409"></a>00409             
+<a name="l00410"></a>00410     nobs = LENGTH(where);
+<a name="l00411"></a>00411     PROTECT(ans = allocVector(VECSXP, nobs));
+<a name="l00412"></a>00412     <a class="code" href="Predict_8c.html#8964e7493ed9cb96c271b168b721e329">C_getpredictions</a>(tree, where, ans);
+<a name="l00413"></a>00413     UNPROTECT(1);
+<a name="l00414"></a>00414     <span class="keywordflow">return</span>(ans);
+<a name="l00415"></a>00415 }                        
+<a name="l00416"></a>00416 
+<a name="l00427"></a><a class="code" href="Predict_8c.html#4f6966402677cec07284a3e1bc25660f">00427</a> SEXP <a class="code" href="Predict_8c.html#4f6966402677cec07284a3e1bc25660f">R_predictRF_weights</a>(SEXP forest, SEXP where, SEXP weights, 
+<a name="l00428"></a>00428                          SEXP newinputs, SEXP mincriterion, SEXP oobpred) {
+<a name="l00429"></a>00429 
+<a name="l00430"></a>00430     SEXP ans, tree, bw;
+<a name="l00431"></a>00431     <span class="keywordtype">int</span> ntrees, nobs, i, b, j, q, iwhere, oob = 0, count = 0, ntrain;
+<a name="l00432"></a>00432     
+<a name="l00433"></a>00433     <span class="keywordflow">if</span> (LOGICAL(oobpred)[0]) oob = 1;
+<a name="l00434"></a>00434     
+<a name="l00435"></a>00435     nobs = <a class="code" href="Classes_8c.html#45df17685bc6c95d03fb65b6f6214de0">get_nobs</a>(newinputs);
+<a name="l00436"></a>00436     ntrees = LENGTH(forest);
+<a name="l00437"></a>00437     q = LENGTH(<a class="code" href="S3Classes_8c.html#70a340b301b4e383107c92cbbeb4ae20">S3get_prediction</a>(
+<a name="l00438"></a>00438                    <a class="code" href="Predict_8c.html#201fdee9dc7e3e71e90ea6609ed353cb">C_get_nodebynum</a>(VECTOR_ELT(forest, 0), 1)));
+<a name="l00439"></a>00439 
+<a name="l00440"></a>00440     <span class="keywordflow">if</span> (oob) {
+<a name="l00441"></a>00441         <span class="keywordflow">if</span> (LENGTH(VECTOR_ELT(weights, 0)) != nobs)
+<a name="l00442"></a>00442             error(<span class="stringliteral">"number of observations don't match"</span>);
+<a name="l00443"></a>00443     }    
+<a name="l00444"></a>00444     
+<a name="l00445"></a>00445     tree = VECTOR_ELT(forest, 0);
+<a name="l00446"></a>00446     ntrain = LENGTH(VECTOR_ELT(weights, 0));
+<a name="l00447"></a>00447     
+<a name="l00448"></a>00448     PROTECT(ans = allocVector(VECSXP, nobs));
+<a name="l00449"></a>00449     
+<a name="l00450"></a>00450     <span class="keywordflow">for</span> (i = 0; i &lt; nobs; i++) {
+<a name="l00451"></a>00451         count = 0;
+<a name="l00452"></a>00452         SET_VECTOR_ELT(ans, i, bw = allocVector(REALSXP, ntrain));
+<a name="l00453"></a>00453         <span class="keywordflow">for</span> (j = 0; j &lt; ntrain; j++)
+<a name="l00454"></a>00454             REAL(bw)[j] = 0.0;
+<a name="l00455"></a>00455         <span class="keywordflow">for</span> (b = 0; b &lt; ntrees; b++) {
+<a name="l00456"></a>00456             tree = VECTOR_ELT(forest, b);
+<a name="l00457"></a>00457 
+<a name="l00458"></a>00458             <span class="keywordflow">if</span> (oob &amp;&amp; 
+<a name="l00459"></a>00459                 REAL(VECTOR_ELT(weights, b))[i] &gt; 0.0) 
+<a name="l00460"></a>00460                 <span class="keywordflow">continue</span>;
+<a name="l00461"></a>00461 
+<a name="l00462"></a>00462             iwhere = <a class="code" href="Predict_8c.html#d9d49b6a210f5c09a2a1d1aa496859ce">C_get_nodeID</a>(tree, newinputs, REAL(mincriterion)[0], i);
+<a name="l00463"></a>00463             
+<a name="l00464"></a>00464             <span class="keywordflow">for</span> (j = 0; j &lt; ntrain; j++) {
+<a name="l00465"></a>00465                 <span class="keywordflow">if</span> (iwhere == INTEGER(VECTOR_ELT(where, b))[j])
+<a name="l00466"></a>00466                     REAL(bw)[j] += REAL(VECTOR_ELT(weights, b))[j];
+<a name="l00467"></a>00467             }
+<a name="l00468"></a>00468             count++;
+<a name="l00469"></a>00469         }
+<a name="l00470"></a>00470         <span class="keywordflow">if</span> (count == 0) 
+<a name="l00471"></a>00471             error(<span class="stringliteral">"cannot compute out-of-bag predictions for obs "</span>, i + 1);
+<a name="l00472"></a>00472     }
+<a name="l00473"></a>00473     UNPROTECT(1);
+<a name="l00474"></a>00474     <span class="keywordflow">return</span>(ans);
+<a name="l00475"></a>00475 }
+</pre></div><hr size="1"><address style="align: right;"><small>Generated on Mon Jul 23 10:05:58 2007 for party by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6 </small></address>
 </body>

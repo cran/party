@@ -71,26 +71,14 @@ Include dependency graph for Predict.c:<p><center><img src="Predict_8c__incl.png
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">SEXP&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Predict_8c.html#a508a31f1fd7cd3668ad81eb0d00dd66">R_getpredictions</a> (SEXP tree, SEXP where)</td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Predict_8c.html#1e3892117a14a178e707acf56ab56f5c">C_getweights</a> (SEXP tree, SEXP where, SEXP ans)</td></tr>
-
-<tr><td class="memItemLeft" nowrap align="right" valign="top">SEXP&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Predict_8c.html#f255340d550e1387709b1674467c31b9">R_getweights</a> (SEXP tree, SEXP where)</td></tr>
-
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Predict_8c.html#830785cf09ef008b28bd8577feb6d06b">C_weights</a> (SEXP tree, SEXP newinputs, double mincriterion, SEXP ans)</td></tr>
-
-<tr><td class="memItemLeft" nowrap align="right" valign="top">SEXP&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Predict_8c.html#0f24ac195825953e630d3386b4d98f97">R_weights</a> (SEXP tree, SEXP newinputs, SEXP mincriterion)</td></tr>
-
-<tr><td class="memItemLeft" nowrap align="right" valign="top">SEXP&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Predict_8c.html#20dd01c361767edbfc62abf55ce30ff1">R_predictRF</a> (SEXP forest, SEXP newinputs, SEXP mincriterion, SEXP oobpred)</td></tr>
-
-<tr><td class="memItemLeft" nowrap align="right" valign="top">SEXP&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Predict_8c.html#a4f23088af5379408f00d3809656d0da">R_predictRF2</a> (SEXP forest, SEXP response, SEXP newinputs, SEXP mincriterion, SEXP oobpred)</td></tr>
-
-<tr><td class="memItemLeft" nowrap align="right" valign="top">SEXP&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Predict_8c.html#b1c6e1c0c34af27c7f587b53deb4dc4f">R_predictRF_weights</a> (SEXP forest, SEXP newinputs, SEXP mincriterion, SEXP oobpred)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">SEXP&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Predict_8c.html#4f6966402677cec07284a3e1bc25660f">R_predictRF_weights</a> (SEXP forest, SEXP where, SEXP weights, SEXP newinputs, SEXP mincriterion, SEXP oobpred)</td></tr>
 
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
 Node splitting and prediction<p>
 <dl compact><dt><b>Author:</b></dt><dd><dl compact><dt><b>Author</b></dt><dd>hothorn </dd></dl>
 </dd></dl>
-<dl compact><dt><b>Date:</b></dt><dd><dl compact><dt><b>Date</b></dt><dd>2007-02-02 11:22:45 +0100 (Fri, 02 Feb 2007) </dd></dl>
+<dl compact><dt><b>Date:</b></dt><dd><dl compact><dt><b>Date</b></dt><dd>2007-07-23 10:02:09 +0200 (Mon, 23 Jul 2007) </dd></dl>
 </dd></dl>
 
 <p>
@@ -155,9 +143,9 @@ Get the terminal node for obs. number `numobs' of `newinputs' <br>
 <p>
 Definition at line <a class="el" href="Predict_8c-source.html#l00120">120</a> of file <a class="el" href="Predict_8c-source.html">Predict.c</a>.
 <p>
-References <a class="el" href="Utils_8c-source.html#l00568">C_i_in_set()</a>, <a class="el" href="Classes_8c-source.html#l00260">get_missings()</a>, <a class="el" href="Classes_8c-source.html#l00204">get_variable()</a>, <a class="el" href="Classes_8c-source.html#l00222">has_missings()</a>, <a class="el" href="S3Classes_8c-source.html#l00091">S3get_leftnode()</a>, <a class="el" href="S3Classes_8c-source.html#l00067">S3get_maxcriterion()</a>, <a class="el" href="S3Classes_8c-source.html#l00075">S3get_nodeterminal()</a>, <a class="el" href="S3Classes_8c-source.html#l00050">S3get_nodeweights()</a>, <a class="el" href="S3Classes_8c-source.html#l00079">S3get_primarysplit()</a>, <a class="el" href="S3Classes_8c-source.html#l00095">S3get_rightnode()</a>, <a class="el" href="S3Classes_8c-source.html#l00174">S3get_splitpoint()</a>, <a class="el" href="S3Classes_8c-source.html#l00083">S3get_surrogatesplits()</a>, <a class="el" href="S3Classes_8c-source.html#l00165">S3get_toleft()</a>, <a class="el" href="S3Classes_8c-source.html#l00149">S3get_variableID()</a>, and <a class="el" href="S3Classes_8c-source.html#l00153">S3is_ordered()</a>.
+References <a class="el" href="Utils_8c-source.html#l00564">C_i_in_set()</a>, <a class="el" href="Classes_8c-source.html#l00258">get_missings()</a>, <a class="el" href="Classes_8c-source.html#l00202">get_variable()</a>, <a class="el" href="Classes_8c-source.html#l00220">has_missings()</a>, <a class="el" href="S3Classes_8c-source.html#l00096">S3get_leftnode()</a>, <a class="el" href="S3Classes_8c-source.html#l00072">S3get_maxcriterion()</a>, <a class="el" href="S3Classes_8c-source.html#l00080">S3get_nodeterminal()</a>, <a class="el" href="S3Classes_8c-source.html#l00084">S3get_primarysplit()</a>, <a class="el" href="S3Classes_8c-source.html#l00100">S3get_rightnode()</a>, <a class="el" href="S3Classes_8c-source.html#l00179">S3get_splitpoint()</a>, <a class="el" href="S3Classes_8c-source.html#l00060">S3get_sumweights()</a>, <a class="el" href="S3Classes_8c-source.html#l00088">S3get_surrogatesplits()</a>, <a class="el" href="S3Classes_8c-source.html#l00170">S3get_toleft()</a>, <a class="el" href="S3Classes_8c-source.html#l00154">S3get_variableID()</a>, and <a class="el" href="S3Classes_8c-source.html#l00158">S3is_ordered()</a>.
 <p>
-Referenced by <a class="el" href="Predict_8c-source.html#l00314">C_get_nodeID()</a>, <a class="el" href="Predict_8c-source.html#l00299">C_get_nodeweights()</a>, <a class="el" href="Predict_8c-source.html#l00284">C_get_prediction()</a>, and <a class="el" href="Predict_8c-source.html#l00237">R_get_node()</a>.
+Referenced by <a class="el" href="Predict_8c-source.html#l00306">C_get_nodeID()</a>, <a class="el" href="Predict_8c-source.html#l00291">C_get_nodeweights()</a>, <a class="el" href="Predict_8c-source.html#l00276">C_get_prediction()</a>, and <a class="el" href="Predict_8c-source.html#l00229">R_get_node()</a>.
 <p>
 Here is the call graph for this function:<p><center><img src="Predict_8c_dcd61d38c7c43d241d09a600b70fe3c5_cgraph.png" border="0" usemap="#Predict_8c_dcd61d38c7c43d241d09a600b70fe3c5_cgraph_map" alt=""></center>
 <map name="Predict_8c_dcd61d38c7c43d241d09a600b70fe3c5_cgraph_map">
@@ -168,10 +156,10 @@ Here is the call graph for this function:<p><center><img src="Predict_8c_dcd61d3
 <area href="S3Classes_8c.html#5917f57e141432fd1e4f58a16b9149aa" shape="rect" coords="172,202,284,226" alt="">
 <area href="S3Classes_8c.html#e5d3e3ccef4e5fbfe1b6cf683b4d2999" shape="rect" coords="160,250,296,274" alt="">
 <area href="S3Classes_8c.html#b8834f319068d2a248a5d6328cd10dc5" shape="rect" coords="157,298,298,322" alt="">
-<area href="S3Classes_8c.html#c3785782483b5bf4afe9d606e280f3ca" shape="rect" coords="158,346,297,370" alt="">
-<area href="S3Classes_8c.html#220373298b30f12b22f82cce3c996a37" shape="rect" coords="162,394,293,418" alt="">
-<area href="S3Classes_8c.html#14a38e81ed758a64367dc190f0e8229b" shape="rect" coords="168,442,288,466" alt="">
-<area href="S3Classes_8c.html#acf87d496fd3b07bafd171c92404212a" shape="rect" coords="169,490,286,514" alt="">
+<area href="S3Classes_8c.html#220373298b30f12b22f82cce3c996a37" shape="rect" coords="162,346,293,370" alt="">
+<area href="S3Classes_8c.html#14a38e81ed758a64367dc190f0e8229b" shape="rect" coords="168,394,288,418" alt="">
+<area href="S3Classes_8c.html#acf87d496fd3b07bafd171c92404212a" shape="rect" coords="169,442,286,466" alt="">
+<area href="S3Classes_8c.html#d5b760cf2b547dc128273948f78b7a3c" shape="rect" coords="161,490,294,514" alt="">
 <area href="S3Classes_8c.html#f270d1d02bf86a4c5cdc8959045c3567" shape="rect" coords="153,538,302,562" alt="">
 <area href="S3Classes_8c.html#67d50b82dea660a930cf7427be899efb" shape="rect" coords="181,586,274,610" alt="">
 <area href="S3Classes_8c.html#583f9148949f93b5fe894feb6567ca0d" shape="rect" coords="166,634,289,658" alt="">
@@ -224,11 +212,11 @@ Get the node with nodeID `nodenum' <br>
 </dl>
 
 <p>
-Definition at line <a class="el" href="Predict_8c-source.html#l00250">250</a> of file <a class="el" href="Predict_8c-source.html">Predict.c</a>.
+Definition at line <a class="el" href="Predict_8c-source.html#l00242">242</a> of file <a class="el" href="Predict_8c-source.html">Predict.c</a>.
 <p>
-References <a class="el" href="S3Classes_8c-source.html#l00091">S3get_leftnode()</a>, <a class="el" href="S3Classes_8c-source.html#l00046">S3get_nodeID()</a>, <a class="el" href="S3Classes_8c-source.html#l00075">S3get_nodeterminal()</a>, and <a class="el" href="S3Classes_8c-source.html#l00095">S3get_rightnode()</a>.
+References <a class="el" href="S3Classes_8c-source.html#l00096">S3get_leftnode()</a>, <a class="el" href="S3Classes_8c-source.html#l00047">S3get_nodeID()</a>, <a class="el" href="S3Classes_8c-source.html#l00080">S3get_nodeterminal()</a>, and <a class="el" href="S3Classes_8c-source.html#l00100">S3get_rightnode()</a>.
 <p>
-Referenced by <a class="el" href="Predict_8c-source.html#l00392">C_getpredictions()</a>, <a class="el" href="Predict_8c-source.html#l00433">C_getweights()</a>, <a class="el" href="Predict_8c-source.html#l00271">R_get_nodebynum()</a>, <a class="el" href="Predict_8c-source.html#l00518">R_predictRF()</a>, <a class="el" href="Predict_8c-source.html#l00574">R_predictRF2()</a>, and <a class="el" href="Predict_8c-source.html#l00639">R_predictRF_weights()</a>.
+Referenced by <a class="el" href="Predict_8c-source.html#l00384">C_getpredictions()</a>, <a class="el" href="Predict_8c-source.html#l00263">R_get_nodebynum()</a>, and <a class="el" href="Predict_8c-source.html#l00427">R_predictRF_weights()</a>.
 <p>
 Here is the call graph for this function:<p><center><img src="Predict_8c_201fdee9dc7e3e71e90ea6609ed353cb_cgraph.png" border="0" usemap="#Predict_8c_201fdee9dc7e3e71e90ea6609ed353cb_cgraph_map" alt=""></center>
 <map name="Predict_8c_201fdee9dc7e3e71e90ea6609ed353cb_cgraph_map">
@@ -297,11 +285,11 @@ Get the nodeID for a new observation <br>
 </dl>
 
 <p>
-Definition at line <a class="el" href="Predict_8c-source.html#l00314">314</a> of file <a class="el" href="Predict_8c-source.html">Predict.c</a>.
+Definition at line <a class="el" href="Predict_8c-source.html#l00306">306</a> of file <a class="el" href="Predict_8c-source.html">Predict.c</a>.
 <p>
-References <a class="el" href="Predict_8c-source.html#l00120">C_get_node()</a>, and <a class="el" href="S3Classes_8c-source.html#l00046">S3get_nodeID()</a>.
+References <a class="el" href="Predict_8c-source.html#l00120">C_get_node()</a>, and <a class="el" href="S3Classes_8c-source.html#l00047">S3get_nodeID()</a>.
 <p>
-Referenced by <a class="el" href="Predict_8c-source.html#l00328">R_get_nodeID()</a>, <a class="el" href="Predict_8c-source.html#l00518">R_predictRF()</a>, <a class="el" href="Predict_8c-source.html#l00574">R_predictRF2()</a>, and <a class="el" href="Predict_8c-source.html#l00639">R_predictRF_weights()</a>.
+Referenced by <a class="el" href="Predict_8c-source.html#l00320">R_get_nodeID()</a>, and <a class="el" href="Predict_8c-source.html#l00427">R_predictRF_weights()</a>.
 <p>
 Here is the call graph for this function:<p><center><img src="Predict_8c_d9d49b6a210f5c09a2a1d1aa496859ce_cgraph.png" border="0" usemap="#Predict_8c_d9d49b6a210f5c09a2a1d1aa496859ce_cgraph_map" alt=""></center>
 <map name="Predict_8c_d9d49b6a210f5c09a2a1d1aa496859ce_cgraph_map">
@@ -314,10 +302,10 @@ Here is the call graph for this function:<p><center><img src="Predict_8c_d9d49b6
 <area href="S3Classes_8c.html#5917f57e141432fd1e4f58a16b9149aa" shape="rect" coords="340,202,452,226" alt="">
 <area href="S3Classes_8c.html#e5d3e3ccef4e5fbfe1b6cf683b4d2999" shape="rect" coords="328,250,464,274" alt="">
 <area href="S3Classes_8c.html#b8834f319068d2a248a5d6328cd10dc5" shape="rect" coords="325,298,466,322" alt="">
-<area href="S3Classes_8c.html#c3785782483b5bf4afe9d606e280f3ca" shape="rect" coords="326,346,465,370" alt="">
-<area href="S3Classes_8c.html#220373298b30f12b22f82cce3c996a37" shape="rect" coords="330,394,461,418" alt="">
-<area href="S3Classes_8c.html#14a38e81ed758a64367dc190f0e8229b" shape="rect" coords="336,442,456,466" alt="">
-<area href="S3Classes_8c.html#acf87d496fd3b07bafd171c92404212a" shape="rect" coords="337,490,454,514" alt="">
+<area href="S3Classes_8c.html#220373298b30f12b22f82cce3c996a37" shape="rect" coords="330,346,461,370" alt="">
+<area href="S3Classes_8c.html#14a38e81ed758a64367dc190f0e8229b" shape="rect" coords="336,394,456,418" alt="">
+<area href="S3Classes_8c.html#acf87d496fd3b07bafd171c92404212a" shape="rect" coords="337,442,454,466" alt="">
+<area href="S3Classes_8c.html#d5b760cf2b547dc128273948f78b7a3c" shape="rect" coords="329,490,462,514" alt="">
 <area href="S3Classes_8c.html#f270d1d02bf86a4c5cdc8959045c3567" shape="rect" coords="321,538,470,562" alt="">
 <area href="S3Classes_8c.html#67d50b82dea660a930cf7427be899efb" shape="rect" coords="349,586,442,610" alt="">
 <area href="S3Classes_8c.html#583f9148949f93b5fe894feb6567ca0d" shape="rect" coords="334,634,457,658" alt="">
@@ -384,31 +372,30 @@ Get the weights for a new observation <br>
 </dl>
 
 <p>
-Definition at line <a class="el" href="Predict_8c-source.html#l00299">299</a> of file <a class="el" href="Predict_8c-source.html">Predict.c</a>.
+Definition at line <a class="el" href="Predict_8c-source.html#l00291">291</a> of file <a class="el" href="Predict_8c-source.html">Predict.c</a>.
 <p>
-References <a class="el" href="Predict_8c-source.html#l00120">C_get_node()</a>, and <a class="el" href="S3Classes_8c-source.html#l00050">S3get_nodeweights()</a>.
-<p>
-Referenced by <a class="el" href="Predict_8c-source.html#l00475">C_weights()</a>.
+References <a class="el" href="Predict_8c-source.html#l00120">C_get_node()</a>, and <a class="el" href="S3Classes_8c-source.html#l00051">S3get_nodeweights()</a>.
 <p>
 Here is the call graph for this function:<p><center><img src="Predict_8c_cbb3e45d03e1b544c94bf639b191a953_cgraph.png" border="0" usemap="#Predict_8c_cbb3e45d03e1b544c94bf639b191a953_cgraph_map" alt=""></center>
 <map name="Predict_8c_cbb3e45d03e1b544c94bf639b191a953_cgraph_map">
-<area href="Predict_8c.html#dcd61d38c7c43d241d09a600b70fe3c5" shape="rect" coords="198,370,291,394" alt="">
-<area href="S3Classes_8c.html#c3785782483b5bf4afe9d606e280f3ca" shape="rect" coords="347,682,486,706" alt="">
-<area href="Utils_8c.html#ff0eae9aa0175cd8fe73324707418ce0" shape="rect" coords="374,8,459,32" alt="">
-<area href="Classes_8c.html#fd6cfc2dd239b138d91e92a8ce9353f8" shape="rect" coords="367,56,466,80" alt="">
-<area href="Classes_8c.html#50548fbe6024d9a7118db3fce5085fd9" shape="rect" coords="542,80,643,104" alt="">
-<area href="Classes_8c.html#0f91efa916e815ec7d90c6f9516f18e4" shape="rect" coords="370,154,463,178" alt="">
-<area href="S3Classes_8c.html#5917f57e141432fd1e4f58a16b9149aa" shape="rect" coords="361,202,473,226" alt="">
-<area href="S3Classes_8c.html#e5d3e3ccef4e5fbfe1b6cf683b4d2999" shape="rect" coords="349,250,485,274" alt="">
-<area href="S3Classes_8c.html#b8834f319068d2a248a5d6328cd10dc5" shape="rect" coords="346,298,487,322" alt="">
-<area href="S3Classes_8c.html#220373298b30f12b22f82cce3c996a37" shape="rect" coords="351,346,482,370" alt="">
-<area href="S3Classes_8c.html#14a38e81ed758a64367dc190f0e8229b" shape="rect" coords="357,394,477,418" alt="">
-<area href="S3Classes_8c.html#acf87d496fd3b07bafd171c92404212a" shape="rect" coords="358,442,475,466" alt="">
-<area href="S3Classes_8c.html#f270d1d02bf86a4c5cdc8959045c3567" shape="rect" coords="342,490,491,514" alt="">
-<area href="S3Classes_8c.html#67d50b82dea660a930cf7427be899efb" shape="rect" coords="370,538,463,562" alt="">
-<area href="S3Classes_8c.html#583f9148949f93b5fe894feb6567ca0d" shape="rect" coords="355,586,478,610" alt="">
-<area href="S3Classes_8c.html#54ed9f6b46c69d550ceea1a525287ecf" shape="rect" coords="366,634,467,658" alt="">
-<area href="Utils_8c.html#ae969040bb060d2874fd969e20675bbb" shape="rect" coords="559,8,626,32" alt="">
+<area href="Predict_8c.html#dcd61d38c7c43d241d09a600b70fe3c5" shape="rect" coords="220,346,313,370" alt="">
+<area href="S3Classes_8c.html#c3785782483b5bf4afe9d606e280f3ca" shape="rect" coords="197,394,336,418" alt="">
+<area href="Utils_8c.html#ff0eae9aa0175cd8fe73324707418ce0" shape="rect" coords="417,8,502,32" alt="">
+<area href="Classes_8c.html#fd6cfc2dd239b138d91e92a8ce9353f8" shape="rect" coords="410,56,509,80" alt="">
+<area href="Classes_8c.html#50548fbe6024d9a7118db3fce5085fd9" shape="rect" coords="585,80,686,104" alt="">
+<area href="Classes_8c.html#0f91efa916e815ec7d90c6f9516f18e4" shape="rect" coords="413,154,506,178" alt="">
+<area href="S3Classes_8c.html#5917f57e141432fd1e4f58a16b9149aa" shape="rect" coords="404,202,516,226" alt="">
+<area href="S3Classes_8c.html#e5d3e3ccef4e5fbfe1b6cf683b4d2999" shape="rect" coords="392,250,528,274" alt="">
+<area href="S3Classes_8c.html#b8834f319068d2a248a5d6328cd10dc5" shape="rect" coords="389,298,530,322" alt="">
+<area href="S3Classes_8c.html#220373298b30f12b22f82cce3c996a37" shape="rect" coords="394,346,525,370" alt="">
+<area href="S3Classes_8c.html#14a38e81ed758a64367dc190f0e8229b" shape="rect" coords="400,394,520,418" alt="">
+<area href="S3Classes_8c.html#acf87d496fd3b07bafd171c92404212a" shape="rect" coords="401,442,518,466" alt="">
+<area href="S3Classes_8c.html#d5b760cf2b547dc128273948f78b7a3c" shape="rect" coords="393,490,526,514" alt="">
+<area href="S3Classes_8c.html#f270d1d02bf86a4c5cdc8959045c3567" shape="rect" coords="385,538,534,562" alt="">
+<area href="S3Classes_8c.html#67d50b82dea660a930cf7427be899efb" shape="rect" coords="413,586,506,610" alt="">
+<area href="S3Classes_8c.html#583f9148949f93b5fe894feb6567ca0d" shape="rect" coords="398,634,521,658" alt="">
+<area href="S3Classes_8c.html#54ed9f6b46c69d550ceea1a525287ecf" shape="rect" coords="409,682,510,706" alt="">
+<area href="Utils_8c.html#ae969040bb060d2874fd969e20675bbb" shape="rect" coords="602,8,669,32" alt="">
 </map>
     </td>
   </tr>
@@ -470,11 +457,11 @@ Get the prediction of a new observation<br>
 </dl>
 
 <p>
-Definition at line <a class="el" href="Predict_8c-source.html#l00284">284</a> of file <a class="el" href="Predict_8c-source.html">Predict.c</a>.
+Definition at line <a class="el" href="Predict_8c-source.html#l00276">276</a> of file <a class="el" href="Predict_8c-source.html">Predict.c</a>.
 <p>
-References <a class="el" href="Predict_8c-source.html#l00120">C_get_node()</a>, and <a class="el" href="S3Classes_8c-source.html#l00087">S3get_prediction()</a>.
+References <a class="el" href="Predict_8c-source.html#l00120">C_get_node()</a>, and <a class="el" href="S3Classes_8c-source.html#l00092">S3get_prediction()</a>.
 <p>
-Referenced by <a class="el" href="Predict_8c-source.html#l00351">C_predict()</a>.
+Referenced by <a class="el" href="Predict_8c-source.html#l00343">C_predict()</a>.
 <p>
 Here is the call graph for this function:<p><center><img src="Predict_8c_c4f4e806a78c376b13802ed2cf1e7b65_cgraph.png" border="0" usemap="#Predict_8c_c4f4e806a78c376b13802ed2cf1e7b65_cgraph_map" alt=""></center>
 <map name="Predict_8c_c4f4e806a78c376b13802ed2cf1e7b65_cgraph_map">
@@ -487,10 +474,10 @@ Here is the call graph for this function:<p><center><img src="Predict_8c_c4f4e80
 <area href="S3Classes_8c.html#5917f57e141432fd1e4f58a16b9149aa" shape="rect" coords="369,202,481,226" alt="">
 <area href="S3Classes_8c.html#e5d3e3ccef4e5fbfe1b6cf683b4d2999" shape="rect" coords="357,250,493,274" alt="">
 <area href="S3Classes_8c.html#b8834f319068d2a248a5d6328cd10dc5" shape="rect" coords="354,298,495,322" alt="">
-<area href="S3Classes_8c.html#c3785782483b5bf4afe9d606e280f3ca" shape="rect" coords="355,346,494,370" alt="">
-<area href="S3Classes_8c.html#220373298b30f12b22f82cce3c996a37" shape="rect" coords="359,394,490,418" alt="">
-<area href="S3Classes_8c.html#14a38e81ed758a64367dc190f0e8229b" shape="rect" coords="365,442,485,466" alt="">
-<area href="S3Classes_8c.html#acf87d496fd3b07bafd171c92404212a" shape="rect" coords="366,490,483,514" alt="">
+<area href="S3Classes_8c.html#220373298b30f12b22f82cce3c996a37" shape="rect" coords="359,346,490,370" alt="">
+<area href="S3Classes_8c.html#14a38e81ed758a64367dc190f0e8229b" shape="rect" coords="365,394,485,418" alt="">
+<area href="S3Classes_8c.html#acf87d496fd3b07bafd171c92404212a" shape="rect" coords="366,442,483,466" alt="">
+<area href="S3Classes_8c.html#d5b760cf2b547dc128273948f78b7a3c" shape="rect" coords="358,490,491,514" alt="">
 <area href="S3Classes_8c.html#f270d1d02bf86a4c5cdc8959045c3567" shape="rect" coords="350,538,499,562" alt="">
 <area href="S3Classes_8c.html#67d50b82dea660a930cf7427be899efb" shape="rect" coords="378,586,471,610" alt="">
 <area href="S3Classes_8c.html#583f9148949f93b5fe894feb6567ca0d" shape="rect" coords="363,634,486,658" alt="">
@@ -550,11 +537,11 @@ Get the predictions from `where' nodes<br>
 </dl>
 
 <p>
-Definition at line <a class="el" href="Predict_8c-source.html#l00392">392</a> of file <a class="el" href="Predict_8c-source.html">Predict.c</a>.
+Definition at line <a class="el" href="Predict_8c-source.html#l00384">384</a> of file <a class="el" href="Predict_8c-source.html">Predict.c</a>.
 <p>
-References <a class="el" href="Predict_8c-source.html#l00250">C_get_nodebynum()</a>, and <a class="el" href="S3Classes_8c-source.html#l00087">S3get_prediction()</a>.
+References <a class="el" href="Predict_8c-source.html#l00242">C_get_nodebynum()</a>, and <a class="el" href="S3Classes_8c-source.html#l00092">S3get_prediction()</a>.
 <p>
-Referenced by <a class="el" href="Predict_8c-source.html#l00413">R_getpredictions()</a>.
+Referenced by <a class="el" href="Predict_8c-source.html#l00405">R_getpredictions()</a>.
 <p>
 Here is the call graph for this function:<p><center><img src="Predict_8c_8964e7493ed9cb96c271b168b721e329_cgraph.png" border="0" usemap="#Predict_8c_8964e7493ed9cb96c271b168b721e329_cgraph_map" alt=""></center>
 <map name="Predict_8c_8964e7493ed9cb96c271b168b721e329_cgraph_map">
@@ -564,74 +551,6 @@ Here is the call graph for this function:<p><center><img src="Predict_8c_8964e74
 <area href="S3Classes_8c.html#136b05ff188fc291196cc9d37d52e862" shape="rect" coords="380,56,486,80" alt="">
 <area href="S3Classes_8c.html#b8834f319068d2a248a5d6328cd10dc5" shape="rect" coords="362,104,504,128" alt="">
 <area href="S3Classes_8c.html#14a38e81ed758a64367dc190f0e8229b" shape="rect" coords="373,152,493,176" alt="">
-</map>
-    </td>
-  </tr>
-</table>
-<a class="anchor" name="1e3892117a14a178e707acf56ab56f5c"></a><!-- doxytag: member="Predict.c::C_getweights" ref="1e3892117a14a178e707acf56ab56f5c" args="(SEXP tree, SEXP where, SEXP ans)" --><p>
-<table class="mdTable" cellpadding="2" cellspacing="0">
-  <tr>
-    <td class="mdRow">
-      <table cellpadding="0" cellspacing="0" border="0">
-        <tr>
-          <td class="md" nowrap valign="top">void C_getweights           </td>
-          <td class="md" valign="top">(&nbsp;</td>
-          <td class="md" nowrap valign="top">SEXP&nbsp;</td>
-          <td class="mdname" nowrap> <em>tree</em>, </td>
-        </tr>
-        <tr>
-          <td class="md" nowrap align="right"></td>
-          <td class="md"></td>
-          <td class="md" nowrap>SEXP&nbsp;</td>
-          <td class="mdname" nowrap> <em>where</em>, </td>
-        </tr>
-        <tr>
-          <td class="md" nowrap align="right"></td>
-          <td class="md"></td>
-          <td class="md" nowrap>SEXP&nbsp;</td>
-          <td class="mdname" nowrap> <em>ans</em></td>
-        </tr>
-        <tr>
-          <td class="md"></td>
-          <td class="md">)&nbsp;</td>
-          <td class="md" colspan="2"></td>
-        </tr>
-      </table>
-    </td>
-  </tr>
-</table>
-<table cellspacing="5" cellpadding="0" border="0">
-  <tr>
-    <td>
-      &nbsp;
-    </td>
-    <td>
-
-<p>
-Get the weights from `where' nodes<br>
- <dl compact><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>tree</em>&nbsp;</td><td>a tree </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>where</em>&nbsp;</td><td>vector of nodeID's </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>ans</em>&nbsp;</td><td>return value </td></tr>
-  </table>
-</dl>
-
-<p>
-Definition at line <a class="el" href="Predict_8c-source.html#l00433">433</a> of file <a class="el" href="Predict_8c-source.html">Predict.c</a>.
-<p>
-References <a class="el" href="Predict_8c-source.html#l00250">C_get_nodebynum()</a>, and <a class="el" href="S3Classes_8c-source.html#l00050">S3get_nodeweights()</a>.
-<p>
-Referenced by <a class="el" href="Predict_8c-source.html#l00454">R_getweights()</a>.
-<p>
-Here is the call graph for this function:<p><center><img src="Predict_8c_1e3892117a14a178e707acf56ab56f5c_cgraph.png" border="0" usemap="#Predict_8c_1e3892117a14a178e707acf56ab56f5c_cgraph_map" alt=""></center>
-<map name="Predict_8c_1e3892117a14a178e707acf56ab56f5c_cgraph_map">
-<area href="Predict_8c.html#201fdee9dc7e3e71e90ea6609ed353cb" shape="rect" coords="162,80,296,104" alt="">
-<area href="S3Classes_8c.html#c3785782483b5bf4afe9d606e280f3ca" shape="rect" coords="160,128,298,152" alt="">
-<area href="S3Classes_8c.html#5917f57e141432fd1e4f58a16b9149aa" shape="rect" coords="361,8,473,32" alt="">
-<area href="S3Classes_8c.html#136b05ff188fc291196cc9d37d52e862" shape="rect" coords="364,56,470,80" alt="">
-<area href="S3Classes_8c.html#b8834f319068d2a248a5d6328cd10dc5" shape="rect" coords="346,104,488,128" alt="">
-<area href="S3Classes_8c.html#14a38e81ed758a64367dc190f0e8229b" shape="rect" coords="357,152,477,176" alt="">
 </map>
     </td>
   </tr>
@@ -693,11 +612,11 @@ Get all predictions for `newinputs' <br>
 </dl>
 
 <p>
-Definition at line <a class="el" href="Predict_8c-source.html#l00351">351</a> of file <a class="el" href="Predict_8c-source.html">Predict.c</a>.
+Definition at line <a class="el" href="Predict_8c-source.html#l00343">343</a> of file <a class="el" href="Predict_8c-source.html">Predict.c</a>.
 <p>
-References <a class="el" href="Predict_8c-source.html#l00284">C_get_prediction()</a>, and <a class="el" href="Classes_8c-source.html#l00284">get_nobs()</a>.
+References <a class="el" href="Predict_8c-source.html#l00276">C_get_prediction()</a>, and <a class="el" href="Classes_8c-source.html#l00282">get_nobs()</a>.
 <p>
-Referenced by <a class="el" href="Predict_8c-source.html#l00372">R_predict()</a>.
+Referenced by <a class="el" href="Predict_8c-source.html#l00364">R_predict()</a>.
 <p>
 Here is the call graph for this function:<p><center><img src="Predict_8c_ac36eff20575604b5d7558d512601d64_cgraph.png" border="0" usemap="#Predict_8c_ac36eff20575604b5d7558d512601d64_cgraph_map" alt=""></center>
 <map name="Predict_8c_ac36eff20575604b5d7558d512601d64_cgraph_map">
@@ -712,10 +631,10 @@ Here is the call graph for this function:<p><center><img src="Predict_8c_ac36eff
 <area href="S3Classes_8c.html#5917f57e141432fd1e4f58a16b9149aa" shape="rect" coords="497,202,609,226" alt="">
 <area href="S3Classes_8c.html#e5d3e3ccef4e5fbfe1b6cf683b4d2999" shape="rect" coords="485,250,621,274" alt="">
 <area href="S3Classes_8c.html#b8834f319068d2a248a5d6328cd10dc5" shape="rect" coords="482,298,623,322" alt="">
-<area href="S3Classes_8c.html#c3785782483b5bf4afe9d606e280f3ca" shape="rect" coords="483,346,622,370" alt="">
-<area href="S3Classes_8c.html#220373298b30f12b22f82cce3c996a37" shape="rect" coords="487,394,618,418" alt="">
-<area href="S3Classes_8c.html#14a38e81ed758a64367dc190f0e8229b" shape="rect" coords="493,442,613,466" alt="">
-<area href="S3Classes_8c.html#acf87d496fd3b07bafd171c92404212a" shape="rect" coords="494,490,611,514" alt="">
+<area href="S3Classes_8c.html#220373298b30f12b22f82cce3c996a37" shape="rect" coords="487,346,618,370" alt="">
+<area href="S3Classes_8c.html#14a38e81ed758a64367dc190f0e8229b" shape="rect" coords="493,394,613,418" alt="">
+<area href="S3Classes_8c.html#acf87d496fd3b07bafd171c92404212a" shape="rect" coords="494,442,611,466" alt="">
+<area href="S3Classes_8c.html#d5b760cf2b547dc128273948f78b7a3c" shape="rect" coords="486,490,619,514" alt="">
 <area href="S3Classes_8c.html#f270d1d02bf86a4c5cdc8959045c3567" shape="rect" coords="478,538,627,562" alt="">
 <area href="S3Classes_8c.html#67d50b82dea660a930cf7427be899efb" shape="rect" coords="506,586,599,610" alt="">
 <area href="S3Classes_8c.html#583f9148949f93b5fe894feb6567ca0d" shape="rect" coords="491,634,614,658" alt="">
@@ -778,7 +697,7 @@ Split a node according to a splitting rule <br>
 <p>
 Definition at line <a class="el" href="Predict_8c-source.html#l00021">21</a> of file <a class="el" href="Predict_8c-source.html">Predict.c</a>.
 <p>
-References <a class="el" href="S3Classes_8c-source.html#l00011">C_init_node()</a>, <a class="el" href="Classes_8c-source.html#l00324">get_maxsurrogate()</a>, <a class="el" href="Classes_8c-source.html#l00260">get_missings()</a>, <a class="el" href="Classes_8c-source.html#l00288">get_ninputs()</a>, <a class="el" href="Classes_8c-source.html#l00284">get_nobs()</a>, <a class="el" href="Classes_8c-source.html#l00199">get_predict_trafo()</a>, <a class="el" href="Classes_8c-source.html#l00308">get_splitctrl()</a>, <a class="el" href="Classes_8c-source.html#l00204">get_variable()</a>, <a class="el" href="Classes_8c-source.html#l00222">has_missings()</a>, <a class="el" href="Utils_8c-source.html#l00553">i_in_set()</a>, <a class="el" href="Utils_8c-source.html#l00579">ncol()</a>, <a class="el" href="party_8h-source.html#l00043">NODE_LENGTH</a>, <a class="el" href="Classes_8c-source.html#l00012">PL2_inputsSym</a>, <a class="el" href="Classes_8c-source.html#l00012">PL2_responsesSym</a>, <a class="el" href="party_8h-source.html#l00041">S3_LEFT</a>, <a class="el" href="party_8h-source.html#l00042">S3_RIGHT</a>, <a class="el" href="S3Classes_8c-source.html#l00050">S3get_nodeweights()</a>, <a class="el" href="S3Classes_8c-source.html#l00079">S3get_primarysplit()</a>, <a class="el" href="S3Classes_8c-source.html#l00174">S3get_splitpoint()</a>, <a class="el" href="S3Classes_8c-source.html#l00149">S3get_variableID()</a>, and <a class="el" href="S3Classes_8c-source.html#l00153">S3is_ordered()</a>.
+References <a class="el" href="S3Classes_8c-source.html#l00011">C_init_node()</a>, <a class="el" href="Classes_8c-source.html#l00322">get_maxsurrogate()</a>, <a class="el" href="Classes_8c-source.html#l00258">get_missings()</a>, <a class="el" href="Classes_8c-source.html#l00286">get_ninputs()</a>, <a class="el" href="Classes_8c-source.html#l00282">get_nobs()</a>, <a class="el" href="Classes_8c-source.html#l00197">get_predict_trafo()</a>, <a class="el" href="Classes_8c-source.html#l00306">get_splitctrl()</a>, <a class="el" href="Classes_8c-source.html#l00202">get_variable()</a>, <a class="el" href="Classes_8c-source.html#l00220">has_missings()</a>, <a class="el" href="Utils_8c-source.html#l00549">i_in_set()</a>, <a class="el" href="Utils_8c-source.html#l00575">ncol()</a>, <a class="el" href="party_8h-source.html#l00044">NODE_LENGTH</a>, <a class="el" href="Classes_8c-source.html#l00012">PL2_inputsSym</a>, <a class="el" href="Classes_8c-source.html#l00012">PL2_responsesSym</a>, <a class="el" href="party_8h-source.html#l00041">S3_LEFT</a>, <a class="el" href="party_8h-source.html#l00042">S3_RIGHT</a>, <a class="el" href="S3Classes_8c-source.html#l00051">S3get_nodeweights()</a>, <a class="el" href="S3Classes_8c-source.html#l00084">S3get_primarysplit()</a>, <a class="el" href="S3Classes_8c-source.html#l00179">S3get_splitpoint()</a>, <a class="el" href="S3Classes_8c-source.html#l00154">S3get_variableID()</a>, and <a class="el" href="S3Classes_8c-source.html#l00158">S3is_ordered()</a>.
 <p>
 Referenced by <a class="el" href="TreeGrow_8c-source.html#l00023">C_TreeGrow()</a>.
 <p>
@@ -800,93 +719,6 @@ Here is the call graph for this function:<p><center><img src="Predict_8c_daf8a0e
 <area href="S3Classes_8c.html#acf87d496fd3b07bafd171c92404212a" shape="rect" coords="160,634,277,658" alt="">
 <area href="S3Classes_8c.html#583f9148949f93b5fe894feb6567ca0d" shape="rect" coords="157,682,280,706" alt="">
 <area href="S3Classes_8c.html#54ed9f6b46c69d550ceea1a525287ecf" shape="rect" coords="168,730,269,754" alt="">
-</map>
-    </td>
-  </tr>
-</table>
-<a class="anchor" name="830785cf09ef008b28bd8577feb6d06b"></a><!-- doxytag: member="Predict.c::C_weights" ref="830785cf09ef008b28bd8577feb6d06b" args="(SEXP tree, SEXP newinputs, double mincriterion, SEXP ans)" --><p>
-<table class="mdTable" cellpadding="2" cellspacing="0">
-  <tr>
-    <td class="mdRow">
-      <table cellpadding="0" cellspacing="0" border="0">
-        <tr>
-          <td class="md" nowrap valign="top">void C_weights           </td>
-          <td class="md" valign="top">(&nbsp;</td>
-          <td class="md" nowrap valign="top">SEXP&nbsp;</td>
-          <td class="mdname" nowrap> <em>tree</em>, </td>
-        </tr>
-        <tr>
-          <td class="md" nowrap align="right"></td>
-          <td class="md"></td>
-          <td class="md" nowrap>SEXP&nbsp;</td>
-          <td class="mdname" nowrap> <em>newinputs</em>, </td>
-        </tr>
-        <tr>
-          <td class="md" nowrap align="right"></td>
-          <td class="md"></td>
-          <td class="md" nowrap>double&nbsp;</td>
-          <td class="mdname" nowrap> <em>mincriterion</em>, </td>
-        </tr>
-        <tr>
-          <td class="md" nowrap align="right"></td>
-          <td class="md"></td>
-          <td class="md" nowrap>SEXP&nbsp;</td>
-          <td class="mdname" nowrap> <em>ans</em></td>
-        </tr>
-        <tr>
-          <td class="md"></td>
-          <td class="md">)&nbsp;</td>
-          <td class="md" colspan="2"></td>
-        </tr>
-      </table>
-    </td>
-  </tr>
-</table>
-<table cellspacing="5" cellpadding="0" border="0">
-  <tr>
-    <td>
-      &nbsp;
-    </td>
-    <td>
-
-<p>
-Get the weights for all observations in `newinputs' <dl compact><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>tree</em>&nbsp;</td><td>a tree </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>newinputs</em>&nbsp;</td><td>an object of class `VariableFrame' </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>mincriterion</em>&nbsp;</td><td>overwrites mincriterion used for tree growing </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>ans</em>&nbsp;</td><td>return value </td></tr>
-  </table>
-</dl>
-
-<p>
-Definition at line <a class="el" href="Predict_8c-source.html#l00475">475</a> of file <a class="el" href="Predict_8c-source.html">Predict.c</a>.
-<p>
-References <a class="el" href="Predict_8c-source.html#l00299">C_get_nodeweights()</a>, and <a class="el" href="Classes_8c-source.html#l00284">get_nobs()</a>.
-<p>
-Referenced by <a class="el" href="Predict_8c-source.html#l00497">R_weights()</a>.
-<p>
-Here is the call graph for this function:<p><center><img src="Predict_8c_830785cf09ef008b28bd8577feb6d06b_cgraph.png" border="0" usemap="#Predict_8c_830785cf09ef008b28bd8577feb6d06b_cgraph_map" alt=""></center>
-<map name="Predict_8c_830785cf09ef008b28bd8577feb6d06b_cgraph_map">
-<area href="Predict_8c.html#cbb3e45d03e1b544c94bf639b191a953" shape="rect" coords="142,454,281,478" alt="">
-<area href="Classes_8c.html#45df17685bc6c95d03fb65b6f6214de0" shape="rect" coords="173,502,250,526" alt="">
-<area href="Predict_8c.html#dcd61d38c7c43d241d09a600b70fe3c5" shape="rect" coords="332,370,425,394" alt="">
-<area href="S3Classes_8c.html#c3785782483b5bf4afe9d606e280f3ca" shape="rect" coords="481,682,620,706" alt="">
-<area href="Utils_8c.html#ff0eae9aa0175cd8fe73324707418ce0" shape="rect" coords="508,8,593,32" alt="">
-<area href="Classes_8c.html#fd6cfc2dd239b138d91e92a8ce9353f8" shape="rect" coords="501,56,600,80" alt="">
-<area href="Classes_8c.html#50548fbe6024d9a7118db3fce5085fd9" shape="rect" coords="676,80,777,104" alt="">
-<area href="Classes_8c.html#0f91efa916e815ec7d90c6f9516f18e4" shape="rect" coords="504,154,597,178" alt="">
-<area href="S3Classes_8c.html#5917f57e141432fd1e4f58a16b9149aa" shape="rect" coords="494,202,606,226" alt="">
-<area href="S3Classes_8c.html#e5d3e3ccef4e5fbfe1b6cf683b4d2999" shape="rect" coords="482,250,618,274" alt="">
-<area href="S3Classes_8c.html#b8834f319068d2a248a5d6328cd10dc5" shape="rect" coords="480,298,621,322" alt="">
-<area href="S3Classes_8c.html#220373298b30f12b22f82cce3c996a37" shape="rect" coords="485,346,616,370" alt="">
-<area href="S3Classes_8c.html#14a38e81ed758a64367dc190f0e8229b" shape="rect" coords="490,394,610,418" alt="">
-<area href="S3Classes_8c.html#acf87d496fd3b07bafd171c92404212a" shape="rect" coords="492,442,609,466" alt="">
-<area href="S3Classes_8c.html#f270d1d02bf86a4c5cdc8959045c3567" shape="rect" coords="476,490,625,514" alt="">
-<area href="S3Classes_8c.html#67d50b82dea660a930cf7427be899efb" shape="rect" coords="504,538,597,562" alt="">
-<area href="S3Classes_8c.html#583f9148949f93b5fe894feb6567ca0d" shape="rect" coords="489,586,612,610" alt="">
-<area href="S3Classes_8c.html#54ed9f6b46c69d550ceea1a525287ecf" shape="rect" coords="500,634,601,658" alt="">
-<area href="Utils_8c.html#ae969040bb060d2874fd969e20675bbb" shape="rect" coords="693,8,760,32" alt="">
 </map>
     </td>
   </tr>
@@ -948,7 +780,7 @@ R-Interface to C_get_node <br>
 </dl>
 
 <p>
-Definition at line <a class="el" href="Predict_8c-source.html#l00237">237</a> of file <a class="el" href="Predict_8c-source.html">Predict.c</a>.
+Definition at line <a class="el" href="Predict_8c-source.html#l00229">229</a> of file <a class="el" href="Predict_8c-source.html">Predict.c</a>.
 <p>
 References <a class="el" href="Predict_8c-source.html#l00120">C_get_node()</a>.
 <p>
@@ -962,10 +794,10 @@ Here is the call graph for this function:<p><center><img src="Predict_8c_dec31e3
 <area href="S3Classes_8c.html#5917f57e141432fd1e4f58a16b9149aa" shape="rect" coords="316,202,428,226" alt="">
 <area href="S3Classes_8c.html#e5d3e3ccef4e5fbfe1b6cf683b4d2999" shape="rect" coords="304,250,440,274" alt="">
 <area href="S3Classes_8c.html#b8834f319068d2a248a5d6328cd10dc5" shape="rect" coords="301,298,442,322" alt="">
-<area href="S3Classes_8c.html#c3785782483b5bf4afe9d606e280f3ca" shape="rect" coords="302,346,441,370" alt="">
-<area href="S3Classes_8c.html#220373298b30f12b22f82cce3c996a37" shape="rect" coords="306,394,437,418" alt="">
-<area href="S3Classes_8c.html#14a38e81ed758a64367dc190f0e8229b" shape="rect" coords="312,442,432,466" alt="">
-<area href="S3Classes_8c.html#acf87d496fd3b07bafd171c92404212a" shape="rect" coords="313,490,430,514" alt="">
+<area href="S3Classes_8c.html#220373298b30f12b22f82cce3c996a37" shape="rect" coords="306,346,437,370" alt="">
+<area href="S3Classes_8c.html#14a38e81ed758a64367dc190f0e8229b" shape="rect" coords="312,394,432,418" alt="">
+<area href="S3Classes_8c.html#acf87d496fd3b07bafd171c92404212a" shape="rect" coords="313,442,430,466" alt="">
+<area href="S3Classes_8c.html#d5b760cf2b547dc128273948f78b7a3c" shape="rect" coords="305,490,438,514" alt="">
 <area href="S3Classes_8c.html#f270d1d02bf86a4c5cdc8959045c3567" shape="rect" coords="297,538,446,562" alt="">
 <area href="S3Classes_8c.html#67d50b82dea660a930cf7427be899efb" shape="rect" coords="325,586,418,610" alt="">
 <area href="S3Classes_8c.html#583f9148949f93b5fe894feb6567ca0d" shape="rect" coords="310,634,433,658" alt="">
@@ -1018,9 +850,9 @@ R-Interface to C_get_nodenum <br>
 </dl>
 
 <p>
-Definition at line <a class="el" href="Predict_8c-source.html#l00271">271</a> of file <a class="el" href="Predict_8c-source.html">Predict.c</a>.
+Definition at line <a class="el" href="Predict_8c-source.html#l00263">263</a> of file <a class="el" href="Predict_8c-source.html">Predict.c</a>.
 <p>
-References <a class="el" href="Predict_8c-source.html#l00250">C_get_nodebynum()</a>.
+References <a class="el" href="Predict_8c-source.html#l00242">C_get_nodebynum()</a>.
 <p>
 Here is the call graph for this function:<p><center><img src="Predict_8c_4a30a8aa916f294059b6e2cbcb9e29d5_cgraph.png" border="0" usemap="#Predict_8c_4a30a8aa916f294059b6e2cbcb9e29d5_cgraph_map" alt=""></center>
 <map name="Predict_8c_4a30a8aa916f294059b6e2cbcb9e29d5_cgraph_map">
@@ -1083,9 +915,9 @@ R-Interface to C_get_nodeID <br>
 </dl>
 
 <p>
-Definition at line <a class="el" href="Predict_8c-source.html#l00328">328</a> of file <a class="el" href="Predict_8c-source.html">Predict.c</a>.
+Definition at line <a class="el" href="Predict_8c-source.html#l00320">320</a> of file <a class="el" href="Predict_8c-source.html">Predict.c</a>.
 <p>
-References <a class="el" href="Predict_8c-source.html#l00314">C_get_nodeID()</a>, and <a class="el" href="Classes_8c-source.html#l00284">get_nobs()</a>.
+References <a class="el" href="Predict_8c-source.html#l00306">C_get_nodeID()</a>, and <a class="el" href="Classes_8c-source.html#l00282">get_nobs()</a>.
 <p>
 Here is the call graph for this function:<p><center><img src="Predict_8c_c0668d268fe5a4bad29fbf4ead39c526_cgraph.png" border="0" usemap="#Predict_8c_c0668d268fe5a4bad29fbf4ead39c526_cgraph_map" alt=""></center>
 <map name="Predict_8c_c0668d268fe5a4bad29fbf4ead39c526_cgraph_map">
@@ -1100,10 +932,10 @@ Here is the call graph for this function:<p><center><img src="Predict_8c_c0668d2
 <area href="S3Classes_8c.html#5917f57e141432fd1e4f58a16b9149aa" shape="rect" coords="497,202,609,226" alt="">
 <area href="S3Classes_8c.html#e5d3e3ccef4e5fbfe1b6cf683b4d2999" shape="rect" coords="485,250,621,274" alt="">
 <area href="S3Classes_8c.html#b8834f319068d2a248a5d6328cd10dc5" shape="rect" coords="482,298,623,322" alt="">
-<area href="S3Classes_8c.html#c3785782483b5bf4afe9d606e280f3ca" shape="rect" coords="483,346,622,370" alt="">
-<area href="S3Classes_8c.html#220373298b30f12b22f82cce3c996a37" shape="rect" coords="487,394,618,418" alt="">
-<area href="S3Classes_8c.html#14a38e81ed758a64367dc190f0e8229b" shape="rect" coords="493,442,613,466" alt="">
-<area href="S3Classes_8c.html#acf87d496fd3b07bafd171c92404212a" shape="rect" coords="494,490,611,514" alt="">
+<area href="S3Classes_8c.html#220373298b30f12b22f82cce3c996a37" shape="rect" coords="487,346,618,370" alt="">
+<area href="S3Classes_8c.html#14a38e81ed758a64367dc190f0e8229b" shape="rect" coords="493,394,613,418" alt="">
+<area href="S3Classes_8c.html#acf87d496fd3b07bafd171c92404212a" shape="rect" coords="494,442,611,466" alt="">
+<area href="S3Classes_8c.html#d5b760cf2b547dc128273948f78b7a3c" shape="rect" coords="486,490,619,514" alt="">
 <area href="S3Classes_8c.html#f270d1d02bf86a4c5cdc8959045c3567" shape="rect" coords="478,538,627,562" alt="">
 <area href="S3Classes_8c.html#67d50b82dea660a930cf7427be899efb" shape="rect" coords="506,586,599,610" alt="">
 <area href="S3Classes_8c.html#583f9148949f93b5fe894feb6567ca0d" shape="rect" coords="491,634,614,658" alt="">
@@ -1156,9 +988,9 @@ R-Interface to C_getpredictions<br>
 </dl>
 
 <p>
-Definition at line <a class="el" href="Predict_8c-source.html#l00413">413</a> of file <a class="el" href="Predict_8c-source.html">Predict.c</a>.
+Definition at line <a class="el" href="Predict_8c-source.html#l00405">405</a> of file <a class="el" href="Predict_8c-source.html">Predict.c</a>.
 <p>
-References <a class="el" href="Predict_8c-source.html#l00392">C_getpredictions()</a>.
+References <a class="el" href="Predict_8c-source.html#l00384">C_getpredictions()</a>.
 <p>
 Here is the call graph for this function:<p><center><img src="Predict_8c_a508a31f1fd7cd3668ad81eb0d00dd66_cgraph.png" border="0" usemap="#Predict_8c_a508a31f1fd7cd3668ad81eb0d00dd66_cgraph_map" alt=""></center>
 <map name="Predict_8c_a508a31f1fd7cd3668ad81eb0d00dd66_cgraph_map">
@@ -1169,66 +1001,6 @@ Here is the call graph for this function:<p><center><img src="Predict_8c_a508a31
 <area href="S3Classes_8c.html#136b05ff188fc291196cc9d37d52e862" shape="rect" coords="550,56,657,80" alt="">
 <area href="S3Classes_8c.html#b8834f319068d2a248a5d6328cd10dc5" shape="rect" coords="533,104,674,128" alt="">
 <area href="S3Classes_8c.html#14a38e81ed758a64367dc190f0e8229b" shape="rect" coords="544,152,664,176" alt="">
-</map>
-    </td>
-  </tr>
-</table>
-<a class="anchor" name="f255340d550e1387709b1674467c31b9"></a><!-- doxytag: member="Predict.c::R_getweights" ref="f255340d550e1387709b1674467c31b9" args="(SEXP tree, SEXP where)" --><p>
-<table class="mdTable" cellpadding="2" cellspacing="0">
-  <tr>
-    <td class="mdRow">
-      <table cellpadding="0" cellspacing="0" border="0">
-        <tr>
-          <td class="md" nowrap valign="top">SEXP R_getweights           </td>
-          <td class="md" valign="top">(&nbsp;</td>
-          <td class="md" nowrap valign="top">SEXP&nbsp;</td>
-          <td class="mdname" nowrap> <em>tree</em>, </td>
-        </tr>
-        <tr>
-          <td class="md" nowrap align="right"></td>
-          <td class="md"></td>
-          <td class="md" nowrap>SEXP&nbsp;</td>
-          <td class="mdname" nowrap> <em>where</em></td>
-        </tr>
-        <tr>
-          <td class="md"></td>
-          <td class="md">)&nbsp;</td>
-          <td class="md" colspan="2"></td>
-        </tr>
-      </table>
-    </td>
-  </tr>
-</table>
-<table cellspacing="5" cellpadding="0" border="0">
-  <tr>
-    <td>
-      &nbsp;
-    </td>
-    <td>
-
-<p>
-R-Interface to C_getweigts <br>
- <dl compact><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>tree</em>&nbsp;</td><td>a tree </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>where</em>&nbsp;</td><td>vector of nodeID's </td></tr>
-  </table>
-</dl>
-
-<p>
-Definition at line <a class="el" href="Predict_8c-source.html#l00454">454</a> of file <a class="el" href="Predict_8c-source.html">Predict.c</a>.
-<p>
-References <a class="el" href="Predict_8c-source.html#l00433">C_getweights()</a>.
-<p>
-Here is the call graph for this function:<p><center><img src="Predict_8c_f255340d550e1387709b1674467c31b9_cgraph.png" border="0" usemap="#Predict_8c_f255340d550e1387709b1674467c31b9_cgraph_map" alt=""></center>
-<map name="Predict_8c_f255340d550e1387709b1674467c31b9_cgraph_map">
-<area href="Predict_8c.html#1e3892117a14a178e707acf56ab56f5c" shape="rect" coords="161,104,262,128" alt="">
-<area href="Predict_8c.html#201fdee9dc7e3e71e90ea6609ed353cb" shape="rect" coords="314,80,448,104" alt="">
-<area href="S3Classes_8c.html#c3785782483b5bf4afe9d606e280f3ca" shape="rect" coords="312,128,450,152" alt="">
-<area href="S3Classes_8c.html#5917f57e141432fd1e4f58a16b9149aa" shape="rect" coords="513,8,625,32" alt="">
-<area href="S3Classes_8c.html#136b05ff188fc291196cc9d37d52e862" shape="rect" coords="516,56,622,80" alt="">
-<area href="S3Classes_8c.html#b8834f319068d2a248a5d6328cd10dc5" shape="rect" coords="498,104,640,128" alt="">
-<area href="S3Classes_8c.html#14a38e81ed758a64367dc190f0e8229b" shape="rect" coords="509,152,629,176" alt="">
 </map>
     </td>
   </tr>
@@ -1283,9 +1055,9 @@ R-Interface to C_predict <br>
 </dl>
 
 <p>
-Definition at line <a class="el" href="Predict_8c-source.html#l00372">372</a> of file <a class="el" href="Predict_8c-source.html">Predict.c</a>.
+Definition at line <a class="el" href="Predict_8c-source.html#l00364">364</a> of file <a class="el" href="Predict_8c-source.html">Predict.c</a>.
 <p>
-References <a class="el" href="Predict_8c-source.html#l00351">C_predict()</a>, and <a class="el" href="Classes_8c-source.html#l00284">get_nobs()</a>.
+References <a class="el" href="Predict_8c-source.html#l00343">C_predict()</a>, and <a class="el" href="Classes_8c-source.html#l00282">get_nobs()</a>.
 <p>
 Here is the call graph for this function:<p><center><img src="Predict_8c_9a5170a24bc00b727527b80cec5ca60a_cgraph.png" border="0" usemap="#Predict_8c_9a5170a24bc00b727527b80cec5ca60a_cgraph_map" alt=""></center>
 <map name="Predict_8c_9a5170a24bc00b727527b80cec5ca60a_cgraph_map">
@@ -1301,10 +1073,10 @@ Here is the call graph for this function:<p><center><img src="Predict_8c_9a5170a
 <area href="S3Classes_8c.html#5917f57e141432fd1e4f58a16b9149aa" shape="rect" coords="625,202,737,226" alt="">
 <area href="S3Classes_8c.html#e5d3e3ccef4e5fbfe1b6cf683b4d2999" shape="rect" coords="613,250,749,274" alt="">
 <area href="S3Classes_8c.html#b8834f319068d2a248a5d6328cd10dc5" shape="rect" coords="610,298,751,322" alt="">
-<area href="S3Classes_8c.html#c3785782483b5bf4afe9d606e280f3ca" shape="rect" coords="611,346,750,370" alt="">
-<area href="S3Classes_8c.html#220373298b30f12b22f82cce3c996a37" shape="rect" coords="615,394,746,418" alt="">
-<area href="S3Classes_8c.html#14a38e81ed758a64367dc190f0e8229b" shape="rect" coords="621,442,741,466" alt="">
-<area href="S3Classes_8c.html#acf87d496fd3b07bafd171c92404212a" shape="rect" coords="622,490,739,514" alt="">
+<area href="S3Classes_8c.html#220373298b30f12b22f82cce3c996a37" shape="rect" coords="615,346,746,370" alt="">
+<area href="S3Classes_8c.html#14a38e81ed758a64367dc190f0e8229b" shape="rect" coords="621,394,741,418" alt="">
+<area href="S3Classes_8c.html#acf87d496fd3b07bafd171c92404212a" shape="rect" coords="622,442,739,466" alt="">
+<area href="S3Classes_8c.html#d5b760cf2b547dc128273948f78b7a3c" shape="rect" coords="614,490,747,514" alt="">
 <area href="S3Classes_8c.html#f270d1d02bf86a4c5cdc8959045c3567" shape="rect" coords="606,538,755,562" alt="">
 <area href="S3Classes_8c.html#67d50b82dea660a930cf7427be899efb" shape="rect" coords="634,586,727,610" alt="">
 <area href="S3Classes_8c.html#583f9148949f93b5fe894feb6567ca0d" shape="rect" coords="619,634,742,658" alt="">
@@ -1314,191 +1086,7 @@ Here is the call graph for this function:<p><center><img src="Predict_8c_9a5170a
     </td>
   </tr>
 </table>
-<a class="anchor" name="20dd01c361767edbfc62abf55ce30ff1"></a><!-- doxytag: member="Predict.c::R_predictRF" ref="20dd01c361767edbfc62abf55ce30ff1" args="(SEXP forest, SEXP newinputs, SEXP mincriterion, SEXP oobpred)" --><p>
-<table class="mdTable" cellpadding="2" cellspacing="0">
-  <tr>
-    <td class="mdRow">
-      <table cellpadding="0" cellspacing="0" border="0">
-        <tr>
-          <td class="md" nowrap valign="top">SEXP R_predictRF           </td>
-          <td class="md" valign="top">(&nbsp;</td>
-          <td class="md" nowrap valign="top">SEXP&nbsp;</td>
-          <td class="mdname" nowrap> <em>forest</em>, </td>
-        </tr>
-        <tr>
-          <td class="md" nowrap align="right"></td>
-          <td class="md"></td>
-          <td class="md" nowrap>SEXP&nbsp;</td>
-          <td class="mdname" nowrap> <em>newinputs</em>, </td>
-        </tr>
-        <tr>
-          <td class="md" nowrap align="right"></td>
-          <td class="md"></td>
-          <td class="md" nowrap>SEXP&nbsp;</td>
-          <td class="mdname" nowrap> <em>mincriterion</em>, </td>
-        </tr>
-        <tr>
-          <td class="md" nowrap align="right"></td>
-          <td class="md"></td>
-          <td class="md" nowrap>SEXP&nbsp;</td>
-          <td class="mdname" nowrap> <em>oobpred</em></td>
-        </tr>
-        <tr>
-          <td class="md"></td>
-          <td class="md">)&nbsp;</td>
-          <td class="md" colspan="2"></td>
-        </tr>
-      </table>
-    </td>
-  </tr>
-</table>
-<table cellspacing="5" cellpadding="0" border="0">
-  <tr>
-    <td>
-      &nbsp;
-    </td>
-    <td>
-
-<p>
-Predictions from RandomForest objects <dl compact><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>forest</em>&nbsp;</td><td>a list of trees </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>newinputs</em>&nbsp;</td><td>an object of class `VariableFrame' </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>mincriterion</em>&nbsp;</td><td>overwrites mincriterion used for tree growing </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>oobpred</em>&nbsp;</td><td>a logical indicating out-of-bag predictions </td></tr>
-  </table>
-</dl>
-
-<p>
-Definition at line <a class="el" href="Predict_8c-source.html#l00518">518</a> of file <a class="el" href="Predict_8c-source.html">Predict.c</a>.
-<p>
-References <a class="el" href="Predict_8c-source.html#l00250">C_get_nodebynum()</a>, <a class="el" href="Predict_8c-source.html#l00314">C_get_nodeID()</a>, <a class="el" href="Classes_8c-source.html#l00284">get_nobs()</a>, <a class="el" href="S3Classes_8c-source.html#l00050">S3get_nodeweights()</a>, and <a class="el" href="S3Classes_8c-source.html#l00087">S3get_prediction()</a>.
-<p>
-Here is the call graph for this function:<p><center><img src="Predict_8c_20dd01c361767edbfc62abf55ce30ff1_cgraph.png" border="0" usemap="#Predict_8c_20dd01c361767edbfc62abf55ce30ff1_cgraph_map" alt=""></center>
-<map name="Predict_8c_20dd01c361767edbfc62abf55ce30ff1_cgraph_map">
-<area href="Predict_8c.html#201fdee9dc7e3e71e90ea6609ed353cb" shape="rect" coords="326,104,459,128" alt="">
-<area href="Predict_8c.html#d9d49b6a210f5c09a2a1d1aa496859ce" shape="rect" coords="162,345,269,369" alt="">
-<area href="S3Classes_8c.html#c3785782483b5bf4afe9d606e280f3ca" shape="rect" coords="515,730,654,754" alt="">
-<area href="Classes_8c.html#45df17685bc6c95d03fb65b6f6214de0" shape="rect" coords="177,494,254,518" alt="">
-<area href="S3Classes_8c.html#70a340b301b4e383107c92cbbeb4ae20" shape="rect" coords="154,542,277,566" alt="">
-<area href="S3Classes_8c.html#5917f57e141432fd1e4f58a16b9149aa" shape="rect" coords="529,56,641,80" alt="">
-<area href="S3Classes_8c.html#136b05ff188fc291196cc9d37d52e862" shape="rect" coords="531,8,638,32" alt="">
-<area href="S3Classes_8c.html#b8834f319068d2a248a5d6328cd10dc5" shape="rect" coords="514,104,655,128" alt="">
-<area href="S3Classes_8c.html#14a38e81ed758a64367dc190f0e8229b" shape="rect" coords="525,152,645,176" alt="">
-<area href="Predict_8c.html#dcd61d38c7c43d241d09a600b70fe3c5" shape="rect" coords="346,370,439,394" alt="">
-<area href="Utils_8c.html#ff0eae9aa0175cd8fe73324707418ce0" shape="rect" coords="542,200,627,224" alt="">
-<area href="Classes_8c.html#fd6cfc2dd239b138d91e92a8ce9353f8" shape="rect" coords="535,298,634,322" alt="">
-<area href="Classes_8c.html#50548fbe6024d9a7118db3fce5085fd9" shape="rect" coords="710,273,811,297" alt="">
-<area href="Classes_8c.html#0f91efa916e815ec7d90c6f9516f18e4" shape="rect" coords="538,346,631,370" alt="">
-<area href="S3Classes_8c.html#e5d3e3ccef4e5fbfe1b6cf683b4d2999" shape="rect" coords="517,394,653,418" alt="">
-<area href="S3Classes_8c.html#220373298b30f12b22f82cce3c996a37" shape="rect" coords="519,442,650,466" alt="">
-<area href="S3Classes_8c.html#acf87d496fd3b07bafd171c92404212a" shape="rect" coords="526,490,643,514" alt="">
-<area href="S3Classes_8c.html#f270d1d02bf86a4c5cdc8959045c3567" shape="rect" coords="510,538,659,562" alt="">
-<area href="S3Classes_8c.html#67d50b82dea660a930cf7427be899efb" shape="rect" coords="538,586,631,610" alt="">
-<area href="S3Classes_8c.html#583f9148949f93b5fe894feb6567ca0d" shape="rect" coords="523,634,646,658" alt="">
-<area href="S3Classes_8c.html#54ed9f6b46c69d550ceea1a525287ecf" shape="rect" coords="534,682,635,706" alt="">
-<area href="Utils_8c.html#ae969040bb060d2874fd969e20675bbb" shape="rect" coords="727,200,794,224" alt="">
-</map>
-    </td>
-  </tr>
-</table>
-<a class="anchor" name="a4f23088af5379408f00d3809656d0da"></a><!-- doxytag: member="Predict.c::R_predictRF2" ref="a4f23088af5379408f00d3809656d0da" args="(SEXP forest, SEXP response, SEXP newinputs, SEXP mincriterion, SEXP oobpred)" --><p>
-<table class="mdTable" cellpadding="2" cellspacing="0">
-  <tr>
-    <td class="mdRow">
-      <table cellpadding="0" cellspacing="0" border="0">
-        <tr>
-          <td class="md" nowrap valign="top">SEXP R_predictRF2           </td>
-          <td class="md" valign="top">(&nbsp;</td>
-          <td class="md" nowrap valign="top">SEXP&nbsp;</td>
-          <td class="mdname" nowrap> <em>forest</em>, </td>
-        </tr>
-        <tr>
-          <td class="md" nowrap align="right"></td>
-          <td class="md"></td>
-          <td class="md" nowrap>SEXP&nbsp;</td>
-          <td class="mdname" nowrap> <em>response</em>, </td>
-        </tr>
-        <tr>
-          <td class="md" nowrap align="right"></td>
-          <td class="md"></td>
-          <td class="md" nowrap>SEXP&nbsp;</td>
-          <td class="mdname" nowrap> <em>newinputs</em>, </td>
-        </tr>
-        <tr>
-          <td class="md" nowrap align="right"></td>
-          <td class="md"></td>
-          <td class="md" nowrap>SEXP&nbsp;</td>
-          <td class="mdname" nowrap> <em>mincriterion</em>, </td>
-        </tr>
-        <tr>
-          <td class="md" nowrap align="right"></td>
-          <td class="md"></td>
-          <td class="md" nowrap>SEXP&nbsp;</td>
-          <td class="mdname" nowrap> <em>oobpred</em></td>
-        </tr>
-        <tr>
-          <td class="md"></td>
-          <td class="md">)&nbsp;</td>
-          <td class="md" colspan="2"></td>
-        </tr>
-      </table>
-    </td>
-  </tr>
-</table>
-<table cellspacing="5" cellpadding="0" border="0">
-  <tr>
-    <td>
-      &nbsp;
-    </td>
-    <td>
-
-<p>
-Predictions from RandomForest objects, based in total weights <dl compact><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>forest</em>&nbsp;</td><td>a list of trees </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>response</em>&nbsp;</td><td>a matrix of (transformed) response values </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>newinputs</em>&nbsp;</td><td>an object of class `VariableFrame' </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>mincriterion</em>&nbsp;</td><td>overwrites mincriterion used for tree growing </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>oobpred</em>&nbsp;</td><td>a logical indicating out-of-bag predictions </td></tr>
-  </table>
-</dl>
-
-<p>
-Definition at line <a class="el" href="Predict_8c-source.html#l00574">574</a> of file <a class="el" href="Predict_8c-source.html">Predict.c</a>.
-<p>
-References <a class="el" href="Predict_8c-source.html#l00250">C_get_nodebynum()</a>, <a class="el" href="Predict_8c-source.html#l00314">C_get_nodeID()</a>, <a class="el" href="Classes_8c-source.html#l00284">get_nobs()</a>, <a class="el" href="Utils_8c-source.html#l00579">ncol()</a>, <a class="el" href="Utils_8c-source.html#l00575">nrow()</a>, and <a class="el" href="S3Classes_8c-source.html#l00050">S3get_nodeweights()</a>.
-<p>
-Here is the call graph for this function:<p><center><img src="Predict_8c_a4f23088af5379408f00d3809656d0da_cgraph.png" border="0" usemap="#Predict_8c_a4f23088af5379408f00d3809656d0da_cgraph_map" alt=""></center>
-<map name="Predict_8c_a4f23088af5379408f00d3809656d0da_cgraph_map">
-<area href="Predict_8c.html#201fdee9dc7e3e71e90ea6609ed353cb" shape="rect" coords="318,104,451,128" alt="">
-<area href="Predict_8c.html#d9d49b6a210f5c09a2a1d1aa496859ce" shape="rect" coords="161,370,267,394" alt="">
-<area href="S3Classes_8c.html#c3785782483b5bf4afe9d606e280f3ca" shape="rect" coords="507,730,646,754" alt="">
-<area href="Classes_8c.html#45df17685bc6c95d03fb65b6f6214de0" shape="rect" coords="175,469,253,493" alt="">
-<area href="Utils_8c.html#f1f46cc3e98630497a1ccb21d943fe65" shape="rect" coords="191,517,237,541" alt="">
-<area href="Utils_8c.html#eeb672a71c45ead28b7b354414f2427a" shape="rect" coords="189,565,239,589" alt="">
-<area href="S3Classes_8c.html#5917f57e141432fd1e4f58a16b9149aa" shape="rect" coords="521,56,633,80" alt="">
-<area href="S3Classes_8c.html#136b05ff188fc291196cc9d37d52e862" shape="rect" coords="523,8,630,32" alt="">
-<area href="S3Classes_8c.html#b8834f319068d2a248a5d6328cd10dc5" shape="rect" coords="506,104,647,128" alt="">
-<area href="S3Classes_8c.html#14a38e81ed758a64367dc190f0e8229b" shape="rect" coords="517,152,637,176" alt="">
-<area href="Predict_8c.html#dcd61d38c7c43d241d09a600b70fe3c5" shape="rect" coords="338,370,431,394" alt="">
-<area href="Utils_8c.html#ff0eae9aa0175cd8fe73324707418ce0" shape="rect" coords="534,200,619,224" alt="">
-<area href="Classes_8c.html#fd6cfc2dd239b138d91e92a8ce9353f8" shape="rect" coords="527,298,626,322" alt="">
-<area href="Classes_8c.html#50548fbe6024d9a7118db3fce5085fd9" shape="rect" coords="702,273,803,297" alt="">
-<area href="Classes_8c.html#0f91efa916e815ec7d90c6f9516f18e4" shape="rect" coords="530,346,623,370" alt="">
-<area href="S3Classes_8c.html#e5d3e3ccef4e5fbfe1b6cf683b4d2999" shape="rect" coords="509,394,645,418" alt="">
-<area href="S3Classes_8c.html#220373298b30f12b22f82cce3c996a37" shape="rect" coords="511,442,642,466" alt="">
-<area href="S3Classes_8c.html#acf87d496fd3b07bafd171c92404212a" shape="rect" coords="518,490,635,514" alt="">
-<area href="S3Classes_8c.html#f270d1d02bf86a4c5cdc8959045c3567" shape="rect" coords="502,538,651,562" alt="">
-<area href="S3Classes_8c.html#67d50b82dea660a930cf7427be899efb" shape="rect" coords="530,586,623,610" alt="">
-<area href="S3Classes_8c.html#583f9148949f93b5fe894feb6567ca0d" shape="rect" coords="515,634,638,658" alt="">
-<area href="S3Classes_8c.html#54ed9f6b46c69d550ceea1a525287ecf" shape="rect" coords="526,682,627,706" alt="">
-<area href="Utils_8c.html#ae969040bb060d2874fd969e20675bbb" shape="rect" coords="719,200,786,224" alt="">
-</map>
-    </td>
-  </tr>
-</table>
-<a class="anchor" name="b1c6e1c0c34af27c7f587b53deb4dc4f"></a><!-- doxytag: member="Predict.c::R_predictRF_weights" ref="b1c6e1c0c34af27c7f587b53deb4dc4f" args="(SEXP forest, SEXP newinputs, SEXP mincriterion, SEXP oobpred)" --><p>
+<a class="anchor" name="4f6966402677cec07284a3e1bc25660f"></a><!-- doxytag: member="Predict.c::R_predictRF_weights" ref="4f6966402677cec07284a3e1bc25660f" args="(SEXP forest, SEXP where, SEXP weights, SEXP newinputs, SEXP mincriterion, SEXP oobpred)" --><p>
 <table class="mdTable" cellpadding="2" cellspacing="0">
   <tr>
     <td class="mdRow">
@@ -1508,6 +1096,18 @@ Here is the call graph for this function:<p><center><img src="Predict_8c_a4f2308
           <td class="md" valign="top">(&nbsp;</td>
           <td class="md" nowrap valign="top">SEXP&nbsp;</td>
           <td class="mdname" nowrap> <em>forest</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>SEXP&nbsp;</td>
+          <td class="mdname" nowrap> <em>where</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>SEXP&nbsp;</td>
+          <td class="mdname" nowrap> <em>weights</em>, </td>
         </tr>
         <tr>
           <td class="md" nowrap align="right"></td>
@@ -1547,6 +1147,8 @@ Here is the call graph for this function:<p><center><img src="Predict_8c_a4f2308
 Predictions weights from RandomForest objects <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"></td><td valign="top"><em>forest</em>&nbsp;</td><td>a list of trees </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>where</em>&nbsp;</td><td>integer matrix (n x ntree) for terminal node numbers </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>weights</em>&nbsp;</td><td>double matrix (n x ntree) for bootstrap case weights </td></tr>
     <tr><td valign="top"></td><td valign="top"><em>newinputs</em>&nbsp;</td><td>an object of class `VariableFrame' </td></tr>
     <tr><td valign="top"></td><td valign="top"><em>mincriterion</em>&nbsp;</td><td>overwrites mincriterion used for tree growing </td></tr>
     <tr><td valign="top"></td><td valign="top"><em>oobpred</em>&nbsp;</td><td>a logical indicating out-of-bag predictions </td></tr>
@@ -1554,119 +1156,39 @@ Predictions weights from RandomForest objects <dl compact><dt><b>Parameters:</b>
 </dl>
 
 <p>
-Definition at line <a class="el" href="Predict_8c-source.html#l00639">639</a> of file <a class="el" href="Predict_8c-source.html">Predict.c</a>.
+Definition at line <a class="el" href="Predict_8c-source.html#l00427">427</a> of file <a class="el" href="Predict_8c-source.html">Predict.c</a>.
 <p>
-References <a class="el" href="Predict_8c-source.html#l00250">C_get_nodebynum()</a>, <a class="el" href="Predict_8c-source.html#l00314">C_get_nodeID()</a>, <a class="el" href="Classes_8c-source.html#l00284">get_nobs()</a>, <a class="el" href="S3Classes_8c-source.html#l00050">S3get_nodeweights()</a>, and <a class="el" href="S3Classes_8c-source.html#l00087">S3get_prediction()</a>.
+References <a class="el" href="Predict_8c-source.html#l00242">C_get_nodebynum()</a>, <a class="el" href="Predict_8c-source.html#l00306">C_get_nodeID()</a>, <a class="el" href="Classes_8c-source.html#l00282">get_nobs()</a>, and <a class="el" href="S3Classes_8c-source.html#l00092">S3get_prediction()</a>.
 <p>
-Here is the call graph for this function:<p><center><img src="Predict_8c_b1c6e1c0c34af27c7f587b53deb4dc4f_cgraph.png" border="0" usemap="#Predict_8c_b1c6e1c0c34af27c7f587b53deb4dc4f_cgraph_map" alt=""></center>
-<map name="Predict_8c_b1c6e1c0c34af27c7f587b53deb4dc4f_cgraph_map">
-<area href="Predict_8c.html#201fdee9dc7e3e71e90ea6609ed353cb" shape="rect" coords="377,104,510,128" alt="">
-<area href="Predict_8c.html#d9d49b6a210f5c09a2a1d1aa496859ce" shape="rect" coords="213,345,320,369" alt="">
-<area href="S3Classes_8c.html#c3785782483b5bf4afe9d606e280f3ca" shape="rect" coords="566,730,705,754" alt="">
-<area href="Classes_8c.html#45df17685bc6c95d03fb65b6f6214de0" shape="rect" coords="228,494,305,518" alt="">
-<area href="S3Classes_8c.html#70a340b301b4e383107c92cbbeb4ae20" shape="rect" coords="205,542,328,566" alt="">
-<area href="S3Classes_8c.html#5917f57e141432fd1e4f58a16b9149aa" shape="rect" coords="580,56,692,80" alt="">
+Here is the call graph for this function:<p><center><img src="Predict_8c_4f6966402677cec07284a3e1bc25660f_cgraph.png" border="0" usemap="#Predict_8c_4f6966402677cec07284a3e1bc25660f_cgraph_map" alt=""></center>
+<map name="Predict_8c_4f6966402677cec07284a3e1bc25660f_cgraph_map">
+<area href="Predict_8c.html#201fdee9dc7e3e71e90ea6609ed353cb" shape="rect" coords="377,92,510,116" alt="">
+<area href="Predict_8c.html#d9d49b6a210f5c09a2a1d1aa496859ce" shape="rect" coords="213,141,320,165" alt="">
+<area href="Classes_8c.html#45df17685bc6c95d03fb65b6f6214de0" shape="rect" coords="228,189,305,213" alt="">
+<area href="S3Classes_8c.html#70a340b301b4e383107c92cbbeb4ae20" shape="rect" coords="205,237,328,261" alt="">
+<area href="S3Classes_8c.html#5917f57e141432fd1e4f58a16b9149aa" shape="rect" coords="580,152,692,176" alt="">
 <area href="S3Classes_8c.html#136b05ff188fc291196cc9d37d52e862" shape="rect" coords="582,8,689,32" alt="">
-<area href="S3Classes_8c.html#b8834f319068d2a248a5d6328cd10dc5" shape="rect" coords="565,104,706,128" alt="">
-<area href="S3Classes_8c.html#14a38e81ed758a64367dc190f0e8229b" shape="rect" coords="576,152,696,176" alt="">
+<area href="S3Classes_8c.html#b8834f319068d2a248a5d6328cd10dc5" shape="rect" coords="565,56,706,80" alt="">
+<area href="S3Classes_8c.html#14a38e81ed758a64367dc190f0e8229b" shape="rect" coords="576,104,696,128" alt="">
 <area href="Predict_8c.html#dcd61d38c7c43d241d09a600b70fe3c5" shape="rect" coords="397,370,490,394" alt="">
-<area href="Utils_8c.html#ff0eae9aa0175cd8fe73324707418ce0" shape="rect" coords="593,200,678,224" alt="">
-<area href="Classes_8c.html#fd6cfc2dd239b138d91e92a8ce9353f8" shape="rect" coords="586,298,685,322" alt="">
-<area href="Classes_8c.html#50548fbe6024d9a7118db3fce5085fd9" shape="rect" coords="761,273,862,297" alt="">
-<area href="Classes_8c.html#0f91efa916e815ec7d90c6f9516f18e4" shape="rect" coords="589,346,682,370" alt="">
-<area href="S3Classes_8c.html#e5d3e3ccef4e5fbfe1b6cf683b4d2999" shape="rect" coords="568,394,704,418" alt="">
-<area href="S3Classes_8c.html#220373298b30f12b22f82cce3c996a37" shape="rect" coords="570,442,701,466" alt="">
-<area href="S3Classes_8c.html#acf87d496fd3b07bafd171c92404212a" shape="rect" coords="577,490,694,514" alt="">
+<area href="Utils_8c.html#ff0eae9aa0175cd8fe73324707418ce0" shape="rect" coords="593,730,678,754" alt="">
+<area href="Classes_8c.html#fd6cfc2dd239b138d91e92a8ce9353f8" shape="rect" coords="586,250,685,274" alt="">
+<area href="Classes_8c.html#50548fbe6024d9a7118db3fce5085fd9" shape="rect" coords="761,226,862,250" alt="">
+<area href="Classes_8c.html#0f91efa916e815ec7d90c6f9516f18e4" shape="rect" coords="589,298,682,322" alt="">
+<area href="S3Classes_8c.html#e5d3e3ccef4e5fbfe1b6cf683b4d2999" shape="rect" coords="568,346,704,370" alt="">
+<area href="S3Classes_8c.html#220373298b30f12b22f82cce3c996a37" shape="rect" coords="570,394,701,418" alt="">
+<area href="S3Classes_8c.html#acf87d496fd3b07bafd171c92404212a" shape="rect" coords="577,442,694,466" alt="">
+<area href="S3Classes_8c.html#d5b760cf2b547dc128273948f78b7a3c" shape="rect" coords="569,490,702,514" alt="">
 <area href="S3Classes_8c.html#f270d1d02bf86a4c5cdc8959045c3567" shape="rect" coords="561,538,710,562" alt="">
 <area href="S3Classes_8c.html#67d50b82dea660a930cf7427be899efb" shape="rect" coords="589,586,682,610" alt="">
 <area href="S3Classes_8c.html#583f9148949f93b5fe894feb6567ca0d" shape="rect" coords="574,634,697,658" alt="">
 <area href="S3Classes_8c.html#54ed9f6b46c69d550ceea1a525287ecf" shape="rect" coords="585,682,686,706" alt="">
-<area href="Utils_8c.html#ae969040bb060d2874fd969e20675bbb" shape="rect" coords="778,200,845,224" alt="">
+<area href="Utils_8c.html#ae969040bb060d2874fd969e20675bbb" shape="rect" coords="778,730,845,754" alt="">
 </map>
     </td>
   </tr>
 </table>
-<a class="anchor" name="0f24ac195825953e630d3386b4d98f97"></a><!-- doxytag: member="Predict.c::R_weights" ref="0f24ac195825953e630d3386b4d98f97" args="(SEXP tree, SEXP newinputs, SEXP mincriterion)" --><p>
-<table class="mdTable" cellpadding="2" cellspacing="0">
-  <tr>
-    <td class="mdRow">
-      <table cellpadding="0" cellspacing="0" border="0">
-        <tr>
-          <td class="md" nowrap valign="top">SEXP R_weights           </td>
-          <td class="md" valign="top">(&nbsp;</td>
-          <td class="md" nowrap valign="top">SEXP&nbsp;</td>
-          <td class="mdname" nowrap> <em>tree</em>, </td>
-        </tr>
-        <tr>
-          <td class="md" nowrap align="right"></td>
-          <td class="md"></td>
-          <td class="md" nowrap>SEXP&nbsp;</td>
-          <td class="mdname" nowrap> <em>newinputs</em>, </td>
-        </tr>
-        <tr>
-          <td class="md" nowrap align="right"></td>
-          <td class="md"></td>
-          <td class="md" nowrap>SEXP&nbsp;</td>
-          <td class="mdname" nowrap> <em>mincriterion</em></td>
-        </tr>
-        <tr>
-          <td class="md"></td>
-          <td class="md">)&nbsp;</td>
-          <td class="md" colspan="2"></td>
-        </tr>
-      </table>
-    </td>
-  </tr>
-</table>
-<table cellspacing="5" cellpadding="0" border="0">
-  <tr>
-    <td>
-      &nbsp;
-    </td>
-    <td>
-
-<p>
-R-Interface to C_weights <br>
- <dl compact><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>tree</em>&nbsp;</td><td>a tree </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>newinputs</em>&nbsp;</td><td>an object of class `VariableFrame' </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>mincriterion</em>&nbsp;</td><td>overwrites mincriterion used for tree growing </td></tr>
-  </table>
-</dl>
-
-<p>
-Definition at line <a class="el" href="Predict_8c-source.html#l00497">497</a> of file <a class="el" href="Predict_8c-source.html">Predict.c</a>.
-<p>
-References <a class="el" href="Predict_8c-source.html#l00475">C_weights()</a>, and <a class="el" href="Classes_8c-source.html#l00284">get_nobs()</a>.
-<p>
-Here is the call graph for this function:<p><center><img src="Predict_8c_0f24ac195825953e630d3386b4d98f97_cgraph.png" border="0" usemap="#Predict_8c_0f24ac195825953e630d3386b4d98f97_cgraph_map" alt=""></center>
-<map name="Predict_8c_0f24ac195825953e630d3386b4d98f97_cgraph_map">
-<area href="Predict_8c.html#830785cf09ef008b28bd8577feb6d06b" shape="rect" coords="142,514,225,538" alt="">
-<area href="Classes_8c.html#45df17685bc6c95d03fb65b6f6214de0" shape="rect" coords="306,562,384,586" alt="">
-<area href="Predict_8c.html#cbb3e45d03e1b544c94bf639b191a953" shape="rect" coords="276,514,414,538" alt="">
-<area href="Predict_8c.html#dcd61d38c7c43d241d09a600b70fe3c5" shape="rect" coords="465,370,558,394" alt="">
-<area href="S3Classes_8c.html#c3785782483b5bf4afe9d606e280f3ca" shape="rect" coords="614,682,753,706" alt="">
-<area href="Utils_8c.html#ff0eae9aa0175cd8fe73324707418ce0" shape="rect" coords="641,8,726,32" alt="">
-<area href="Classes_8c.html#fd6cfc2dd239b138d91e92a8ce9353f8" shape="rect" coords="634,56,733,80" alt="">
-<area href="Classes_8c.html#50548fbe6024d9a7118db3fce5085fd9" shape="rect" coords="809,80,910,104" alt="">
-<area href="Classes_8c.html#0f91efa916e815ec7d90c6f9516f18e4" shape="rect" coords="637,154,730,178" alt="">
-<area href="S3Classes_8c.html#5917f57e141432fd1e4f58a16b9149aa" shape="rect" coords="628,202,740,226" alt="">
-<area href="S3Classes_8c.html#e5d3e3ccef4e5fbfe1b6cf683b4d2999" shape="rect" coords="616,250,752,274" alt="">
-<area href="S3Classes_8c.html#b8834f319068d2a248a5d6328cd10dc5" shape="rect" coords="613,298,754,322" alt="">
-<area href="S3Classes_8c.html#220373298b30f12b22f82cce3c996a37" shape="rect" coords="618,346,749,370" alt="">
-<area href="S3Classes_8c.html#14a38e81ed758a64367dc190f0e8229b" shape="rect" coords="624,394,744,418" alt="">
-<area href="S3Classes_8c.html#acf87d496fd3b07bafd171c92404212a" shape="rect" coords="625,442,742,466" alt="">
-<area href="S3Classes_8c.html#f270d1d02bf86a4c5cdc8959045c3567" shape="rect" coords="609,490,758,514" alt="">
-<area href="S3Classes_8c.html#67d50b82dea660a930cf7427be899efb" shape="rect" coords="637,538,730,562" alt="">
-<area href="S3Classes_8c.html#583f9148949f93b5fe894feb6567ca0d" shape="rect" coords="622,586,745,610" alt="">
-<area href="S3Classes_8c.html#54ed9f6b46c69d550ceea1a525287ecf" shape="rect" coords="633,634,734,658" alt="">
-<area href="Utils_8c.html#ae969040bb060d2874fd969e20675bbb" shape="rect" coords="826,8,893,32" alt="">
-</map>
-    </td>
-  </tr>
-</table>
-<hr size="1"><address style="align: right;"><small>Generated on Wed Jun 20 15:56:41 2007 for party by&nbsp;
+<hr size="1"><address style="align: right;"><small>Generated on Mon Jul 23 10:06:57 2007 for party by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6 </small></address>
 </body>

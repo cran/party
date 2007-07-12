@@ -1,6 +1,6 @@
 
-R version 2.4.1 (2006-12-18)
-Copyright (C) 2006 The R Foundation for Statistical Computing
+R version 2.5.1 (2007-06-27)
+Copyright (C) 2007 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -84,8 +84,6 @@ Loading required package: class
 > names(mammoexp)
 [1] "ME"       "symptoms" "benefit"  "HIST"     "BSE"      "DECT"    
 > mtree <- ctree(ME ~ ., data = mammoexp)
-Warning message:
-no admissible split found 
 > stopifnot(isequal(predict(mtree), predict(mtree, newdata = mammoexp)))
 > stopifnot(isequal(predict(mtree), predict(mtree, newdata = mammoexp)))
 > 

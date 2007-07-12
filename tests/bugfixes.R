@@ -76,6 +76,10 @@ cctrl <- cforest_control(replace = FALSE, fraction = 0.5)
 n <- nrow(airq)
 w <- double(n)
 
+
+if (FALSE) {
+### forest objects have weights remove in 0.9-13
+
 ### case weights
 x <- runif(w)
 w[x > 0.5] <- 1
@@ -93,4 +97,12 @@ rf <- cforest(Ozone ~ .,data = airq, weights = w, control = cctrl)
 rfw <- sapply(rf@ensemble, function(x) x[[2]])
 stopifnot(all(colSums(rfw) == ceiling(sum(w > 0) / 2)))
 stopifnot(max(abs(rfw[w == 0,])) == 0)
+}
+
+### cforest with multivariate response
+df <- data.frame(y1 = rnorm(100), y2 = rnorm(100), x1 = runif(100), x2 = runif(100))
+df$y1[df$x1 < 0.5] <- df$y1[df$x1 < 0.5] + 1
+cf <- cforest(y1 + y2 ~ x1 + x2, data = df)
+pr <- predict(cf)
+stopifnot(nrow(pr) == nrow(df) || ncol(pr) != 2)
 

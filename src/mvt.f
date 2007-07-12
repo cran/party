@@ -1,12 +1,12 @@
 *
-*    $Id: mvt.f 2975 2006-09-15 11:31:18Z hothorn $
+*    $Id: mvt.f 3642 2007-07-12 16:49:01Z hothorn $
 *
       SUBROUTINE MVTDST( N, NU, LOWER, UPPER, INFIN, CORREL, DELTA, 
-     &           MAXPTS, ABSEPS, RELEPS, TOL, ERROR, VALUE, INFORM )
+     &                   MAXPTS, ABSEPS, RELEPS, ERROR, VALUE, INFORM )       
 *
 *     A subroutine for computing non-central multivariate t probabilities.
 *     This subroutine uses an algorithm (QRSVN) described in the paper
-*     "Comparison of Methods for the Computation of Multivariate
+*     "Comparison of Methods for the Computation of Multivariate 
 *         t-Probabilities", by Alan Genz and Frank Bretz
 *         J. Comp. Graph. Stat. 11 (2002), pp. 950-971.
 *
@@ -15,6 +15,11 @@
 *          Washington State University 
 *          Pullman, WA 99164-3113
 *          Email : AlanGenz@wsu.edu
+*
+*	Original source available from
+*	http://www.math.wsu.edu/faculty/genz/software/fort77/mvtdstpack.f
+*
+*	This is version 7/7 with better support for 100 < dimension < 1000
 *
 *  Parameters
 *
@@ -40,7 +45,6 @@
 *            increase MAXPTS if ERROR is too large.
 *     ABSEPS DOUBLE PRECISION absolute error tolerance.
 *     RELEPS DOUBLE PRECISION relative error tolerance.
-*     TOL    DOUBLE PRECISION singularity tolerance.
 *     ERROR  DOUBLE PRECISION estimated absolute error, 
 *            with 99% confidence level.
 *     VALUE  DOUBLE PRECISION estimated value for the integral
@@ -55,19 +59,16 @@
       EXTERNAL MVSUBR
       INTEGER N, ND, NU, INFIN(*), MAXPTS, INFORM, IVLS
       DOUBLE PRECISION CORREL(*), LOWER(*), UPPER(*), DELTA(*), RELEPS, 
-     &                 ABSEPS, TOL, ERROR, VALUE, E(1), V(1)
+     &                 ABSEPS, ERROR, VALUE, E(1), V(1)
       COMMON /PTBLCK/IVLS
       IVLS = 0
-      
-*      CALL rndstart()
-      
       IF ( N .GT. 1000 .OR. N .LT. 1 ) THEN
          VALUE = 0
          ERROR = 1
          INFORM = 2
       ELSE
          CALL MVINTS( N, NU, CORREL, LOWER, UPPER, DELTA, INFIN,
-     &                TOL, ND, VALUE, ERROR, INFORM )
+     &                   ND, VALUE, ERROR, INFORM )
          IF ( INFORM .EQ. 0 .AND. ND .GT. 0 ) THEN
 *
 *           Call the lattice rule integration subroutine
@@ -78,9 +79,6 @@
             VALUE = V(1)
          ENDIF
       ENDIF
-      
-*      CALL rndend()
-      
       END
 *
       SUBROUTINE MVSUBR( N, W, NF, F )
@@ -93,7 +91,6 @@
       INTEGER INFI(NL), NU, ND, INFORM, NY 
       DOUBLE PRECISION COV(NL*(NL+1)/2), A(NL), B(NL), DL(NL), Y(NL)
       DOUBLE PRECISION MVCHNV, SNU, R, VL, ER, DI, EI
-      DOUBLE PRECISION TOL      
       SAVE NU, SNU, INFI, A, B, DL, COV
       IF ( NU .LE. 0 ) THEN
          R = 1
@@ -106,12 +103,12 @@
 *
 *     Entry point for intialization.
 *
-      ENTRY MVINTS( N, NUIN, CORREL, LOWER, UPPER, DELTA, INFIN, TOL, 
+      ENTRY MVINTS( N, NUIN, CORREL, LOWER, UPPER, DELTA, INFIN, 
      &     ND, VL, ER, INFORM )
 *
 *     Initialization and computation of covariance Cholesky factor.
 *
-      CALL MVSORT( N, LOWER, UPPER, DELTA, CORREL, INFIN,TOL, Y, .TRUE.,
+      CALL MVSORT( N, LOWER, UPPER, DELTA, CORREL, INFIN, Y, .TRUE.,
      &            ND,     A,     B,    DL,    COV,  INFI, INFORM )
       NU = NUIN
       CALL MVSPCL( ND, NU, A, B, DL, COV, INFI, SNU, VL, ER, INFORM )
@@ -138,9 +135,9 @@
 *           1-d case for normal or central t
 *
             VL = 1
-            IF ( INFI(1) .NE. 1 ) VL = MVSTDT( NU, B(1) - DL(1) )
-            IF ( INFI(1) .NE. 0 ) VL = VL - MVSTDT( NU, A(1) - DL(1) )
-            IF ( VL .LT. 0 ) VL = 0 
+            IF ( INFI(1) .NE. 1 ) VL = MVSTDT( NU, B(1) - DL(1) ) 
+            IF ( INFI(1) .NE. 0 ) VL = VL - MVSTDT( NU, A(1) - DL(1) ) 
+            IF ( VL .LT. 0 ) VL = 0
             ER = 2D-16
             ND = 0
          ELSE IF ( ND .EQ. 2 .AND. 
@@ -179,7 +176,7 @@
                IF ( INFI(1) .NE. INFI(2) ) INFI(1) = 2
                VL = 1
                IF ( INFI(1) .NE. 1 ) VL = MVSTDT( NU, B(1)-DL(1) ) 
-               IF ( INFI(1) .NE. 0 ) VL = VL - MVSTDT( NU, A(1)-DL(1) )
+               IF ( INFI(1) .NE. 0 ) VL = VL - MVSTDT( NU, A(1)-DL(1) )      
                IF ( VL .LT. 0 ) VL = 0
                ER = 2D-16
             END IF
@@ -194,7 +191,7 @@
       END IF
       END
 *
-      SUBROUTINE MVVLSB( N,W,R,DL,INFI, A,B,COV, Y, DI,EI, ND, VALUE )
+      SUBROUTINE MVVLSB( N,W,R,DL,INFI, A,B,COV, Y, DI,EI, ND, VALUE )      
 *     
 *     Integrand subroutine
 *
@@ -246,21 +243,19 @@
       END DO
       END
 *
-      SUBROUTINE MVSORT( N, LOWER, UPPER,DELTA,CORREL,INFIN,TOL,Y,PIVOT,
+      SUBROUTINE MVSORT( N, LOWER, UPPER, DELTA, CORREL, INFIN, Y,PIVOT,
      &                  ND,     A,     B,    DL,    COV,  INFI, INFORM )
 *
 *     Subroutine to sort integration limits and determine Cholesky factor.
 *
       INTEGER N, ND, INFIN(*), INFI(*), INFORM
       LOGICAL PIVOT
-      DOUBLE PRECISION TOL 
       DOUBLE PRECISION     A(*),     B(*),    DL(*),    COV(*), 
      &                 LOWER(*), UPPER(*), DELTA(*), CORREL(*), Y(*)
       INTEGER I, J, K, L, M, II, IJ, IL, JL, JMIN
       DOUBLE PRECISION SUMSQ, AJ, BJ, SUM, EPS, EPSI, D, E
       DOUBLE PRECISION CVDIAG, AMIN, BMIN, DEMIN, MVTDNS
-*      PARAMETER ( EPS = 1D-6 )
-      EPS = TOL
+      PARAMETER ( EPS = 1D-6 )
       INFORM = 0
       IJ = 0
       II = 0
@@ -363,8 +358,8 @@
 * 
                IF ( DEMIN .GT. EPSI ) THEN
                   Y(I) = 0
-                  IF ( INFI(I) .NE. 0 ) Y(I) =        MVTDNS( 0, AMIN )
-                  IF ( INFI(I) .NE. 1 ) Y(I) = Y(I) - MVTDNS( 0, BMIN )
+                  IF ( INFI(I) .NE. 0 ) Y(I) =        MVTDNS( 0, AMIN )        
+                  IF ( INFI(I) .NE. 1 ) Y(I) = Y(I) - MVTDNS( 0, BMIN )        
                   Y(I) = Y(I)/DEMIN
                ELSE
                   IF ( INFI(I) .EQ. 0 ) Y(I) = BMIN
@@ -501,67 +496,51 @@
       END DO
       END
 *
-      DOUBLE PRECISION FUNCTION MVPHI( Z )
+      DOUBLE PRECISION FUNCTION MVPHI(Z)
 *     
-*     Normal distribution probabilities accurate to 1.e-15.
-*     Z = no. of standard deviations from the mean.
+*     Normal distribution probabilities accurate to 1d-15.
+*     Reference: J.L. Schonfelder, Math Comp 32(1978), pp 1232-1240. 
 *     
-*     Based upon algorithm 5666 for the error function, from:
-*     Hart, J.F. et al, 'Computer Approximations', Wiley 1968
+      INTEGER I, IM
+      DOUBLE PRECISION A(0:43), BM, B, BP, P, RTWO, T, XA, Z
+      PARAMETER( RTWO = 1.414213562373095048801688724209D0, IM = 24 )
+      SAVE A
+      DATA ( A(I), I = 0, 43 )/
+     &    6.10143081923200417926465815756D-1,
+     &   -4.34841272712577471828182820888D-1,
+     &    1.76351193643605501125840298123D-1,
+     &   -6.0710795609249414860051215825D-2,
+     &    1.7712068995694114486147141191D-2,
+     &   -4.321119385567293818599864968D-3, 
+     &    8.54216676887098678819832055D-4, 
+     &   -1.27155090609162742628893940D-4,
+     &    1.1248167243671189468847072D-5, 3.13063885421820972630152D-7,      
+     &   -2.70988068537762022009086D-7, 3.0737622701407688440959D-8,
+     &    2.515620384817622937314D-9, -1.028929921320319127590D-9,
+     &    2.9944052119949939363D-11, 2.6051789687266936290D-11,
+     &   -2.634839924171969386D-12, -6.43404509890636443D-13,
+     &    1.12457401801663447D-13, 1.7281533389986098D-14, 
+     &   -4.264101694942375D-15, -5.45371977880191D-16,
+     &    1.58697607761671D-16, 2.0899837844334D-17, 
+     &   -5.900526869409D-18, -9.41893387554D-19, 2.14977356470D-19, 
+     &    4.6660985008D-20, -7.243011862D-21, -2.387966824D-21, 
+     &    1.91177535D-22, 1.20482568D-22, -6.72377D-25, -5.747997D-24,
+     &   -4.28493D-25, 2.44856D-25, 4.3793D-26, -8.151D-27, -3.089D-27, 
+     &    9.3D-29, 1.74D-28, 1.6D-29, -8.0D-30, -2.0D-30 /       
 *     
-*     Programmer: Alan Miller
-*     
-*     Latest revision - 30 March 1986
-*     
-      DOUBLE PRECISION P0, P1, P2, P3, P4, P5, P6, 
-     *     Q0, Q1, Q2, Q3, Q4, Q5, Q6, Q7,
-     *     Z, P, EXPNTL, CUTOFF, ROOTPI, ZABS
-      PARAMETER(
-     *     P0 = 220.20 68679 12376 1D0,
-     *     P1 = 221.21 35961 69931 1D0, 
-     *     P2 = 112.07 92914 97870 9D0,
-     *     P3 = 33.912 86607 83830 0D0,
-     *     P4 = 6.3739 62203 53165 0D0,
-     *     P5 = .70038 30644 43688 1D0, 
-     *     P6 = .035262 49659 98910 9D0 )
-      PARAMETER(
-     *     Q0 = 440.41 37358 24752 2D0,
-     *     Q1 = 793.82 65125 19948 4D0, 
-     *     Q2 = 637.33 36333 78831 1D0,
-     *     Q3 = 296.56 42487 79673 7D0, 
-     *     Q4 = 86.780 73220 29460 8D0,
-     *     Q5 = 16.064 17757 92069 5D0, 
-     *     Q6 = 1.7556 67163 18264 2D0,
-     *     Q7 = .088388 34764 83184 4D0 )
-      PARAMETER( ROOTPI = 2.5066 28274 63100 1D0 )
-      PARAMETER( CUTOFF = 7.0710 67811 86547 5D0 )
-*     
-      ZABS = ABS(Z)
-*     
-*     |Z| > 37
-*     
-      IF ( ZABS .GT. 37 ) THEN
+      XA = ABS(Z)/RTWO
+      IF ( XA .GT. 100 ) THEN
          P = 0
       ELSE
-*     
-*     |Z| <= 37
-*     
-         EXPNTL = EXP( -ZABS**2/2 )
-*     
-*     |Z| < CUTOFF = 10/SQRT(2)
-*     
-         IF ( ZABS .LT. CUTOFF ) THEN
-            P = EXPNTL*( (((((P6*ZABS + P5)*ZABS + P4)*ZABS + P3)*ZABS
-     *           + P2)*ZABS + P1)*ZABS + P0)/(((((((Q7*ZABS + Q6)*ZABS
-     *           + Q5)*ZABS + Q4)*ZABS + Q3)*ZABS + Q2)*ZABS + Q1)*ZABS
-     *           + Q0 )
-*     
-*     |Z| >= CUTOFF.
-*     
-         ELSE
-            P = EXPNTL/( ZABS + 1/( ZABS + 2/( ZABS + 3/( ZABS 
-     *                        + 4/( ZABS + 0.65D0 ) ) ) ) )/ROOTPI
-         END IF
+         T = ( 8*XA - 30 ) / ( 4*XA + 15 )
+         BM = 0
+         B  = 0
+         DO I = IM, 0, -1 
+            BP = B
+            B  = BM
+            BM = T*B - BP  + A(I)
+         END DO
+         P = EXP( -XA*XA )*( BM - BP )/4
       END IF
       IF ( Z .GT. 0 ) P = 1 - P
       MVPHI = P
@@ -752,12 +731,12 @@
       DOUBLE PRECISION MVPHI, SN, ASR, H, K, BS, HS, HK
       SAVE X, W
 *     Gauss Legendre Points and Weights, N =  6
-      DATA ( W(I,1), X(I,1), I = 1,3) /
+      DATA ( W(I,1), X(I,1), I = 1, 3 ) /
      *  0.1713244923791705D+00,-0.9324695142031522D+00,
      *  0.3607615730481384D+00,-0.6612093864662647D+00,
      *  0.4679139345726904D+00,-0.2386191860831970D+00/
 *     Gauss Legendre Points and Weights, N = 12
-      DATA ( W(I,2), X(I,2), I = 1,6) /
+      DATA ( W(I,2), X(I,2), I = 1, 6 ) /
      *  0.4717533638651177D-01,-0.9815606342467191D+00,
      *  0.1069393259953183D+00,-0.9041172563704750D+00,
      *  0.1600783285433464D+00,-0.7699026741943050D+00,
@@ -765,7 +744,7 @@
      *  0.2334925365383547D+00,-0.3678314989981802D+00,
      *  0.2491470458134029D+00,-0.1252334085114692D+00/
 *     Gauss Legendre Points and Weights, N = 20
-      DATA ( W(I,3), X(I,3), I = 1,10) /
+      DATA ( W(I,3), X(I,3), I = 1, 10 ) /
      *  0.1761400713915212D-01,-0.9931285991850949D+00,
      *  0.4060142980038694D-01,-0.9639719272779138D+00,
      *  0.6267204833410906D-01,-0.9122344282513259D+00,
@@ -834,7 +813,7 @@
             BVN = -BVN/TWOPI
          ENDIF
          IF ( R .GT. 0 ) BVN =  BVN + MVPHI( -MAX( H, K ) )
-         IF ( R .LT. 0 ) BVN = -BVN + MAX( ZERO, MVPHI(-H) - MVPHI(-K) )
+         IF ( R .LT. 0 ) BVN = -BVN + MAX( ZERO, MVPHI(-H) - MVPHI(-K) )     
       ENDIF
       MVBVU = BVN
       END
@@ -875,7 +854,7 @@
       ENDIF
       END
 *
-      DOUBLE PRECISION FUNCTION MVBVT( NU, LOWER, UPPER, INFIN, CORREL )
+      DOUBLE PRECISION FUNCTION MVBVT( NU, LOWER, UPPER, INFIN, CORREL )      
 *
 *     A function for computing bivariate normal and t probabilities.
 *
@@ -1046,7 +1025,7 @@
          hkrn = dh*dk + r*nu  
          hkn = dh*dk - nu  
          hpk = dh + dk 
-         bvt = atan2(-snu*(hkn*qhrk+hpk*hkrn),hkn*hkrn-nu*hpk*qhrk)/tpi
+         bvt = atan2(-snu*(hkn*qhrk+hpk*hkrn),hkn*hkrn-nu*hpk*qhrk)/tpi  
          if ( bvt .lt. -1d-15 ) bvt = bvt + 1
          gmph = dh/( tpi*snu*( 1 + dh**2/nu ) )  
          gmpk = dk/( tpi*snu*( 1 + dk**2/nu ) )  
@@ -1125,7 +1104,7 @@
 *
 *     Third order Schroeder correction to R for MVCHNV
 *
-      INTEGER N, I
+      INTEGER I, N
       DOUBLE PRECISION P, R, LKN, DF, RR, RN, CHI, MVPHI
       DOUBLE PRECISION LRP, TWO, AL, DL, AI, BI, CI, DI, EPS
       PARAMETER ( LRP = -.22579135264472743235D0, TWO = 2, EPS = 1D-14 )
@@ -1214,7 +1193,11 @@
 *  and 
 *   "Optimal Parameters for Multidimensional Integration", 
 *    P. Keast, SIAM J Numer Anal, 10, pp.831-838.
-*   
+*  If there are more than 100 variables, the remaining variables are
+*  integrated using the rules described in the reference
+*   "On a Number-Theoretical Integration Method"
+*   H. Niederreiter, Aequationes Mathematicae, 8(1972), pp. 304-11.
+*
 ***************  Parameters ********************************************
 ****** Input parameters
 *  NDIM    Number of variables, must exceed 1, but not exceed 100
@@ -1244,10 +1227,11 @@
 ************************************************************************
       EXTERNAL FUNSUB
       DOUBLE PRECISION ABSEPS, RELEPS, FINEST(*), ABSERR, ONE
-      INTEGER NDIM, NF, MINVLS, MAXVLS, INFORM, NP, PLIM, 
+      INTEGER NDIM, NF, MINVLS, MAXVLS, INFORM, NP, PLIM, KLIM,
      &        NLIM, FLIM, SAMPLS, I, K, INTVLS, MINSMP, KMX
-      PARAMETER ( PLIM = 28, NLIM = 1000, FLIM = 5000, MINSMP = 8 )
-      INTEGER P(PLIM), C(PLIM,NLIM-1), PR(NLIM) 
+      PARAMETER ( PLIM = 28, NLIM = 1000, KLIM = 100, FLIM = 5000 )
+      PARAMETER ( MINSMP = 8 )
+      INTEGER P(PLIM), C(PLIM,KLIM-1), PR(NLIM) 
       DOUBLE PRECISION DIFINT, FINVAL(FLIM), VARSQR(FLIM), VAREST(FLIM), 
      &     VARPRD, X(NLIM), R(NLIM), VK(NLIM), VALUES(FLIM), FS(FLIM)
       PARAMETER ( ONE = 1 )
@@ -1255,13 +1239,6 @@
       INFORM = 1
       INTVLS = 0
       VARPRD = 0
-
-*     begin valgrind fix: 
-*     ==21597== Conditional jump or move depends on uninitialised value(s)
-*     ==21597==    at 0x6577265: mvkbrv_ (mvt.f:1294) 
-      ABSERR = 0
-*     end
-
       IF ( MINVLS .GE. 0 ) THEN
          DO K = 1, NF
             FINEST(K) = 0
@@ -1275,8 +1252,15 @@
          SAMPLS = MAX( MINSMP, MINVLS/( 2*P(NP) ) )
       ENDIF
  10   VK(1) = ONE/P(NP)
+      K = 1
       DO I = 2, NDIM
-         VK(I) = MOD( C(NP, NDIM-1 )*VK(I-1), ONE )
+         IF ( I .LE. KLIM ) THEN
+            K = MOD( C(NP, MIN(NDIM-1,KLIM-1))*DBLE(K), DBLE(P(NP)) )
+            VK(I) = K*VK(1)
+         ELSE
+            VK(I) = INT( P(NP)*2**( DBLE(I-KLIM)/(NDIM-KLIM+1) ) )
+            VK(I) = MOD( VK(I)/P(NP), ONE )
+         END IF
       END DO
       DO K = 1, NF
          FINVAL(K) = 0
@@ -1284,7 +1268,7 @@
       END DO
 *
       DO I = 1, SAMPLS
-         CALL MVKRSV( NDIM, VALUES, P(NP), VK, NF, FUNSUB, X,R,PR,FS )
+         CALL MVKRSV( NDIM,KLIM,VALUES, P(NP),VK, NF,FUNSUB, X,R,PR,FS )
          DO K = 1, NF
             DIFINT = ( VALUES(K) - FINVAL(K) )/I
             FINVAL(K) = FINVAL(K) + DIFINT
@@ -1296,9 +1280,8 @@
       KMX = 1
       DO K = 1, NF
          VARPRD = VAREST(K)*VARSQR(K)
-         FINEST(K) = FINEST(K) + ( FINVAL(K) - FINEST(K) )/( 1+VARPRD )
+         FINEST(K) = FINEST(K) + ( FINVAL(K) - FINEST(K) )/( 1+VARPRD )      
          IF ( VARSQR(K) .GT. 0 ) VAREST(K) = ( 1 + VARPRD )/VARSQR(K)
-         ABSERR = MAX( ABSERR, 7*SQRT( VARSQR(K)/( 1 + VARPRD ) )/2 )
          IF ( ABS(FINEST(K)) .GT. ABS(FINEST(KMX)) ) KMX = K
       END DO
       ABSERR = 7*SQRT( VARSQR(KMX)/( 1 + VARPRD ) )/2
@@ -1315,7 +1298,7 @@
       ENDIF
       MINVLS = INTVLS
 *
-*    Optimal Paramters for Lattice Rules
+*    Optimal Parameters for Lattice Rules
 *
       DATA P( 1),(C( 1,I),I = 1,99)/     31, 12, 2*9, 13, 8*12, 3*3, 12,
      & 2*7, 9*12, 3*3, 12, 2*7, 9*12, 3*3, 12, 2*7, 9*12, 3*3, 12, 2*7,
@@ -1423,7 +1406,7 @@
      & 2*64958, 32377, 2*193002, 25023, 40017, 141605, 2*189165,
      & 141605, 2*189165, 3*141605, 189165, 20*127047, 10*127785,
      & 6*80822, 16*131661, 7114, 131661/
-      DATA P(25),(C(25,I),I = 1,99)/601942, 130365, 236711, 110235,
+      DATA P(25),(C(25,I),I = 1,99)/601943, 130365, 236711, 110235,
      & 125699, 56483, 93735, 234469, 60549, 1291, 93937,
      & 245291, 196061, 258647, 162489, 176631, 204895, 73353,
      & 172319, 28881, 136787,2*122081, 275993, 64673, 3*211587,
@@ -1456,11 +1439,11 @@
 *
       END
 *
-      SUBROUTINE MVKRSV( NDIM, VALUES, PRIME, VK, NF,FUNSUB, X,R,PR,FS )
+      SUBROUTINE MVKRSV( NDIM,KL,VALUES,PRIME,VK, NF,FUNSUB, X,R,PR,FS )
 *
 *     For lattice rule sums
 *
-      INTEGER NDIM, NF, PRIME, K, J, JP, PR(*)
+      INTEGER NDIM, NF, PRIME, KL, K, J, JP, PR(*)
       DOUBLE PRECISION VALUES(*), VK(*), FS(*), X(*), R(*), MVUNI
       DO J = 1, NF
          VALUES(J) = 0
@@ -1470,9 +1453,13 @@
 *
       DO J = 1, NDIM
          R(J) = MVUNI()
-         JP = 1 + J*R(J)
-         IF ( JP .LT. J ) PR(J) = PR(JP)
-         PR(JP) = J
+         IF ( J .LT. KL ) THEN
+            JP = 1 + J*R(J)
+            IF ( JP .LT. J ) PR(J) = PR(JP)
+            PR(JP) = J
+         ELSE 
+            PR(J) = J
+         END IF
       END DO
 *
 *     Compute latice rule sums
@@ -1485,7 +1472,7 @@
          END DO
          CALL FUNSUB( NDIM, X, NF, FS )
          DO J = 1, NF
-            VALUES(J) = VALUES(J) + ( FS(J) - VALUES(J) )/( 2*K-1 )
+            VALUES(J) = VALUES(J) + ( FS(J) - VALUES(J) )/( 2*K-1 )      
          END DO
          DO J = 1, NDIM
             X(J) = 1 - X(J)

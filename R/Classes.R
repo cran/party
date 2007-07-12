@@ -1,5 +1,5 @@
 
-# $Id: Classes.R 3567 2007-06-20 16:11:19Z hothorn $
+# $Id: Classes.R 3655 2007-07-23 07:44:00Z hothorn $
 
 ### Conditional Expectation and Covariance
 setClass(Class = "ExpectCovar",
@@ -267,8 +267,9 @@ setClass(Class = "BinaryTreePartition",
     representation = representation(
         tree     = "list",          # the basic tree structure as (named or
                                     # unnamed) list
-        where    = "integer"        # the nodeID of the observations in the
+        where    = "integer",       # the nodeID of the observations in the
                                     # learning sample
+        weights  = "numeric"         # the weights in the root node
     ),
 )
 
@@ -290,6 +291,8 @@ setClass(Class = "BinaryTree",
 setClass(Class = "RandomForest", 
     representation = representation(
         ensemble            = "list",
+        where               = "list",
+        weights             = "list",
         data                = "ModelEnv",
         responses           = "VariableFrame", # a list of response `variables'
                                                # for computing predictions

@@ -1,6 +1,6 @@
 
-R version 2.4.1 (2006-12-18)
-Copyright (C) 2006 The R Foundation for Statistical Computing
+R version 2.5.1 (2007-06-27)
+Copyright (C) 2007 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -53,14 +53,11 @@ Loading required package: class
 > 
 > data("GlaucomaM", package = "ipred")
 > rf <- cforest(Class ~ ., data = GlaucomaM, control = cforest_control(ntree = 100))
-Warning message:
-no admissible split found 
 > stopifnot(mean(GlaucomaM$Class != predict(rf)) < 
 +           mean(GlaucomaM$Class != predict(rf, OOB = TRUE)))
 > 
 > data("GBSG2", package = "ipred")
 > rf <- cforest(Surv(time, cens) ~ ., data = GBSG2, control = cforest_control(ntree = 100))
-There were 50 or more warnings (use warnings() to see the first 50)
 > treeresponse(rf, newdata = GBSG2[1:2,])
 [[1]]
 Call: survival:::survfit(formula = resp, weights = w, subset = w > 

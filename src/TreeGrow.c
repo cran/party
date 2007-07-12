@@ -3,7 +3,7 @@
     The tree growing recursion
     *\file TreeGrow.c
     *\author $Author: hothorn $
-    *\date $Date: 2007-02-02 11:22:45 +0100 (Fri, 02 Feb 2007) $
+    *\date $Date: 2007-07-23 09:44:00 +0200 (Mon, 23 Jul 2007) $
 */
 
 #include "party.h"
@@ -59,6 +59,7 @@ void C_TreeGrow(SEXP node, SEXP learnsample, SEXP fitmem,
         nodenum[0] += 1;                                      
         C_TreeGrow(S3get_rightnode(node), learnsample, fitmem, 
                    controls, where, nodenum, depth + 1);
+                   
     } else {
         dweights = REAL(weights);
         nobs = get_nobs(learnsample);

@@ -3,7 +3,7 @@
     Node splitting and prediction
     *\file Predict.c
     *\author $Author: hothorn $
-    *\date $Date: 2007-02-02 11:22:45 +0100 (Fri, 02 Feb 2007) $
+    *\date $Date: 2007-07-23 10:02:09 +0200 (Mon, 23 Jul 2007) $
 */
                 
 #include "party.h"
@@ -179,16 +179,8 @@ SEXP C_get_node(SEXP subtree, SEXP newinputs,
             }
 
             /* if this was not successful, we go with the majority */
-            weights = S3get_nodeweights(S3get_leftnode(subtree));
-            dweights = REAL(weights);
-            swleft = 0.0;
-            for (i = 0; i < LENGTH(weights); i++)
-                swleft += dweights[i];
-            weights = S3get_nodeweights(S3get_rightnode(subtree));
-            dweights = REAL(weights);
-            swright = 0.0;
-            for (i = 0; i < LENGTH(weights); i++)
-                swright += dweights[i];
+            swleft = S3get_sumweights(S3get_leftnode(subtree));
+            swright = S3get_sumweights(S3get_rightnode(subtree));
             if (swleft > swright) {
                 return(C_get_node(S3get_leftnode(subtree), 
                                   newinputs, mincriterion, numobs));
@@ -422,225 +414,21 @@ SEXP R_getpredictions(SEXP tree, SEXP where) {
     return(ans);
 }                        
 
-
-/**
-    Get the weights from `where' nodes\n
-    *\param tree a tree
-    *\param where vector of nodeID's
-    *\param ans return value
-*/
-
-void C_getweights(SEXP tree, SEXP where, SEXP ans) {
-
-    int nobs, i, *iwhere;
-    
-    nobs = LENGTH(where);
-    iwhere = INTEGER(where);
-    if (LENGTH(ans) != nobs)
-        error("ans is not of length %d\n", nobs);
-        
-    for (i = 0; i < nobs; i++)
-        SET_VECTOR_ELT(ans, i, S3get_nodeweights(
-            C_get_nodebynum(tree, iwhere[i])));
-}
-
-
-/**
-    R-Interface to C_getweigts \n
-    *\param tree a tree
-    *\param where vector of nodeID's
-*/
-
-SEXP R_getweights(SEXP tree, SEXP where) {
-
-    SEXP ans;
-    int nobs;
-            
-    nobs = LENGTH(where);
-    PROTECT(ans = allocVector(VECSXP, nobs));
-    C_getweights(tree, where, ans);
-    UNPROTECT(1);
-    return(ans);
-}                        
-
-
-/**
-    Get the weights for all observations in  `newinputs'
-    *\param tree a tree
-    *\param newinputs an object of class `VariableFrame'
-    *\param mincriterion overwrites mincriterion used for tree growing
-    *\param ans return value
-*/
-
-void C_weights(SEXP tree, SEXP newinputs, 
-               double mincriterion, SEXP ans) {
-    
-    int nobs, i;
-    
-    nobs = get_nobs(newinputs);    
-    if (LENGTH(ans) != nobs) 
-        error("ans is not of length %d\n", nobs);
-        
-    for (i = 0; i < nobs; i++)
-        SET_VECTOR_ELT(ans, i, C_get_nodeweights(tree, newinputs, 
-                       mincriterion, i));
-}
-
-
-/**
-    R-Interface to C_weights \n
-    *\param tree a tree
-    *\param newinputs an object of class `VariableFrame'
-    *\param mincriterion overwrites mincriterion used for tree growing
-*/
-
-SEXP R_weights(SEXP tree, SEXP newinputs, SEXP mincriterion) {
-
-    SEXP ans;
-    int nobs;
-    
-    nobs = get_nobs(newinputs);
-    PROTECT(ans = allocVector(VECSXP, nobs));
-    C_weights(tree, newinputs, REAL(mincriterion)[0], ans);
-    UNPROTECT(1);
-    return(ans);
-}
-
-
-/**
-    Predictions from RandomForest objects
-    *\param forest a list of trees
-    *\param newinputs an object of class `VariableFrame'
-    *\param mincriterion overwrites mincriterion used for tree growing
-    *\param oobpred a logical indicating out-of-bag predictions
-*/
-
-SEXP R_predictRF(SEXP forest, SEXP newinputs, SEXP mincriterion, SEXP oobpred) {
-
-    SEXP ans, tmp, tree;
-    int ntrees, nobs, i, b, j, q, iwhere, oob = 0, count = 0;
-    
-    if (LOGICAL(oobpred)[0]) oob = 1;
-    
-    nobs = get_nobs(newinputs);
-    ntrees = LENGTH(forest);
-    q = LENGTH(S3get_prediction(
-                   C_get_nodebynum(VECTOR_ELT(forest, 0), 1)));
-
-    if (oob) {
-        if (LENGTH(S3get_nodeweights(
-                       C_get_nodebynum(VECTOR_ELT(forest, 0), 1))) != nobs)
-            error("number of observations don't match");
-    }    
-    
-    PROTECT(ans = allocVector(VECSXP, nobs));
-    
-    for (i = 0; i < nobs; i++) {
-        count = 0;
-        SET_VECTOR_ELT(ans, i, allocVector(REALSXP, q));
-        for (j = 0; j < q; j++)
-                    REAL(VECTOR_ELT(ans, i))[j] = 0.0;
-        for (b = 0; b < ntrees; b++) {
-            tree = VECTOR_ELT(forest, b);
-
-            if (oob && 
-                REAL(S3get_nodeweights(C_get_nodebynum(tree, 1)))[i] > 0.0) 
-                continue;
-
-            iwhere = C_get_nodeID(tree, newinputs, REAL(mincriterion)[0], i);
-            tmp = S3get_prediction(C_get_nodebynum(tree, iwhere));
-            for (j = 0; j < q; j++)
-                REAL(VECTOR_ELT(ans, i))[j] += REAL(tmp)[j];
-            count++;
-        }
-        if (count == 0) 
-            error("cannot compute out-of-bag predictions for obs ", i + 1);
-        for (j = 0; j < q; j++)
-            REAL(VECTOR_ELT(ans, i))[j] = REAL(VECTOR_ELT(ans, i))[j] / count;
-    }
-    UNPROTECT(1);
-    return(ans);
-}
-
-/**
-    Predictions from RandomForest objects, based in total weights
-    *\param forest a list of trees
-    *\param response a matrix of (transformed) response values
-    *\param newinputs an object of class `VariableFrame'
-    *\param mincriterion overwrites mincriterion used for tree growing
-    *\param oobpred a logical indicating out-of-bag predictions
-*/
-
-SEXP R_predictRF2(SEXP forest, SEXP response, SEXP newinputs, 
-                  SEXP mincriterion, SEXP oobpred) {
-
-    SEXP ans, tmp, tree, w;
-    int ntrees, nobs, i, b, j, q, n, iwhere, oob = 0;
-    double *dtmp, *dw, sumw = 0.0;
-
-    if (LOGICAL(oobpred)[0]) oob = 1;
-    
-    nobs = get_nobs(newinputs);
-    ntrees = LENGTH(forest);
-    n = nrow(response);
-    q = ncol(response);
-
-    if (oob) {
-        if (n != nobs)
-            error("number of observations don't match");
-    }    
-    
-    PROTECT(ans = allocVector(VECSXP, nobs));
-    PROTECT(w = allocMatrix(REALSXP, 1, n));
-    dw = REAL(w);
-    
-    for (i = 0; i < nobs; i++) {
-
-        SET_VECTOR_ELT(ans, i, allocVector(REALSXP, q));
-        for (j = 0; j < n; j++)
-            dw[j] = 0.0;
-
-        for (b = 0; b < ntrees; b++) {
-            tree = VECTOR_ELT(forest, b);
-
-            if (oob && 
-                REAL(S3get_nodeweights(C_get_nodebynum(tree, 1)))[i] > 0.0) 
-                continue;
-
-            iwhere = C_get_nodeID(tree, newinputs, REAL(mincriterion)[0], i);
-            tmp = S3get_nodeweights(C_get_nodebynum(tree, iwhere));
-            dtmp = REAL(tmp);
-            
-            for (j = 0; j < n; j++)
-                dw[j] += dtmp[j];
-        }
-        
-        C_matprod(dw, 1, n, REAL(response), n, q, REAL(VECTOR_ELT(ans, i)));
-
-        sumw = 0.0;
-        for (j = 0; j < n; j++)
-            sumw += dw[j];
-
-        for (j = 0; j < q; j++)
-            REAL(VECTOR_ELT(ans, i))[j] = REAL(VECTOR_ELT(ans, i))[j] / sumw;
-    }
-    UNPROTECT(2);
-    return(ans);
-}
-
 /**
     Predictions weights from RandomForest objects
     *\param forest a list of trees
+    *\param where integer matrix (n x ntree) for terminal node numbers
+    *\param weights double matrix (n x ntree) for bootstrap case weights
     *\param newinputs an object of class `VariableFrame'
     *\param mincriterion overwrites mincriterion used for tree growing
     *\param oobpred a logical indicating out-of-bag predictions
 */
 
-SEXP R_predictRF_weights(SEXP forest, SEXP newinputs, SEXP mincriterion, SEXP oobpred) {
+SEXP R_predictRF_weights(SEXP forest, SEXP where, SEXP weights, 
+                         SEXP newinputs, SEXP mincriterion, SEXP oobpred) {
 
     SEXP ans, tree, bw;
     int ntrees, nobs, i, b, j, q, iwhere, oob = 0, count = 0, ntrain;
-    double *dtmp;
     
     if (LOGICAL(oobpred)[0]) oob = 1;
     
@@ -650,13 +438,12 @@ SEXP R_predictRF_weights(SEXP forest, SEXP newinputs, SEXP mincriterion, SEXP oo
                    C_get_nodebynum(VECTOR_ELT(forest, 0), 1)));
 
     if (oob) {
-        if (LENGTH(S3get_nodeweights(
-                       C_get_nodebynum(VECTOR_ELT(forest, 0), 1))) != nobs)
+        if (LENGTH(VECTOR_ELT(weights, 0)) != nobs)
             error("number of observations don't match");
     }    
     
     tree = VECTOR_ELT(forest, 0);
-    ntrain = LENGTH(S3get_nodeweights(C_get_nodebynum(tree, 1)));
+    ntrain = LENGTH(VECTOR_ELT(weights, 0));
     
     PROTECT(ans = allocVector(VECSXP, nobs));
     
@@ -669,13 +456,15 @@ SEXP R_predictRF_weights(SEXP forest, SEXP newinputs, SEXP mincriterion, SEXP oo
             tree = VECTOR_ELT(forest, b);
 
             if (oob && 
-                REAL(S3get_nodeweights(C_get_nodebynum(tree, 1)))[i] > 0.0) 
+                REAL(VECTOR_ELT(weights, b))[i] > 0.0) 
                 continue;
 
             iwhere = C_get_nodeID(tree, newinputs, REAL(mincriterion)[0], i);
-            dtmp = REAL(S3get_nodeweights(C_get_nodebynum(tree, iwhere)));
-            for (j = 0; j < ntrain; j++)
-                REAL(bw)[j] += dtmp[j];
+            
+            for (j = 0; j < ntrain; j++) {
+                if (iwhere == INTEGER(VECTOR_ELT(where, b))[j])
+                    REAL(bw)[j] += REAL(VECTOR_ELT(weights, b))[j];
+            }
             count++;
         }
         if (count == 0) 

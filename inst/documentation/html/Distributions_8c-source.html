@@ -95,8 +95,8 @@
 <a name="l00105"></a>00105     }
 <a name="l00106"></a>00106         
 <a name="l00107"></a>00107     <span class="comment">/* call FORTRAN subroutine */</span>
-<a name="l00108"></a>00108     F77_CALL(<a class="code" href="mvt_8h.html#5b9262bc349acc208d2f8813482fa432">mvtdst</a>)(n, nu, lower, upper, infin, corr, delta, 
-<a name="l00109"></a>00109                      maxpts, abseps, releps, tol, myerror, prob, inform);
+<a name="l00108"></a>00108     F77_CALL(<a class="code" href="mvt_8h.html#2a7ae850a24d2fe1a610ca397d6871c7">mvtdst</a>)(n, nu, lower, upper, infin, corr, delta, 
+<a name="l00109"></a>00109                      maxpts, abseps, releps, myerror, prob, inform);
 <a name="l00110"></a>00110                          
 <a name="l00111"></a>00111     <span class="comment">/* inform == 0 means: everything is OK */</span>
 <a name="l00112"></a>00112     <span class="keywordflow">switch</span> (inform[0]) {
@@ -250,7 +250,7 @@
 <a name="l00291"></a>00291      UNPROTECT(1);
 <a name="l00292"></a>00292      <span class="keywordflow">return</span>(ans);
 <a name="l00293"></a>00293 }
-</pre></div><hr size="1"><address style="align: right;"><small>Generated on Wed Jun 20 15:55:32 2007 for party by&nbsp;
+</pre></div><hr size="1"><address style="align: right;"><small>Generated on Mon Jul 23 10:05:58 2007 for party by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6 </small></address>
 </body>

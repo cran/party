@@ -3,7 +3,7 @@
     Some commonly needed utility functions.
     *\file Utils.c
     *\author $Author: hothorn $
-    *\date $Date: 2007-06-20 18:11:19 +0200 (Wed, 20 Jun 2007) $
+    *\date $Date: 2007-07-23 10:09:38 +0200 (Mon, 23 Jul 2007) $
 */
                 
 #include "party.h"
@@ -92,12 +92,11 @@ SEXP R_kronecker (SEXP A, SEXP B) {
     C- and R-interface to La_svd 
     *\param jobu
     *\param jobv
-    *\parm x
-    *\parm s
+    *\param x
+    *\param s
     *\param u
     *\param v
     *\param method
-    *\param val svd slot of svdmem object
 */
 
 void CR_La_svd(SEXP jobu, SEXP jobv, SEXP x, SEXP s, SEXP u, SEXP v,
@@ -693,4 +692,19 @@ void C_SampleSplitting(int n, double *prob, int *weights, int k) {
     for (i = 0; i < k; i++)
         weights[ans[i] - 1] = 1;
     Free(tmpprob); Free(perm); Free(ans);
+}
+
+/**
+    Remove weights vector from each node of a tree (in order to save memory)
+    \*param subtree a tree
+*/ 
+
+void C_remove_weights(SEXP subtree) {
+
+    SET_VECTOR_ELT(subtree, S3_WEIGHTS, R_NilValue);
+    
+    if (!S3get_nodeterminal(subtree)) {
+        C_remove_weights(S3get_leftnode(subtree));
+        C_remove_weights(S3get_rightnode(subtree));
+    }
 }

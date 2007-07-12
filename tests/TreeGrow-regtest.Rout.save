@@ -1,5 +1,5 @@
 
-R version 2.5.0 Under development (unstable) (2007-02-04 r40641)
+R version 2.5.1 (2007-06-27)
 Copyright (C) 2007 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 
@@ -238,8 +238,6 @@ Number of observations:  686
 > names(mammoexp)
 [1] "ME"       "symptoms" "benefit"  "HIST"     "BSE"      "DECT"    
 > tr <- ctree(ME ~ ., data = mammoexp)
-Warning message:
-no admissible split found 
 > tr
 
 	 Conditional inference tree with 3 terminal nodes
@@ -287,10 +285,8 @@ Number of observations:  412
 > 
 > set.seed(29)
 > p1 <- unlist(treeresponse(cforestfit(ls, control = cforest_control(mtry = 1)), newdata = as.matrix(newx)))
-There were 12 warnings (use warnings() to see them)
 > set.seed(29)
 > p2 <- unlist(treeresponse(cforest(Species ~ ., data = iris, control = cforest_control(mtry = 1)), 
 +              newdata = as.data.frame(newx)))
-There were 12 warnings (use warnings() to see them)
 > stopifnot(identical(max(abs(p1 - p2)), 0))
 > 

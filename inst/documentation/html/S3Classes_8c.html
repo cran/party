@@ -53,6 +53,8 @@ Include dependency graph for S3Classes.c:<p><center><img src="S3Classes_8c__incl
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">SEXP&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="S3Classes_8c.html#c3785782483b5bf4afe9d606e280f3ca">S3get_nodeweights</a> (SEXP node)</td></tr>
 
+<tr><td class="memItemLeft" nowrap align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="S3Classes_8c.html#d5b760cf2b547dc128273948f78b7a3c">S3get_sumweights</a> (SEXP node)</td></tr>
+
 <tr><td class="memItemLeft" nowrap align="right" valign="top">SEXP&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="S3Classes_8c.html#174b61cf01697f1693e14e449611563c">S3get_teststat</a> (SEXP node)</td></tr>
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">SEXP&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="S3Classes_8c.html#7e1195f9e99aa93145f04e80c62ff687">S3get_criterion</a> (SEXP node)</td></tr>
@@ -102,7 +104,7 @@ Include dependency graph for S3Classes.c:<p><center><img src="S3Classes_8c__incl
 S3 classes for dealing with nodes and splits<p>
 <dl compact><dt><b>Author:</b></dt><dd><dl compact><dt><b>Author</b></dt><dd>hothorn </dd></dl>
 </dd></dl>
-<dl compact><dt><b>Date:</b></dt><dd><dl compact><dt><b>Date</b></dt><dd>2006-09-15 13:27:26 +0200 (Fri, 15 Sep 2006) </dd></dl>
+<dl compact><dt><b>Date:</b></dt><dd><dl compact><dt><b>Date</b></dt><dd>2007-07-23 09:44:00 +0200 (Mon, 23 Jul 2007) </dd></dl>
 </dd></dl>
 
 <p>
@@ -163,9 +165,9 @@ Definition in file <a class="el" href="S3Classes_8c-source.html">S3Classes.c</a>
 <p>
 Definition at line <a class="el" href="S3Classes_8c-source.html#l00011">11</a> of file <a class="el" href="S3Classes_8c-source.html">S3Classes.c</a>.
 <p>
-References <a class="el" href="party_8h-source.html#l00049">CRITERION_LENGTH</a>, <a class="el" href="party_8h-source.html#l00043">NODE_LENGTH</a>, <a class="el" href="party_8h-source.html#l00036">S3_CRITERION</a>, <a class="el" href="party_8h-source.html#l00047">S3_iCRITERION</a>, <a class="el" href="party_8h-source.html#l00048">S3_MAXCRITERION</a>, <a class="el" href="party_8h-source.html#l00034">S3_NODEID</a>, <a class="el" href="party_8h-source.html#l00040">S3_PREDICTION</a>, <a class="el" href="party_8h-source.html#l00038">S3_PSPLIT</a>, <a class="el" href="party_8h-source.html#l00039">S3_SSPLIT</a>, <a class="el" href="party_8h-source.html#l00046">S3_STATISTICS</a>, <a class="el" href="party_8h-source.html#l00037">S3_TERMINAL</a>, <a class="el" href="party_8h-source.html#l00035">S3_WEIGHTS</a>, and <a class="el" href="party_8h-source.html#l00058">SPLIT_LENGTH</a>.
+References <a class="el" href="party_8h-source.html#l00050">CRITERION_LENGTH</a>, <a class="el" href="party_8h-source.html#l00044">NODE_LENGTH</a>, <a class="el" href="party_8h-source.html#l00036">S3_CRITERION</a>, <a class="el" href="party_8h-source.html#l00048">S3_iCRITERION</a>, <a class="el" href="party_8h-source.html#l00049">S3_MAXCRITERION</a>, <a class="el" href="party_8h-source.html#l00034">S3_NODEID</a>, <a class="el" href="party_8h-source.html#l00040">S3_PREDICTION</a>, <a class="el" href="party_8h-source.html#l00038">S3_PSPLIT</a>, <a class="el" href="party_8h-source.html#l00039">S3_SSPLIT</a>, <a class="el" href="party_8h-source.html#l00047">S3_STATISTICS</a>, <a class="el" href="party_8h-source.html#l00043">S3_SUMWEIGHTS</a>, <a class="el" href="party_8h-source.html#l00037">S3_TERMINAL</a>, <a class="el" href="party_8h-source.html#l00035">S3_WEIGHTS</a>, and <a class="el" href="party_8h-source.html#l00059">SPLIT_LENGTH</a>.
 <p>
-Referenced by <a class="el" href="Predict_8c-source.html#l00021">C_splitnode()</a>, <a class="el" href="Node_8c-source.html#l00228">R_Node()</a>, and <a class="el" href="TreeGrow_8c-source.html#l00080">R_TreeGrow()</a>.    </td>
+Referenced by <a class="el" href="Predict_8c-source.html#l00021">C_splitnode()</a>, <a class="el" href="Node_8c-source.html#l00229">R_Node()</a>, and <a class="el" href="TreeGrow_8c-source.html#l00081">R_TreeGrow()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="07230eaacca448a8235ea7760adbfa04"></a><!-- doxytag: member="S3Classes.c::C_init_nominalsplit" ref="07230eaacca448a8235ea7760adbfa04" args="(SEXP split, int nlevels, int nobs)" --><p>
@@ -210,9 +212,9 @@ Referenced by <a class="el" href="Predict_8c-source.html#l00021">C_splitnode()</
 <p>
 
 <p>
-Definition at line <a class="el" href="S3Classes_8c-source.html#l00123">123</a> of file <a class="el" href="S3Classes_8c-source.html">S3Classes.c</a>.
+Definition at line <a class="el" href="S3Classes_8c-source.html#l00128">128</a> of file <a class="el" href="S3Classes_8c-source.html">S3Classes.c</a>.
 <p>
-References <a class="el" href="party_8h-source.html#l00053">S3_ORDERED</a>, <a class="el" href="party_8h-source.html#l00054">S3_SPLITPOINT</a>, <a class="el" href="party_8h-source.html#l00055">S3_SPLITSTATISTICS</a>, <a class="el" href="party_8h-source.html#l00057">S3_TABLE</a>, <a class="el" href="party_8h-source.html#l00056">S3_TOLEFT</a>, <a class="el" href="party_8h-source.html#l00052">S3_VARIABLEID</a>, and <a class="el" href="party_8h-source.html#l00058">SPLIT_LENGTH</a>.
+References <a class="el" href="party_8h-source.html#l00054">S3_ORDERED</a>, <a class="el" href="party_8h-source.html#l00055">S3_SPLITPOINT</a>, <a class="el" href="party_8h-source.html#l00056">S3_SPLITSTATISTICS</a>, <a class="el" href="party_8h-source.html#l00058">S3_TABLE</a>, <a class="el" href="party_8h-source.html#l00057">S3_TOLEFT</a>, <a class="el" href="party_8h-source.html#l00053">S3_VARIABLEID</a>, and <a class="el" href="party_8h-source.html#l00059">SPLIT_LENGTH</a>.
 <p>
 Referenced by <a class="el" href="Node_8c-source.html#l00048">C_Node()</a>.    </td>
   </tr>
@@ -253,9 +255,9 @@ Referenced by <a class="el" href="Node_8c-source.html#l00048">C_Node()</a>.    <
 <p>
 
 <p>
-Definition at line <a class="el" href="S3Classes_8c-source.html#l00099">99</a> of file <a class="el" href="S3Classes_8c-source.html">S3Classes.c</a>.
+Definition at line <a class="el" href="S3Classes_8c-source.html#l00104">104</a> of file <a class="el" href="S3Classes_8c-source.html">S3Classes.c</a>.
 <p>
-References <a class="el" href="party_8h-source.html#l00053">S3_ORDERED</a>, <a class="el" href="party_8h-source.html#l00054">S3_SPLITPOINT</a>, <a class="el" href="party_8h-source.html#l00055">S3_SPLITSTATISTICS</a>, <a class="el" href="party_8h-source.html#l00057">S3_TABLE</a>, <a class="el" href="party_8h-source.html#l00056">S3_TOLEFT</a>, <a class="el" href="party_8h-source.html#l00052">S3_VARIABLEID</a>, and <a class="el" href="party_8h-source.html#l00058">SPLIT_LENGTH</a>.
+References <a class="el" href="party_8h-source.html#l00054">S3_ORDERED</a>, <a class="el" href="party_8h-source.html#l00055">S3_SPLITPOINT</a>, <a class="el" href="party_8h-source.html#l00056">S3_SPLITSTATISTICS</a>, <a class="el" href="party_8h-source.html#l00058">S3_TABLE</a>, <a class="el" href="party_8h-source.html#l00057">S3_TOLEFT</a>, <a class="el" href="party_8h-source.html#l00053">S3_VARIABLEID</a>, and <a class="el" href="party_8h-source.html#l00059">SPLIT_LENGTH</a>.
 <p>
 Referenced by <a class="el" href="Node_8c-source.html#l00048">C_Node()</a>.    </td>
   </tr>
@@ -287,9 +289,9 @@ Referenced by <a class="el" href="Node_8c-source.html#l00048">C_Node()</a>.    <
 <p>
 
 <p>
-Definition at line <a class="el" href="S3Classes_8c-source.html#l00063">63</a> of file <a class="el" href="S3Classes_8c-source.html">S3Classes.c</a>.
+Definition at line <a class="el" href="S3Classes_8c-source.html#l00068">68</a> of file <a class="el" href="S3Classes_8c-source.html">S3Classes.c</a>.
 <p>
-References <a class="el" href="party_8h-source.html#l00036">S3_CRITERION</a>, and <a class="el" href="party_8h-source.html#l00047">S3_iCRITERION</a>.
+References <a class="el" href="party_8h-source.html#l00036">S3_CRITERION</a>, and <a class="el" href="party_8h-source.html#l00048">S3_iCRITERION</a>.
 <p>
 Referenced by <a class="el" href="Node_8c-source.html#l00048">C_Node()</a>.    </td>
   </tr>
@@ -321,11 +323,11 @@ Referenced by <a class="el" href="Node_8c-source.html#l00048">C_Node()</a>.    <
 <p>
 
 <p>
-Definition at line <a class="el" href="S3Classes_8c-source.html#l00091">91</a> of file <a class="el" href="S3Classes_8c-source.html">S3Classes.c</a>.
+Definition at line <a class="el" href="S3Classes_8c-source.html#l00096">96</a> of file <a class="el" href="S3Classes_8c-source.html">S3Classes.c</a>.
 <p>
 References <a class="el" href="party_8h-source.html#l00041">S3_LEFT</a>.
 <p>
-Referenced by <a class="el" href="Predict_8c-source.html#l00120">C_get_node()</a>, <a class="el" href="Predict_8c-source.html#l00250">C_get_nodebynum()</a>, <a class="el" href="SurrogateSplits_8c-source.html#l00172">C_splitsurrogate()</a>, and <a class="el" href="TreeGrow_8c-source.html#l00023">C_TreeGrow()</a>.    </td>
+Referenced by <a class="el" href="Predict_8c-source.html#l00120">C_get_node()</a>, <a class="el" href="Predict_8c-source.html#l00242">C_get_nodebynum()</a>, <a class="el" href="RandomForest_8c-source.html#l00011">C_remove_weights()</a>, <a class="el" href="SurrogateSplits_8c-source.html#l00172">C_splitsurrogate()</a>, and <a class="el" href="TreeGrow_8c-source.html#l00023">C_TreeGrow()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="e5d3e3ccef4e5fbfe1b6cf683b4d2999"></a><!-- doxytag: member="S3Classes.c::S3get_maxcriterion" ref="e5d3e3ccef4e5fbfe1b6cf683b4d2999" args="(SEXP node)" --><p>
@@ -355,9 +357,9 @@ Referenced by <a class="el" href="Predict_8c-source.html#l00120">C_get_node()</a
 <p>
 
 <p>
-Definition at line <a class="el" href="S3Classes_8c-source.html#l00067">67</a> of file <a class="el" href="S3Classes_8c-source.html">S3Classes.c</a>.
+Definition at line <a class="el" href="S3Classes_8c-source.html#l00072">72</a> of file <a class="el" href="S3Classes_8c-source.html">S3Classes.c</a>.
 <p>
-References <a class="el" href="party_8h-source.html#l00036">S3_CRITERION</a>, and <a class="el" href="party_8h-source.html#l00048">S3_MAXCRITERION</a>.
+References <a class="el" href="party_8h-source.html#l00036">S3_CRITERION</a>, and <a class="el" href="party_8h-source.html#l00049">S3_MAXCRITERION</a>.
 <p>
 Referenced by <a class="el" href="Predict_8c-source.html#l00120">C_get_node()</a>, and <a class="el" href="Node_8c-source.html#l00048">C_Node()</a>.    </td>
   </tr>
@@ -389,11 +391,11 @@ Referenced by <a class="el" href="Predict_8c-source.html#l00120">C_get_node()</a
 <p>
 
 <p>
-Definition at line <a class="el" href="S3Classes_8c-source.html#l00046">46</a> of file <a class="el" href="S3Classes_8c-source.html">S3Classes.c</a>.
+Definition at line <a class="el" href="S3Classes_8c-source.html#l00047">47</a> of file <a class="el" href="S3Classes_8c-source.html">S3Classes.c</a>.
 <p>
 References <a class="el" href="party_8h-source.html#l00034">S3_NODEID</a>.
 <p>
-Referenced by <a class="el" href="Predict_8c-source.html#l00250">C_get_nodebynum()</a>, and <a class="el" href="Predict_8c-source.html#l00314">C_get_nodeID()</a>.    </td>
+Referenced by <a class="el" href="Predict_8c-source.html#l00242">C_get_nodebynum()</a>, and <a class="el" href="Predict_8c-source.html#l00306">C_get_nodeID()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="b8834f319068d2a248a5d6328cd10dc5"></a><!-- doxytag: member="S3Classes.c::S3get_nodeterminal" ref="b8834f319068d2a248a5d6328cd10dc5" args="(SEXP node)" --><p>
@@ -423,11 +425,11 @@ Referenced by <a class="el" href="Predict_8c-source.html#l00250">C_get_nodebynum
 <p>
 
 <p>
-Definition at line <a class="el" href="S3Classes_8c-source.html#l00075">75</a> of file <a class="el" href="S3Classes_8c-source.html">S3Classes.c</a>.
+Definition at line <a class="el" href="S3Classes_8c-source.html#l00080">80</a> of file <a class="el" href="S3Classes_8c-source.html">S3Classes.c</a>.
 <p>
 References <a class="el" href="party_8h-source.html#l00037">S3_TERMINAL</a>.
 <p>
-Referenced by <a class="el" href="Predict_8c-source.html#l00120">C_get_node()</a>, <a class="el" href="Predict_8c-source.html#l00250">C_get_nodebynum()</a>, and <a class="el" href="TreeGrow_8c-source.html#l00023">C_TreeGrow()</a>.    </td>
+Referenced by <a class="el" href="Predict_8c-source.html#l00120">C_get_node()</a>, <a class="el" href="Predict_8c-source.html#l00242">C_get_nodebynum()</a>, <a class="el" href="RandomForest_8c-source.html#l00011">C_remove_weights()</a>, and <a class="el" href="TreeGrow_8c-source.html#l00023">C_TreeGrow()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="c3785782483b5bf4afe9d606e280f3ca"></a><!-- doxytag: member="S3Classes.c::S3get_nodeweights" ref="c3785782483b5bf4afe9d606e280f3ca" args="(SEXP node)" --><p>
@@ -457,11 +459,11 @@ Referenced by <a class="el" href="Predict_8c-source.html#l00120">C_get_node()</a
 <p>
 
 <p>
-Definition at line <a class="el" href="S3Classes_8c-source.html#l00050">50</a> of file <a class="el" href="S3Classes_8c-source.html">S3Classes.c</a>.
+Definition at line <a class="el" href="S3Classes_8c-source.html#l00051">51</a> of file <a class="el" href="S3Classes_8c-source.html">S3Classes.c</a>.
 <p>
 References <a class="el" href="party_8h-source.html#l00035">S3_WEIGHTS</a>.
 <p>
-Referenced by <a class="el" href="Predict_8c-source.html#l00120">C_get_node()</a>, <a class="el" href="Predict_8c-source.html#l00299">C_get_nodeweights()</a>, <a class="el" href="Predict_8c-source.html#l00433">C_getweights()</a>, <a class="el" href="Predict_8c-source.html#l00021">C_splitnode()</a>, <a class="el" href="SurrogateSplits_8c-source.html#l00172">C_splitsurrogate()</a>, <a class="el" href="SurrogateSplits_8c-source.html#l00021">C_surrogates()</a>, <a class="el" href="TreeGrow_8c-source.html#l00023">C_TreeGrow()</a>, <a class="el" href="Predict_8c-source.html#l00518">R_predictRF()</a>, <a class="el" href="Predict_8c-source.html#l00574">R_predictRF2()</a>, <a class="el" href="Predict_8c-source.html#l00639">R_predictRF_weights()</a>, and <a class="el" href="TreeGrow_8c-source.html#l00080">R_TreeGrow()</a>.    </td>
+Referenced by <a class="el" href="Predict_8c-source.html#l00291">C_get_nodeweights()</a>, <a class="el" href="Predict_8c-source.html#l00021">C_splitnode()</a>, <a class="el" href="SurrogateSplits_8c-source.html#l00172">C_splitsurrogate()</a>, <a class="el" href="SurrogateSplits_8c-source.html#l00021">C_surrogates()</a>, <a class="el" href="TreeGrow_8c-source.html#l00023">C_TreeGrow()</a>, and <a class="el" href="TreeGrow_8c-source.html#l00081">R_TreeGrow()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="70a340b301b4e383107c92cbbeb4ae20"></a><!-- doxytag: member="S3Classes.c::S3get_prediction" ref="70a340b301b4e383107c92cbbeb4ae20" args="(SEXP node)" --><p>
@@ -491,11 +493,11 @@ Referenced by <a class="el" href="Predict_8c-source.html#l00120">C_get_node()</a
 <p>
 
 <p>
-Definition at line <a class="el" href="S3Classes_8c-source.html#l00087">87</a> of file <a class="el" href="S3Classes_8c-source.html">S3Classes.c</a>.
+Definition at line <a class="el" href="S3Classes_8c-source.html#l00092">92</a> of file <a class="el" href="S3Classes_8c-source.html">S3Classes.c</a>.
 <p>
 References <a class="el" href="party_8h-source.html#l00040">S3_PREDICTION</a>.
 <p>
-Referenced by <a class="el" href="Predict_8c-source.html#l00284">C_get_prediction()</a>, <a class="el" href="Predict_8c-source.html#l00392">C_getpredictions()</a>, <a class="el" href="Node_8c-source.html#l00048">C_Node()</a>, <a class="el" href="Predict_8c-source.html#l00518">R_predictRF()</a>, and <a class="el" href="Predict_8c-source.html#l00639">R_predictRF_weights()</a>.    </td>
+Referenced by <a class="el" href="Predict_8c-source.html#l00276">C_get_prediction()</a>, <a class="el" href="Predict_8c-source.html#l00384">C_getpredictions()</a>, <a class="el" href="Node_8c-source.html#l00048">C_Node()</a>, and <a class="el" href="Predict_8c-source.html#l00427">R_predictRF_weights()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="220373298b30f12b22f82cce3c996a37"></a><!-- doxytag: member="S3Classes.c::S3get_primarysplit" ref="220373298b30f12b22f82cce3c996a37" args="(SEXP node)" --><p>
@@ -525,7 +527,7 @@ Referenced by <a class="el" href="Predict_8c-source.html#l00284">C_get_predictio
 <p>
 
 <p>
-Definition at line <a class="el" href="S3Classes_8c-source.html#l00079">79</a> of file <a class="el" href="S3Classes_8c-source.html">S3Classes.c</a>.
+Definition at line <a class="el" href="S3Classes_8c-source.html#l00084">84</a> of file <a class="el" href="S3Classes_8c-source.html">S3Classes.c</a>.
 <p>
 References <a class="el" href="party_8h-source.html#l00038">S3_PSPLIT</a>.
 <p>
@@ -559,11 +561,11 @@ Referenced by <a class="el" href="Predict_8c-source.html#l00120">C_get_node()</a
 <p>
 
 <p>
-Definition at line <a class="el" href="S3Classes_8c-source.html#l00095">95</a> of file <a class="el" href="S3Classes_8c-source.html">S3Classes.c</a>.
+Definition at line <a class="el" href="S3Classes_8c-source.html#l00100">100</a> of file <a class="el" href="S3Classes_8c-source.html">S3Classes.c</a>.
 <p>
 References <a class="el" href="party_8h-source.html#l00042">S3_RIGHT</a>.
 <p>
-Referenced by <a class="el" href="Predict_8c-source.html#l00120">C_get_node()</a>, <a class="el" href="Predict_8c-source.html#l00250">C_get_nodebynum()</a>, <a class="el" href="SurrogateSplits_8c-source.html#l00172">C_splitsurrogate()</a>, and <a class="el" href="TreeGrow_8c-source.html#l00023">C_TreeGrow()</a>.    </td>
+Referenced by <a class="el" href="Predict_8c-source.html#l00120">C_get_node()</a>, <a class="el" href="Predict_8c-source.html#l00242">C_get_nodebynum()</a>, <a class="el" href="RandomForest_8c-source.html#l00011">C_remove_weights()</a>, <a class="el" href="SurrogateSplits_8c-source.html#l00172">C_splitsurrogate()</a>, and <a class="el" href="TreeGrow_8c-source.html#l00023">C_TreeGrow()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="acf87d496fd3b07bafd171c92404212a"></a><!-- doxytag: member="S3Classes.c::S3get_splitpoint" ref="acf87d496fd3b07bafd171c92404212a" args="(SEXP split)" --><p>
@@ -593,9 +595,9 @@ Referenced by <a class="el" href="Predict_8c-source.html#l00120">C_get_node()</a
 <p>
 
 <p>
-Definition at line <a class="el" href="S3Classes_8c-source.html#l00174">174</a> of file <a class="el" href="S3Classes_8c-source.html">S3Classes.c</a>.
+Definition at line <a class="el" href="S3Classes_8c-source.html#l00179">179</a> of file <a class="el" href="S3Classes_8c-source.html">S3Classes.c</a>.
 <p>
-References <a class="el" href="party_8h-source.html#l00054">S3_SPLITPOINT</a>.
+References <a class="el" href="party_8h-source.html#l00055">S3_SPLITPOINT</a>.
 <p>
 Referenced by <a class="el" href="Predict_8c-source.html#l00120">C_get_node()</a>, <a class="el" href="Node_8c-source.html#l00048">C_Node()</a>, <a class="el" href="Predict_8c-source.html#l00021">C_splitnode()</a>, and <a class="el" href="SurrogateSplits_8c-source.html#l00172">C_splitsurrogate()</a>.    </td>
   </tr>
@@ -627,11 +629,45 @@ Referenced by <a class="el" href="Predict_8c-source.html#l00120">C_get_node()</a
 <p>
 
 <p>
-Definition at line <a class="el" href="S3Classes_8c-source.html#l00178">178</a> of file <a class="el" href="S3Classes_8c-source.html">S3Classes.c</a>.
+Definition at line <a class="el" href="S3Classes_8c-source.html#l00183">183</a> of file <a class="el" href="S3Classes_8c-source.html">S3Classes.c</a>.
 <p>
-References <a class="el" href="party_8h-source.html#l00055">S3_SPLITSTATISTICS</a>.
+References <a class="el" href="party_8h-source.html#l00056">S3_SPLITSTATISTICS</a>.
 <p>
 Referenced by <a class="el" href="Node_8c-source.html#l00048">C_Node()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="d5b760cf2b547dc128273948f78b7a3c"></a><!-- doxytag: member="S3Classes.c::S3get_sumweights" ref="d5b760cf2b547dc128273948f78b7a3c" args="(SEXP node)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">double S3get_sumweights           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">SEXP&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap> <em>node</em>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definition at line <a class="el" href="S3Classes_8c-source.html#l00060">60</a> of file <a class="el" href="S3Classes_8c-source.html">S3Classes.c</a>.
+<p>
+References <a class="el" href="party_8h-source.html#l00043">S3_SUMWEIGHTS</a>.
+<p>
+Referenced by <a class="el" href="Predict_8c-source.html#l00120">C_get_node()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="f270d1d02bf86a4c5cdc8959045c3567"></a><!-- doxytag: member="S3Classes.c::S3get_surrogatesplits" ref="f270d1d02bf86a4c5cdc8959045c3567" args="(SEXP node)" --><p>
@@ -661,7 +697,7 @@ Referenced by <a class="el" href="Node_8c-source.html#l00048">C_Node()</a>.    <
 <p>
 
 <p>
-Definition at line <a class="el" href="S3Classes_8c-source.html#l00083">83</a> of file <a class="el" href="S3Classes_8c-source.html">S3Classes.c</a>.
+Definition at line <a class="el" href="S3Classes_8c-source.html#l00088">88</a> of file <a class="el" href="S3Classes_8c-source.html">S3Classes.c</a>.
 <p>
 References <a class="el" href="party_8h-source.html#l00039">S3_SSPLIT</a>.
 <p>
@@ -695,9 +731,9 @@ Referenced by <a class="el" href="Predict_8c-source.html#l00120">C_get_node()</a
 <p>
 
 <p>
-Definition at line <a class="el" href="S3Classes_8c-source.html#l00187">187</a> of file <a class="el" href="S3Classes_8c-source.html">S3Classes.c</a>.
+Definition at line <a class="el" href="S3Classes_8c-source.html#l00192">192</a> of file <a class="el" href="S3Classes_8c-source.html">S3Classes.c</a>.
 <p>
-References <a class="el" href="party_8h-source.html#l00057">S3_TABLE</a>.
+References <a class="el" href="party_8h-source.html#l00058">S3_TABLE</a>.
 <p>
 Referenced by <a class="el" href="Node_8c-source.html#l00048">C_Node()</a>.    </td>
   </tr>
@@ -729,9 +765,9 @@ Referenced by <a class="el" href="Node_8c-source.html#l00048">C_Node()</a>.    <
 <p>
 
 <p>
-Definition at line <a class="el" href="S3Classes_8c-source.html#l00059">59</a> of file <a class="el" href="S3Classes_8c-source.html">S3Classes.c</a>.
+Definition at line <a class="el" href="S3Classes_8c-source.html#l00064">64</a> of file <a class="el" href="S3Classes_8c-source.html">S3Classes.c</a>.
 <p>
-References <a class="el" href="party_8h-source.html#l00036">S3_CRITERION</a>, and <a class="el" href="party_8h-source.html#l00046">S3_STATISTICS</a>.
+References <a class="el" href="party_8h-source.html#l00036">S3_CRITERION</a>, and <a class="el" href="party_8h-source.html#l00047">S3_STATISTICS</a>.
 <p>
 Referenced by <a class="el" href="Node_8c-source.html#l00048">C_Node()</a>.    </td>
   </tr>
@@ -763,9 +799,9 @@ Referenced by <a class="el" href="Node_8c-source.html#l00048">C_Node()</a>.    <
 <p>
 
 <p>
-Definition at line <a class="el" href="S3Classes_8c-source.html#l00165">165</a> of file <a class="el" href="S3Classes_8c-source.html">S3Classes.c</a>.
+Definition at line <a class="el" href="S3Classes_8c-source.html#l00170">170</a> of file <a class="el" href="S3Classes_8c-source.html">S3Classes.c</a>.
 <p>
-References <a class="el" href="party_8h-source.html#l00056">S3_TOLEFT</a>.
+References <a class="el" href="party_8h-source.html#l00057">S3_TOLEFT</a>.
 <p>
 Referenced by <a class="el" href="Predict_8c-source.html#l00120">C_get_node()</a>, and <a class="el" href="SurrogateSplits_8c-source.html#l00172">C_splitsurrogate()</a>.    </td>
   </tr>
@@ -797,9 +833,9 @@ Referenced by <a class="el" href="Predict_8c-source.html#l00120">C_get_node()</a
 <p>
 
 <p>
-Definition at line <a class="el" href="S3Classes_8c-source.html#l00149">149</a> of file <a class="el" href="S3Classes_8c-source.html">S3Classes.c</a>.
+Definition at line <a class="el" href="S3Classes_8c-source.html#l00154">154</a> of file <a class="el" href="S3Classes_8c-source.html">S3Classes.c</a>.
 <p>
-References <a class="el" href="party_8h-source.html#l00052">S3_VARIABLEID</a>.
+References <a class="el" href="party_8h-source.html#l00053">S3_VARIABLEID</a>.
 <p>
 Referenced by <a class="el" href="Predict_8c-source.html#l00120">C_get_node()</a>, <a class="el" href="Predict_8c-source.html#l00021">C_splitnode()</a>, <a class="el" href="SurrogateSplits_8c-source.html#l00172">C_splitsurrogate()</a>, and <a class="el" href="SurrogateSplits_8c-source.html#l00021">C_surrogates()</a>.    </td>
   </tr>
@@ -831,9 +867,9 @@ Referenced by <a class="el" href="Predict_8c-source.html#l00120">C_get_node()</a
 <p>
 
 <p>
-Definition at line <a class="el" href="S3Classes_8c-source.html#l00153">153</a> of file <a class="el" href="S3Classes_8c-source.html">S3Classes.c</a>.
+Definition at line <a class="el" href="S3Classes_8c-source.html#l00158">158</a> of file <a class="el" href="S3Classes_8c-source.html">S3Classes.c</a>.
 <p>
-References <a class="el" href="party_8h-source.html#l00053">S3_ORDERED</a>.
+References <a class="el" href="party_8h-source.html#l00054">S3_ORDERED</a>.
 <p>
 Referenced by <a class="el" href="Predict_8c-source.html#l00120">C_get_node()</a>, and <a class="el" href="Predict_8c-source.html#l00021">C_splitnode()</a>.    </td>
   </tr>
@@ -874,7 +910,7 @@ Referenced by <a class="el" href="Predict_8c-source.html#l00120">C_get_node()</a
 <p>
 
 <p>
-Definition at line <a class="el" href="S3Classes_8c-source.html#l00042">42</a> of file <a class="el" href="S3Classes_8c-source.html">S3Classes.c</a>.
+Definition at line <a class="el" href="S3Classes_8c-source.html#l00043">43</a> of file <a class="el" href="S3Classes_8c-source.html">S3Classes.c</a>.
 <p>
 References <a class="el" href="party_8h-source.html#l00034">S3_NODEID</a>.
 <p>
@@ -908,7 +944,7 @@ Referenced by <a class="el" href="TreeGrow_8c-source.html#l00023">C_TreeGrow()</
 <p>
 
 <p>
-Definition at line <a class="el" href="S3Classes_8c-source.html#l00071">71</a> of file <a class="el" href="S3Classes_8c-source.html">S3Classes.c</a>.
+Definition at line <a class="el" href="S3Classes_8c-source.html#l00076">76</a> of file <a class="el" href="S3Classes_8c-source.html">S3Classes.c</a>.
 <p>
 References <a class="el" href="party_8h-source.html#l00037">S3_TERMINAL</a>.    </td>
   </tr>
@@ -940,9 +976,9 @@ References <a class="el" href="party_8h-source.html#l00037">S3_TERMINAL</a>.    
 <p>
 
 <p>
-Definition at line <a class="el" href="S3Classes_8c-source.html#l00161">161</a> of file <a class="el" href="S3Classes_8c-source.html">S3Classes.c</a>.
+Definition at line <a class="el" href="S3Classes_8c-source.html#l00166">166</a> of file <a class="el" href="S3Classes_8c-source.html">S3Classes.c</a>.
 <p>
-References <a class="el" href="party_8h-source.html#l00053">S3_ORDERED</a>.    </td>
+References <a class="el" href="party_8h-source.html#l00054">S3_ORDERED</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="db2e0a52bc6a8eb0c74449942777d1a1"></a><!-- doxytag: member="S3Classes.c::S3set_ordered" ref="db2e0a52bc6a8eb0c74449942777d1a1" args="(SEXP split)" --><p>
@@ -972,9 +1008,9 @@ References <a class="el" href="party_8h-source.html#l00053">S3_ORDERED</a>.    <
 <p>
 
 <p>
-Definition at line <a class="el" href="S3Classes_8c-source.html#l00157">157</a> of file <a class="el" href="S3Classes_8c-source.html">S3Classes.c</a>.
+Definition at line <a class="el" href="S3Classes_8c-source.html#l00162">162</a> of file <a class="el" href="S3Classes_8c-source.html">S3Classes.c</a>.
 <p>
-References <a class="el" href="party_8h-source.html#l00053">S3_ORDERED</a>.    </td>
+References <a class="el" href="party_8h-source.html#l00054">S3_ORDERED</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="c092009b36513086514bbe7aff516f12"></a><!-- doxytag: member="S3Classes.c::S3set_toleft" ref="c092009b36513086514bbe7aff516f12" args="(SEXP split, int left)" --><p>
@@ -1013,9 +1049,9 @@ References <a class="el" href="party_8h-source.html#l00053">S3_ORDERED</a>.    <
 <p>
 
 <p>
-Definition at line <a class="el" href="S3Classes_8c-source.html#l00169">169</a> of file <a class="el" href="S3Classes_8c-source.html">S3Classes.c</a>.
+Definition at line <a class="el" href="S3Classes_8c-source.html#l00174">174</a> of file <a class="el" href="S3Classes_8c-source.html">S3Classes.c</a>.
 <p>
-References <a class="el" href="party_8h-source.html#l00056">S3_TOLEFT</a>.    </td>
+References <a class="el" href="party_8h-source.html#l00057">S3_TOLEFT</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="06ea5a46f63ebc5c27c005610dc6f8fc"></a><!-- doxytag: member="S3Classes.c::S3set_variableID" ref="06ea5a46f63ebc5c27c005610dc6f8fc" args="(SEXP split, int variableID)" --><p>
@@ -1054,14 +1090,14 @@ References <a class="el" href="party_8h-source.html#l00056">S3_TOLEFT</a>.    </
 <p>
 
 <p>
-Definition at line <a class="el" href="S3Classes_8c-source.html#l00145">145</a> of file <a class="el" href="S3Classes_8c-source.html">S3Classes.c</a>.
+Definition at line <a class="el" href="S3Classes_8c-source.html#l00150">150</a> of file <a class="el" href="S3Classes_8c-source.html">S3Classes.c</a>.
 <p>
-References <a class="el" href="party_8h-source.html#l00052">S3_VARIABLEID</a>.
+References <a class="el" href="party_8h-source.html#l00053">S3_VARIABLEID</a>.
 <p>
 Referenced by <a class="el" href="Node_8c-source.html#l00048">C_Node()</a>.    </td>
   </tr>
 </table>
-<hr size="1"><address style="align: right;"><small>Generated on Wed Jun 20 15:56:46 2007 for party by&nbsp;
+<hr size="1"><address style="align: right;"><small>Generated on Mon Jul 23 10:07:01 2007 for party by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6 </small></address>
 </body>

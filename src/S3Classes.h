@@ -3,6 +3,7 @@ void C_init_node(SEXP node, int nobs, int ninputs, int nsurr, int q);
 void S3set_nodeID(SEXP node, int nodeID);
 int S3get_nodeID(SEXP node);
 SEXP S3get_nodeweights(SEXP node);
+double S3get_sumweights(SEXP node);
 SEXP S3get_teststat(SEXP node);
 SEXP S3get_criterion(SEXP node);
 SEXP S3get_maxcriterion(SEXP node);

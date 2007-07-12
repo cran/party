@@ -3,7 +3,7 @@
     Node computations
     *\file Node.c
     *\author $Author: hothorn $
-    *\date $Date: 2007-02-02 11:22:45 +0100 (Fri, 02 Feb 2007) $
+    *\date $Date: 2007-07-23 10:09:38 +0200 (Mon, 23 Jul 2007) $
 */
                 
 #include "party.h"
@@ -80,6 +80,7 @@ void C_Node(SEXP node, SEXP learnsample, SEXP weights,
     /* sum of weights: C_GlobalTest did nothing if sweights < mincriterion */
     sweights = REAL(GET_SLOT(GET_SLOT(fitmem, PL2_expcovinfSym), 
                              PL2_sumweightsSym))[0];
+    REAL(VECTOR_ELT(node, S3_SUMWEIGHTS))[0] = sweights;
 
     /* compute the prediction of this node */
     dprediction = REAL(S3get_prediction(node));
@@ -197,13 +198,12 @@ void C_Node(SEXP node, SEXP learnsample, SEXP weights,
                  Free(standstat);
             }
             if (maxstat == 0) {
-                warning("no admissible split found\n");
             
                 if (j == 1) {          
                     S3set_nodeterminal(node);
                 } else {
-                    /* <FIXME> why? </FIXME> */
-                    pvalue[jselect - 1] = 0.0;
+                    /* do not look at jselect in next iteration */
+                    pvalue[jselect - 1] = R_NegInf;
                 }
             } else {
                 S3set_variableID(split, jselect);
