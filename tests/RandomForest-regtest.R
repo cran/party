@@ -14,5 +14,8 @@ stopifnot(mean(GlaucomaM$Class != predict(rf)) <
           mean(GlaucomaM$Class != predict(rf, OOB = TRUE)))
 
 data("GBSG2", package = "ipred")
-rf <- cforest(Surv(time, cens) ~ ., data = GBSG2, control = cforest_control(ntree = 100))
-treeresponse(rf, newdata = GBSG2[1:2,])
+rfS <- cforest(Surv(time, cens) ~ ., data = GBSG2, control = cforest_control(ntree = 100))
+treeresponse(rfS, newdata = GBSG2[1:2,])
+
+### give it a try, at least
+varimp(rf)

@@ -1,5 +1,5 @@
 
-# $Id: RandomForest.R 3655 2007-07-23 07:44:00Z hothorn $
+# $Id: RandomForest.R 3661 2007-07-23 09:44:30Z hothorn $
 
 ### the fitting procedure
 cforestfit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
@@ -195,7 +195,7 @@ varimp <- function(x, mincriterion = 0.0) {
     for (b in 1:length(x@ensemble)) {
 
         tree <- x@ensemble[[b]]
-        oob <- tree[[2]] == 0
+        oob <- x@weights[[b]] == 0
 
         p <- .Call("R_predict", tree, inp, mincriterion,
                    PACKAGE = "party")

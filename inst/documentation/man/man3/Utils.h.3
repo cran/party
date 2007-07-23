@@ -202,9 +202,11 @@ Referenced by C_LinStatExpCovMPinv(), and R_MPinv().
 .PP
 Remove weights vector from each node of a tree (in order to save memory) \\*param subtree a tree 
 .PP
-Definition at line 11 of file RandomForest.c.
+Definition at line 702 of file Utils.c.
 .PP
 References C_remove_weights(), S3_WEIGHTS, S3get_leftnode(), S3get_nodeterminal(), and S3get_rightnode().
+.PP
+Referenced by C_remove_weights().
 .SS "void C_SampleNoReplace (int * x, int m, int k, int * ans)"
 .PP
 compute a permutation of a (random subset of) 0:(m-1) 

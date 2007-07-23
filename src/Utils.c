@@ -3,7 +3,7 @@
     Some commonly needed utility functions.
     *\file Utils.c
     *\author $Author: hothorn $
-    *\date $Date: 2007-07-23 10:09:38 +0200 (Mon, 23 Jul 2007) $
+    *\date $Date: 2007-07-23 12:53:33 +0200 (Mon, 23 Jul 2007) $
 */
                 
 #include "party.h"
@@ -104,7 +104,7 @@ void CR_La_svd(SEXP jobu, SEXP jobv, SEXP x, SEXP s, SEXP u, SEXP v,
 {
     int *xdims, n, p, lwork, info = 0;
     double *work, *xvals, tmp;
-    char *meth;
+    const char * meth;
 
     if (!(isString(jobu) && isString(jobv)))
 	error(("'jobu' and 'jobv' must be character strings"));

@@ -90,7 +90,7 @@
 <a name="l00104"></a>00104 {
 <a name="l00105"></a>00105     <span class="keywordtype">int</span> *xdims, n, p, lwork, info = 0;
 <a name="l00106"></a>00106     <span class="keywordtype">double</span> *work, *xvals, tmp;
-<a name="l00107"></a>00107     <span class="keywordtype">char</span> *meth;
+<a name="l00107"></a>00107     <span class="keyword">const</span> <span class="keywordtype">char</span> * meth;
 <a name="l00108"></a>00108 
 <a name="l00109"></a>00109     <span class="keywordflow">if</span> (!(isString(jobu) &amp;&amp; isString(jobv)))
 <a name="l00110"></a>00110         error((<span class="stringliteral">"'jobu' and 'jobv' must be character strings"</span>));
@@ -576,16 +576,16 @@
 <a name="l00694"></a>00694     Free(tmpprob); Free(perm); Free(ans);
 <a name="l00695"></a>00695 }
 <a name="l00696"></a>00696 
-<a name="l00702"></a><a class="code" href="Utils_8c.html#ccce6f00d55276c0a01b30651f1c206c">00702</a> <span class="keywordtype">void</span> <a class="code" href="RandomForest_8c.html#ccce6f00d55276c0a01b30651f1c206c">C_remove_weights</a>(SEXP subtree) {
+<a name="l00702"></a><a class="code" href="Utils_8h.html#ccce6f00d55276c0a01b30651f1c206c">00702</a> <span class="keywordtype">void</span> <a class="code" href="Utils_8c.html#ccce6f00d55276c0a01b30651f1c206c">C_remove_weights</a>(SEXP subtree) {
 <a name="l00703"></a>00703 
 <a name="l00704"></a>00704     SET_VECTOR_ELT(subtree, <a class="code" href="party_8h.html#1b80a31c6121bcb2218dce0034ee32a3">S3_WEIGHTS</a>, R_NilValue);
 <a name="l00705"></a>00705     
 <a name="l00706"></a>00706     <span class="keywordflow">if</span> (!<a class="code" href="S3Classes_8c.html#b8834f319068d2a248a5d6328cd10dc5">S3get_nodeterminal</a>(subtree)) {
-<a name="l00707"></a>00707         <a class="code" href="RandomForest_8c.html#ccce6f00d55276c0a01b30651f1c206c">C_remove_weights</a>(<a class="code" href="S3Classes_8c.html#5917f57e141432fd1e4f58a16b9149aa">S3get_leftnode</a>(subtree));
-<a name="l00708"></a>00708         <a class="code" href="RandomForest_8c.html#ccce6f00d55276c0a01b30651f1c206c">C_remove_weights</a>(<a class="code" href="S3Classes_8c.html#14a38e81ed758a64367dc190f0e8229b">S3get_rightnode</a>(subtree));
+<a name="l00707"></a>00707         <a class="code" href="Utils_8c.html#ccce6f00d55276c0a01b30651f1c206c">C_remove_weights</a>(<a class="code" href="S3Classes_8c.html#5917f57e141432fd1e4f58a16b9149aa">S3get_leftnode</a>(subtree));
+<a name="l00708"></a>00708         <a class="code" href="Utils_8c.html#ccce6f00d55276c0a01b30651f1c206c">C_remove_weights</a>(<a class="code" href="S3Classes_8c.html#14a38e81ed758a64367dc190f0e8229b">S3get_rightnode</a>(subtree));
 <a name="l00709"></a>00709     }
 <a name="l00710"></a>00710 }
-</pre></div><hr size="1"><address style="align: right;"><small>Generated on Mon Jul 23 10:05:59 2007 for party by&nbsp;
+</pre></div><hr size="1"><address style="align: right;"><small>Generated on Mon Jul 23 13:17:14 2007 for party by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6 </small></address>
 </body>
