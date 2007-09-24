@@ -1,0 +1,517 @@
+\contentsline {chapter}{\numberline {1}party Directory Hierarchy}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}party Directories}{1}{section.1.1}
+\contentsline {chapter}{\numberline {2}party File Index}{3}{chapter.2}
+\contentsline {section}{\numberline {2.1}party File List}{3}{section.2.1}
+\contentsline {chapter}{\numberline {3}party Page Index}{5}{chapter.3}
+\contentsline {section}{\numberline {3.1}party Related Pages}{5}{section.3.1}
+\contentsline {chapter}{\numberline {4}party Directory Documentation}{7}{chapter.4}
+\contentsline {section}{\numberline {4.1}src/ Directory Reference}{7}{section.4.1}
+\contentsline {chapter}{\numberline {5}party File Documentation}{9}{chapter.5}
+\contentsline {section}{\numberline {5.1}Classes.c File Reference}{9}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Detailed Description}{13}{subsection.5.1.1}
+\contentsline {subsection}{\numberline {5.1.2}Function Documentation}{13}{subsection.5.1.2}
+\contentsline {subsubsection}{\numberline {5.1.2.1}check\_\discretionary {-}{}{}depth}{13}{subsubsection.5.1.2.1}
+\contentsline {subsubsection}{\numberline {5.1.2.2}get\_\discretionary {-}{}{}abseps}{13}{subsubsection.5.1.2.2}
+\contentsline {subsubsection}{\numberline {5.1.2.3}get\_\discretionary {-}{}{}dimension}{13}{subsubsection.5.1.2.3}
+\contentsline {subsubsection}{\numberline {5.1.2.4}get\_\discretionary {-}{}{}dontuse}{13}{subsubsection.5.1.2.4}
+\contentsline {subsubsection}{\numberline {5.1.2.5}get\_\discretionary {-}{}{}dontusetmp}{13}{subsubsection.5.1.2.5}
+\contentsline {subsubsection}{\numberline {5.1.2.6}get\_\discretionary {-}{}{}fraction}{13}{subsubsection.5.1.2.6}
+\contentsline {subsubsection}{\numberline {5.1.2.7}get\_\discretionary {-}{}{}gtctrl}{14}{subsubsection.5.1.2.7}
+\contentsline {subsubsection}{\numberline {5.1.2.8}get\_\discretionary {-}{}{}levels}{14}{subsubsection.5.1.2.8}
+\contentsline {subsubsection}{\numberline {5.1.2.9}get\_\discretionary {-}{}{}maxpts}{14}{subsubsection.5.1.2.9}
+\contentsline {subsubsection}{\numberline {5.1.2.10}get\_\discretionary {-}{}{}maxsurrogate}{14}{subsubsection.5.1.2.10}
+\contentsline {subsubsection}{\numberline {5.1.2.11}get\_\discretionary {-}{}{}minbucket}{14}{subsubsection.5.1.2.11}
+\contentsline {subsubsection}{\numberline {5.1.2.12}get\_\discretionary {-}{}{}mincriterion}{14}{subsubsection.5.1.2.12}
+\contentsline {subsubsection}{\numberline {5.1.2.13}get\_\discretionary {-}{}{}minprob}{15}{subsubsection.5.1.2.13}
+\contentsline {subsubsection}{\numberline {5.1.2.14}get\_\discretionary {-}{}{}minsplit}{15}{subsubsection.5.1.2.14}
+\contentsline {subsubsection}{\numberline {5.1.2.15}get\_\discretionary {-}{}{}missings}{15}{subsubsection.5.1.2.15}
+\contentsline {subsubsection}{\numberline {5.1.2.16}get\_\discretionary {-}{}{}mtry}{15}{subsubsection.5.1.2.16}
+\contentsline {subsubsection}{\numberline {5.1.2.17}get\_\discretionary {-}{}{}ninputs}{15}{subsubsection.5.1.2.17}
+\contentsline {subsubsection}{\numberline {5.1.2.18}get\_\discretionary {-}{}{}nobs}{15}{subsubsection.5.1.2.18}
+\contentsline {subsubsection}{\numberline {5.1.2.19}get\_\discretionary {-}{}{}nresample}{16}{subsubsection.5.1.2.19}
+\contentsline {subsubsection}{\numberline {5.1.2.20}get\_\discretionary {-}{}{}ntree}{16}{subsubsection.5.1.2.20}
+\contentsline {subsubsection}{\numberline {5.1.2.21}get\_\discretionary {-}{}{}ordering}{16}{subsubsection.5.1.2.21}
+\contentsline {subsubsection}{\numberline {5.1.2.22}get\_\discretionary {-}{}{}predict\_\discretionary {-}{}{}trafo}{16}{subsubsection.5.1.2.22}
+\contentsline {subsubsection}{\numberline {5.1.2.23}get\_\discretionary {-}{}{}pvalue}{16}{subsubsection.5.1.2.23}
+\contentsline {subsubsection}{\numberline {5.1.2.24}get\_\discretionary {-}{}{}randomsplits}{16}{subsubsection.5.1.2.24}
+\contentsline {subsubsection}{\numberline {5.1.2.25}get\_\discretionary {-}{}{}releps}{16}{subsubsection.5.1.2.25}
+\contentsline {subsubsection}{\numberline {5.1.2.26}get\_\discretionary {-}{}{}replace}{17}{subsubsection.5.1.2.26}
+\contentsline {subsubsection}{\numberline {5.1.2.27}get\_\discretionary {-}{}{}savesplitstats}{17}{subsubsection.5.1.2.27}
+\contentsline {subsubsection}{\numberline {5.1.2.28}get\_\discretionary {-}{}{}scores}{17}{subsubsection.5.1.2.28}
+\contentsline {subsubsection}{\numberline {5.1.2.29}get\_\discretionary {-}{}{}splitctrl}{17}{subsubsection.5.1.2.29}
+\contentsline {subsubsection}{\numberline {5.1.2.30}get\_\discretionary {-}{}{}splitstatistics}{17}{subsubsection.5.1.2.30}
+\contentsline {subsubsection}{\numberline {5.1.2.31}get\_\discretionary {-}{}{}stump}{17}{subsubsection.5.1.2.31}
+\contentsline {subsubsection}{\numberline {5.1.2.32}get\_\discretionary {-}{}{}test\_\discretionary {-}{}{}trafo}{18}{subsubsection.5.1.2.32}
+\contentsline {subsubsection}{\numberline {5.1.2.33}get\_\discretionary {-}{}{}teststat}{18}{subsubsection.5.1.2.33}
+\contentsline {subsubsection}{\numberline {5.1.2.34}get\_\discretionary {-}{}{}testtype}{18}{subsubsection.5.1.2.34}
+\contentsline {subsubsection}{\numberline {5.1.2.35}get\_\discretionary {-}{}{}tgctrl}{18}{subsubsection.5.1.2.35}
+\contentsline {subsubsection}{\numberline {5.1.2.36}get\_\discretionary {-}{}{}tol}{18}{subsubsection.5.1.2.36}
+\contentsline {subsubsection}{\numberline {5.1.2.37}get\_\discretionary {-}{}{}transformation}{18}{subsubsection.5.1.2.37}
+\contentsline {subsubsection}{\numberline {5.1.2.38}get\_\discretionary {-}{}{}varctrl}{18}{subsubsection.5.1.2.38}
+\contentsline {subsubsection}{\numberline {5.1.2.39}get\_\discretionary {-}{}{}variable}{19}{subsubsection.5.1.2.39}
+\contentsline {subsubsection}{\numberline {5.1.2.40}get\_\discretionary {-}{}{}varmemory}{19}{subsubsection.5.1.2.40}
+\contentsline {subsubsection}{\numberline {5.1.2.41}get\_\discretionary {-}{}{}weights}{19}{subsubsection.5.1.2.41}
+\contentsline {subsubsection}{\numberline {5.1.2.42}has\_\discretionary {-}{}{}missings}{19}{subsubsection.5.1.2.42}
+\contentsline {subsubsection}{\numberline {5.1.2.43}is\_\discretionary {-}{}{}censored}{19}{subsubsection.5.1.2.43}
+\contentsline {subsubsection}{\numberline {5.1.2.44}is\_\discretionary {-}{}{}nominal}{19}{subsubsection.5.1.2.44}
+\contentsline {subsubsection}{\numberline {5.1.2.45}is\_\discretionary {-}{}{}ordinal}{19}{subsubsection.5.1.2.45}
+\contentsline {subsubsection}{\numberline {5.1.2.46}party\_\discretionary {-}{}{}init}{20}{subsubsection.5.1.2.46}
+\contentsline {subsection}{\numberline {5.1.3}Variable Documentation}{20}{subsection.5.1.3}
+\contentsline {subsubsection}{\numberline {5.1.3.1}PL2\_\discretionary {-}{}{}absepsSym}{20}{subsubsection.5.1.3.1}
+\contentsline {subsubsection}{\numberline {5.1.3.2}PL2\_\discretionary {-}{}{}covarianceSym}{20}{subsubsection.5.1.3.2}
+\contentsline {subsubsection}{\numberline {5.1.3.3}PL2\_\discretionary {-}{}{}dimensionSym}{20}{subsubsection.5.1.3.3}
+\contentsline {subsubsection}{\numberline {5.1.3.4}PL2\_\discretionary {-}{}{}dontuseSym}{20}{subsubsection.5.1.3.4}
+\contentsline {subsubsection}{\numberline {5.1.3.5}PL2\_\discretionary {-}{}{}dontusetmpSym}{20}{subsubsection.5.1.3.5}
+\contentsline {subsubsection}{\numberline {5.1.3.6}PL2\_\discretionary {-}{}{}expcovinfssSym}{21}{subsubsection.5.1.3.6}
+\contentsline {subsubsection}{\numberline {5.1.3.7}PL2\_\discretionary {-}{}{}expcovinfSym}{21}{subsubsection.5.1.3.7}
+\contentsline {subsubsection}{\numberline {5.1.3.8}PL2\_\discretionary {-}{}{}expectationSym}{21}{subsubsection.5.1.3.8}
+\contentsline {subsubsection}{\numberline {5.1.3.9}PL2\_\discretionary {-}{}{}fractionSym}{21}{subsubsection.5.1.3.9}
+\contentsline {subsubsection}{\numberline {5.1.3.10}PL2\_\discretionary {-}{}{}gtctrlSym}{21}{subsubsection.5.1.3.10}
+\contentsline {subsubsection}{\numberline {5.1.3.11}PL2\_\discretionary {-}{}{}has\_\discretionary {-}{}{}missingsSym}{21}{subsubsection.5.1.3.11}
+\contentsline {subsubsection}{\numberline {5.1.3.12}PL2\_\discretionary {-}{}{}inputsSym}{21}{subsubsection.5.1.3.12}
+\contentsline {subsubsection}{\numberline {5.1.3.13}PL2\_\discretionary {-}{}{}is\_\discretionary {-}{}{}censoredSym}{21}{subsubsection.5.1.3.13}
+\contentsline {subsubsection}{\numberline {5.1.3.14}PL2\_\discretionary {-}{}{}is\_\discretionary {-}{}{}nominalSym}{22}{subsubsection.5.1.3.14}
+\contentsline {subsubsection}{\numberline {5.1.3.15}PL2\_\discretionary {-}{}{}is\_\discretionary {-}{}{}ordinalSym}{22}{subsubsection.5.1.3.15}
+\contentsline {subsubsection}{\numberline {5.1.3.16}PL2\_\discretionary {-}{}{}jobuSym}{22}{subsubsection.5.1.3.16}
+\contentsline {subsubsection}{\numberline {5.1.3.17}PL2\_\discretionary {-}{}{}jobvSym}{22}{subsubsection.5.1.3.17}
+\contentsline {subsubsection}{\numberline {5.1.3.18}PL2\_\discretionary {-}{}{}levelsSym}{22}{subsubsection.5.1.3.18}
+\contentsline {subsubsection}{\numberline {5.1.3.19}PL2\_\discretionary {-}{}{}linearstatisticSym}{22}{subsubsection.5.1.3.19}
+\contentsline {subsubsection}{\numberline {5.1.3.20}PL2\_\discretionary {-}{}{}linexpcov2sampleSym}{22}{subsubsection.5.1.3.20}
+\contentsline {subsubsection}{\numberline {5.1.3.21}PL2\_\discretionary {-}{}{}maxdepthSym}{22}{subsubsection.5.1.3.21}
+\contentsline {subsubsection}{\numberline {5.1.3.22}PL2\_\discretionary {-}{}{}maxptsSym}{22}{subsubsection.5.1.3.22}
+\contentsline {subsubsection}{\numberline {5.1.3.23}PL2\_\discretionary {-}{}{}maxsurrogateSym}{23}{subsubsection.5.1.3.23}
+\contentsline {subsubsection}{\numberline {5.1.3.24}PL2\_\discretionary {-}{}{}methodSym}{23}{subsubsection.5.1.3.24}
+\contentsline {subsubsection}{\numberline {5.1.3.25}PL2\_\discretionary {-}{}{}minbucketSym}{23}{subsubsection.5.1.3.25}
+\contentsline {subsubsection}{\numberline {5.1.3.26}PL2\_\discretionary {-}{}{}mincriterionSym}{23}{subsubsection.5.1.3.26}
+\contentsline {subsubsection}{\numberline {5.1.3.27}PL2\_\discretionary {-}{}{}minprobSym}{23}{subsubsection.5.1.3.27}
+\contentsline {subsubsection}{\numberline {5.1.3.28}PL2\_\discretionary {-}{}{}minsplitSym}{23}{subsubsection.5.1.3.28}
+\contentsline {subsubsection}{\numberline {5.1.3.29}PL2\_\discretionary {-}{}{}MPinvSym}{23}{subsubsection.5.1.3.29}
+\contentsline {subsubsection}{\numberline {5.1.3.30}PL2\_\discretionary {-}{}{}mtrySym}{23}{subsubsection.5.1.3.30}
+\contentsline {subsubsection}{\numberline {5.1.3.31}PL2\_\discretionary {-}{}{}ninputsSym}{23}{subsubsection.5.1.3.31}
+\contentsline {subsubsection}{\numberline {5.1.3.32}PL2\_\discretionary {-}{}{}nobsSym}{24}{subsubsection.5.1.3.32}
+\contentsline {subsubsection}{\numberline {5.1.3.33}PL2\_\discretionary {-}{}{}nresampleSym}{24}{subsubsection.5.1.3.33}
+\contentsline {subsubsection}{\numberline {5.1.3.34}PL2\_\discretionary {-}{}{}ntreeSym}{24}{subsubsection.5.1.3.34}
+\contentsline {subsubsection}{\numberline {5.1.3.35}PL2\_\discretionary {-}{}{}orderingSym}{24}{subsubsection.5.1.3.35}
+\contentsline {subsubsection}{\numberline {5.1.3.36}PL2\_\discretionary {-}{}{}predict\_\discretionary {-}{}{}trafoSym}{24}{subsubsection.5.1.3.36}
+\contentsline {subsubsection}{\numberline {5.1.3.37}PL2\_\discretionary {-}{}{}pSym}{24}{subsubsection.5.1.3.37}
+\contentsline {subsubsection}{\numberline {5.1.3.38}PL2\_\discretionary {-}{}{}pvalueSym}{24}{subsubsection.5.1.3.38}
+\contentsline {subsubsection}{\numberline {5.1.3.39}PL2\_\discretionary {-}{}{}randomsplitsSym}{24}{subsubsection.5.1.3.39}
+\contentsline {subsubsection}{\numberline {5.1.3.40}PL2\_\discretionary {-}{}{}rankSym}{24}{subsubsection.5.1.3.40}
+\contentsline {subsubsection}{\numberline {5.1.3.41}PL2\_\discretionary {-}{}{}relepsSym}{25}{subsubsection.5.1.3.41}
+\contentsline {subsubsection}{\numberline {5.1.3.42}PL2\_\discretionary {-}{}{}replaceSym}{25}{subsubsection.5.1.3.42}
+\contentsline {subsubsection}{\numberline {5.1.3.43}PL2\_\discretionary {-}{}{}responsesSym}{25}{subsubsection.5.1.3.43}
+\contentsline {subsubsection}{\numberline {5.1.3.44}PL2\_\discretionary {-}{}{}savesplitstatsSym}{25}{subsubsection.5.1.3.44}
+\contentsline {subsubsection}{\numberline {5.1.3.45}PL2\_\discretionary {-}{}{}scoresSym}{25}{subsubsection.5.1.3.45}
+\contentsline {subsubsection}{\numberline {5.1.3.46}PL2\_\discretionary {-}{}{}splitctrlSym}{25}{subsubsection.5.1.3.46}
+\contentsline {subsubsection}{\numberline {5.1.3.47}PL2\_\discretionary {-}{}{}splitstatisticsSym}{25}{subsubsection.5.1.3.47}
+\contentsline {subsubsection}{\numberline {5.1.3.48}PL2\_\discretionary {-}{}{}sSym}{25}{subsubsection.5.1.3.48}
+\contentsline {subsubsection}{\numberline {5.1.3.49}PL2\_\discretionary {-}{}{}stumpSym}{25}{subsubsection.5.1.3.49}
+\contentsline {subsubsection}{\numberline {5.1.3.50}PL2\_\discretionary {-}{}{}sumweightsSym}{26}{subsubsection.5.1.3.50}
+\contentsline {subsubsection}{\numberline {5.1.3.51}PL2\_\discretionary {-}{}{}svdmemSym}{26}{subsubsection.5.1.3.51}
+\contentsline {subsubsection}{\numberline {5.1.3.52}PL2\_\discretionary {-}{}{}test\_\discretionary {-}{}{}trafoSym}{26}{subsubsection.5.1.3.52}
+\contentsline {subsubsection}{\numberline {5.1.3.53}PL2\_\discretionary {-}{}{}teststatSym}{26}{subsubsection.5.1.3.53}
+\contentsline {subsubsection}{\numberline {5.1.3.54}PL2\_\discretionary {-}{}{}testtypeSym}{26}{subsubsection.5.1.3.54}
+\contentsline {subsubsection}{\numberline {5.1.3.55}PL2\_\discretionary {-}{}{}tgctrlSym}{26}{subsubsection.5.1.3.55}
+\contentsline {subsubsection}{\numberline {5.1.3.56}PL2\_\discretionary {-}{}{}tolSym}{26}{subsubsection.5.1.3.56}
+\contentsline {subsubsection}{\numberline {5.1.3.57}PL2\_\discretionary {-}{}{}transformationsSym}{26}{subsubsection.5.1.3.57}
+\contentsline {subsubsection}{\numberline {5.1.3.58}PL2\_\discretionary {-}{}{}uSym}{27}{subsubsection.5.1.3.58}
+\contentsline {subsubsection}{\numberline {5.1.3.59}PL2\_\discretionary {-}{}{}varctrlSym}{27}{subsubsection.5.1.3.59}
+\contentsline {subsubsection}{\numberline {5.1.3.60}PL2\_\discretionary {-}{}{}variablesSym}{27}{subsubsection.5.1.3.60}
+\contentsline {subsubsection}{\numberline {5.1.3.61}PL2\_\discretionary {-}{}{}varmemorySym}{27}{subsubsection.5.1.3.61}
+\contentsline {subsubsection}{\numberline {5.1.3.62}PL2\_\discretionary {-}{}{}vSym}{27}{subsubsection.5.1.3.62}
+\contentsline {subsubsection}{\numberline {5.1.3.63}PL2\_\discretionary {-}{}{}weightsSym}{27}{subsubsection.5.1.3.63}
+\contentsline {subsubsection}{\numberline {5.1.3.64}PL2\_\discretionary {-}{}{}whichNASym}{27}{subsubsection.5.1.3.64}
+\contentsline {section}{\numberline {5.2}Classes.h File Reference}{28}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Function Documentation}{30}{subsection.5.2.1}
+\contentsline {subsubsection}{\numberline {5.2.1.1}check\_\discretionary {-}{}{}depth}{30}{subsubsection.5.2.1.1}
+\contentsline {subsubsection}{\numberline {5.2.1.2}get\_\discretionary {-}{}{}abseps}{31}{subsubsection.5.2.1.2}
+\contentsline {subsubsection}{\numberline {5.2.1.3}get\_\discretionary {-}{}{}dimension}{31}{subsubsection.5.2.1.3}
+\contentsline {subsubsection}{\numberline {5.2.1.4}get\_\discretionary {-}{}{}dontuse}{31}{subsubsection.5.2.1.4}
+\contentsline {subsubsection}{\numberline {5.2.1.5}get\_\discretionary {-}{}{}dontusetmp}{31}{subsubsection.5.2.1.5}
+\contentsline {subsubsection}{\numberline {5.2.1.6}get\_\discretionary {-}{}{}fraction}{31}{subsubsection.5.2.1.6}
+\contentsline {subsubsection}{\numberline {5.2.1.7}get\_\discretionary {-}{}{}gtctrl}{31}{subsubsection.5.2.1.7}
+\contentsline {subsubsection}{\numberline {5.2.1.8}get\_\discretionary {-}{}{}levels}{31}{subsubsection.5.2.1.8}
+\contentsline {subsubsection}{\numberline {5.2.1.9}get\_\discretionary {-}{}{}maxpts}{32}{subsubsection.5.2.1.9}
+\contentsline {subsubsection}{\numberline {5.2.1.10}get\_\discretionary {-}{}{}maxsurrogate}{32}{subsubsection.5.2.1.10}
+\contentsline {subsubsection}{\numberline {5.2.1.11}get\_\discretionary {-}{}{}minbucket}{32}{subsubsection.5.2.1.11}
+\contentsline {subsubsection}{\numberline {5.2.1.12}get\_\discretionary {-}{}{}mincriterion}{32}{subsubsection.5.2.1.12}
+\contentsline {subsubsection}{\numberline {5.2.1.13}get\_\discretionary {-}{}{}minprob}{32}{subsubsection.5.2.1.13}
+\contentsline {subsubsection}{\numberline {5.2.1.14}get\_\discretionary {-}{}{}minsplit}{32}{subsubsection.5.2.1.14}
+\contentsline {subsubsection}{\numberline {5.2.1.15}get\_\discretionary {-}{}{}missings}{32}{subsubsection.5.2.1.15}
+\contentsline {subsubsection}{\numberline {5.2.1.16}get\_\discretionary {-}{}{}mtry}{33}{subsubsection.5.2.1.16}
+\contentsline {subsubsection}{\numberline {5.2.1.17}get\_\discretionary {-}{}{}ninputs}{33}{subsubsection.5.2.1.17}
+\contentsline {subsubsection}{\numberline {5.2.1.18}get\_\discretionary {-}{}{}nobs}{33}{subsubsection.5.2.1.18}
+\contentsline {subsubsection}{\numberline {5.2.1.19}get\_\discretionary {-}{}{}nresample}{33}{subsubsection.5.2.1.19}
+\contentsline {subsubsection}{\numberline {5.2.1.20}get\_\discretionary {-}{}{}ntree}{33}{subsubsection.5.2.1.20}
+\contentsline {subsubsection}{\numberline {5.2.1.21}get\_\discretionary {-}{}{}ordering}{33}{subsubsection.5.2.1.21}
+\contentsline {subsubsection}{\numberline {5.2.1.22}get\_\discretionary {-}{}{}predict\_\discretionary {-}{}{}trafo}{34}{subsubsection.5.2.1.22}
+\contentsline {subsubsection}{\numberline {5.2.1.23}get\_\discretionary {-}{}{}pvalue}{34}{subsubsection.5.2.1.23}
+\contentsline {subsubsection}{\numberline {5.2.1.24}get\_\discretionary {-}{}{}randomsplits}{34}{subsubsection.5.2.1.24}
+\contentsline {subsubsection}{\numberline {5.2.1.25}get\_\discretionary {-}{}{}releps}{34}{subsubsection.5.2.1.25}
+\contentsline {subsubsection}{\numberline {5.2.1.26}get\_\discretionary {-}{}{}replace}{34}{subsubsection.5.2.1.26}
+\contentsline {subsubsection}{\numberline {5.2.1.27}get\_\discretionary {-}{}{}savesplitstats}{34}{subsubsection.5.2.1.27}
+\contentsline {subsubsection}{\numberline {5.2.1.28}get\_\discretionary {-}{}{}scores}{34}{subsubsection.5.2.1.28}
+\contentsline {subsubsection}{\numberline {5.2.1.29}get\_\discretionary {-}{}{}splitctrl}{35}{subsubsection.5.2.1.29}
+\contentsline {subsubsection}{\numberline {5.2.1.30}get\_\discretionary {-}{}{}splitstatistics}{35}{subsubsection.5.2.1.30}
+\contentsline {subsubsection}{\numberline {5.2.1.31}get\_\discretionary {-}{}{}stump}{35}{subsubsection.5.2.1.31}
+\contentsline {subsubsection}{\numberline {5.2.1.32}get\_\discretionary {-}{}{}test\_\discretionary {-}{}{}trafo}{35}{subsubsection.5.2.1.32}
+\contentsline {subsubsection}{\numberline {5.2.1.33}get\_\discretionary {-}{}{}teststat}{35}{subsubsection.5.2.1.33}
+\contentsline {subsubsection}{\numberline {5.2.1.34}get\_\discretionary {-}{}{}testtype}{35}{subsubsection.5.2.1.34}
+\contentsline {subsubsection}{\numberline {5.2.1.35}get\_\discretionary {-}{}{}tgctrl}{35}{subsubsection.5.2.1.35}
+\contentsline {subsubsection}{\numberline {5.2.1.36}get\_\discretionary {-}{}{}tol}{36}{subsubsection.5.2.1.36}
+\contentsline {subsubsection}{\numberline {5.2.1.37}get\_\discretionary {-}{}{}transformation}{36}{subsubsection.5.2.1.37}
+\contentsline {subsubsection}{\numberline {5.2.1.38}get\_\discretionary {-}{}{}varctrl}{36}{subsubsection.5.2.1.38}
+\contentsline {subsubsection}{\numberline {5.2.1.39}get\_\discretionary {-}{}{}variable}{36}{subsubsection.5.2.1.39}
+\contentsline {subsubsection}{\numberline {5.2.1.40}get\_\discretionary {-}{}{}varmemory}{36}{subsubsection.5.2.1.40}
+\contentsline {subsubsection}{\numberline {5.2.1.41}get\_\discretionary {-}{}{}weights}{36}{subsubsection.5.2.1.41}
+\contentsline {subsubsection}{\numberline {5.2.1.42}get\_\discretionary {-}{}{}whichNA}{36}{subsubsection.5.2.1.42}
+\contentsline {subsubsection}{\numberline {5.2.1.43}has\_\discretionary {-}{}{}missings}{36}{subsubsection.5.2.1.43}
+\contentsline {subsubsection}{\numberline {5.2.1.44}is\_\discretionary {-}{}{}censored}{37}{subsubsection.5.2.1.44}
+\contentsline {subsubsection}{\numberline {5.2.1.45}is\_\discretionary {-}{}{}nominal}{37}{subsubsection.5.2.1.45}
+\contentsline {subsubsection}{\numberline {5.2.1.46}is\_\discretionary {-}{}{}ordinal}{37}{subsubsection.5.2.1.46}
+\contentsline {subsection}{\numberline {5.2.2}Variable Documentation}{37}{subsection.5.2.2}
+\contentsline {subsubsection}{\numberline {5.2.2.1}PL2\_\discretionary {-}{}{}absepsSym}{37}{subsubsection.5.2.2.1}
+\contentsline {subsubsection}{\numberline {5.2.2.2}PL2\_\discretionary {-}{}{}covarianceSym}{37}{subsubsection.5.2.2.2}
+\contentsline {subsubsection}{\numberline {5.2.2.3}PL2\_\discretionary {-}{}{}dimensionSym}{37}{subsubsection.5.2.2.3}
+\contentsline {subsubsection}{\numberline {5.2.2.4}PL2\_\discretionary {-}{}{}dontuseSym}{37}{subsubsection.5.2.2.4}
+\contentsline {subsubsection}{\numberline {5.2.2.5}PL2\_\discretionary {-}{}{}dontusetmpSym}{38}{subsubsection.5.2.2.5}
+\contentsline {subsubsection}{\numberline {5.2.2.6}PL2\_\discretionary {-}{}{}expcovinfssSym}{38}{subsubsection.5.2.2.6}
+\contentsline {subsubsection}{\numberline {5.2.2.7}PL2\_\discretionary {-}{}{}expcovinfSym}{38}{subsubsection.5.2.2.7}
+\contentsline {subsubsection}{\numberline {5.2.2.8}PL2\_\discretionary {-}{}{}expectationSym}{38}{subsubsection.5.2.2.8}
+\contentsline {subsubsection}{\numberline {5.2.2.9}PL2\_\discretionary {-}{}{}fractionSym}{38}{subsubsection.5.2.2.9}
+\contentsline {subsubsection}{\numberline {5.2.2.10}PL2\_\discretionary {-}{}{}gtctrlSym}{38}{subsubsection.5.2.2.10}
+\contentsline {subsubsection}{\numberline {5.2.2.11}PL2\_\discretionary {-}{}{}has\_\discretionary {-}{}{}missingsSym}{38}{subsubsection.5.2.2.11}
+\contentsline {subsubsection}{\numberline {5.2.2.12}PL2\_\discretionary {-}{}{}inputsSym}{38}{subsubsection.5.2.2.12}
+\contentsline {subsubsection}{\numberline {5.2.2.13}PL2\_\discretionary {-}{}{}is\_\discretionary {-}{}{}censoredSym}{39}{subsubsection.5.2.2.13}
+\contentsline {subsubsection}{\numberline {5.2.2.14}PL2\_\discretionary {-}{}{}is\_\discretionary {-}{}{}nominalSym}{39}{subsubsection.5.2.2.14}
+\contentsline {subsubsection}{\numberline {5.2.2.15}PL2\_\discretionary {-}{}{}is\_\discretionary {-}{}{}ordinalSym}{39}{subsubsection.5.2.2.15}
+\contentsline {subsubsection}{\numberline {5.2.2.16}PL2\_\discretionary {-}{}{}jobuSym}{39}{subsubsection.5.2.2.16}
+\contentsline {subsubsection}{\numberline {5.2.2.17}PL2\_\discretionary {-}{}{}jobvSym}{39}{subsubsection.5.2.2.17}
+\contentsline {subsubsection}{\numberline {5.2.2.18}PL2\_\discretionary {-}{}{}levelsSym}{39}{subsubsection.5.2.2.18}
+\contentsline {subsubsection}{\numberline {5.2.2.19}PL2\_\discretionary {-}{}{}linearstatisticSym}{39}{subsubsection.5.2.2.19}
+\contentsline {subsubsection}{\numberline {5.2.2.20}PL2\_\discretionary {-}{}{}linexpcov2sampleSym}{39}{subsubsection.5.2.2.20}
+\contentsline {subsubsection}{\numberline {5.2.2.21}PL2\_\discretionary {-}{}{}linexpcov2sampleSym}{39}{subsubsection.5.2.2.21}
+\contentsline {subsubsection}{\numberline {5.2.2.22}PL2\_\discretionary {-}{}{}maxptsSym}{40}{subsubsection.5.2.2.22}
+\contentsline {subsubsection}{\numberline {5.2.2.23}PL2\_\discretionary {-}{}{}methodSym}{40}{subsubsection.5.2.2.23}
+\contentsline {subsubsection}{\numberline {5.2.2.24}PL2\_\discretionary {-}{}{}minbucketSym}{40}{subsubsection.5.2.2.24}
+\contentsline {subsubsection}{\numberline {5.2.2.25}PL2\_\discretionary {-}{}{}mincriterionSym}{40}{subsubsection.5.2.2.25}
+\contentsline {subsubsection}{\numberline {5.2.2.26}PL2\_\discretionary {-}{}{}minprobSym}{40}{subsubsection.5.2.2.26}
+\contentsline {subsubsection}{\numberline {5.2.2.27}PL2\_\discretionary {-}{}{}minsplitSym}{40}{subsubsection.5.2.2.27}
+\contentsline {subsubsection}{\numberline {5.2.2.28}PL2\_\discretionary {-}{}{}MPinvSym}{40}{subsubsection.5.2.2.28}
+\contentsline {subsubsection}{\numberline {5.2.2.29}PL2\_\discretionary {-}{}{}mtrySym}{40}{subsubsection.5.2.2.29}
+\contentsline {subsubsection}{\numberline {5.2.2.30}PL2\_\discretionary {-}{}{}ninputsSym}{40}{subsubsection.5.2.2.30}
+\contentsline {subsubsection}{\numberline {5.2.2.31}PL2\_\discretionary {-}{}{}nobsSym}{41}{subsubsection.5.2.2.31}
+\contentsline {subsubsection}{\numberline {5.2.2.32}PL2\_\discretionary {-}{}{}nresampleSym}{41}{subsubsection.5.2.2.32}
+\contentsline {subsubsection}{\numberline {5.2.2.33}PL2\_\discretionary {-}{}{}ntreeSym}{41}{subsubsection.5.2.2.33}
+\contentsline {subsubsection}{\numberline {5.2.2.34}PL2\_\discretionary {-}{}{}orderingSym}{41}{subsubsection.5.2.2.34}
+\contentsline {subsubsection}{\numberline {5.2.2.35}PL2\_\discretionary {-}{}{}predict\_\discretionary {-}{}{}trafoSym}{41}{subsubsection.5.2.2.35}
+\contentsline {subsubsection}{\numberline {5.2.2.36}PL2\_\discretionary {-}{}{}pSym}{41}{subsubsection.5.2.2.36}
+\contentsline {subsubsection}{\numberline {5.2.2.37}PL2\_\discretionary {-}{}{}pvalueSym}{41}{subsubsection.5.2.2.37}
+\contentsline {subsubsection}{\numberline {5.2.2.38}PL2\_\discretionary {-}{}{}randomsplitsSym}{41}{subsubsection.5.2.2.38}
+\contentsline {subsubsection}{\numberline {5.2.2.39}PL2\_\discretionary {-}{}{}rankSym}{41}{subsubsection.5.2.2.39}
+\contentsline {subsubsection}{\numberline {5.2.2.40}PL2\_\discretionary {-}{}{}relepsSym}{42}{subsubsection.5.2.2.40}
+\contentsline {subsubsection}{\numberline {5.2.2.41}PL2\_\discretionary {-}{}{}replaceSym}{42}{subsubsection.5.2.2.41}
+\contentsline {subsubsection}{\numberline {5.2.2.42}PL2\_\discretionary {-}{}{}responsesSym}{42}{subsubsection.5.2.2.42}
+\contentsline {subsubsection}{\numberline {5.2.2.43}PL2\_\discretionary {-}{}{}scoresSym}{42}{subsubsection.5.2.2.43}
+\contentsline {subsubsection}{\numberline {5.2.2.44}PL2\_\discretionary {-}{}{}splitctrlSym}{42}{subsubsection.5.2.2.44}
+\contentsline {subsubsection}{\numberline {5.2.2.45}PL2\_\discretionary {-}{}{}sSym}{42}{subsubsection.5.2.2.45}
+\contentsline {subsubsection}{\numberline {5.2.2.46}PL2\_\discretionary {-}{}{}stumpSym}{42}{subsubsection.5.2.2.46}
+\contentsline {subsubsection}{\numberline {5.2.2.47}PL2\_\discretionary {-}{}{}sumweightsSym}{42}{subsubsection.5.2.2.47}
+\contentsline {subsubsection}{\numberline {5.2.2.48}PL2\_\discretionary {-}{}{}svdmemSym}{43}{subsubsection.5.2.2.48}
+\contentsline {subsubsection}{\numberline {5.2.2.49}PL2\_\discretionary {-}{}{}test\_\discretionary {-}{}{}trafoSym}{43}{subsubsection.5.2.2.49}
+\contentsline {subsubsection}{\numberline {5.2.2.50}PL2\_\discretionary {-}{}{}teststatSym}{43}{subsubsection.5.2.2.50}
+\contentsline {subsubsection}{\numberline {5.2.2.51}PL2\_\discretionary {-}{}{}testtypeSym}{43}{subsubsection.5.2.2.51}
+\contentsline {subsubsection}{\numberline {5.2.2.52}PL2\_\discretionary {-}{}{}tgctrlSym}{43}{subsubsection.5.2.2.52}
+\contentsline {subsubsection}{\numberline {5.2.2.53}PL2\_\discretionary {-}{}{}tolSym}{43}{subsubsection.5.2.2.53}
+\contentsline {subsubsection}{\numberline {5.2.2.54}PL2\_\discretionary {-}{}{}transformationsSym}{43}{subsubsection.5.2.2.54}
+\contentsline {subsubsection}{\numberline {5.2.2.55}PL2\_\discretionary {-}{}{}uSym}{43}{subsubsection.5.2.2.55}
+\contentsline {subsubsection}{\numberline {5.2.2.56}PL2\_\discretionary {-}{}{}varctrlSym}{43}{subsubsection.5.2.2.56}
+\contentsline {subsubsection}{\numberline {5.2.2.57}PL2\_\discretionary {-}{}{}variablesSym}{44}{subsubsection.5.2.2.57}
+\contentsline {subsubsection}{\numberline {5.2.2.58}PL2\_\discretionary {-}{}{}varmemorySym}{44}{subsubsection.5.2.2.58}
+\contentsline {subsubsection}{\numberline {5.2.2.59}PL2\_\discretionary {-}{}{}varmemorySym}{44}{subsubsection.5.2.2.59}
+\contentsline {subsubsection}{\numberline {5.2.2.60}PL2\_\discretionary {-}{}{}vSym}{44}{subsubsection.5.2.2.60}
+\contentsline {subsubsection}{\numberline {5.2.2.61}PL2\_\discretionary {-}{}{}weightsSym}{44}{subsubsection.5.2.2.61}
+\contentsline {subsubsection}{\numberline {5.2.2.62}PL2\_\discretionary {-}{}{}weightsSym}{44}{subsubsection.5.2.2.62}
+\contentsline {subsubsection}{\numberline {5.2.2.63}PL2\_\discretionary {-}{}{}whichNASym}{44}{subsubsection.5.2.2.63}
+\contentsline {section}{\numberline {5.3}Convenience.c File Reference}{45}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}Detailed Description}{46}{subsection.5.3.1}
+\contentsline {subsection}{\numberline {5.3.2}Function Documentation}{46}{subsection.5.3.2}
+\contentsline {subsubsection}{\numberline {5.3.2.1}C\_\discretionary {-}{}{}ConditionalPvalue}{46}{subsubsection.5.3.2.1}
+\contentsline {subsubsection}{\numberline {5.3.2.2}C\_\discretionary {-}{}{}LinStatExpCov}{46}{subsubsection.5.3.2.2}
+\contentsline {subsubsection}{\numberline {5.3.2.3}C\_\discretionary {-}{}{}LinStatExpCovMPinv}{47}{subsubsection.5.3.2.3}
+\contentsline {subsubsection}{\numberline {5.3.2.4}C\_\discretionary {-}{}{}TestStatistic}{47}{subsubsection.5.3.2.4}
+\contentsline {subsubsection}{\numberline {5.3.2.5}R\_\discretionary {-}{}{}get\_\discretionary {-}{}{}response}{48}{subsubsection.5.3.2.5}
+\contentsline {subsubsection}{\numberline {5.3.2.6}R\_\discretionary {-}{}{}set\_\discretionary {-}{}{}response}{48}{subsubsection.5.3.2.6}
+\contentsline {section}{\numberline {5.4}Convenience.h File Reference}{49}{section.5.4}
+\contentsline {subsection}{\numberline {5.4.1}Function Documentation}{49}{subsection.5.4.1}
+\contentsline {subsubsection}{\numberline {5.4.1.1}C\_\discretionary {-}{}{}ConditionalPvalue}{49}{subsubsection.5.4.1.1}
+\contentsline {subsubsection}{\numberline {5.4.1.2}C\_\discretionary {-}{}{}LinStatExpCov}{50}{subsubsection.5.4.1.2}
+\contentsline {subsubsection}{\numberline {5.4.1.3}C\_\discretionary {-}{}{}LinStatExpCovMPinv}{51}{subsubsection.5.4.1.3}
+\contentsline {subsubsection}{\numberline {5.4.1.4}C\_\discretionary {-}{}{}MLinearStatistic}{51}{subsubsection.5.4.1.4}
+\contentsline {subsubsection}{\numberline {5.4.1.5}C\_\discretionary {-}{}{}TestStatistic}{51}{subsubsection.5.4.1.5}
+\contentsline {section}{\numberline {5.5}Distributions.c File Reference}{52}{section.5.5}
+\contentsline {subsection}{\numberline {5.5.1}Detailed Description}{53}{subsection.5.5.1}
+\contentsline {subsection}{\numberline {5.5.2}Function Documentation}{53}{subsection.5.5.2}
+\contentsline {subsubsection}{\numberline {5.5.2.1}C\_\discretionary {-}{}{}maxabsConditionalPvalue}{53}{subsubsection.5.5.2.1}
+\contentsline {subsubsection}{\numberline {5.5.2.2}C\_\discretionary {-}{}{}MonteCarlo}{53}{subsubsection.5.5.2.2}
+\contentsline {subsubsection}{\numberline {5.5.2.3}C\_\discretionary {-}{}{}quadformConditionalPvalue}{54}{subsubsection.5.5.2.3}
+\contentsline {subsubsection}{\numberline {5.5.2.4}R\_\discretionary {-}{}{}maxabsConditionalPvalue}{54}{subsubsection.5.5.2.4}
+\contentsline {subsubsection}{\numberline {5.5.2.5}R\_\discretionary {-}{}{}MonteCarlo}{55}{subsubsection.5.5.2.5}
+\contentsline {subsubsection}{\numberline {5.5.2.6}R\_\discretionary {-}{}{}quadformConditionalPvalue}{55}{subsubsection.5.5.2.6}
+\contentsline {section}{\numberline {5.6}Distributions.h File Reference}{56}{section.5.6}
+\contentsline {subsection}{\numberline {5.6.1}Function Documentation}{56}{subsection.5.6.1}
+\contentsline {subsubsection}{\numberline {5.6.1.1}C\_\discretionary {-}{}{}maxabsConditionalPvalue}{56}{subsubsection.5.6.1.1}
+\contentsline {subsubsection}{\numberline {5.6.1.2}C\_\discretionary {-}{}{}MonteCarlo}{57}{subsubsection.5.6.1.2}
+\contentsline {subsubsection}{\numberline {5.6.1.3}C\_\discretionary {-}{}{}quadformConditionalPvalue}{57}{subsubsection.5.6.1.3}
+\contentsline {section}{\numberline {5.7}Independence\discretionary {-}{}{}Test.c File Reference}{58}{section.5.7}
+\contentsline {subsection}{\numberline {5.7.1}Detailed Description}{59}{subsection.5.7.1}
+\contentsline {subsection}{\numberline {5.7.2}Function Documentation}{59}{subsection.5.7.2}
+\contentsline {subsubsection}{\numberline {5.7.2.1}C\_\discretionary {-}{}{}GlobalTest}{59}{subsubsection.5.7.2.1}
+\contentsline {subsubsection}{\numberline {5.7.2.2}C\_\discretionary {-}{}{}IndependenceTest}{60}{subsubsection.5.7.2.2}
+\contentsline {subsubsection}{\numberline {5.7.2.3}C\_\discretionary {-}{}{}TeststatCriterion}{60}{subsubsection.5.7.2.3}
+\contentsline {subsubsection}{\numberline {5.7.2.4}C\_\discretionary {-}{}{}TeststatPvalue}{61}{subsubsection.5.7.2.4}
+\contentsline {subsubsection}{\numberline {5.7.2.5}R\_\discretionary {-}{}{}GlobalTest}{62}{subsubsection.5.7.2.5}
+\contentsline {subsubsection}{\numberline {5.7.2.6}R\_\discretionary {-}{}{}IndependenceTest}{62}{subsubsection.5.7.2.6}
+\contentsline {section}{\numberline {5.8}Independence\discretionary {-}{}{}Test.h File Reference}{64}{section.5.8}
+\contentsline {subsection}{\numberline {5.8.1}Function Documentation}{64}{subsection.5.8.1}
+\contentsline {subsubsection}{\numberline {5.8.1.1}C\_\discretionary {-}{}{}GlobalTest}{64}{subsubsection.5.8.1.1}
+\contentsline {subsubsection}{\numberline {5.8.1.2}C\_\discretionary {-}{}{}TeststatCriterion}{65}{subsubsection.5.8.1.2}
+\contentsline {subsubsection}{\numberline {5.8.1.3}C\_\discretionary {-}{}{}TeststatPvalue}{66}{subsubsection.5.8.1.3}
+\contentsline {section}{\numberline {5.9}Linear\discretionary {-}{}{}Statistic.c File Reference}{67}{section.5.9}
+\contentsline {subsection}{\numberline {5.9.1}Detailed Description}{68}{subsection.5.9.1}
+\contentsline {subsection}{\numberline {5.9.2}Function Documentation}{68}{subsection.5.9.2}
+\contentsline {subsubsection}{\numberline {5.9.2.1}C\_\discretionary {-}{}{}ExpectCovarInfluence}{68}{subsubsection.5.9.2.1}
+\contentsline {subsubsection}{\numberline {5.9.2.2}C\_\discretionary {-}{}{}ExpectCovarLinearStatistic}{68}{subsubsection.5.9.2.2}
+\contentsline {subsubsection}{\numberline {5.9.2.3}C\_\discretionary {-}{}{}LinearStatistic}{69}{subsubsection.5.9.2.3}
+\contentsline {subsubsection}{\numberline {5.9.2.4}C\_\discretionary {-}{}{}PermutedLinearStatistic}{69}{subsubsection.5.9.2.4}
+\contentsline {subsubsection}{\numberline {5.9.2.5}R\_\discretionary {-}{}{}ExpectCovarInfluence}{69}{subsubsection.5.9.2.5}
+\contentsline {subsubsection}{\numberline {5.9.2.6}R\_\discretionary {-}{}{}ExpectCovarLinearStatistic}{70}{subsubsection.5.9.2.6}
+\contentsline {subsubsection}{\numberline {5.9.2.7}R\_\discretionary {-}{}{}LinearStatistic}{70}{subsubsection.5.9.2.7}
+\contentsline {subsubsection}{\numberline {5.9.2.8}R\_\discretionary {-}{}{}PermutedLinearStatistic}{71}{subsubsection.5.9.2.8}
+\contentsline {section}{\numberline {5.10}Linear\discretionary {-}{}{}Statistic.h File Reference}{72}{section.5.10}
+\contentsline {subsection}{\numberline {5.10.1}Function Documentation}{72}{subsection.5.10.1}
+\contentsline {subsubsection}{\numberline {5.10.1.1}C\_\discretionary {-}{}{}ExpectCovarInfluence}{72}{subsubsection.5.10.1.1}
+\contentsline {subsubsection}{\numberline {5.10.1.2}C\_\discretionary {-}{}{}ExpectCovarLinearStatistic}{73}{subsubsection.5.10.1.2}
+\contentsline {subsubsection}{\numberline {5.10.1.3}C\_\discretionary {-}{}{}LinearStatistic}{73}{subsubsection.5.10.1.3}
+\contentsline {subsubsection}{\numberline {5.10.1.4}C\_\discretionary {-}{}{}PermutedLinearStatistic}{74}{subsubsection.5.10.1.4}
+\contentsline {subsubsection}{\numberline {5.10.1.5}R\_\discretionary {-}{}{}ExpectCovarInfluence}{74}{subsubsection.5.10.1.5}
+\contentsline {section}{\numberline {5.11}mvt.h File Reference}{75}{section.5.11}
+\contentsline {subsection}{\numberline {5.11.1}Function Documentation}{75}{subsection.5.11.1}
+\contentsline {subsubsection}{\numberline {5.11.1.1}mvtdst}{75}{subsubsection.5.11.1.1}
+\contentsline {section}{\numberline {5.12}Node.c File Reference}{76}{section.5.12}
+\contentsline {subsection}{\numberline {5.12.1}Detailed Description}{76}{subsection.5.12.1}
+\contentsline {subsection}{\numberline {5.12.2}Function Documentation}{77}{subsection.5.12.2}
+\contentsline {subsubsection}{\numberline {5.12.2.1}C\_\discretionary {-}{}{}Node}{77}{subsubsection.5.12.2.1}
+\contentsline {subsubsection}{\numberline {5.12.2.2}C\_\discretionary {-}{}{}prediction}{79}{subsubsection.5.12.2.2}
+\contentsline {subsubsection}{\numberline {5.12.2.3}R\_\discretionary {-}{}{}Node}{79}{subsubsection.5.12.2.3}
+\contentsline {section}{\numberline {5.13}Node.h File Reference}{80}{section.5.13}
+\contentsline {subsection}{\numberline {5.13.1}Function Documentation}{80}{subsection.5.13.1}
+\contentsline {subsubsection}{\numberline {5.13.1.1}C\_\discretionary {-}{}{}Node}{80}{subsubsection.5.13.1.1}
+\contentsline {section}{\numberline {5.14}party.h File Reference}{83}{section.5.14}
+\contentsline {subsection}{\numberline {5.14.1}Define Documentation}{86}{subsection.5.14.1}
+\contentsline {subsubsection}{\numberline {5.14.1.1}AGGREGATED}{86}{subsubsection.5.14.1.1}
+\contentsline {subsubsection}{\numberline {5.14.1.2}BONFERRONI}{86}{subsubsection.5.14.1.2}
+\contentsline {subsubsection}{\numberline {5.14.1.3}CRITERION\_\discretionary {-}{}{}LENGTH}{86}{subsubsection.5.14.1.3}
+\contentsline {subsubsection}{\numberline {5.14.1.4}MAXABS}{86}{subsubsection.5.14.1.4}
+\contentsline {subsubsection}{\numberline {5.14.1.5}MONTECARLO}{86}{subsubsection.5.14.1.5}
+\contentsline {subsubsection}{\numberline {5.14.1.6}NODE\_\discretionary {-}{}{}LENGTH}{86}{subsubsection.5.14.1.6}
+\contentsline {subsubsection}{\numberline {5.14.1.7}QUADFORM}{86}{subsubsection.5.14.1.7}
+\contentsline {subsubsection}{\numberline {5.14.1.8}S3\_\discretionary {-}{}{}CRITERION}{86}{subsubsection.5.14.1.8}
+\contentsline {subsubsection}{\numberline {5.14.1.9}S3\_\discretionary {-}{}{}iCRITERION}{87}{subsubsection.5.14.1.9}
+\contentsline {subsubsection}{\numberline {5.14.1.10}S3\_\discretionary {-}{}{}LEFT}{87}{subsubsection.5.14.1.10}
+\contentsline {subsubsection}{\numberline {5.14.1.11}S3\_\discretionary {-}{}{}MAXCRITERION}{87}{subsubsection.5.14.1.11}
+\contentsline {subsubsection}{\numberline {5.14.1.12}S3\_\discretionary {-}{}{}NODEID}{87}{subsubsection.5.14.1.12}
+\contentsline {subsubsection}{\numberline {5.14.1.13}S3\_\discretionary {-}{}{}ORDERED}{87}{subsubsection.5.14.1.13}
+\contentsline {subsubsection}{\numberline {5.14.1.14}S3\_\discretionary {-}{}{}PREDICTION}{87}{subsubsection.5.14.1.14}
+\contentsline {subsubsection}{\numberline {5.14.1.15}S3\_\discretionary {-}{}{}PSPLIT}{87}{subsubsection.5.14.1.15}
+\contentsline {subsubsection}{\numberline {5.14.1.16}S3\_\discretionary {-}{}{}RIGHT}{87}{subsubsection.5.14.1.16}
+\contentsline {subsubsection}{\numberline {5.14.1.17}S3\_\discretionary {-}{}{}SPLITPOINT}{87}{subsubsection.5.14.1.17}
+\contentsline {subsubsection}{\numberline {5.14.1.18}S3\_\discretionary {-}{}{}SPLITSTATISTICS}{88}{subsubsection.5.14.1.18}
+\contentsline {subsubsection}{\numberline {5.14.1.19}S3\_\discretionary {-}{}{}SSPLIT}{88}{subsubsection.5.14.1.19}
+\contentsline {subsubsection}{\numberline {5.14.1.20}S3\_\discretionary {-}{}{}STATISTICS}{88}{subsubsection.5.14.1.20}
+\contentsline {subsubsection}{\numberline {5.14.1.21}S3\_\discretionary {-}{}{}SUMWEIGHTS}{88}{subsubsection.5.14.1.21}
+\contentsline {subsubsection}{\numberline {5.14.1.22}S3\_\discretionary {-}{}{}TABLE}{88}{subsubsection.5.14.1.22}
+\contentsline {subsubsection}{\numberline {5.14.1.23}S3\_\discretionary {-}{}{}TERMINAL}{88}{subsubsection.5.14.1.23}
+\contentsline {subsubsection}{\numberline {5.14.1.24}S3\_\discretionary {-}{}{}TOLEFT}{88}{subsubsection.5.14.1.24}
+\contentsline {subsubsection}{\numberline {5.14.1.25}S3\_\discretionary {-}{}{}VARIABLEID}{88}{subsubsection.5.14.1.25}
+\contentsline {subsubsection}{\numberline {5.14.1.26}S3\_\discretionary {-}{}{}WEIGHTS}{89}{subsubsection.5.14.1.26}
+\contentsline {subsubsection}{\numberline {5.14.1.27}SPLIT\_\discretionary {-}{}{}LENGTH}{89}{subsubsection.5.14.1.27}
+\contentsline {subsubsection}{\numberline {5.14.1.28}TESTSTATISTIC}{89}{subsubsection.5.14.1.28}
+\contentsline {subsubsection}{\numberline {5.14.1.29}UNIVARIATE}{89}{subsubsection.5.14.1.29}
+\contentsline {section}{\numberline {5.15}Predict.c File Reference}{90}{section.5.15}
+\contentsline {subsection}{\numberline {5.15.1}Detailed Description}{91}{subsection.5.15.1}
+\contentsline {subsection}{\numberline {5.15.2}Function Documentation}{91}{subsection.5.15.2}
+\contentsline {subsubsection}{\numberline {5.15.2.1}C\_\discretionary {-}{}{}get\_\discretionary {-}{}{}node}{91}{subsubsection.5.15.2.1}
+\contentsline {subsubsection}{\numberline {5.15.2.2}C\_\discretionary {-}{}{}get\_\discretionary {-}{}{}nodebynum}{92}{subsubsection.5.15.2.2}
+\contentsline {subsubsection}{\numberline {5.15.2.3}C\_\discretionary {-}{}{}get\_\discretionary {-}{}{}nodeID}{93}{subsubsection.5.15.2.3}
+\contentsline {subsubsection}{\numberline {5.15.2.4}C\_\discretionary {-}{}{}get\_\discretionary {-}{}{}nodeweights}{93}{subsubsection.5.15.2.4}
+\contentsline {subsubsection}{\numberline {5.15.2.5}C\_\discretionary {-}{}{}get\_\discretionary {-}{}{}prediction}{94}{subsubsection.5.15.2.5}
+\contentsline {subsubsection}{\numberline {5.15.2.6}C\_\discretionary {-}{}{}getpredictions}{95}{subsubsection.5.15.2.6}
+\contentsline {subsubsection}{\numberline {5.15.2.7}C\_\discretionary {-}{}{}predict}{96}{subsubsection.5.15.2.7}
+\contentsline {subsubsection}{\numberline {5.15.2.8}C\_\discretionary {-}{}{}splitnode}{96}{subsubsection.5.15.2.8}
+\contentsline {subsubsection}{\numberline {5.15.2.9}R\_\discretionary {-}{}{}get\_\discretionary {-}{}{}node}{97}{subsubsection.5.15.2.9}
+\contentsline {subsubsection}{\numberline {5.15.2.10}R\_\discretionary {-}{}{}get\_\discretionary {-}{}{}nodebynum}{98}{subsubsection.5.15.2.10}
+\contentsline {subsubsection}{\numberline {5.15.2.11}R\_\discretionary {-}{}{}get\_\discretionary {-}{}{}nodeID}{99}{subsubsection.5.15.2.11}
+\contentsline {subsubsection}{\numberline {5.15.2.12}R\_\discretionary {-}{}{}getpredictions}{99}{subsubsection.5.15.2.12}
+\contentsline {subsubsection}{\numberline {5.15.2.13}R\_\discretionary {-}{}{}predict}{100}{subsubsection.5.15.2.13}
+\contentsline {subsubsection}{\numberline {5.15.2.14}R\_\discretionary {-}{}{}predictRF\_\discretionary {-}{}{}weights}{101}{subsubsection.5.15.2.14}
+\contentsline {section}{\numberline {5.16}Predict.h File Reference}{102}{section.5.16}
+\contentsline {subsection}{\numberline {5.16.1}Function Documentation}{102}{subsection.5.16.1}
+\contentsline {subsubsection}{\numberline {5.16.1.1}C\_\discretionary {-}{}{}splitnode}{102}{subsubsection.5.16.1.1}
+\contentsline {section}{\numberline {5.17}Random\discretionary {-}{}{}Forest.c File Reference}{104}{section.5.17}
+\contentsline {subsection}{\numberline {5.17.1}Detailed Description}{104}{subsection.5.17.1}
+\contentsline {subsection}{\numberline {5.17.2}Function Documentation}{105}{subsection.5.17.2}
+\contentsline {subsubsection}{\numberline {5.17.2.1}R\_\discretionary {-}{}{}Ensemble}{105}{subsubsection.5.17.2.1}
+\contentsline {section}{\numberline {5.18}S3Classes.c File Reference}{106}{section.5.18}
+\contentsline {subsection}{\numberline {5.18.1}Detailed Description}{107}{subsection.5.18.1}
+\contentsline {subsection}{\numberline {5.18.2}Function Documentation}{107}{subsection.5.18.2}
+\contentsline {subsubsection}{\numberline {5.18.2.1}C\_\discretionary {-}{}{}init\_\discretionary {-}{}{}node}{107}{subsubsection.5.18.2.1}
+\contentsline {subsubsection}{\numberline {5.18.2.2}C\_\discretionary {-}{}{}init\_\discretionary {-}{}{}nominalsplit}{107}{subsubsection.5.18.2.2}
+\contentsline {subsubsection}{\numberline {5.18.2.3}C\_\discretionary {-}{}{}init\_\discretionary {-}{}{}orderedsplit}{108}{subsubsection.5.18.2.3}
+\contentsline {subsubsection}{\numberline {5.18.2.4}S3get\_\discretionary {-}{}{}criterion}{108}{subsubsection.5.18.2.4}
+\contentsline {subsubsection}{\numberline {5.18.2.5}S3get\_\discretionary {-}{}{}leftnode}{108}{subsubsection.5.18.2.5}
+\contentsline {subsubsection}{\numberline {5.18.2.6}S3get\_\discretionary {-}{}{}maxcriterion}{108}{subsubsection.5.18.2.6}
+\contentsline {subsubsection}{\numberline {5.18.2.7}S3get\_\discretionary {-}{}{}nodeID}{108}{subsubsection.5.18.2.7}
+\contentsline {subsubsection}{\numberline {5.18.2.8}S3get\_\discretionary {-}{}{}nodeterminal}{108}{subsubsection.5.18.2.8}
+\contentsline {subsubsection}{\numberline {5.18.2.9}S3get\_\discretionary {-}{}{}nodeweights}{108}{subsubsection.5.18.2.9}
+\contentsline {subsubsection}{\numberline {5.18.2.10}S3get\_\discretionary {-}{}{}prediction}{109}{subsubsection.5.18.2.10}
+\contentsline {subsubsection}{\numberline {5.18.2.11}S3get\_\discretionary {-}{}{}primarysplit}{109}{subsubsection.5.18.2.11}
+\contentsline {subsubsection}{\numberline {5.18.2.12}S3get\_\discretionary {-}{}{}rightnode}{109}{subsubsection.5.18.2.12}
+\contentsline {subsubsection}{\numberline {5.18.2.13}S3get\_\discretionary {-}{}{}splitpoint}{109}{subsubsection.5.18.2.13}
+\contentsline {subsubsection}{\numberline {5.18.2.14}S3get\_\discretionary {-}{}{}splitstatistics}{109}{subsubsection.5.18.2.14}
+\contentsline {subsubsection}{\numberline {5.18.2.15}S3get\_\discretionary {-}{}{}sumweights}{109}{subsubsection.5.18.2.15}
+\contentsline {subsubsection}{\numberline {5.18.2.16}S3get\_\discretionary {-}{}{}surrogatesplits}{109}{subsubsection.5.18.2.16}
+\contentsline {subsubsection}{\numberline {5.18.2.17}S3get\_\discretionary {-}{}{}table}{110}{subsubsection.5.18.2.17}
+\contentsline {subsubsection}{\numberline {5.18.2.18}S3get\_\discretionary {-}{}{}teststat}{110}{subsubsection.5.18.2.18}
+\contentsline {subsubsection}{\numberline {5.18.2.19}S3get\_\discretionary {-}{}{}toleft}{110}{subsubsection.5.18.2.19}
+\contentsline {subsubsection}{\numberline {5.18.2.20}S3get\_\discretionary {-}{}{}variableID}{110}{subsubsection.5.18.2.20}
+\contentsline {subsubsection}{\numberline {5.18.2.21}S3is\_\discretionary {-}{}{}ordered}{110}{subsubsection.5.18.2.21}
+\contentsline {subsubsection}{\numberline {5.18.2.22}S3set\_\discretionary {-}{}{}nodeID}{110}{subsubsection.5.18.2.22}
+\contentsline {subsubsection}{\numberline {5.18.2.23}S3set\_\discretionary {-}{}{}nodeterminal}{110}{subsubsection.5.18.2.23}
+\contentsline {subsubsection}{\numberline {5.18.2.24}S3set\_\discretionary {-}{}{}nominal}{111}{subsubsection.5.18.2.24}
+\contentsline {subsubsection}{\numberline {5.18.2.25}S3set\_\discretionary {-}{}{}ordered}{111}{subsubsection.5.18.2.25}
+\contentsline {subsubsection}{\numberline {5.18.2.26}S3set\_\discretionary {-}{}{}toleft}{111}{subsubsection.5.18.2.26}
+\contentsline {subsubsection}{\numberline {5.18.2.27}S3set\_\discretionary {-}{}{}variableID}{111}{subsubsection.5.18.2.27}
+\contentsline {section}{\numberline {5.19}S3Classes.h File Reference}{112}{section.5.19}
+\contentsline {subsection}{\numberline {5.19.1}Function Documentation}{113}{subsection.5.19.1}
+\contentsline {subsubsection}{\numberline {5.19.1.1}C\_\discretionary {-}{}{}init\_\discretionary {-}{}{}node}{113}{subsubsection.5.19.1.1}
+\contentsline {subsubsection}{\numberline {5.19.1.2}C\_\discretionary {-}{}{}init\_\discretionary {-}{}{}nominalsplit}{113}{subsubsection.5.19.1.2}
+\contentsline {subsubsection}{\numberline {5.19.1.3}C\_\discretionary {-}{}{}init\_\discretionary {-}{}{}orderedsplit}{113}{subsubsection.5.19.1.3}
+\contentsline {subsubsection}{\numberline {5.19.1.4}S3get\_\discretionary {-}{}{}criterion}{113}{subsubsection.5.19.1.4}
+\contentsline {subsubsection}{\numberline {5.19.1.5}S3get\_\discretionary {-}{}{}leftnode}{113}{subsubsection.5.19.1.5}
+\contentsline {subsubsection}{\numberline {5.19.1.6}S3get\_\discretionary {-}{}{}maxcriterion}{114}{subsubsection.5.19.1.6}
+\contentsline {subsubsection}{\numberline {5.19.1.7}S3get\_\discretionary {-}{}{}nodeID}{114}{subsubsection.5.19.1.7}
+\contentsline {subsubsection}{\numberline {5.19.1.8}S3get\_\discretionary {-}{}{}nodeterminal}{114}{subsubsection.5.19.1.8}
+\contentsline {subsubsection}{\numberline {5.19.1.9}S3get\_\discretionary {-}{}{}nodeweights}{114}{subsubsection.5.19.1.9}
+\contentsline {subsubsection}{\numberline {5.19.1.10}S3get\_\discretionary {-}{}{}prediction}{114}{subsubsection.5.19.1.10}
+\contentsline {subsubsection}{\numberline {5.19.1.11}S3get\_\discretionary {-}{}{}primarysplit}{114}{subsubsection.5.19.1.11}
+\contentsline {subsubsection}{\numberline {5.19.1.12}S3get\_\discretionary {-}{}{}rightnode}{114}{subsubsection.5.19.1.12}
+\contentsline {subsubsection}{\numberline {5.19.1.13}S3get\_\discretionary {-}{}{}splitpoint}{115}{subsubsection.5.19.1.13}
+\contentsline {subsubsection}{\numberline {5.19.1.14}S3get\_\discretionary {-}{}{}splitstatistics}{115}{subsubsection.5.19.1.14}
+\contentsline {subsubsection}{\numberline {5.19.1.15}S3get\_\discretionary {-}{}{}sumweights}{115}{subsubsection.5.19.1.15}
+\contentsline {subsubsection}{\numberline {5.19.1.16}S3get\_\discretionary {-}{}{}surrogatesplits}{115}{subsubsection.5.19.1.16}
+\contentsline {subsubsection}{\numberline {5.19.1.17}S3get\_\discretionary {-}{}{}table}{115}{subsubsection.5.19.1.17}
+\contentsline {subsubsection}{\numberline {5.19.1.18}S3get\_\discretionary {-}{}{}teststat}{115}{subsubsection.5.19.1.18}
+\contentsline {subsubsection}{\numberline {5.19.1.19}S3get\_\discretionary {-}{}{}toleft}{115}{subsubsection.5.19.1.19}
+\contentsline {subsubsection}{\numberline {5.19.1.20}S3get\_\discretionary {-}{}{}variableID}{116}{subsubsection.5.19.1.20}
+\contentsline {subsubsection}{\numberline {5.19.1.21}S3is\_\discretionary {-}{}{}ordered}{116}{subsubsection.5.19.1.21}
+\contentsline {subsubsection}{\numberline {5.19.1.22}S3set\_\discretionary {-}{}{}nodeID}{116}{subsubsection.5.19.1.22}
+\contentsline {subsubsection}{\numberline {5.19.1.23}S3set\_\discretionary {-}{}{}nodeterminal}{116}{subsubsection.5.19.1.23}
+\contentsline {subsubsection}{\numberline {5.19.1.24}S3set\_\discretionary {-}{}{}nominal}{116}{subsubsection.5.19.1.24}
+\contentsline {subsubsection}{\numberline {5.19.1.25}S3set\_\discretionary {-}{}{}ordered}{116}{subsubsection.5.19.1.25}
+\contentsline {subsubsection}{\numberline {5.19.1.26}S3set\_\discretionary {-}{}{}toleft}{116}{subsubsection.5.19.1.26}
+\contentsline {subsubsection}{\numberline {5.19.1.27}S3set\_\discretionary {-}{}{}variableID}{116}{subsubsection.5.19.1.27}
+\contentsline {section}{\numberline {5.20}Splits.c File Reference}{117}{section.5.20}
+\contentsline {subsection}{\numberline {5.20.1}Detailed Description}{118}{subsection.5.20.1}
+\contentsline {subsection}{\numberline {5.20.2}Function Documentation}{118}{subsection.5.20.2}
+\contentsline {subsubsection}{\numberline {5.20.2.1}C\_\discretionary {-}{}{}split}{118}{subsubsection.5.20.2.1}
+\contentsline {subsubsection}{\numberline {5.20.2.2}C\_\discretionary {-}{}{}splitcategorical}{119}{subsubsection.5.20.2.2}
+\contentsline {subsubsection}{\numberline {5.20.2.3}R\_\discretionary {-}{}{}split}{119}{subsubsection.5.20.2.3}
+\contentsline {subsubsection}{\numberline {5.20.2.4}R\_\discretionary {-}{}{}splitcategorical}{120}{subsubsection.5.20.2.4}
+\contentsline {section}{\numberline {5.21}Splits.h File Reference}{121}{section.5.21}
+\contentsline {subsection}{\numberline {5.21.1}Function Documentation}{121}{subsection.5.21.1}
+\contentsline {subsubsection}{\numberline {5.21.1.1}C\_\discretionary {-}{}{}split}{121}{subsubsection.5.21.1.1}
+\contentsline {subsubsection}{\numberline {5.21.1.2}C\_\discretionary {-}{}{}splitcategorical}{122}{subsubsection.5.21.1.2}
+\contentsline {section}{\numberline {5.22}Surrogate\discretionary {-}{}{}Splits.c File Reference}{124}{section.5.22}
+\contentsline {subsection}{\numberline {5.22.1}Detailed Description}{124}{subsection.5.22.1}
+\contentsline {subsection}{\numberline {5.22.2}Function Documentation}{125}{subsection.5.22.2}
+\contentsline {subsubsection}{\numberline {5.22.2.1}C\_\discretionary {-}{}{}splitsurrogate}{125}{subsubsection.5.22.2.1}
+\contentsline {subsubsection}{\numberline {5.22.2.2}C\_\discretionary {-}{}{}surrogates}{125}{subsubsection.5.22.2.2}
+\contentsline {subsubsection}{\numberline {5.22.2.3}R\_\discretionary {-}{}{}surrogates}{126}{subsubsection.5.22.2.3}
+\contentsline {section}{\numberline {5.23}Surrogate\discretionary {-}{}{}Splits.h File Reference}{128}{section.5.23}
+\contentsline {subsection}{\numberline {5.23.1}Function Documentation}{128}{subsection.5.23.1}
+\contentsline {subsubsection}{\numberline {5.23.1.1}C\_\discretionary {-}{}{}splitsurrogate}{128}{subsubsection.5.23.1.1}
+\contentsline {subsubsection}{\numberline {5.23.1.2}C\_\discretionary {-}{}{}surrogates}{129}{subsubsection.5.23.1.2}
+\contentsline {section}{\numberline {5.24}Test\discretionary {-}{}{}Statistic.c File Reference}{131}{section.5.24}
+\contentsline {subsection}{\numberline {5.24.1}Detailed Description}{132}{subsection.5.24.1}
+\contentsline {subsection}{\numberline {5.24.2}Function Documentation}{132}{subsection.5.24.2}
+\contentsline {subsubsection}{\numberline {5.24.2.1}C\_\discretionary {-}{}{}absstandardize}{132}{subsubsection.5.24.2.1}
+\contentsline {subsubsection}{\numberline {5.24.2.2}C\_\discretionary {-}{}{}maxabsTestStatistic}{132}{subsubsection.5.24.2.2}
+\contentsline {subsubsection}{\numberline {5.24.2.3}C\_\discretionary {-}{}{}quadformTestStatistic}{133}{subsubsection.5.24.2.3}
+\contentsline {subsubsection}{\numberline {5.24.2.4}C\_\discretionary {-}{}{}standardize}{133}{subsubsection.5.24.2.4}
+\contentsline {subsubsection}{\numberline {5.24.2.5}R\_\discretionary {-}{}{}maxabsTestStatistic}{134}{subsubsection.5.24.2.5}
+\contentsline {subsubsection}{\numberline {5.24.2.6}R\_\discretionary {-}{}{}quadformTestStatistic}{134}{subsubsection.5.24.2.6}
+\contentsline {section}{\numberline {5.25}Test\discretionary {-}{}{}Statistic.h File Reference}{135}{section.5.25}
+\contentsline {subsection}{\numberline {5.25.1}Function Documentation}{135}{subsection.5.25.1}
+\contentsline {subsubsection}{\numberline {5.25.1.1}C\_\discretionary {-}{}{}maxabsTestStatistic}{135}{subsubsection.5.25.1.1}
+\contentsline {subsubsection}{\numberline {5.25.1.2}C\_\discretionary {-}{}{}quadformTestStatistic}{136}{subsubsection.5.25.1.2}
+\contentsline {subsubsection}{\numberline {5.25.1.3}C\_\discretionary {-}{}{}standardize}{136}{subsubsection.5.25.1.3}
+\contentsline {section}{\numberline {5.26}Tree\discretionary {-}{}{}Grow.c File Reference}{137}{section.5.26}
+\contentsline {subsection}{\numberline {5.26.1}Detailed Description}{137}{subsection.5.26.1}
+\contentsline {subsection}{\numberline {5.26.2}Function Documentation}{138}{subsection.5.26.2}
+\contentsline {subsubsection}{\numberline {5.26.2.1}C\_\discretionary {-}{}{}TreeGrow}{138}{subsubsection.5.26.2.1}
+\contentsline {subsubsection}{\numberline {5.26.2.2}R\_\discretionary {-}{}{}TreeGrow}{139}{subsubsection.5.26.2.2}
+\contentsline {section}{\numberline {5.27}Tree\discretionary {-}{}{}Grow.h File Reference}{141}{section.5.27}
+\contentsline {subsection}{\numberline {5.27.1}Function Documentation}{141}{subsection.5.27.1}
+\contentsline {subsubsection}{\numberline {5.27.1.1}C\_\discretionary {-}{}{}TreeGrow}{141}{subsubsection.5.27.1.1}
+\contentsline {section}{\numberline {5.28}Utils.c File Reference}{143}{section.5.28}
+\contentsline {subsection}{\numberline {5.28.1}Detailed Description}{144}{subsection.5.28.1}
+\contentsline {subsection}{\numberline {5.28.2}Function Documentation}{144}{subsection.5.28.2}
+\contentsline {subsubsection}{\numberline {5.28.2.1}C\_\discretionary {-}{}{}abs}{144}{subsubsection.5.28.2.1}
+\contentsline {subsubsection}{\numberline {5.28.2.2}C\_\discretionary {-}{}{}i\_\discretionary {-}{}{}in\_\discretionary {-}{}{}set}{145}{subsubsection.5.28.2.2}
+\contentsline {subsubsection}{\numberline {5.28.2.3}C\_\discretionary {-}{}{}kronecker}{145}{subsubsection.5.28.2.3}
+\contentsline {subsubsection}{\numberline {5.28.2.4}C\_\discretionary {-}{}{}matprod}{145}{subsubsection.5.28.2.4}
+\contentsline {subsubsection}{\numberline {5.28.2.5}C\_\discretionary {-}{}{}matprodT}{146}{subsubsection.5.28.2.5}
+\contentsline {subsubsection}{\numberline {5.28.2.6}C\_\discretionary {-}{}{}max}{146}{subsubsection.5.28.2.6}
+\contentsline {subsubsection}{\numberline {5.28.2.7}C\_\discretionary {-}{}{}MPinv}{146}{subsubsection.5.28.2.7}
+\contentsline {subsubsection}{\numberline {5.28.2.8}C\_\discretionary {-}{}{}ProbSampleNoReplace}{147}{subsubsection.5.28.2.8}
+\contentsline {subsubsection}{\numberline {5.28.2.9}C\_\discretionary {-}{}{}remove\_\discretionary {-}{}{}weights}{147}{subsubsection.5.28.2.9}
+\contentsline {subsubsection}{\numberline {5.28.2.10}C\_\discretionary {-}{}{}SampleNoReplace}{147}{subsubsection.5.28.2.10}
+\contentsline {subsubsection}{\numberline {5.28.2.11}C\_\discretionary {-}{}{}SampleSplitting}{147}{subsubsection.5.28.2.11}
+\contentsline {subsubsection}{\numberline {5.28.2.12}C\_\discretionary {-}{}{}whichmax}{148}{subsubsection.5.28.2.12}
+\contentsline {subsubsection}{\numberline {5.28.2.13}CR\_\discretionary {-}{}{}La\_\discretionary {-}{}{}svd}{148}{subsubsection.5.28.2.13}
+\contentsline {subsubsection}{\numberline {5.28.2.14}CR\_\discretionary {-}{}{}svd}{148}{subsubsection.5.28.2.14}
+\contentsline {subsubsection}{\numberline {5.28.2.15}i\_\discretionary {-}{}{}in\_\discretionary {-}{}{}set}{148}{subsubsection.5.28.2.15}
+\contentsline {subsubsection}{\numberline {5.28.2.16}ncol}{149}{subsubsection.5.28.2.16}
+\contentsline {subsubsection}{\numberline {5.28.2.17}nrow}{149}{subsubsection.5.28.2.17}
+\contentsline {subsubsection}{\numberline {5.28.2.18}R\_\discretionary {-}{}{}abs}{149}{subsubsection.5.28.2.18}
+\contentsline {subsubsection}{\numberline {5.28.2.19}R\_\discretionary {-}{}{}kronecker}{149}{subsubsection.5.28.2.19}
+\contentsline {subsubsection}{\numberline {5.28.2.20}R\_\discretionary {-}{}{}listplus}{149}{subsubsection.5.28.2.20}
+\contentsline {subsubsection}{\numberline {5.28.2.21}R\_\discretionary {-}{}{}matprod}{150}{subsubsection.5.28.2.21}
+\contentsline {subsubsection}{\numberline {5.28.2.22}R\_\discretionary {-}{}{}matprodT}{150}{subsubsection.5.28.2.22}
+\contentsline {subsubsection}{\numberline {5.28.2.23}R\_\discretionary {-}{}{}max}{150}{subsubsection.5.28.2.23}
+\contentsline {subsubsection}{\numberline {5.28.2.24}R\_\discretionary {-}{}{}modify\_\discretionary {-}{}{}response}{151}{subsubsection.5.28.2.24}
+\contentsline {subsubsection}{\numberline {5.28.2.25}R\_\discretionary {-}{}{}MPinv}{151}{subsubsection.5.28.2.25}
+\contentsline {subsubsection}{\numberline {5.28.2.26}R\_\discretionary {-}{}{}permute}{151}{subsubsection.5.28.2.26}
+\contentsline {subsubsection}{\numberline {5.28.2.27}R\_\discretionary {-}{}{}rsubset}{152}{subsubsection.5.28.2.27}
+\contentsline {subsubsection}{\numberline {5.28.2.28}R\_\discretionary {-}{}{}whichmax}{152}{subsubsection.5.28.2.28}
+\contentsline {subsubsection}{\numberline {5.28.2.29}unifrnd}{152}{subsubsection.5.28.2.29}
+\contentsline {section}{\numberline {5.29}Utils.h File Reference}{153}{section.5.29}
+\contentsline {subsection}{\numberline {5.29.1}Function Documentation}{154}{subsection.5.29.1}
+\contentsline {subsubsection}{\numberline {5.29.1.1}C\_\discretionary {-}{}{}abs}{154}{subsubsection.5.29.1.1}
+\contentsline {subsubsection}{\numberline {5.29.1.2}C\_\discretionary {-}{}{}i\_\discretionary {-}{}{}in\_\discretionary {-}{}{}set}{154}{subsubsection.5.29.1.2}
+\contentsline {subsubsection}{\numberline {5.29.1.3}C\_\discretionary {-}{}{}kronecker}{154}{subsubsection.5.29.1.3}
+\contentsline {subsubsection}{\numberline {5.29.1.4}C\_\discretionary {-}{}{}matprod}{154}{subsubsection.5.29.1.4}
+\contentsline {subsubsection}{\numberline {5.29.1.5}C\_\discretionary {-}{}{}matprodT}{155}{subsubsection.5.29.1.5}
+\contentsline {subsubsection}{\numberline {5.29.1.6}C\_\discretionary {-}{}{}max}{155}{subsubsection.5.29.1.6}
+\contentsline {subsubsection}{\numberline {5.29.1.7}C\_\discretionary {-}{}{}MPinv}{155}{subsubsection.5.29.1.7}
+\contentsline {subsubsection}{\numberline {5.29.1.8}C\_\discretionary {-}{}{}remove\_\discretionary {-}{}{}weights}{156}{subsubsection.5.29.1.8}
+\contentsline {subsubsection}{\numberline {5.29.1.9}C\_\discretionary {-}{}{}SampleNoReplace}{156}{subsubsection.5.29.1.9}
+\contentsline {subsubsection}{\numberline {5.29.1.10}C\_\discretionary {-}{}{}SampleSplitting}{156}{subsubsection.5.29.1.10}
+\contentsline {subsubsection}{\numberline {5.29.1.11}C\_\discretionary {-}{}{}whichmax}{157}{subsubsection.5.29.1.11}
+\contentsline {subsubsection}{\numberline {5.29.1.12}i\_\discretionary {-}{}{}in\_\discretionary {-}{}{}set}{157}{subsubsection.5.29.1.12}
+\contentsline {subsubsection}{\numberline {5.29.1.13}La\_\discretionary {-}{}{}svd}{157}{subsubsection.5.29.1.13}
+\contentsline {subsubsection}{\numberline {5.29.1.14}ncol}{157}{subsubsection.5.29.1.14}
+\contentsline {subsubsection}{\numberline {5.29.1.15}nrow}{157}{subsubsection.5.29.1.15}
+\contentsline {chapter}{\numberline {6}party Page Documentation}{159}{chapter.6}
+\contentsline {section}{\numberline {6.1}Todo List}{159}{section.6.1}

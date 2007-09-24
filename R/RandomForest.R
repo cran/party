@@ -1,5 +1,5 @@
 
-# $Id: RandomForest.R 3661 2007-07-23 09:44:30Z hothorn $
+# $Id: RandomForest.R 3720 2007-09-24 16:18:36Z hothorn $
 
 ### the fitting procedure
 cforestfit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
@@ -129,10 +129,21 @@ cforest_control <- function(teststat = "max",
         stop("RET is not a valid object of class", class(RET))
     RET
 }
+
+cforest_classical <- function(...) cforest_control(teststat = "max",
+                            testtype = "Teststatistic",
+                            mincriterion = qnorm(0.9), 
+                            replace = TRUE, ...)
+
+cforest_unbiased <- function(...) cforest_control(teststat = "quad", 
+                            testtype = "Univ",
+                            mincriterion = 0,
+                            replace = FALSE, 
+                            fraction = 0.632, ...) 
     
 ### the top-level convenience function
 cforest <- function(formula, data = list(), subset = NULL, weights = NULL, 
-                    controls = cforest_control(),
+                    controls = cforest_unbiased(),
                     xtrafo = ptrafo, ytrafo = ptrafo, scores = NULL) {
 
     ### setup learning sample
@@ -181,12 +192,20 @@ varimp <- function(x, mincriterion = 0.0) {
     tmp <- inp
     ### jt <- response@jointtransf
 
-    CLASS <- all(response@is_nominal || response@is_ordinal)
+    CLASS <- all(response@is_nominal)
+    ORDERED  <- all(response@is_ordinal)
     if (CLASS) {
         error <- function(x, oob) 
             mean((levels(y)[sapply(x, which.max)] != y)[oob])
     } else {
-        error <- function(x, oob) mean((unlist(x) - y)[oob]^2)
+        ### <FIXME> ordered variables are of class was_ordered
+        if (ORDERED) {
+            error <- function(x, oob) 
+                mean((sapply(x, which.max) != y)[oob])
+        ### </FIXME>
+        } else {
+            error <- function(x, oob) mean((unlist(x) - y)[oob]^2)
+        }
     }
 
     perror <- matrix(0, nrow = length(x@ensemble), ncol = ncol(inputs))

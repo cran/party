@@ -106,3 +106,7 @@ cf <- cforest(y1 + y2 ~ x1 + x2, data = df)
 pr <- predict(cf)
 stopifnot(nrow(pr) == nrow(df) || ncol(pr) != 2)
 
+### varimp with ordered response
+### spotted by Max Kuhn <Max.Kuhn@pfizer.com>
+test <- cforest(ME ~ ., data = mammoexp, control = cforest_control(ntree = 50))
+stopifnot(sum(abs(varimp(test)[,1])) > 0)

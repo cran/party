@@ -1,0 +1,2779 @@
+This is pdfeTeX, Version 3.141592-1.21a-2.2 (Web2C 7.5.4) (format=pdflatex 2006.8.30)  19 SEP 2007 12:16
+entering extended mode
+**refman.tex
+(./refman.tex
+LaTeX2e <2003/12/01>
+Babel <v3.8d> and hyphenation patterns for american, french, german, ngerman, b
+ahasa, basque, bulgarian, catalan, croatian, czech, danish, dutch, esperanto, e
+stonian, finnish, greek, icelandic, irish, italian, latin, magyar, norsk, polis
+h, portuges, romanian, russian, serbian, slovak, slovene, spanish, swedish, tur
+kish, ukrainian, nohyphenation, loaded.
+(/usr/share/texmf-tetex/tex/latex/base/book.cls
+Document Class: book 2004/02/16 v1.4f Standard LaTeX document class
+(/usr/share/texmf-tetex/tex/latex/base/bk10.clo
+File: bk10.clo 2004/02/16 v1.4f Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@chapter=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/share/texmf-tetex/tex/latex/a4wide/a4wide.sty
+Package: a4wide 1994/08/30
+
+(/usr/share/texmf-tetex/tex/latex/ntgclass/a4.sty
+Package: a4 2004/04/15 v1.2g A4 based page layout
+))
+(/usr/share/texmf-tetex/tex/latex/base/makeidx.sty
+Package: makeidx 2000/03/29 v1.0m Standard LaTeX package
+)
+(/usr/share/texmf-tetex/tex/latex/fancyhdr/fancyhdr.sty
+\fancy@headwidth=\skip43
+\f@ncyO@elh=\skip44
+\f@ncyO@erh=\skip45
+\f@ncyO@olh=\skip46
+\f@ncyO@orh=\skip47
+\f@ncyO@elf=\skip48
+\f@ncyO@erf=\skip49
+\f@ncyO@olf=\skip50
+\f@ncyO@orf=\skip51
+)
+(/usr/share/texmf-tetex/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf-tetex/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(/usr/share/texmf-tetex/tex/latex/graphics/graphics.sty
+Package: graphics 2001/07/07 v1.0n Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf-tetex/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/share/texmf-tetex/tex/latex/graphics/graphics.cfg
+File: graphics.cfg 2005/02/03 v1.3 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: pdftex.def on input line 80.
+
+(/usr/share/texmf-tetex/tex/latex/graphics/pdftex.def
+File: pdftex.def 2002/06/19 v0.03k graphics/color for pdftex
+\Gread@gobject=\count88
+))
+\Gin@req@height=\dimen103
+\Gin@req@width=\dimen104
+)
+(/usr/share/texmf-tetex/tex/latex/tools/multicol.sty
+Package: multicol 2004/02/14 v1.6e multicolumn formatting (FMi)
+\c@tracingmulticols=\count89
+\mult@box=\box26
+\multicol@leftmargin=\dimen105
+\c@unbalance=\count90
+\c@collectmore=\count91
+\doublecol@number=\count92
+\multicoltolerance=\count93
+\multicolpretolerance=\count94
+\full@width=\dimen106
+\page@free=\dimen107
+\premulticols=\dimen108
+\postmulticols=\dimen109
+\multicolsep=\skip52
+\multicolbaselineskip=\skip53
+\partial@page=\box27
+\last@line=\box28
+\mult@rightbox=\box29
+\mult@grightbox=\box30
+\mult@gfirstbox=\box31
+\mult@firstbox=\box32
+\@tempa=\box33
+\@tempa=\box34
+\@tempa=\box35
+\@tempa=\box36
+\@tempa=\box37
+\@tempa=\box38
+\@tempa=\box39
+\@tempa=\box40
+\@tempa=\box41
+\@tempa=\box42
+\@tempa=\box43
+\@tempa=\box44
+\@tempa=\box45
+\@tempa=\box46
+\@tempa=\box47
+\@tempa=\box48
+\@tempa=\box49
+\c@columnbadness=\count95
+\c@finalcolumnbadness=\count96
+\last@try=\dimen110
+\multicolovershoot=\dimen111
+\multicolundershoot=\dimen112
+\mult@nat@firstbox=\box50
+\colbreak@box=\box51
+)
+(/usr/share/texmf-tetex/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count97
+\float@exts=\toks15
+\float@box=\box52
+\@float@everytoks=\toks16
+\@floatcapt=\box53
+)
+(/usr/share/texmf-tetex/tex/latex/base/textcomp.sty
+Package: textcomp 2004/02/22 v1.99f Standard LaTeX package
+Package textcomp Info: Sub-encoding information:
+(textcomp)               5 = only ISO-Adobe without \textcurrency
+(textcomp)               4 = 5 + \texteuro
+(textcomp)               3 = 4 + \textohm
+(textcomp)               2 = 3 + \textestimated + \textcurrency
+(textcomp)               1 = TS1 - \textcircled - \t
+(textcomp)               0 = TS1 (full)
+(textcomp)             Font families with sub-encoding setting implement
+(textcomp)             only a restricted character set as indicated.
+(textcomp)             Family '?' is the default used for unknown fonts.
+(textcomp)             See the documentation for details.
+Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 71.
+
+(/usr/share/texmf-tetex/tex/latex/base/ts1enc.def
+File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
+)
+LaTeX Info: Redefining \oldstylenums on input line 266.
+Package textcomp Info: Setting cmr sub-encoding to TS1/0 on input line 281.
+Package textcomp Info: Setting cmss sub-encoding to TS1/0 on input line 282.
+Package textcomp Info: Setting cmtt sub-encoding to TS1/0 on input line 283.
+Package textcomp Info: Setting cmvtt sub-encoding to TS1/0 on input line 284.
+Package textcomp Info: Setting cmbr sub-encoding to TS1/0 on input line 285.
+Package textcomp Info: Setting cmtl sub-encoding to TS1/0 on input line 286.
+Package textcomp Info: Setting ccr sub-encoding to TS1/0 on input line 287.
+Package textcomp Info: Setting ptm sub-encoding to TS1/4 on input line 288.
+Package textcomp Info: Setting pcr sub-encoding to TS1/4 on input line 289.
+Package textcomp Info: Setting phv sub-encoding to TS1/4 on input line 290.
+Package textcomp Info: Setting ppl sub-encoding to TS1/3 on input line 291.
+Package textcomp Info: Setting pag sub-encoding to TS1/4 on input line 292.
+Package textcomp Info: Setting pbk sub-encoding to TS1/4 on input line 293.
+Package textcomp Info: Setting pnc sub-encoding to TS1/4 on input line 294.
+Package textcomp Info: Setting pzc sub-encoding to TS1/4 on input line 295.
+Package textcomp Info: Setting bch sub-encoding to TS1/4 on input line 296.
+Package textcomp Info: Setting put sub-encoding to TS1/5 on input line 297.
+Package textcomp Info: Setting uag sub-encoding to TS1/5 on input line 298.
+Package textcomp Info: Setting ugq sub-encoding to TS1/5 on input line 299.
+Package textcomp Info: Setting ul8 sub-encoding to TS1/4 on input line 300.
+Package textcomp Info: Setting ul9 sub-encoding to TS1/4 on input line 301.
+Package textcomp Info: Setting augie sub-encoding to TS1/5 on input line 302.
+Package textcomp Info: Setting dayrom sub-encoding to TS1/3 on input line 303.
+Package textcomp Info: Setting dayroms sub-encoding to TS1/3 on input line 304.
+
+Package textcomp Info: Setting pxr sub-encoding to TS1/0 on input line 305.
+Package textcomp Info: Setting pxss sub-encoding to TS1/0 on input line 306.
+Package textcomp Info: Setting pxtt sub-encoding to TS1/0 on input line 307.
+Package textcomp Info: Setting txr sub-encoding to TS1/0 on input line 308.
+Package textcomp Info: Setting txss sub-encoding to TS1/0 on input line 309.
+Package textcomp Info: Setting txtt sub-encoding to TS1/0 on input line 310.
+Package textcomp Info: Setting futs sub-encoding to TS1/4 on input line 311.
+Package textcomp Info: Setting futx sub-encoding to TS1/4 on input line 312.
+Package textcomp Info: Setting futj sub-encoding to TS1/4 on input line 313.
+Package textcomp Info: Setting hlh sub-encoding to TS1/3 on input line 314.
+Package textcomp Info: Setting hls sub-encoding to TS1/3 on input line 315.
+Package textcomp Info: Setting hlst sub-encoding to TS1/3 on input line 316.
+Package textcomp Info: Setting hlct sub-encoding to TS1/5 on input line 317.
+Package textcomp Info: Setting hlx sub-encoding to TS1/5 on input line 318.
+Package textcomp Info: Setting hlce sub-encoding to TS1/5 on input line 319.
+Package textcomp Info: Setting hlcn sub-encoding to TS1/5 on input line 320.
+Package textcomp Info: Setting hlcw sub-encoding to TS1/5 on input line 321.
+Package textcomp Info: Setting hlcf sub-encoding to TS1/5 on input line 322.
+Package textcomp Info: Setting pplx sub-encoding to TS1/3 on input line 323.
+Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 324.
+Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 325.
+Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 326.
+)
+(/usr/share/texmf-tetex/tex/latex/base/alltt.sty
+Package: alltt 1997/06/16 v2.0g defines alltt environment
+)
+(/usr/share/texmf-tetex/tex/latex/psnfss/times.sty
+Package: times 2004/09/15 PSNFSS-v9.2 (SPQR) 
+)
+(/usr/share/texmf-tetex/tex/latex/oberdiek/ifpdf.sty
+Package: ifpdf 2001/06/14 v1.0 Providing \ifpdf (HO)
+Package ifpdf Info: pdfTeX in pdf mode detected on input line 140.
+)
+(/usr/share/texmf-tetex/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2003/11/30 v6.74m Hypertext links for LaTeX
+\@linkdim=\dimen113
+\Hy@linkcounter=\count98
+\Hy@pagecounter=\count99
+
+(/usr/share/texmf-tetex/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2003/11/30 v6.74m Hyperref: PDFDocEncoding definition (HO)
+)
+(/usr/share/texmf-tetex/tex/latex/hyperref/hyperref.cfg
+File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive and teTeX
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 1830.
+Package hyperref Info: Hyper figures OFF on input line 1880.
+Package hyperref Info: Link nesting OFF on input line 1885.
+Package hyperref Info: Hyper index ON on input line 1888.
+Package hyperref Info: Plain pages ON on input line 1893.
+Package hyperref Info: Backreferencing ON on input line 1898.
+
+Implicit mode ON; LaTeX internals redefined
+Package hyperref Info: Bookmarks ON on input line 2004.
+(/usr/share/texmf-tetex/tex/latex/hyperref/backref.sty
+Package: backref 2003/03/20 v1.23 Bibliographical back referencing
+)
+(/usr/share/texmf-tetex/tex/latex/url/url.sty
+\Urlmuskip=\muskip10
+Package: url 2004/03/15  ver 3.1  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 2143.
+\Fld@menulength=\count100
+\Field@Width=\dimen114
+\Fld@charsize=\dimen115
+\Choice@toks=\toks17
+\Field@toks=\toks18
+Package hyperref Info: Hyper figures OFF on input line 2618.
+Package hyperref Info: Link nesting OFF on input line 2623.
+Package hyperref Info: Hyper index ON on input line 2626.
+Package hyperref Info: backreferencing ON on input line 2631.
+Package hyperref Info: Link coloring ON on input line 2636.
+\c@Item=\count101
+\c@Hfootnote=\count102
+)
+*hyperref using driver hpdftex*
+(/usr/share/texmf-tetex/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2003/11/30 v6.74m Hyperref driver for pdfTeX
+
+(/usr/share/texmf-tetex/tex/latex/psnfss/pifont.sty
+Package: pifont 2004/09/15 PSNFSS-v9.2 Pi font support (SPQR) 
+LaTeX Font Info:    Try loading font information for U+pzd on input line 63.
+
+(/usr/share/texmf-tetex/tex/latex/psnfss/upzd.fd
+File: upzd.fd 2001/06/04 font definitions for U/pzd.
+)
+LaTeX Font Info:    Try loading font information for U+psy on input line 64.
+
+(/usr/share/texmf-tetex/tex/latex/psnfss/upsy.fd
+File: upsy.fd 2001/06/04 font definitions for U/psy.
+))
+\Fld@listcount=\count103
+\@outlinefile=\write3
+) (./doxygen.sty
+Package: doxygen 
+
+(/usr/share/texmf-tetex/tex/latex/tools/calc.sty
+Package: calc 1998/07/07 v4.1b Infix arithmetic (KKT,FJ)
+\calc@Acount=\count104
+\calc@Bcount=\count105
+\calc@Adimen=\dimen116
+\calc@Bdimen=\dimen117
+\calc@Askip=\skip54
+\calc@Bskip=\skip55
+LaTeX Info: Redefining \setlength on input line 59.
+LaTeX Info: Redefining \addtolength on input line 60.
+\calc@denominator=\count106
+)
+(/usr/share/texmf-tetex/tex/latex/tools/array.sty
+Package: array 2003/12/17 v2.4a Tabular extension package (FMi)
+\col@sep=\dimen118
+\extrarowheight=\dimen119
+\NC@list=\toks19
+\extratabsurround=\skip56
+\backup@length=\skip57
+)
+\tmplength=\skip58
+)
+(/usr/share/texmf-tetex/tex/latex/base/fontenc.sty
+Package: fontenc 2004/02/22 v1.99f Standard LaTeX package
+
+(/usr/share/texmf-tetex/tex/latex/base/t1enc.def
+File: t1enc.def 2004/02/22 v1.99f Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
+))
+\@indexfile=\write4
+\openout4 = `refman.idx'.
+
+
+Writing index file refman.idx
+No file refman.aux.
+\openout1 = `refman.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 31.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 31.
+(/usr/share/texmf-tetex/tex/latex/base/ts1cmr.fd
+File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Try loading font information for T1+ptm on input line 31.
+
+(/usr/share/texmf-tetex/tex/latex/psnfss/t1ptm.fd
+File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
+)
+(/usr/share/texmf-tetex/tex/context/base/supp-pdf.tex
+(/usr/share/texmf-tetex/tex/context/base/supp-mis.tex
+loading : Context Support Macros / Miscellaneous (2004.10.26)
+\protectiondepth=\count107
+\scratchcounter=\count108
+\scratchtoks=\toks20
+\scratchdimen=\dimen120
+\scratchskip=\skip59
+\scratchmuskip=\muskip11
+\scratchbox=\box54
+\scratchread=\read1
+\scratchwrite=\write5
+\zeropoint=\dimen121
+\onepoint=\dimen122
+\onebasepoint=\dimen123
+\minusone=\count109
+\thousandpoint=\dimen124
+\onerealpoint=\dimen125
+\emptytoks=\toks21
+\nextbox=\box55
+\nextdepth=\dimen126
+\everyline=\toks22
+\!!counta=\count110
+\!!countb=\count111
+\recursecounter=\count112
+)
+loading : Context Support Macros / PDF (2004.03.26)
+\nofMPsegments=\count113
+\nofMParguments=\count114
+\MPscratchCnt=\count115
+\MPscratchDim=\dimen127
+\MPnumerator=\count116
+\everyMPtoPDFconversion=\toks23
+) (/usr/share/texmf-tetex/tex/latex/graphics/color.sty
+Package: color 1999/02/16 v1.0i Standard LaTeX Color (DPC)
+LaTeX Info: Redefining \color on input line 71.
+
+(/usr/share/texmf-tetex/tex/latex/graphics/color.cfg
+File: color.cfg 2005/02/03 v1.3 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: pdftex.def on input line 125.
+)
+Package hyperref Info: Link coloring ON on input line 31.
+
+(/usr/share/texmf-tetex/tex/latex/hyperref/nameref.sty
+Package: nameref 2003/12/03 v2.21 Cross-referencing by name of section
+\c@section@level=\count117
+)
+LaTeX Info: Redefining \ref on input line 31.
+LaTeX Info: Redefining \pageref on input line 31.
+\openout3 = `refman.out'.
+
+ [1
+
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2
+
+]
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <24.88> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 44.
+\tf@toc=\write6
+\openout6 = `refman.toc'.
+
+
+! pdfTeX warning (ext4): destination with the same identifier (name{page.1}) ha
+s been already used, duplicate ignored
+<to be read again> 
+                   \penalty 
+l.45 \clearemptydoublepage
+                           [1
+
+]
+! pdfTeX warning (ext4): destination with the same identifier (name{page.2}) ha
+s been already used, duplicate ignored
+<to be read again> 
+                   \penalty 
+l.45 \clearemptydoublepage
+                           [2
+
+]
+Chapter 1.
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <20.74> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 47.
+(./dirs.tex
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <14.4> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 1.
+
+Underfull \hbox (badness 10000) detected at line 3
+[][]
+ []
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 3.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 3.
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 3.
+
+LaTeX Warning: Reference `dir_e920ac9cd7022be6bbd5bf2c61886d00' on page 1 undef
+ined on input line 3.
+
+)
+! pdfTeX warning (ext4): destination with the same identifier (name{page.1}) ha
+s been already used, duplicate ignored
+<to be read again> 
+                   \penalty 
+l.49 \chapter
+             {party File Index} [1
+
+]
+! pdfTeX warning (ext4): destination with the same identifier (name{page.2}) ha
+s been already used, duplicate ignored
+<to be read again> 
+                   \penalty 
+l.49 \chapter
+             {party File Index}
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <7> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 49.
+ [2
+
+]
+Chapter 2.
+(./files.tex
+Underfull \hbox (badness 10000) detected at line 3
+[][]
+ []
+
+
+LaTeX Warning: Reference `Classes_8c' on page 3 undefined on input line 3.
+
+
+Underfull \hbox (badness 10000) detected at line 4
+[][]
+ []
+
+
+LaTeX Warning: Reference `Classes_8h' on page 3 undefined on input line 4.
+
+
+Underfull \hbox (badness 10000) detected at line 5
+[][]
+ []
+
+
+LaTeX Warning: Reference `Convenience_8c' on page 3 undefined on input line 5.
+
+
+Underfull \hbox (badness 10000) detected at line 6
+[][]
+ []
+
+
+LaTeX Warning: Reference `Convenience_8h' on page 3 undefined on input line 6.
+
+
+Underfull \hbox (badness 10000) detected at line 7
+[][]
+ []
+
+
+LaTeX Warning: Reference `Distributions_8c' on page 3 undefined on input line 7
+.
+
+
+Underfull \hbox (badness 10000) detected at line 8
+[][]
+ []
+
+
+LaTeX Warning: Reference `Distributions_8h' on page 3 undefined on input line 8
+.
+
+
+Underfull \hbox (badness 10000) detected at line 9
+[][]
+ []
+
+
+LaTeX Warning: Reference `IndependenceTest_8c' on page 3 undefined on input lin
+e 9.
+
+
+Underfull \hbox (badness 10000) detected at line 10
+[][]
+ []
+
+
+LaTeX Warning: Reference `IndependenceTest_8h' on page 3 undefined on input lin
+e 10.
+
+
+Underfull \hbox (badness 10000) detected at line 11
+[][]
+ []
+
+
+LaTeX Warning: Reference `LinearStatistic_8c' on page 3 undefined on input line
+ 11.
+
+
+Underfull \hbox (badness 10000) detected at line 12
+[][]
+ []
+
+
+LaTeX Warning: Reference `LinearStatistic_8h' on page 3 undefined on input line
+ 12.
+
+
+Underfull \hbox (badness 10000) detected at line 13
+[][]
+ []
+
+
+LaTeX Warning: Reference `mvt_8h' on page 3 undefined on input line 13.
+
+
+Underfull \hbox (badness 10000) detected at line 14
+[][]
+ []
+
+
+LaTeX Warning: Reference `Node_8c' on page 3 undefined on input line 14.
+
+
+Underfull \hbox (badness 10000) detected at line 15
+[][]
+ []
+
+
+LaTeX Warning: Reference `Node_8h' on page 3 undefined on input line 15.
+
+
+Underfull \hbox (badness 10000) detected at line 16
+[][]
+ []
+
+
+LaTeX Warning: Reference `party_8h' on page 3 undefined on input line 16.
+
+
+Underfull \hbox (badness 10000) detected at line 17
+[][]
+ []
+
+
+LaTeX Warning: Reference `Predict_8c' on page 3 undefined on input line 17.
+
+
+Underfull \hbox (badness 10000) detected at line 18
+[][]
+ []
+
+
+LaTeX Warning: Reference `Predict_8h' on page 3 undefined on input line 18.
+
+
+Underfull \hbox (badness 10000) detected at line 19
+[][]
+ []
+
+
+LaTeX Warning: Reference `RandomForest_8c' on page 3 undefined on input line 19
+.
+
+
+Underfull \hbox (badness 10000) detected at line 20
+[][]
+ []
+
+
+LaTeX Warning: Reference `S3Classes_8c' on page 3 undefined on input line 20.
+
+
+Underfull \hbox (badness 10000) detected at line 21
+[][]
+ []
+
+
+LaTeX Warning: Reference `S3Classes_8h' on page 3 undefined on input line 21.
+
+
+Underfull \hbox (badness 10000) detected at line 22
+[][]
+ []
+
+
+LaTeX Warning: Reference `Splits_8c' on page 3 undefined on input line 22.
+
+
+Underfull \hbox (badness 10000) detected at line 23
+[][]
+ []
+
+
+LaTeX Warning: Reference `Splits_8h' on page 3 undefined on input line 23.
+
+
+Underfull \hbox (badness 10000) detected at line 24
+[][]
+ []
+
+
+LaTeX Warning: Reference `SurrogateSplits_8c' on page 3 undefined on input line
+ 24.
+
+
+Underfull \hbox (badness 10000) detected at line 25
+[][]
+ []
+
+
+LaTeX Warning: Reference `SurrogateSplits_8h' on page 3 undefined on input line
+ 25.
+
+
+Underfull \hbox (badness 10000) detected at line 26
+[][]
+ []
+
+
+LaTeX Warning: Reference `TestStatistic_8c' on page 3 undefined on input line 2
+6.
+
+
+Underfull \hbox (badness 10000) detected at line 27
+[][]
+ []
+
+
+LaTeX Warning: Reference `TestStatistic_8h' on page 3 undefined on input line 2
+7.
+
+
+Underfull \hbox (badness 10000) detected at line 28
+[][]
+ []
+
+
+LaTeX Warning: Reference `TreeGrow_8c' on page 3 undefined on input line 28.
+
+
+Underfull \hbox (badness 10000) detected at line 29
+[][]
+ []
+
+
+LaTeX Warning: Reference `TreeGrow_8h' on page 3 undefined on input line 29.
+
+
+Underfull \hbox (badness 10000) detected at line 30
+[][]
+ []
+
+
+LaTeX Warning: Reference `Utils_8c' on page 3 undefined on input line 30.
+
+
+Underfull \hbox (badness 10000) detected at line 31
+[][]
+ []
+
+
+LaTeX Warning: Reference `Utils_8h' on page 3 undefined on input line 31.
+
+) [3] [4
+
+]
+Chapter 3.
+(./pages.tex
+Underfull \hbox (badness 10000) detected at line 3
+[][]
+ []
+
+
+LaTeX Warning: Reference `todo' on page 5 undefined on input line 3.
+
+) [5] [6
+
+]
+Chapter 4.
+(./dir_e920ac9cd7022be6bbd5bf2c61886d00.tex
+<dir_e920ac9cd7022be6bbd5bf2c61886d00_dep.pdf, id=116, 56.21pt x 38.1425pt>
+File: dir_e920ac9cd7022be6bbd5bf2c61886d00_dep.pdf Graphic file (type pdf)
+
+<use dir_e920ac9cd7022be6bbd5bf2c61886d00_dep.pdf>
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 13.
+LaTeX Font Info:    Try loading font information for TS1+ptm on input line 16.
+
+(/usr/share/texmf-tetex/tex/latex/psnfss/ts1ptm.fd
+File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
+) [7 <./dir_e920ac9cd7022be6bbd5bf2c61886d00_dep.pdf>]) [8]
+Chapter 5.
+(./Classes_8c.tex
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 5.
+ (/usr/share/texmf-tetex/tex/latex/psnfss/t1pcr.fd
+File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
+)
+<Classes_8c__incl.pdf, id=162, 291.0875pt x 706.64pt>
+File: Classes_8c__incl.pdf Graphic file (type pdf)
+
+<use Classes_8c__incl.pdf>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [9
+
+]
+[10 <./Classes_8c__incl.pdf>] [11]
+Underfull \hbox (badness 10000) in paragraph at lines 246--246
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 247--247
+
+ []
+
+[12]
+Underfull \hbox (badness 10000) in paragraph at lines 250--250
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 251--251
+
+ []
+
+LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <10> not available
+(Font)              Font shape `T1/ptm/b/it' tried instead on input line 261.
+[13]
+<Classes_8c_0e317821da8f3bc0fb6da5006abb81f6_cgraph.pdf, id=428, 164.615pt x 56
+.21pt>
+File: Classes_8c_0e317821da8f3bc0fb6da5006abb81f6_cgraph.pdf Graphic file (type
+ pdf)
+ <use Classes_8c_0e317821da8f3bc0fb6da5006abb81f6_cgraph.pdf> [14 <./Classes_8c
+_0e317821da8f3bc0fb6da5006abb81f6_cgraph.pdf>]
+<Classes_8c_fd6cfc2dd239b138d91e92a8ce9353f8_cgraph.pdf, id=443, 192.72pt x 20.
+075pt>
+File: Classes_8c_fd6cfc2dd239b138d91e92a8ce9353f8_cgraph.pdf Graphic file (type
+ pdf)
+ <use Classes_8c_fd6cfc2dd239b138d91e92a8ce9353f8_cgraph.pdf>
+Underfull \hbox (badness 10000) in paragraph at lines 496--499
+[]\T1/ptm/m/n/10 Referenced by C_-Global-Test(), C_-Monte-Carlo(), C_-Node(), C
+_-predict(), C_-splitnode(), C_-
+ []
+
+[15 <./Classes_8c_fd6cfc2dd239b138d91e92a8ce9353f8_cgraph.pdf>]
+<Classes_8c_a160107e2d687d3fa2411af7e25763ef_cgraph.pdf, id=459, 176.66pt x 20.
+075pt>
+File: Classes_8c_a160107e2d687d3fa2411af7e25763ef_cgraph.pdf Graphic file (type
+ pdf)
+ <use Classes_8c_a160107e2d687d3fa2411af7e25763ef_cgraph.pdf> [16 <./Classes_8c
+_a160107e2d687d3fa2411af7e25763ef_cgraph.pdf>]
+<Classes_8c_ba4726f56726372030e1e104b2f2b076_cgraph.pdf, id=475, 164.615pt x 20
+.075pt>
+File: Classes_8c_ba4726f56726372030e1e104b2f2b076_cgraph.pdf Graphic file (type
+ pdf)
+ <use Classes_8c_ba4726f56726372030e1e104b2f2b076_cgraph.pdf> [17 <./Classes_8c
+_ba4726f56726372030e1e104b2f2b076_cgraph.pdf>] [18] [19]
+Underfull \hbox (badness 3803) in paragraph at lines 864--865
+[]\T1/ptm/m/n/10 References PL2_-abseps-Sym, PL2_-covariance-Sym, PL2_-dimensio
+n-Sym, PL2_-dontuse-Sym, PL2_-
+ []
+
+
+Underfull \hbox (badness 1484) in paragraph at lines 864--865
+\T1/ptm/m/n/10 PL2_-is_-ordinal-Sym, PL2_-jobu-Sym, PL2_-jobv-Sym, PL2_-levels-
+Sym, PL2_-linearstatistic-Sym, PL2_-
+ []
+
+[20]
+Underfull \hbox (badness 1107) in paragraph at lines 999--1002
+[]\T1/ptm/m/n/10 Referenced by C_-Global-Test(), C_-Monte-Carlo(), C_-Node(), C
+_-splitnode(), C_-splitsurrogate(), C_-
+ []
+
+[21] [22] [23] [24] [25] [26]) [27]
+\openout2 = `Classes_8h.aux'.
+
+ (./Classes_8h.tex
+<Classes_8h__dep__incl.pdf, id=736, 293.095pt x 489.83pt>
+File: Classes_8h__dep__incl.pdf Graphic file (type pdf)
+
+<use Classes_8h__dep__incl.pdf> [28
+
+ <./Classes_8h__dep__incl.pdf>] [29]
+[30]
+<Classes_8h_0e317821da8f3bc0fb6da5006abb81f6_cgraph.pdf, id=913, 164.615pt x 56
+.21pt>
+File: Classes_8h_0e317821da8f3bc0fb6da5006abb81f6_cgraph.pdf Graphic file (type
+ pdf)
+ <use Classes_8h_0e317821da8f3bc0fb6da5006abb81f6_cgraph.pdf> [31 <./Classes_8h
+_0e317821da8f3bc0fb6da5006abb81f6_cgraph.pdf>]
+<Classes_8h_fd6cfc2dd239b138d91e92a8ce9353f8_cgraph.pdf, id=929, 192.72pt x 20.
+075pt>
+File: Classes_8h_fd6cfc2dd239b138d91e92a8ce9353f8_cgraph.pdf Graphic file (type
+ pdf)
+ <use Classes_8h_fd6cfc2dd239b138d91e92a8ce9353f8_cgraph.pdf> [32 <./Classes_8h
+_fd6cfc2dd239b138d91e92a8ce9353f8_cgraph.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 478--481
+[]\T1/ptm/m/n/10 Referenced by C_-Global-Test(), C_-Monte-Carlo(), C_-Node(), C
+_-predict(), C_-splitnode(), C_-
+ []
+
+
+<Classes_8h_a160107e2d687d3fa2411af7e25763ef_cgraph.pdf, id=945, 176.66pt x 20.
+075pt>
+File: Classes_8h_a160107e2d687d3fa2411af7e25763ef_cgraph.pdf Graphic file (type
+ pdf)
+ <use Classes_8h_a160107e2d687d3fa2411af7e25763ef_cgraph.pdf> [33 <./Classes_8h
+_a160107e2d687d3fa2411af7e25763ef_cgraph.pdf>]
+<Classes_8h_ba4726f56726372030e1e104b2f2b076_cgraph.pdf, id=961, 164.615pt x 20
+.075pt>
+File: Classes_8h_ba4726f56726372030e1e104b2f2b076_cgraph.pdf Graphic file (type
+ pdf)
+ <use Classes_8h_ba4726f56726372030e1e104b2f2b076_cgraph.pdf> [34 <./Classes_8h
+_ba4726f56726372030e1e104b2f2b076_cgraph.pdf>] [35] [36] [37]
+Underfull \hbox (badness 1107) in paragraph at lines 977--980
+[]\T1/ptm/m/n/10 Referenced by C_-Global-Test(), C_-Monte-Carlo(), C_-Node(), C
+_-splitnode(), C_-splitsurrogate(), C_-
+ []
+
+[38] [39
+! pdfTeX warning (ext4): destination with the same identifier (name{Classes_8h_
+adb3a293553f93d6233d9ba4ab7d1039}) has been already used, duplicate ignored
+<to be read again> 
+                   \endgroup \set@typeset@protect 
+l.1085 R
+        eferenced by get\_\-maxpts(), and party\_\-init().\hypertarget{Class...
+] [40] [41] [42] [43]) [44
+! pdfTeX warning (ext4): destination with the same identifier (name{Classes_8h_
+6b4204d372191db8c7fb0210bfce8f6a}) has been already used, duplicate ignored
+<to be read again> 
+                   \endgroup \set@typeset@protect 
+l.57 \include{Classes_8h}
+                         
+! pdfTeX warning (ext4): destination with the same identifier (name{Classes_8h_
+81fa0afba4ad786166ef0872c842a9db}) has been already used, duplicate ignored
+<to be read again> 
+                   \endgroup \set@typeset@protect 
+l.57 \include{Classes_8h}
+                         ]
+\openout2 = `Convenience_8c.aux'.
+
+ (./Convenience_8c.tex
+<Convenience_8c__incl.pdf, id=1163, 315.1775pt x 706.64pt>
+File: Convenience_8c__incl.pdf Graphic file (type pdf)
+
+<use Convenience_8c__incl.pdf> [45
+
+
+ <./Convenience_8c__incl.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 35--35
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 36--36
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 39--39
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 40--40
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 55--55
+
+ []
+
+
+Underfull \hbox (badness 1122) in paragraph at lines 63--64
+[]\T1/ptm/m/n/10 References C_-maxabs-Conditional-Pvalue(), C_-quadform-Conditi
+onal-Pvalue(), get_-dimension(), MAX-
+ []
+
+
+<Convenience_8c_a1bfc91db235a3a166a39ed1e0a224d7_cgraph.pdf, id=1190, 301.125pt
+ x 92.345pt>
+File: Convenience_8c_a1bfc91db235a3a166a39ed1e0a224d7_cgraph.pdf Graphic file (
+type pdf)
+ <use Convenience_8c_a1bfc91db235a3a166a39ed1e0a224d7_cgraph.pdf>
+Underfull \hbox (badness 10000) in paragraph at lines 82--82
+
+ []
+
+[46 <./Convenience_8c_a1bfc91db235a3a166a39ed1e0a224d7_cgraph.pdf>]
+<Convenience_8c_8d5dcca68051449e29f3b857d375c4a0_cgraph.pdf, id=1205, 285.065pt
+ x 92.345pt>
+File: Convenience_8c_8d5dcca68051449e29f3b857d375c4a0_cgraph.pdf Graphic file (
+type pdf)
+ <use Convenience_8c_8d5dcca68051449e29f3b857d375c4a0_cgraph.pdf>
+Underfull \hbox (badness 10000) in paragraph at lines 109--109
+
+ []
+
+
+<Convenience_8c_f39bdd14f23726fdd6bf74888ffbf920_cgraph.pdf, id=1206, 383.4325p
+t x 20.075pt>
+File: Convenience_8c_f39bdd14f23726fdd6bf74888ffbf920_cgraph.pdf Graphic file (
+type pdf)
+ <use Convenience_8c_f39bdd14f23726fdd6bf74888ffbf920_cgraph.pdf>
+Underfull \hbox (badness 10000) in paragraph at lines 135--135
+
+ []
+
+[47 <./Convenience_8c_8d5dcca68051449e29f3b857d375c4a0_cgraph.pdf> <./Convenien
+ce_8c_f39bdd14f23726fdd6bf74888ffbf920_cgraph.pdf>]
+<Convenience_8c_26159cd74cebf8ff7073ff588864e9ab_cgraph.pdf, id=1221, 501.875pt
+ x 128.48pt>
+File: Convenience_8c_26159cd74cebf8ff7073ff588864e9ab_cgraph.pdf Graphic file (
+type pdf)
+ <use Convenience_8c_26159cd74cebf8ff7073ff588864e9ab_cgraph.pdf>
+Underfull \hbox (badness 10000) in paragraph at lines 161--161
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 179--179
+
+ []
+
+
+<Convenience_8c_a1e8edb4fa73a26e73bc153c45a867b0_cgraph.pdf, id=1222, 220.825pt
+ x 92.345pt>
+File: Convenience_8c_a1e8edb4fa73a26e73bc153c45a867b0_cgraph.pdf Graphic file (
+type pdf)
+ <use Convenience_8c_a1e8edb4fa73a26e73bc153c45a867b0_cgraph.pdf>)
+[48 <./Convenience_8c_26159cd74cebf8ff7073ff588864e9ab_cgraph.pdf> <./Convenien
+ce_8c_a1e8edb4fa73a26e73bc153c45a867b0_cgraph.pdf>]
+\openout2 = `Convenience_8h.aux'.
+
+ (./Convenience_8h.tex
+<Convenience_8h__dep__incl.pdf, id=1237, 315.1775pt x 489.83pt>
+File: Convenience_8h__dep__incl.pdf Graphic file (type pdf)
+
+<use Convenience_8h__dep__incl.pdf>
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+
+ []
+
+[49
+
+
+ <./Convenience_8h__dep__incl.pdf>]
+Underfull \hbox (badness 1122) in paragraph at lines 45--46
+[]\T1/ptm/m/n/10 References C_-maxabs-Conditional-Pvalue(), C_-quadform-Conditi
+onal-Pvalue(), get_-dimension(), MAX-
+ []
+
+
+<Convenience_8h_a1bfc91db235a3a166a39ed1e0a224d7_cgraph.pdf, id=1260, 301.125pt
+ x 92.345pt>
+File: Convenience_8h_a1bfc91db235a3a166a39ed1e0a224d7_cgraph.pdf Graphic file (
+type pdf)
+ <use Convenience_8h_a1bfc91db235a3a166a39ed1e0a224d7_cgraph.pdf>
+Underfull \hbox (badness 10000) in paragraph at lines 64--64
+
+ []
+
+
+<Convenience_8h_8d5dcca68051449e29f3b857d375c4a0_cgraph.pdf, id=1261, 285.065pt
+ x 92.345pt>
+File: Convenience_8h_8d5dcca68051449e29f3b857d375c4a0_cgraph.pdf Graphic file (
+type pdf)
+ <use Convenience_8h_8d5dcca68051449e29f3b857d375c4a0_cgraph.pdf>
+[50 <./Convenience_8h_a1bfc91db235a3a166a39ed1e0a224d7_cgraph.pdf> <./Convenien
+ce_8h_8d5dcca68051449e29f3b857d375c4a0_cgraph.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 91--91
+
+ []
+
+
+<Convenience_8h_f39bdd14f23726fdd6bf74888ffbf920_cgraph.pdf, id=1275, 383.4325p
+t x 20.075pt>
+File: Convenience_8h_f39bdd14f23726fdd6bf74888ffbf920_cgraph.pdf Graphic file (
+type pdf)
+ <use Convenience_8h_f39bdd14f23726fdd6bf74888ffbf920_cgraph.pdf>
+Underfull \hbox (badness 10000) in paragraph at lines 124--124
+
+ []
+
+
+<Convenience_8h_26159cd74cebf8ff7073ff588864e9ab_cgraph.pdf, id=1276, 501.875pt
+ x 128.48pt>
+File: Convenience_8h_26159cd74cebf8ff7073ff588864e9ab_cgraph.pdf Graphic file (
+type pdf)
+ <use Convenience_8h_26159cd74cebf8ff7073ff588864e9ab_cgraph.pdf>)
+[51 <./Convenience_8h_f39bdd14f23726fdd6bf74888ffbf920_cgraph.pdf> <./Convenien
+ce_8h_26159cd74cebf8ff7073ff588864e9ab_cgraph.pdf>]
+\openout2 = `Distributions_8c.aux'.
+
+ (./Distributions_8c.tex
+<Distributions_8c__incl.pdf, id=1293, 311.1625pt x 706.64pt>
+File: Distributions_8c__incl.pdf Graphic file (type pdf)
+
+<use Distributions_8c__incl.pdf> [52
+
+
+ <./Distributions_8c__incl.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 35--35
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 36--36
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 39--39
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 40--40
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 57--57
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 73--73
+
+ []
+
+
+<Distributions_8c_662bfb70585ca9948ff29d7ed370273b_cgraph.pdf, id=1316, 204.765
+pt x 128.48pt>
+File: Distributions_8c_662bfb70585ca9948ff29d7ed370273b_cgraph.pdf Graphic file
+ (type pdf)
+
+<use Distributions_8c_662bfb70585ca9948ff29d7ed370273b_cgraph.pdf> [53]
+Underfull \hbox (badness 10000) in paragraph at lines 100--100
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 117--117
+
+ []
+
+
+<Distributions_8c_23e23063d2a1c5ecfb6e1603d0edc228_cgraph.pdf, id=1327, 331.237
+5pt x 56.21pt>
+File: Distributions_8c_23e23063d2a1c5ecfb6e1603d0edc228_cgraph.pdf Graphic file
+ (type pdf)
+
+<use Distributions_8c_23e23063d2a1c5ecfb6e1603d0edc228_cgraph.pdf> [54 <./Distr
+ibutions_8c_662bfb70585ca9948ff29d7ed370273b_cgraph.pdf> <./Distributions_8c_23
+e23063d2a1c5ecfb6e1603d0edc228_cgraph.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 142--142
+
+ []
+
+
+<Distributions_8c_06bd58bb395eb700a056db4498c4db9c_cgraph.pdf, id=1342, 323.207
+5pt x 129.48375pt>
+File: Distributions_8c_06bd58bb395eb700a056db4498c4db9c_cgraph.pdf Graphic file
+ (type pdf)
+
+<use Distributions_8c_06bd58bb395eb700a056db4498c4db9c_cgraph.pdf>
+Underfull \hbox (badness 10000) in paragraph at lines 167--167
+
+ []
+
+
+<Distributions_8c_f9d46ed74aa1e81c94ddbfdbf5cf504f_cgraph.pdf, id=1343, 343.282
+5pt x 20.075pt>
+File: Distributions_8c_f9d46ed74aa1e81c94ddbfdbf5cf504f_cgraph.pdf Graphic file
+ (type pdf)
+
+<use Distributions_8c_f9d46ed74aa1e81c94ddbfdbf5cf504f_cgraph.pdf>) [55 <./Dist
+ributions_8c_06bd58bb395eb700a056db4498c4db9c_cgraph.pdf> <./Distributions_8c_f
+9d46ed74aa1e81c94ddbfdbf5cf504f_cgraph.pdf>]
+\openout2 = `Distributions_8h.aux'.
+
+ (./Distributions_8h.tex
+<Distributions_8h__dep__incl.pdf, id=1358, 311.1625pt x 489.83pt>
+File: Distributions_8h__dep__incl.pdf Graphic file (type pdf)
+
+<use Distributions_8h__dep__incl.pdf>
+Underfull \hbox (badness 10000) in paragraph at lines 35--35
+
+ []
+
+[56
+
+
+ <./Distributions_8h__dep__incl.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 51--51
+
+ []
+
+
+<Distributions_8h_579a9b99cc4ab820a62f636869788cf8_cgraph.pdf, id=1377, 204.765
+pt x 128.48pt>
+File: Distributions_8h_579a9b99cc4ab820a62f636869788cf8_cgraph.pdf Graphic file
+ (type pdf)
+
+<use Distributions_8h_579a9b99cc4ab820a62f636869788cf8_cgraph.pdf>
+Underfull \hbox (badness 10000) in paragraph at lines 78--78
+
+ []
+
+) [57 <./Distributions_8h_579a9b99cc4ab820a62f636869788cf8_cgraph.pdf>]
+\openout2 = `IndependenceTest_8c.aux'.
+
+
+(./IndependenceTest_8c.tex
+<IndependenceTest_8c__incl.pdf, id=1389, 339.2675pt x 706.64pt>
+File: IndependenceTest_8c__incl.pdf Graphic file (type pdf)
+
+<use IndependenceTest_8c__incl.pdf> [58
+
+
+ <./IndependenceTest_8c__incl.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 35--35
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 36--36
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 39--39
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 40--40
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 56--56
+
+ []
+
+
+<IndependenceTest_8c_0de2357bd1d38058c0cfc68c3e743b34_cgraph.pdf, id=1412, 244.
+915pt x 164.615pt>
+File: IndependenceTest_8c_0de2357bd1d38058c0cfc68c3e743b34_cgraph.pdf Graphic f
+ile (type pdf)
+
+<use IndependenceTest_8c_0de2357bd1d38058c0cfc68c3e743b34_cgraph.pdf>
+Underfull \hbox (badness 10000) in paragraph at lines 83--83
+
+ []
+
+[59 <./IndependenceTest_8c_0de2357bd1d38058c0cfc68c3e743b34_cgraph.pdf>]
+<IndependenceTest_8c_e64c8d91a58113cee43788dc1663d645_cgraph.pdf, id=1426, 724.
+7075pt x 455.7025pt>
+File: IndependenceTest_8c_e64c8d91a58113cee43788dc1663d645_cgraph.pdf Graphic f
+ile (type pdf)
+
+<use IndependenceTest_8c_e64c8d91a58113cee43788dc1663d645_cgraph.pdf>
+Underfull \hbox (badness 10000) in paragraph at lines 110--110
+
+ []
+
+[60 <./IndependenceTest_8c_e64c8d91a58113cee43788dc1663d645_cgraph.pdf>]
+<IndependenceTest_8c_d33688ffc38df769a95d6964e5bb193a_cgraph.pdf, id=1437, 708.
+6475pt x 336.25626pt>
+File: IndependenceTest_8c_d33688ffc38df769a95d6964e5bb193a_cgraph.pdf Graphic f
+ile (type pdf)
+
+<use IndependenceTest_8c_d33688ffc38df769a95d6964e5bb193a_cgraph.pdf>
+Underfull \hbox (badness 10000) in paragraph at lines 135--135
+
+ []
+
+
+<IndependenceTest_8c_b02275a67ad210d96fed9864590ee3ef_cgraph.pdf, id=1438, 686.
+565pt x 336.25626pt>
+File: IndependenceTest_8c_b02275a67ad210d96fed9864590ee3ef_cgraph.pdf Graphic f
+ile (type pdf)
+
+<use IndependenceTest_8c_b02275a67ad210d96fed9864590ee3ef_cgraph.pdf>
+Underfull \vbox (badness 4940) has occurred while \output is active []
+
+ [61 <./IndependenceTest_8c_d33688ffc38df769a95d6964e5bb193a_cgraph.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 162--162
+
+ []
+
+
+<IndependenceTest_8c_f80dcff3dd9196b9f861fd83f4efa8ac_cgraph.pdf, id=1448, 359.
+3425pt x 164.615pt>
+File: IndependenceTest_8c_f80dcff3dd9196b9f861fd83f4efa8ac_cgraph.pdf Graphic f
+ile (type pdf)
+
+<use IndependenceTest_8c_f80dcff3dd9196b9f861fd83f4efa8ac_cgraph.pdf>
+Underfull \hbox (badness 10000) in paragraph at lines 187--187
+
+ []
+
+[62 <./IndependenceTest_8c_b02275a67ad210d96fed9864590ee3ef_cgraph.pdf> <./Inde
+pendenceTest_8c_f80dcff3dd9196b9f861fd83f4efa8ac_cgraph.pdf>]
+<IndependenceTest_8c_aab8e2db15687b6b95f802dd1719ed54_cgraph.pdf, id=1463, 610.
+28pt x 439.6425pt>
+File: IndependenceTest_8c_aab8e2db15687b6b95f802dd1719ed54_cgraph.pdf Graphic f
+ile (type pdf)
+
+<use IndependenceTest_8c_aab8e2db15687b6b95f802dd1719ed54_cgraph.pdf>) [63 <./I
+ndependenceTest_8c_aab8e2db15687b6b95f802dd1719ed54_cgraph.pdf>]
+\openout2 = `IndependenceTest_8h.aux'.
+
+
+(./IndependenceTest_8h.tex
+<IndependenceTest_8h__dep__incl.pdf, id=1473, 339.2675pt x 489.83pt>
+File: IndependenceTest_8h__dep__incl.pdf Graphic file (type pdf)
+
+<use IndependenceTest_8h__dep__incl.pdf>
+Underfull \hbox (badness 10000) in paragraph at lines 34--34
+
+ []
+
+[64
+
+
+ <./IndependenceTest_8h__dep__incl.pdf>]
+<IndependenceTest_8h_cef73c662621fad56562bfc743025cc5_cgraph.pdf, id=1492, 244.
+915pt x 164.615pt>
+File: IndependenceTest_8h_cef73c662621fad56562bfc743025cc5_cgraph.pdf Graphic f
+ile (type pdf)
+
+<use IndependenceTest_8h_cef73c662621fad56562bfc743025cc5_cgraph.pdf>
+Underfull \hbox (badness 10000) in paragraph at lines 61--61
+
+ []
+
+
+<IndependenceTest_8h_d33688ffc38df769a95d6964e5bb193a_cgraph.pdf, id=1493, 708.
+6475pt x 336.25626pt>
+File: IndependenceTest_8h_d33688ffc38df769a95d6964e5bb193a_cgraph.pdf Graphic f
+ile (type pdf)
+
+<use IndependenceTest_8h_d33688ffc38df769a95d6964e5bb193a_cgraph.pdf>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [65 <./IndependenceTest_8h_cef73c662621fad56562bfc743025cc5_cgraph.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 86--86
+
+ []
+
+
+<IndependenceTest_8h_b02275a67ad210d96fed9864590ee3ef_cgraph.pdf, id=1503, 686.
+565pt x 336.25626pt>
+File: IndependenceTest_8h_b02275a67ad210d96fed9864590ee3ef_cgraph.pdf Graphic f
+ile (type pdf)
+
+<use IndependenceTest_8h_b02275a67ad210d96fed9864590ee3ef_cgraph.pdf>) [66 <./I
+ndependenceTest_8h_d33688ffc38df769a95d6964e5bb193a_cgraph.pdf> <./Independence
+Test_8h_b02275a67ad210d96fed9864590ee3ef_cgraph.pdf>]
+\openout2 = `LinearStatistic_8c.aux'.
+
+ (./LinearStatistic_8c.tex <LinearStatistic_8c__incl.pdf, id=1517, 319.1925pt x
+ 706.64pt>
+File: LinearStatistic_8c__incl.pdf Graphic file (type pdf)
+
+<use LinearStatistic_8c__incl.pdf> [67
+
+
+ <./LinearStatistic_8c__incl.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 39--39
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 40--40
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 43--43
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 44--44
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 60--60
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 79--79
+
+ []
+
+[68]
+Underfull \hbox (badness 10000) in paragraph at lines 98--98
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 115--115
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 130--130
+
+ []
+
+[69]
+<LinearStatistic_8c_6216ea560644c08002fb32756ae67dcc_cgraph.pdf, id=1562, 295.1
+025pt x 92.345pt>
+File: LinearStatistic_8c_6216ea560644c08002fb32756ae67dcc_cgraph.pdf Graphic fi
+le (type pdf)
+
+<use LinearStatistic_8c_6216ea560644c08002fb32756ae67dcc_cgraph.pdf>
+Underfull \hbox (badness 10000) in paragraph at lines 155--155
+
+ []
+
+
+<LinearStatistic_8c_58fff8082d3ab197994a21a10c422353_cgraph.pdf, id=1563, 339.2
+675pt x 92.345pt>
+File: LinearStatistic_8c_58fff8082d3ab197994a21a10c422353_cgraph.pdf Graphic fi
+le (type pdf)
+
+<use LinearStatistic_8c_58fff8082d3ab197994a21a10c422353_cgraph.pdf>
+Underfull \hbox (badness 10000) in paragraph at lines 180--180
+
+ []
+
+
+<LinearStatistic_8c_732bfc8e1797d8953482aa31f9b43e5f_cgraph.pdf, id=1564, 222.8
+325pt x 92.345pt>
+File: LinearStatistic_8c_732bfc8e1797d8953482aa31f9b43e5f_cgraph.pdf Graphic fi
+le (type pdf)
+
+<use LinearStatistic_8c_732bfc8e1797d8953482aa31f9b43e5f_cgraph.pdf> [70 <./Lin
+earStatistic_8c_6216ea560644c08002fb32756ae67dcc_cgraph.pdf> <./LinearStatistic
+_8c_58fff8082d3ab197994a21a10c422353_cgraph.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 205--205
+
+ []
+
+
+<LinearStatistic_8c_be383bcae17e8b3a1d5740ec16a9817a_cgraph.pdf, id=1579, 212.7
+95pt x 20.075pt>
+File: LinearStatistic_8c_be383bcae17e8b3a1d5740ec16a9817a_cgraph.pdf Graphic fi
+le (type pdf)
+
+<use LinearStatistic_8c_be383bcae17e8b3a1d5740ec16a9817a_cgraph.pdf>) [71 <./Li
+nearStatistic_8c_732bfc8e1797d8953482aa31f9b43e5f_cgraph.pdf> <./LinearStatisti
+c_8c_be383bcae17e8b3a1d5740ec16a9817a_cgraph.pdf>]
+\openout2 = `LinearStatistic_8h.aux'.
+
+ (./LinearStatistic_8h.tex
+<LinearStatistic_8h__dep__incl.pdf, id=1593, 319.1925pt x 489.83pt>
+File: LinearStatistic_8h__dep__incl.pdf Graphic file (type pdf)
+
+<use LinearStatistic_8h__dep__incl.pdf>
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
+
+ []
+
+[72
+
+
+ <./LinearStatistic_8h__dep__incl.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 57--57
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 76--76
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 93--93
+
+ []
+
+[73]
+Underfull \hbox (badness 10000) in paragraph at lines 108--108
+
+ []
+
+
+<LinearStatistic_8h_6216ea560644c08002fb32756ae67dcc_cgraph.pdf, id=1622, 295.1
+025pt x 92.345pt>
+File: LinearStatistic_8h_6216ea560644c08002fb32756ae67dcc_cgraph.pdf Graphic fi
+le (type pdf)
+
+<use LinearStatistic_8h_6216ea560644c08002fb32756ae67dcc_cgraph.pdf>) [74 <./Li
+nearStatistic_8h_6216ea560644c08002fb32756ae67dcc_cgraph.pdf>]
+\openout2 = `mvt_8h.aux'.
+
+ (./mvt_8h.tex
+<mvt_8h__dep__incl.pdf, id=1633, 273.02pt x 489.83pt>
+File: mvt_8h__dep__incl.pdf Graphic file (type pdf)
+
+<use mvt_8h__dep__incl.pdf>) [75
+
+
+ <./mvt_8h__dep__incl.pdf>]
+\openout2 = `Node_8c.aux'.
+
+ (./Node_8c.tex
+<Node_8c__incl.pdf, id=1649, 279.0425pt x 706.64pt>
+File: Node_8c__incl.pdf Graphic file (type pdf)
+ <use Node_8c__incl.pdf>
+Underfull \hbox (badness 10000) in paragraph at lines 29--29
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 30--30
+
+ []
+
+[76
+
+
+ <./Node_8c__incl.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 33--33
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 34--34
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 49--49
+
+ []
+
+
+Underfull \hbox (badness 2865) in paragraph at lines 57--58
+[]\T1/ptm/m/n/10 References C_-Global-Test(), C_-init_-nominalsplit(), C_-init_
+-orderedsplit(), C_-max(), C_-prediction(),
+ []
+
+
+Underfull \hbox (badness 1067) in paragraph at lines 57--58
+\T1/ptm/m/n/10 C_-split(), C_-splitcategorical(), C_-standardize(), C_-whichmax
+(), get_-dimension(), get_-gtctrl(), get_-
+ []
+
+
+Underfull \hbox (badness 1509) in paragraph at lines 57--58
+\T1/ptm/m/n/10 levels(), get_-mincriterion(), get_-minsplit(), get_-ninputs(), 
+get_-nobs(), get_-ordering(), get_-predict_-
+ []
+
+
+Underfull \hbox (badness 1681) in paragraph at lines 57--58
+\T1/ptm/m/n/10 get_-transformation(), get_-varctrl(), get_-variable(), get_-var
+memory(), get_-weights(), has_-missings(),
+ []
+
+
+Underfull \hbox (badness 2269) in paragraph at lines 57--58
+\T1/ptm/m/n/10 is_-nominal(), ncol(), PL2_-covariance-Sym, PL2_-expcovinf-Sym, 
+PL2_-expectation-Sym, PL2_-inputs-
+ []
+
+
+<Node_8c_0ed8b15b2c14ec9f1f1585d6288a38e2_cgraph.pdf, id=1667, 326.21875pt x 14
+77.52pt>
+File: Node_8c_0ed8b15b2c14ec9f1f1585d6288a38e2_cgraph.pdf Graphic file (type pd
+f)
+ <use Node_8c_0ed8b15b2c14ec9f1f1585d6288a38e2_cgraph.pdf>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [77]
+Overfull \vbox (179.2763pt too high) has occurred while \output is active []
+
+
+[78 <./Node_8c_0ed8b15b2c14ec9f1f1585d6288a38e2_cgraph.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 75--75
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 91--91
+
+ []
+
+
+<Node_8c_878214ca472c99cf036a426eb7cffb59_cgraph.pdf, id=1684, 319.1925pt x 283
+.0575pt>
+File: Node_8c_878214ca472c99cf036a426eb7cffb59_cgraph.pdf Graphic file (type pd
+f)
+ <use Node_8c_878214ca472c99cf036a426eb7cffb59_cgraph.pdf>) [79 <./Node_8c_8782
+14ca472c99cf036a426eb7cffb59_cgraph.pdf>]
+\openout2 = `Node_8h.aux'.
+
+ (./Node_8h.tex
+<Node_8h__dep__incl.pdf, id=1695, 281.05pt x 489.83pt>
+File: Node_8h__dep__incl.pdf Graphic file (type pdf)
+
+<use Node_8h__dep__incl.pdf>
+Underfull \hbox (badness 10000) in paragraph at lines 29--29
+
+ []
+
+
+Underfull \hbox (badness 2865) in paragraph at lines 37--38
+[]\T1/ptm/m/n/10 References C_-Global-Test(), C_-init_-nominalsplit(), C_-init_
+-orderedsplit(), C_-max(), C_-prediction(),
+ []
+
+
+Underfull \hbox (badness 1067) in paragraph at lines 37--38
+\T1/ptm/m/n/10 C_-split(), C_-splitcategorical(), C_-standardize(), C_-whichmax
+(), get_-dimension(), get_-gtctrl(), get_-
+ []
+
+
+Underfull \hbox (badness 1509) in paragraph at lines 37--38
+\T1/ptm/m/n/10 levels(), get_-mincriterion(), get_-minsplit(), get_-ninputs(), 
+get_-nobs(), get_-ordering(), get_-predict_-
+ []
+
+
+Underfull \hbox (badness 1681) in paragraph at lines 37--38
+\T1/ptm/m/n/10 get_-transformation(), get_-varctrl(), get_-variable(), get_-var
+memory(), get_-weights(), has_-missings(),
+ []
+
+
+Underfull \hbox (badness 2269) in paragraph at lines 37--38
+\T1/ptm/m/n/10 is_-nominal(), ncol(), PL2_-covariance-Sym, PL2_-expcovinf-Sym, 
+PL2_-expectation-Sym, PL2_-inputs-
+ []
+
+[80
+
+
+ <./Node_8h__dep__incl.pdf>]
+<Node_8h_0ed8b15b2c14ec9f1f1585d6288a38e2_cgraph.pdf, id=1710, 326.21875pt x 14
+77.52pt>
+File: Node_8h_0ed8b15b2c14ec9f1f1585d6288a38e2_cgraph.pdf Graphic file (type pd
+f)
+ <use Node_8h_0ed8b15b2c14ec9f1f1585d6288a38e2_cgraph.pdf>)
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [81]
+Overfull \vbox (179.2763pt too high) has occurred while \output is active []
+
+
+[82 <./Node_8h_0ed8b15b2c14ec9f1f1585d6288a38e2_cgraph.pdf>]
+\openout2 = `party_8h.aux'.
+
+ (./party_8h.tex
+<party_8h__incl.pdf, id=1724, 209.78375pt x 706.64pt>
+File: party_8h__incl.pdf Graphic file (type pdf)
+ <use party_8h__incl.pdf>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [83
+
+
+]
+<party_8h__dep__incl.pdf, id=1733, 194.7275pt x 489.83pt>
+File: party_8h__dep__incl.pdf Graphic file (type pdf)
+
+<use party_8h__dep__incl.pdf>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [84 <./party_8h__incl.pdf>] [85 <./party_8h__dep__incl.pdf>] [86] [87] [88]) [
+89]
+\openout2 = `Predict_8c.aux'.
+
+
+(./Predict_8c.tex <Predict_8c__incl.pdf, id=1856, 287.0725pt x 706.64pt>
+File: Predict_8c__incl.pdf Graphic file (type pdf)
+
+<use Predict_8c__incl.pdf> [90
+
+
+ <./Predict_8c__incl.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 51--51
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 52--52
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 55--55
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 56--56
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 72--72
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 77--77
+
+ []
+
+
+Underfull \hbox (badness 2012) in paragraph at lines 82--83
+[]\T1/ptm/m/n/10 References C_-i_-in_-set(), get_-missings(), get_-variable(), 
+has_-missings(), S3get_-leftnode(), S3get_-
+ []
+
+
+Underfull \hbox (badness 5652) in paragraph at lines 82--83
+\T1/ptm/m/n/10 maxcriterion(), S3get_-nodeterminal(), S3get_-primarysplit(), S3
+get_-rightnode(), S3get_-splitpoint(),
+ []
+
+
+<Predict_8c_dcd61d38c7c43d241d09a600b70fe3c5_cgraph.pdf, id=1887, 339.2675pt x 
+527.9725pt>
+File: Predict_8c_dcd61d38c7c43d241d09a600b70fe3c5_cgraph.pdf Graphic file (type
+ pdf)
+ <use Predict_8c_dcd61d38c7c43d241d09a600b70fe3c5_cgraph.pdf>
+Underfull \vbox (badness 2134) has occurred while \output is active []
+
+ [91]
+Underfull \hbox (badness 10000) in paragraph at lines 101--101
+
+ []
+
+
+<Predict_8c_201fdee9dc7e3e71e90ea6609ed353cb_cgraph.pdf, id=1907, 246.9225pt x 
+128.48pt>
+File: Predict_8c_201fdee9dc7e3e71e90ea6609ed353cb_cgraph.pdf Graphic file (type
+ pdf)
+ <use Predict_8c_201fdee9dc7e3e71e90ea6609ed353cb_cgraph.pdf> [92 <./Predict_8c
+_dcd61d38c7c43d241d09a600b70fe3c5_cgraph.pdf> <./Predict_8c_201fdee9dc7e3e71e90
+ea6609ed353cb_cgraph.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 128--128
+
+ []
+
+
+<Predict_8c_d9d49b6a210f5c09a2a1d1aa496859ce_cgraph.pdf, id=1921, 465.74pt x 52
+7.9725pt>
+File: Predict_8c_d9d49b6a210f5c09a2a1d1aa496859ce_cgraph.pdf Graphic file (type
+ pdf)
+ <use Predict_8c_d9d49b6a210f5c09a2a1d1aa496859ce_cgraph.pdf>
+Underfull \hbox (badness 10000) in paragraph at lines 155--155
+
+ []
+
+[93 <./Predict_8c_d9d49b6a210f5c09a2a1d1aa496859ce_cgraph.pdf>]
+<Predict_8c_cbb3e45d03e1b544c94bf639b191a953_cgraph.pdf, id=1933, 513.92pt x 52
+7.9725pt>
+File: Predict_8c_cbb3e45d03e1b544c94bf639b191a953_cgraph.pdf Graphic file (type
+ pdf)
+ <use Predict_8c_cbb3e45d03e1b544c94bf639b191a953_cgraph.pdf>
+Underfull \hbox (badness 10000) in paragraph at lines 180--180
+
+ []
+
+
+<Predict_8c_c4f4e806a78c376b13802ed2cf1e7b65_cgraph.pdf, id=1934, 487.8225pt x 
+527.9725pt>
+File: Predict_8c_c4f4e806a78c376b13802ed2cf1e7b65_cgraph.pdf Graphic file (type
+ pdf)
+ <use Predict_8c_c4f4e806a78c376b13802ed2cf1e7b65_cgraph.pdf>
+[94 <./Predict_8c_cbb3e45d03e1b544c94bf639b191a953_cgraph.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 207--207
+
+ []
+
+
+<Predict_8c_8964e7493ed9cb96c271b168b721e329_cgraph.pdf, id=1944, 375.4025pt x 
+128.48pt>
+File: Predict_8c_8964e7493ed9cb96c271b168b721e329_cgraph.pdf Graphic file (type
+ pdf)
+ <use Predict_8c_8964e7493ed9cb96c271b168b721e329_cgraph.pdf> [95 <./Predict_8c
+_c4f4e806a78c376b13802ed2cf1e7b65_cgraph.pdf> <./Predict_8c_8964e7493ed9cb96c27
+1b168b721e329_cgraph.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 234--234
+
+ []
+
+
+<Predict_8c_ac36eff20575604b5d7558d512601d64_cgraph.pdf, id=1958, 584.1825pt x 
+527.9725pt>
+File: Predict_8c_ac36eff20575604b5d7558d512601d64_cgraph.pdf Graphic file (type
+ pdf)
+ <use Predict_8c_ac36eff20575604b5d7558d512601d64_cgraph.pdf>
+Underfull \hbox (badness 10000) in paragraph at lines 261--261
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 266--266
+
+ []
+
+[96 <./Predict_8c_ac36eff20575604b5d7558d512601d64_cgraph.pdf>]
+<Predict_8c_daf8a0eb8790ebf14f0e265de164d50e_cgraph.pdf, id=1969, 327.2225pt x 
+564.1075pt>
+File: Predict_8c_daf8a0eb8790ebf14f0e265de164d50e_cgraph.pdf Graphic file (type
+ pdf)
+ <use Predict_8c_daf8a0eb8790ebf14f0e265de164d50e_cgraph.pdf>
+Underfull \hbox (badness 10000) in paragraph at lines 290--290
+
+ []
+
+
+<Predict_8c_dec31e3aa985e0af16ccaeac31237640_cgraph.pdf, id=1970, 447.6725pt x 
+527.9725pt>
+File: Predict_8c_dec31e3aa985e0af16ccaeac31237640_cgraph.pdf Graphic file (type
+ pdf)
+ <use Predict_8c_dec31e3aa985e0af16ccaeac31237640_cgraph.pdf>
+[97 <./Predict_8c_daf8a0eb8790ebf14f0e265de164d50e_cgraph.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 315--315
+
+ []
+
+
+<Predict_8c_4a30a8aa916f294059b6e2cbcb9e29d5_cgraph.pdf, id=1982, 385.44pt x 12
+8.48pt>
+File: Predict_8c_4a30a8aa916f294059b6e2cbcb9e29d5_cgraph.pdf Graphic file (type
+ pdf)
+ <use Predict_8c_4a30a8aa916f294059b6e2cbcb9e29d5_cgraph.pdf> [98 <./Predict_8c
+_dec31e3aa985e0af16ccaeac31237640_cgraph.pdf> <./Predict_8c_4a30a8aa916f294059b
+6e2cbcb9e29d5_cgraph.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 340--340
+
+ []
+
+
+<Predict_8c_c0668d268fe5a4bad29fbf4ead39c526_cgraph.pdf, id=1996, 584.1825pt x 
+527.9725pt>
+File: Predict_8c_c0668d268fe5a4bad29fbf4ead39c526_cgraph.pdf Graphic file (type
+ pdf)
+ <use Predict_8c_c0668d268fe5a4bad29fbf4ead39c526_cgraph.pdf>
+Underfull \hbox (badness 10000) in paragraph at lines 365--365
+
+ []
+
+
+<Predict_8c_a508a31f1fd7cd3668ad81eb0d00dd66_cgraph.pdf, id=1997, 503.8825pt x 
+128.48pt>
+File: Predict_8c_a508a31f1fd7cd3668ad81eb0d00dd66_cgraph.pdf Graphic file (type
+ pdf)
+ <use Predict_8c_a508a31f1fd7cd3668ad81eb0d00dd66_cgraph.pdf> [99 <./Predict_8c
+_c0668d268fe5a4bad29fbf4ead39c526_cgraph.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 390--390
+
+ []
+
+
+<Predict_8c_9a5170a24bc00b727527b80cec5ca60a_cgraph.pdf, id=2009, 680.5425pt x 
+527.9725pt>
+File: Predict_8c_9a5170a24bc00b727527b80cec5ca60a_cgraph.pdf Graphic file (type
+ pdf)
+ <use Predict_8c_9a5170a24bc00b727527b80cec5ca60a_cgraph.pdf>
+[100 <./Predict_8c_a508a31f1fd7cd3668ad81eb0d00dd66_cgraph.pdf> <./Predict_8c_9
+a5170a24bc00b727527b80cec5ca60a_cgraph.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 414--414
+
+ []
+
+
+<Predict_8c_4f6966402677cec07284a3e1bc25660f_cgraph.pdf, id=2023, 646.415pt x 5
+64.1075pt>
+File: Predict_8c_4f6966402677cec07284a3e1bc25660f_cgraph.pdf Graphic file (type
+ pdf)
+ <use Predict_8c_4f6966402677cec07284a3e1bc25660f_cgraph.pdf>)
+[101 <./Predict_8c_4f6966402677cec07284a3e1bc25660f_cgraph.pdf>]
+\openout2 = `Predict_8h.aux'.
+
+
+(./Predict_8h.tex <Predict_8h__dep__incl.pdf, id=2033, 287.0725pt x 489.83pt>
+File: Predict_8h__dep__incl.pdf Graphic file (type pdf)
+
+<use Predict_8h__dep__incl.pdf>
+Underfull \hbox (badness 10000) in paragraph at lines 30--30
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 35--35
+
+ []
+
+[102
+
+
+ <./Predict_8h__dep__incl.pdf>]
+<Predict_8h_daf8a0eb8790ebf14f0e265de164d50e_cgraph.pdf, id=2049, 327.2225pt x 
+564.1075pt>
+File: Predict_8h_daf8a0eb8790ebf14f0e265de164d50e_cgraph.pdf Graphic file (type
+ pdf)
+ <use Predict_8h_daf8a0eb8790ebf14f0e265de164d50e_cgraph.pdf>)
+[103 <./Predict_8h_daf8a0eb8790ebf14f0e265de164d50e_cgraph.pdf>]
+\openout2 = `RandomForest_8c.aux'.
+
+
+(./RandomForest_8c.tex
+<RandomForest_8c__incl.pdf, id=2058, 323.2075pt x 706.64pt>
+File: RandomForest_8c__incl.pdf Graphic file (type pdf)
+
+<use RandomForest_8c__incl.pdf>
+Underfull \hbox (badness 10000) in paragraph at lines 25--25
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 26--26
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 29--29
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 30--30
+
+ []
+
+[104
+
+
+ <./RandomForest_8c__incl.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
+
+ []
+
+
+<RandomForest_8c_4f54420cb561055a4e545f7e1359fb87_cgraph.pdf, id=2072, 172.645p
+t x 56.21pt>
+File: RandomForest_8c_4f54420cb561055a4e545f7e1359fb87_cgraph.pdf Graphic file 
+(type pdf)
+ <use RandomForest_8c_4f54420cb561055a4e545f7e1359fb87_cgraph.pdf>) [105 <./Ran
+domForest_8c_4f54420cb561055a4e545f7e1359fb87_cgraph.pdf>]
+\openout2 = `S3Classes_8c.aux'.
+
+
+(./S3Classes_8c.tex <S3Classes_8c__incl.pdf, id=2086, 303.1325pt x 706.64pt>
+File: S3Classes_8c__incl.pdf Graphic file (type pdf)
+
+<use S3Classes_8c__incl.pdf> [106
+
+
+ <./S3Classes_8c__incl.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 77--77
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 78--78
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 81--81
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 82--82
+
+ []
+
+
+Underfull \hbox (badness 4726) in paragraph at lines 100--101
+[]\T1/ptm/m/n/10 References CRITERION_-LENGTH, NODE_-LENGTH, S3_-CRITERION, S3_
+-i-CRITERION, S3_-
+ []
+
+[107] [108] [109] [110]) [111]
+\openout2 = `S3Classes_8h.aux'.
+
+ (./S3Classes_8h.tex
+<S3Classes_8h__dep__incl.pdf, id=2203, 305.14pt x 489.83pt>
+File: S3Classes_8h__dep__incl.pdf Graphic file (type pdf)
+
+<use S3Classes_8h__dep__incl.pdf> [112
+
+
+ <./S3Classes_8h__dep__incl.pdf>]
+Underfull \hbox (badness 4726) in paragraph at lines 84--85
+[]\T1/ptm/m/n/10 References CRITERION_-LENGTH, NODE_-LENGTH, S3_-CRITERION, S3_
+-i-CRITERION, S3_-
+ []
+
+[113] [114] [115]) [116]
+\openout2 = `Splits_8c.aux'.
+
+ (./Splits_8c.tex
+<Splits_8c__incl.pdf, id=2312, 281.05pt x 706.64pt>
+File: Splits_8c__incl.pdf Graphic file (type pdf)
+ <use Splits_8c__incl.pdf>
+[117
+
+
+ <./Splits_8c__incl.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 31--31
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 32--32
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 35--35
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 36--36
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 51--51
+
+ []
+
+
+<Splits_8c_00d4080fae6513962bd1e54ec9d476bc_cgraph.pdf, id=2332, 134.5025pt x 2
+0.075pt>
+File: Splits_8c_00d4080fae6513962bd1e54ec9d476bc_cgraph.pdf Graphic file (type 
+pdf)
+ <use Splits_8c_00d4080fae6513962bd1e54ec9d476bc_cgraph.pdf> [118 <./Splits_8c_
+00d4080fae6513962bd1e54ec9d476bc_cgraph.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 77--77
+
+ []
+
+
+<Splits_8c_1b9f04a865d61c1c9757ba77bff49ab7_cgraph.pdf, id=2346, 182.6825pt x 2
+0.075pt>
+File: Splits_8c_1b9f04a865d61c1c9757ba77bff49ab7_cgraph.pdf Graphic file (type 
+pdf)
+ <use Splits_8c_1b9f04a865d61c1c9757ba77bff49ab7_cgraph.pdf>
+Underfull \hbox (badness 10000) in paragraph at lines 103--103
+
+ []
+
+
+<Splits_8c_99df49df1a0061e2fe476f531285b0a3_cgraph.pdf, id=2347, 218.8175pt x 9
+2.345pt>
+File: Splits_8c_99df49df1a0061e2fe476f531285b0a3_cgraph.pdf Graphic file (type 
+pdf)
+ <use Splits_8c_99df49df1a0061e2fe476f531285b0a3_cgraph.pdf> [119 <./Splits_8c_
+1b9f04a865d61c1c9757ba77bff49ab7_cgraph.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 127--127
+
+ []
+
+
+<Splits_8c_7bda94db4217f68594d347d4498576a6_cgraph.pdf, id=2358, 417.56pt x 275
+.0275pt>
+File: Splits_8c_7bda94db4217f68594d347d4498576a6_cgraph.pdf Graphic file (type 
+pdf)
+ <use Splits_8c_7bda94db4217f68594d347d4498576a6_cgraph.pdf>) [120 <./Splits_8c
+_99df49df1a0061e2fe476f531285b0a3_cgraph.pdf> <./Splits_8c_7bda94db4217f68594d3
+47d4498576a6_cgraph.pdf>]
+\openout2 = `Splits_8h.aux'.
+
+ (./Splits_8h.tex
+<Splits_8h__dep__incl.pdf, id=2372, 281.05pt x 489.83pt>
+File: Splits_8h__dep__incl.pdf Graphic file (type pdf)
+
+<use Splits_8h__dep__incl.pdf>
+Underfull \hbox (badness 10000) in paragraph at lines 31--31
+
+ []
+
+[121
+
+
+ <./Splits_8h__dep__incl.pdf>]
+<Splits_8h_00d4080fae6513962bd1e54ec9d476bc_cgraph.pdf, id=2389, 134.5025pt x 2
+0.075pt>
+File: Splits_8h_00d4080fae6513962bd1e54ec9d476bc_cgraph.pdf Graphic file (type 
+pdf)
+ <use Splits_8h_00d4080fae6513962bd1e54ec9d476bc_cgraph.pdf>
+Underfull \hbox (badness 10000) in paragraph at lines 57--57
+
+ []
+
+
+<Splits_8h_1b9f04a865d61c1c9757ba77bff49ab7_cgraph.pdf, id=2390, 182.6825pt x 2
+0.075pt>
+File: Splits_8h_1b9f04a865d61c1c9757ba77bff49ab7_cgraph.pdf Graphic file (type 
+pdf)
+ <use Splits_8h_1b9f04a865d61c1c9757ba77bff49ab7_cgraph.pdf> [122 <./Splits_8h_
+00d4080fae6513962bd1e54ec9d476bc_cgraph.pdf>]) [123 <./Splits_8h_1b9f04a865d61c
+1c9757ba77bff49ab7_cgraph.pdf>]
+\openout2 = `SurrogateSplits_8c.aux'.
+
+ (./SurrogateSplits_8c.tex
+<SurrogateSplits_8c__incl.pdf, id=2409, 325.215pt x 706.64pt>
+File: SurrogateSplits_8c__incl.pdf Graphic file (type pdf)
+
+<use SurrogateSplits_8c__incl.pdf>
+Underfull \hbox (badness 10000) in paragraph at lines 29--29
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 30--30
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 33--33
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 34--34
+
+ []
+
+[124
+
+
+ <./SurrogateSplits_8c__incl.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 50--50
+
+ []
+
+
+Underfull \hbox (badness 4819) in paragraph at lines 58--59
+[]\T1/ptm/m/n/10 References get_-missings(), get_-nobs(), get_-variable(), has_
+-missings(), PL2_-inputs-Sym, S3get_-
+ []
+
+
+<SurrogateSplits_8c_6f9f8c3b4147854cacc43d67a055d911_cgraph.pdf, id=2427, 357.3
+35pt x 419.5675pt>
+File: SurrogateSplits_8c_6f9f8c3b4147854cacc43d67a055d911_cgraph.pdf Graphic fi
+le (type pdf)
+
+<use SurrogateSplits_8c_6f9f8c3b4147854cacc43d67a055d911_cgraph.pdf>
+Underfull \hbox (badness 10000) in paragraph at lines 77--77
+
+ []
+
+[125 <./SurrogateSplits_8c_6f9f8c3b4147854cacc43d67a055d911_cgraph.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 82--82
+
+ []
+
+
+<SurrogateSplits_8c_fd8931db67339ca2bb679d8d38135275_cgraph.pdf, id=2441, 345.2
+9pt x 347.2975pt>
+File: SurrogateSplits_8c_fd8931db67339ca2bb679d8d38135275_cgraph.pdf Graphic fi
+le (type pdf)
+
+<use SurrogateSplits_8c_fd8931db67339ca2bb679d8d38135275_cgraph.pdf>
+Underfull \hbox (badness 10000) in paragraph at lines 106--106
+
+ []
+
+
+<SurrogateSplits_8c_378f9c4110050c0d1762c6347d53379b_cgraph.pdf, id=2442, 459.7
+175pt x 347.2975pt>
+File: SurrogateSplits_8c_378f9c4110050c0d1762c6347d53379b_cgraph.pdf Graphic fi
+le (type pdf)
+
+<use SurrogateSplits_8c_378f9c4110050c0d1762c6347d53379b_cgraph.pdf>) [126 <./S
+urrogateSplits_8c_fd8931db67339ca2bb679d8d38135275_cgraph.pdf>] [127 <./Surroga
+teSplits_8c_378f9c4110050c0d1762c6347d53379b_cgraph.pdf>]
+\openout2 = `SurrogateSplits_8h.aux'.
+
+
+(./SurrogateSplits_8h.tex
+<SurrogateSplits_8h__dep__incl.pdf, id=2462, 325.215pt x 489.83pt>
+File: SurrogateSplits_8h__dep__incl.pdf Graphic file (type pdf)
+
+<use SurrogateSplits_8h__dep__incl.pdf>
+Underfull \hbox (badness 10000) in paragraph at lines 32--32
+
+ []
+
+
+Underfull \hbox (badness 4819) in paragraph at lines 40--41
+[]\T1/ptm/m/n/10 References get_-missings(), get_-nobs(), get_-variable(), has_
+-missings(), PL2_-inputs-Sym, S3get_-
+ []
+
+
+<SurrogateSplits_8h_6f9f8c3b4147854cacc43d67a055d911_cgraph.pdf, id=2463, 357.3
+35pt x 419.5675pt>
+File: SurrogateSplits_8h_6f9f8c3b4147854cacc43d67a055d911_cgraph.pdf Graphic fi
+le (type pdf)
+
+<use SurrogateSplits_8h_6f9f8c3b4147854cacc43d67a055d911_cgraph.pdf> [128
+
+
+ <./SurrogateSplits_8h__dep__incl.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 59--59
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 64--64
+
+ []
+
+
+<SurrogateSplits_8h_fd8931db67339ca2bb679d8d38135275_cgraph.pdf, id=2480, 345.2
+9pt x 347.2975pt>
+File: SurrogateSplits_8h_fd8931db67339ca2bb679d8d38135275_cgraph.pdf Graphic fi
+le (type pdf)
+
+<use SurrogateSplits_8h_fd8931db67339ca2bb679d8d38135275_cgraph.pdf>)
+Underfull \vbox (badness 3792) has occurred while \output is active []
+
+ [129 <./SurrogateSplits_8h_6f9f8c3b4147854cacc43d67a055d911_cgraph.pdf>] [130 
+<./SurrogateSplits_8h_fd8931db67339ca2bb679d8d38135275_cgraph.pdf>]
+\openout2 = `TestStatistic_8c.aux'.
+
+ (./TestStatistic_8c.tex <TestStatistic_8c__incl.pdf, id=2500, 311.1625pt x 706
+.64pt>
+File: TestStatistic_8c__incl.pdf Graphic file (type pdf)
+
+<use TestStatistic_8c__incl.pdf> [131
+
+
+ <./TestStatistic_8c__incl.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 35--35
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 36--36
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 39--39
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 40--40
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 55--55
+
+ []
+
+
+<TestStatistic_8c_6939f019d2c7f42ae824776043a8c704_cgraph.pdf, id=2523, 218.817
+5pt x 56.21pt>
+File: TestStatistic_8c_6939f019d2c7f42ae824776043a8c704_cgraph.pdf Graphic file
+ (type pdf)
+
+<use TestStatistic_8c_6939f019d2c7f42ae824776043a8c704_cgraph.pdf>
+Underfull \hbox (badness 10000) in paragraph at lines 81--81
+
+ []
+
+[132 <./TestStatistic_8c_6939f019d2c7f42ae824776043a8c704_cgraph.pdf>]
+<TestStatistic_8c_a3a1f48e4bb3aa19d1bac85a53358638_cgraph.pdf, id=2538, 375.402
+5pt x 74.2775pt>
+File: TestStatistic_8c_a3a1f48e4bb3aa19d1bac85a53358638_cgraph.pdf Graphic file
+ (type pdf)
+
+<use TestStatistic_8c_a3a1f48e4bb3aa19d1bac85a53358638_cgraph.pdf>
+Underfull \hbox (badness 10000) in paragraph at lines 108--108
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 125--125
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 141--141
+
+ []
+
+[133 <./TestStatistic_8c_a3a1f48e4bb3aa19d1bac85a53358638_cgraph.pdf>]
+<TestStatistic_8c_499b26b98aaf073dc66135ecde8ad851_cgraph.pdf, id=2549, 531.987
+5pt x 74.2775pt>
+File: TestStatistic_8c_499b26b98aaf073dc66135ecde8ad851_cgraph.pdf Graphic file
+ (type pdf)
+
+<use TestStatistic_8c_499b26b98aaf073dc66135ecde8ad851_cgraph.pdf>
+Underfull \hbox (badness 10000) in paragraph at lines 166--166
+
+ []
+
+
+<TestStatistic_8c_825d2b1db2c719f8d1c2e2ec3f79e1a4_cgraph.pdf, id=2550, 291.087
+5pt x 20.075pt>
+File: TestStatistic_8c_825d2b1db2c719f8d1c2e2ec3f79e1a4_cgraph.pdf Graphic file
+ (type pdf)
+
+<use TestStatistic_8c_825d2b1db2c719f8d1c2e2ec3f79e1a4_cgraph.pdf>) [134 <./Tes
+tStatistic_8c_499b26b98aaf073dc66135ecde8ad851_cgraph.pdf> <./TestStatistic_8c_
+825d2b1db2c719f8d1c2e2ec3f79e1a4_cgraph.pdf>]
+\openout2 = `TestStatistic_8h.aux'.
+
+ (./TestStatistic_8h.tex
+<TestStatistic_8h__dep__incl.pdf, id=2565, 311.1625pt x 489.83pt>
+File: TestStatistic_8h__dep__incl.pdf Graphic file (type pdf)
+
+<use TestStatistic_8h__dep__incl.pdf>
+Underfull \hbox (badness 10000) in paragraph at lines 33--33
+
+ []
+
+[135
+
+
+ <./TestStatistic_8h__dep__incl.pdf>]
+<TestStatistic_8h_a3a1f48e4bb3aa19d1bac85a53358638_cgraph.pdf, id=2585, 375.402
+5pt x 74.2775pt>
+File: TestStatistic_8h_a3a1f48e4bb3aa19d1bac85a53358638_cgraph.pdf Graphic file
+ (type pdf)
+
+<use TestStatistic_8h_a3a1f48e4bb3aa19d1bac85a53358638_cgraph.pdf>
+Underfull \hbox (badness 10000) in paragraph at lines 60--60
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 77--77
+
+ []
+
+) [136 <./TestStatistic_8h_a3a1f48e4bb3aa19d1bac85a53358638_cgraph.pdf>]
+\openout2 = `TreeGrow_8c.aux'.
+
+
+(./TreeGrow_8c.tex <TreeGrow_8c__incl.pdf, id=2596, 301.125pt x 706.64pt>
+File: TreeGrow_8c__incl.pdf Graphic file (type pdf)
+
+<use TreeGrow_8c__incl.pdf>
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 28--28
+
+ []
+
+[137
+
+
+ <./TreeGrow_8c__incl.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 31--31
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 32--32
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 48--48
+
+ []
+
+
+Underfull \hbox (badness 1454) in paragraph at lines 56--57
+\T1/ptm/m/n/10 get_-maxsurrogate(), get_-nobs(), get_-splitctrl(), get_-stump()
+, get_-tgctrl(), S3get_-leftnode(), S3get_-
+ []
+
+
+<TreeGrow_8c_67d352c38f59d30c7b9954bf5d3a57ad_cgraph.pdf, id=2612, 359.3425pt x
+ 540.0175pt>
+File: TreeGrow_8c_67d352c38f59d30c7b9954bf5d3a57ad_cgraph.pdf Graphic file (typ
+e pdf)
+ <use TreeGrow_8c_67d352c38f59d30c7b9954bf5d3a57ad_cgraph.pdf>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [138]
+Underfull \hbox (badness 10000) in paragraph at lines 75--75
+
+ []
+
+
+<TreeGrow_8c_f9fe6e74563480c8eb5e4332fe9bca22_cgraph.pdf, id=2621, 345.29pt x 3
+35.2525pt>
+File: TreeGrow_8c_f9fe6e74563480c8eb5e4332fe9bca22_cgraph.pdf Graphic file (typ
+e pdf)
+ <use TreeGrow_8c_f9fe6e74563480c8eb5e4332fe9bca22_cgraph.pdf>)
+Underfull \vbox (badness 6220) has occurred while \output is active []
+
+ [139 <./TreeGrow_8c_67d352c38f59d30c7b9954bf5d3a57ad_cgraph.pdf>] [140 <./Tree
+Grow_8c_f9fe6e74563480c8eb5e4332fe9bca22_cgraph.pdf>]
+\openout2 = `TreeGrow_8h.aux'.
+
+ (./TreeGrow_8h.tex
+<TreeGrow_8h__dep__incl.pdf, id=2639, 301.125pt x 489.83pt>
+File: TreeGrow_8h__dep__incl.pdf Graphic file (type pdf)
+
+<use TreeGrow_8h__dep__incl.pdf>
+Underfull \hbox (badness 10000) in paragraph at lines 30--30
+
+ []
+
+
+Underfull \hbox (badness 1454) in paragraph at lines 38--39
+\T1/ptm/m/n/10 get_-maxsurrogate(), get_-nobs(), get_-splitctrl(), get_-stump()
+, get_-tgctrl(), S3get_-leftnode(), S3get_-
+ []
+
+[141
+
+
+ <./TreeGrow_8h__dep__incl.pdf>]
+<TreeGrow_8h_67d352c38f59d30c7b9954bf5d3a57ad_cgraph.pdf, id=2655, 469.755pt x 
+817.0525pt>
+File: TreeGrow_8h_67d352c38f59d30c7b9954bf5d3a57ad_cgraph.pdf Graphic file (typ
+e pdf)
+ <use TreeGrow_8h_67d352c38f59d30c7b9954bf5d3a57ad_cgraph.pdf>)
+[142 <./TreeGrow_8h_67d352c38f59d30c7b9954bf5d3a57ad_cgraph.pdf>]
+\openout2 = `Utils_8c.aux'.
+
+
+(./Utils_8c.tex <Utils_8c__incl.pdf, id=2664, 275.0275pt x 706.64pt>
+File: Utils_8c__incl.pdf Graphic file (type pdf)
+
+<use Utils_8c__incl.pdf> [143
+
+
+ <./Utils_8c__incl.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 81--81
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 82--82
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 85--85
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 86--86
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 101--101
+
+ []
+
+
+<Utils_8c_ff0eae9aa0175cd8fe73324707418ce0_cgraph.pdf, id=2693, 154.5775pt x 20
+.075pt>
+File: Utils_8c_ff0eae9aa0175cd8fe73324707418ce0_cgraph.pdf Graphic file (type p
+df)
+ <use Utils_8c_ff0eae9aa0175cd8fe73324707418ce0_cgraph.pdf> [144]
+Underfull \hbox (badness 10000) in paragraph at lines 139--139
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 155--155
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 171--171
+
+ []
+
+[145 <./Utils_8c_ff0eae9aa0175cd8fe73324707418ce0_cgraph.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 187--187
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 203--203
+
+ []
+
+
+<Utils_8c_c0d5c2fe971923d7a1b1869dffabddb1_cgraph.pdf, id=2754, 222.8325pt x 20
+.075pt>
+File: Utils_8c_c0d5c2fe971923d7a1b1869dffabddb1_cgraph.pdf Graphic file (type p
+df)
+ <use Utils_8c_c0d5c2fe971923d7a1b1869dffabddb1_cgraph.pdf> [146 <./Utils_8c_c0
+d5c2fe971923d7a1b1869dffabddb1_cgraph.pdf>]
+<Utils_8c_ccce6f00d55276c0a01b30651f1c206c_cgraph.pdf, id=2766, 246.9225pt x 92
+.345pt>
+File: Utils_8c_ccce6f00d55276c0a01b30651f1c206c_cgraph.pdf Graphic file (type p
+df)
+ <use Utils_8c_ccce6f00d55276c0a01b30651f1c206c_cgraph.pdf>
+Underfull \hbox (badness 10000) in paragraph at lines 261--261
+
+ []
+
+
+<Utils_8c_88c1a807c7856d57d07d10027d588602_cgraph.pdf, id=2767, 273.02pt x 20.0
+75pt>
+File: Utils_8c_88c1a807c7856d57d07d10027d588602_cgraph.pdf Graphic file (type p
+df)
+ <use Utils_8c_88c1a807c7856d57d07d10027d588602_cgraph.pdf> [147 <./Utils_8c_cc
+ce6f00d55276c0a01b30651f1c206c_cgraph.pdf> <./Utils_8c_88c1a807c7856d57d07d1002
+7d588602_cgraph.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 307--307
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 321--321
+
+ []
+
+
+<Utils_8c_4534205c84c2784248b60818d7c2f3d6_cgraph.pdf, id=2785, 128.48pt x 20.0
+75pt>
+File: Utils_8c_4534205c84c2784248b60818d7c2f3d6_cgraph.pdf Graphic file (type p
+df)
+ <use Utils_8c_4534205c84c2784248b60818d7c2f3d6_cgraph.pdf>
+Underfull \hbox (badness 10000) in paragraph at lines 347--347
+
+ []
+
+[148 <./Utils_8c_4534205c84c2784248b60818d7c2f3d6_cgraph.pdf>]
+Underfull \hbox (badness 2285) in paragraph at lines 366--369
+[]\T1/ptm/m/n/10 Referenced by C_-Global-Test(), C_-Independence-Test(), C_-Nod
+e(), C_-splitnode(), R_-Expect-Covar-
+ []
+
+
+Underfull \hbox (badness 2165) in paragraph at lines 366--369
+\T1/ptm/m/n/10 Influence(), R_-Expect-Covar-Linear-Statistic(), R_-Linear-Stati
+stic(), R_-matprod(), R_-matprod-T(), R_-
+ []
+
+
+Underfull \hbox (badness 1158) in paragraph at lines 377--380
+[]\T1/ptm/m/n/10 Referenced by C_-Independence-Test(), CR_-svd(), R_-Expect-Cov
+ar-Influence(), R_-Expect-Covar-Linear-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 385--385
+
+ []
+
+
+<Utils_8c_0d9b1b1601f9e2760200af93d21c59af_cgraph.pdf, id=2798, 130.4875pt x 20
+.075pt>
+File: Utils_8c_0d9b1b1601f9e2760200af93d21c59af_cgraph.pdf Graphic file (type p
+df)
+ <use Utils_8c_0d9b1b1601f9e2760200af93d21c59af_cgraph.pdf>
+Underfull \hbox (badness 10000) in paragraph at lines 409--409
+
+ []
+
+
+<Utils_8c_95f5ed4c75d42e2e98ed09c9c9d48ff5_cgraph.pdf, id=2799, 186.6975pt x 20
+.075pt>
+File: Utils_8c_95f5ed4c75d42e2e98ed09c9c9d48ff5_cgraph.pdf Graphic file (type p
+df)
+ <use Utils_8c_95f5ed4c75d42e2e98ed09c9c9d48ff5_cgraph.pdf> [149 <./Utils_8c_0d
+9b1b1601f9e2760200af93d21c59af_cgraph.pdf> <./Utils_8c_95f5ed4c75d42e2e98ed09c9
+c9d48ff5_cgraph.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 442--442
+
+ []
+
+
+<Utils_8c_36672b428d262a38ef8d14000f92f0f5_cgraph.pdf, id=2817, 170.6375pt x 92
+.345pt>
+File: Utils_8c_36672b428d262a38ef8d14000f92f0f5_cgraph.pdf Graphic file (type p
+df)
+ <use Utils_8c_36672b428d262a38ef8d14000f92f0f5_cgraph.pdf>
+Underfull \hbox (badness 10000) in paragraph at lines 466--466
+
+ []
+
+
+<Utils_8c_ea653a331bb9774d8899a25693e748c9_cgraph.pdf, id=2818, 182.6825pt x 92
+.345pt>
+File: Utils_8c_ea653a331bb9774d8899a25693e748c9_cgraph.pdf Graphic file (type p
+df)
+ <use Utils_8c_ea653a331bb9774d8899a25693e748c9_cgraph.pdf>
+Underfull \hbox (badness 10000) in paragraph at lines 490--490
+
+ []
+
+
+<Utils_8c_74af72977c02a5b247841e52a3313ae1_cgraph.pdf, id=2819, 134.5025pt x 20
+.075pt>
+File: Utils_8c_74af72977c02a5b247841e52a3313ae1_cgraph.pdf Graphic file (type p
+df)
+ <use Utils_8c_74af72977c02a5b247841e52a3313ae1_cgraph.pdf> [150 <./Utils_8c_36
+672b428d262a38ef8d14000f92f0f5_cgraph.pdf> <./Utils_8c_ea653a331bb9774d8899a256
+93e748c9_cgraph.pdf>]
+<Utils_8c_cfdb060aa1651f62dab395e2158f982e_cgraph.pdf, id=2835, 244.915pt x 128
+.48pt>
+File: Utils_8c_cfdb060aa1651f62dab395e2158f982e_cgraph.pdf Graphic file (type p
+df)
+ <use Utils_8c_cfdb060aa1651f62dab395e2158f982e_cgraph.pdf>
+Underfull \hbox (badness 10000) in paragraph at lines 533--533
+
+ []
+
+
+<Utils_8c_9aa84c21406d338bd7116cbe9444ea3c_cgraph.pdf, id=2836, 317.185pt x 94.
+3525pt>
+File: Utils_8c_9aa84c21406d338bd7116cbe9444ea3c_cgraph.pdf Graphic file (type p
+df)
+ <use Utils_8c_9aa84c21406d338bd7116cbe9444ea3c_cgraph.pdf>
+Underfull \hbox (badness 10000) in paragraph at lines 557--557
+
+ []
+
+
+<Utils_8c_dfb2cc4acd2e6897f67e6467e241aba6_cgraph.pdf, id=2837, 216.81pt x 20.0
+75pt>
+File: Utils_8c_dfb2cc4acd2e6897f67e6467e241aba6_cgraph.pdf Graphic file (type p
+df)
+ <use Utils_8c_dfb2cc4acd2e6897f67e6467e241aba6_cgraph.pdf> [151 <./Utils_8c_74
+af72977c02a5b247841e52a3313ae1_cgraph.pdf> <./Utils_8c_cfdb060aa1651f62dab395e2
+158f982e_cgraph.pdf> <./Utils_8c_9aa84c21406d338bd7116cbe9444ea3c_cgraph.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 581--581
+
+ []
+
+
+<Utils_8c_2f3955eb1326f77826baad7194f6ea67_cgraph.pdf, id=2857, 212.795pt x 20.
+075pt>
+File: Utils_8c_2f3955eb1326f77826baad7194f6ea67_cgraph.pdf Graphic file (type p
+df)
+ <use Utils_8c_2f3955eb1326f77826baad7194f6ea67_cgraph.pdf>
+<Utils_8c_18acbfc80e9ea6db45a010ccf7bfeafd_cgraph.pdf, id=2858, 186.6975pt x 20
+.075pt>
+File: Utils_8c_18acbfc80e9ea6db45a010ccf7bfeafd_cgraph.pdf Graphic file (type p
+df)
+ <use Utils_8c_18acbfc80e9ea6db45a010ccf7bfeafd_cgraph.pdf>) [152 <./Utils_8c_d
+fb2cc4acd2e6897f67e6467e241aba6_cgraph.pdf> <./Utils_8c_2f3955eb1326f77826baad7
+194f6ea67_cgraph.pdf> <./Utils_8c_18acbfc80e9ea6db45a010ccf7bfeafd_cgraph.pdf>]
+\openout2 = `Utils_8h.aux'.
+
+ (./Utils_8h.tex
+<Utils_8h__dep__incl.pdf, id=2878, 275.0275pt x 489.83pt>
+File: Utils_8h__dep__incl.pdf Graphic file (type pdf)
+
+<use Utils_8h__dep__incl.pdf> [153
+
+
+ <./Utils_8h__dep__incl.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 57--57
+
+ []
+
+
+<Utils_8h_ff0eae9aa0175cd8fe73324707418ce0_cgraph.pdf, id=2920, 154.5775pt x 20
+.075pt>
+File: Utils_8h_ff0eae9aa0175cd8fe73324707418ce0_cgraph.pdf Graphic file (type p
+df)
+ <use Utils_8h_ff0eae9aa0175cd8fe73324707418ce0_cgraph.pdf>
+Underfull \hbox (badness 10000) in paragraph at lines 95--95
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 111--111
+
+ []
+
+[154 <./Utils_8h_ff0eae9aa0175cd8fe73324707418ce0_cgraph.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 127--127
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 143--143
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 159--159
+
+ []
+
+[155]
+<Utils_8h_c0d5c2fe971923d7a1b1869dffabddb1_cgraph.pdf, id=2941, 222.8325pt x 20
+.075pt>
+File: Utils_8h_c0d5c2fe971923d7a1b1869dffabddb1_cgraph.pdf Graphic file (type p
+df)
+ <use Utils_8h_c0d5c2fe971923d7a1b1869dffabddb1_cgraph.pdf>
+<Utils_8h_ccce6f00d55276c0a01b30651f1c206c_cgraph.pdf, id=2942, 385.44pt x 152.
+57pt>
+File: Utils_8h_ccce6f00d55276c0a01b30651f1c206c_cgraph.pdf Graphic file (type p
+df)
+ <use Utils_8h_ccce6f00d55276c0a01b30651f1c206c_cgraph.pdf>
+Underfull \hbox (badness 10000) in paragraph at lines 206--206
+
+ []
+
+
+<Utils_8h_88c1a807c7856d57d07d10027d588602_cgraph.pdf, id=2943, 273.02pt x 20.0
+75pt>
+File: Utils_8h_88c1a807c7856d57d07d10027d588602_cgraph.pdf Graphic file (type p
+df)
+ <use Utils_8h_88c1a807c7856d57d07d10027d588602_cgraph.pdf> [156 <./Utils_8h_c0
+d5c2fe971923d7a1b1869dffabddb1_cgraph.pdf> <./Utils_8h_ccce6f00d55276c0a01b3065
+1f1c206c_cgraph.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 252--252
+
+ []
+
+
+Underfull \hbox (badness 2285) in paragraph at lines 278--281
+[]\T1/ptm/m/n/10 Referenced by C_-Global-Test(), C_-Independence-Test(), C_-Nod
+e(), C_-splitnode(), R_-Expect-Covar-
+ []
+
+
+Underfull \hbox (badness 2165) in paragraph at lines 278--281
+\T1/ptm/m/n/10 Influence(), R_-Expect-Covar-Linear-Statistic(), R_-Linear-Stati
+stic(), R_-matprod(), R_-matprod-T(), R_-
+ []
+
+)
+Underfull \hbox (badness 1158) in paragraph at lines 289--84
+[]\T1/ptm/m/n/10 Referenced by C_-Independence-Test(), CR_-svd(), R_-Expect-Cov
+ar-Influence(), R_-Expect-Covar-Linear-
+ []
+
+[157 <./Utils_8h_88c1a807c7856d57d07d10027d588602_cgraph.pdf>] [158
+
+
+]
+Chapter 6.
+(./todo.tex)
+No file refman.ind.
+[159] (./refman.aux (./Classes_8h.aux) (./Convenience_8c.aux)
+(./Convenience_8h.aux) (./Distributions_8c.aux) (./Distributions_8h.aux)
+(./IndependenceTest_8c.aux) (./IndependenceTest_8h.aux)
+(./LinearStatistic_8c.aux) (./LinearStatistic_8h.aux) (./mvt_8h.aux)
+(./Node_8c.aux) (./Node_8h.aux) (./party_8h.aux) (./Predict_8c.aux)
+(./Predict_8h.aux) (./RandomForest_8c.aux) (./S3Classes_8c.aux)
+(./S3Classes_8h.aux) (./Splits_8c.aux) (./Splits_8h.aux)
+(./SurrogateSplits_8c.aux) (./SurrogateSplits_8h.aux) (./TestStatistic_8c.aux)
+(./TestStatistic_8h.aux) (./TreeGrow_8c.aux) (./TreeGrow_8h.aux)
+(./Utils_8c.aux) (./Utils_8h.aux))
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 6236 strings out of 94500
+ 138021 string characters out of 1175788
+ 104923 words of memory out of 1000000
+ 7903 multiletter control sequences out of 10000+50000
+ 39790 words of font info for 44 fonts, out of 500000 for 2000
+ 580 hyphenation exceptions out of 8191
+ 32i,13n,43p,1481b,498s stack positions out of 1500i,500n,5000p,200000b,5000s
+PDF statistics:
+ 2986 PDF objects out of 300000
+ 1187 named destinations out of 131072
+ 637 words of extra memory for PDF output out of 65536
+
+! pdfTeX warning (dest): name{Utils_8c-source} has been referenced but does not
+ exist, replaced by a fixed one
+
+! pdfTeX warning (dest): name{TreeGrow_8c-source} has been referenced but does 
+not exist, replaced by a fixed one
+
+! pdfTeX warning (dest): name{TestStatistic_8c-source} has been referenced but 
+does not exist, replaced by a fixed one
+
+! pdfTeX warning (dest): name{SurrogateSplits_8c-source} has been referenced bu
+t does not exist, replaced by a fixed one
+
+! pdfTeX warning (dest): name{Splits_8c-source} has been referenced but does no
+t exist, replaced by a fixed one
+
+! pdfTeX warning (dest): name{S3Classes_8c-source} has been referenced but does
+ not exist, replaced by a fixed one
+
+! pdfTeX warning (dest): name{RandomForest_8c-source} has been referenced but d
+oes not exist, replaced by a fixed one
+
+! pdfTeX warning (dest): name{Predict_8c-source} has been referenced but does n
+ot exist, replaced by a fixed one
+
+! pdfTeX warning (dest): name{Node_8c-source} has been referenced but does not 
+exist, replaced by a fixed one
+
+! pdfTeX warning (dest): name{LinearStatistic_8c-source} has been referenced bu
+t does not exist, replaced by a fixed one
+
+! pdfTeX warning (dest): name{IndependenceTest_8c-source} has been referenced b
+ut does not exist, replaced by a fixed one
+
+! pdfTeX warning (dest): name{Distributions_8c-source} has been referenced but 
+does not exist, replaced by a fixed one
+
+! pdfTeX warning (dest): name{Convenience_8c-source} has been referenced but do
+es not exist, replaced by a fixed one
+
+! pdfTeX warning (dest): name{Classes_8c-source} has been referenced but does n
+ot exist, replaced by a fixed one
+
+</usr/share/texmf-tetex/fonts/type1/bluesky/cm/cmmi10.pfb></usr/share/texmf-tet
+ex/fonts/type1/bluesky/cm/cmsy10.pfb>{/usr/share/texmf-tetex/fonts/enc/dvips/ps
+nfss/8r.enc}</usr/share/texmf-tetex/fonts/type1/urw/times/utmbi8a.pfb></usr/sha
+re/texmf-tetex/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texmf-tetex/fonts
+/type1/urw/times/utmb8a.pfb></usr/share/texmf-tetex/fonts/type1/urw/times/utmr8
+a.pfb>
+Output written on refman.pdf (163 pages, 865103 bytes).

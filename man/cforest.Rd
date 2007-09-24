@@ -8,7 +8,7 @@
 }
 \usage{
 cforest(formula, data = list(), subset = NULL, weights = NULL, 
-        controls = cforest_control(),
+        controls = cforest_unbiased(),
         xtrafo = ptrafo, ytrafo = ptrafo, scores = NULL)
 varimp(x, mincriterion = 0.0)
 }
@@ -27,7 +27,9 @@ varimp(x, mincriterion = 0.0)
                   are integer-valued and based on the number of weights greater zero
                   else. }
   \item{controls}{an object of class \code{\link{ForestControl-class}}, which can be
-                  obtained using \code{\link{cforest_control}}.}
+                  obtained using \code{\link{cforest_control}} (and its
+		  convenience interface \code{cforest_classical} and
+		  \code{cforest_unbiased}).}
   \item{xtrafo}{ a function to be applied to all input variables.
                 By default, the \code{\link{ptrafo}} function is applied.}
   \item{ytrafo}{ a function to be applied to all response variables.
@@ -62,11 +64,11 @@ varimp(x, mincriterion = 0.0)
   forests to censored response variables or to multivariate and 
   ordered responses.
 
-  By default, raw test statitics are maximized and five inputs are randomly
-  examined for possible splits in each node. Note that this implies 
-  biased internal variable selection which might affect variable 
-  importance measures derived from such a forest.
-
+  By default, unbiased trees (see Strobl et al., 2007) are used
+  and five inputs are randomly examined for possible splits in each node. 
+  The defaults can be changed by specifying hyper parameters via the
+  \code{\link{cforest_control}} function to the \code{control} argument
+  of \code{cforest}.
   Function \code{varimp} can be used to compute variable importance measures
   similar to those computed by \code{\link[randomForest]{importance}}.
 
@@ -85,13 +87,20 @@ varimp(x, mincriterion = 0.0)
     and Mark J. van der Laan (2006). Survival Ensembles. \emph{Biostatistics}, 
     \bold{7}(3), 355--373.
 
+    Carolin Strobl, Anne-Laure Boulesteix, Achim Zeileis and Torsten Hothorn (2007).
+    Bias in Random Forest Variable Importance Measures: Illustrations, Sources and 
+    a Solution. \emph{BMC Bioinformatics}, \bold{8}, 25. 
+    \url{http://www.biomedcentral.com/1471-2105/8/25/abstract}
+}
+
+
 }
 \examples{
 
     ### honest (i.e., out-of-bag) cross-classification of
     ### true vs. predicted classes
     table(mammoexp$ME, predict(cforest(ME ~ ., data = mammoexp, 
-                               control = cforest_control(ntree = 50)),
+                               control = cforest_classical(ntree = 50)),
                                OOB = TRUE))
 
     ### fit forest to censored response
@@ -99,7 +108,7 @@ varimp(x, mincriterion = 0.0)
 
         data("GBSG2", package = "ipred")
         bst <- cforest(Surv(time, cens) ~ ., data = GBSG2, 
-                   control = cforest_control(ntree = 50))
+                   control = cforest_classical(ntree = 50))
 
         ### estimate conditional Kaplan-Meier curves
         treeresponse(bst, newdata = GBSG2[1:2,], OOB = TRUE)

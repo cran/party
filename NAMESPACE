@@ -9,7 +9,8 @@ export(ctree, ctree_memory, ctree_control,
        where, nodes, conditionalTree,
        treeresponse, response, ptrafo, cforest,
        mob, mob_control,
-       reweight, sctest.mob, cforest_control, varimp)
+       reweight, sctest.mob, cforest_control, varimp,
+       cforest_classical, cforest_unbiased)
 
 exportClasses("BinaryTree", "LearningSample", "SplittingNode",
               "TerminalNode", "TreeControl", "RandomForest", "mob",

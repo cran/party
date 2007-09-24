@@ -1,18 +1,23 @@
 \name{Control Forest Hyper Parameters}
 \alias{cforest_control}
+\alias{cforest_classical}
+\alias{cforest_unbiased}
 \title{ Control for Conditional Tree Forests }
 \description{
 
-  Various parameters that control aspects of the `cforest' fit.
+  Various parameters that control aspects of the `cforest' fit via
+  its `control' argument.
 
 }
 \usage{
+cforest_unbiased(\dots)
+cforest_classical(\dots)
 cforest_control(teststat = "max",
                 testtype = "Teststatistic",
                 mincriterion = qnorm(0.9),
                 savesplitstats = FALSE,
                 ntree = 500, mtry = 5, replace = TRUE,
-                fraction = 0.632, ...)
+                fraction = 0.632, \dots)
 }
 \arguments{
   \item{teststat}{ a character specifying the type of the test statistic
@@ -38,6 +43,10 @@ cforest_control(teststat = "max",
 }
 \details{
 
+  All three functions return an object of class \code{\link{ForestControl-class}}
+  defining hyper parameters to be specified via the \code{control} argument
+  of \code{\link{cforest}}.
+
   The arguments \code{teststat}, \code{testtype} and \code{mincriterion}
   determine how the global null hypothesis of independence between all input
   variables and the response is tested (see \code{\link{ctree}}). The 
@@ -59,8 +68,23 @@ cforest_control(teststat = "max",
   those length is determined by the number of observations in the learning
   sample and thus much more memory is required.
 
+  Function \code{cforest_unbiased} returns the settings suggested 
+  for the construction of unbiased random forests by Strobl et al. (2007)
+  and is the default since version 0.9-90.
+  Hyper parameter settings mimicing the behaviour of
+  \code{\link[randomForest]{randomForest}} are available in
+  \code{cforest_classical} which have been used as default up to
+  version 0.9-14. 
+
 }
 \value{
   An object of class \code{\link{ForestControl-class}}.
+}
+\references{
+
+    Carolin Strobl, Anne-Laure Boulesteix, Achim Zeileis and Torsten Hothorn (2007).
+    Bias in Random Forest Variable Importance Measures: Illustrations, Sources and  
+    a Solution. \emph{BMC Bioinformatics}, \bold{8}, 25. 
+    \url{http://www.BioMedCentral.com/1471-2105/8/25/}
 }
 \keyword{misc}

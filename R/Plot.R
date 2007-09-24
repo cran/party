@@ -1,5 +1,5 @@
 
-# $Id: Plot.R 3213 2007-01-15 12:09:27Z zeileis $
+# $Id: Plot.R 3712 2007-09-24 10:19:49Z zeileis $
 
 ## utility functions for querying the number of
 ## terminal nodes and the maximal depth of (sub-)trees
@@ -150,12 +150,12 @@ class(node_surv) <- "grapcon_generator"
 node_barplot <- function(ctreeobj,
                          col = "black",
       		         fill = NULL,
-			 beside = TRUE,
+			 beside = NULL,
 		         ymax = NULL,
 		         ylines = NULL,
 		         widths = 1,
 		         gap = NULL,
-			 reverse = FALSE,
+			 reverse = NULL,
 		         id = TRUE)
 {   
     getMaxPred <- function(x) {
@@ -169,6 +169,7 @@ node_barplot <- function(ctreeobj,
     
     if(is.factor(y) || class(y) == "was_ordered") {
         ylevels <- levels(y)
+	beside <- if(length(ylevels) < 3) FALSE else TRUE
         if(is.null(ymax)) ymax <- if(beside) 1.1 else 1
 	if(is.null(gap)) gap <- if(beside) 0.1 else 0
     } else {
@@ -177,12 +178,9 @@ node_barplot <- function(ctreeobj,
         if(length(ylevels) < 2) ylevels <- ""
 	if(is.null(gap)) gap <- 1
     }
-
-    if(is.null(fill))
-      fill <- if(beside) "lightgray" else gray.colors(length(ylevels))
-     
-    if(is.null(ylines))
-      ylines <- if(beside) c(3, 1) else c(1.5, 2.5)
+    if(is.null(reverse)) reverse <- !beside
+    if(is.null(fill)) fill <- gray.colors(length(ylevels))
+    if(is.null(ylines)) ylines <- if(beside) c(3, 2) else c(1.5, 2.5)
 
     ### panel function for barplots in nodes
     rval <- function(node) {

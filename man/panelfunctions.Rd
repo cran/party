@@ -26,9 +26,9 @@ node_terminal(ctreeobj, digits = 3, abbreviate = FALSE,
   fill = c("lightgray", "white"), id = TRUE)
 edge_simple(treeobj, digits = 3, abbreviate = FALSE)
 node_surv(ctreeobj, ylines = 2, id = TRUE, \dots)
-node_barplot(ctreeobj, col = "black", fill = NULL, beside = TRUE,
+node_barplot(ctreeobj, col = "black", fill = NULL, beside = NULL,
   ymax = NULL, ylines = NULL, widths = 1, gap = NULL, 
-  reverse = FALSE, id = TRUE)
+  reverse = NULL, id = TRUE)
 node_boxplot(ctreeobj, col = "black", fill = "lightgray", 
   width = 0.5,  yscale = NULL, ylines = 3, cex = 0.5, id = TRUE)
 node_hist(ctreeobj, col = "black", fill = "lightgray", 
@@ -46,7 +46,7 @@ node_bivplot(mobobj, which = NULL, id = TRUE, pop = TRUE,
   boxcol = "black", boxwidth = 0.5, boxfill = "lightgray",
   fitmean = TRUE, linecol = "red",
   cdplot = FALSE, fivenum = TRUE, breaks = NULL,
-  ylines = NULL, xlab = FALSE, ylab = FALSE, \dots)
+  ylines = NULL, xlab = FALSE, ylab = FALSE, margins = rep(1.5, 4), \dots)
 }
 \arguments{
   \item{ctreeobj}{ an object of class \code{BinaryTree}.}
@@ -95,6 +95,7 @@ node_bivplot(mobobj, which = NULL, id = TRUE, pop = TRUE,
   \item{xlab, ylab}{ character with x- and y-axis labels. Can also be logical: if \code{FALSE}
     axis labels are surpressed, if \code{TRUE} they are taken from the underlying data.
     Can be a vector of labels for \code{xlab}. }
+  \item{margins}{margins of the viewports.}
   \item{\dots}{ additional arguments passed to callies.}
 }
 

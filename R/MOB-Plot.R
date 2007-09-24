@@ -32,7 +32,7 @@ node_scatterplot <- function(mobobj, which = NULL, col = "black", linecol = "red
     x <- model.matrix(mobobj@tree$model)
     if(is.null(which)) { which <- if(NCOL(x) > 1) 2:NCOL(x) else 1 }
     xnam <- colnames(x)[which]
-    x <- x[,which,drop=FALSE]
+    x <- x[,which, drop = FALSE]
     k <- NCOL(x)
     
     if(is.null(xscale)) xscale <- apply(x, 2, function(xi) range(xi) + c(-0.1, 0.1) * diff(range(xi)))
@@ -103,7 +103,7 @@ node_bivplot <- function(mobobj, which = NULL, id = TRUE, pop = TRUE,
   boxcol = "black", boxwidth = 0.5, boxfill = "lightgray",
   fitmean = TRUE, linecol = "red",
   cdplot = FALSE, fivenum = TRUE, breaks = NULL,
-  ylines = NULL, xlab = FALSE, ylab = FALSE,
+  ylines = NULL, xlab = FALSE, ylab = FALSE, margins = rep(1.5, 4),
   ...)
 {
     ## obtain dependent variable
@@ -144,7 +144,7 @@ node_bivplot <- function(mobobj, which = NULL, id = TRUE, pop = TRUE,
       if(cdplot) {
         num_fun <- function(x, y, yfit, i, name, ...) {
           cd_plot(x, y, xlab = xlab[i], ylab = ylab, name = name, newpage = FALSE,
-	    margins = rep(1.5, 4), pop = FALSE, ...)
+	    margins = margins, pop = FALSE, ...)
     	  if(fitmean) {
 	    #FIXME# downViewport(name = name)
             grid.lines(x, yfit, default.units = "native", gp = gpar(col = linecol))
@@ -163,7 +163,7 @@ node_bivplot <- function(mobobj, which = NULL, id = TRUE, pop = TRUE,
 	}
         num_fun <- function(x, y, yfit, i, name, ...) {
           spine(x, y, xlab = xlab[i], ylab = ylab, name = name, newpage = FALSE,
-	    margins = rep(1.5, 4), pop = FALSE, breaks = xscale[[i]], ...)
+	    margins = margins, pop = FALSE, breaks = xscale[[i]], ...)
     	  if(fitmean) {
 	    #FIXME# downViewport(name = name)
 	    xaux <- cut(x, breaks = xscale[[i]], include.lowest = TRUE)	    
@@ -182,7 +182,7 @@ node_bivplot <- function(mobobj, which = NULL, id = TRUE, pop = TRUE,
       }
       cat_fun <- function(x, y, yfit, i, name, ...) {
         spine(x, y, xlab = xlab[i], ylab = ylab, name = name, newpage = FALSE,
-	  margins = rep(1.5, 4), pop = FALSE, ...)
+	  margins = margins, pop = FALSE, ...)
     	if(fitmean) {
 	  #FIXME# downViewport(name = name)
 	  yfit <- unlist(tapply(yfit, x, mean))
@@ -204,7 +204,7 @@ node_bivplot <- function(mobobj, which = NULL, id = TRUE, pop = TRUE,
       ## scatter plots and box plots
       num_fun <- function(x, y, yfit, i, name, ...) {
         xscale[,i] <- xscale[,i] + c(-0.1, 0.1) * diff(xscale[,i])
-        pushViewport(plotViewport(margins = rep(1.5, 4), name = name,
+        pushViewport(plotViewport(margins = margins, name = name,
 	  yscale = yscale, xscale = xscale[,i]))
 	grid.points(x, y, gp = gpar(col = pointcol, cex = pointcex))
 	if(fitmean) {	
@@ -219,7 +219,7 @@ node_bivplot <- function(mobobj, which = NULL, id = TRUE, pop = TRUE,
       }
       cat_fun <- function(x, y, yfit, i, name, ...) {
         xlev <- levels(x)
-        pushViewport(plotViewport(margins = rep(1.5, 4), name = name,
+        pushViewport(plotViewport(margins = margins, name = name,
 	  yscale = yscale, xscale = c(0.3, xscale[2,i]+0.7)))
 
         for(i in seq(along = xlev)) {
