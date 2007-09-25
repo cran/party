@@ -1,5 +1,5 @@
 
-# $Id: Classes.R 3655 2007-07-23 07:44:00Z hothorn $
+# $Id: Classes.R 3732 2007-09-26 12:46:10Z hothorn $
 
 ### Conditional Expectation and Covariance
 setClass(Class = "ExpectCovar",
@@ -58,7 +58,7 @@ setClass(Class = "TreeFitMemory",
         expcovinf         = "ExpectCovarInfluence",
         expcovinfss       = "ExpectCovarInfluence",
         linexpcov2sample  = "LinStatExpectCovar",
-        weights           = "list",
+        weights           = "numeric",
         varmemory         = "list",
         dontuse           = "logical",
         dontusetmp        = "logical",

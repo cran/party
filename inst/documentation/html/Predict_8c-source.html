@@ -380,7 +380,38 @@
 <a name="l00473"></a>00473     UNPROTECT(1);
 <a name="l00474"></a>00474     <span class="keywordflow">return</span>(ans);
 <a name="l00475"></a>00475 }
-</pre></div><hr size="1"><address style="align: right;"><small>Generated on Mon Sep 24 17:25:53 2007 for party by&nbsp;
+<a name="l00476"></a>00476 
+<a name="l00477"></a>00477 
+<a name="l00483"></a><a class="code" href="Predict_8c.html#3be1a8f3155b0481350cecd4c094a416">00483</a> SEXP <a class="code" href="Predict_8c.html#3be1a8f3155b0481350cecd4c094a416">R_proximity</a>(SEXP where) {
+<a name="l00484"></a>00484 
+<a name="l00485"></a>00485     SEXP ans, bw;
+<a name="l00486"></a>00486     <span class="keywordtype">int</span> ntrees, nobs, i, b, j, iwhere;
+<a name="l00487"></a>00487     
+<a name="l00488"></a>00488     ntrees = LENGTH(where);
+<a name="l00489"></a>00489     nobs = LENGTH(VECTOR_ELT(where, 0));
+<a name="l00490"></a>00490     
+<a name="l00491"></a>00491     PROTECT(ans = allocVector(VECSXP, nobs));
+<a name="l00492"></a>00492     
+<a name="l00493"></a>00493     <span class="keywordflow">for</span> (i = 0; i &lt; nobs; i++) {
+<a name="l00494"></a>00494         SET_VECTOR_ELT(ans, i, bw = allocVector(INTSXP, nobs));
+<a name="l00495"></a>00495         <span class="keywordflow">for</span> (j = 0; j &lt; nobs; j++)
+<a name="l00496"></a>00496             INTEGER(bw)[j] = 0.0;
+<a name="l00497"></a>00497         <span class="keywordflow">for</span> (b = 0; b &lt; ntrees; b++) {
+<a name="l00498"></a>00498             <span class="comment">/* don't look at out-of-bag observations */</span>
+<a name="l00499"></a>00499             <span class="keywordflow">if</span> (INTEGER(VECTOR_ELT(where, b))[i] == 0)
+<a name="l00500"></a>00500                 <span class="keywordflow">continue</span>;
+<a name="l00501"></a>00501             iwhere = INTEGER(VECTOR_ELT(where, b))[i];
+<a name="l00502"></a>00502             <span class="keywordflow">for</span> (j = 0; j &lt; nobs; j++) {
+<a name="l00503"></a>00503                 <span class="keywordflow">if</span> (iwhere == INTEGER(VECTOR_ELT(where, b))[j])
+<a name="l00504"></a>00504                     <span class="comment">/* only count the number of trees; no weights */</span>
+<a name="l00505"></a>00505                     INTEGER(bw)[j]++;
+<a name="l00506"></a>00506             }
+<a name="l00507"></a>00507         }
+<a name="l00508"></a>00508     }
+<a name="l00509"></a>00509     UNPROTECT(1);
+<a name="l00510"></a>00510     <span class="keywordflow">return</span>(ans);
+<a name="l00511"></a>00511 }
+</pre></div><hr size="1"><address style="align: right;"><small>Generated on Thu Sep 27 15:50:56 2007 for party by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6 </small></address>
 </body>

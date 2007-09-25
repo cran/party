@@ -1,8 +1,6 @@
 
 set.seed(290875)
-gctorture(on = FALSE)
-library(party)
-gctorture(on = GCtorture)
+library("party")
 
 "hohnloser" <-
 structure(list(EF = as.integer(c(11, 11, 12, 13, 13, 13, 15,

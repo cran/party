@@ -3,7 +3,7 @@
     Node splitting and prediction
     *\file Predict.c
     *\author $Author: hothorn $
-    *\date $Date: 2007-07-23 10:02:09 +0200 (Mon, 23 Jul 2007) $
+    *\date $Date: 2007-09-27 16:24:46 +0200 (Thu, 27 Sep 2007) $
 */
                 
 #include "party.h"
@@ -417,8 +417,8 @@ SEXP R_getpredictions(SEXP tree, SEXP where) {
 /**
     Predictions weights from RandomForest objects
     *\param forest a list of trees
-    *\param where integer matrix (n x ntree) for terminal node numbers
-    *\param weights double matrix (n x ntree) for bootstrap case weights
+    *\param where list (length b) of integer vectors (length n) containing terminal node numbers    
+    *\param weights list (length b) of bootstrap case weights
     *\param newinputs an object of class `VariableFrame'
     *\param mincriterion overwrites mincriterion used for tree growing
     *\param oobpred a logical indicating out-of-bag predictions
@@ -469,6 +469,42 @@ SEXP R_predictRF_weights(SEXP forest, SEXP where, SEXP weights,
         }
         if (count == 0) 
             error("cannot compute out-of-bag predictions for obs ", i + 1);
+    }
+    UNPROTECT(1);
+    return(ans);
+}
+
+
+/**
+    Proximity matrix for random forests
+    *\param where list (length b) of integer vectors (length n) containing terminal node numbers
+*/
+
+SEXP R_proximity(SEXP where) {
+
+    SEXP ans, bw;
+    int ntrees, nobs, i, b, j, iwhere;
+    
+    ntrees = LENGTH(where);
+    nobs = LENGTH(VECTOR_ELT(where, 0));
+    
+    PROTECT(ans = allocVector(VECSXP, nobs));
+    
+    for (i = 0; i < nobs; i++) {
+        SET_VECTOR_ELT(ans, i, bw = allocVector(INTSXP, nobs));
+        for (j = 0; j < nobs; j++)
+            INTEGER(bw)[j] = 0.0;
+        for (b = 0; b < ntrees; b++) {
+            /* don't look at out-of-bag observations */
+            if (INTEGER(VECTOR_ELT(where, b))[i] == 0)
+                continue;
+            iwhere = INTEGER(VECTOR_ELT(where, b))[i];
+            for (j = 0; j < nobs; j++) {
+                if (iwhere == INTEGER(VECTOR_ELT(where, b))[j])
+                    /* only count the number of trees; no weights */
+                    INTEGER(bw)[j]++;
+            }
+        }
     }
     UNPROTECT(1);
     return(ans);

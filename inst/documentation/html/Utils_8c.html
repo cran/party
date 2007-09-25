@@ -103,12 +103,14 @@ Include dependency graph for Utils.c:<p><center><img src="Utils_8c__incl.png" bo
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Utils_8c.html#ccce6f00d55276c0a01b30651f1c206c">C_remove_weights</a> (SEXP subtree)</td></tr>
 
+<tr><td class="memItemLeft" nowrap align="right" valign="top">double *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Utils_8c.html#f9716d8427688ac52d3dd254337316b1">C_tempweights</a> (int j, SEXP weights, SEXP fitmem, SEXP inputs)</td></tr>
+
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
 Some commonly needed utility functions.<p>
 <dl compact><dt><b>Author:</b></dt><dd><dl compact><dt><b>Author</b></dt><dd>hothorn </dd></dl>
 </dd></dl>
-<dl compact><dt><b>Date:</b></dt><dd><dl compact><dt><b>Date</b></dt><dd>2007-07-23 12:53:33 +0200 (Mon, 23 Jul 2007) </dd></dl>
+<dl compact><dt><b>Date:</b></dt><dd><dl compact><dt><b>Date</b></dt><dd>2007-09-26 19:24:45 +0200 (Wed, 26 Sep 2007) </dd></dl>
 </dd></dl>
 
 <p>
@@ -794,6 +796,69 @@ Here is the call graph for this function:<p><center><img src="Utils_8c_88c1a807c
     </td>
   </tr>
 </table>
+<a class="anchor" name="f9716d8427688ac52d3dd254337316b1"></a><!-- doxytag: member="Utils.c::C_tempweights" ref="f9716d8427688ac52d3dd254337316b1" args="(int j, SEXP weights, SEXP fitmem, SEXP inputs)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">double* C_tempweights           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">int&nbsp;</td>
+          <td class="mdname" nowrap> <em>j</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>SEXP&nbsp;</td>
+          <td class="mdname" nowrap> <em>weights</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>SEXP&nbsp;</td>
+          <td class="mdname" nowrap> <em>fitmem</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>SEXP&nbsp;</td>
+          <td class="mdname" nowrap> <em>inputs</em></td>
+        </tr>
+        <tr>
+          <td class="md"></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definition at line <a class="el" href="Utils_8c-source.html#l00712">712</a> of file <a class="el" href="Utils_8c-source.html">Utils.c</a>.
+<p>
+References <a class="el" href="Classes_8c-source.html#l00258">get_missings()</a>, and <a class="el" href="Classes_8c-source.html#l00290">get_weights()</a>.
+<p>
+Referenced by <a class="el" href="Node_8c-source.html#l00048">C_Node()</a>.
+<p>
+Here is the call graph for this function:<p><center><img src="Utils_8c_f9716d8427688ac52d3dd254337316b1_cgraph.png" border="0" usemap="#Utils_8c_f9716d8427688ac52d3dd254337316b1_cgraph_map" alt=""></center>
+<map name="Utils_8c_f9716d8427688ac52d3dd254337316b1_cgraph_map">
+<area href="Classes_8c.html#fd6cfc2dd239b138d91e92a8ce9353f8" shape="rect" coords="172,8,270,32" alt="">
+<area href="Classes_8c.html#266fda49284a556bbe8aaa80e348a3ca" shape="rect" coords="174,56,268,80" alt="">
+<area href="Classes_8c.html#50548fbe6024d9a7118db3fce5085fd9" shape="rect" coords="321,8,422,32" alt="">
+</map>
+    </td>
+  </tr>
+</table>
 <a class="anchor" name="2a701345082320c18e49d8e7e8150d64"></a><!-- doxytag: member="Utils.c::C_whichmax" ref="2a701345082320c18e49d8e7e8150d64" args="(double *pvalue, double *teststat, int ninputs)" --><p>
 <table class="mdTable" cellpadding="2" cellspacing="0">
   <tr>
@@ -1059,7 +1124,7 @@ Referenced by <a class="el" href="Utils_8c-source.html#l00564">C_i_in_set()</a>,
 <p>
 Definition at line <a class="el" href="Utils_8c-source.html#l00575">575</a> of file <a class="el" href="Utils_8c-source.html">Utils.c</a>.
 <p>
-Referenced by <a class="el" href="IndependenceTest_8c-source.html#l00129">C_GlobalTest()</a>, <a class="el" href="IndependenceTest_8c-source.html#l00078">C_IndependenceTest()</a>, <a class="el" href="Node_8c-source.html#l00048">C_Node()</a>, <a class="el" href="Predict_8c-source.html#l00021">C_splitnode()</a>, <a class="el" href="LinearStatistic_8c-source.html#l00171">R_ExpectCovarInfluence()</a>, <a class="el" href="LinearStatistic_8c-source.html#l00306">R_ExpectCovarLinearStatistic()</a>, <a class="el" href="LinearStatistic_8c-source.html#l00059">R_LinearStatistic()</a>, <a class="el" href="Utils_8c-source.html#l00374">R_matprod()</a>, <a class="el" href="Utils_8c-source.html#l00426">R_matprodT()</a>, <a class="el" href="Utils_8c-source.html#l00243">R_MPinv()</a>, <a class="el" href="Node_8c-source.html#l00228">R_Node()</a>, <a class="el" href="Splits_8c-source.html#l00175">R_split()</a>, <a class="el" href="Splits_8c-source.html#l00307">R_splitcategorical()</a>, and <a class="el" href="TreeGrow_8c-source.html#l00081">R_TreeGrow()</a>.    </td>
+Referenced by <a class="el" href="IndependenceTest_8c-source.html#l00129">C_GlobalTest()</a>, <a class="el" href="IndependenceTest_8c-source.html#l00078">C_IndependenceTest()</a>, <a class="el" href="Node_8c-source.html#l00048">C_Node()</a>, <a class="el" href="Predict_8c-source.html#l00021">C_splitnode()</a>, <a class="el" href="LinearStatistic_8c-source.html#l00171">R_ExpectCovarInfluence()</a>, <a class="el" href="LinearStatistic_8c-source.html#l00306">R_ExpectCovarLinearStatistic()</a>, <a class="el" href="LinearStatistic_8c-source.html#l00059">R_LinearStatistic()</a>, <a class="el" href="Utils_8c-source.html#l00374">R_matprod()</a>, <a class="el" href="Utils_8c-source.html#l00426">R_matprodT()</a>, <a class="el" href="Utils_8c-source.html#l00243">R_MPinv()</a>, <a class="el" href="Node_8c-source.html#l00227">R_Node()</a>, <a class="el" href="Splits_8c-source.html#l00175">R_split()</a>, <a class="el" href="Splits_8c-source.html#l00313">R_splitcategorical()</a>, and <a class="el" href="TreeGrow_8c-source.html#l00081">R_TreeGrow()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="eeb672a71c45ead28b7b354414f2427a"></a><!-- doxytag: member="Utils.c::nrow" ref="eeb672a71c45ead28b7b354414f2427a" args="(SEXP x)" --><p>
@@ -1091,7 +1156,7 @@ Referenced by <a class="el" href="IndependenceTest_8c-source.html#l00129">C_Glob
 <p>
 Definition at line <a class="el" href="Utils_8c-source.html#l00571">571</a> of file <a class="el" href="Utils_8c-source.html">Utils.c</a>.
 <p>
-Referenced by <a class="el" href="IndependenceTest_8c-source.html#l00078">C_IndependenceTest()</a>, <a class="el" href="Utils_8c-source.html#l00153">CR_svd()</a>, <a class="el" href="LinearStatistic_8c-source.html#l00171">R_ExpectCovarInfluence()</a>, <a class="el" href="LinearStatistic_8c-source.html#l00306">R_ExpectCovarLinearStatistic()</a>, <a class="el" href="LinearStatistic_8c-source.html#l00059">R_LinearStatistic()</a>, <a class="el" href="Utils_8c-source.html#l00374">R_matprod()</a>, <a class="el" href="Utils_8c-source.html#l00426">R_matprodT()</a>, <a class="el" href="Distributions_8c-source.html#l00142">R_maxabsConditionalPvalue()</a>, <a class="el" href="Utils_8c-source.html#l00243">R_MPinv()</a>, <a class="el" href="LinearStatistic_8c-source.html#l00384">R_PermutedLinearStatistic()</a>, <a class="el" href="Splits_8c-source.html#l00175">R_split()</a>, and <a class="el" href="Splits_8c-source.html#l00307">R_splitcategorical()</a>.    </td>
+Referenced by <a class="el" href="IndependenceTest_8c-source.html#l00078">C_IndependenceTest()</a>, <a class="el" href="Utils_8c-source.html#l00153">CR_svd()</a>, <a class="el" href="LinearStatistic_8c-source.html#l00171">R_ExpectCovarInfluence()</a>, <a class="el" href="LinearStatistic_8c-source.html#l00306">R_ExpectCovarLinearStatistic()</a>, <a class="el" href="LinearStatistic_8c-source.html#l00059">R_LinearStatistic()</a>, <a class="el" href="Utils_8c-source.html#l00374">R_matprod()</a>, <a class="el" href="Utils_8c-source.html#l00426">R_matprodT()</a>, <a class="el" href="Distributions_8c-source.html#l00142">R_maxabsConditionalPvalue()</a>, <a class="el" href="Utils_8c-source.html#l00243">R_MPinv()</a>, <a class="el" href="LinearStatistic_8c-source.html#l00384">R_PermutedLinearStatistic()</a>, <a class="el" href="Splits_8c-source.html#l00175">R_split()</a>, and <a class="el" href="Splits_8c-source.html#l00313">R_splitcategorical()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="0d9b1b1601f9e2760200af93d21c59af"></a><!-- doxytag: member="Utils.c::R_abs" ref="0d9b1b1601f9e2760200af93d21c59af" args="(SEXP x)" --><p>
@@ -1674,7 +1739,7 @@ Here is the call graph for this function:<p><center><img src="Utils_8c_18acbfc80
 Definition at line <a class="el" href="Utils_8c-source.html#l00677">677</a> of file <a class="el" href="Utils_8c-source.html">Utils.c</a>.    </td>
   </tr>
 </table>
-<hr size="1"><address style="align: right;"><small>Generated on Mon Sep 24 17:28:17 2007 for party by&nbsp;
+<hr size="1"><address style="align: right;"><small>Generated on Thu Sep 27 15:52:25 2007 for party by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6 </small></address>
 </body>

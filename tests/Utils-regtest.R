@@ -1,14 +1,11 @@
 
 set.seed(290875)
-gctorture(on = FALSE)
-library(party)
-if (!require(MASS, quietly = TRUE))
+library("party")
+if (!require("MASS", quietly = TRUE))
     stop("cannot load package MASS")
-gctorture(on = GCtorture)         
 
 ### get rid of the NAMESPACE
-nsparty <- attach(NULL, name="ns-party")
-.Internal(lib.fixup(asNamespace("party"), nsparty))
+attach(asNamespace("party"))
 
 ###
 ###

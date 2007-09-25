@@ -70,7 +70,7 @@ int \hyperlink{Classes_8c_45df17685bc6c95d03fb65b6f6214de0}{get\_\-nobs} (SEXP o
 \item 
 int \hyperlink{Classes_8c_9117d8f57ea1378c725c7299d6cc2923}{get\_\-ninputs} (SEXP object)
 \item 
-SEXP \hyperlink{Classes_8c_7088b22be6072c314107cab4e2bf7d2e}{get\_\-weights} (SEXP object, int variable)
+SEXP \hyperlink{Classes_8c_266fda49284a556bbe8aaa80e348a3ca}{get\_\-weights} (SEXP object)
 \item 
 int \hyperlink{Classes_8c_7f1c5e96481b726312de51ca7c6ef924}{get\_\-testtype} (SEXP object)
 \item 
@@ -248,7 +248,7 @@ S4 classes for package `party'
 \end{Desc}
 \begin{Desc}
 \item[Date:]\begin{Desc}
-\item[Date]2007-06-20 18:11:19 +0200 (Wed, 20 Jun 2007) \end{Desc}
+\item[Date]2007-09-26 14:45:48 +0200 (Wed, 26 Sep 2007) \end{Desc}
 \end{Desc}
 
 
@@ -448,7 +448,7 @@ Definition at line 258 of file Classes.c.
 
 References has\_\-missings(), and PL2\_\-which\-NASym.
 
-Referenced by C\_\-get\_\-node(), C\_\-splitnode(), C\_\-splitsurrogate(), and C\_\-surrogates().
+Referenced by C\_\-get\_\-node(), C\_\-splitnode(), C\_\-splitsurrogate(), C\_\-surrogates(), and C\_\-tempweights().
 
 Here is the call graph for this function:\begin{figure}[H]
 \begin{center}
@@ -787,11 +787,11 @@ Definition at line 269 of file Classes.c.
 
 References PL2\_\-varmemory\-Sym.
 
-Referenced by C\_\-Node().\hypertarget{Classes_8c_7088b22be6072c314107cab4e2bf7d2e}{
+Referenced by C\_\-Node().\hypertarget{Classes_8c_266fda49284a556bbe8aaa80e348a3ca}{
 \index{Classes.c@{Classes.c}!get_weights@{get\_\-weights}}
 \index{get_weights@{get\_\-weights}!Classes.c@{Classes.c}}
-\subsubsection[get\_\-weights]{\setlength{\rightskip}{0pt plus 5cm}SEXP get\_\-weights (SEXP {\em object}, int {\em variable})}}
-\label{Classes_8c_7088b22be6072c314107cab4e2bf7d2e}
+\subsubsection[get\_\-weights]{\setlength{\rightskip}{0pt plus 5cm}SEXP get\_\-weights (SEXP {\em object})}}
+\label{Classes_8c_266fda49284a556bbe8aaa80e348a3ca}
 
 
 
@@ -800,7 +800,7 @@ Definition at line 290 of file Classes.c.
 
 References PL2\_\-weights\-Sym.
 
-Referenced by C\_\-Node().\hypertarget{Classes_8c_50548fbe6024d9a7118db3fce5085fd9}{
+Referenced by C\_\-tempweights().\hypertarget{Classes_8c_50548fbe6024d9a7118db3fce5085fd9}{
 \index{Classes.c@{Classes.c}!has_missings@{has\_\-missings}}
 \index{has_missings@{has\_\-missings}!Classes.c@{Classes.c}}
 \subsubsection[has\_\-missings]{\setlength{\rightskip}{0pt plus 5cm}int has\_\-missings (SEXP {\em object}, int {\em variable})}}

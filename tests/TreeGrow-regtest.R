@@ -1,16 +1,13 @@
 
 set.seed(290875)
-gctorture(on = FALSE)
-library(party)
-if (!require(ipred))
+library("party")
+if (!require("ipred"))
     stop("cannot load package ipred")
-if (!require(coin))
+if (!require("coin"))
     stop("cannot load package coin")
-gctorture(on = GCtorture)
 
 ### get rid of the NAMESPACE
-nsparty <- attach(NULL, name="ns-party")
-.Internal(lib.fixup(asNamespace("party"), nsparty))
+attach(asNamespace("party"))
 
 gtctrl <- new("GlobalTestControl")
 tlev <- levels(gtctrl@testtype)

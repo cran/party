@@ -19,3 +19,4 @@ int i_in_set(int i, int *iset, int p);
 int C_i_in_set(int i, SEXP set);
 void C_SampleSplitting(int n, double *prob, int *weights, int k);
 void C_remove_weights(SEXP subtree);
+double* C_tempweights(int j, SEXP weights, SEXP fitmem, SEXP inputs);

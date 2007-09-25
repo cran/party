@@ -73,6 +73,8 @@ Include dependency graph for Predict.c:<p><center><img src="Predict_8c__incl.png
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">SEXP&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Predict_8c.html#4f6966402677cec07284a3e1bc25660f">R_predictRF_weights</a> (SEXP forest, SEXP where, SEXP weights, SEXP newinputs, SEXP mincriterion, SEXP oobpred)</td></tr>
 
+<tr><td class="memItemLeft" nowrap align="right" valign="top">SEXP&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Predict_8c.html#3be1a8f3155b0481350cecd4c094a416">R_proximity</a> (SEXP where)</td></tr>
+
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
 Node splitting and prediction<p>
@@ -1147,8 +1149,8 @@ Here is the call graph for this function:<p><center><img src="Predict_8c_9a5170a
 Predictions weights from RandomForest objects <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"></td><td valign="top"><em>forest</em>&nbsp;</td><td>a list of trees </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>where</em>&nbsp;</td><td>integer matrix (n x ntree) for terminal node numbers </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>weights</em>&nbsp;</td><td>double matrix (n x ntree) for bootstrap case weights </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>where</em>&nbsp;</td><td>list (length b) of integer vectors (length n) containing terminal node numbers </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>weights</em>&nbsp;</td><td>list (length b) of bootstrap case weights </td></tr>
     <tr><td valign="top"></td><td valign="top"><em>newinputs</em>&nbsp;</td><td>an object of class `VariableFrame' </td></tr>
     <tr><td valign="top"></td><td valign="top"><em>mincriterion</em>&nbsp;</td><td>overwrites mincriterion used for tree growing </td></tr>
     <tr><td valign="top"></td><td valign="top"><em>oobpred</em>&nbsp;</td><td>a logical indicating out-of-bag predictions </td></tr>
@@ -1188,7 +1190,42 @@ Here is the call graph for this function:<p><center><img src="Predict_8c_4f69664
     </td>
   </tr>
 </table>
-<hr size="1"><address style="align: right;"><small>Generated on Mon Sep 24 17:26:57 2007 for party by&nbsp;
+<a class="anchor" name="3be1a8f3155b0481350cecd4c094a416"></a><!-- doxytag: member="Predict.c::R_proximity" ref="3be1a8f3155b0481350cecd4c094a416" args="(SEXP where)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">SEXP R_proximity           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">SEXP&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap> <em>where</em>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Proximity matrix for random forests <dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>where</em>&nbsp;</td><td>list (length b) of integer vectors (length n) containing terminal node numbers </td></tr>
+  </table>
+</dl>
+
+<p>
+Definition at line <a class="el" href="Predict_8c-source.html#l00483">483</a> of file <a class="el" href="Predict_8c-source.html">Predict.c</a>.    </td>
+  </tr>
+</table>
+<hr size="1"><address style="align: right;"><small>Generated on Thu Sep 27 15:51:50 2007 for party by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6 </small></address>
 </body>

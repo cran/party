@@ -1,6 +1,6 @@
 
-R version 2.4.1 (2006-12-18)
-Copyright (C) 2006 The R Foundation for Statistical Computing
+R version 2.6.0 RC (2007-09-25 r42980)
+Copyright (C) 2007 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -17,8 +17,7 @@ Type 'q()' to quit R.
 
 > 
 > set.seed(290875)
-> gctorture(on = FALSE)
-> library(party)
+> library("party")
 Loading required package: survival
 Loading required package: splines
 Loading required package: grid
@@ -40,7 +39,6 @@ Loading required package: strucchange
 Loading required package: vcd
 Loading required package: MASS
 Loading required package: colorspace
-> gctorture(on = GCtorture)
 > 
 > "hohnloser" <-
 + structure(list(EF = as.integer(c(11, 11, 12, 13, 13, 13, 15,

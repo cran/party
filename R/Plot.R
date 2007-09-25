@@ -1,5 +1,5 @@
 
-# $Id: Plot.R 3712 2007-09-24 10:19:49Z zeileis $
+# $Id: Plot.R 3735 2007-09-26 15:42:39Z zeileis $
 
 ## utility functions for querying the number of
 ## terminal nodes and the maximal depth of (sub-)trees
@@ -169,10 +169,11 @@ node_barplot <- function(ctreeobj,
     
     if(is.factor(y) || class(y) == "was_ordered") {
         ylevels <- levels(y)
-	beside <- if(length(ylevels) < 3) FALSE else TRUE
+	if(is.null(beside)) beside <- if(length(ylevels) < 3) FALSE else TRUE
         if(is.null(ymax)) ymax <- if(beside) 1.1 else 1
 	if(is.null(gap)) gap <- if(beside) 0.1 else 0
     } else {
+        if(is.null(beside)) beside <- FALSE
         if(is.null(ymax)) ymax <- getMaxPred(ctreeobj@tree) * 1.1
         ylevels <- seq(along = ctreeobj@tree$prediction)
         if(length(ylevels) < 2) ylevels <- ""
@@ -242,12 +243,12 @@ node_barplot <- function(ctreeobj,
 	            default.units = "native", check.overlap = TRUE)
           grid.yaxis()
 	} else {
-  	  ycenter <- cumsum(pred) - pred/2
+  	  ycenter <- cumsum(pred) - pred
 
 	  for (i in 1:np) {
-            grid.rect(x = xscale[2]/2, y = ycenter[i], height = pred[i], 
+            grid.rect(x = xscale[2]/2, y = ycenter[i], height = min(pred[i], ymax - ycenter[i]), 
                       width = widths[1],
-	              just = "center", default.units = "native",
+	              just = c("center", "bottom"), default.units = "native",
 	              gp = gpar(col = col[i], fill = fill[i]))
 	  }
           if(np > 1) {

@@ -1,0 +1,336 @@
+
+                CHANGES IN party VERSION 0.9-91 (2007-09-26)
+
+    o   bugfix: NAs in factors lead to segfaults on 64bit machines
+        as reported by Carolin Strobl <carolin.strobl@lmu.de>
+
+    o   related to this: be more careful when splitting in
+        variables containing missing values, especially factors.
+
+    o   add examples to regression tests
+
+    o   new function `proximity' (feature request by Henric Nilsson)
+
+
+                CHANGES IN party VERSION 0.9-90 (2007-09-24)
+
+    o   new defaults for `control' argument of `cforest': unbiased
+        forests are now grown by default
+
+    o   new defaults for binary classification tree visualization:
+        stacked bar charts are used by default.
+
+
+                CHANGES IN party VERSION 0.9-14 (2007-07-23)
+
+    o   fix problem in `varimp' introduced by new weights handling
+
+
+                CHANGES IN party VERSION 0.9-13 (2007-07-23)
+
+    o   update `mvt.f'
+
+    o   improve the memory footprint of RandomForest objects
+        substancially (by removing the weights slots from each node).
+        
+        More careful revision of the predict and fitting code is needed.
+
+    o   predictions for cforest with multivariate response are
+        now returned in a matrix (should be a data.frame)
+
+    o   remove confusing `no admissible split found' warning 
+        (which simply meant that the `minsplit' wasn't met).
+
+
+                CHANGES IN party VERSION 0.9-12 (2007-06-28)
+
+    o   adjust to coin 0.6-4
+
+
+                CHANGES IN party VERSION 0.9-11 (2007-06-11)
+
+    o   populate `where' slot in `mob' objects.
+
+    o   `mob_control' now has an `na.action' argument
+
+    o   cforest with replace = FALSE, fraction = ...
+        can now deal with weights (spotted by Carolin Strobl
+        <carolin.strobl@stat.uni-muenchen.de>)
+
+    o   interface to LAPACK (`dgesdd' for computing a SVD)
+        directly. As a side-effect, the svdmem class can be 
+        simplified and no memory allocation during 
+        tree growing is necessary (which results in a measureable
+        performance gain)
+
+
+                CHANGES IN party VERSION 0.9-10 (2007-02-28)
+
+    o   internal infrastructure for fit(x, y) interfaces,
+        including a VariableFrame method for matrices.
+
+    o   deal with factors with only one level and variables where
+        all observations are NA
+
+    o   don't compute design matrices in `ModelEnvFormula'
+
+
+                CHANGES IN party VERSION 0.9-9 (2007-02-02)
+
+    o   internal changes to data objects: joint transformations
+        only necessary for response variables (new class `ResponseFrame')
+        but we need to distinguish between testing (using ranks, for
+        example) and prediction (means of raw data!).
+
+        Problem spotted by Henric Nilsson <nilsson.henric@gmail.com>.
+
+
+                CHANGES IN party VERSION 0.9-8 (2007-01-15)
+
+    o   thicker median lines in boxplots
+
+
+                CHANGES IN party VERSION 0.9-7 (2007-01-15)
+
+    o   fix problems with multivariate response variables
+        (spotted by Henric Nilsson <henric.nilsson@sorch.se>)
+
+
+                CHANGES IN party VERSION 0.9-6 (2006-11-28)
+
+    o   R-2.5.0 does not allow to change the storage.mode of factors
+
+
+                CHANGES IN party VERSION 0.9-5 (2006-10-27)
+
+    o   adjusted p values computed with testtype = "MonteCarlo"
+        did not take dimensionality of the underlying linear statistics
+        into account. It is now ensured that _p values_ are resampled,
+        not test statistics.
+
+    o   fix escape problems
+
+
+                CHANGES IN party VERSION 0.9-4 (2006-09-15)
+
+    o   make sure `maxsurrogates' exceeds number of input variables
+
+    o   fix problems reported by valgrind
+
+
+                CHANGES IN party VERSION 0.9-3 (2006-09-08)
+
+    o    don't call RNG functions in mvt (this is done in C code, once)
+
+
+                CHANGES IN party VERSION 0.9-2 (2006-09-07)
+
+    o    mob() can't currently handle missing values,
+         they are removed and a warning is given.
+
+    o    add `methods' and `vcd' to Depends:
+
+
+                CHANGES IN party VERSION 0.9-0 (2006-08-31)
+
+    o    node_barplot() can now also draw stacked barplots.
+
+    o    simplify handling of ordinal variables. It is now possible
+         to have multiple (ordinal) response variables.
+
+    o    some documentation updates
+
+    o    fix problems with NA handling for factors
+
+    o    make sure minsplit criterion applies in the presence of missing
+         values. Bug spotted by Han Lee <Han.Lee@geodecapital.com>.
+
+
+                CHANGES IN party VERSION 0.8-8 (2006-08-23)
+
+    o    export `varimp' (variable importance measures for cforest())
+
+    o    documentation updates
+
+    o    add codetools checks
+
+
+                CHANGES IN party VERSION 0.8-7 (2006-07-17)
+
+    o    REAL(NULL) now gives an error in C code and scores could be 
+         potentially NULL: fixed for the time being.
+
+    o    add `show' method for BinaryTree and RandomForest objects
+
+
+                CHANGES IN party VERSION 0.8-6 (2006-05-22)
+
+    o    add some validity checks for hyper parameters
+
+    o    add function `varimp' for computing variable importance
+         measures for some random forests (this is still experimental and
+         thus not exported yet, so use `party:::varimp')
+
+
+                CHANGES IN party VERSION 0.8-5 (2006-04-25)
+
+    o    all hyper parameters to `cforest' are now controlled using
+         objects of a new class `ForestControl' which can be created using
+         `cforest_control()'. 
+
+    o    sampling of a fraction of the observations without replacement
+         is now available for the `cforest' implementation of random forest.
+
+
+                CHANGES IN party VERSION 0.8-4 (2006-04-04)
+
+    o    renamed argument `teststattype' to `teststat' with defaults
+         c("quad", "max") in order to be compatible with the `coin' package, 
+         version >= 0.4-5
+
+    o    use `1 - (1 - p)^k' instead of `p * k' for Bonferroni-adjustment.
+         Node 7 for the `GlaucomaM' data is now splitted in addition (in tms).
+
+
+                CHANGES IN party VERSION 0.8-3 (2006-03-20)
+
+    o   `predict' returned nonsensical results in case a tree was 
+        fitted to a multivariate response variable. Now a list with one
+        element for each observation is returned.
+
+
+                CHANGES IN party VERSION 0.8-2 (2006-03-01)
+
+    o    plotting buglets fixed: improved axis in MOB plots,
+         correct (transparent) background on jpeg() and png() devices.
+
+
+		CHANGES IN `party' VERSION 0.8-1 (2006-02-23)
+
+    o    `testtype' can be Bonferroni, MonteCarlo, Univariate and
+         Teststatistic (instead of Raw)		
+
+    o    removed unnecessary constraint on weights in `cforest'
+
+    o    maximize raw test statistics for random forest by default.
+
+
+		CHANGES IN `party' VERSION 0.8-0 (2006-02-15)		
+
+    o    `cforest', an implementation of Breiman's random forest ensemble
+         algorithm based on conditional inference trees (`ctree') has been
+	 added. It is somewhat experimental and thus for advanced users only.
+
+    o    `mob', an object-oriented implementation of a recently suggested
+         algorithm for model-based recursive partitioning (Zeileis, Hothorn,
+	 Hornik, 2005) has been added. It works out of the box for partitioning
+	 (generalized) linear regression models, others can be easily plugged
+	 in. A new vignette "MOB" describes the implementation ideas and provides
+	 a few examples.
+
+    o    new S3 generic reweight() with methods for (g)linearModel
+         for re-fitting a model with different weights.
+
+    o    new argument `maxdepth' to `ctree_control' which allows for
+         growing trees of a fixed maximum depth.
+
+    o    LazyData: yes
+    
+
+		CHANGES IN `party' VERSION 0.3-6 (2006-02-06)
+
+    o    use a different way to deal with NAMESPACEs during in tests/*.R
+         following a suggestion by Prof. Brian D. Ripley
+
+    o    use LazyLoad: yes instead of SaveImage: yes
+
+
+		CHANGES IN `party' VERSION 0.3-5 (2006-02-02)
+
+    o    make R CMD check happy and move src/README to inst/README
+
+
+		CHANGES IN `party' VERSION 0.3-4 (2006-01-18)
+
+    o    documentation updates
+
+
+		CHANGES IN `party' VERSION 0.3-3 (2006-01-18)
+
+    o    some new convenience functions, not exported
+
+
+		CHANGES IN `party' VERSION 0.3-2 (2006-01-12)
+
+    o    isequal must not check equality of attributes
+
+
+		CHANGES IN `party' VERSION 0.3-1 (2005-12-02)
+
+    o    fix bug introduced in version 0.3-0: coin:::factor_trafo applies
+         treatment contrasts in case of a binary factor but we need the full
+         design matrix
+
+    o    documentation updates
+
+
+		CHANGES IN `party' VERSION 0.3-0 (2005-11-29)
+
+    o    `ytrafo' and `xtrafo' functions make use of `coin:::trafo' now,
+         i.e. the handling of influence functions and transformations
+         has been unified in packages `party' and `coin'
+
+
+		CHANGES IN `party' VERSION 0.2-10 (2005-11-08)
+
+    o    new slot `data' in BinaryTree objects, slots inputnames and levels 
+         have been removed
+
+
+		CHANGES IN `party' VERSION 0.2-9 (2005-10-19)
+
+    o    splits in categorical variables could have failed due 
+         to weired internal checks
+
+
+		CHANGES IN `party' VERSION 0.2-8 (2005-08-06)
+
+    o    fix problems reported by codetools
+
+
+		CHANGES IN `party' VERSION 0.2-7 (2005-08-31)
+
+    o    extract inputs using menv@get("input", data = newdata) in predict
+
+
+		CHANGES IN `party' VERSION 0.2-6 (2005-08-29)
+
+    o   make gfortran happy
+
+
+		CHANGES IN `party' VERSION 0.2-5 (2005-08-19)
+
+    o    ctree() now searches the global environment for variables given
+         in `formula' when the `data' argument is unspecified.
+
+
+		CHANGES IN `party' VERSION 0.2-4 (2005-07-07)
+
+    o    names of `criterion' element in `SplittingNode' objects were wrong
+
+    o    categorical splits with `ctree_control(testtype = "MonteCarlo")'
+         were potentially wrong
+
+
+		CHANGES IN `party' VERSION 0.2-3 (2005-06-29)
+
+    o   print and plot only levels which are available in a node (for nominal
+        splits)
+
+
+		CHANGES IN `party' VERSION 0.2-2 (2005-06-27)
+
+    o   ./src/Makedeps will be automatically generated (on Windows)
+        and must not be part of the source-package.
+
+    o   vignette cosmetics

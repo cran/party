@@ -3,7 +3,7 @@
     S4 classes for package `party'
     *\file Classes.c
     *\author $Author: hothorn $
-    *\date $Date: 2007-06-20 18:11:19 +0200 (Wed, 20 Jun 2007) $
+    *\date $Date: 2007-09-26 14:45:48 +0200 (Wed, 26 Sep 2007) $
 */
 
 #include "party.h"
@@ -287,8 +287,8 @@ int get_ninputs(SEXP object) {
     return(INTEGER(GET_SLOT(object, PL2_ninputsSym))[0]);
 }
 
-SEXP get_weights(SEXP object, int variable) {
-    return(VECTOR_ELT(GET_SLOT(object, PL2_weightsSym), variable - 1));
+SEXP get_weights(SEXP object) {
+    return(GET_SLOT(object, PL2_weightsSym));
 }
 
 int get_testtype(SEXP object) {

@@ -3,7 +3,7 @@
     Node computations
     *\file Node.c
     *\author $Author: hothorn $
-    *\date $Date: 2007-07-23 10:09:38 +0200 (Mon, 23 Jul 2007) $
+    *\date $Date: 2007-09-26 14:44:59 +0200 (Wed, 26 Sep 2007) $
 */
                 
 #include "party.h"
@@ -52,9 +52,9 @@ void C_Node(SEXP node, SEXP learnsample, SEXP weights,
     double mincriterion, sweights, *dprediction;
     double *teststat, *pvalue, smax, cutpoint = 0.0, maxstat = 0.0;
     double *standstat, *splitstat;
-    SEXP responses, inputs, x, expcovinf, thisweights, linexpcov;
+    SEXP responses, inputs, x, expcovinf, linexpcov;
     SEXP varctrl, splitctrl, gtctrl, tgctrl, split, testy, predy;
-    double *dxtransf, *dweights;
+    double *dxtransf, *dweights, *thisweights;
     int *itable;
     
     nobs = get_nobs(learnsample);
@@ -113,10 +113,10 @@ void C_Node(SEXP node, SEXP learnsample, SEXP weights,
             if (has_missings(inputs, jselect)) {
                 expcovinf = GET_SLOT(get_varmemory(fitmem, jselect), 
                                     PL2_expcovinfSym);
-                thisweights = get_weights(fitmem, jselect);
+                thisweights = C_tempweights(jselect, weights, fitmem, inputs);
             } else {
                 expcovinf = GET_SLOT(fitmem, PL2_expcovinfSym);
-                thisweights = weights;
+                thisweights = REAL(weights);
             }
 
             /* <FIXME> handle ordered factors separatly??? </FIXME> */
@@ -135,7 +135,7 @@ void C_Node(SEXP node, SEXP learnsample, SEXP weights,
                     splitstat = REAL(get_splitstatistics(fitmem));
                 }
 
-                C_split(REAL(x), 1, REAL(testy), q, REAL(weights), nobs,
+                C_split(REAL(x), 1, REAL(testy), q, thisweights, nobs,
                         INTEGER(get_ordering(inputs, jselect)), splitctrl, 
                         GET_SLOT(fitmem, PL2_linexpcov2sampleSym),
                         expcovinf, REAL(S3get_splitpoint(split)), &maxstat,
@@ -171,7 +171,7 @@ void C_Node(SEXP node, SEXP learnsample, SEXP weights,
  
                  C_splitcategorical(INTEGER(x), 
                                     LENGTH(get_levels(inputs, jselect)), 
-                                    REAL(testy), q, REAL(weights), 
+                                    REAL(testy), q, thisweights, 
                                     nobs, standstat, splitctrl, 
                                     GET_SLOT(fitmem, PL2_linexpcov2sampleSym),
                                     expcovinf, &cutpoint, 
@@ -184,11 +184,10 @@ void C_Node(SEXP node, SEXP learnsample, SEXP weights,
                     
                  itable = INTEGER(S3get_table(split));
                  dxtransf = REAL(get_transformation(inputs, jselect));
-                 dweights = REAL(thisweights);
                  for (k = 0; k < LENGTH(get_levels(inputs, jselect)); k++) {
                      itable[k] = 0;
                      for (i = 0; i < nobs; i++) {
-                         if (dxtransf[k * nobs + i] * dweights[i] > 0) {
+                         if (dxtransf[k * nobs + i] * thisweights[i] > 0) {
                              itable[k] = 1;
                              continue;
                          }

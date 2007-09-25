@@ -3,7 +3,7 @@
     Functions for variable selection in each node of a tree
     *\file IndependenceTest.c
     *\author $Author: hothorn $
-    *\date $Date: 2007-02-02 11:22:45 +0100 (Fri, 02 Feb 2007) $
+    *\date $Date: 2007-09-26 14:44:59 +0200 (Wed, 26 Sep 2007) $
 */
                 
 #include "party.h"
@@ -203,12 +203,7 @@ void C_GlobalTest(const SEXP learnsample, const SEXP weights,
                                 REAL(weights), nrow(x), !RECALC, expcovinf,
                                 xmem);
             } else {
-                thisweights = REAL(get_weights(fitmem, j));
-                thiswhichNA = get_missings(inputs, j);
-                ithiswhichNA = INTEGER(thiswhichNA);
-                for (i = 0; i < nobs; i++) thisweights[i] = dweights[i];
-                for (k = 0; k < LENGTH(thiswhichNA); k++)
-                    thisweights[ithiswhichNA[k] - 1] = 0.0;
+                thisweights = C_tempweights(j, weights, fitmem, inputs);
 
                 /* check if minsplit criterion is still met 
                    in the presence of missing values

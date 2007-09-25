@@ -1,5 +1,5 @@
 
-# $Id: RandomForest.R 3720 2007-09-24 16:18:36Z hothorn $
+# $Id: RandomForest.R 3742 2007-09-27 14:24:46Z hothorn $
 
 ### the fitting procedure
 cforestfit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
@@ -94,9 +94,11 @@ cforestfit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
 
         newinp <- newinputs(object, newdata)
 
-        return(.Call("R_predictRF_weights", ensemble, bwhere, bweights, 
-                     newinp, mincriterion, OOB && is.null(newdata), 
-                     PACKAGE = "party"))
+        RET <- .Call("R_predictRF_weights", ensemble, bwhere, bweights, 
+                     newinp, mincriterion, OOB && is.null(newdata),
+                     PACKAGE = "party")
+        names(RET) <- rownames(newinp@variables)
+        RET
     }
     return(RET)
 }
@@ -179,13 +181,13 @@ varIDs <- function(node) {
     return(v)
 }
 
-varimp <- function(x, mincriterion = 0.0) {
+varimp <- function(object, mincriterion = 0.0) {
 
-    inputs <- x@data@get("input")
-    response <- x@responses
+    inputs <- object@data@get("input")
+    response <- object@responses
     if (length(response@variables) != 1)
         stop("cannot compute variable importance measure for multivariate response")
-    y <- x@responses@variables[[1]]
+    y <- object@responses@variables[[1]]
     inp <- initVariableFrame(inputs, trafo = NULL) 
     if (!all(complete.cases(inp@variables)))
         stop("cannot compute variable importance measure with missing values")
@@ -208,13 +210,13 @@ varimp <- function(x, mincriterion = 0.0) {
         }
     }
 
-    perror <- matrix(0, nrow = length(x@ensemble), ncol = ncol(inputs))
+    perror <- matrix(0, nrow = length(object@ensemble), ncol = ncol(inputs))
     colnames(perror) <- colnames(inputs)
 
-    for (b in 1:length(x@ensemble)) {
+    for (b in 1:length(object@ensemble)) {
 
-        tree <- x@ensemble[[b]]
-        oob <- x@weights[[b]] == 0
+        tree <- object@ensemble[[b]]
+        oob <- object@weights[[b]] == 0
 
         p <- .Call("R_predict", tree, inp, mincriterion,
                    PACKAGE = "party")
@@ -236,4 +238,17 @@ varimp <- function(x, mincriterion = 0.0) {
     }
     data.frame("MeanDecreaseAccuracy" = colMeans(perror), 
                "Standard Deviation" = apply(perror, 2, sd))
+}
+
+### calculate proximity matrix: p[i,j] = number of times obs i and j are 
+### in the same terminal node
+proximity <- function(object) {
+
+    ### extract prediction weights
+    prox <- .Call("R_proximity", object@where, package = "party")
+    rn <- rownames(object@data@get("response"))
+    prox <- matrix(unlist(prox), ncol = length(prox))
+    rownames(prox) <- rn
+    colnames(prox) <- rn
+    prox
 }

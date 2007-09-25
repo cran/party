@@ -41,6 +41,8 @@ void \hyperlink{Predict_8c_8964e7493ed9cb96c271b168b721e329}{C\_\-getpredictions
 SEXP \hyperlink{Predict_8c_a508a31f1fd7cd3668ad81eb0d00dd66}{R\_\-getpredictions} (SEXP tree, SEXP where)
 \item 
 SEXP \hyperlink{Predict_8c_4f6966402677cec07284a3e1bc25660f}{R\_\-predict\-RF\_\-weights} (SEXP forest, SEXP where, SEXP weights, SEXP newinputs, SEXP mincriterion, SEXP oobpred)
+\item 
+SEXP \hyperlink{Predict_8c_3be1a8f3155b0481350cecd4c094a416}{R\_\-proximity} (SEXP where)
 \end{CompactItemize}
 
 
@@ -413,7 +415,7 @@ Here is the call graph for this function:\begin{figure}[H]
 Predictions weights from Random\-Forest objects \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[{\em forest}]a list of trees \item[{\em where}]integer matrix (n x ntree) for terminal node numbers \item[{\em weights}]double matrix (n x ntree) for bootstrap case weights \item[{\em newinputs}]an object of class `Variable\-Frame' \item[{\em mincriterion}]overwrites mincriterion used for tree growing \item[{\em oobpred}]a logical indicating out-of-bag predictions \end{description}
+\item[{\em forest}]a list of trees \item[{\em where}]list (length b) of integer vectors (length n) containing terminal node numbers \item[{\em weights}]list (length b) of bootstrap case weights \item[{\em newinputs}]an object of class `Variable\-Frame' \item[{\em mincriterion}]overwrites mincriterion used for tree growing \item[{\em oobpred}]a logical indicating out-of-bag predictions \end{description}
 \end{Desc}
 
 
@@ -427,3 +429,18 @@ Here is the call graph for this function:\begin{figure}[H]
 \includegraphics[width=339pt]{Predict_8c_4f6966402677cec07284a3e1bc25660f_cgraph}
 \end{center}
 \end{figure}
+\hypertarget{Predict_8c_3be1a8f3155b0481350cecd4c094a416}{
+\index{Predict.c@{Predict.c}!R_proximity@{R\_\-proximity}}
+\index{R_proximity@{R\_\-proximity}!Predict.c@{Predict.c}}
+\subsubsection[R\_\-proximity]{\setlength{\rightskip}{0pt plus 5cm}SEXP R\_\-proximity (SEXP {\em where})}}
+\label{Predict_8c_3be1a8f3155b0481350cecd4c094a416}
+
+
+Proximity matrix for random forests \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em where}]list (length b) of integer vectors (length n) containing terminal node numbers \end{description}
+\end{Desc}
+
+
+Definition at line 483 of file Predict.c.

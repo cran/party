@@ -1,4 +1,4 @@
-.TH "Predict.c" 3 "24 Sep 2007" "party" \" -*- nroff -*-
+.TH "Predict.c" 3 "27 Sep 2007" "party" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -53,6 +53,9 @@ Predict.c \-
 .br
 .ti -1c
 .RI "SEXP \fBR_predictRF_weights\fP (SEXP forest, SEXP where, SEXP weights, SEXP newinputs, SEXP mincriterion, SEXP oobpred)"
+.br
+.ti -1c
+.RI "SEXP \fBR_proximity\fP (SEXP where)"
 .br
 .in -1c
 .SH "Detailed Description"
@@ -378,9 +381,9 @@ Predictions weights from RandomForest objects
 .RS 4
 \fIforest\fP a list of trees 
 .br
-\fIwhere\fP integer matrix (n x ntree) for terminal node numbers 
+\fIwhere\fP list (length b) of integer vectors (length n) containing terminal node numbers 
 .br
-\fIweights\fP double matrix (n x ntree) for bootstrap case weights 
+\fIweights\fP list (length b) of bootstrap case weights 
 .br
 \fInewinputs\fP an object of class `VariableFrame' 
 .br
@@ -394,6 +397,18 @@ Predictions weights from RandomForest objects
 Definition at line 427 of file Predict.c.
 .PP
 References C_get_nodebynum(), C_get_nodeID(), get_nobs(), and S3get_prediction().
+.SS "SEXP R_proximity (SEXP where)"
+.PP
+Proximity matrix for random forests 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIwhere\fP list (length b) of integer vectors (length n) containing terminal node numbers 
+.RE
+.PP
+
+.PP
+Definition at line 483 of file Predict.c.
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for party from the source code.

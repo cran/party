@@ -1,6 +1,6 @@
 
-R version 2.4.1 (2006-12-18)
-Copyright (C) 2006 The R Foundation for Statistical Computing
+R version 2.6.0 RC (2007-09-25 r42980)
+Copyright (C) 2007 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -17,8 +17,7 @@ Type 'q()' to quit R.
 
 > 
 > set.seed(290875)
-> gctorture(on = FALSE)
-> library(party)
+> library("party")
 Loading required package: survival
 Loading required package: splines
 Loading required package: grid
@@ -40,14 +39,17 @@ Loading required package: strucchange
 Loading required package: vcd
 Loading required package: MASS
 Loading required package: colorspace
-> if (!require(mvtnorm))
+> if (!require("mvtnorm"))
 +     stop("cannot load package mvtnorm")
 > 
-> gctorture(on = GCtorture)
 > 
 > ### get rid of the NAMESPACE
-> nsparty <- attach(NULL, name="ns-party")
-> .Internal(lib.fixup(asNamespace("party"), nsparty))
+> attach(asNamespace("party"))
+
+	The following object(s) are masked from package:party :
+
+	 cforest cforest_classical cforest_control cforest_unbiased conditionalTree ctree ctree_control ctree_memory edge_simple mob mob_control node_barplot node_bivplot node_boxplot node_density node_hist node_inner node_scatterplot node_surv node_terminal proximity ptrafo reweight sctest.mob varimp 
+
 > 
 > ### 
 > ###

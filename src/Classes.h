@@ -90,7 +90,7 @@ SEXP get_whichNA(SEXP object, int variable);
 SEXP get_varmemory(SEXP object, int variable);
 int get_nobs(SEXP object);
 int get_ninputs(SEXP object);
-SEXP get_weights(SEXP object, int variable);
+SEXP get_weights(SEXP object);
 int get_testtype(SEXP object);
 int get_nresample(SEXP object);
 SEXP get_varctrl(SEXP object);

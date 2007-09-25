@@ -585,7 +585,26 @@
 <a name="l00708"></a>00708         <a class="code" href="Utils_8c.html#ccce6f00d55276c0a01b30651f1c206c">C_remove_weights</a>(<a class="code" href="S3Classes_8c.html#14a38e81ed758a64367dc190f0e8229b">S3get_rightnode</a>(subtree));
 <a name="l00709"></a>00709     }
 <a name="l00710"></a>00710 }
-</pre></div><hr size="1"><address style="align: right;"><small>Generated on Mon Sep 24 17:25:53 2007 for party by&nbsp;
+<a name="l00711"></a>00711 
+<a name="l00712"></a><a class="code" href="Utils_8h.html#f9716d8427688ac52d3dd254337316b1">00712</a> <span class="keywordtype">double</span>* <a class="code" href="Utils_8c.html#f9716d8427688ac52d3dd254337316b1">C_tempweights</a>(<span class="keywordtype">int</span> j, SEXP weights, SEXP fitmem, SEXP inputs) {
+<a name="l00713"></a>00713 
+<a name="l00714"></a>00714     <span class="keywordtype">int</span> nobs, *iNAs, i, k;
+<a name="l00715"></a>00715     <span class="keywordtype">double</span> *dw, *dweights;
+<a name="l00716"></a>00716     SEXP NAs;
+<a name="l00717"></a>00717     
+<a name="l00718"></a>00718     dw = REAL(<a class="code" href="Classes_8c.html#266fda49284a556bbe8aaa80e348a3ca">get_weights</a>(fitmem));
+<a name="l00719"></a>00719     nobs = LENGTH(weights);
+<a name="l00720"></a>00720     dweights = REAL(weights);
+<a name="l00721"></a>00721     NAs = <a class="code" href="Classes_8c.html#fd6cfc2dd239b138d91e92a8ce9353f8">get_missings</a>(inputs, j);
+<a name="l00722"></a>00722     iNAs = INTEGER(NAs);
+<a name="l00723"></a>00723     <span class="keywordflow">if</span> (length(NAs) == 0) <span class="keywordflow">return</span>(dw);
+<a name="l00724"></a>00724     <span class="keywordflow">for</span> (i = 0; i &lt; nobs; i++) dw[i] = dweights[i];
+<a name="l00725"></a>00725     <span class="keywordflow">for</span> (k = 0; k &lt; LENGTH(NAs); k++)
+<a name="l00726"></a>00726         dw[iNAs[k] - 1] = 0.0;
+<a name="l00727"></a>00727     
+<a name="l00728"></a>00728     <span class="keywordflow">return</span>(dw);
+<a name="l00729"></a>00729 }
+</pre></div><hr size="1"><address style="align: right;"><small>Generated on Thu Sep 27 15:50:56 2007 for party by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6 </small></address>
 </body>

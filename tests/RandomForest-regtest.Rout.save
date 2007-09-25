@@ -1,5 +1,5 @@
 
-R version 2.5.1 (2007-06-27)
+R version 2.6.0 RC (2007-09-25 r42980)
 Copyright (C) 2007 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 
@@ -17,8 +17,7 @@ Type 'q()' to quit R.
 
 > 
 > set.seed(290875)
-> gctorture(on = FALSE)
-> library(party)
+> library("party")
 Loading required package: survival
 Loading required package: splines
 Loading required package: grid
@@ -40,16 +39,15 @@ Loading required package: strucchange
 Loading required package: vcd
 Loading required package: MASS
 Loading required package: colorspace
-> if (!require(ipred))
+> if (!require("ipred"))
 +     stop("cannot load package ipred")
 Loading required package: ipred
 Loading required package: rpart
 Loading required package: mlbench
 Loading required package: nnet
 Loading required package: class
-> if (!require(coin))
+> if (!require("coin"))
 +     stop("cannot load package coin")
-> gctorture(on = GCtorture)
 > 
 > data("GlaucomaM", package = "ipred")
 > rf <- cforest(Class ~ ., data = GlaucomaM, control = cforest_control(ntree = 100))
@@ -59,84 +57,100 @@ Loading required package: class
 > data("GBSG2", package = "ipred")
 > rfS <- cforest(Surv(time, cens) ~ ., data = GBSG2, control = cforest_control(ntree = 100))
 > treeresponse(rfS, newdata = GBSG2[1:2,])
-[[1]]
+$`1`
 Call: survival:::survfit(formula = resp, weights = w, subset = w > 
     0)
 
       n  events  median 0.95LCL 0.95UCL 
-  10569    4288    1814    1814    1989 
+  10226    4394    1807    1806    1814 
 
-[[2]]
+$`2`
 Call: survival:::survfit(formula = resp, weights = w, subset = w > 
     0)
 
       n  events  median 0.95LCL 0.95UCL 
-   4923    2350    1701    1587    1807 
+   4907    2243    1807    1807    1814 
 
 > 
 > ### give it a try, at least
 > varimp(rf)
      MeanDecreaseAccuracy Standard.Deviation
-ag           6.673692e-04        0.003958352
-at           3.986578e-04        0.005484253
-as          -1.226588e-03        0.007646703
-an           1.028117e-03        0.005690611
-ai          -1.733584e-03        0.017765295
-eag          1.408451e-04        0.001408451
-eat          1.277182e-03        0.011975735
-eas          1.070558e-03        0.008621401
-ean          7.259571e-04        0.010801579
-eai          5.599401e-04        0.006584749
-abrg         4.446764e-03        0.022428816
-abrt         2.560455e-04        0.006808846
-abrs         1.194513e-02        0.039265870
-abrn         1.073626e-03        0.013981961
-abri         4.442719e-03        0.018756821
-hic          8.443946e-03        0.035523254
-mhcg         3.441627e-03        0.014512646
-mhct         1.099565e-03        0.009613844
-mhcs         5.893134e-04        0.005882718
-mhcn         6.159945e-03        0.023358543
-mhci         5.248953e-03        0.023544714
-phcg         8.726883e-03        0.029193510
-phct         7.018420e-04        0.009949848
-phcs         5.586141e-04        0.002753214
-phcn         5.473309e-03        0.020069887
-phci         7.914166e-03        0.023878646
-hvc          9.454445e-04        0.011578667
-vbsg         1.537559e-03        0.010855976
-vbst         1.616012e-03        0.011194411
-vbss         2.731327e-04        0.001925232
-vbsn         8.823529e-04        0.009689419
-vbsi         4.271400e-03        0.024998496
-vasg         2.965795e-03        0.023999707
-vast         2.686891e-04        0.004511296
-vass         1.687745e-03        0.011985245
-vasn        -1.129171e-03        0.007677602
-vasi         4.214733e-03        0.019117673
-vbrg         5.694285e-04        0.011323906
-vbrt        -8.064481e-04        0.008999442
-vbrs         9.898238e-04        0.008972606
-vbrn        -2.388601e-05        0.005053345
-vbri         9.363736e-04        0.012391768
-varg         3.287070e-02        0.074839319
-vart         4.687481e-03        0.018957563
-vars         1.255889e-02        0.036984930
-varn         1.419594e-02        0.040638428
-vari         3.056851e-02        0.069653146
-mdg          6.499998e-04        0.007142839
-mdt         -5.675264e-04        0.010773076
-mds          3.125000e-04        0.003125000
-mdn          5.426943e-04        0.003291421
-mdi          8.108108e-04        0.008108108
-tmg          1.645212e-02        0.038886919
-tmt          1.026714e-03        0.007347941
-tms          9.581179e-03        0.034077588
-tmn          9.158216e-04        0.006949703
-tmi          1.834500e-02        0.047977576
-mr           2.321821e-03        0.014014137
-rnf          5.351203e-03        0.026079320
-mdic         1.150674e-02        0.033779789
-emd          1.838051e-03        0.011466988
-mv           6.849315e-04        0.006849315
+ag           7.146853e-04        0.008114121
+at           1.011918e-03        0.007656569
+as           8.183183e-04        0.006052365
+an           1.254842e-03        0.006966014
+ai           2.036752e-03        0.010162863
+eag          1.315315e-04        0.003001676
+eat         -1.286667e-04        0.007785949
+eas          1.726688e-03        0.009180853
+ean          6.832948e-04        0.006862206
+eai          1.221636e-03        0.007768536
+abrg         3.479608e-03        0.021208648
+abrt         8.536584e-04        0.005881980
+abrs         6.526015e-03        0.032603343
+abrn         5.201829e-03        0.027026922
+abri         5.406867e-03        0.025747009
+hic          1.667234e-02        0.045528669
+mhcg         2.292916e-03        0.014300812
+mhct         2.526851e-05        0.002922250
+mhcs         8.654468e-04        0.024778413
+mhcn         3.277990e-03        0.018815475
+mhci         6.160103e-03        0.020668657
+phcg         8.961860e-03        0.030761189
+phct         6.235257e-04        0.006291656
+phcs         1.352039e-04        0.010243431
+phcn         4.488385e-03        0.019753949
+phci         6.813105e-03        0.023479543
+hvc          1.910531e-03        0.016070276
+vbsg         1.148475e-04        0.005156393
+vbst        -6.654856e-04        0.004327769
+vbss        -2.315802e-05        0.005517717
+vbsn         1.136986e-03        0.010079672
+vbsi         5.690976e-04        0.005121441
+vasg        -7.385621e-04        0.005955590
+vast         4.458874e-04        0.003337079
+vass         1.991708e-03        0.012013600
+vasn        -3.005388e-04        0.003464676
+vasi         3.724687e-03        0.018978448
+vbrg        -8.395303e-04        0.005907644
+vbrt         8.436450e-04        0.011951496
+vbrs         5.426415e-03        0.025632715
+vbrn         5.355819e-04        0.004177695
+vbri         5.140804e-03        0.025053793
+varg         3.343922e-02        0.070104727
+vart         4.061608e-03        0.015920387
+vars         2.382859e-02        0.050841690
+varn         7.395601e-03        0.030566711
+vari         2.907070e-02        0.075770496
+mdg          2.865030e-04        0.006218012
+mdt          5.497964e-04        0.006994730
+mds          1.351351e-04        0.001351351
+mdn          1.397971e-04        0.004545705
+mdi         -3.836329e-05        0.006759162
+tmg          6.558649e-03        0.031320371
+tmt          1.738121e-03        0.011837479
+tms          1.295332e-02        0.038467301
+tmn          1.125387e-03        0.006573773
+tmi          1.081677e-02        0.032027530
+mr           1.760853e-03        0.012063466
+rnf          1.030206e-02        0.034011030
+mdic         7.126014e-03        0.025823108
+emd          1.387742e-03        0.011016591
+mv           2.401021e-04        0.006046620
+> 
+> P <- proximity(rf)
+> stopifnot(max(abs(P - t(P))) == 0)
+> 
+> P[1:10,1:10]
+    2 43 25 65 70 16  6  5 12 63
+2  62  7 29 23  5  7 27 23 22 30
+43  7 66 10  6  3 11 12  9  7 11
+25 29 10 66 25  6  6 29 23 22 33
+65 23  6 25 66  3  2 28 31 27 24
+70  5  3  6  3 65  3  8  5  2  6
+16  7 11  6  2  3 62  7  5  3 12
+6  27 12 29 28  8  7 58 31 25 29
+5  23  9 23 31  5  5 31 64 30 27
+12 22  7 22 27  2  3 25 30 54 26
+63 30 11 33 24  6 12 29 27 26 64
 > 

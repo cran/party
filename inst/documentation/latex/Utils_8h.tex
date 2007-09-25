@@ -42,6 +42,8 @@ int \hyperlink{Utils_8h_ff0eae9aa0175cd8fe73324707418ce0}{C\_\-i\_\-in\_\-set} (
 void \hyperlink{Utils_8h_88c1a807c7856d57d07d10027d588602}{C\_\-Sample\-Splitting} (int n, double $\ast$prob, int $\ast$weights, int k)
 \item 
 void \hyperlink{Utils_8h_ccce6f00d55276c0a01b30651f1c206c}{C\_\-remove\_\-weights} (SEXP subtree)
+\item 
+double $\ast$ \hyperlink{Utils_8h_f9716d8427688ac52d3dd254337316b1}{C\_\-tempweights} (int j, SEXP weights, SEXP fitmem, SEXP inputs)
 \end{CompactItemize}
 
 
@@ -228,6 +230,27 @@ Here is the call graph for this function:\begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=153pt]{Utils_8h_88c1a807c7856d57d07d10027d588602_cgraph}
+\end{center}
+\end{figure}
+\hypertarget{Utils_8h_f9716d8427688ac52d3dd254337316b1}{
+\index{Utils.h@{Utils.h}!C_tempweights@{C\_\-tempweights}}
+\index{C_tempweights@{C\_\-tempweights}!Utils.h@{Utils.h}}
+\subsubsection[C\_\-tempweights]{\setlength{\rightskip}{0pt plus 5cm}double$\ast$ C\_\-tempweights (int {\em j}, SEXP {\em weights}, SEXP {\em fitmem}, SEXP {\em inputs})}}
+\label{Utils_8h_f9716d8427688ac52d3dd254337316b1}
+
+
+
+
+Definition at line 712 of file Utils.c.
+
+References get\_\-missings(), and get\_\-weights().
+
+Referenced by C\_\-Node().
+
+Here is the call graph for this function:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=174pt]{Utils_8h_f9716d8427688ac52d3dd254337316b1_cgraph}
 \end{center}
 \end{figure}
 \hypertarget{Utils_8h_2a701345082320c18e49d8e7e8150d64}{

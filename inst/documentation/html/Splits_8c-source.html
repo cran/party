@@ -206,81 +206,87 @@
 <a name="l00249"></a>00249         
 <a name="l00250"></a>00250         <span class="comment">/* a temporary response variable: the rank of the level */</span>
 <a name="l00251"></a>00251         <span class="keywordflow">for</span> (i = 0; i &lt; n; i++) {
-<a name="l00252"></a>00252             tmpx[i] = (<span class="keywordtype">double</span>) irank[codingx[i] - 1];
-<a name="l00253"></a>00253             tmptmpx[i] = tmpx[i];
-<a name="l00254"></a>00254             ordertmpx[i] = i + 1;
-<a name="l00255"></a>00255         }
-<a name="l00256"></a>00256         
-<a name="l00257"></a>00257         <span class="comment">/* order(dtmpx) */</span>
-<a name="l00258"></a>00258         rsort_with_index(tmptmpx, ordertmpx, n);
-<a name="l00259"></a>00259 
-<a name="l00260"></a>00260         <span class="comment">/* search for a cutpoint (now we do have an ordering) */</span>
-<a name="l00261"></a>00261         <a class="code" href="Splits_8c.html#00d4080fae6513962bd1e54ec9d476bc">C_split</a>(tmpx, 1, y, q, weights, n, ordertmpx,
-<a name="l00262"></a>00262                 splitctrl, linexpcov2sample,
-<a name="l00263"></a>00263                 expcovinf, cutpoint, maxstat, statistics);
-<a name="l00264"></a>00264 
-<a name="l00265"></a>00265         <span class="comment">/* if we have seen an improvement: save this segmentation </span>
-<a name="l00266"></a>00266 <span class="comment">           note: there may be splits with equal goodness */</span>
-<a name="l00267"></a>00267         chk = 0;
-<a name="l00268"></a>00268         <span class="keywordflow">if</span> (maxstat[0] &gt; tmp) {
-<a name="l00269"></a>00269             <span class="keywordflow">for</span> (k = 0; k &lt; p; k++) {
-<a name="l00270"></a>00270                 <span class="keywordflow">if</span> (irank[k] &gt; cutpoint[0]) {
-<a name="l00271"></a>00271                     levelset[k] = 1;
-<a name="l00272"></a>00272                     chk += 1;
-<a name="l00273"></a>00273                 } <span class="keywordflow">else</span> {
-<a name="l00274"></a>00274                     levelset[k] = 0;
-<a name="l00275"></a>00275                 }
-<a name="l00276"></a>00276             }
-<a name="l00277"></a>00277             tmp = maxstat[0];
-<a name="l00278"></a>00278         }
-<a name="l00279"></a>00279         <span class="comment">/* &lt;FIXME&gt; make sure that at least one level goes left,</span>
-<a name="l00280"></a>00280 <span class="comment">                   C_split may end up with cutpoint &gt; max(irank), why?</span>
-<a name="l00281"></a>00281 <span class="comment">           &lt;/FIXME&gt;</span>
-<a name="l00282"></a>00282 <span class="comment">        */</span>
-<a name="l00283"></a>00283         <span class="comment">/* hm, why did I added </span>
-<a name="l00284"></a>00284 <span class="comment">        if (chk == 0) tmp = 0.0; </span>
-<a name="l00285"></a>00285 <span class="comment">        ??? */</span>
-<a name="l00286"></a>00286     }
-<a name="l00287"></a>00287     maxstat[0] = tmp;
-<a name="l00288"></a>00288 
-<a name="l00289"></a>00289     <span class="comment">/* free memory */</span>
-<a name="l00290"></a>00290     Free(tmpx); Free(ordertmpx); Free(irank); Free(tmptmpx);
-<a name="l00291"></a>00291 }
-<a name="l00292"></a>00292 
-<a name="l00293"></a>00293 
-<a name="l00307"></a><a class="code" href="Splits_8c.html#7bda94db4217f68594d347d4498576a6">00307</a> SEXP <a class="code" href="Splits_8c.html#7bda94db4217f68594d347d4498576a6">R_splitcategorical</a>(SEXP x, SEXP codingx, SEXP y, SEXP weights, 
-<a name="l00308"></a>00308                         SEXP linexpcov2sample, SEXP linexpcov, 
-<a name="l00309"></a>00309                         SEXP expcovinf, SEXP splitctrl) {
-<a name="l00310"></a>00310              
-<a name="l00311"></a>00311     SEXP ans, cutpoint, maxstat, statistics, levelset;
-<a name="l00312"></a>00312     <span class="keywordtype">double</span> *standstat;
-<a name="l00313"></a>00313 
-<a name="l00314"></a>00314     <a class="code" href="Convenience_8c.html#8d5dcca68051449e29f3b857d375c4a0">C_LinStatExpCov</a>(REAL(x), <a class="code" href="Utils_8c.html#f1f46cc3e98630497a1ccb21d943fe65">ncol</a>(x), REAL(y), <a class="code" href="Utils_8c.html#f1f46cc3e98630497a1ccb21d943fe65">ncol</a>(y), REAL(weights), <a class="code" href="Utils_8c.html#eeb672a71c45ead28b7b354414f2427a">nrow</a>(x),
-<a name="l00315"></a>00315                     1, GET_SLOT(linexpcov, <a class="code" href="Classes_8c.html#4d117ff485f06bee9902f99246ac9c04">PL2_expcovinfSym</a>), linexpcov);
-<a name="l00316"></a>00316 
-<a name="l00317"></a>00317     standstat = Calloc(<a class="code" href="Classes_8c.html#8bc9164a2291bb7f61c12b79f6bc7c5f">get_dimension</a>(linexpcov), <span class="keywordtype">double</span>);
-<a name="l00318"></a>00318     <a class="code" href="TestStatistic_8c.html#9ecf0700a00ad5fd64601bf718f20439">C_standardize</a>(REAL(GET_SLOT(linexpcov, <a class="code" href="Classes_8c.html#e36e22e2f694307e4d5af6dade35abc6">PL2_linearstatisticSym</a>)),
-<a name="l00319"></a>00319                   REAL(GET_SLOT(linexpcov, <a class="code" href="Classes_8c.html#f0a2dc8073174e68e71d4d19266bab22">PL2_expectationSym</a>)),
-<a name="l00320"></a>00320                   REAL(GET_SLOT(linexpcov, <a class="code" href="Classes_8c.html#e033132aed4900e99ec36faf7352ea34">PL2_covarianceSym</a>)),
-<a name="l00321"></a>00321                   <a class="code" href="Classes_8c.html#8bc9164a2291bb7f61c12b79f6bc7c5f">get_dimension</a>(linexpcov), <a class="code" href="Classes_8c.html#aa5df349ffd6e5faccab211ac972722b">get_tol</a>(splitctrl), standstat);
+<a name="l00252"></a>00252             <span class="comment">/* &lt;FIXME&gt; do we have to adjust weights for missing values here??? */</span>
+<a name="l00253"></a>00253             <span class="keywordflow">if</span> (weights[i] == 0.0) {
+<a name="l00254"></a>00254                 tmpx[i] = 0.0;
+<a name="l00255"></a>00255             } <span class="keywordflow">else</span> {
+<a name="l00256"></a>00256                 tmpx[i] = (double) irank[codingx[i] - 1];
+<a name="l00257"></a>00257             }
+<a name="l00258"></a>00258             <span class="comment">/* &lt;/FIXME&gt; */</span>
+<a name="l00259"></a>00259             tmptmpx[i] = tmpx[i];
+<a name="l00260"></a>00260             ordertmpx[i] = i + 1;
+<a name="l00261"></a>00261         }
+<a name="l00262"></a>00262         
+<a name="l00263"></a>00263         <span class="comment">/* order(dtmpx) */</span>
+<a name="l00264"></a>00264         rsort_with_index(tmptmpx, ordertmpx, n);
+<a name="l00265"></a>00265 
+<a name="l00266"></a>00266         <span class="comment">/* search for a cutpoint (now we do have an ordering) */</span>
+<a name="l00267"></a>00267         <a class="code" href="Splits_8c.html#00d4080fae6513962bd1e54ec9d476bc">C_split</a>(tmpx, 1, y, q, weights, n, ordertmpx,
+<a name="l00268"></a>00268                 splitctrl, linexpcov2sample,
+<a name="l00269"></a>00269                 expcovinf, cutpoint, maxstat, statistics);
+<a name="l00270"></a>00270 
+<a name="l00271"></a>00271         <span class="comment">/* if we have seen an improvement: save this segmentation </span>
+<a name="l00272"></a>00272 <span class="comment">           note: there may be splits with equal goodness */</span>
+<a name="l00273"></a>00273         chk = 0;
+<a name="l00274"></a>00274         <span class="keywordflow">if</span> (maxstat[0] &gt; tmp) {
+<a name="l00275"></a>00275             <span class="keywordflow">for</span> (k = 0; k &lt; p; k++) {
+<a name="l00276"></a>00276                 <span class="keywordflow">if</span> (irank[k] &gt; cutpoint[0]) {
+<a name="l00277"></a>00277                     levelset[k] = 1;
+<a name="l00278"></a>00278                     chk += 1;
+<a name="l00279"></a>00279                 } <span class="keywordflow">else</span> {
+<a name="l00280"></a>00280                     levelset[k] = 0;
+<a name="l00281"></a>00281                 }
+<a name="l00282"></a>00282             }
+<a name="l00283"></a>00283             tmp = maxstat[0];
+<a name="l00284"></a>00284         }
+<a name="l00285"></a>00285         <span class="comment">/* &lt;FIXME&gt; make sure that at least one level goes left,</span>
+<a name="l00286"></a>00286 <span class="comment">                   C_split may end up with cutpoint &gt; max(irank), why?</span>
+<a name="l00287"></a>00287 <span class="comment">           &lt;/FIXME&gt;</span>
+<a name="l00288"></a>00288 <span class="comment">        */</span>
+<a name="l00289"></a>00289         <span class="comment">/* hm, why did I added </span>
+<a name="l00290"></a>00290 <span class="comment">        if (chk == 0) tmp = 0.0; </span>
+<a name="l00291"></a>00291 <span class="comment">        ??? */</span>
+<a name="l00292"></a>00292     }
+<a name="l00293"></a>00293     maxstat[0] = tmp;
+<a name="l00294"></a>00294 
+<a name="l00295"></a>00295     <span class="comment">/* free memory */</span>
+<a name="l00296"></a>00296     Free(tmpx); Free(ordertmpx); Free(irank); Free(tmptmpx);
+<a name="l00297"></a>00297 }
+<a name="l00298"></a>00298 
+<a name="l00299"></a>00299 
+<a name="l00313"></a><a class="code" href="Splits_8c.html#7bda94db4217f68594d347d4498576a6">00313</a> SEXP <a class="code" href="Splits_8c.html#7bda94db4217f68594d347d4498576a6">R_splitcategorical</a>(SEXP x, SEXP codingx, SEXP y, SEXP weights, 
+<a name="l00314"></a>00314                         SEXP linexpcov2sample, SEXP linexpcov, 
+<a name="l00315"></a>00315                         SEXP expcovinf, SEXP splitctrl) {
+<a name="l00316"></a>00316              
+<a name="l00317"></a>00317     SEXP ans, cutpoint, maxstat, statistics, levelset;
+<a name="l00318"></a>00318     <span class="keywordtype">double</span> *standstat;
+<a name="l00319"></a>00319 
+<a name="l00320"></a>00320     <a class="code" href="Convenience_8c.html#8d5dcca68051449e29f3b857d375c4a0">C_LinStatExpCov</a>(REAL(x), <a class="code" href="Utils_8c.html#f1f46cc3e98630497a1ccb21d943fe65">ncol</a>(x), REAL(y), <a class="code" href="Utils_8c.html#f1f46cc3e98630497a1ccb21d943fe65">ncol</a>(y), REAL(weights), <a class="code" href="Utils_8c.html#eeb672a71c45ead28b7b354414f2427a">nrow</a>(x),
+<a name="l00321"></a>00321                     1, GET_SLOT(linexpcov, <a class="code" href="Classes_8c.html#4d117ff485f06bee9902f99246ac9c04">PL2_expcovinfSym</a>), linexpcov);
 <a name="l00322"></a>00322 
-<a name="l00323"></a>00323     PROTECT(ans = allocVector(VECSXP, 4));
-<a name="l00324"></a>00324     SET_VECTOR_ELT(ans, 0, cutpoint = allocVector(REALSXP, 1));
-<a name="l00325"></a>00325     SET_VECTOR_ELT(ans, 1, maxstat = allocVector(REALSXP, 1));
-<a name="l00326"></a>00326     SET_VECTOR_ELT(ans, 2, statistics = allocVector(REALSXP, <a class="code" href="Utils_8c.html#eeb672a71c45ead28b7b354414f2427a">nrow</a>(x)));
-<a name="l00327"></a>00327     SET_VECTOR_ELT(ans, 3, levelset = allocVector(INTSXP, <a class="code" href="Utils_8c.html#f1f46cc3e98630497a1ccb21d943fe65">ncol</a>(x)));
-<a name="l00328"></a>00328     
-<a name="l00329"></a>00329     <a class="code" href="Splits_8c.html#1b9f04a865d61c1c9757ba77bff49ab7">C_splitcategorical</a>(INTEGER(codingx), <a class="code" href="Utils_8c.html#f1f46cc3e98630497a1ccb21d943fe65">ncol</a>(x), REAL(y), <a class="code" href="Utils_8c.html#f1f46cc3e98630497a1ccb21d943fe65">ncol</a>(y), REAL(weights), 
-<a name="l00330"></a>00330                        <a class="code" href="Utils_8c.html#eeb672a71c45ead28b7b354414f2427a">nrow</a>(x), standstat, 
-<a name="l00331"></a>00331                        splitctrl, linexpcov2sample, expcovinf, 
-<a name="l00332"></a>00332                        REAL(cutpoint), INTEGER(levelset), REAL(maxstat), 
-<a name="l00333"></a>00333                        REAL(statistics));
-<a name="l00334"></a>00334 
-<a name="l00335"></a>00335     UNPROTECT(1);
-<a name="l00336"></a>00336     Free(standstat);
-<a name="l00337"></a>00337     <span class="keywordflow">return</span>(ans);
-<a name="l00338"></a>00338 }
-</pre></div><hr size="1"><address style="align: right;"><small>Generated on Mon Sep 24 17:25:53 2007 for party by&nbsp;
+<a name="l00323"></a>00323     standstat = Calloc(<a class="code" href="Classes_8c.html#8bc9164a2291bb7f61c12b79f6bc7c5f">get_dimension</a>(linexpcov), <span class="keywordtype">double</span>);
+<a name="l00324"></a>00324     <a class="code" href="TestStatistic_8c.html#9ecf0700a00ad5fd64601bf718f20439">C_standardize</a>(REAL(GET_SLOT(linexpcov, <a class="code" href="Classes_8c.html#e36e22e2f694307e4d5af6dade35abc6">PL2_linearstatisticSym</a>)),
+<a name="l00325"></a>00325                   REAL(GET_SLOT(linexpcov, <a class="code" href="Classes_8c.html#f0a2dc8073174e68e71d4d19266bab22">PL2_expectationSym</a>)),
+<a name="l00326"></a>00326                   REAL(GET_SLOT(linexpcov, <a class="code" href="Classes_8c.html#e033132aed4900e99ec36faf7352ea34">PL2_covarianceSym</a>)),
+<a name="l00327"></a>00327                   <a class="code" href="Classes_8c.html#8bc9164a2291bb7f61c12b79f6bc7c5f">get_dimension</a>(linexpcov), <a class="code" href="Classes_8c.html#aa5df349ffd6e5faccab211ac972722b">get_tol</a>(splitctrl), standstat);
+<a name="l00328"></a>00328 
+<a name="l00329"></a>00329     PROTECT(ans = allocVector(VECSXP, 4));
+<a name="l00330"></a>00330     SET_VECTOR_ELT(ans, 0, cutpoint = allocVector(REALSXP, 1));
+<a name="l00331"></a>00331     SET_VECTOR_ELT(ans, 1, maxstat = allocVector(REALSXP, 1));
+<a name="l00332"></a>00332     SET_VECTOR_ELT(ans, 2, statistics = allocVector(REALSXP, <a class="code" href="Utils_8c.html#eeb672a71c45ead28b7b354414f2427a">nrow</a>(x)));
+<a name="l00333"></a>00333     SET_VECTOR_ELT(ans, 3, levelset = allocVector(INTSXP, <a class="code" href="Utils_8c.html#f1f46cc3e98630497a1ccb21d943fe65">ncol</a>(x)));
+<a name="l00334"></a>00334     
+<a name="l00335"></a>00335     <a class="code" href="Splits_8c.html#1b9f04a865d61c1c9757ba77bff49ab7">C_splitcategorical</a>(INTEGER(codingx), <a class="code" href="Utils_8c.html#f1f46cc3e98630497a1ccb21d943fe65">ncol</a>(x), REAL(y), <a class="code" href="Utils_8c.html#f1f46cc3e98630497a1ccb21d943fe65">ncol</a>(y), REAL(weights), 
+<a name="l00336"></a>00336                        <a class="code" href="Utils_8c.html#eeb672a71c45ead28b7b354414f2427a">nrow</a>(x), standstat, 
+<a name="l00337"></a>00337                        splitctrl, linexpcov2sample, expcovinf, 
+<a name="l00338"></a>00338                        REAL(cutpoint), INTEGER(levelset), REAL(maxstat), 
+<a name="l00339"></a>00339                        REAL(statistics));
+<a name="l00340"></a>00340 
+<a name="l00341"></a>00341     UNPROTECT(1);
+<a name="l00342"></a>00342     Free(standstat);
+<a name="l00343"></a>00343     <span class="keywordflow">return</span>(ans);
+<a name="l00344"></a>00344 }
+</pre></div><hr size="1"><address style="align: right;"><small>Generated on Thu Sep 27 15:50:56 2007 for party by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6 </small></address>
 </body>

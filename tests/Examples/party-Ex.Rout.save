@@ -1,0 +1,924 @@
+
+R version 2.6.0 RC (2007-09-25 r42980)
+Copyright (C) 2007 The R Foundation for Statistical Computing
+ISBN 3-900051-07-0
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> ### * <HEADER>
+> ###
+> attach(NULL, name = "CheckExEnv")
+> assign("nameEx", 
++        local({
++ 	   s <- "__{must remake R-ex/*.R}__"
++            function(new) {
++                if(!missing(new)) s <<- new else s
++            }
++        }),
++        pos = "CheckExEnv")
+> ## Add some hooks to label plot pages for base and grid graphics
+> assign("base_plot_hook",
++        function() {
++            pp <- par(c("mfg","mfcol","oma","mar"))
++            if(all(pp$mfg[1:2] == c(1, pp$mfcol[2]))) {
++                outer <- (oma4 <- pp$oma[4]) > 0; mar4 <- pp$mar[4]
++                mtext(sprintf("help(\"%s\")", nameEx()), side = 4,
++                      line = if(outer)max(1, oma4 - 1) else min(1, mar4 - 1),
++               outer = outer, adj = 1, cex = .8, col = "orchid", las=3)
++            }
++        },
++        pos = "CheckExEnv")
+> assign("grid_plot_hook",
++        function() {
++            pushViewport(viewport(width=unit(1, "npc") - unit(1, "lines"),
++                                  x=0, just="left"))
++            grid.text(sprintf("help(\"%s\")", nameEx()),
++                      x=unit(1, "npc") + unit(0.5, "lines"),
++                      y=unit(0.8, "npc"), rot=90,
++                      gp=gpar(col="orchid"))
++        },
++        pos = "CheckExEnv")
+> setHook("plot.new",     get("base_plot_hook", pos = "CheckExEnv"))
+> setHook("persp",        get("base_plot_hook", pos = "CheckExEnv"))
+> setHook("grid.newpage", get("grid_plot_hook", pos = "CheckExEnv"))
+> assign("cleanEx",
++        function(env = .GlobalEnv) {
++ 	   rm(list = ls(envir = env, all.names = TRUE), envir = env)
++            RNGkind("default", "default")
++ 	   set.seed(1)
++    	   options(warn = 1)
++ 	   .CheckExEnv <- as.environment("CheckExEnv")
++ 	   delayedAssign("T", stop("T used instead of TRUE"),
++ 		  assign.env = .CheckExEnv)
++ 	   delayedAssign("F", stop("F used instead of FALSE"),
++ 		  assign.env = .CheckExEnv)
++ 	   sch <- search()
++ 	   newitems <- sch[! sch %in% .oldSearch]
++ 	   for(item in rev(newitems))
++                eval(substitute(detach(item), list(item=item)))
++ 	   missitems <- .oldSearch[! .oldSearch %in% sch]
++ 	   if(length(missitems))
++ 	       warning("items ", paste(missitems, collapse=", "),
++ 		       " have been removed from the search path")
++        },
++        pos = "CheckExEnv")
+> assign("ptime", proc.time(), pos = "CheckExEnv")
+> grDevices::postscript("party-Ex.ps")
+> assign("par.postscript", graphics::par(no.readonly = TRUE), pos = "CheckExEnv")
+> options(contrasts = c(unordered = "contr.treatment", ordered = "contr.poly"))
+> options(warn = 1)    
+> library('party')
+Loading required package: survival
+Loading required package: splines
+Loading required package: grid
+Loading required package: modeltools
+Loading required package: stats4
+Loading required package: coin
+Loading required package: mvtnorm
+Loading required package: zoo
+
+Attaching package: 'zoo'
+
+
+	The following object(s) are masked from package:base :
+
+	 rapply 
+
+Loading required package: sandwich
+Loading required package: strucchange
+Loading required package: vcd
+Loading required package: MASS
+Loading required package: colorspace
+> 
+> assign(".oldSearch", search(), pos = 'CheckExEnv')
+> assign(".oldNS", loadedNamespaces(), pos = 'CheckExEnv')
+> cleanEx(); nameEx("BinaryTree-class")
+> ### * BinaryTree-class
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: BinaryTree Class
+> ### Title: Class "BinaryTree"
+> ### Aliases: BinaryTree-class weights weights-methods
+> ###   weights,BinaryTree-method show,BinaryTree-method where where-methods
+> ###   where,BinaryTree-method response response-methods
+> ###   response,BinaryTree-method nodes nodes-methods
+> ###   nodes,BinaryTree,integer-method nodes,BinaryTree,numeric-method
+> ###   treeresponse treeresponse-methods treeresponse,BinaryTree-method
+> ### Keywords: classes
+> 
+> ### ** Examples
+> 
+> 
+>   airq <- subset(airquality, !is.na(Ozone))
+>   airct <- ctree(Ozone ~ ., data = airq,   
++                  controls = ctree_control(maxsurrogate = 3))
+> 
+>   ### distribution of responses in the terminal nodes
+>   plot(airq$Ozone ~ as.factor(where(airct)))
+> 
+>   ### get all terminal nodes from the tree
+>   nodes(airct, unique(where(airct)))
+[[1]]
+5)*  weights = 48 
+
+[[2]]
+3)*  weights = 10 
+
+[[3]]
+6)*  weights = 21 
+
+[[4]]
+9)*  weights = 10 
+
+[[5]]
+8)*  weights = 27 
+
+> 
+>   ### extract weights and compute predictions
+>   pmean <- sapply(weights(airct), function(w) weighted.mean(airq$Ozone, w))
+> 
+>   ### the same as
+>   drop(Predict(airct))
+  [1] 18.47917 18.47917 18.47917 18.47917 18.47917 18.47917 18.47917 18.47917
+  [9] 55.60000 18.47917 18.47917 18.47917 18.47917 18.47917 18.47917 18.47917
+ [17] 18.47917 18.47917 18.47917 18.47917 18.47917 18.47917 18.47917 31.14286
+ [25] 55.60000 18.47917 31.14286 55.50000 55.50000 31.14286 18.47917 18.47917
+ [33] 18.47917 18.47917 18.47917 82.77778 55.50000 31.14286 82.77778 55.50000
+ [41] 82.77778 82.77778 82.77778 82.77778 18.47917 31.14286 31.14286 55.60000
+ [49] 31.14286 82.77778 82.77778 55.50000 55.60000 82.77778 82.77778 31.14286
+ [57] 55.50000 82.77778 82.77778 82.77778 31.14286 55.60000 31.14286 31.14286
+ [65] 82.77778 82.77778 82.77778 82.77778 55.50000 82.77778 55.50000 31.14286
+ [73] 31.14286 18.47917 55.60000 18.47917 31.14286 31.14286 18.47917 18.47917
+ [81] 31.14286 55.60000 82.77778 55.50000 82.77778 82.77778 82.77778 82.77778
+ [89] 82.77778 82.77778 82.77778 82.77778 55.50000 31.14286 31.14286 18.47917
+ [97] 18.47917 31.14286 18.47917 55.60000 18.47917 18.47917 55.60000 18.47917
+[105] 18.47917 18.47917 31.14286 18.47917 18.47917 31.14286 18.47917 18.47917
+[113] 55.60000 18.47917 18.47917 18.47917
+> 
+>   ### or
+>   unlist(treeresponse(airct))
+  [1] 18.47917 18.47917 18.47917 18.47917 18.47917 18.47917 18.47917 18.47917
+  [9] 55.60000 18.47917 18.47917 18.47917 18.47917 18.47917 18.47917 18.47917
+ [17] 18.47917 18.47917 18.47917 18.47917 18.47917 18.47917 18.47917 31.14286
+ [25] 55.60000 18.47917 31.14286 55.50000 55.50000 31.14286 18.47917 18.47917
+ [33] 18.47917 18.47917 18.47917 82.77778 55.50000 31.14286 82.77778 55.50000
+ [41] 82.77778 82.77778 82.77778 82.77778 18.47917 31.14286 31.14286 55.60000
+ [49] 31.14286 82.77778 82.77778 55.50000 55.60000 82.77778 82.77778 31.14286
+ [57] 55.50000 82.77778 82.77778 82.77778 31.14286 55.60000 31.14286 31.14286
+ [65] 82.77778 82.77778 82.77778 82.77778 55.50000 82.77778 55.50000 31.14286
+ [73] 31.14286 18.47917 55.60000 18.47917 31.14286 31.14286 18.47917 18.47917
+ [81] 31.14286 55.60000 82.77778 55.50000 82.77778 82.77778 82.77778 82.77778
+ [89] 82.77778 82.77778 82.77778 82.77778 55.50000 31.14286 31.14286 18.47917
+ [97] 18.47917 31.14286 18.47917 55.60000 18.47917 18.47917 55.60000 18.47917
+[105] 18.47917 18.47917 31.14286 18.47917 18.47917 31.14286 18.47917 18.47917
+[113] 55.60000 18.47917 18.47917 18.47917
+> 
+>   ### don't use the mean but the median as prediction in each terminal node
+>   pmedian <- sapply(weights(airct), function(w) 
++                  median(airq$Ozone[rep(1:nrow(airq), w)]))
+> 
+>   plot(airq$Ozone, pmean, col = "red")
+>   points(airq$Ozone, pmedian, col = "blue")
+> 
+> 
+> 
+> cleanEx(); nameEx("RandomForest-class")
+> ### * RandomForest-class
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: RandomForest-class
+> ### Title: Class "RandomForest"
+> ### Aliases: RandomForest-class treeresponse,RandomForest-method
+> ###   weights,RandomForest-method show,RandomForest-method
+> ### Keywords: classes
+> 
+> ### ** Examples
+> 
+> 
+>     ### honest (i.e., out-of-bag) cross-classification of 
+>     ### true vs. predicted classes
+>     table(mammoexp$ME, predict(cforest(ME ~ ., data = mammoexp, 
++                                control = cforest_classical(ntree = 50)), 
++                                OOB = TRUE))
+               
+                Never Within a Year Over a Year
+  Never           205            29           0
+  Within a Year    62            42           0
+  Over a Year      58            16           0
+> 
+> 
+> 
+> cleanEx(); nameEx("Transformations")
+> ### * Transformations
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: Transformations
+> ### Title: Function for Data Transformations
+> ### Aliases: ptrafo ff_trafo
+> ### Keywords: manip
+> 
+> ### ** Examples
+> 
+> 
+>   ### rank a variable
+>   ptrafo(data.frame(y = 1:20), 
++          numeric_trafo = function(x) rank(x, na.last = "keep"))
+        
+ [1,]  1
+ [2,]  2
+ [3,]  3
+ [4,]  4
+ [5,]  5
+ [6,]  6
+ [7,]  7
+ [8,]  8
+ [9,]  9
+[10,] 10
+[11,] 11
+[12,] 12
+[13,] 13
+[14,] 14
+[15,] 15
+[16,] 16
+[17,] 17
+[18,] 18
+[19,] 19
+[20,] 20
+attr(,"assign")
+[1] 1
+> 
+>   ### dummy coding of a factor
+>   ptrafo(data.frame(y = gl(3, 9)))
+   1 2 3
+1  1 0 0
+2  1 0 0
+3  1 0 0
+4  1 0 0
+5  1 0 0
+6  1 0 0
+7  1 0 0
+8  1 0 0
+9  1 0 0
+10 0 1 0
+11 0 1 0
+12 0 1 0
+13 0 1 0
+14 0 1 0
+15 0 1 0
+16 0 1 0
+17 0 1 0
+18 0 1 0
+19 0 0 1
+20 0 0 1
+21 0 0 1
+22 0 0 1
+23 0 0 1
+24 0 0 1
+25 0 0 1
+26 0 0 1
+27 0 0 1
+attr(,"assign")
+[1] 1 1 1
+> 
+> 
+> 
+> 
+> cleanEx(); nameEx("cforest")
+> ### * cforest
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: cforest
+> ### Title: Random Forest
+> ### Aliases: cforest varimp
+> ### Keywords: tree
+> 
+> ### ** Examples
+> 
+> 
+>     ### honest (i.e., out-of-bag) cross-classification of
+>     ### true vs. predicted classes
+>     table(mammoexp$ME, predict(cforest(ME ~ ., data = mammoexp, 
++                                control = cforest_classical(ntree = 50)),
++                                OOB = TRUE))
+               
+                Never Within a Year Over a Year
+  Never           205            29           0
+  Within a Year    62            42           0
+  Over a Year      58            16           0
+> 
+>     ### fit forest to censored response
+>     if (require("ipred")) {
++ 
++         data("GBSG2", package = "ipred")
++         bst <- cforest(Surv(time, cens) ~ ., data = GBSG2, 
++                    control = cforest_classical(ntree = 50))
++ 
++         ### estimate conditional Kaplan-Meier curves
++         treeresponse(bst, newdata = GBSG2[1:2,], OOB = TRUE)
++ 
++         ### if you can't resist to look at individual trees ...
++         party:::prettytree(bst@ensemble[[1]], names(bst@data@get("input")))
++     }
+Loading required package: ipred
+Loading required package: rpart
+Loading required package: mlbench
+Loading required package: nnet
+Loading required package: class
+1) pnodes <= 4; criterion = 6.996, statistic = 6.996
+  2) progrec <= 11; criterion = 2.761, statistic = 2.761
+    3) pnodes <= 3; criterion = 2.047, statistic = 2.047
+      4) menostat == {}; criterion = 2.29, statistic = 2.29
+        5) estrec <= 1; criterion = 1.659, statistic = 1.659
+          6)*  weights = 0 
+        5) estrec > 1
+          7)*  weights = 0 
+      4) menostat == {}
+        8) tgrade <= 2; criterion = 2.466, statistic = 2.466
+          9)*  weights = 0 
+        8) tgrade > 2
+          10)*  weights = 0 
+    3) pnodes > 3
+      11)*  weights = 0 
+  2) progrec > 11
+    12) estrec <= 64; criterion = 1.342, statistic = 1.342
+      13) horTh == {}; criterion = 3.52, statistic = 3.52
+        14) pnodes <= 3; criterion = 1.745, statistic = 1.745
+          15)*  weights = 0 
+        14) pnodes > 3
+          16)*  weights = 0 
+      13) horTh == {}
+        17)*  weights = 0 
+    12) estrec > 64
+      18) progrec <= 56; criterion = 1.915, statistic = 1.915
+        19) age <= 57; criterion = 2.495, statistic = 2.495
+          20)*  weights = 0 
+        19) age > 57
+          21)*  weights = 0 
+      18) progrec > 56
+        22) menostat == {}; criterion = 1.39, statistic = 1.39
+          23) tsize <= 25; criterion = 1.547, statistic = 1.547
+            24)*  weights = 0 
+          23) tsize > 25
+            25)*  weights = 0 
+        22) menostat == {}
+          26) pnodes <= 2; criterion = 1.631, statistic = 2.192
+            27)*  weights = 0 
+          26) pnodes > 2
+            28)*  weights = 0 
+1) pnodes > 4
+  29) estrec <= 81; criterion = 2.918, statistic = 2.918
+    30) tgrade <= 1; criterion = 2.979, statistic = 2.979
+      31)*  weights = 0 
+    30) tgrade > 1
+      32) progrec <= 98; criterion = 2.069, statistic = 3.084
+        33) tgrade <= 2; criterion = 2.148, statistic = 2.148
+          34) estrec <= 11; criterion = 2.087, statistic = 2.087
+            35) progrec <= 19; criterion = 2.661, statistic = 2.661
+              36) horTh == {}; criterion = 1.708, statistic = 1.708
+                37)*  weights = 0 
+              36) horTh == {}
+                38)*  weights = 0 
+            35) progrec > 19
+              39)*  weights = 0 
+          34) estrec > 11
+            40) menostat == {}; criterion = 2.256, statistic = 2.256
+              41)*  weights = 0 
+            40) menostat == {}
+              42)*  weights = 0 
+        33) tgrade > 2
+          43)*  weights = 0 
+      32) progrec > 98
+        44) age <= 44; criterion = 2.13, statistic = 2.13
+          45)*  weights = 0 
+        44) age > 44
+          46)*  weights = 0 
+  29) estrec > 81
+    47) pnodes <= 8; criterion = 2.312, statistic = 2.312
+      48) age <= 54; criterion = 1.831, statistic = 1.831
+        49)*  weights = 0 
+      48) age > 54
+        50) tsize <= 35; criterion = 2.053, statistic = 2.053
+          51) horTh == {}; criterion = 3.539, statistic = 3.539
+            52)*  weights = 0 
+          51) horTh == {}
+            53)*  weights = 0 
+        50) tsize > 35
+          54)*  weights = 0 
+    47) pnodes > 8
+      55) estrec <= 152; criterion = 2.352, statistic = 2.352
+        56)*  weights = 0 
+      55) estrec > 152
+        57)*  weights = 0 
+> 
+> 
+> 
+> cleanEx(); nameEx("ctree")
+> ### * ctree
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: Conditional Inference Trees
+> ### Title: Conditional Inference Trees
+> ### Aliases: ctree conditionalTree
+> ### Keywords: tree
+> 
+> ### ** Examples
+> 
+> 
+>     ### regression
+>     airq <- subset(airquality, !is.na(Ozone))
+>     airct <- ctree(Ozone ~ ., data = airq, 
++                    controls = ctree_control(maxsurrogate = 3))
+>     airct
+
+	 Conditional inference tree with 5 terminal nodes
+
+Response:  Ozone 
+Inputs:  Solar.R, Wind, Temp, Month, Day 
+Number of observations:  116 
+
+1) Temp <= 82; criterion = 1, statistic = 56.086
+  2) Wind <= 6.9; criterion = 0.998, statistic = 12.969
+    3)*  weights = 10 
+  2) Wind > 6.9
+    4) Temp <= 77; criterion = 0.997, statistic = 11.599
+      5)*  weights = 48 
+    4) Temp > 77
+      6)*  weights = 21 
+1) Temp > 82
+  7) Wind <= 8.6; criterion = 0.997, statistic = 11.712
+    8)*  weights = 27 
+  7) Wind > 8.6
+    9)*  weights = 10 
+>     plot(airct)
+>     mean((airq$Ozone - predict(airct))^2)
+[1] 409.8803
+> 
+>     ### classification
+>     irisct <- ctree(Species ~ .,data = iris)
+>     irisct
+
+	 Conditional inference tree with 4 terminal nodes
+
+Response:  Species 
+Inputs:  Sepal.Length, Sepal.Width, Petal.Length, Petal.Width 
+Number of observations:  150 
+
+1) Petal.Length <= 1.9; criterion = 1, statistic = 140.264
+  2)*  weights = 50 
+1) Petal.Length > 1.9
+  3) Petal.Width <= 1.7; criterion = 1, statistic = 67.894
+    4) Petal.Length <= 4.8; criterion = 0.999, statistic = 13.865
+      5)*  weights = 46 
+    4) Petal.Length > 4.8
+      6)*  weights = 8 
+  3) Petal.Width > 1.7
+    7)*  weights = 46 
+>     plot(irisct)
+>     table(predict(irisct), iris$Species)
+            
+             setosa versicolor virginica
+  setosa         50          0         0
+  versicolor      0         49         5
+  virginica       0          1        45
+> 
+>     ### estimated class probabilities, a list
+>     tr <- treeresponse(irisct, newdata = iris[1:10,])
+> 
+>     ### ordinal regression
+>     mammoct <- ctree(ME ~ ., data = mammoexp) 
+>     plot(mammoct)
+> 
+>     ### estimated class probabilities
+>     treeresponse(mammoct, newdata = mammoexp[1:10,])
+[[1]]
+[1] 0.3990385 0.3798077 0.2211538
+
+[[2]]
+[1] 0.84070796 0.05309735 0.10619469
+
+[[3]]
+[1] 0.3990385 0.3798077 0.2211538
+
+[[4]]
+[1] 0.6153846 0.2087912 0.1758242
+
+[[5]]
+[1] 0.3990385 0.3798077 0.2211538
+
+[[6]]
+[1] 0.3990385 0.3798077 0.2211538
+
+[[7]]
+[1] 0.3990385 0.3798077 0.2211538
+
+[[8]]
+[1] 0.3990385 0.3798077 0.2211538
+
+[[9]]
+[1] 0.84070796 0.05309735 0.10619469
+
+[[10]]
+[1] 0.3990385 0.3798077 0.2211538
+
+> 
+>     ### survival analysis
+>     if (require("ipred")) {
++         data("GBSG2", package = "ipred")
++         GBSG2ct <- ctree(Surv(time, cens) ~ .,data = GBSG2)
++         plot(GBSG2ct)
++         treeresponse(GBSG2ct, newdata = GBSG2[1:2,])        
++     }
+Loading required package: ipred
+Loading required package: rpart
+Loading required package: mlbench
+Loading required package: nnet
+Loading required package: class
+[[1]]
+Call: survival:::survfit(formula = resp, weights = w, subset = w > 
+    0)
+
+      n  events  median 0.95LCL 0.95UCL 
+    248      88    2093    1814     Inf 
+
+[[2]]
+Call: survival:::survfit(formula = resp, weights = w, subset = w > 
+    0)
+
+      n  events  median 0.95LCL 0.95UCL 
+    166      77    1701    1174    2018 
+
+> 
+>     ### if you are interested in the internals:
+>     ## Not run: 
+> ##D         browseURL(system.file("documentation/html/index.html", 
+> ##D                               package = "party"))
+> ##D     
+> ## End(Not run)
+> 
+> 
+> 
+> cleanEx(); nameEx("ctree.memory")
+> ### * ctree.memory
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: Memory Allocation
+> ### Title: Memory Allocation
+> ### Aliases: ctree_memory
+> ### Keywords: misc
+> 
+> ### ** Examples
+> 
+> 
+>     ### setup learning sample
+>     airq <- subset(airquality, !is.na(Ozone))
+>     ls <- dpp(conditionalTree, Ozone ~ ., data = airq)
+> 
+>     ### setup memory and controls 
+>     mem <- ctree_memory(ls)
+>     ct <- ctree_control(teststat = "max")
+> 
+>     ### fit 50 trees on bootstrap samples
+>     bs <- rmultinom(50, nrow(airq), rep(1, nrow(airq))/nrow(airq))
+>     storage.mode(bs) <- "double"
+>     cfit <- conditionalTree@fit
+>     system.time(ens <- apply(bs, 2, function(w) cfit(ls, ct, weights = w, 
++                                                      fitmem = mem)))
+   user  system elapsed 
+  0.436   0.004   0.446 
+> 
+> 
+> 
+> 
+> cleanEx(); nameEx("mammoexp")
+> ### * mammoexp
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: mammoexp
+> ### Title: Mammography Experience Study
+> ### Aliases: mammoexp
+> ### Keywords: datasets
+> 
+> ### ** Examples
+> 
+> 
+>   ### fit tree with attached scores (equal to the default values)
+>   mtree <- ctree(ME ~ .,data = mammoexp, 
++         scores = list(ME = 1:3, SYMPT = 1:4, DECT = 1:3))
+>   mtree
+
+	 Conditional inference tree with 3 terminal nodes
+
+Response:  ME 
+Inputs:  SYMPT, PB, HIST, BSE, DECT 
+Number of observations:  412 
+
+1) SYMPT <= Agree; criterion = 1, statistic = 29.933
+  2)*  weights = 113 
+1) SYMPT > Agree
+  3) PB <= 8; criterion = 0.988, statistic = 9.17
+    4)*  weights = 208 
+  3) PB > 8
+    5)*  weights = 91 
+>   plot(mtree)
+> 
+> 
+> 
+> cleanEx(); nameEx("mob")
+> ### * mob
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Encoding: latin1
+> 
+> ### Name: mob
+> ### Title: Model-based Recursive Partitioning
+> ### Aliases: mob mob-class coef.mob deviance.mob fitted.mob logLik.mob
+> ###   predict.mob print.mob residuals.mob sctest.mob summary.mob
+> ###   weights.mob
+> ### Keywords: tree
+> 
+> ### ** Examples
+> 
+> 
+> if(require("mlbench")) {
++ 
++ ## recursive partitioning of a linear regression model
++ ## load data
++ data("BostonHousing", package = "mlbench")
++ ## and transform variables appropriately (for a linear regression)
++ BostonHousing$lstat <- log(BostonHousing$lstat)
++ BostonHousing$rm <- BostonHousing$rm^2
++ ## as well as partitioning variables (for fluctuation testing)
++ BostonHousing$chas <- factor(BostonHousing$chas, levels = 0:1, 
++                              labels = c("no", "yes"))
++ BostonHousing$rad <- factor(BostonHousing$rad, ordered = TRUE)
++ 
++ ## partition the linear regression model medv ~ lstat + rm
++ ## with respect to all remaining variables:
++ fmBH <- mob(medv ~ lstat + rm | zn + indus + chas + nox + age + 
++                                 dis + rad + tax + crim + b + ptratio,
++   control = mob_control(minsplit = 40), data = BostonHousing, 
++   model = linearModel)
++ 
++ ## print the resulting tree
++ fmBH
++ ## or better visualize it
++ plot(fmBH)
++ 
++ ## extract coefficients in all terminal nodes
++ coef(fmBH)
++ ## look at full summary, e.g., for node 7
++ summary(fmBH, node = 7)
++ ## results of parameter stability tests for that node
++ sctest(fmBH, node = 7)
++ ## -> no further significant instabilities (at 5% level)
++ 
++ ## compute mean squared error (on training data)
++ mean((BostonHousing$medv - fitted(fmBH))^2)
++ mean(residuals(fmBH)^2)
++ deviance(fmBH)/sum(weights(fmBH))
++ 
++ ## evaluate logLik and AIC
++ logLik(fmBH)
++ AIC(fmBH)
++ ## (Note that this penalizes estimation of error variances, which
++ ## were treated as nuisance parameters in the fitting process.)
++ 
++ ## recursive partitioning of a logistic regression model
++ ## load data
++ data("PimaIndiansDiabetes", package = "mlbench")
++ ## partition logistic regression diabetes ~ glucose 
++ ## wth respect to all remaining variables
++ fmPID <- mob(diabetes ~ glucose | pregnant + pressure + triceps + 
++                                   insulin + mass + pedigree + age,
++   data = PimaIndiansDiabetes, model = glinearModel, 
++   family = binomial())
++ 
++ ## fitted model
++ coef(fmPID)
++ plot(fmPID)
++ plot(fmPID, tp_args = list(cdplot = TRUE))
++ }
+Loading required package: mlbench
+Warning: no admissable split found
+> 
+> 
+> 
+> cleanEx(); nameEx("panelfunctions")
+> ### * panelfunctions
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Encoding: latin1
+> 
+> ### Name: Panel Generating Functions
+> ### Title: Panel-Generators for Visualization of Party Trees
+> ### Aliases: node_inner node_terminal edge_simple node_surv node_barplot
+> ###   node_boxplot node_hist node_density node_scatterplot node_bivplot
+> ### Keywords: hplot
+> 
+> ### ** Examples
+> 
+> 
+>   airq <- subset(airquality, !is.na(Ozone))
+>   airct <- ctree(Ozone ~ ., data = airq)
+> 
+>   ## default: boxplots
+>   plot(airct)
+>   
+>   ## change colors
+>   plot(airct, tp_args = list(col = "blue", fill = hsv(2/3, 0.5, 1)))
+>   ## equivalent to
+>   plot(airct, terminal_panel = node_boxplot(airct, col = "blue", 
++                                             fill = hsv(2/3, 0.5, 1)))
+> 
+>   ### very simple; the mean is given in each terminal node
+>   plot(airct, type = "simple")
+> 
+>   ### density estimates
+>   plot(airct, terminal_panel = node_density)
+>     
+>   ### histograms 
+>   plot(airct, terminal_panel = node_hist(airct, ymax = 0.06, 
++                                          xscale = c(0, 250)))
+> 
+> 
+> 
+> cleanEx(); nameEx("plot.BinaryTree")
+> ### * plot.BinaryTree
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Encoding: latin1
+> 
+> ### Name: Plot BinaryTree
+> ### Title: Visualization of Binary Regression Trees
+> ### Aliases: plot.BinaryTree
+> ### Keywords: hplot
+> 
+> ### ** Examples
+> 
+> 
+>   airq <- subset(airquality, !is.na(Ozone))
+>   airct <- ctree(Ozone ~ ., data = airq)
+> 
+>   ### regression: boxplots in each node
+>   plot(airct, terminal_panel = node_boxplot, drop_terminal = TRUE)
+> 
+>   if(require("ipred")) {
++   ## classification: barplots in each node
++   data("GlaucomaM", package = "ipred")
++   glauct <- ctree(Class ~ ., data = GlaucomaM)
++   plot(glauct)
++   plot(glauct, inner_panel = node_barplot,
++     edge_panel = function(ctreeobj, ...) { function(...) invisible() },
++     tnex = 1)
++ 
++   ## survival: Kaplan-Meier curves in each node
++   data("GBSG2", package = "ipred")
++   gbsg2ct <- ctree(Surv(time, cens) ~ ., data = GBSG2)
++   plot(gbsg2ct)
++   plot(gbsg2ct, type = "simple")  
++   }
+Loading required package: ipred
+Loading required package: rpart
+Loading required package: mlbench
+Loading required package: nnet
+Loading required package: class
+> 
+> 
+> 
+> 
+> cleanEx(); nameEx("plot.mob")
+> ### * plot.mob
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: plot.mob
+> ### Title: Visualization of MOB Trees
+> ### Aliases: plot.mob
+> ### Keywords: hplot
+> 
+> ### ** Examples
+> 
+> if(require("mlbench")) {
++ 
++ ## recursive partitioning of a linear regression model
++ ## load data
++ data("BostonHousing", package = "mlbench")
++ ## and transform variables appropriately (for a linear regression)
++ BostonHousing$lstat <- log(BostonHousing$lstat)
++ BostonHousing$rm <- BostonHousing$rm^2
++ ## as well as partitioning variables (for fluctuation testing)
++ BostonHousing$chas <- factor(BostonHousing$chas, levels = 0:1, 
++                              labels = c("no", "yes"))
++ BostonHousing$rad <- factor(BostonHousing$rad, ordered = TRUE)
++ 
++ ## partition the linear regression model medv ~ lstat + rm
++ ## with respect to all remaining variables:
++ fm <- mob(medv ~ lstat + rm | zn + indus + chas + nox + age + dis + 
++                               rad + tax + crim + b + ptratio,
++   control = mob_control(minsplit = 40), data = BostonHousing, 
++   model = linearModel)
++ 
++ ## visualize medv ~ lstat and medv ~ rm
++ plot(fm)
++ 
++ ## visualize only one of the two regressors
++ plot(fm, tp_args = list(which = "lstat"), tnex = 2)
++ plot(fm, tp_args = list(which = 2), tnex = 2)
++ 
++ ## omit fitted mean lines
++ plot(fm, tp_args = list(fitmean = FALSE))
++ 
++ ## mixed numerical and categorical regressors 
++ fm2 <- mob(medv ~ lstat + rm + chas | zn + indus + nox + age + 
++                                       dis + rad,
++   control = mob_control(minsplit = 100), data = BostonHousing, 
++   model = linearModel)
++ plot(fm2)
++ 
++ ## recursive partitioning of a logistic regression model
++ data("PimaIndiansDiabetes", package = "mlbench")
++ fmPID <- mob(diabetes ~ glucose | pregnant + pressure + triceps + 
++                                   insulin + mass + pedigree + age,
++   data = PimaIndiansDiabetes, model = glinearModel, 
++   family = binomial())
++ ## default plot: spinograms with breaks from five point summary
++ plot(fmPID)
++ ## use the breaks from hist() instead
++ plot(fmPID, tp_args = list(fivenum = FALSE))
++ ## user-defined breaks
++ plot(fmPID, tp_args = list(breaks = 0:4 * 50))
++ ## CD plots instead of spinograms
++ plot(fmPID, tp_args = list(cdplot = TRUE))
++ ## different smoothing bandwidth
++ plot(fmPID, tp_args = list(cdplot = TRUE, bw = 15))
++ 
++ }
+Loading required package: mlbench
+Warning: no admissable split found
+> 
+> 
+> 
+> cleanEx(); nameEx("reweight")
+> ### * reweight
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: reweight
+> ### Title: Re-fitting Models with New Weights
+> ### Aliases: reweight reweight.linearModel reweight.glinearModel
+> ### Keywords: regression
+> 
+> ### ** Examples
+> 
+>   ## fit cars regression
+>   mf <- dpp(linearModel, dist ~ speed, data = cars)
+>   fm <- fit(linearModel, mf)
+>   fm
+Linear model with coefficients:
+(Intercept)        speed  
+    -17.579        3.932  
+>   
+>   ## re-fit, excluding the last 4 observations
+>   ww <- c(rep(1, 46), rep(0, 4))
+>   reweight(fm, ww)
+Linear model with coefficients:
+(Intercept)        speed  
+     -8.723        3.210  
+> 
+> 
+> 
+> ### * <FOOTER>
+> ###
+> cat("Time elapsed: ", proc.time() - get("ptime", pos = 'CheckExEnv'),"\n")
+Time elapsed:  52.775 0.892 107.139 0 0 
+> grDevices::dev.off()
+null device 
+          1 
+> ###
+> ### Local variables: ***
+> ### mode: outline-minor ***
+> ### outline-regexp: "\\(> \\)?### [*]+" ***
+> ### End: ***
+> quit('no')

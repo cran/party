@@ -1,4 +1,4 @@
-.TH "Classes.h" 3 "24 Sep 2007" "party" \" -*- nroff -*-
+.TH "Classes.h" 3 "27 Sep 2007" "party" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -88,7 +88,7 @@ Classes.h \-
 .RI "int \fBget_ninputs\fP (SEXP object)"
 .br
 .ti -1c
-.RI "SEXP \fBget_weights\fP (SEXP object, int variable)"
+.RI "SEXP \fBget_weights\fP (SEXP object)"
 .br
 .ti -1c
 .RI "int \fBget_testtype\fP (SEXP object)"
@@ -437,7 +437,7 @@ Definition at line 258 of file Classes.c.
 .PP
 References has_missings(), and PL2_whichNASym.
 .PP
-Referenced by C_get_node(), C_splitnode(), C_splitsurrogate(), and C_surrogates().
+Referenced by C_get_node(), C_splitnode(), C_splitsurrogate(), C_surrogates(), and C_tempweights().
 .SS "int get_mtry (SEXP object)"
 .PP
 Definition at line 330 of file Classes.c.
@@ -603,13 +603,13 @@ Definition at line 269 of file Classes.c.
 References PL2_varmemorySym.
 .PP
 Referenced by C_Node().
-.SS "SEXP get_weights (SEXP object, int variable)"
+.SS "SEXP get_weights (SEXP object)"
 .PP
 Definition at line 290 of file Classes.c.
 .PP
 References PL2_weightsSym.
 .PP
-Referenced by C_Node().
+Referenced by C_tempweights().
 .SS "SEXP get_whichNA (SEXP object, int variable)"
 .PP
 .SS "int has_missings (SEXP object, int variable)"

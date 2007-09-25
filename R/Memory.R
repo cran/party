@@ -1,5 +1,5 @@
 
-# $Id: Memory.R 3259 2007-02-02 10:22:45Z hothorn $
+# $Id: Memory.R 3732 2007-09-26 12:46:10Z hothorn $
 
 ctree_memory <- function(object, MPinv = FALSE) {
 
@@ -12,7 +12,6 @@ ctree_memory <- function(object, MPinv = FALSE) {
     expcovinf <- new("ExpectCovarInfluence", q)
     expcovinfss <- new("ExpectCovarInfluence", as.integer(1))
     linexpcov2sample  <- new("LinStatExpectCovar", as.integer(1), q) 
-    weights <- vector(mode = "list", length = ninputs)
     splitstatistics <- as.double(rep(0, nobs))
     varmemory <- vector(mode = "list", length = ninputs)
     dontuse <- rep(FALSE, ninputs)
@@ -21,9 +20,6 @@ ctree_memory <- function(object, MPinv = FALSE) {
     for (j in 1:inputs@ninputs) {
 
         p <- ncol(inputs@transformations[[j]])
-
-        if (inputs@has_missings[j])
-            weights[[j]] <- rep(0, nobs)
 
         if (MPinv) {
             varmemory[[j]] <- new("LinStatExpectCovarMPinv", p, q)
@@ -35,7 +31,7 @@ ctree_memory <- function(object, MPinv = FALSE) {
     RET@expcovinf <- expcovinf
     RET@expcovinfss <- expcovinfss
     RET@linexpcov2sample  <- linexpcov2sample
-    RET@weights <- weights
+    RET@weights <- as.double(rep(0, nobs))
     RET@varmemory <- varmemory
     RET@dontuse <- dontuse
     RET@dontusetmp <- dontusetmp

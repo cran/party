@@ -3,7 +3,7 @@
     Binary splits 
     *\file Splits.c
     *\author $Author: hothorn $
-    *\date $Date: 2006-08-25 10:53:10 +0200 (Fri, 25 Aug 2006) $
+    *\date $Date: 2007-09-26 14:44:59 +0200 (Wed, 26 Sep 2007) $
 */
                 
 #include "party.h"
@@ -249,7 +249,13 @@ void C_splitcategorical(const int *codingx, int p,
         
         /* a temporary response variable: the rank of the level */
         for (i = 0; i < n; i++) {
-            tmpx[i] = (double) irank[codingx[i] - 1];
+            /* <FIXME> do we have to adjust weights for missing values here??? */
+            if (weights[i] == 0.0) {
+                tmpx[i] = 0.0;
+            } else {
+                tmpx[i] = (double) irank[codingx[i] - 1];
+            }
+            /* </FIXME> */
             tmptmpx[i] = tmpx[i];
             ordertmpx[i] = i + 1;
         }

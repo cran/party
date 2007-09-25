@@ -1,6 +1,7 @@
 \name{cforest}
 \alias{cforest}
 \alias{varimp}
+\alias{proximity}
 \title{ Random Forest }
 \description{
     An implementation of the random forest and bagging ensemble algorithms
@@ -10,7 +11,8 @@
 cforest(formula, data = list(), subset = NULL, weights = NULL, 
         controls = cforest_unbiased(),
         xtrafo = ptrafo, ytrafo = ptrafo, scores = NULL)
-varimp(x, mincriterion = 0.0)
+varimp(object, mincriterion = 0.0)
+proximity(object)
 }
 \arguments{
   \item{formula}{ a symbolic description of the model to be fit. }
@@ -36,7 +38,7 @@ varimp(x, mincriterion = 0.0)
                 By default, the \code{\link{ptrafo}} function is applied.}
   \item{scores}{ an optional named list of scores to be attached to ordered
                factors.}
-  \item{x}{ an object as returned by \code{cforest}.}
+  \item{object}{ an object as returned by \code{cforest}.}
   \item{mincriterion}{ the value of the test statistic or 1 - p-value that
                        must be exceeded in order make use of a split. 
                        See \code{\link{ctree_control}}.}
@@ -72,6 +74,10 @@ varimp(x, mincriterion = 0.0)
   Function \code{varimp} can be used to compute variable importance measures
   similar to those computed by \code{\link[randomForest]{importance}}.
 
+  The \code{proximity} matrix is an \eqn{n \times n} matrix \eqn{P} with \eqn{P_{ij}}
+  equal to the number of trees where observations \eqn{i} and \eqn{j} 
+  are element of the same terminal node.
+
 }
 \value{
   An object of class \code{\link{RandomForest-class}}.
@@ -91,9 +97,6 @@ varimp(x, mincriterion = 0.0)
     Bias in Random Forest Variable Importance Measures: Illustrations, Sources and 
     a Solution. \emph{BMC Bioinformatics}, \bold{8}, 25. 
     \url{http://www.biomedcentral.com/1471-2105/8/25/abstract}
-}
-
-
 }
 \examples{
 

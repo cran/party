@@ -3,7 +3,7 @@
     Suggorgate splits
     *\file SurrogateSplits.c
     *\author $Author: hothorn $
-    *\date $Date: 2006-09-15 13:27:26 +0200 (Fri, 15 Sep 2006) $
+    *\date $Date: 2007-09-26 14:44:59 +0200 (Wed, 26 Sep 2007) $
 */
                 
 #include "party.h"
@@ -81,11 +81,7 @@ void C_surrogates(SEXP node, SEXP learnsample, SEXP weights, SEXP controls,
 
          if (has_missings(inputs, j + 1)) {
 
-             thisweights = REAL(get_weights(fitmem, j + 1));
-             for (i = 0; i < nobs; i++) thisweights[i] = tweights[i];
-             thiswhichNA = get_missings(inputs, j + 1);
-             for (k = 0; k < LENGTH(thiswhichNA); k++)
-                 thisweights[INTEGER(thiswhichNA)[k] - 1] = 0.0;
+             thisweights = C_tempweights(j + 1, weights, fitmem, inputs);
                  
              C_ExpectCovarInfluence(REAL(y), 1, thisweights, nobs, expcovinf);
              
