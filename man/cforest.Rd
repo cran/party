@@ -58,6 +58,9 @@ proximity(object)
   The aggregation scheme works by averaging observation weights extracted
   from each of the \code{ntree} trees and NOT by averaging predictions directly.
   See Hothorn et al. (2004) for a description. 
+  Predictions can be computed using \code{\link{predict}}. For observations
+  with zero weights, predictions are computed from the fitted tree 
+  when \code{newdata = NULL}. 
 
   Ensembles of conditional inference trees have not yet been extensively
   tested, so this routine is meant for the expert user only and its current

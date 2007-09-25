@@ -1,5 +1,5 @@
 
-R version 2.6.0 RC (2007-09-25 r42980)
+R version 2.6.0 (2007-10-03)
 Copyright (C) 2007 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 
@@ -26,14 +26,6 @@ Loading required package: stats4
 Loading required package: coin
 Loading required package: mvtnorm
 Loading required package: zoo
-
-Attaching package: 'zoo'
-
-
-	The following object(s) are masked from package:base :
-
-	 rapply 
-
 Loading required package: sandwich
 Loading required package: strucchange
 Loading required package: vcd
@@ -273,4 +265,15 @@ Number of observations:  100
 > 
 > stopifnot(all.equal(ct2@tree$psplit, ct1@tree$psplit))
 > stopifnot(all.equal(ct2@tree$psplit, ct3@tree$psplit))
+> 
+> ### predictions for obs with zero weights
+> ### spotted by Mark Difford <mark_difford@yahoo.co.uk>
+> airq <- subset(airquality, !is.na(Ozone))
+> w <- rep(1, nrow(airq))
+> w[1:5] <- 0
+> 
+> ctw <- ctree(Ozone ~ ., data = airq, weights = w)
+> stopifnot(all.equal(predict(ctw)[1:5], predict(ctw, newdata = airq)[1:5]))
+> rfw <- cforest(Ozone ~ ., data = airq, weights = w)
+> stopifnot(all.equal(predict(rfw)[1:5], predict(rfw, newdata = airq)[1:5]))
 > 

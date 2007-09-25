@@ -152,3 +152,14 @@ ct3 <- ctree(y ~ x, data = tmp, weights = w)
 
 stopifnot(all.equal(ct2@tree$psplit, ct1@tree$psplit))
 stopifnot(all.equal(ct2@tree$psplit, ct3@tree$psplit))
+
+### predictions for obs with zero weights
+### spotted by Mark Difford <mark_difford@yahoo.co.uk>
+airq <- subset(airquality, !is.na(Ozone))
+w <- rep(1, nrow(airq))
+w[1:5] <- 0
+
+ctw <- ctree(Ozone ~ ., data = airq, weights = w)
+stopifnot(all.equal(predict(ctw)[1:5], predict(ctw, newdata = airq)[1:5]))
+rfw <- cforest(Ozone ~ ., data = airq, weights = w)
+stopifnot(all.equal(predict(rfw)[1:5], predict(rfw, newdata = airq)[1:5]))

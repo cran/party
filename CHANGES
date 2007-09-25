@@ -1,4 +1,14 @@
 
+                CHANGES IN party VERSION 0.9-92 (2007-11-22)
+
+    o   predict(<ctree-object>) computed predictions
+        for observations with zero weights (by passing them down the tree).
+        This was already done this way by predict(<cforest-object>) but resulted
+        in an error for ctree()s.
+
+    o   minbucket added to ctree_control()
+
+
                 CHANGES IN party VERSION 0.9-91 (2007-09-26)
 
     o   bugfix: NAs in factors lead to segfaults on 64bit machines

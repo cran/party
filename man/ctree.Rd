@@ -61,6 +61,10 @@ ctree(formula, data, subset = NULL, weights = NULL,
   \code{1:length(x)}, this may be changed using \code{scores = list(x =
   c(1,5,6))}, for example.
 
+  Predictions can be computed using \code{\link{predict}}. For observations
+  with zero weights, predictions are computed from the fitted tree 
+  when \code{newdata = NULL}.
+
   For a general description of the methodology see Hothorn, Hornik and
   Zeileis (2006) and Hothorn, Hornik, van de Wiel and Zeileis (2006).
 

@@ -10,7 +10,7 @@
 ctree_control(teststat = c("quad", "max"), 
               testtype = c("Bonferroni", "MonteCarlo", 
                            "Univariate", "Teststatistic"), 
-              mincriterion = 0.95, minsplit = 20, stump = FALSE, 
+              mincriterion = 0.95, minsplit = 20, minbucket = 7, stump = FALSE, 
               nresample = 9999, maxsurrogate = 0, mtry = 0, 
               savesplitstats = TRUE, maxdepth = 0)
 }
@@ -21,7 +21,9 @@ ctree_control(teststat = c("quad", "max"),
                    the test statistic. }
   \item{mincriterion}{ the value of the test statistic or 1 - p-value that
                        must be exceeded in order to implement a split. }
-  \item{minsplit}{ the minimum sum of the weights in a node. }
+  \item{minsplit}{ the minimum sum of weights in a node in order to be considered
+                   for splitting. }
+  \item{minbucket}{ the minimum sum of weights in a terminal node. }
   \item{stump}{ a logical determining whether a stump (a tree with three
                 nodes only) is to be computed. }
   \item{nresample}{ number of Monte-Carlo replications to use when the

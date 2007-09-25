@@ -47,7 +47,9 @@ ctreefit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
     ### get terminal node numbers
     RET@get_where <- function(newdata = NULL, mincriterion = 0, ...) {
 
-        if (is.null(newdata) && mincriterion == 0) return(where)
+        if (is.null(newdata) && mincriterion == 0) {
+            if (all(where > 0)) return(where)
+        }
 
         newinp <- newinputs(object, newdata)
 
@@ -182,7 +184,7 @@ setMethod("fit", signature = signature(model = "StatModel",
 ### control the hyper parameters
 ctree_control <- function(teststat = c("quad", "max"),
                           testtype = c("Bonferroni", "MonteCarlo", "Univariate", "Teststatistic"),
-                          mincriterion = 0.95, minsplit = 20, stump = FALSE,
+                          mincriterion = 0.95, minsplit = 20, minbucket = 7, stump = FALSE,
                           nresample = 9999, maxsurrogate = 0, mtry = 0, 
                           savesplitstats = TRUE, maxdepth = 0) {
 
@@ -214,6 +216,7 @@ ctree_control <- function(teststat = c("quad", "max"),
     RET@tgctrl@savesplitstats <- savesplitstats
     RET@splitctrl@minsplit <- minsplit
     RET@splitctrl@maxsurrogate <- as.integer(maxsurrogate)
+    RET@splitctrl@minbucket <- as.double(minbucket)
     RET@tgctrl@stump <- stump
     RET@tgctrl@maxdepth <- as.integer(maxdepth)
     RET@tgctrl@savesplitstats <- savesplitstats
