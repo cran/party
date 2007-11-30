@@ -163,3 +163,17 @@ ctw <- ctree(Ozone ~ ., data = airq, weights = w)
 stopifnot(all.equal(predict(ctw)[1:5], predict(ctw, newdata = airq)[1:5]))
 rfw <- cforest(Ozone ~ ., data = airq, weights = w)
 stopifnot(all.equal(predict(rfw)[1:5], predict(rfw, newdata = airq)[1:5]))
+
+### more surrogate splits than available requested
+### spotted by Henric Nilsson <henric.nilsson@sorch.se>
+airq <- data.frame(airq,
+                    x1 = factor(ifelse(runif(nrow(airq)) < 0.5, 0, 1)),
+                    x2 = factor(ifelse(runif(nrow(airq)) < 0.5, 0, 1)),
+                    x3 = factor(ifelse(runif(nrow(airq)) < 0.5, 0, 1)))
+
+foo <- function(nm) 
+    ctree(Ozone ~ ., data = airq,
+          controls = ctree_control(maxsurrogate = nm))
+foo(4)
+try(foo(5))
+try(foo(6))

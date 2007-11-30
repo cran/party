@@ -93,7 +93,7 @@ Split with missing values <br>
 </dl>
 
 <p>
-Definition at line <a class="el" href="SurrogateSplits_8c-source.html#l00168">168</a> of file <a class="el" href="SurrogateSplits_8c-source.html">SurrogateSplits.c</a>.
+Definition at line <a class="el" href="SurrogateSplits_8c-source.html#l00174">174</a> of file <a class="el" href="SurrogateSplits_8c-source.html">SurrogateSplits.c</a>.
 <p>
 References <a class="el" href="Classes_8c-source.html#l00258">get_missings()</a>, <a class="el" href="Classes_8c-source.html#l00282">get_nobs()</a>, <a class="el" href="Classes_8c-source.html#l00202">get_variable()</a>, <a class="el" href="Classes_8c-source.html#l00220">has_missings()</a>, <a class="el" href="Classes_8c-source.html#l00012">PL2_inputsSym</a>, <a class="el" href="S3Classes_8c-source.html#l00096">S3get_leftnode()</a>, <a class="el" href="S3Classes_8c-source.html#l00051">S3get_nodeweights()</a>, <a class="el" href="S3Classes_8c-source.html#l00084">S3get_primarysplit()</a>, <a class="el" href="S3Classes_8c-source.html#l00100">S3get_rightnode()</a>, <a class="el" href="S3Classes_8c-source.html#l00179">S3get_splitpoint()</a>, <a class="el" href="S3Classes_8c-source.html#l00088">S3get_surrogatesplits()</a>, <a class="el" href="S3Classes_8c-source.html#l00170">S3get_toleft()</a>, and <a class="el" href="S3Classes_8c-source.html#l00154">S3get_variableID()</a>.
 <p>
@@ -184,27 +184,25 @@ Search for surrogate splits for bypassing the primary split <br>
 <p>
 Definition at line <a class="el" href="SurrogateSplits_8c-source.html#l00021">21</a> of file <a class="el" href="SurrogateSplits_8c-source.html">SurrogateSplits.c</a>.
 <p>
-References <a class="el" href="Classes_8c-source.html#l00322">get_maxsurrogate()</a>, <a class="el" href="Classes_8c-source.html#l00258">get_missings()</a>, <a class="el" href="Classes_8c-source.html#l00286">get_ninputs()</a>, <a class="el" href="Classes_8c-source.html#l00282">get_nobs()</a>, <a class="el" href="Classes_8c-source.html#l00306">get_splitctrl()</a>, <a class="el" href="Classes_8c-source.html#l00220">has_missings()</a>, <a class="el" href="Classes_8c-source.html#l00012">PL2_inputsSym</a>, <a class="el" href="S3Classes_8c-source.html#l00051">S3get_nodeweights()</a>, <a class="el" href="S3Classes_8c-source.html#l00084">S3get_primarysplit()</a>, <a class="el" href="S3Classes_8c-source.html#l00088">S3get_surrogatesplits()</a>, and <a class="el" href="S3Classes_8c-source.html#l00154">S3get_variableID()</a>.
+References <a class="el" href="Classes_8c-source.html#l00322">get_maxsurrogate()</a>, <a class="el" href="Classes_8c-source.html#l00286">get_ninputs()</a>, <a class="el" href="Classes_8c-source.html#l00282">get_nobs()</a>, <a class="el" href="Classes_8c-source.html#l00306">get_splitctrl()</a>, <a class="el" href="Classes_8c-source.html#l00208">is_nominal()</a>, <a class="el" href="Classes_8c-source.html#l00012">PL2_inputsSym</a>, <a class="el" href="S3Classes_8c-source.html#l00051">S3get_nodeweights()</a>, <a class="el" href="S3Classes_8c-source.html#l00084">S3get_primarysplit()</a>, and <a class="el" href="S3Classes_8c-source.html#l00154">S3get_variableID()</a>.
 <p>
-Referenced by <a class="el" href="TreeGrow_8c-source.html#l00023">C_TreeGrow()</a>, and <a class="el" href="SurrogateSplits_8c-source.html#l00153">R_surrogates()</a>.
+Referenced by <a class="el" href="TreeGrow_8c-source.html#l00023">C_TreeGrow()</a>, and <a class="el" href="SurrogateSplits_8c-source.html#l00159">R_surrogates()</a>.
 <p>
 Here is the call graph for this function:<p><center><img src="SurrogateSplits_8h_fd8931db67339ca2bb679d8d38135275_cgraph.png" border="0" usemap="#SurrogateSplits_8h_fd8931db67339ca2bb679d8d38135275_cgraph_map" alt=""></center>
 <map name="SurrogateSplits_8h_fd8931db67339ca2bb679d8d38135275_cgraph_map">
-<area href="Classes_8c.html#b89e4da7a60580c3adbe7c4f4935581c" shape="rect" coords="172,8,300,32" alt="">
-<area href="Classes_8c.html#fd6cfc2dd239b138d91e92a8ce9353f8" shape="rect" coords="186,56,285,80" alt="">
-<area href="Classes_8c.html#50548fbe6024d9a7118db3fce5085fd9" shape="rect" coords="361,81,462,105" alt="">
-<area href="Classes_8c.html#9117d8f57ea1378c725c7299d6cc2923" shape="rect" coords="190,154,281,178" alt="">
-<area href="Classes_8c.html#45df17685bc6c95d03fb65b6f6214de0" shape="rect" coords="197,202,274,226" alt="">
-<area href="Classes_8c.html#d914bd038dca4d2a1b9847f46bdb78f9" shape="rect" coords="192,250,280,274" alt="">
-<area href="S3Classes_8c.html#c3785782483b5bf4afe9d606e280f3ca" shape="rect" coords="166,298,305,322" alt="">
-<area href="S3Classes_8c.html#220373298b30f12b22f82cce3c996a37" shape="rect" coords="170,346,301,370" alt="">
-<area href="S3Classes_8c.html#f270d1d02bf86a4c5cdc8959045c3567" shape="rect" coords="161,394,310,418" alt="">
-<area href="S3Classes_8c.html#583f9148949f93b5fe894feb6567ca0d" shape="rect" coords="174,442,297,466" alt="">
+<area href="Classes_8c.html#b89e4da7a60580c3adbe7c4f4935581c" shape="rect" coords="165,8,293,32" alt="">
+<area href="Classes_8c.html#9117d8f57ea1378c725c7299d6cc2923" shape="rect" coords="184,56,274,80" alt="">
+<area href="Classes_8c.html#45df17685bc6c95d03fb65b6f6214de0" shape="rect" coords="190,104,268,128" alt="">
+<area href="Classes_8c.html#d914bd038dca4d2a1b9847f46bdb78f9" shape="rect" coords="185,152,273,176" alt="">
+<area href="Classes_8c.html#f836613ade2cdc01c401b574fc1e7fdb" shape="rect" coords="186,200,272,224" alt="">
+<area href="S3Classes_8c.html#c3785782483b5bf4afe9d606e280f3ca" shape="rect" coords="160,248,298,272" alt="">
+<area href="S3Classes_8c.html#220373298b30f12b22f82cce3c996a37" shape="rect" coords="164,296,294,320" alt="">
+<area href="S3Classes_8c.html#583f9148949f93b5fe894feb6567ca0d" shape="rect" coords="168,344,290,368" alt="">
 </map>
     </td>
   </tr>
 </table>
-<hr size="1"><address style="align: right;"><small>Generated on Thu Sep 27 15:52:05 2007 for party by&nbsp;
+<hr size="1"><address style="align: right;"><small>Generated on Fri Nov 30 16:05:36 2007 for party by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6 </small></address>
 </body>

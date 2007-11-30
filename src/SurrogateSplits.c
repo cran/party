@@ -3,7 +3,7 @@
     Suggorgate splits
     *\file SurrogateSplits.c
     *\author $Author: hothorn $
-    *\date $Date: 2007-09-26 14:44:59 +0200 (Wed, 26 Sep 2007) $
+    *\date $Date: 2007-11-30 17:12:26 +0100 (Fri, 30 Nov 2007) $
 */
                 
 #include "party.h"
@@ -24,7 +24,7 @@ void C_surrogates(SEXP node, SEXP learnsample, SEXP weights, SEXP controls,
     SEXP x, y, expcovinf; 
     SEXP splitctrl, inputs; 
     SEXP split, thiswhichNA;
-    int nobs, ninputs, i, j, k, jselect, maxsurr, *order;
+    int nobs, ninputs, i, j, k, jselect, maxsurr, *order, nvar = 0;
     double ms, cp, *thisweights, *cutpoint, *maxstat, 
            *splitstat, *dweights, *tweights, *dx, *dy;
     double cut, *twotab;
@@ -33,16 +33,21 @@ void C_surrogates(SEXP node, SEXP learnsample, SEXP weights, SEXP controls,
     ninputs = get_ninputs(learnsample);
     splitctrl = get_splitctrl(controls);
     maxsurr = get_maxsurrogate(splitctrl);
-
-    if (maxsurr != LENGTH(S3get_surrogatesplits(node)))
-        error("nodes does not have %d surrogate splits", maxsurr);
-    if ((ninputs - 1 - maxsurr) < 1)
-        error("cannot set up %d surrogate splits with only %d input variable(s)", 
-              maxsurr, ninputs);
-
     inputs = GET_SLOT(learnsample, PL2_inputsSym);
     jselect = S3get_variableID(S3get_primarysplit(node));
     y = S3get_nodeweights(VECTOR_ELT(node, 7));
+
+    for (j = 0; j < ninputs; j++) {
+        if (is_nominal(inputs, j + 1)) continue;
+        nvar++;
+    }
+    nvar--;
+
+    if (maxsurr != LENGTH(S3get_surrogatesplits(node)))
+        error("nodes does not have %d surrogate splits", maxsurr);
+    if (maxsurr > nvar)
+        error("cannot set up %d surrogate splits with only %d ordered input variable(s)", 
+              maxsurr, nvar);
 
     tweights = Calloc(nobs, double);
     dweights = REAL(weights);

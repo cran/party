@@ -28,7 +28,7 @@
 <a name="l00024"></a>00024     SEXP x, y, expcovinf; 
 <a name="l00025"></a>00025     SEXP splitctrl, inputs; 
 <a name="l00026"></a>00026     SEXP split, thiswhichNA;
-<a name="l00027"></a>00027     <span class="keywordtype">int</span> nobs, ninputs, i, j, k, jselect, maxsurr, *order;
+<a name="l00027"></a>00027     <span class="keywordtype">int</span> nobs, ninputs, i, j, k, jselect, maxsurr, *order, nvar = 0;
 <a name="l00028"></a>00028     <span class="keywordtype">double</span> ms, cp, *thisweights, *cutpoint, *maxstat, 
 <a name="l00029"></a>00029            *splitstat, *dweights, *tweights, *dx, *dy;
 <a name="l00030"></a>00030     <span class="keywordtype">double</span> cut, *twotab;
@@ -37,193 +37,199 @@
 <a name="l00033"></a>00033     ninputs = <a class="code" href="Classes_8c.html#9117d8f57ea1378c725c7299d6cc2923">get_ninputs</a>(learnsample);
 <a name="l00034"></a>00034     splitctrl = <a class="code" href="Classes_8c.html#d914bd038dca4d2a1b9847f46bdb78f9">get_splitctrl</a>(controls);
 <a name="l00035"></a>00035     maxsurr = <a class="code" href="Classes_8c.html#b89e4da7a60580c3adbe7c4f4935581c">get_maxsurrogate</a>(splitctrl);
-<a name="l00036"></a>00036 
-<a name="l00037"></a>00037     <span class="keywordflow">if</span> (maxsurr != LENGTH(<a class="code" href="S3Classes_8c.html#f270d1d02bf86a4c5cdc8959045c3567">S3get_surrogatesplits</a>(node)))
-<a name="l00038"></a>00038         error(<span class="stringliteral">"nodes does not have %d surrogate splits"</span>, maxsurr);
-<a name="l00039"></a>00039     <span class="keywordflow">if</span> ((ninputs - 1 - maxsurr) &lt; 1)
-<a name="l00040"></a>00040         error(<span class="stringliteral">"cannot set up %d surrogate splits with only %d input variable(s)"</span>, 
-<a name="l00041"></a>00041               maxsurr, ninputs);
-<a name="l00042"></a>00042 
-<a name="l00043"></a>00043     inputs = GET_SLOT(learnsample, <a class="code" href="Classes_8c.html#a0f1db0215808916904d250b11f71edd">PL2_inputsSym</a>);
-<a name="l00044"></a>00044     jselect = <a class="code" href="S3Classes_8c.html#583f9148949f93b5fe894feb6567ca0d">S3get_variableID</a>(<a class="code" href="S3Classes_8c.html#220373298b30f12b22f82cce3c996a37">S3get_primarysplit</a>(node));
-<a name="l00045"></a>00045     y = <a class="code" href="S3Classes_8c.html#c3785782483b5bf4afe9d606e280f3ca">S3get_nodeweights</a>(VECTOR_ELT(node, 7));
+<a name="l00036"></a>00036     inputs = GET_SLOT(learnsample, <a class="code" href="Classes_8c.html#a0f1db0215808916904d250b11f71edd">PL2_inputsSym</a>);
+<a name="l00037"></a>00037     jselect = <a class="code" href="S3Classes_8c.html#583f9148949f93b5fe894feb6567ca0d">S3get_variableID</a>(<a class="code" href="S3Classes_8c.html#220373298b30f12b22f82cce3c996a37">S3get_primarysplit</a>(node));
+<a name="l00038"></a>00038     y = <a class="code" href="S3Classes_8c.html#c3785782483b5bf4afe9d606e280f3ca">S3get_nodeweights</a>(VECTOR_ELT(node, 7));
+<a name="l00039"></a>00039 
+<a name="l00040"></a>00040     <span class="keywordflow">for</span> (j = 0; j &lt; ninputs; j++) {
+<a name="l00041"></a>00041         <span class="keywordflow">if</span> (<a class="code" href="Classes_8c.html#f836613ade2cdc01c401b574fc1e7fdb">is_nominal</a>(inputs, j + 1)) <span class="keywordflow">continue</span>;
+<a name="l00042"></a>00042         nvar++;
+<a name="l00043"></a>00043     }
+<a name="l00044"></a>00044     nvar--;
+<a name="l00045"></a>00045 Rprintf(<span class="stringliteral">"nvar: %d\n"</span>, nvar);
 <a name="l00046"></a>00046 
-<a name="l00047"></a>00047     tweights = Calloc(nobs, <span class="keywordtype">double</span>);
-<a name="l00048"></a>00048     dweights = REAL(weights);
-<a name="l00049"></a>00049     <span class="keywordflow">for</span> (i = 0; i &lt; nobs; i++) tweights[i] = dweights[i];
-<a name="l00050"></a>00050     <span class="keywordflow">if</span> (<a class="code" href="Classes_8c.html#50548fbe6024d9a7118db3fce5085fd9">has_missings</a>(inputs, jselect)) {
-<a name="l00051"></a>00051         thiswhichNA = <a class="code" href="Classes_8c.html#fd6cfc2dd239b138d91e92a8ce9353f8">get_missings</a>(inputs, jselect);
-<a name="l00052"></a>00052         <span class="keywordflow">for</span> (k = 0; k &lt; LENGTH(thiswhichNA); k++)
-<a name="l00053"></a>00053             tweights[INTEGER(thiswhichNA)[k] - 1] = 0.0;
-<a name="l00054"></a>00054     }
-<a name="l00055"></a>00055 
-<a name="l00056"></a>00056     expcovinf = GET_SLOT(fitmem, <a class="code" href="Classes_8c.html#1f0d5394a08065f5e1a54608dac5916d">PL2_expcovinfssSym</a>);
-<a name="l00057"></a>00057     <a class="code" href="LinearStatistic_8c.html#e2f62abe13ee5b625141b5d4a496d832">C_ExpectCovarInfluence</a>(REAL(y), 1, REAL(weights), nobs, expcovinf);
-<a name="l00058"></a>00058     
-<a name="l00059"></a>00059     splitstat = REAL(<a class="code" href="Classes_8c.html#3a0ec14f5047b8c9bf8d8e6ba3c6e306">get_splitstatistics</a>(fitmem));
-<a name="l00060"></a>00060     <span class="comment">/* &lt;FIXME&gt; extend `TreeFitMemory' to those as well ... */</span>
-<a name="l00061"></a>00061     maxstat = Calloc(ninputs, <span class="keywordtype">double</span>);
-<a name="l00062"></a>00062     cutpoint = Calloc(ninputs, <span class="keywordtype">double</span>);
-<a name="l00063"></a>00063     order = Calloc(ninputs, <span class="keywordtype">int</span>);
-<a name="l00064"></a>00064     <span class="comment">/* &lt;FIXME&gt; */</span>
-<a name="l00065"></a>00065     
-<a name="l00066"></a>00066     <span class="comment">/* this is essentially an exhaustive search */</span>
-<a name="l00067"></a>00067     <span class="comment">/* &lt;FIXME&gt;: we don't want to do this for random forest like trees </span>
-<a name="l00068"></a>00068 <span class="comment">       &lt;/FIXME&gt;</span>
-<a name="l00069"></a>00069 <span class="comment">     */</span>
-<a name="l00070"></a>00070     <span class="keywordflow">for</span> (j = 0; j &lt; ninputs; j++) {
+<a name="l00047"></a>00047     <span class="keywordflow">if</span> (maxsurr != LENGTH(<a class="code" href="S3Classes_8c.html#f270d1d02bf86a4c5cdc8959045c3567">S3get_surrogatesplits</a>(node)))
+<a name="l00048"></a>00048         error(<span class="stringliteral">"nodes does not have %d surrogate splits"</span>, maxsurr);
+<a name="l00049"></a>00049     <span class="keywordflow">if</span> (maxsurr &gt; nvar)
+<a name="l00050"></a>00050         error(<span class="stringliteral">"cannot set up %d surrogate splits with only %d ordered input variable(s)"</span>, 
+<a name="l00051"></a>00051               maxsurr, nvar);
+<a name="l00052"></a>00052 
+<a name="l00053"></a>00053     tweights = Calloc(nobs, <span class="keywordtype">double</span>);
+<a name="l00054"></a>00054     dweights = REAL(weights);
+<a name="l00055"></a>00055     <span class="keywordflow">for</span> (i = 0; i &lt; nobs; i++) tweights[i] = dweights[i];
+<a name="l00056"></a>00056     <span class="keywordflow">if</span> (<a class="code" href="Classes_8c.html#50548fbe6024d9a7118db3fce5085fd9">has_missings</a>(inputs, jselect)) {
+<a name="l00057"></a>00057         thiswhichNA = <a class="code" href="Classes_8c.html#fd6cfc2dd239b138d91e92a8ce9353f8">get_missings</a>(inputs, jselect);
+<a name="l00058"></a>00058         <span class="keywordflow">for</span> (k = 0; k &lt; LENGTH(thiswhichNA); k++)
+<a name="l00059"></a>00059             tweights[INTEGER(thiswhichNA)[k] - 1] = 0.0;
+<a name="l00060"></a>00060     }
+<a name="l00061"></a>00061 
+<a name="l00062"></a>00062     expcovinf = GET_SLOT(fitmem, <a class="code" href="Classes_8c.html#1f0d5394a08065f5e1a54608dac5916d">PL2_expcovinfssSym</a>);
+<a name="l00063"></a>00063     <a class="code" href="LinearStatistic_8c.html#e2f62abe13ee5b625141b5d4a496d832">C_ExpectCovarInfluence</a>(REAL(y), 1, REAL(weights), nobs, expcovinf);
+<a name="l00064"></a>00064     
+<a name="l00065"></a>00065     splitstat = REAL(<a class="code" href="Classes_8c.html#3a0ec14f5047b8c9bf8d8e6ba3c6e306">get_splitstatistics</a>(fitmem));
+<a name="l00066"></a>00066     <span class="comment">/* &lt;FIXME&gt; extend `TreeFitMemory' to those as well ... */</span>
+<a name="l00067"></a>00067     maxstat = Calloc(ninputs, <span class="keywordtype">double</span>);
+<a name="l00068"></a>00068     cutpoint = Calloc(ninputs, <span class="keywordtype">double</span>);
+<a name="l00069"></a>00069     order = Calloc(ninputs, <span class="keywordtype">int</span>);
+<a name="l00070"></a>00070     <span class="comment">/* &lt;FIXME&gt; */</span>
 <a name="l00071"></a>00071     
-<a name="l00072"></a>00072          order[j] = j + 1;
-<a name="l00073"></a>00073          maxstat[j] = 0.0;
-<a name="l00074"></a>00074          cutpoint[j] = 0.0;
-<a name="l00075"></a>00075 
-<a name="l00076"></a>00076          <span class="comment">/* ordered input variables only (for the moment) */</span>
-<a name="l00077"></a>00077          <span class="keywordflow">if</span> ((j + 1) == jselect || <a class="code" href="Classes_8c.html#f836613ade2cdc01c401b574fc1e7fdb">is_nominal</a>(inputs, j + 1))
-<a name="l00078"></a>00078              <span class="keywordflow">continue</span>;
-<a name="l00079"></a>00079 
-<a name="l00080"></a>00080          x = <a class="code" href="Classes_8c.html#0f91efa916e815ec7d90c6f9516f18e4">get_variable</a>(inputs, j + 1);
+<a name="l00072"></a>00072     <span class="comment">/* this is essentially an exhaustive search */</span>
+<a name="l00073"></a>00073     <span class="comment">/* &lt;FIXME&gt;: we don't want to do this for random forest like trees </span>
+<a name="l00074"></a>00074 <span class="comment">       &lt;/FIXME&gt;</span>
+<a name="l00075"></a>00075 <span class="comment">     */</span>
+<a name="l00076"></a>00076     <span class="keywordflow">for</span> (j = 0; j &lt; ninputs; j++) {
+<a name="l00077"></a>00077     
+<a name="l00078"></a>00078          order[j] = j + 1;
+<a name="l00079"></a>00079          maxstat[j] = 0.0;
+<a name="l00080"></a>00080          cutpoint[j] = 0.0;
 <a name="l00081"></a>00081 
-<a name="l00082"></a>00082          <span class="keywordflow">if</span> (<a class="code" href="Classes_8c.html#50548fbe6024d9a7118db3fce5085fd9">has_missings</a>(inputs, j + 1)) {
-<a name="l00083"></a>00083 
-<a name="l00084"></a>00084              thisweights = <a class="code" href="Utils_8c.html#f9716d8427688ac52d3dd254337316b1">C_tempweights</a>(j + 1, weights, fitmem, inputs);
-<a name="l00085"></a>00085                  
-<a name="l00086"></a>00086              <a class="code" href="LinearStatistic_8c.html#e2f62abe13ee5b625141b5d4a496d832">C_ExpectCovarInfluence</a>(REAL(y), 1, thisweights, nobs, expcovinf);
-<a name="l00087"></a>00087              
-<a name="l00088"></a>00088              <a class="code" href="Splits_8c.html#00d4080fae6513962bd1e54ec9d476bc">C_split</a>(REAL(x), 1, REAL(y), 1, thisweights, nobs,
-<a name="l00089"></a>00089                      INTEGER(<a class="code" href="Classes_8c.html#a160107e2d687d3fa2411af7e25763ef">get_ordering</a>(inputs, j + 1)), splitctrl,
-<a name="l00090"></a>00090                      GET_SLOT(fitmem, <a class="code" href="Classes_8c.html#adb3a293553f93d6233d9ba4ab7d1039">PL2_linexpcov2sampleSym</a>),
-<a name="l00091"></a>00091                      expcovinf, &amp;cp, &amp;ms, splitstat);
-<a name="l00092"></a>00092          } <span class="keywordflow">else</span> {
-<a name="l00093"></a>00093          
-<a name="l00094"></a>00094              <a class="code" href="Splits_8c.html#00d4080fae6513962bd1e54ec9d476bc">C_split</a>(REAL(x), 1, REAL(y), 1, tweights, nobs,
-<a name="l00095"></a>00095              INTEGER(<a class="code" href="Classes_8c.html#a160107e2d687d3fa2411af7e25763ef">get_ordering</a>(inputs, j + 1)), splitctrl,
-<a name="l00096"></a>00096              GET_SLOT(fitmem, <a class="code" href="Classes_8c.html#adb3a293553f93d6233d9ba4ab7d1039">PL2_linexpcov2sampleSym</a>),
-<a name="l00097"></a>00097              expcovinf, &amp;cp, &amp;ms, splitstat);
-<a name="l00098"></a>00098          }
-<a name="l00099"></a>00099 
-<a name="l00100"></a>00100          maxstat[j] = -ms;
-<a name="l00101"></a>00101          cutpoint[j] = cp;
-<a name="l00102"></a>00102     }
-<a name="l00103"></a>00103 
-<a name="l00104"></a>00104     <span class="comment">/* order with respect to maximal statistic */</span>
-<a name="l00105"></a>00105     rsort_with_index(maxstat, order, ninputs);
-<a name="l00106"></a>00106     
-<a name="l00107"></a>00107     twotab = Calloc(4, <span class="keywordtype">double</span>);
-<a name="l00108"></a>00108     
-<a name="l00109"></a>00109     <span class="comment">/* the best `maxsurr' ones are implemented */</span>
-<a name="l00110"></a>00110     <span class="keywordflow">for</span> (j = 0; j &lt; maxsurr; j++) {
-<a name="l00111"></a>00111 
-<a name="l00112"></a>00112         <span class="keywordflow">for</span> (i = 0; i &lt; 4; i++) twotab[i] = 0.0;
-<a name="l00113"></a>00113         cut = cutpoint[order[j] - 1];
-<a name="l00114"></a>00114         SET_VECTOR_ELT(<a class="code" href="S3Classes_8c.html#f270d1d02bf86a4c5cdc8959045c3567">S3get_surrogatesplits</a>(node), j, 
-<a name="l00115"></a>00115                        split = allocVector(VECSXP, <a class="code" href="party_8h.html#27e42cfa9f63fb89059ef54f981d76fa">SPLIT_LENGTH</a>));
-<a name="l00116"></a>00116         <a class="code" href="S3Classes_8c.html#c727b2483cf36cd256889ac9f8203258">C_init_orderedsplit</a>(split, 0);
-<a name="l00117"></a>00117         <a class="code" href="S3Classes_8c.html#06ea5a46f63ebc5c27c005610dc6f8fc">S3set_variableID</a>(split, order[j]);
-<a name="l00118"></a>00118         REAL(<a class="code" href="S3Classes_8c.html#acf87d496fd3b07bafd171c92404212a">S3get_splitpoint</a>(split))[0] = cut;
-<a name="l00119"></a>00119         dx = REAL(<a class="code" href="Classes_8c.html#0f91efa916e815ec7d90c6f9516f18e4">get_variable</a>(inputs, order[j]));
-<a name="l00120"></a>00120         dy = REAL(y);
-<a name="l00121"></a>00121 
-<a name="l00122"></a>00122         <span class="comment">/* OK, this is a dirty hack: determine if the split </span>
-<a name="l00123"></a>00123 <span class="comment">           goes left or right by the Pearson residual of a 2x2 table.</span>
-<a name="l00124"></a>00124 <span class="comment">           I don't want to use the big caliber here </span>
-<a name="l00125"></a>00125 <span class="comment">        */</span>
-<a name="l00126"></a>00126         <span class="keywordflow">for</span> (i = 0; i &lt; nobs; i++) {
-<a name="l00127"></a>00127             twotab[0] += ((dy[i] == 1) &amp;&amp; (dx[i] &lt;= cut)) * tweights[i];
-<a name="l00128"></a>00128             twotab[1] += (dy[i] == 1) * tweights[i];
-<a name="l00129"></a>00129             twotab[2] += (dx[i] &lt;= cut) * tweights[i];
-<a name="l00130"></a>00130             twotab[3] += tweights[i];
-<a name="l00131"></a>00131         }
-<a name="l00132"></a>00132         <a class="code" href="S3Classes_8c.html#c092009b36513086514bbe7aff516f12">S3set_toleft</a>(split, (<span class="keywordtype">int</span>) (twotab[0] - twotab[1] * twotab[2] / 
-<a name="l00133"></a>00133                      twotab[3]) &gt; 0);
-<a name="l00134"></a>00134     }
-<a name="l00135"></a>00135     
-<a name="l00136"></a>00136     Free(maxstat);
-<a name="l00137"></a>00137     Free(cutpoint);
-<a name="l00138"></a>00138     Free(order);
-<a name="l00139"></a>00139     Free(tweights);
-<a name="l00140"></a>00140     Free(twotab);
-<a name="l00141"></a>00141 }
-<a name="l00142"></a>00142 
-<a name="l00153"></a><a class="code" href="SurrogateSplits_8c.html#378f9c4110050c0d1762c6347d53379b">00153</a> SEXP <a class="code" href="SurrogateSplits_8c.html#378f9c4110050c0d1762c6347d53379b">R_surrogates</a>(SEXP node, SEXP learnsample, SEXP weights, SEXP controls, 
-<a name="l00154"></a>00154                   SEXP fitmem) {
-<a name="l00155"></a>00155 
-<a name="l00156"></a>00156     <a class="code" href="SurrogateSplits_8c.html#fd8931db67339ca2bb679d8d38135275">C_surrogates</a>(node, learnsample, weights, controls, fitmem);
-<a name="l00157"></a>00157     <span class="keywordflow">return</span>(<a class="code" href="S3Classes_8c.html#f270d1d02bf86a4c5cdc8959045c3567">S3get_surrogatesplits</a>(node));
-<a name="l00158"></a>00158     
-<a name="l00159"></a>00159 }
-<a name="l00160"></a>00160 
-<a name="l00168"></a><a class="code" href="SurrogateSplits_8h.html#6f9f8c3b4147854cacc43d67a055d911">00168</a> <span class="keywordtype">void</span> <a class="code" href="SurrogateSplits_8c.html#6f9f8c3b4147854cacc43d67a055d911">C_splitsurrogate</a>(SEXP node, SEXP learnsample) {
-<a name="l00169"></a>00169 
-<a name="l00170"></a>00170     SEXP weights, split, surrsplit;
-<a name="l00171"></a>00171     SEXP inputs, whichNA;
-<a name="l00172"></a>00172     <span class="keywordtype">double</span> cutpoint, *dx, *dweights, *leftweights, *rightweights;
-<a name="l00173"></a>00173     <span class="keywordtype">int</span> *iwhichNA, k;
-<a name="l00174"></a>00174     <span class="keywordtype">int</span> nobs, i, nna, ns;
-<a name="l00175"></a>00175                     
-<a name="l00176"></a>00176     weights = <a class="code" href="S3Classes_8c.html#c3785782483b5bf4afe9d606e280f3ca">S3get_nodeweights</a>(node);
-<a name="l00177"></a>00177     dweights = REAL(weights);
-<a name="l00178"></a>00178     inputs = GET_SLOT(learnsample, <a class="code" href="Classes_8c.html#a0f1db0215808916904d250b11f71edd">PL2_inputsSym</a>);
-<a name="l00179"></a>00179     nobs = <a class="code" href="Classes_8c.html#45df17685bc6c95d03fb65b6f6214de0">get_nobs</a>(learnsample);
-<a name="l00180"></a>00180             
-<a name="l00181"></a>00181     leftweights = REAL(<a class="code" href="S3Classes_8c.html#c3785782483b5bf4afe9d606e280f3ca">S3get_nodeweights</a>(<a class="code" href="S3Classes_8c.html#5917f57e141432fd1e4f58a16b9149aa">S3get_leftnode</a>(node)));
-<a name="l00182"></a>00182     rightweights = REAL(<a class="code" href="S3Classes_8c.html#c3785782483b5bf4afe9d606e280f3ca">S3get_nodeweights</a>(<a class="code" href="S3Classes_8c.html#14a38e81ed758a64367dc190f0e8229b">S3get_rightnode</a>(node)));
-<a name="l00183"></a>00183     surrsplit = <a class="code" href="S3Classes_8c.html#f270d1d02bf86a4c5cdc8959045c3567">S3get_surrogatesplits</a>(node);
-<a name="l00184"></a>00184 
-<a name="l00185"></a>00185     <span class="comment">/* if the primary split has any missings */</span>
-<a name="l00186"></a>00186     split = <a class="code" href="S3Classes_8c.html#220373298b30f12b22f82cce3c996a37">S3get_primarysplit</a>(node);
-<a name="l00187"></a>00187     <span class="keywordflow">if</span> (<a class="code" href="Classes_8c.html#50548fbe6024d9a7118db3fce5085fd9">has_missings</a>(inputs, <a class="code" href="S3Classes_8c.html#583f9148949f93b5fe894feb6567ca0d">S3get_variableID</a>(split))) {
-<a name="l00188"></a>00188 
-<a name="l00189"></a>00189         <span class="comment">/* where are the missings? */</span>
-<a name="l00190"></a>00190         whichNA = <a class="code" href="Classes_8c.html#fd6cfc2dd239b138d91e92a8ce9353f8">get_missings</a>(inputs, <a class="code" href="S3Classes_8c.html#583f9148949f93b5fe894feb6567ca0d">S3get_variableID</a>(split));
-<a name="l00191"></a>00191         iwhichNA = INTEGER(whichNA);
-<a name="l00192"></a>00192         nna = LENGTH(whichNA);
-<a name="l00193"></a>00193 
-<a name="l00194"></a>00194         <span class="comment">/* for all missing values ... */</span>
-<a name="l00195"></a>00195         <span class="keywordflow">for</span> (k = 0; k &lt; nna; k++) {
-<a name="l00196"></a>00196             ns = 0;
-<a name="l00197"></a>00197             i = iwhichNA[k] - 1;
-<a name="l00198"></a>00198             <span class="keywordflow">if</span> (dweights[i] == 0) <span class="keywordflow">continue</span>;
-<a name="l00199"></a>00199             
-<a name="l00200"></a>00200             <span class="comment">/* loop over surrogate splits until an appropriate one is found */</span>
-<a name="l00201"></a>00201             <span class="keywordflow">while</span>(TRUE) {
-<a name="l00202"></a>00202             
-<a name="l00203"></a>00203                 <span class="keywordflow">if</span> (ns &gt;= LENGTH(surrsplit)) <span class="keywordflow">break</span>;
-<a name="l00204"></a>00204             
-<a name="l00205"></a>00205                 split = VECTOR_ELT(surrsplit, ns);
-<a name="l00206"></a>00206                 <span class="keywordflow">if</span> (<a class="code" href="Classes_8c.html#50548fbe6024d9a7118db3fce5085fd9">has_missings</a>(inputs, <a class="code" href="S3Classes_8c.html#583f9148949f93b5fe894feb6567ca0d">S3get_variableID</a>(split))) {
-<a name="l00207"></a>00207                     <span class="keywordflow">if</span> (INTEGER(<a class="code" href="Classes_8c.html#fd6cfc2dd239b138d91e92a8ce9353f8">get_missings</a>(inputs, 
-<a name="l00208"></a>00208                             <a class="code" href="S3Classes_8c.html#583f9148949f93b5fe894feb6567ca0d">S3get_variableID</a>(split)))[i]) {
-<a name="l00209"></a>00209                         ns++;
-<a name="l00210"></a>00210                         <span class="keywordflow">continue</span>;
-<a name="l00211"></a>00211                     }
-<a name="l00212"></a>00212                 }
-<a name="l00213"></a>00213 
-<a name="l00214"></a>00214                 cutpoint = REAL(<a class="code" href="S3Classes_8c.html#acf87d496fd3b07bafd171c92404212a">S3get_splitpoint</a>(split))[0];
-<a name="l00215"></a>00215                 dx = REAL(<a class="code" href="Classes_8c.html#0f91efa916e815ec7d90c6f9516f18e4">get_variable</a>(inputs, <a class="code" href="S3Classes_8c.html#583f9148949f93b5fe894feb6567ca0d">S3get_variableID</a>(split)));
-<a name="l00216"></a>00216 
-<a name="l00217"></a>00217                 <span class="keywordflow">if</span> (<a class="code" href="S3Classes_8c.html#67d50b82dea660a930cf7427be899efb">S3get_toleft</a>(split)) {
-<a name="l00218"></a>00218                     <span class="keywordflow">if</span> (dx[i] &lt;= cutpoint) {
-<a name="l00219"></a>00219                         leftweights[i] = dweights[i];
-<a name="l00220"></a>00220                         rightweights[i] = 0.0;
-<a name="l00221"></a>00221                     } <span class="keywordflow">else</span> {
-<a name="l00222"></a>00222                         rightweights[i] = dweights[i];
-<a name="l00223"></a>00223                         leftweights[i] = 0.0;
-<a name="l00224"></a>00224                     }
-<a name="l00225"></a>00225                 } <span class="keywordflow">else</span> {
-<a name="l00226"></a>00226                     <span class="keywordflow">if</span> (dx[i] &lt;= cutpoint) {
-<a name="l00227"></a>00227                         rightweights[i] = dweights[i];
-<a name="l00228"></a>00228                         leftweights[i] = 0.0;
-<a name="l00229"></a>00229                     } <span class="keywordflow">else</span> {
-<a name="l00230"></a>00230                         leftweights[i] = dweights[i];
-<a name="l00231"></a>00231                         rightweights[i] = 0.0;
-<a name="l00232"></a>00232                     }
-<a name="l00233"></a>00233                 }
-<a name="l00234"></a>00234                 <span class="keywordflow">break</span>;
-<a name="l00235"></a>00235             }
-<a name="l00236"></a>00236         }
-<a name="l00237"></a>00237     }
-<a name="l00238"></a>00238 }
-</pre></div><hr size="1"><address style="align: right;"><small>Generated on Thu Sep 27 15:50:56 2007 for party by&nbsp;
+<a name="l00082"></a>00082          <span class="comment">/* ordered input variables only (for the moment) */</span>
+<a name="l00083"></a>00083          <span class="keywordflow">if</span> ((j + 1) == jselect || <a class="code" href="Classes_8c.html#f836613ade2cdc01c401b574fc1e7fdb">is_nominal</a>(inputs, j + 1))
+<a name="l00084"></a>00084              <span class="keywordflow">continue</span>;
+<a name="l00085"></a>00085 
+<a name="l00086"></a>00086          x = <a class="code" href="Classes_8c.html#0f91efa916e815ec7d90c6f9516f18e4">get_variable</a>(inputs, j + 1);
+<a name="l00087"></a>00087 
+<a name="l00088"></a>00088          <span class="keywordflow">if</span> (<a class="code" href="Classes_8c.html#50548fbe6024d9a7118db3fce5085fd9">has_missings</a>(inputs, j + 1)) {
+<a name="l00089"></a>00089 
+<a name="l00090"></a>00090              thisweights = <a class="code" href="Utils_8c.html#f9716d8427688ac52d3dd254337316b1">C_tempweights</a>(j + 1, weights, fitmem, inputs);
+<a name="l00091"></a>00091                  
+<a name="l00092"></a>00092              <a class="code" href="LinearStatistic_8c.html#e2f62abe13ee5b625141b5d4a496d832">C_ExpectCovarInfluence</a>(REAL(y), 1, thisweights, nobs, expcovinf);
+<a name="l00093"></a>00093              
+<a name="l00094"></a>00094              <a class="code" href="Splits_8c.html#00d4080fae6513962bd1e54ec9d476bc">C_split</a>(REAL(x), 1, REAL(y), 1, thisweights, nobs,
+<a name="l00095"></a>00095                      INTEGER(<a class="code" href="Classes_8c.html#a160107e2d687d3fa2411af7e25763ef">get_ordering</a>(inputs, j + 1)), splitctrl,
+<a name="l00096"></a>00096                      GET_SLOT(fitmem, <a class="code" href="Classes_8c.html#adb3a293553f93d6233d9ba4ab7d1039">PL2_linexpcov2sampleSym</a>),
+<a name="l00097"></a>00097                      expcovinf, &amp;cp, &amp;ms, splitstat);
+<a name="l00098"></a>00098          } <span class="keywordflow">else</span> {
+<a name="l00099"></a>00099          
+<a name="l00100"></a>00100              <a class="code" href="Splits_8c.html#00d4080fae6513962bd1e54ec9d476bc">C_split</a>(REAL(x), 1, REAL(y), 1, tweights, nobs,
+<a name="l00101"></a>00101              INTEGER(<a class="code" href="Classes_8c.html#a160107e2d687d3fa2411af7e25763ef">get_ordering</a>(inputs, j + 1)), splitctrl,
+<a name="l00102"></a>00102              GET_SLOT(fitmem, <a class="code" href="Classes_8c.html#adb3a293553f93d6233d9ba4ab7d1039">PL2_linexpcov2sampleSym</a>),
+<a name="l00103"></a>00103              expcovinf, &amp;cp, &amp;ms, splitstat);
+<a name="l00104"></a>00104          }
+<a name="l00105"></a>00105 
+<a name="l00106"></a>00106          maxstat[j] = -ms;
+<a name="l00107"></a>00107          cutpoint[j] = cp;
+<a name="l00108"></a>00108     }
+<a name="l00109"></a>00109 
+<a name="l00110"></a>00110     <span class="comment">/* order with respect to maximal statistic */</span>
+<a name="l00111"></a>00111     rsort_with_index(maxstat, order, ninputs);
+<a name="l00112"></a>00112     
+<a name="l00113"></a>00113     twotab = Calloc(4, <span class="keywordtype">double</span>);
+<a name="l00114"></a>00114     
+<a name="l00115"></a>00115     <span class="comment">/* the best `maxsurr' ones are implemented */</span>
+<a name="l00116"></a>00116     <span class="keywordflow">for</span> (j = 0; j &lt; maxsurr; j++) {
+<a name="l00117"></a>00117 
+<a name="l00118"></a>00118         <span class="keywordflow">for</span> (i = 0; i &lt; 4; i++) twotab[i] = 0.0;
+<a name="l00119"></a>00119         cut = cutpoint[order[j] - 1];
+<a name="l00120"></a>00120         SET_VECTOR_ELT(<a class="code" href="S3Classes_8c.html#f270d1d02bf86a4c5cdc8959045c3567">S3get_surrogatesplits</a>(node), j, 
+<a name="l00121"></a>00121                        split = allocVector(VECSXP, <a class="code" href="party_8h.html#27e42cfa9f63fb89059ef54f981d76fa">SPLIT_LENGTH</a>));
+<a name="l00122"></a>00122         <a class="code" href="S3Classes_8c.html#c727b2483cf36cd256889ac9f8203258">C_init_orderedsplit</a>(split, 0);
+<a name="l00123"></a>00123         <a class="code" href="S3Classes_8c.html#06ea5a46f63ebc5c27c005610dc6f8fc">S3set_variableID</a>(split, order[j]);
+<a name="l00124"></a>00124         REAL(<a class="code" href="S3Classes_8c.html#acf87d496fd3b07bafd171c92404212a">S3get_splitpoint</a>(split))[0] = cut;
+<a name="l00125"></a>00125         dx = REAL(<a class="code" href="Classes_8c.html#0f91efa916e815ec7d90c6f9516f18e4">get_variable</a>(inputs, order[j]));
+<a name="l00126"></a>00126         dy = REAL(y);
+<a name="l00127"></a>00127 
+<a name="l00128"></a>00128         <span class="comment">/* OK, this is a dirty hack: determine if the split </span>
+<a name="l00129"></a>00129 <span class="comment">           goes left or right by the Pearson residual of a 2x2 table.</span>
+<a name="l00130"></a>00130 <span class="comment">           I don't want to use the big caliber here </span>
+<a name="l00131"></a>00131 <span class="comment">        */</span>
+<a name="l00132"></a>00132         <span class="keywordflow">for</span> (i = 0; i &lt; nobs; i++) {
+<a name="l00133"></a>00133             twotab[0] += ((dy[i] == 1) &amp;&amp; (dx[i] &lt;= cut)) * tweights[i];
+<a name="l00134"></a>00134             twotab[1] += (dy[i] == 1) * tweights[i];
+<a name="l00135"></a>00135             twotab[2] += (dx[i] &lt;= cut) * tweights[i];
+<a name="l00136"></a>00136             twotab[3] += tweights[i];
+<a name="l00137"></a>00137         }
+<a name="l00138"></a>00138         <a class="code" href="S3Classes_8c.html#c092009b36513086514bbe7aff516f12">S3set_toleft</a>(split, (<span class="keywordtype">int</span>) (twotab[0] - twotab[1] * twotab[2] / 
+<a name="l00139"></a>00139                      twotab[3]) &gt; 0);
+<a name="l00140"></a>00140     }
+<a name="l00141"></a>00141     
+<a name="l00142"></a>00142     Free(maxstat);
+<a name="l00143"></a>00143     Free(cutpoint);
+<a name="l00144"></a>00144     Free(order);
+<a name="l00145"></a>00145     Free(tweights);
+<a name="l00146"></a>00146     Free(twotab);
+<a name="l00147"></a>00147 }
+<a name="l00148"></a>00148 
+<a name="l00159"></a><a class="code" href="SurrogateSplits_8c.html#378f9c4110050c0d1762c6347d53379b">00159</a> SEXP <a class="code" href="SurrogateSplits_8c.html#378f9c4110050c0d1762c6347d53379b">R_surrogates</a>(SEXP node, SEXP learnsample, SEXP weights, SEXP controls, 
+<a name="l00160"></a>00160                   SEXP fitmem) {
+<a name="l00161"></a>00161 
+<a name="l00162"></a>00162     <a class="code" href="SurrogateSplits_8c.html#fd8931db67339ca2bb679d8d38135275">C_surrogates</a>(node, learnsample, weights, controls, fitmem);
+<a name="l00163"></a>00163     <span class="keywordflow">return</span>(<a class="code" href="S3Classes_8c.html#f270d1d02bf86a4c5cdc8959045c3567">S3get_surrogatesplits</a>(node));
+<a name="l00164"></a>00164     
+<a name="l00165"></a>00165 }
+<a name="l00166"></a>00166 
+<a name="l00174"></a><a class="code" href="SurrogateSplits_8h.html#6f9f8c3b4147854cacc43d67a055d911">00174</a> <span class="keywordtype">void</span> <a class="code" href="SurrogateSplits_8c.html#6f9f8c3b4147854cacc43d67a055d911">C_splitsurrogate</a>(SEXP node, SEXP learnsample) {
+<a name="l00175"></a>00175 
+<a name="l00176"></a>00176     SEXP weights, split, surrsplit;
+<a name="l00177"></a>00177     SEXP inputs, whichNA;
+<a name="l00178"></a>00178     <span class="keywordtype">double</span> cutpoint, *dx, *dweights, *leftweights, *rightweights;
+<a name="l00179"></a>00179     <span class="keywordtype">int</span> *iwhichNA, k;
+<a name="l00180"></a>00180     <span class="keywordtype">int</span> nobs, i, nna, ns;
+<a name="l00181"></a>00181                     
+<a name="l00182"></a>00182     weights = <a class="code" href="S3Classes_8c.html#c3785782483b5bf4afe9d606e280f3ca">S3get_nodeweights</a>(node);
+<a name="l00183"></a>00183     dweights = REAL(weights);
+<a name="l00184"></a>00184     inputs = GET_SLOT(learnsample, <a class="code" href="Classes_8c.html#a0f1db0215808916904d250b11f71edd">PL2_inputsSym</a>);
+<a name="l00185"></a>00185     nobs = <a class="code" href="Classes_8c.html#45df17685bc6c95d03fb65b6f6214de0">get_nobs</a>(learnsample);
+<a name="l00186"></a>00186             
+<a name="l00187"></a>00187     leftweights = REAL(<a class="code" href="S3Classes_8c.html#c3785782483b5bf4afe9d606e280f3ca">S3get_nodeweights</a>(<a class="code" href="S3Classes_8c.html#5917f57e141432fd1e4f58a16b9149aa">S3get_leftnode</a>(node)));
+<a name="l00188"></a>00188     rightweights = REAL(<a class="code" href="S3Classes_8c.html#c3785782483b5bf4afe9d606e280f3ca">S3get_nodeweights</a>(<a class="code" href="S3Classes_8c.html#14a38e81ed758a64367dc190f0e8229b">S3get_rightnode</a>(node)));
+<a name="l00189"></a>00189     surrsplit = <a class="code" href="S3Classes_8c.html#f270d1d02bf86a4c5cdc8959045c3567">S3get_surrogatesplits</a>(node);
+<a name="l00190"></a>00190 
+<a name="l00191"></a>00191     <span class="comment">/* if the primary split has any missings */</span>
+<a name="l00192"></a>00192     split = <a class="code" href="S3Classes_8c.html#220373298b30f12b22f82cce3c996a37">S3get_primarysplit</a>(node);
+<a name="l00193"></a>00193     <span class="keywordflow">if</span> (<a class="code" href="Classes_8c.html#50548fbe6024d9a7118db3fce5085fd9">has_missings</a>(inputs, <a class="code" href="S3Classes_8c.html#583f9148949f93b5fe894feb6567ca0d">S3get_variableID</a>(split))) {
+<a name="l00194"></a>00194 
+<a name="l00195"></a>00195         <span class="comment">/* where are the missings? */</span>
+<a name="l00196"></a>00196         whichNA = <a class="code" href="Classes_8c.html#fd6cfc2dd239b138d91e92a8ce9353f8">get_missings</a>(inputs, <a class="code" href="S3Classes_8c.html#583f9148949f93b5fe894feb6567ca0d">S3get_variableID</a>(split));
+<a name="l00197"></a>00197         iwhichNA = INTEGER(whichNA);
+<a name="l00198"></a>00198         nna = LENGTH(whichNA);
+<a name="l00199"></a>00199 
+<a name="l00200"></a>00200         <span class="comment">/* for all missing values ... */</span>
+<a name="l00201"></a>00201         <span class="keywordflow">for</span> (k = 0; k &lt; nna; k++) {
+<a name="l00202"></a>00202             ns = 0;
+<a name="l00203"></a>00203             i = iwhichNA[k] - 1;
+<a name="l00204"></a>00204             <span class="keywordflow">if</span> (dweights[i] == 0) <span class="keywordflow">continue</span>;
+<a name="l00205"></a>00205             
+<a name="l00206"></a>00206             <span class="comment">/* loop over surrogate splits until an appropriate one is found */</span>
+<a name="l00207"></a>00207             <span class="keywordflow">while</span>(TRUE) {
+<a name="l00208"></a>00208             
+<a name="l00209"></a>00209                 <span class="keywordflow">if</span> (ns &gt;= LENGTH(surrsplit)) <span class="keywordflow">break</span>;
+<a name="l00210"></a>00210             
+<a name="l00211"></a>00211                 split = VECTOR_ELT(surrsplit, ns);
+<a name="l00212"></a>00212                 <span class="keywordflow">if</span> (<a class="code" href="Classes_8c.html#50548fbe6024d9a7118db3fce5085fd9">has_missings</a>(inputs, <a class="code" href="S3Classes_8c.html#583f9148949f93b5fe894feb6567ca0d">S3get_variableID</a>(split))) {
+<a name="l00213"></a>00213                     <span class="keywordflow">if</span> (INTEGER(<a class="code" href="Classes_8c.html#fd6cfc2dd239b138d91e92a8ce9353f8">get_missings</a>(inputs, 
+<a name="l00214"></a>00214                             <a class="code" href="S3Classes_8c.html#583f9148949f93b5fe894feb6567ca0d">S3get_variableID</a>(split)))[i]) {
+<a name="l00215"></a>00215                         ns++;
+<a name="l00216"></a>00216                         <span class="keywordflow">continue</span>;
+<a name="l00217"></a>00217                     }
+<a name="l00218"></a>00218                 }
+<a name="l00219"></a>00219 
+<a name="l00220"></a>00220                 cutpoint = REAL(<a class="code" href="S3Classes_8c.html#acf87d496fd3b07bafd171c92404212a">S3get_splitpoint</a>(split))[0];
+<a name="l00221"></a>00221                 dx = REAL(<a class="code" href="Classes_8c.html#0f91efa916e815ec7d90c6f9516f18e4">get_variable</a>(inputs, <a class="code" href="S3Classes_8c.html#583f9148949f93b5fe894feb6567ca0d">S3get_variableID</a>(split)));
+<a name="l00222"></a>00222 
+<a name="l00223"></a>00223                 <span class="keywordflow">if</span> (<a class="code" href="S3Classes_8c.html#67d50b82dea660a930cf7427be899efb">S3get_toleft</a>(split)) {
+<a name="l00224"></a>00224                     <span class="keywordflow">if</span> (dx[i] &lt;= cutpoint) {
+<a name="l00225"></a>00225                         leftweights[i] = dweights[i];
+<a name="l00226"></a>00226                         rightweights[i] = 0.0;
+<a name="l00227"></a>00227                     } <span class="keywordflow">else</span> {
+<a name="l00228"></a>00228                         rightweights[i] = dweights[i];
+<a name="l00229"></a>00229                         leftweights[i] = 0.0;
+<a name="l00230"></a>00230                     }
+<a name="l00231"></a>00231                 } <span class="keywordflow">else</span> {
+<a name="l00232"></a>00232                     <span class="keywordflow">if</span> (dx[i] &lt;= cutpoint) {
+<a name="l00233"></a>00233                         rightweights[i] = dweights[i];
+<a name="l00234"></a>00234                         leftweights[i] = 0.0;
+<a name="l00235"></a>00235                     } <span class="keywordflow">else</span> {
+<a name="l00236"></a>00236                         leftweights[i] = dweights[i];
+<a name="l00237"></a>00237                         rightweights[i] = 0.0;
+<a name="l00238"></a>00238                     }
+<a name="l00239"></a>00239                 }
+<a name="l00240"></a>00240                 <span class="keywordflow">break</span>;
+<a name="l00241"></a>00241             }
+<a name="l00242"></a>00242         }
+<a name="l00243"></a>00243     }
+<a name="l00244"></a>00244 }
+</pre></div><hr size="1"><address style="align: right;"><small>Generated on Fri Nov 30 16:04:21 2007 for party by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6 </small></address>
 </body>

@@ -1,5 +1,5 @@
 
-# $Id: ConditionalTree.R 3655 2007-07-23 07:44:00Z hothorn $
+# $Id: ConditionalTree.R 3790 2007-11-22 17:04:46Z hothorn $
 
 ### the fitting procedure
 ctreefit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {

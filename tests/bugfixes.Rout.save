@@ -129,7 +129,7 @@ There were 50 or more warnings (use warnings() to see the first 50)
 > tr <- try(ctree(Ozone ~ Wind, data = airq,
 +           controls = ctree_control(maxsurrogate = 3)))
 Error in model@fit(data, ...) : 
-  cannot set up 3 surrogate splits with only 1 input variable(s)
+  cannot set up 3 surrogate splits with only 0 ordered input variable(s)
 > stopifnot(inherits(tr, "try-error"))
 > 
 > ### ctree() used only the first of a multivariate response
@@ -276,4 +276,42 @@ Number of observations:  100
 > stopifnot(all.equal(predict(ctw)[1:5], predict(ctw, newdata = airq)[1:5]))
 > rfw <- cforest(Ozone ~ ., data = airq, weights = w)
 > stopifnot(all.equal(predict(rfw)[1:5], predict(rfw, newdata = airq)[1:5]))
+> 
+> ### more surrogate splits than available requested
+> ### spotted by Henric Nilsson <henric.nilsson@sorch.se>
+> airq <- data.frame(airq,
++                     x1 = factor(ifelse(runif(nrow(airq)) < 0.5, 0, 1)),
++                     x2 = factor(ifelse(runif(nrow(airq)) < 0.5, 0, 1)),
++                     x3 = factor(ifelse(runif(nrow(airq)) < 0.5, 0, 1)))
+> 
+> foo <- function(nm) 
++     ctree(Ozone ~ ., data = airq,
++           controls = ctree_control(maxsurrogate = nm))
+> foo(4)
+
+	 Conditional inference tree with 5 terminal nodes
+
+Response:  Ozone 
+Inputs:  Solar.R, Wind, Temp, Month, Day, x1, x2, x3 
+Number of observations:  116 
+
+1) Temp <= 82; criterion = 1, statistic = 56.086
+  2) Wind <= 6.9; criterion = 0.997, statistic = 12.969
+    3)*  weights = 10 
+  2) Wind > 6.9
+    4) Temp <= 77; criterion = 0.995, statistic = 11.599
+      5)*  weights = 48 
+    4) Temp > 77
+      6)*  weights = 21 
+1) Temp > 82
+  7) Wind <= 8.6; criterion = 0.995, statistic = 11.712
+    8)*  weights = 27 
+  7) Wind > 8.6
+    9)*  weights = 10 
+> try(foo(5))
+Error in model@fit(data, ...) : 
+  cannot set up 5 surrogate splits with only 4 ordered input variable(s)
+> try(foo(6))
+Error in model@fit(data, ...) : 
+  cannot set up 6 surrogate splits with only 4 ordered input variable(s)
 > 

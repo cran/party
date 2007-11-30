@@ -594,7 +594,7 @@ Call: survival:::survfit(formula = resp, weights = w, subset = w >
 >     system.time(ens <- apply(bs, 2, function(w) cfit(ls, ct, weights = w, 
 +                                                      fitmem = mem)))
    user  system elapsed 
-  0.436   0.008   0.443 
+  0.432   0.000   0.433 
 > 
 > 
 > 
@@ -904,7 +904,7 @@ Linear model with coefficients:
 > ### * <FOOTER>
 > ###
 > cat("Time elapsed: ", proc.time() - get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  52.571 1.212 55.278 0 0 
+Time elapsed:  52.595 0.588 53.339 0 0 
 > grDevices::dev.off()
 null device 
           1 
