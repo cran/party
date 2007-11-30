@@ -1,4 +1,4 @@
-.TH "Splits.h" 3 "30 Nov 2007" "party" \" -*- nroff -*-
+.TH "Splits.h" 3 "30 Jan 2008" "party" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -55,9 +55,7 @@ Search for a cutpoint in a ordered variable x maximizing a two-sample statistic 
 .PP
 Definition at line 33 of file Splits.c.
 .PP
-References get_tol().
-.PP
-Referenced by C_Node(), and R_split().
+References get_minbucket(), get_minprob(), get_tol(), PL2_covarianceSym, PL2_expectationSym, PL2_linearstatisticSym, and PL2_sumweightsSym.
 .SS "void C_splitcategorical (const int * codingx, int p, const double * y, int q, const double * weights, int n, double * standstat, SEXP splitctrl, SEXP linexpcov2sample, SEXP expcovinf, double * cutpoint, int * levelset, double * maxstat, double * statistics)"
 .PP
 Search for a cutpoint in a unordered factor x maximizing a two-sample statistic w.r.t. (the influence function of ) the response variable y. 
@@ -99,9 +97,7 @@ Search for a cutpoint in a unordered factor x maximizing a two-sample statistic 
 .PP
 Definition at line 217 of file Splits.c.
 .PP
-References get_tol().
-.PP
-Referenced by C_Node(), and R_splitcategorical().
+References C_split(), and get_tol().
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for party from the source code.

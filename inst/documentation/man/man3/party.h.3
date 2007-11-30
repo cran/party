@@ -1,4 +1,4 @@
-.TH "party.h" 3 "30 Nov 2007" "party" \" -*- nroff -*-
+.TH "party.h" 3 "30 Jan 2008" "party" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -143,9 +143,13 @@ party.h \-
 .SS "#define AGGREGATED   3"
 .PP
 Definition at line 68 of file party.h.
+.PP
+Referenced by C_GlobalTest().
 .SS "#define BONFERRONI   1"
 .PP
 Definition at line 66 of file party.h.
+.PP
+Referenced by C_GlobalTest().
 .SS "#define CRITERION_LENGTH   3"
 .PP
 Definition at line 50 of file party.h.
@@ -159,11 +163,13 @@ Referenced by C_ConditionalPvalue().
 .SS "#define MONTECARLO   2"
 .PP
 Definition at line 67 of file party.h.
+.PP
+Referenced by C_GlobalTest().
 .SS "#define NODE_LENGTH   10"
 .PP
 Definition at line 44 of file party.h.
 .PP
-Referenced by C_init_node(), C_splitnode(), R_Node(), and R_TreeGrow().
+Referenced by C_init_node(), C_splitnode(), R_Ensemble(), R_Node(), and R_TreeGrow().
 .SS "#define QUADFORM   2"
 .PP
 Definition at line 63 of file party.h.
@@ -268,13 +274,17 @@ Referenced by C_init_node(), C_remove_weights(), and S3get_nodeweights().
 .PP
 Definition at line 59 of file party.h.
 .PP
-Referenced by C_init_node(), C_init_nominalsplit(), and C_init_orderedsplit().
+Referenced by C_init_node(), C_init_nominalsplit(), C_init_orderedsplit(), and C_surrogates().
 .SS "#define TESTSTATISTIC   5"
 .PP
 Definition at line 70 of file party.h.
+.PP
+Referenced by C_GlobalTest().
 .SS "#define UNIVARIATE   4"
 .PP
 Definition at line 69 of file party.h.
+.PP
+Referenced by C_GlobalTest().
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for party from the source code.

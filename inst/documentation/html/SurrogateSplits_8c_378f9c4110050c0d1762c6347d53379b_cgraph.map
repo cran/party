@@ -1,11 +1,2 @@
-base referer
-rect $SurrogateSplits_8c.html#fd8931db67339ca2bb679d8d38135275 185,176 286,200
-rect $S3Classes_8c.html#f270d1d02bf86a4c5cdc8959045c3567 161,224 310,248
-rect $Classes_8c.html#b89e4da7a60580c3adbe7c4f4935581c 365,8 493,32
-rect $Classes_8c.html#9117d8f57ea1378c725c7299d6cc2923 384,56 474,80
-rect $Classes_8c.html#45df17685bc6c95d03fb65b6f6214de0 390,104 468,128
-rect $Classes_8c.html#d914bd038dca4d2a1b9847f46bdb78f9 385,152 473,176
-rect $Classes_8c.html#f836613ade2cdc01c401b574fc1e7fdb 386,200 472,224
-rect $S3Classes_8c.html#c3785782483b5bf4afe9d606e280f3ca 360,248 498,272
-rect $S3Classes_8c.html#220373298b30f12b22f82cce3c996a37 364,296 494,320
-rect $S3Classes_8c.html#583f9148949f93b5fe894feb6567ca0d 368,344 490,368
+<area shape="rect" href="$SurrogateSplits_8c.html#fd8931db67339ca2bb679d8d38135275" title="C_surrogates" alt="" coords="188,5,295,32">
+<area shape="rect" href="$S3Classes_8c.html#f270d1d02bf86a4c5cdc8959045c3567" title="S3get_surrogatesplits" alt="" coords="161,56,321,83">

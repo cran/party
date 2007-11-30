@@ -1,9 +1,8 @@
-base referer
-rect $S3Classes_8c.html#f837f0cf74c62c53c74138c4dbb9acc0 146,7 239,31
-rect $Node_8c.html#0ed8b15b2c14ec9f1f1585d6288a38e2 158,157 227,181
-rect $Classes_8c.html#9117d8f57ea1378c725c7299d6cc2923 322,70 413,94
-rect $Classes_8c.html#45df17685bc6c95d03fb65b6f6214de0 329,143 406,167
-rect $Classes_8c.html#b86d70ff194260cc9bd391d3ff55b157 306,199 429,223
-rect $Classes_8c.html#d914bd038dca4d2a1b9847f46bdb78f9 323,253 411,277
-rect $Utils_8c.html#f1f46cc3e98630497a1ccb21d943fe65 345,302 390,326
-rect $Classes_8c.html#b89e4da7a60580c3adbe7c4f4935581c 129,357 257,381
+<area shape="rect" href="$S3Classes_8c.html#f837f0cf74c62c53c74138c4dbb9acc0" title="C_init_node" alt="" coords="148,5,244,32">
+<area shape="rect" href="$Node_8c.html#0ed8b15b2c14ec9f1f1585d6288a38e2" title="C_Node" alt="" coords="160,56,232,83">
+<area shape="rect" href="$Classes_8c.html#b89e4da7a60580c3adbe7c4f4935581c" title="get_maxsurrogate" alt="" coords="125,107,267,133">
+<area shape="rect" href="$Classes_8c.html#9117d8f57ea1378c725c7299d6cc2923" title="get_ninputs" alt="" coords="148,157,244,184">
+<area shape="rect" href="$Classes_8c.html#45df17685bc6c95d03fb65b6f6214de0" title="get_nobs" alt="" coords="156,208,236,235">
+<area shape="rect" href="$Classes_8c.html#b86d70ff194260cc9bd391d3ff55b157" title="get_predict_trafo" alt="" coords="131,259,261,285">
+<area shape="rect" href="$Classes_8c.html#d914bd038dca4d2a1b9847f46bdb78f9" title="get_splitctrl" alt="" coords="149,309,243,336">
+<area shape="rect" href="$Utils_8c.html#f1f46cc3e98630497a1ccb21d943fe65" title="ncol" alt="" coords="173,360,219,387">

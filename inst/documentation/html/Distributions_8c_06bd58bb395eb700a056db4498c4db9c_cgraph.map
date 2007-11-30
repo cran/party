@@ -1,6 +1,2 @@
-base referer
-rect $Distributions_8c.html#662bfb70585ca9948ff29d7ed370273b 166,58 273,82
-rect $Classes_8c.html#9117d8f57ea1378c725c7299d6cc2923 333,9 424,33
-rect $Classes_8c.html#45df17685bc6c95d03fb65b6f6214de0 340,57 417,81
-rect $Classes_8c.html#af696af616c142e55ea0758690d20d7c 324,105 433,129
-rect $Classes_8c.html#9ec50a13a7c7e82143cced16ff4f3968 326,153 430,177
+<area shape="rect" href="$Distributions_8c.html#662bfb70585ca9948ff29d7ed370273b" title="C_MonteCarlo" alt="" coords="168,5,283,32">
+<area shape="rect" href="$Classes_8c.html#9117d8f57ea1378c725c7299d6cc2923" title="get_ninputs" alt="" coords="177,56,273,83">

@@ -1,4 +1,3 @@
-base referer
-rect $Distributions_8c.html#0b0373aa22dcf8b8ecf6b9c560db9c70 207,8 399,32
-rect $Distributions_8c.html#a692392488ab88e95a62d2142e9d428c 202,56 405,80
-rect $Classes_8c.html#8bc9164a2291bb7f61c12b79f6bc7c5f 250,104 357,128
+<area shape="rect" href="$Distributions_8c.html#0b0373aa22dcf8b8ecf6b9c560db9c70" title="C_maxabsConditionalPvalue" alt="" coords="215,5,420,32">
+<area shape="rect" href="$Distributions_8c.html#a692392488ab88e95a62d2142e9d428c" title="C_quadformConditionalPvalue" alt="" coords="208,56,427,83">
+<area shape="rect" href="$Classes_8c.html#8bc9164a2291bb7f61c12b79f6bc7c5f" title="get_dimension" alt="" coords="260,107,375,133">

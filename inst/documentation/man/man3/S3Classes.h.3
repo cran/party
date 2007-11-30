@@ -1,4 +1,4 @@
-.TH "S3Classes.h" 3 "30 Nov 2007" "party" \" -*- nroff -*-
+.TH "S3Classes.h" 3 "30 Jan 2008" "party" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -98,155 +98,111 @@ S3Classes.h \-
 Definition at line 11 of file S3Classes.c.
 .PP
 References CRITERION_LENGTH, NODE_LENGTH, S3_CRITERION, S3_iCRITERION, S3_MAXCRITERION, S3_NODEID, S3_PREDICTION, S3_PSPLIT, S3_SSPLIT, S3_STATISTICS, S3_SUMWEIGHTS, S3_TERMINAL, S3_WEIGHTS, and SPLIT_LENGTH.
-.PP
-Referenced by C_splitnode(), R_Node(), and R_TreeGrow().
 .SS "void C_init_nominalsplit (SEXP split, int nlevels, int nobs)"
 .PP
 Definition at line 128 of file S3Classes.c.
 .PP
 References S3_ORDERED, S3_SPLITPOINT, S3_SPLITSTATISTICS, S3_TABLE, S3_TOLEFT, S3_VARIABLEID, and SPLIT_LENGTH.
-.PP
-Referenced by C_Node().
 .SS "void C_init_orderedsplit (SEXP split, int nobs)"
 .PP
 Definition at line 104 of file S3Classes.c.
 .PP
 References S3_ORDERED, S3_SPLITPOINT, S3_SPLITSTATISTICS, S3_TABLE, S3_TOLEFT, S3_VARIABLEID, and SPLIT_LENGTH.
-.PP
-Referenced by C_Node().
 .SS "SEXP S3get_criterion (SEXP node)"
 .PP
 Definition at line 68 of file S3Classes.c.
 .PP
 References S3_CRITERION, and S3_iCRITERION.
-.PP
-Referenced by C_Node().
 .SS "SEXP S3get_leftnode (SEXP node)"
 .PP
 Definition at line 96 of file S3Classes.c.
 .PP
 References S3_LEFT.
-.PP
-Referenced by C_get_node(), C_get_nodebynum(), C_remove_weights(), C_splitsurrogate(), and C_TreeGrow().
 .SS "SEXP S3get_maxcriterion (SEXP node)"
 .PP
 Definition at line 72 of file S3Classes.c.
 .PP
 References S3_CRITERION, and S3_MAXCRITERION.
-.PP
-Referenced by C_get_node(), and C_Node().
 .SS "int S3get_nodeID (SEXP node)"
 .PP
 Definition at line 47 of file S3Classes.c.
 .PP
 References S3_NODEID.
-.PP
-Referenced by C_get_nodebynum(), and C_get_nodeID().
 .SS "int S3get_nodeterminal (SEXP node)"
 .PP
 Definition at line 80 of file S3Classes.c.
 .PP
 References S3_TERMINAL.
-.PP
-Referenced by C_get_node(), C_get_nodebynum(), C_remove_weights(), and C_TreeGrow().
 .SS "SEXP S3get_nodeweights (SEXP node)"
 .PP
 Definition at line 51 of file S3Classes.c.
 .PP
 References S3_WEIGHTS.
-.PP
-Referenced by C_get_nodeweights(), C_splitnode(), C_splitsurrogate(), C_surrogates(), C_TreeGrow(), and R_TreeGrow().
 .SS "SEXP S3get_prediction (SEXP node)"
 .PP
 Definition at line 92 of file S3Classes.c.
 .PP
 References S3_PREDICTION.
-.PP
-Referenced by C_get_prediction(), C_getpredictions(), C_Node(), and R_predictRF_weights().
 .SS "SEXP S3get_primarysplit (SEXP node)"
 .PP
 Definition at line 84 of file S3Classes.c.
 .PP
 References S3_PSPLIT.
-.PP
-Referenced by C_get_node(), C_Node(), C_splitnode(), C_splitsurrogate(), and C_surrogates().
 .SS "SEXP S3get_rightnode (SEXP node)"
 .PP
 Definition at line 100 of file S3Classes.c.
 .PP
 References S3_RIGHT.
-.PP
-Referenced by C_get_node(), C_get_nodebynum(), C_remove_weights(), C_splitsurrogate(), and C_TreeGrow().
 .SS "SEXP S3get_splitpoint (SEXP split)"
 .PP
 Definition at line 179 of file S3Classes.c.
 .PP
 References S3_SPLITPOINT.
-.PP
-Referenced by C_get_node(), C_Node(), C_splitnode(), and C_splitsurrogate().
 .SS "SEXP S3get_splitstatistics (SEXP split)"
 .PP
 Definition at line 183 of file S3Classes.c.
 .PP
 References S3_SPLITSTATISTICS.
-.PP
-Referenced by C_Node().
 .SS "double S3get_sumweights (SEXP node)"
 .PP
 Definition at line 60 of file S3Classes.c.
 .PP
 References S3_SUMWEIGHTS.
-.PP
-Referenced by C_get_node().
 .SS "SEXP S3get_surrogatesplits (SEXP node)"
 .PP
 Definition at line 88 of file S3Classes.c.
 .PP
 References S3_SSPLIT.
-.PP
-Referenced by C_get_node(), C_splitsurrogate(), and R_surrogates().
 .SS "SEXP S3get_table (SEXP node)"
 .PP
 Definition at line 192 of file S3Classes.c.
 .PP
 References S3_TABLE.
-.PP
-Referenced by C_Node().
 .SS "SEXP S3get_teststat (SEXP node)"
 .PP
 Definition at line 64 of file S3Classes.c.
 .PP
 References S3_CRITERION, and S3_STATISTICS.
-.PP
-Referenced by C_Node().
 .SS "int S3get_toleft (SEXP split)"
 .PP
 Definition at line 170 of file S3Classes.c.
 .PP
 References S3_TOLEFT.
-.PP
-Referenced by C_get_node(), and C_splitsurrogate().
 .SS "int S3get_variableID (SEXP split)"
 .PP
 Definition at line 154 of file S3Classes.c.
 .PP
 References S3_VARIABLEID.
-.PP
-Referenced by C_get_node(), C_splitnode(), C_splitsurrogate(), and C_surrogates().
 .SS "int S3is_ordered (SEXP split)"
 .PP
 Definition at line 158 of file S3Classes.c.
 .PP
 References S3_ORDERED.
-.PP
-Referenced by C_get_node(), and C_splitnode().
 .SS "void S3set_nodeID (SEXP node, int nodeID)"
 .PP
 Definition at line 43 of file S3Classes.c.
 .PP
 References S3_NODEID.
-.PP
-Referenced by C_TreeGrow().
 .SS "void S3set_nodeterminal (SEXP node)"
 .PP
 Definition at line 76 of file S3Classes.c.
@@ -272,8 +228,6 @@ References S3_TOLEFT.
 Definition at line 150 of file S3Classes.c.
 .PP
 References S3_VARIABLEID.
-.PP
-Referenced by C_Node().
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for party from the source code.

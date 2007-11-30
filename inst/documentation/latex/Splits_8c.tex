@@ -5,10 +5,11 @@
 {\tt \#include \char`\"{}party.h\char`\"{}}\par
 
 
-Include dependency graph for Splits.c:\begin{figure}[H]
+Include dependency graph for Splits.c:\nopagebreak
+\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=157pt]{Splits_8c__incl}
+\includegraphics[width=420pt]{Splits_8c__incl}
 \end{center}
 \end{figure}
 \subsection*{Functions}
@@ -29,11 +30,11 @@ Binary splits
 
 \begin{Desc}
 \item[Author:]\begin{Desc}
-\item[Author]hothorn \end{Desc}
+\item[Author]\end{Desc}
 \end{Desc}
 \begin{Desc}
 \item[Date:]\begin{Desc}
-\item[Date]2007-09-26 14:44:59 +0200 (Wed, 26 Sep 2007) \end{Desc}
+\item[Date]\end{Desc}
 \end{Desc}
 
 
@@ -43,66 +44,46 @@ Definition in file \hyperlink{Splits_8c-source}{Splits.c}.
 \hypertarget{Splits_8c_00d4080fae6513962bd1e54ec9d476bc}{
 \index{Splits.c@{Splits.c}!C_split@{C\_\-split}}
 \index{C_split@{C\_\-split}!Splits.c@{Splits.c}}
-\subsubsection[C\_\-split]{\setlength{\rightskip}{0pt plus 5cm}void C\_\-split (const double $\ast$ {\em x}, int {\em p}, const double $\ast$ {\em y}, int {\em q}, const double $\ast$ {\em weights}, int {\em n}, const int $\ast$ {\em orderx}, SEXP {\em splitctrl}, SEXP {\em linexpcov2sample}, SEXP {\em expcovinf}, double $\ast$ {\em cutpoint}, double $\ast$ {\em maxstat}, double $\ast$ {\em statistics})}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void C\_\-split (const double $\ast$ {\em x}, int {\em p}, const double $\ast$ {\em y}, int {\em q}, const double $\ast$ {\em weights}, int {\em n}, const int $\ast$ {\em orderx}, SEXP {\em splitctrl}, SEXP {\em linexpcov2sample}, SEXP {\em expcovinf}, double $\ast$ {\em cutpoint}, double $\ast$ {\em maxstat}, double $\ast$ {\em statistics})}}
 \label{Splits_8c_00d4080fae6513962bd1e54ec9d476bc}
 
 
 Search for a cutpoint in a ordered variable x maximizing a two-sample statistic w.r.t. (the influence function of ) the response variable y. \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[{\em x}]raw numeric measurements \item[{\em p}]dimension of the transformation \item[{\em y}]values of the influence function \item[{\em q}]dimension of the influence function \item[{\em weights}]case weights \item[{\em n}]number of observations \item[{\em orderx}]the ordering of the transformations, i.e. R$>$ order(x) \item[{\em splitctrl}]an object of class `Split\-Control' \item[{\em linexpcov2sample}]an (uninitialized) object of class `Lin\-Stat\-Expect\-Covar' with p = 1 \item[{\em expcovinf}]an initialized object of class `Expect\-Covar\-Influence' \item[{\em cutpoint}]return value; pointer to a double for the cutpoint in x \item[{\em maxstat}]return value; pointer to a double for the maximal test statistic \item[{\em statistics}]return value; pointer to a n-dim double for the statistics \end{description}
+\item[{\em x}]raw numeric measurements \item[{\em p}]dimension of the transformation \item[{\em y}]values of the influence function \item[{\em q}]dimension of the influence function \item[{\em weights}]case weights \item[{\em n}]number of observations \item[{\em orderx}]the ordering of the transformations, i.e. R$>$ order(x) \item[{\em splitctrl}]an object of class `SplitControl' \item[{\em linexpcov2sample}]an (uninitialized) object of class `LinStatExpectCovar' with p = 1 \item[{\em expcovinf}]an initialized object of class `ExpectCovarInfluence' \item[{\em cutpoint}]return value; pointer to a double for the cutpoint in x \item[{\em maxstat}]return value; pointer to a double for the maximal test statistic \item[{\em statistics}]return value; pointer to a n-dim double for the statistics \end{description}
 \end{Desc}
 
 
 Definition at line 33 of file Splits.c.
 
-References get\_\-tol().
-
-Referenced by C\_\-Node(), and R\_\-split().
-
-Here is the call graph for this function:\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=84pt]{Splits_8c_00d4080fae6513962bd1e54ec9d476bc_cgraph}
-\end{center}
-\end{figure}
-\hypertarget{Splits_8c_1b9f04a865d61c1c9757ba77bff49ab7}{
+Referenced by C\_\-Node(), C\_\-splitcategorical(), C\_\-surrogates(), and R\_\-split().\hypertarget{Splits_8c_1b9f04a865d61c1c9757ba77bff49ab7}{
 \index{Splits.c@{Splits.c}!C_splitcategorical@{C\_\-splitcategorical}}
 \index{C_splitcategorical@{C\_\-splitcategorical}!Splits.c@{Splits.c}}
-\subsubsection[C\_\-splitcategorical]{\setlength{\rightskip}{0pt plus 5cm}void C\_\-splitcategorical (const int $\ast$ {\em codingx}, int {\em p}, const double $\ast$ {\em y}, int {\em q}, const double $\ast$ {\em weights}, int {\em n}, double $\ast$ {\em standstat}, SEXP {\em splitctrl}, SEXP {\em linexpcov2sample}, SEXP {\em expcovinf}, double $\ast$ {\em cutpoint}, int $\ast$ {\em levelset}, double $\ast$ {\em maxstat}, double $\ast$ {\em statistics})}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void C\_\-splitcategorical (const int $\ast$ {\em codingx}, int {\em p}, const double $\ast$ {\em y}, int {\em q}, const double $\ast$ {\em weights}, int {\em n}, double $\ast$ {\em standstat}, SEXP {\em splitctrl}, SEXP {\em linexpcov2sample}, SEXP {\em expcovinf}, double $\ast$ {\em cutpoint}, int $\ast$ {\em levelset}, double $\ast$ {\em maxstat}, double $\ast$ {\em statistics})}}
 \label{Splits_8c_1b9f04a865d61c1c9757ba77bff49ab7}
 
 
 Search for a cutpoint in a unordered factor x maximizing a two-sample statistic w.r.t. (the influence function of ) the response variable y. \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[{\em codingx}]the coding of x, i.e. as.numeric(x) \item[{\em p}]dimension of the transformation \item[{\em y}]values of the influence function \item[{\em q}]dimension of the influence function \item[{\em weights}]case weights \item[{\em n}]number of observations \item[{\em codingx}]the coding of x, i.e. as.numeric(x) \item[{\em standstat}]the vector of the standardized statistics for x, y, weights \item[{\em splitctrl}]an object of class `Split\-Control' \item[{\em linexpcov2sample}]an (uninitialized) object of class `Lin\-Stat\-Expect\-Covar' with p = 1 \item[{\em expcovinf}]an initialized object of class `Expect\-Covar\-Influence' \item[{\em cutpoint}]return value; pointer to a double for the cutpoint in x \item[{\em levelset}]return value; pointer to a p-dim 0/1 integer \item[{\em maxstat}]return value; pointer to a double for the maximal test statistic \item[{\em statistics}]return value; pointer to a n-dim double for the statistics \end{description}
+\item[{\em codingx}]the coding of x, i.e. as.numeric(x) \item[{\em p}]dimension of the transformation \item[{\em y}]values of the influence function \item[{\em q}]dimension of the influence function \item[{\em weights}]case weights \item[{\em n}]number of observations \item[{\em codingx}]the coding of x, i.e. as.numeric(x) \item[{\em standstat}]the vector of the standardized statistics for x, y, weights \item[{\em splitctrl}]an object of class `SplitControl' \item[{\em linexpcov2sample}]an (uninitialized) object of class `LinStatExpectCovar' with p = 1 \item[{\em expcovinf}]an initialized object of class `ExpectCovarInfluence' \item[{\em cutpoint}]return value; pointer to a double for the cutpoint in x \item[{\em levelset}]return value; pointer to a p-dim 0/1 integer \item[{\em maxstat}]return value; pointer to a double for the maximal test statistic \item[{\em statistics}]return value; pointer to a n-dim double for the statistics \end{description}
 \end{Desc}
 
 
 Definition at line 217 of file Splits.c.
 
-References get\_\-tol().
-
-Referenced by C\_\-Node(), and R\_\-splitcategorical().
-
-Here is the call graph for this function:\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=108pt]{Splits_8c_1b9f04a865d61c1c9757ba77bff49ab7_cgraph}
-\end{center}
-\end{figure}
-\hypertarget{Splits_8c_99df49df1a0061e2fe476f531285b0a3}{
+Referenced by C\_\-Node(), and R\_\-splitcategorical().\hypertarget{Splits_8c_99df49df1a0061e2fe476f531285b0a3}{
 \index{Splits.c@{Splits.c}!R_split@{R\_\-split}}
 \index{R_split@{R\_\-split}!Splits.c@{Splits.c}}
-\subsubsection[R\_\-split]{\setlength{\rightskip}{0pt plus 5cm}SEXP R\_\-split (SEXP {\em x}, SEXP {\em y}, SEXP {\em weights}, SEXP {\em orderx}, SEXP {\em linexpcov2sample}, SEXP {\em expcovinf}, SEXP {\em splitctrl})}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}SEXP R\_\-split (SEXP {\em x}, SEXP {\em y}, SEXP {\em weights}, SEXP {\em orderx}, SEXP {\em linexpcov2sample}, SEXP {\em expcovinf}, SEXP {\em splitctrl})}}
 \label{Splits_8c_99df49df1a0061e2fe476f531285b0a3}
 
 
 R-interface to C\_\-split (does not handle ordered y's) \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[{\em x}]values of the transformation \item[{\em y}]values of the influence function \item[{\em weights}]case weights \item[{\em orderx}]the ordering of the transformations, i.e. R$>$ order(x) \item[{\em linexpcov2sample}]an (uninitialized) object of class `Lin\-Stat\-Expect\-Covar' with p = 1 \item[{\em expcovinf}]an initialized object of class `Expect\-Covar\-Influence' \item[{\em splitctrl}]an object of class `Split\-Control' \end{description}
+\item[{\em x}]values of the transformation \item[{\em y}]values of the influence function \item[{\em weights}]case weights \item[{\em orderx}]the ordering of the transformations, i.e. R$>$ order(x) \item[{\em linexpcov2sample}]an (uninitialized) object of class `LinStatExpectCovar' with p = 1 \item[{\em expcovinf}]an initialized object of class `ExpectCovarInfluence' \item[{\em splitctrl}]an object of class `SplitControl' \end{description}
 \end{Desc}
 
 
@@ -110,33 +91,35 @@ Definition at line 175 of file Splits.c.
 
 References C\_\-split(), ncol(), and nrow().
 
-Here is the call graph for this function:\begin{figure}[H]
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=126pt]{Splits_8c_99df49df1a0061e2fe476f531285b0a3_cgraph}
+\includegraphics[width=88pt]{Splits_8c_99df49df1a0061e2fe476f531285b0a3_cgraph}
 \end{center}
 \end{figure}
 \hypertarget{Splits_8c_7bda94db4217f68594d347d4498576a6}{
 \index{Splits.c@{Splits.c}!R_splitcategorical@{R\_\-splitcategorical}}
 \index{R_splitcategorical@{R\_\-splitcategorical}!Splits.c@{Splits.c}}
-\subsubsection[R\_\-splitcategorical]{\setlength{\rightskip}{0pt plus 5cm}SEXP R\_\-splitcategorical (SEXP {\em x}, SEXP {\em codingx}, SEXP {\em y}, SEXP {\em weights}, SEXP {\em linexpcov2sample}, SEXP {\em linexpcov}, SEXP {\em expcovinf}, SEXP {\em splitctrl})}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}SEXP R\_\-splitcategorical (SEXP {\em x}, SEXP {\em codingx}, SEXP {\em y}, SEXP {\em weights}, SEXP {\em linexpcov2sample}, SEXP {\em linexpcov}, SEXP {\em expcovinf}, SEXP {\em splitctrl})}}
 \label{Splits_8c_7bda94db4217f68594d347d4498576a6}
 
 
 R-interface to C\_\-splitcategorical (does not handle ordered y's) \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[{\em x}]the values of the x-transformation \item[{\em codingx}]the coding of x, i.e. as.numeric(x) \item[{\em y}]values of the influence function \item[{\em weights}]case weights \item[{\em linexpcov2sample}]an (uninitialized) object of class `Lin\-Stat\-Expect\-Covar' with p = 1 \item[{\em linexpcov}]an initialized object of class `Lin\-Stat\-Expect\-Covar' \item[{\em expcovinf}]an initialized object of class `Expect\-Covar\-Influence' \item[{\em splitctrl}]an object of class `Split\-Control' \end{description}
+\item[{\em x}]the values of the x-transformation \item[{\em codingx}]the coding of x, i.e. as.numeric(x) \item[{\em y}]values of the influence function \item[{\em weights}]case weights \item[{\em linexpcov2sample}]an (uninitialized) object of class `LinStatExpectCovar' with p = 1 \item[{\em linexpcov}]an initialized object of class `LinStatExpectCovar' \item[{\em expcovinf}]an initialized object of class `ExpectCovarInfluence' \item[{\em splitctrl}]an object of class `SplitControl' \end{description}
 \end{Desc}
 
 
 Definition at line 313 of file Splits.c.
 
-References C\_\-Lin\-Stat\-Exp\-Cov(), C\_\-splitcategorical(), C\_\-standardize(), get\_\-dimension(), get\_\-tol(), ncol(), nrow(), PL2\_\-covariance\-Sym, PL2\_\-expcovinf\-Sym, PL2\_\-expectation\-Sym, and PL2\_\-linearstatistic\-Sym.
+References C\_\-LinStatExpCov(), C\_\-splitcategorical(), C\_\-standardize(), get\_\-dimension(), get\_\-tol(), ncol(), nrow(), PL2\_\-covarianceSym, PL2\_\-expcovinfSym, PL2\_\-expectationSym, and PL2\_\-linearstatisticSym.
 
-Here is the call graph for this function:\begin{figure}[H]
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=225pt]{Splits_8c_7bda94db4217f68594d347d4498576a6_cgraph}
+\includegraphics[width=142pt]{Splits_8c_7bda94db4217f68594d347d4498576a6_cgraph}
 \end{center}
 \end{figure}

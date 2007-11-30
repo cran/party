@@ -1,16 +1,15 @@
-base referer
-rect $party_8h.html 121,464 182,488
-rect $Classes_8h.html 264,296 344,320
-rect $Utils_8h.html 274,344 333,368
-rect $mvt_8h.html 277,392 330,416
-rect $LinearStatistic_8h.html 245,440 362,464
-rect $TestStatistic_8h.html 250,488 357,512
-rect $Distributions_8h.html 250,536 357,560
-rect $Convenience_8h.html 249,584 358,608
-rect $S3Classes_8h.html 256,632 352,656
-rect $IndependenceTest_8h.html 232,680 376,704
-rect $Splits_8h.html 270,728 337,752
-rect $Node_8h.html 272,776 336,800
-rect $Predict_8h.html 266,824 341,848
-rect $SurrogateSplits_8h.html 242,872 365,896
-rect $TreeGrow_8h.html 258,920 349,944
+<area shape="rect" href="$party_8h.html" title="party.h" alt="" coords="1060,84,1127,111">
+<area shape="rect" href="$Classes_8h.html" title="Classes.h" alt="" coords="685,161,768,188">
+<area shape="rect" href="$Utils_8h.html" title="Utils.h" alt="" coords="792,161,853,188">
+<area shape="rect" href="$mvt_8h.html" title="mvt.h" alt="" coords="877,161,936,188">
+<area shape="rect" href="$LinearStatistic_8h.html" title="LinearStatistic.h" alt="" coords="960,161,1085,188">
+<area shape="rect" href="$TestStatistic_8h.html" title="TestStatistic.h" alt="" coords="1109,161,1219,188">
+<area shape="rect" href="$Distributions_8h.html" title="Distributions.h" alt="" coords="1243,161,1355,188">
+<area shape="rect" href="$Convenience_8h.html" title="Convenience.h" alt="" coords="1379,161,1496,188">
+<area shape="rect" href="$S3Classes_8h.html" title="S3Classes.h" alt="" coords="1520,161,1619,188">
+<area shape="rect" href="$IndependenceTest_8h.html" title="IndependenceTest.h" alt="" coords="1643,161,1789,188">
+<area shape="rect" href="$Splits_8h.html" title="Splits.h" alt="" coords="1813,161,1880,188">
+<area shape="rect" href="$Node_8h.html" title="Node.h" alt="" coords="1904,161,1971,188">
+<area shape="rect" href="$Predict_8h.html" title="Predict.h" alt="" coords="1995,161,2072,188">
+<area shape="rect" href="$SurrogateSplits_8h.html" title="SurrogateSplits.h" alt="" coords="2096,161,2229,188">
+<area shape="rect" href="$TreeGrow_8h.html" title="TreeGrow.h" alt="" coords="2253,161,2347,188">

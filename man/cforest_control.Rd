@@ -60,7 +60,8 @@ cforest_control(teststat = "max",
 
   The argument \code{mtry > 0} means that a random forest like `variable
   selection', i.e., a random selection of \code{mtry} input variables, is
-  performed in each node.
+  performed in each node. Make sure that \code{mtry} is defined
+  properly before using \code{cforest}.
 
   It might be informative to look at scatterplots of input variables against
   the standardized two-sample split statistics, those are available when
@@ -75,6 +76,11 @@ cforest_control(teststat = "max",
   \code{\link[randomForest]{randomForest}} are available in
   \code{cforest_classical} which have been used as default up to
   version 0.9-14. 
+
+  Please not that \code{\link{cforest}}, in contrast to 
+  \code{\link[randomForest]{randomForest}}, doesn't grow trees of
+  maximal depth, one needs to define \code{mincriterion = 0} in order
+  to get a forest of very large trees.
 
 }
 \value{

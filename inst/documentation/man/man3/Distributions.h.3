@@ -1,4 +1,4 @@
-.TH "Distributions.h" 3 "30 Nov 2007" "party" \" -*- nroff -*-
+.TH "Distributions.h" 3 "30 Jan 2008" "party" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -50,7 +50,7 @@ Conditional asymptotic P-value of a maxabs-type test statistic
 .PP
 Definition at line 52 of file Distributions.c.
 .PP
-Referenced by C_ConditionalPvalue(), and R_maxabsConditionalPvalue().
+References mvtdst().
 .SS "void C_MonteCarlo (double * criterion, SEXP learnsample, SEXP weights, SEXP fitmem, SEXP varctrl, SEXP gtctrl, double * ans_pvalues)"
 .PP
 Monte-Carlo approximation to the conditional pvalues 
@@ -76,9 +76,7 @@ Monte-Carlo approximation to the conditional pvalues
 .PP
 Definition at line 169 of file Distributions.c.
 .PP
-References get_ninputs(), get_nobs(), get_nresample(), get_test_trafo(), PL2_expcovinfSym, PL2_inputsSym, PL2_responsesSym, and PL2_sumweightsSym.
-.PP
-Referenced by R_MonteCarlo().
+References C_LinearStatistic(), C_max(), C_PermutedLinearStatistic(), C_SampleNoReplace(), C_TeststatCriterion(), get_ninputs(), get_nobs(), get_nresample(), get_test_trafo(), get_transformation(), get_varmemory(), has_missings(), ncol(), PL2_expcovinfSym, PL2_inputsSym, PL2_linearstatisticSym, PL2_responsesSym, and PL2_sumweightsSym.
 .SS "double C_quadformConditionalPvalue (const double tstat, const double df)"
 .PP
 Conditional asymptotic P-value of a quadratic form
@@ -95,8 +93,6 @@ Conditional asymptotic P-value of a quadratic form
 
 .PP
 Definition at line 18 of file Distributions.c.
-.PP
-Referenced by C_ConditionalPvalue(), and R_quadformConditionalPvalue().
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for party from the source code.

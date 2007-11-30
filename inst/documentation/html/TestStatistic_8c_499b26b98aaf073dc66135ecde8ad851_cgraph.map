@@ -1,6 +1,1 @@
-base referer
-rect $TestStatistic_8c.html#a3a1f48e4bb3aa19d1bac85a53358638 217,56 374,80
-rect $TestStatistic_8c.html#6939f019d2c7f42ae824776043a8c704 425,32 553,56
-rect $Utils_8c.html#5b306a6923d1155e6ce877cf6fa12a42 457,80 521,104
-rect $Utils_8c.html#a5479e1fef3da77537e06730826379e1 628,8 686,32
-rect $TestStatistic_8c.html#9ecf0700a00ad5fd64601bf718f20439 604,56 710,80
+<area shape="rect" href="$TestStatistic_8c.html#a3a1f48e4bb3aa19d1bac85a53358638" title="C_maxabsTestStatistic" alt="" coords="220,5,385,32">

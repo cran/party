@@ -1,16 +1,15 @@
-base referer
-rect $party_8h.html 201,320 262,344
-rect $Classes_8c.html 344,8 424,32
-rect $Convenience_8c.html 329,56 438,80
-rect $Distributions_8c.html 330,104 437,128
-rect $IndependenceTest_8c.html 313,152 454,176
-rect $LinearStatistic_8c.html 326,200 441,224
-rect $Node_8c.html 352,248 416,272
-rect $Predict_8c.html 346,296 421,320
-rect $RandomForest_8c.html 324,344 444,368
-rect $S3Classes_8c.html 336,392 432,416
-rect $Splits_8c.html 352,440 416,464
-rect $SurrogateSplits_8c.html 322,488 445,512
-rect $TestStatistic_8c.html 332,536 436,560
-rect $TreeGrow_8c.html 338,584 429,608
-rect $Utils_8c.html 354,632 413,656
+<area shape="rect" href="$party_8h.html" title="party.h" alt="" coords="860,84,927,111">
+<area shape="rect" href="$Classes_8c.html" title="Classes.c" alt="" coords="5,161,85,188">
+<area shape="rect" href="$Convenience_8c.html" title="Convenience.c" alt="" coords="109,161,224,188">
+<area shape="rect" href="$Distributions_8c.html" title="Distributions.c" alt="" coords="248,161,360,188">
+<area shape="rect" href="$IndependenceTest_8c.html" title="IndependenceTest.c" alt="" coords="384,161,531,188">
+<area shape="rect" href="$LinearStatistic_8c.html" title="LinearStatistic.c" alt="" coords="555,161,677,188">
+<area shape="rect" href="$Node_8c.html" title="Node.c" alt="" coords="701,161,768,188">
+<area shape="rect" href="$Predict_8c.html" title="Predict.c" alt="" coords="792,161,869,188">
+<area shape="rect" href="$RandomForest_8c.html" title="RandomForest.c" alt="" coords="893,161,1021,188">
+<area shape="rect" href="$S3Classes_8c.html" title="S3Classes.c" alt="" coords="1045,161,1144,188">
+<area shape="rect" href="$Splits_8c.html" title="Splits.c" alt="" coords="1168,161,1235,188">
+<area shape="rect" href="$SurrogateSplits_8c.html" title="SurrogateSplits.c" alt="" coords="1259,161,1389,188">
+<area shape="rect" href="$TestStatistic_8c.html" title="TestStatistic.c" alt="" coords="1413,161,1520,188">
+<area shape="rect" href="$TreeGrow_8c.html" title="TreeGrow.c" alt="" coords="1544,161,1635,188">
+<area shape="rect" href="$Utils_8c.html" title="Utils.c" alt="" coords="1659,161,1717,188">

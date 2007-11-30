@@ -1,4 +1,3 @@
-base referer
-rect $LinearStatistic_8c.html#e2f62abe13ee5b625141b5d4a496d832 200,8 368,32
-rect $LinearStatistic_8c.html#94a0805ea258af79d426c095feee399a 184,56 384,80
-rect $LinearStatistic_8c.html#aefa2a9406bb30b323715e3db41da637 222,104 345,128
+<area shape="rect" href="$LinearStatistic_8c.html#e2f62abe13ee5b625141b5d4a496d832" title="C_ExpectCovarInfluence" alt="" coords="209,5,391,32">
+<area shape="rect" href="$LinearStatistic_8c.html#94a0805ea258af79d426c095feee399a" title="C_ExpectCovarLinearStatistic" alt="" coords="192,56,408,83">
+<area shape="rect" href="$LinearStatistic_8c.html#aefa2a9406bb30b323715e3db41da637" title="C_LinearStatistic" alt="" coords="235,107,365,133">

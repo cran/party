@@ -5,10 +5,11 @@
 {\tt \#include \char`\"{}party.h\char`\"{}}\par
 
 
-Include dependency graph for Node.c:\begin{figure}[H]
+Include dependency graph for Node.c:\nopagebreak
+\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=156pt]{Node_8c__incl}
+\includegraphics[width=420pt]{Node_8c__incl}
 \end{center}
 \end{figure}
 \subsection*{Functions}
@@ -27,11 +28,11 @@ Node computations
 
 \begin{Desc}
 \item[Author:]\begin{Desc}
-\item[Author]hothorn \end{Desc}
+\item[Author]\end{Desc}
 \end{Desc}
 \begin{Desc}
 \item[Date:]\begin{Desc}
-\item[Date]2007-09-26 14:44:59 +0200 (Wed, 26 Sep 2007) \end{Desc}
+\item[Date]\end{Desc}
 \end{Desc}
 
 
@@ -41,33 +42,23 @@ Definition in file \hyperlink{Node_8c-source}{Node.c}.
 \hypertarget{Node_8c_0ed8b15b2c14ec9f1f1585d6288a38e2}{
 \index{Node.c@{Node.c}!C_Node@{C\_\-Node}}
 \index{C_Node@{C\_\-Node}!Node.c@{Node.c}}
-\subsubsection[C\_\-Node]{\setlength{\rightskip}{0pt plus 5cm}void C\_\-Node (SEXP {\em node}, SEXP {\em learnsample}, SEXP {\em weights}, SEXP {\em fitmem}, SEXP {\em controls}, int {\em TERMINAL})}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void C\_\-Node (SEXP {\em node}, SEXP {\em learnsample}, SEXP {\em weights}, SEXP {\em fitmem}, SEXP {\em controls}, int {\em TERMINAL})}}
 \label{Node_8c_0ed8b15b2c14ec9f1f1585d6288a38e2}
 
 
 The main function for all node computations \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[{\em node}]an initialized node (an S3 object!) \item[{\em learnsample}]an object of class `Learning\-Sample' \item[{\em weights}]case weights \item[{\em fitmem}]an object of class `Tree\-Fit\-Memory' \item[{\em controls}]an object of class `Tree\-Control' \item[{\em TERMINAL}]logical indicating if this node will be a terminal node \end{description}
+\item[{\em node}]an initialized node (an S3 object!) \item[{\em learnsample}]an object of class `LearningSample' \item[{\em weights}]case weights \item[{\em fitmem}]an object of class `TreeFitMemory' \item[{\em controls}]an object of class `TreeControl' \item[{\em TERMINAL}]logical indicating if this node will be a terminal node \end{description}
 \end{Desc}
 
 
 Definition at line 48 of file Node.c.
 
-References C\_\-Global\-Test(), C\_\-init\_\-nominalsplit(), C\_\-init\_\-orderedsplit(), C\_\-max(), C\_\-prediction(), C\_\-split(), C\_\-splitcategorical(), C\_\-standardize(), C\_\-tempweights(), C\_\-whichmax(), get\_\-dimension(), get\_\-gtctrl(), get\_\-levels(), get\_\-mincriterion(), get\_\-minsplit(), get\_\-ninputs(), get\_\-nobs(), get\_\-ordering(), get\_\-predict\_\-trafo(), get\_\-savesplitstats(), get\_\-splitctrl(), get\_\-splitstatistics(), get\_\-test\_\-trafo(), get\_\-tgctrl(), get\_\-tol(), get\_\-transformation(), get\_\-varctrl(), get\_\-variable(), get\_\-varmemory(), has\_\-missings(), is\_\-nominal(), ncol(), PL2\_\-covariance\-Sym, PL2\_\-expcovinf\-Sym, PL2\_\-expectation\-Sym, PL2\_\-inputs\-Sym, PL2\_\-linearstatistic\-Sym, PL2\_\-linexpcov2sample\-Sym, PL2\_\-responses\-Sym, PL2\_\-sumweights\-Sym, S3\_\-SUMWEIGHTS, S3get\_\-criterion(), S3get\_\-maxcriterion(), S3get\_\-prediction(), S3get\_\-primarysplit(), S3get\_\-splitpoint(), S3get\_\-splitstatistics(), S3get\_\-table(), S3get\_\-teststat(), and S3set\_\-variable\-ID().
-
-Referenced by C\_\-Tree\-Grow(), and R\_\-Node().
-
-Here is the call graph for this function:\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=180pt]{Node_8c_0ed8b15b2c14ec9f1f1585d6288a38e2_cgraph}
-\end{center}
-\end{figure}
-\hypertarget{Node_8c_ccc1b172efcfd43dc460efee333b6abf}{
+Referenced by C\_\-TreeGrow(), and R\_\-Node().\hypertarget{Node_8c_ccc1b172efcfd43dc460efee333b6abf}{
 \index{Node.c@{Node.c}!C_prediction@{C\_\-prediction}}
 \index{C_prediction@{C\_\-prediction}!Node.c@{Node.c}}
-\subsubsection[C\_\-prediction]{\setlength{\rightskip}{0pt plus 5cm}void C\_\-prediction (const double $\ast$ {\em y}, int {\em n}, int {\em q}, const double $\ast$ {\em weights}, const double {\em sweights}, double $\ast$ {\em ans})}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void C\_\-prediction (const double $\ast$ {\em y}, int {\em n}, int {\em q}, const double $\ast$ {\em weights}, const double {\em sweights}, double $\ast$ {\em ans})}}
 \label{Node_8c_ccc1b172efcfd43dc460efee333b6abf}
 
 
@@ -83,24 +74,25 @@ Definition at line 22 of file Node.c.
 Referenced by C\_\-Node().\hypertarget{Node_8c_878214ca472c99cf036a426eb7cffb59}{
 \index{Node.c@{Node.c}!R_Node@{R\_\-Node}}
 \index{R_Node@{R\_\-Node}!Node.c@{Node.c}}
-\subsubsection[R\_\-Node]{\setlength{\rightskip}{0pt plus 5cm}SEXP R\_\-Node (SEXP {\em learnsample}, SEXP {\em weights}, SEXP {\em fitmem}, SEXP {\em controls})}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}SEXP R\_\-Node (SEXP {\em learnsample}, SEXP {\em weights}, SEXP {\em fitmem}, SEXP {\em controls})}}
 \label{Node_8c_878214ca472c99cf036a426eb7cffb59}
 
 
 R-interface to C\_\-Node \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[{\em learnsample}]an object of class `Learning\-Sample' \item[{\em weights}]case weights \item[{\em fitmem}]an object of class `Tree\-Fit\-Memory' \item[{\em controls}]an object of class `Tree\-Control' \end{description}
+\item[{\em learnsample}]an object of class `LearningSample' \item[{\em weights}]case weights \item[{\em fitmem}]an object of class `TreeFitMemory' \item[{\em controls}]an object of class `TreeControl' \end{description}
 \end{Desc}
 
 
 Definition at line 227 of file Node.c.
 
-References C\_\-init\_\-node(), C\_\-Node(), get\_\-maxsurrogate(), get\_\-ninputs(), get\_\-nobs(), get\_\-predict\_\-trafo(), get\_\-splitctrl(), ncol(), NODE\_\-LENGTH, and PL2\_\-responses\-Sym.
+References C\_\-init\_\-node(), C\_\-Node(), get\_\-maxsurrogate(), get\_\-ninputs(), get\_\-nobs(), get\_\-predict\_\-trafo(), get\_\-splitctrl(), ncol(), NODE\_\-LENGTH, and PL2\_\-responsesSym.
 
-Here is the call graph for this function:\begin{figure}[H]
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=176pt]{Node_8c_878214ca472c99cf036a426eb7cffb59_cgraph}
+\includegraphics[width=120pt]{Node_8c_878214ca472c99cf036a426eb7cffb59_cgraph}
 \end{center}
 \end{figure}

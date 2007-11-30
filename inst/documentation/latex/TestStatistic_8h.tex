@@ -1,13 +1,14 @@
 \hypertarget{TestStatistic_8h}{
-\section{Test\-Statistic.h File Reference}
+\section{TestStatistic.h File Reference}
 \label{TestStatistic_8h}\index{TestStatistic.h@{TestStatistic.h}}
 }
 
 
-This graph shows which files directly or indirectly include this file:\begin{figure}[H]
+This graph shows which files directly or indirectly include this file:\nopagebreak
+\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=172pt]{TestStatistic_8h__dep__incl}
+\includegraphics[width=420pt]{TestStatistic_8h__dep__incl}
 \end{center}
 \end{figure}
 \subsection*{Functions}
@@ -15,17 +16,17 @@ This graph shows which files directly or indirectly include this file:\begin{fig
 \item 
 void \hyperlink{TestStatistic_8h_9ecf0700a00ad5fd64601bf718f20439}{C\_\-standardize} (const double $\ast$t, const double $\ast$mu, const double $\ast$Sigma, int pq, double tol, double $\ast$ans)
 \item 
-double \hyperlink{TestStatistic_8h_a3a1f48e4bb3aa19d1bac85a53358638}{C\_\-maxabs\-Test\-Statistic} (const double $\ast$t, const double $\ast$mu, const double $\ast$Sigma, int pq, double tol)
+double \hyperlink{TestStatistic_8h_a3a1f48e4bb3aa19d1bac85a53358638}{C\_\-maxabsTestStatistic} (const double $\ast$t, const double $\ast$mu, const double $\ast$Sigma, int pq, double tol)
 \item 
-double \hyperlink{TestStatistic_8h_b45eb88ec3b2cc87e8610771cdcf53c4}{C\_\-quadform\-Test\-Statistic} (const double $\ast$t, const double $\ast$mu, const double $\ast$Sigma\-Plus, int pq)
+double \hyperlink{TestStatistic_8h_b45eb88ec3b2cc87e8610771cdcf53c4}{C\_\-quadformTestStatistic} (const double $\ast$t, const double $\ast$mu, const double $\ast$SigmaPlus, int pq)
 \end{CompactItemize}
 
 
 \subsection{Function Documentation}
 \hypertarget{TestStatistic_8h_a3a1f48e4bb3aa19d1bac85a53358638}{
-\index{TestStatistic.h@{Test\-Statistic.h}!C_maxabsTestStatistic@{C\_\-maxabsTestStatistic}}
-\index{C_maxabsTestStatistic@{C\_\-maxabsTestStatistic}!TestStatistic.h@{Test\-Statistic.h}}
-\subsubsection[C\_\-maxabsTestStatistic]{\setlength{\rightskip}{0pt plus 5cm}double C\_\-maxabs\-Test\-Statistic (const double $\ast$ {\em t}, const double $\ast$ {\em mu}, const double $\ast$ {\em Sigma}, int {\em pq}, double {\em tol})}}
+\index{TestStatistic.h@{TestStatistic.h}!C_maxabsTestStatistic@{C\_\-maxabsTestStatistic}}
+\index{C_maxabsTestStatistic@{C\_\-maxabsTestStatistic}!TestStatistic.h@{TestStatistic.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double C\_\-maxabsTestStatistic (const double $\ast$ {\em t}, const double $\ast$ {\em mu}, const double $\ast$ {\em Sigma}, int {\em pq}, double {\em tol})}}
 \label{TestStatistic_8h_a3a1f48e4bb3aa19d1bac85a53358638}
 
 
@@ -36,39 +37,36 @@ Maximum absolute values of standardized statistics \begin{Desc}
 \end{Desc}
 
 
-Definition at line 66 of file Test\-Statistic.c.
+Definition at line 66 of file TestStatistic.c.
 
 References C\_\-absstandardize(), and C\_\-max().
 
-Referenced by C\_\-Test\-Statistic(), and R\_\-maxabs\-Test\-Statistic().
-
-Here is the call graph for this function:\begin{figure}[H]
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=204pt]{TestStatistic_8h_a3a1f48e4bb3aa19d1bac85a53358638_cgraph}
+\includegraphics[width=215pt]{TestStatistic_8h_a3a1f48e4bb3aa19d1bac85a53358638_cgraph}
 \end{center}
 \end{figure}
 \hypertarget{TestStatistic_8h_b45eb88ec3b2cc87e8610771cdcf53c4}{
-\index{TestStatistic.h@{Test\-Statistic.h}!C_quadformTestStatistic@{C\_\-quadformTestStatistic}}
-\index{C_quadformTestStatistic@{C\_\-quadformTestStatistic}!TestStatistic.h@{Test\-Statistic.h}}
-\subsubsection[C\_\-quadformTestStatistic]{\setlength{\rightskip}{0pt plus 5cm}double C\_\-quadform\-Test\-Statistic (const double $\ast$ {\em t}, const double $\ast$ {\em mu}, const double $\ast$ {\em Sigma\-Plus}, int {\em pq})}}
+\index{TestStatistic.h@{TestStatistic.h}!C_quadformTestStatistic@{C\_\-quadformTestStatistic}}
+\index{C_quadformTestStatistic@{C\_\-quadformTestStatistic}!TestStatistic.h@{TestStatistic.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double C\_\-quadformTestStatistic (const double $\ast$ {\em t}, const double $\ast$ {\em mu}, const double $\ast$ {\em SigmaPlus}, int {\em pq})}}
 \label{TestStatistic_8h_b45eb88ec3b2cc87e8610771cdcf53c4}
 
 
-Quadratic form t(t - mu) Sigma\-Plus (t - mu) \par
+Quadratic form t(t - mu) SigmaPlus (t - mu) \par
  \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[{\em t}]the vector of statistics \item[{\em mu}]expectations \item[{\em Sigma\-Plus}]Moore-Penrose inverse \item[{\em pq}]dimension of t \end{description}
+\item[{\em t}]the vector of statistics \item[{\em mu}]expectations \item[{\em SigmaPlus}]Moore-Penrose inverse \item[{\em pq}]dimension of t \end{description}
 \end{Desc}
 
 
-Definition at line 110 of file Test\-Statistic.c.
-
-Referenced by C\_\-Test\-Statistic(), and R\_\-quadform\-Test\-Statistic().\hypertarget{TestStatistic_8h_9ecf0700a00ad5fd64601bf718f20439}{
-\index{TestStatistic.h@{Test\-Statistic.h}!C_standardize@{C\_\-standardize}}
-\index{C_standardize@{C\_\-standardize}!TestStatistic.h@{Test\-Statistic.h}}
-\subsubsection[C\_\-standardize]{\setlength{\rightskip}{0pt plus 5cm}void C\_\-standardize (const double $\ast$ {\em t}, const double $\ast$ {\em mu}, const double $\ast$ {\em Sigma}, int {\em pq}, double {\em tol}, double $\ast$ {\em ans})}}
+Definition at line 110 of file TestStatistic.c.\hypertarget{TestStatistic_8h_9ecf0700a00ad5fd64601bf718f20439}{
+\index{TestStatistic.h@{TestStatistic.h}!C_standardize@{C\_\-standardize}}
+\index{C_standardize@{C\_\-standardize}!TestStatistic.h@{TestStatistic.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void C\_\-standardize (const double $\ast$ {\em t}, const double $\ast$ {\em mu}, const double $\ast$ {\em Sigma}, int {\em pq}, double {\em tol}, double $\ast$ {\em ans})}}
 \label{TestStatistic_8h_9ecf0700a00ad5fd64601bf718f20439}
 
 
@@ -80,6 +78,4 @@ Standardizes a statistic t of length pq with mean mu and covariance Sigma for va
 \end{Desc}
 
 
-Definition at line 23 of file Test\-Statistic.c.
-
-Referenced by C\_\-absstandardize(), C\_\-Node(), and R\_\-splitcategorical().
+Definition at line 23 of file TestStatistic.c.

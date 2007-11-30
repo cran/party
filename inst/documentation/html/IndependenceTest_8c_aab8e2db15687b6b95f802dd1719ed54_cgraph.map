@@ -1,19 +1,8 @@
-base referer
-rect $IndependenceTest_8c.html#e64c8d91a58113cee43788dc1663d645 205,417 354,441
-rect $Convenience_8c.html#8d5dcca68051449e29f3b857d375c4a0 421,79 549,103
-rect $Convenience_8c.html#f39bdd14f23726fdd6bf74888ffbf920 404,211 566,235
-rect $IndependenceTest_8c.html#b02275a67ad210d96fed9864590ee3ef 421,367 549,391
-rect $Classes_8c.html#847e08eb9fce554539de3106ea03e9e2 670,487 761,511
-rect $Classes_8c.html#aa5df349ffd6e5faccab211ac972722b 685,535 746,559
-rect $Utils_8c.html#f1f46cc3e98630497a1ccb21d943fe65 462,517 508,541
-rect $Utils_8c.html#eeb672a71c45ead28b7b354414f2427a 460,565 510,589
-rect $LinearStatistic_8c.html#e2f62abe13ee5b625141b5d4a496d832 632,7 800,31
-rect $LinearStatistic_8c.html#94a0805ea258af79d426c095feee399a 616,55 816,79
-rect $LinearStatistic_8c.html#aefa2a9406bb30b323715e3db41da637 654,103 777,127
-rect $Utils_8c.html#c0d5c2fe971923d7a1b1869dffabddb1 678,151 753,175
-rect $Convenience_8c.html#a1bfc91db235a3a166a39ed1e0a224d7 642,199 789,223
-rect $Convenience_8c.html#26159cd74cebf8ff7073ff588864e9ab 660,247 772,271
-rect $Classes_8c.html#4e2233c1c47758c555f99235f60984f0 670,295 761,319
-rect $Classes_8c.html#b0fc0f7fb33f87cfa58cb8c617d946a1 670,343 761,367
-rect $Classes_8c.html#309a9064403a71aba540cad646ba5854 673,391 758,415
-rect $Classes_8c.html#a17053ff24db1859af60e2d71baf924c 674,439 757,463
+<area shape="rect" href="$IndependenceTest_8c.html#e64c8d91a58113cee43788dc1663d645" title="C_IndependenceTest" alt="" coords="207,157,359,184">
+<area shape="rect" href="$Convenience_8c.html#8d5dcca68051449e29f3b857d375c4a0" title="C_LinStatExpCov" alt="" coords="429,5,565,32">
+<area shape="rect" href="$Convenience_8c.html#f39bdd14f23726fdd6bf74888ffbf920" title="C_LinStatExpCovMPinv" alt="" coords="409,56,585,83">
+<area shape="rect" href="$IndependenceTest_8c.html#b02275a67ad210d96fed9864590ee3ef" title="C_TeststatPvalue" alt="" coords="432,107,563,133">
+<area shape="rect" href="$Classes_8c.html#847e08eb9fce554539de3106ea03e9e2" title="get_teststat" alt="" coords="448,157,547,184">
+<area shape="rect" href="$Classes_8c.html#aa5df349ffd6e5faccab211ac972722b" title="get_tol" alt="" coords="465,208,529,235">
+<area shape="rect" href="$Utils_8c.html#f1f46cc3e98630497a1ccb21d943fe65" title="ncol" alt="" coords="475,259,520,285">
+<area shape="rect" href="$Utils_8c.html#eeb672a71c45ead28b7b354414f2427a" title="nrow" alt="" coords="471,309,524,336">

@@ -1,5 +1,4 @@
-base referer
-rect $S3Classes_8c.html#5917f57e141432fd1e4f58a16b9149aa 206,8 318,32
-rect $S3Classes_8c.html#136b05ff188fc291196cc9d37d52e862 209,56 315,80
-rect $S3Classes_8c.html#b8834f319068d2a248a5d6328cd10dc5 191,104 333,128
-rect $S3Classes_8c.html#14a38e81ed758a64367dc190f0e8229b 202,152 322,176
+<area shape="rect" href="$S3Classes_8c.html#5917f57e141432fd1e4f58a16b9149aa" title="S3get_leftnode" alt="" coords="213,5,333,32">
+<area shape="rect" href="$S3Classes_8c.html#136b05ff188fc291196cc9d37d52e862" title="S3get_nodeID" alt="" coords="217,56,329,83">
+<area shape="rect" href="$S3Classes_8c.html#b8834f319068d2a248a5d6328cd10dc5" title="S3get_nodeterminal" alt="" coords="197,107,349,133">
+<area shape="rect" href="$S3Classes_8c.html#14a38e81ed758a64367dc190f0e8229b" title="S3get_rightnode" alt="" coords="209,157,337,184">

@@ -1,5 +1,10 @@
 
-                CHANGES IN party VERSION 0.9-92 (2007-11-30)
+                CHANGES IN party VERSION 0.9-94 (2008-01-30)
+
+    o   documentation updates
+
+
+                CHANGES IN party VERSION 0.9-93 (2007-11-30)
 
     o   It is now an error to ask for more surrogate variables
         than actually available. Thanks to Henric Nilsson.

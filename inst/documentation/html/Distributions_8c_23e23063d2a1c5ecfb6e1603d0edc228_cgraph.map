@@ -1,3 +1,2 @@
-base referer
-rect $Distributions_8c.html#0b0373aa22dcf8b8ecf6b9c560db9c70 251,8 443,32
-rect $Utils_8c.html#eeb672a71c45ead28b7b354414f2427a 322,56 373,80
+<area shape="rect" href="$Distributions_8c.html#0b0373aa22dcf8b8ecf6b9c560db9c70" title="C_maxabsConditionalPvalue" alt="" coords="260,5,465,32">
+<area shape="rect" href="$Utils_8c.html#eeb672a71c45ead28b7b354414f2427a" title="nrow" alt="" coords="336,56,389,83">

@@ -1,18 +1,8 @@
-base referer
-rect $Convenience_8c.html#a1bfc91db235a3a166a39ed1e0a224d7 183,68 330,92
-rect $Convenience_8c.html#26159cd74cebf8ff7073ff588864e9ab 201,140 313,164
-rect $Classes_8c.html#4e2233c1c47758c555f99235f60984f0 211,188 302,212
-rect $Classes_8c.html#b0fc0f7fb33f87cfa58cb8c617d946a1 211,236 302,260
-rect $Classes_8c.html#309a9064403a71aba540cad646ba5854 214,284 299,308
-rect $Classes_8c.html#a17053ff24db1859af60e2d71baf924c 215,332 298,356
-rect $Classes_8c.html#847e08eb9fce554539de3106ea03e9e2 211,380 302,404
-rect $Classes_8c.html#aa5df349ffd6e5faccab211ac972722b 226,428 287,452
-rect $Distributions_8c.html#0b0373aa22dcf8b8ecf6b9c560db9c70 383,8 575,32
-rect $Distributions_8c.html#a692392488ab88e95a62d2142e9d428c 378,56 581,80
-rect $Classes_8c.html#8bc9164a2291bb7f61c12b79f6bc7c5f 426,104 533,128
-rect $TestStatistic_8c.html#a3a1f48e4bb3aa19d1bac85a53358638 401,152 558,176
-rect $TestStatistic_8c.html#b45eb88ec3b2cc87e8610771cdcf53c4 395,200 563,224
-rect $TestStatistic_8c.html#6939f019d2c7f42ae824776043a8c704 630,128 758,152
-rect $Utils_8c.html#5b306a6923d1155e6ce877cf6fa12a42 662,176 726,200
-rect $Utils_8c.html#a5479e1fef3da77537e06730826379e1 833,104 891,128
-rect $TestStatistic_8c.html#9ecf0700a00ad5fd64601bf718f20439 809,152 915,176
+<area shape="rect" href="$Convenience_8c.html#a1bfc91db235a3a166a39ed1e0a224d7" title="C_ConditionalPvalue" alt="" coords="187,5,341,32">
+<area shape="rect" href="$Convenience_8c.html#26159cd74cebf8ff7073ff588864e9ab" title="C_TestStatistic" alt="" coords="207,56,321,83">
+<area shape="rect" href="$Classes_8c.html#4e2233c1c47758c555f99235f60984f0" title="get_abseps" alt="" coords="217,107,311,133">
+<area shape="rect" href="$Classes_8c.html#b0fc0f7fb33f87cfa58cb8c617d946a1" title="get_maxpts" alt="" coords="215,157,313,184">
+<area shape="rect" href="$Classes_8c.html#309a9064403a71aba540cad646ba5854" title="get_pvalue" alt="" coords="219,208,309,235">
+<area shape="rect" href="$Classes_8c.html#a17053ff24db1859af60e2d71baf924c" title="get_releps" alt="" coords="220,259,308,285">
+<area shape="rect" href="$Classes_8c.html#847e08eb9fce554539de3106ea03e9e2" title="get_teststat" alt="" coords="215,309,313,336">
+<area shape="rect" href="$Classes_8c.html#aa5df349ffd6e5faccab211ac972722b" title="get_tol" alt="" coords="232,360,296,387">

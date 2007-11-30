@@ -5,22 +5,23 @@
 {\tt \#include \char`\"{}party.h\char`\"{}}\par
 
 
-Include dependency graph for Convenience.c:\begin{figure}[H]
+Include dependency graph for Convenience.c:\nopagebreak
+\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=174pt]{Convenience_8c__incl}
+\includegraphics[width=420pt]{Convenience_8c__incl}
 \end{center}
 \end{figure}
 \subsection*{Functions}
 \begin{CompactItemize}
 \item 
-void \hyperlink{Convenience_8c_8d5dcca68051449e29f3b857d375c4a0}{C\_\-Lin\-Stat\-Exp\-Cov} (const double $\ast$x, const int p, const double $\ast$y, const int q, const double $\ast$weights, const int n, const int cexpcovinf, SEXP expcovinf, SEXP ans)
+void \hyperlink{Convenience_8c_8d5dcca68051449e29f3b857d375c4a0}{C\_\-LinStatExpCov} (const double $\ast$x, const int p, const double $\ast$y, const int q, const double $\ast$weights, const int n, const int cexpcovinf, SEXP expcovinf, SEXP ans)
 \item 
-void \hyperlink{Convenience_8c_f39bdd14f23726fdd6bf74888ffbf920}{C\_\-Lin\-Stat\-Exp\-Cov\-MPinv} (SEXP linexpcov, double tol)
+void \hyperlink{Convenience_8c_f39bdd14f23726fdd6bf74888ffbf920}{C\_\-LinStatExpCovMPinv} (SEXP linexpcov, double tol)
 \item 
-double \hyperlink{Convenience_8c_26159cd74cebf8ff7073ff588864e9ab}{C\_\-Test\-Statistic} (const SEXP linexpcov, const int type, const double tol)
+double \hyperlink{Convenience_8c_26159cd74cebf8ff7073ff588864e9ab}{C\_\-TestStatistic} (const SEXP linexpcov, const int type, const double tol)
 \item 
-double \hyperlink{Convenience_8c_a1bfc91db235a3a166a39ed1e0a224d7}{C\_\-Conditional\-Pvalue} (const double tstat, SEXP linexpcov, const int type, double tol, int $\ast$maxpts, double $\ast$releps, double $\ast$abseps)
+double \hyperlink{Convenience_8c_a1bfc91db235a3a166a39ed1e0a224d7}{C\_\-ConditionalPvalue} (const double tstat, SEXP linexpcov, const int type, double tol, int $\ast$maxpts, double $\ast$releps, double $\ast$abseps)
 \item 
 SEXP \hyperlink{Convenience_8c_5253d5c6a188d9b7a1318c91d958047d}{R\_\-get\_\-response} (SEXP learnsample)
 \item 
@@ -33,11 +34,11 @@ Some convenience functions
 
 \begin{Desc}
 \item[Author:]\begin{Desc}
-\item[Author]hothorn \end{Desc}
+\item[Author]\end{Desc}
 \end{Desc}
 \begin{Desc}
 \item[Date:]\begin{Desc}
-\item[Date]2007-02-02 11:22:45 +0100 (Fri, 02 Feb 2007) \end{Desc}
+\item[Date]\end{Desc}
 \end{Desc}
 
 
@@ -47,33 +48,23 @@ Definition in file \hyperlink{Convenience_8c-source}{Convenience.c}.
 \hypertarget{Convenience_8c_a1bfc91db235a3a166a39ed1e0a224d7}{
 \index{Convenience.c@{Convenience.c}!C_ConditionalPvalue@{C\_\-ConditionalPvalue}}
 \index{C_ConditionalPvalue@{C\_\-ConditionalPvalue}!Convenience.c@{Convenience.c}}
-\subsubsection[C\_\-ConditionalPvalue]{\setlength{\rightskip}{0pt plus 5cm}double C\_\-Conditional\-Pvalue (const double {\em tstat}, SEXP {\em linexpcov}, const int {\em type}, double {\em tol}, int $\ast$ {\em maxpts}, double $\ast$ {\em releps}, double $\ast$ {\em abseps})}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double C\_\-ConditionalPvalue (const double {\em tstat}, SEXP {\em linexpcov}, const int {\em type}, double {\em tol}, int $\ast$ {\em maxpts}, double $\ast$ {\em releps}, double $\ast$ {\em abseps})}}
 \label{Convenience_8c_a1bfc91db235a3a166a39ed1e0a224d7}
 
 
 Compute asymptotic conditional P-value \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[{\em tstat}]test statistic \item[{\em linexpcov}]an object of class `Lin\-Stat\-Expect\-Covar' \item[{\em type}]integer, 1 (maxabs) or 2 (quadform) \item[{\em tol}]tolerance \item[{\em maxpts}]argument to C\_\-maxabs\-Conditional\-Pvalue \item[{\em releps}]argument to C\_\-maxabs\-Conditional\-Pvalue \item[{\em abseps}]argument to C\_\-maxabs\-Conditional\-Pvalue \end{description}
+\item[{\em tstat}]test statistic \item[{\em linexpcov}]an object of class `LinStatExpectCovar' \item[{\em type}]integer, 1 (maxabs) or 2 (quadform) \item[{\em tol}]tolerance \item[{\em maxpts}]argument to C\_\-maxabsConditionalPvalue \item[{\em releps}]argument to C\_\-maxabsConditionalPvalue \item[{\em abseps}]argument to C\_\-maxabsConditionalPvalue \end{description}
 \end{Desc}
 
 
 Definition at line 99 of file Convenience.c.
 
-References C\_\-maxabs\-Conditional\-Pvalue(), C\_\-quadform\-Conditional\-Pvalue(), get\_\-dimension(), MAXABS, PL2\_\-covariance\-Sym, PL2\_\-rank\-Sym, and QUADFORM.
-
-Referenced by C\_\-Teststat\-Pvalue().
-
-Here is the call graph for this function:\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=167pt]{Convenience_8c_a1bfc91db235a3a166a39ed1e0a224d7_cgraph}
-\end{center}
-\end{figure}
-\hypertarget{Convenience_8c_8d5dcca68051449e29f3b857d375c4a0}{
+Referenced by C\_\-TeststatPvalue().\hypertarget{Convenience_8c_8d5dcca68051449e29f3b857d375c4a0}{
 \index{Convenience.c@{Convenience.c}!C_LinStatExpCov@{C\_\-LinStatExpCov}}
 \index{C_LinStatExpCov@{C\_\-LinStatExpCov}!Convenience.c@{Convenience.c}}
-\subsubsection[C\_\-LinStatExpCov]{\setlength{\rightskip}{0pt plus 5cm}void C\_\-Lin\-Stat\-Exp\-Cov (const double $\ast$ {\em x}, const int {\em p}, const double $\ast$ {\em y}, const int {\em q}, const double $\ast$ {\em weights}, const int {\em n}, const int {\em cexpcovinf}, SEXP {\em expcovinf}, SEXP {\em ans})}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void C\_\-LinStatExpCov (const double $\ast$ {\em x}, const int {\em p}, const double $\ast$ {\em y}, const int {\em q}, const double $\ast$ {\em weights}, const int {\em n}, const int {\em cexpcovinf}, SEXP {\em expcovinf}, SEXP {\em ans})}}
 \label{Convenience_8c_8d5dcca68051449e29f3b857d375c4a0}
 
 
@@ -81,26 +72,16 @@ Linear statistic of x, y, and weights and its conditional expectation and covari
  \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[{\em x}]values of the transformation \item[{\em p}]dimension of the transformation \item[{\em y}]values of the influence function \item[{\em q}]dimension of the influence function \item[{\em weights}]case weights \item[{\em n}]number of observations \item[{\em cexpcovinf}]logical: recompute exp and cov of the influence fct \item[{\em expcovinf}]an object of class `Expect\-Covar\-Influence' \item[{\em ans}]return value; an object of class `Lin\-Stat\-Expect\-Covar' \end{description}
+\item[{\em x}]values of the transformation \item[{\em p}]dimension of the transformation \item[{\em y}]values of the influence function \item[{\em q}]dimension of the influence function \item[{\em weights}]case weights \item[{\em n}]number of observations \item[{\em cexpcovinf}]logical: recompute exp and cov of the influence fct \item[{\em expcovinf}]an object of class `ExpectCovarInfluence' \item[{\em ans}]return value; an object of class `LinStatExpectCovar' \end{description}
 \end{Desc}
 
 
 Definition at line 26 of file Convenience.c.
 
-References C\_\-Expect\-Covar\-Influence(), C\_\-Expect\-Covar\-Linear\-Statistic(), C\_\-Linear\-Statistic(), and PL2\_\-linearstatistic\-Sym.
-
-Referenced by C\_\-Independence\-Test(), and R\_\-splitcategorical().
-
-Here is the call graph for this function:\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=159pt]{Convenience_8c_8d5dcca68051449e29f3b857d375c4a0_cgraph}
-\end{center}
-\end{figure}
-\hypertarget{Convenience_8c_f39bdd14f23726fdd6bf74888ffbf920}{
+Referenced by C\_\-GlobalTest(), C\_\-IndependenceTest(), and R\_\-splitcategorical().\hypertarget{Convenience_8c_f39bdd14f23726fdd6bf74888ffbf920}{
 \index{Convenience.c@{Convenience.c}!C_LinStatExpCovMPinv@{C\_\-LinStatExpCovMPinv}}
 \index{C_LinStatExpCovMPinv@{C\_\-LinStatExpCovMPinv}!Convenience.c@{Convenience.c}}
-\subsubsection[C\_\-LinStatExpCovMPinv]{\setlength{\rightskip}{0pt plus 5cm}void C\_\-Lin\-Stat\-Exp\-Cov\-MPinv (SEXP {\em linexpcov}, double {\em tol})}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void C\_\-LinStatExpCovMPinv (SEXP {\em linexpcov}, double {\em tol})}}
 \label{Convenience_8c_f39bdd14f23726fdd6bf74888ffbf920}
 
 
@@ -108,87 +89,68 @@ Moore-Penrose inverse of the covariance matrix \par
  \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[{\em linexpcov}]an object of class `Lin\-Stat\-Expect\-Covar\-MPinv' \item[{\em tol}]tolerance \end{description}
+\item[{\em linexpcov}]an object of class `LinStatExpectCovarMPinv' \item[{\em tol}]tolerance \end{description}
 \end{Desc}
 
 
 Definition at line 46 of file Convenience.c.
 
-References C\_\-MPinv(), PL2\_\-covariance\-Sym, and PL2\_\-svdmem\-Sym.
-
-Referenced by C\_\-Independence\-Test().
-
-Here is the call graph for this function:\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=208pt]{Convenience_8c_f39bdd14f23726fdd6bf74888ffbf920_cgraph}
-\end{center}
-\end{figure}
-\hypertarget{Convenience_8c_26159cd74cebf8ff7073ff588864e9ab}{
+Referenced by C\_\-GlobalTest(), and C\_\-IndependenceTest().\hypertarget{Convenience_8c_26159cd74cebf8ff7073ff588864e9ab}{
 \index{Convenience.c@{Convenience.c}!C_TestStatistic@{C\_\-TestStatistic}}
 \index{C_TestStatistic@{C\_\-TestStatistic}!Convenience.c@{Convenience.c}}
-\subsubsection[C\_\-TestStatistic]{\setlength{\rightskip}{0pt plus 5cm}double C\_\-Test\-Statistic (const SEXP {\em linexpcov}, const int {\em type}, const double {\em tol})}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double C\_\-TestStatistic (const SEXP {\em linexpcov}, const int {\em type}, const double {\em tol})}}
 \label{Convenience_8c_26159cd74cebf8ff7073ff588864e9ab}
 
 
 Compute test statistic \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[{\em linexpcov}]an object of class `Lin\-Stat\-Expect\-Covar' \item[{\em type}]integer, 1 (maxabs) or 2 (quadform) \item[{\em tol}]tolerance \end{description}
+\item[{\em linexpcov}]an object of class `LinStatExpectCovar' \item[{\em type}]integer, 1 (maxabs) or 2 (quadform) \item[{\em tol}]tolerance \end{description}
 \end{Desc}
 
 
 Definition at line 59 of file Convenience.c.
 
-References C\_\-maxabs\-Test\-Statistic(), C\_\-quadform\-Test\-Statistic(), get\_\-dimension(), PL2\_\-covariance\-Sym, PL2\_\-expectation\-Sym, PL2\_\-linearstatistic\-Sym, and PL2\_\-MPinv\-Sym.
-
-Referenced by C\_\-Teststat\-Pvalue().
-
-Here is the call graph for this function:\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=267pt]{Convenience_8c_26159cd74cebf8ff7073ff588864e9ab_cgraph}
-\end{center}
-\end{figure}
-\hypertarget{Convenience_8c_5253d5c6a188d9b7a1318c91d958047d}{
+Referenced by C\_\-TeststatPvalue().\hypertarget{Convenience_8c_5253d5c6a188d9b7a1318c91d958047d}{
 \index{Convenience.c@{Convenience.c}!R_get_response@{R\_\-get\_\-response}}
 \index{R_get_response@{R\_\-get\_\-response}!Convenience.c@{Convenience.c}}
-\subsubsection[R\_\-get\_\-response]{\setlength{\rightskip}{0pt plus 5cm}SEXP R\_\-get\_\-response (SEXP {\em learnsample})}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}SEXP R\_\-get\_\-response (SEXP {\em learnsample})}}
 \label{Convenience_8c_5253d5c6a188d9b7a1318c91d958047d}
 
 
 extract the (first) response variable from a learning sample \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[{\em learnsample}]an object of class `Learning\-Sample' \end{description}
+\item[{\em learnsample}]an object of class `LearningSample' \end{description}
 \end{Desc}
 
 
 Definition at line 131 of file Convenience.c.
 
-References PL2\_\-responses\-Sym, and PL2\_\-variables\-Sym.
+References PL2\_\-responsesSym, and PL2\_\-variablesSym.
 
 Referenced by R\_\-set\_\-response().\hypertarget{Convenience_8c_a1e8edb4fa73a26e73bc153c45a867b0}{
 \index{Convenience.c@{Convenience.c}!R_set_response@{R\_\-set\_\-response}}
 \index{R_set_response@{R\_\-set\_\-response}!Convenience.c@{Convenience.c}}
-\subsubsection[R\_\-set\_\-response]{\setlength{\rightskip}{0pt plus 5cm}void R\_\-set\_\-response (SEXP {\em learnsample}, SEXP {\em y})}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void R\_\-set\_\-response (SEXP {\em learnsample}, SEXP {\em y})}}
 \label{Convenience_8c_a1e8edb4fa73a26e73bc153c45a867b0}
 
 
 change the values of the response variable in a learning sample \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[{\em learnsample}]an object of class `Learning\-Sample' \item[{\em y}]a REAL with new values \end{description}
+\item[{\em learnsample}]an object of class `LearningSample' \item[{\em y}]a REAL with new values \end{description}
 \end{Desc}
 
 
 Definition at line 143 of file Convenience.c.
 
-References get\_\-predict\_\-trafo(), get\_\-test\_\-trafo(), PL2\_\-responses\-Sym, PL2\_\-transformations\-Sym, PL2\_\-variables\-Sym, and R\_\-get\_\-response().
+References get\_\-predict\_\-trafo(), get\_\-test\_\-trafo(), PL2\_\-responsesSym, PL2\_\-transformationsSym, PL2\_\-variablesSym, and R\_\-get\_\-response().
 
-Here is the call graph for this function:\begin{figure}[H]
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=127pt]{Convenience_8c_a1e8edb4fa73a26e73bc153c45a867b0_cgraph}
+\includegraphics[width=136pt]{Convenience_8c_a1e8edb4fa73a26e73bc153c45a867b0_cgraph}
 \end{center}
 \end{figure}

@@ -1,7 +1,2 @@
-base referer
-rect $IndependenceTest_8c.html#0de2357bd1d38058c0cfc68c3e743b34 161,92 262,116
-rect $Classes_8c.html#9117d8f57ea1378c725c7299d6cc2923 352,8 442,32
-rect $LinearStatistic_8c.html#e2f62abe13ee5b625141b5d4a496d832 313,56 481,80
-rect $Classes_8c.html#45df17685bc6c95d03fb65b6f6214de0 358,104 436,128
-rect $Classes_8c.html#9ec50a13a7c7e82143cced16ff4f3968 345,152 449,176
-rect $Utils_8c.html#f1f46cc3e98630497a1ccb21d943fe65 374,200 420,224
+<area shape="rect" href="$IndependenceTest_8c.html#0de2357bd1d38058c0cfc68c3e743b34" title="C_GlobalTest" alt="" coords="156,5,257,32">
+<area shape="rect" href="$Classes_8c.html#9117d8f57ea1378c725c7299d6cc2923" title="get_ninputs" alt="" coords="159,56,255,83">

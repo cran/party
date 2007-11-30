@@ -70,7 +70,8 @@ proximity(object)
   ordered responses.
 
   By default, unbiased trees (see Strobl et al., 2007) are used
-  and five inputs are randomly examined for possible splits in each node. 
+  and five inputs are randomly examined for possible splits in each node
+  (\code{mtry} is a hyper parameter and needs to be defined by the user). 
   The defaults can be changed by specifying hyper parameters via the
   \code{\link{cforest_control}} function to the \code{control} argument
   of \code{cforest}.
