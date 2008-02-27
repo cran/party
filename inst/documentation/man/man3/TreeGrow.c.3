@@ -1,4 +1,4 @@
-.TH "TreeGrow.c" 3 "28 Feb 2008" "party" \" -*- nroff -*-
+.TH "TreeGrow.c" 3 "6 Jun 2008" "party" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -25,18 +25,18 @@ The tree growing recursion
 .PP
 \fBAuthor:\fP
 .RS 4
-\fBAuthor\fP.RS 4
-
 .RE
 .PP
+\fBAuthor\fP.RS 4
+hothorn 
 .RE
 .PP
 \fBDate:\fP
 .RS 4
-\fBDate\fP.RS 4
-
 .RE
 .PP
+\fBDate\fP.RS 4
+2007-07-23 09:44:00 +0200 (Mon, 23 Jul 2007) 
 .RE
 .PP
 
@@ -70,6 +70,8 @@ The main tree growing function, handles the recursion.
 
 .PP
 Definition at line 23 of file TreeGrow.c.
+.PP
+References C_Node(), C_splitnode(), C_splitsurrogate(), C_surrogates(), C_TreeGrow(), check_depth(), get_maxsurrogate(), get_nobs(), get_splitctrl(), get_stump(), get_tgctrl(), S3get_leftnode(), S3get_nodeterminal(), S3get_nodeweights(), S3get_rightnode(), and S3set_nodeID().
 .PP
 Referenced by C_TreeGrow(), R_Ensemble(), and R_TreeGrow().
 .SS "SEXP R_TreeGrow (SEXP learnsample, SEXP weights, SEXP fitmem, SEXP controls, SEXP where)"

@@ -1,5 +1,5 @@
 %!PS-Adobe-2.0
-%%Creator: Graphviz version 2.12 (Tue Sep  4 16:56:48 UTC 2007)
+%%Creator: Graphviz version 2.16 (Fri Feb  8 12:52:03 UTC 2008)
 %%For: (hothorn) Torsten Hothorn,,,
 %%Title: G
 %%Pages: (atend)
@@ -88,17 +88,15 @@ cleartomark
 	scalefont setfont
 } def
 
-% draw aligned label in bounding box aligned to current point
-/alignedtext {			% width adj text
+% draw text fitted to its expected width
+/alignedtext {			% width text
 	/text exch def
-	/adj exch def
 	/width exch def
 	gsave
 		width 0 gt {
-			text stringwidth pop adj mul 0 rmoveto
+			[] 0 setdash
+			text stringwidth pop width exch sub text length div 0 text ashow
 		} if
-		[] 0 setdash
-		text show
 	grestore
 } def
 
@@ -181,928 +179,897 @@ def
 %%EndSetup
 setupLatin1
 %%Page: 1 1
-%%PageBoundingBox: 36 36 410 596
+%%PageBoundingBox: 36 36 496 568
 %%PageOrientation: Portrait
-gsave
-36 36 410 596 boxprim clip newpath
 0 0 1 beginpage
+gsave
+36 36 460 532 boxprim clip newpath
 1 1 set_scale 0 rotate 40 40 translate
-0.000 0.000 1.000 graphcolor
-newpath -4 -4 moveto
--4 556 lineto
-370 556 lineto
-370 -4 lineto
-closepath fill
-1 setlinewidth
-0.000 0.000 1.000 graphcolor
-newpath -4 -4 moveto
--4 556 lineto
-370 556 lineto
-370 -4 lineto
-closepath stroke
 % Node1
 gsave
 0.000 0.000 0.749 nodecolor
-newpath 1 246 moveto
-1 267 lineto
-86 267 lineto
-86 246 lineto
+newpath 0 233 moveto
+0 252 lineto
+78 252 lineto
+78 233 lineto
 closepath fill
 1 setlinewidth
 filled
 0.000 0.000 0.000 nodecolor
-newpath 1 246 moveto
-1 267 lineto
-86 267 lineto
-86 246 lineto
+newpath 0 233 moveto
+0 252 lineto
+78 252 lineto
+78 233 lineto
 closepath stroke
 0.000 0.000 0.000 nodecolor
-10.00 /FreeSans.ttf set_font
-43 253 moveto 69 -0.5 (C_get_nodeID) alignedtext
+10.00 /FreeSans set_font
+8.25 238.25 moveto 61.5 (C_get_nodeID) alignedtext
 grestore
 % Node2
 gsave
-[ /Rect [ 128 266 202 286 ]
-  /Border [ 0 0 0 ]
-  /Action << /Subtype /URI /URI ($Predict_8c.html#dcd61d38c7c43d241d09a600b70fe3c5) >>
-  /Subtype /Link
-/ANN pdfmark
-[ /Rect [ 128 266 202 286 ]
+[ /Rect [ 119 252 187 270 ]
   /Border [ 0 0 0 ]
   /Action << /Subtype /URI /URI ($Predict_8c.html#dcd61d38c7c43d241d09a600b70fe3c5) >>
   /Subtype /Link
 /ANN pdfmark
 0.000 0.000 1.000 nodecolor
-newpath 128 265 moveto
-128 286 lineto
-202 286 lineto
-202 265 lineto
+newpath 119 251 moveto
+119 270 lineto
+187 270 lineto
+187 251 lineto
 closepath fill
 1 setlinewidth
 filled
 0.000 0.000 0.000 nodecolor
-newpath 128 265 moveto
-128 286 lineto
-202 286 lineto
-202 265 lineto
+newpath 119 251 moveto
+119 270 lineto
+187 270 lineto
+187 251 lineto
 closepath stroke
 0.000 0.000 0.000 nodecolor
-10.00 /FreeSans.ttf set_font
-165 272 moveto 58 -0.5 (C_get_node) alignedtext
+10.00 /FreeSans set_font
+127.125 256.25 moveto 51.75 (C_get_node) alignedtext
 grestore
 % Node1->Node2
 gsave
 1 setlinewidth
 solid
 0.667 0.776 0.439 edgecolor
-newpath 86 264 moveto
-96 266 108 267 118 269 curveto
+newpath 78 249 moveto
+88 251 99 252 109 254 curveto
 stroke
 0.667 0.776 0.439 edgecolor
-newpath 117.701 272.488 moveto
-128 270 lineto
-118.398 265.522 lineto
+newpath 108.701 257.488 moveto
+119 255 lineto
+109.398 250.522 lineto
 closepath fill
 1 setlinewidth
 solid
 0.667 0.776 0.439 edgecolor
-newpath 117.701 272.488 moveto
-128 270 lineto
-118.398 265.522 lineto
+newpath 108.701 257.488 moveto
+119 255 lineto
+109.398 250.522 lineto
 closepath stroke
 grestore
-% Node18
+% Node19
 gsave
-[ /Rect [ 123 228 207 248 ]
-  /Border [ 0 0 0 ]
-  /Action << /Subtype /URI /URI ($S3Classes_8c.html#136b05ff188fc291196cc9d37d52e862) >>
-  /Subtype /Link
-/ANN pdfmark
-[ /Rect [ 123 228 207 248 ]
+[ /Rect [ 114 216 192 234 ]
   /Border [ 0 0 0 ]
   /Action << /Subtype /URI /URI ($S3Classes_8c.html#136b05ff188fc291196cc9d37d52e862) >>
   /Subtype /Link
 /ANN pdfmark
 0.000 0.000 1.000 nodecolor
-newpath 123 227 moveto
-123 248 lineto
-208 248 lineto
-208 227 lineto
+newpath 114 215 moveto
+114 234 lineto
+192 234 lineto
+192 215 lineto
 closepath fill
 1 setlinewidth
 filled
 0.000 0.000 0.000 nodecolor
-newpath 123 227 moveto
-123 248 lineto
-208 248 lineto
-208 227 lineto
+newpath 114 215 moveto
+114 234 lineto
+192 234 lineto
+192 215 lineto
 closepath stroke
 0.000 0.000 0.000 nodecolor
-10.00 /FreeSans.ttf set_font
-165 234 moveto 69 -0.5 (S3get_nodeID) alignedtext
+10.00 /FreeSans set_font
+122.25 220.25 moveto 61.5 (S3get_nodeID) alignedtext
 grestore
-% Node1->Node18
+% Node1->Node19
 gsave
 1 setlinewidth
 solid
 0.667 0.776 0.439 edgecolor
-newpath 86 250 moveto
-95 249 104 247 113 246 curveto
+newpath 78 237 moveto
+87 236 95 234 104 233 curveto
 stroke
 0.667 0.776 0.439 edgecolor
-newpath 113.398 249.478 moveto
-123 245 lineto
-112.701 242.512 lineto
+newpath 104.881 236.393 moveto
+114 231 lineto
+103.508 229.529 lineto
 closepath fill
 1 setlinewidth
 solid
 0.667 0.776 0.439 edgecolor
-newpath 113.398 249.478 moveto
-123 245 lineto
-112.701 242.512 lineto
+newpath 104.881 236.393 moveto
+114 231 lineto
+103.508 229.529 lineto
 closepath stroke
 grestore
 % Node3
 gsave
-[ /Rect [ 273 532 337 552 ]
-  /Border [ 0 0 0 ]
-  /Action << /Subtype /URI /URI ($Utils_8c.html#ff0eae9aa0175cd8fe73324707418ce0) >>
-  /Subtype /Link
-/ANN pdfmark
-[ /Rect [ 273 532 337 552 ]
+[ /Rect [ 253 506 315 524 ]
   /Border [ 0 0 0 ]
   /Action << /Subtype /URI /URI ($Utils_8c.html#ff0eae9aa0175cd8fe73324707418ce0) >>
   /Subtype /Link
 /ANN pdfmark
 0.000 0.000 1.000 nodecolor
-newpath 273 531 moveto
-273 552 lineto
-337 552 lineto
-337 531 lineto
+newpath 253 505 moveto
+253 524 lineto
+315 524 lineto
+315 505 lineto
 closepath fill
 1 setlinewidth
 filled
 0.000 0.000 0.000 nodecolor
-newpath 273 531 moveto
-273 552 lineto
-337 552 lineto
-337 531 lineto
+newpath 253 505 moveto
+253 524 lineto
+315 524 lineto
+315 505 lineto
 closepath stroke
 0.000 0.000 0.000 nodecolor
-10.00 /FreeSans.ttf set_font
-305 538 moveto 48 -0.5 (C_i_in_set) alignedtext
+10.00 /FreeSans set_font
+261.125 510.25 moveto 45.75 (C_i_in_set) alignedtext
 grestore
 % Node2->Node3
 gsave
 1 setlinewidth
 solid
 0.667 0.776 0.439 edgecolor
-newpath 167 286 moveto
-175 328 209 487 244 523 curveto
-249 529 256 532 263 535 curveto
+newpath 155 270 moveto
+163 309 195 463 228 497 curveto
+232 501 238 504 243 507 curveto
 stroke
 0.667 0.776 0.439 edgecolor
-newpath 262.416 538.479 moveto
-273 538 lineto
-264.427 531.774 lineto
+newpath 242.416 510.479 moveto
+253 510 lineto
+244.427 503.774 lineto
 closepath fill
 1 setlinewidth
 solid
 0.667 0.776 0.439 edgecolor
-newpath 262.416 538.479 moveto
-273 538 lineto
-264.427 531.774 lineto
-closepath stroke
-grestore
-% Node4
-gsave
-[ /Rect [ 266 494 344 514 ]
-  /Border [ 0 0 0 ]
-  /Action << /Subtype /URI /URI ($Classes_8c.html#fd6cfc2dd239b138d91e92a8ce9353f8) >>
-  /Subtype /Link
-/ANN pdfmark
-[ /Rect [ 266 494 344 514 ]
-  /Border [ 0 0 0 ]
-  /Action << /Subtype /URI /URI ($Classes_8c.html#fd6cfc2dd239b138d91e92a8ce9353f8) >>
-  /Subtype /Link
-/ANN pdfmark
-0.000 0.000 1.000 nodecolor
-newpath 266 493 moveto
-266 514 lineto
-344 514 lineto
-344 493 lineto
-closepath fill
-1 setlinewidth
-filled
-0.000 0.000 0.000 nodecolor
-newpath 266 493 moveto
-266 514 lineto
-344 514 lineto
-344 493 lineto
-closepath stroke
-0.000 0.000 0.000 nodecolor
-10.00 /FreeSans.ttf set_font
-305 500 moveto 62 -0.5 (get_missings) alignedtext
-grestore
-% Node2->Node4
-gsave
-1 setlinewidth
-solid
-0.667 0.776 0.439 edgecolor
-newpath 166 286 moveto
-169 320 184 427 244 485 curveto
-248 489 252 491 256 494 curveto
-stroke
-0.667 0.776 0.439 edgecolor
-newpath 255.416 497.479 moveto
-266 497 lineto
-257.427 490.774 lineto
-closepath fill
-1 setlinewidth
-solid
-0.667 0.776 0.439 edgecolor
-newpath 255.416 497.479 moveto
-266 497 lineto
-257.427 490.774 lineto
+newpath 242.416 510.479 moveto
+253 510 lineto
+244.427 503.774 lineto
 closepath stroke
 grestore
 % Node5
 gsave
-[ /Rect [ 268 456 342 476 ]
+[ /Rect [ 247 470 321 488 ]
   /Border [ 0 0 0 ]
-  /Action << /Subtype /URI /URI ($Classes_8c.html#0f91efa916e815ec7d90c6f9516f18e4) >>
-  /Subtype /Link
-/ANN pdfmark
-[ /Rect [ 268 456 342 476 ]
-  /Border [ 0 0 0 ]
-  /Action << /Subtype /URI /URI ($Classes_8c.html#0f91efa916e815ec7d90c6f9516f18e4) >>
+  /Action << /Subtype /URI /URI ($Classes_8c.html#fd6cfc2dd239b138d91e92a8ce9353f8) >>
   /Subtype /Link
 /ANN pdfmark
 0.000 0.000 1.000 nodecolor
-newpath 268 455 moveto
-268 476 lineto
-343 476 lineto
-343 455 lineto
+newpath 247 469 moveto
+247 488 lineto
+321 488 lineto
+321 469 lineto
 closepath fill
 1 setlinewidth
 filled
 0.000 0.000 0.000 nodecolor
-newpath 268 455 moveto
-268 476 lineto
-343 476 lineto
-343 455 lineto
+newpath 247 469 moveto
+247 488 lineto
+321 488 lineto
+321 469 lineto
 closepath stroke
 0.000 0.000 0.000 nodecolor
-10.00 /FreeSans.ttf set_font
-305 462 moveto 59 -0.5 (get_variable) alignedtext
+10.00 /FreeSans set_font
+255.125 474.25 moveto 57.75 (get_missings) alignedtext
 grestore
 % Node2->Node5
 gsave
 1 setlinewidth
 solid
 0.667 0.776 0.439 edgecolor
-newpath 167 286 moveto
-173 315 193 401 244 447 curveto
-248 451 253 454 258 456 curveto
+newpath 154 270 moveto
+158 300 174 400 228 456 curveto
+231 459 235 462 239 464 curveto
 stroke
 0.667 0.776 0.439 edgecolor
-newpath 257.416 459.479 moveto
-268 459 lineto
-259.427 452.774 lineto
+newpath 237.559 467.203 moveto
+248 469 lineto
+240.958 461.084 lineto
 closepath fill
 1 setlinewidth
 solid
 0.667 0.776 0.439 edgecolor
-newpath 257.416 459.479 moveto
-268 459 lineto
-259.427 452.774 lineto
+newpath 237.559 467.203 moveto
+248 469 lineto
+240.958 461.084 lineto
 closepath stroke
 grestore
 % Node6
 gsave
-[ /Rect [ 266 418 344 438 ]
-  /Border [ 0 0 0 ]
-  /Action << /Subtype /URI /URI ($Classes_8c.html#50548fbe6024d9a7118db3fce5085fd9) >>
-  /Subtype /Link
-/ANN pdfmark
-[ /Rect [ 266 418 344 438 ]
+[ /Rect [ 376 452 452 470 ]
   /Border [ 0 0 0 ]
   /Action << /Subtype /URI /URI ($Classes_8c.html#50548fbe6024d9a7118db3fce5085fd9) >>
   /Subtype /Link
 /ANN pdfmark
 0.000 0.000 1.000 nodecolor
-newpath 266 417 moveto
-266 438 lineto
-345 438 lineto
-345 417 lineto
+newpath 376 451 moveto
+376 470 lineto
+452 470 lineto
+452 451 lineto
 closepath fill
 1 setlinewidth
 filled
 0.000 0.000 0.000 nodecolor
-newpath 266 417 moveto
-266 438 lineto
-345 438 lineto
-345 417 lineto
+newpath 376 451 moveto
+376 470 lineto
+452 470 lineto
+452 451 lineto
 closepath stroke
 0.000 0.000 0.000 nodecolor
-10.00 /FreeSans.ttf set_font
-305 424 moveto 63 -0.5 (has_missings) alignedtext
+10.00 /FreeSans set_font
+384 456.25 moveto 60 (has_missings) alignedtext
 grestore
 % Node2->Node6
 gsave
 1 setlinewidth
 solid
 0.667 0.776 0.439 edgecolor
-newpath 168 286 moveto
-177 311 202 375 244 409 curveto
-248 412 252 414 256 416 curveto
+newpath 154 270 moveto
+159 298 177 382 228 423 curveto
+249 440 318 450 366 456 curveto
 stroke
 0.667 0.776 0.439 edgecolor
-newpath 255.415 419.536 moveto
-266 420 lineto
-258.015 413.036 lineto
+newpath 365.701 459.488 moveto
+376 457 lineto
+366.398 452.522 lineto
 closepath fill
 1 setlinewidth
 solid
 0.667 0.776 0.439 edgecolor
-newpath 255.415 419.536 moveto
-266 420 lineto
-258.015 413.036 lineto
+newpath 365.701 459.488 moveto
+376 457 lineto
+366.398 452.522 lineto
 closepath stroke
 grestore
 % Node7
 gsave
-[ /Rect [ 260 380 350 400 ]
+[ /Rect [ 250 396 318 414 ]
   /Border [ 0 0 0 ]
-  /Action << /Subtype /URI /URI ($S3Classes_8c.html#5917f57e141432fd1e4f58a16b9149aa) >>
-  /Subtype /Link
-/ANN pdfmark
-[ /Rect [ 260 380 350 400 ]
-  /Border [ 0 0 0 ]
-  /Action << /Subtype /URI /URI ($S3Classes_8c.html#5917f57e141432fd1e4f58a16b9149aa) >>
+  /Action << /Subtype /URI /URI ($Classes_8c.html#0f91efa916e815ec7d90c6f9516f18e4) >>
   /Subtype /Link
 /ANN pdfmark
 0.000 0.000 1.000 nodecolor
-newpath 260 379 moveto
-260 400 lineto
-350 400 lineto
-350 379 lineto
+newpath 250 395 moveto
+250 414 lineto
+319 414 lineto
+319 395 lineto
 closepath fill
 1 setlinewidth
 filled
 0.000 0.000 0.000 nodecolor
-newpath 260 379 moveto
-260 400 lineto
-350 400 lineto
-350 379 lineto
+newpath 250 395 moveto
+250 414 lineto
+319 414 lineto
+319 395 lineto
 closepath stroke
 0.000 0.000 0.000 nodecolor
-10.00 /FreeSans.ttf set_font
-305 386 moveto 74 -0.5 (S3get_leftnode) alignedtext
+10.00 /FreeSans set_font
+257.75 400.25 moveto 52.5 (get_variable) alignedtext
 grestore
 % Node2->Node7
 gsave
 1 setlinewidth
 solid
 0.667 0.776 0.439 edgecolor
-newpath 171 286 moveto
-182 306 210 348 244 371 curveto
-246 372 248 374 251 375 curveto
+newpath 156 270 moveto
+164 293 188 354 228 387 curveto
+232 390 236 392 240 394 curveto
 stroke
 0.667 0.776 0.439 edgecolor
-newpath 249.44 378.137 moveto
-260 379 lineto
-252.283 371.74 lineto
+newpath 239.415 397.536 moveto
+250 398 lineto
+242.015 391.036 lineto
 closepath fill
 1 setlinewidth
 solid
 0.667 0.776 0.439 edgecolor
-newpath 249.44 378.137 moveto
-260 379 lineto
-252.283 371.74 lineto
+newpath 239.415 397.536 moveto
+250 398 lineto
+242.015 391.036 lineto
 closepath stroke
 grestore
 % Node8
 gsave
-[ /Rect [ 250 342 360 362 ]
+[ /Rect [ 244 360 324 378 ]
   /Border [ 0 0 0 ]
-  /Action << /Subtype /URI /URI ($S3Classes_8c.html#e5d3e3ccef4e5fbfe1b6cf683b4d2999) >>
-  /Subtype /Link
-/ANN pdfmark
-[ /Rect [ 250 342 360 362 ]
-  /Border [ 0 0 0 ]
-  /Action << /Subtype /URI /URI ($S3Classes_8c.html#e5d3e3ccef4e5fbfe1b6cf683b4d2999) >>
+  /Action << /Subtype /URI /URI ($S3Classes_8c.html#5917f57e141432fd1e4f58a16b9149aa) >>
   /Subtype /Link
 /ANN pdfmark
 0.000 0.000 1.000 nodecolor
-newpath 250 341 moveto
-250 362 lineto
-361 362 lineto
-361 341 lineto
+newpath 244 359 moveto
+244 378 lineto
+325 378 lineto
+325 359 lineto
 closepath fill
 1 setlinewidth
 filled
 0.000 0.000 0.000 nodecolor
-newpath 250 341 moveto
-250 362 lineto
-361 362 lineto
-361 341 lineto
+newpath 244 359 moveto
+244 378 lineto
+325 378 lineto
+325 359 lineto
 closepath stroke
 0.000 0.000 0.000 nodecolor
-10.00 /FreeSans.ttf set_font
-305 348 moveto 95 -0.5 (S3get_maxcriterion) alignedtext
+10.00 /FreeSans set_font
+251.375 364.25 moveto 65.25 (S3get_leftnode) alignedtext
 grestore
 % Node2->Node8
 gsave
 1 setlinewidth
 solid
 0.667 0.776 0.439 edgecolor
-newpath 177 286 moveto
-192 298 218 320 244 333 curveto
-247 335 251 336 254 338 curveto
+newpath 158 270 moveto
+169 288 195 328 228 351 curveto
+230 352 232 354 235 355 curveto
 stroke
 0.667 0.776 0.439 edgecolor
-newpath 253.416 341.479 moveto
-264 341 lineto
-255.427 334.774 lineto
+newpath 233.44 358.137 moveto
+244 359 lineto
+236.283 351.74 lineto
 closepath fill
 1 setlinewidth
 solid
 0.667 0.776 0.439 edgecolor
-newpath 253.416 341.479 moveto
-264 341 lineto
-255.427 334.774 lineto
+newpath 233.44 358.137 moveto
+244 359 lineto
+236.283 351.74 lineto
 closepath stroke
 grestore
 % Node9
 gsave
-[ /Rect [ 248 304 362 324 ]
+[ /Rect [ 234 324 334 342 ]
   /Border [ 0 0 0 ]
-  /Action << /Subtype /URI /URI ($S3Classes_8c.html#b8834f319068d2a248a5d6328cd10dc5) >>
-  /Subtype /Link
-/ANN pdfmark
-[ /Rect [ 248 304 362 324 ]
-  /Border [ 0 0 0 ]
-  /Action << /Subtype /URI /URI ($S3Classes_8c.html#b8834f319068d2a248a5d6328cd10dc5) >>
+  /Action << /Subtype /URI /URI ($S3Classes_8c.html#e5d3e3ccef4e5fbfe1b6cf683b4d2999) >>
   /Subtype /Link
 /ANN pdfmark
 0.000 0.000 1.000 nodecolor
-newpath 248 303 moveto
-248 324 lineto
-362 324 lineto
-362 303 lineto
+newpath 234 323 moveto
+234 342 lineto
+334 342 lineto
+334 323 lineto
 closepath fill
 1 setlinewidth
 filled
 0.000 0.000 0.000 nodecolor
-newpath 248 303 moveto
-248 324 lineto
-362 324 lineto
-362 303 lineto
+newpath 234 323 moveto
+234 342 lineto
+334 342 lineto
+334 323 lineto
 closepath stroke
 0.000 0.000 0.000 nodecolor
-10.00 /FreeSans.ttf set_font
-305 310 moveto 98 -0.5 (S3get_nodeterminal) alignedtext
+10.00 /FreeSans set_font
+242 328.25 moveto 84 (S3get_maxcriterion) alignedtext
 grestore
 % Node2->Node9
 gsave
 1 setlinewidth
 solid
 0.667 0.776 0.439 edgecolor
-newpath 202 286 moveto
-219 290 238 296 255 300 curveto
+newpath 164 270 moveto
+178 282 204 302 228 315 curveto
+231 317 235 318 238 320 curveto
 stroke
 0.667 0.776 0.439 edgecolor
-newpath 254.416 303.479 moveto
-265 303 lineto
-256.427 296.774 lineto
+newpath 237.416 323.479 moveto
+248 323 lineto
+239.427 316.774 lineto
 closepath fill
 1 setlinewidth
 solid
 0.667 0.776 0.439 edgecolor
-newpath 254.416 303.479 moveto
-265 303 lineto
-256.427 296.774 lineto
+newpath 237.416 323.479 moveto
+248 323 lineto
+239.427 316.774 lineto
 closepath stroke
 grestore
 % Node10
 gsave
-[ /Rect [ 252 266 358 286 ]
+[ /Rect [ 233 288 335 306 ]
   /Border [ 0 0 0 ]
-  /Action << /Subtype /URI /URI ($S3Classes_8c.html#220373298b30f12b22f82cce3c996a37) >>
-  /Subtype /Link
-/ANN pdfmark
-[ /Rect [ 252 266 358 286 ]
-  /Border [ 0 0 0 ]
-  /Action << /Subtype /URI /URI ($S3Classes_8c.html#220373298b30f12b22f82cce3c996a37) >>
+  /Action << /Subtype /URI /URI ($S3Classes_8c.html#b8834f319068d2a248a5d6328cd10dc5) >>
   /Subtype /Link
 /ANN pdfmark
 0.000 0.000 1.000 nodecolor
-newpath 252 265 moveto
-252 286 lineto
-359 286 lineto
-359 265 lineto
+newpath 233 287 moveto
+233 306 lineto
+335 306 lineto
+335 287 lineto
 closepath fill
 1 setlinewidth
 filled
 0.000 0.000 0.000 nodecolor
-newpath 252 265 moveto
-252 286 lineto
-359 286 lineto
-359 265 lineto
+newpath 233 287 moveto
+233 306 lineto
+335 306 lineto
+335 287 lineto
 closepath stroke
 0.000 0.000 0.000 nodecolor
-10.00 /FreeSans.ttf set_font
-305 272 moveto 91 -0.5 (S3get_primarysplit) alignedtext
+10.00 /FreeSans set_font
+240.875 292.25 moveto 86.25 (S3get_nodeterminal) alignedtext
 grestore
 % Node2->Node10
 gsave
 1 setlinewidth
 solid
 0.667 0.776 0.439 edgecolor
-newpath 202 276 moveto
-214 276 228 276 242 276 curveto
+newpath 186 270 moveto
+202 274 220 280 237 284 curveto
 stroke
 0.667 0.776 0.439 edgecolor
-newpath 242 279.5 moveto
-252 276 lineto
-242 272.5 lineto
+newpath 236.416 287.479 moveto
+247 287 lineto
+238.427 280.774 lineto
 closepath fill
 1 setlinewidth
 solid
 0.667 0.776 0.439 edgecolor
-newpath 242 279.5 moveto
-252 276 lineto
-242 272.5 lineto
+newpath 236.416 287.479 moveto
+247 287 lineto
+238.427 280.774 lineto
 closepath stroke
 grestore
 % Node11
 gsave
-[ /Rect [ 257 228 353 248 ]
+[ /Rect [ 236 252 332 270 ]
   /Border [ 0 0 0 ]
-  /Action << /Subtype /URI /URI ($S3Classes_8c.html#14a38e81ed758a64367dc190f0e8229b) >>
-  /Subtype /Link
-/ANN pdfmark
-[ /Rect [ 257 228 353 248 ]
-  /Border [ 0 0 0 ]
-  /Action << /Subtype /URI /URI ($S3Classes_8c.html#14a38e81ed758a64367dc190f0e8229b) >>
+  /Action << /Subtype /URI /URI ($S3Classes_8c.html#220373298b30f12b22f82cce3c996a37) >>
   /Subtype /Link
 /ANN pdfmark
 0.000 0.000 1.000 nodecolor
-newpath 257 227 moveto
-257 248 lineto
-353 248 lineto
-353 227 lineto
+newpath 236 251 moveto
+236 270 lineto
+333 270 lineto
+333 251 lineto
 closepath fill
 1 setlinewidth
 filled
 0.000 0.000 0.000 nodecolor
-newpath 257 227 moveto
-257 248 lineto
-353 248 lineto
-353 227 lineto
+newpath 236 251 moveto
+236 270 lineto
+333 270 lineto
+333 251 lineto
 closepath stroke
 0.000 0.000 0.000 nodecolor
-10.00 /FreeSans.ttf set_font
-305 234 moveto 80 -0.5 (S3get_rightnode) alignedtext
+10.00 /FreeSans set_font
+243.5 256.25 moveto 81 (S3get_primarysplit) alignedtext
 grestore
 % Node2->Node11
 gsave
 1 setlinewidth
 solid
 0.667 0.776 0.439 edgecolor
-newpath 202 266 moveto
-220 262 240 256 259 251 curveto
+newpath 187 261 moveto
+199 261 213 261 226 261 curveto
 stroke
 0.667 0.776 0.439 edgecolor
-newpath 260.427 254.226 moveto
-269 248 lineto
-258.416 247.521 lineto
+newpath 226 264.5 moveto
+236 261 lineto
+226 257.5 lineto
 closepath fill
 1 setlinewidth
 solid
 0.667 0.776 0.439 edgecolor
-newpath 260.427 254.226 moveto
-269 248 lineto
-258.416 247.521 lineto
+newpath 226 264.5 moveto
+236 261 lineto
+226 257.5 lineto
 closepath stroke
 grestore
 % Node12
 gsave
-[ /Rect [ 259 190 351 210 ]
+[ /Rect [ 241 216 327 234 ]
   /Border [ 0 0 0 ]
-  /Action << /Subtype /URI /URI ($S3Classes_8c.html#acf87d496fd3b07bafd171c92404212a) >>
-  /Subtype /Link
-/ANN pdfmark
-[ /Rect [ 259 190 351 210 ]
-  /Border [ 0 0 0 ]
-  /Action << /Subtype /URI /URI ($S3Classes_8c.html#acf87d496fd3b07bafd171c92404212a) >>
+  /Action << /Subtype /URI /URI ($S3Classes_8c.html#14a38e81ed758a64367dc190f0e8229b) >>
   /Subtype /Link
 /ANN pdfmark
 0.000 0.000 1.000 nodecolor
-newpath 259 189 moveto
-259 210 lineto
-352 210 lineto
-352 189 lineto
+newpath 241 215 moveto
+241 234 lineto
+328 234 lineto
+328 215 lineto
 closepath fill
 1 setlinewidth
 filled
 0.000 0.000 0.000 nodecolor
-newpath 259 189 moveto
-259 210 lineto
-352 210 lineto
-352 189 lineto
+newpath 241 215 moveto
+241 234 lineto
+328 234 lineto
+328 215 lineto
 closepath stroke
 0.000 0.000 0.000 nodecolor
-10.00 /FreeSans.ttf set_font
-305 196 moveto 77 -0.5 (S3get_splitpoint) alignedtext
+10.00 /FreeSans set_font
+248.75 220.25 moveto 70.5 (S3get_rightnode) alignedtext
 grestore
 % Node2->Node12
 gsave
 1 setlinewidth
 solid
 0.667 0.776 0.439 edgecolor
-newpath 195 265 moveto
-199 263 204 260 208 257 curveto
-228 243 225 231 244 219 curveto
-247 217 250 215 253 214 curveto
+newpath 187 252 moveto
+204 247 224 242 241 237 curveto
 stroke
 0.667 0.776 0.439 edgecolor
-newpath 254.283 217.26 moveto
-262 210 lineto
-251.44 210.863 lineto
+newpath 242.427 240.226 moveto
+251 234 lineto
+240.416 233.521 lineto
 closepath fill
 1 setlinewidth
 solid
 0.667 0.776 0.439 edgecolor
-newpath 254.283 217.26 moveto
-262 210 lineto
-251.44 210.863 lineto
+newpath 242.427 240.226 moveto
+251 234 lineto
+240.416 233.521 lineto
 closepath stroke
 grestore
 % Node13
 gsave
-[ /Rect [ 251 152 359 172 ]
+[ /Rect [ 241 180 327 198 ]
   /Border [ 0 0 0 ]
-  /Action << /Subtype /URI /URI ($S3Classes_8c.html#d5b760cf2b547dc128273948f78b7a3c) >>
-  /Subtype /Link
-/ANN pdfmark
-[ /Rect [ 251 152 359 172 ]
-  /Border [ 0 0 0 ]
-  /Action << /Subtype /URI /URI ($S3Classes_8c.html#d5b760cf2b547dc128273948f78b7a3c) >>
+  /Action << /Subtype /URI /URI ($S3Classes_8c.html#acf87d496fd3b07bafd171c92404212a) >>
   /Subtype /Link
 /ANN pdfmark
 0.000 0.000 1.000 nodecolor
-newpath 251 151 moveto
-251 172 lineto
-359 172 lineto
-359 151 lineto
+newpath 241 179 moveto
+241 198 lineto
+327 198 lineto
+327 179 lineto
 closepath fill
 1 setlinewidth
 filled
 0.000 0.000 0.000 nodecolor
-newpath 251 151 moveto
-251 172 lineto
-359 172 lineto
-359 151 lineto
+newpath 241 179 moveto
+241 198 lineto
+327 198 lineto
+327 179 lineto
 closepath stroke
 0.000 0.000 0.000 nodecolor
-10.00 /FreeSans.ttf set_font
-305 158 moveto 92 -0.5 (S3get_sumweights) alignedtext
+10.00 /FreeSans set_font
+249.125 184.25 moveto 69.75 (S3get_splitpoint) alignedtext
 grestore
 % Node2->Node13
 gsave
 1 setlinewidth
 solid
 0.667 0.776 0.439 edgecolor
-newpath 197 265 moveto
-201 263 205 260 208 257 curveto
-235 230 216 205 244 181 curveto
-245 180 247 178 249 177 curveto
+newpath 178 251 moveto
+183 248 188 246 192 243 curveto
+211 230 209 218 228 207 curveto
+231 205 234 203 237 202 curveto
 stroke
 0.667 0.776 0.439 edgecolor
-newpath 250.958 179.916 moveto
-258 172 lineto
-247.559 173.797 lineto
+newpath 239.015 204.964 moveto
+247 198 lineto
+236.415 198.464 lineto
 closepath fill
 1 setlinewidth
 solid
 0.667 0.776 0.439 edgecolor
-newpath 250.958 179.916 moveto
-258 172 lineto
-247.559 173.797 lineto
+newpath 239.015 204.964 moveto
+247 198 lineto
+236.415 198.464 lineto
 closepath stroke
 grestore
 % Node14
 gsave
-[ /Rect [ 245 114 365 134 ]
+[ /Rect [ 235 144 333 162 ]
   /Border [ 0 0 0 ]
-  /Action << /Subtype /URI /URI ($S3Classes_8c.html#f270d1d02bf86a4c5cdc8959045c3567) >>
-  /Subtype /Link
-/ANN pdfmark
-[ /Rect [ 245 114 365 134 ]
-  /Border [ 0 0 0 ]
-  /Action << /Subtype /URI /URI ($S3Classes_8c.html#f270d1d02bf86a4c5cdc8959045c3567) >>
+  /Action << /Subtype /URI /URI ($S3Classes_8c.html#d5b760cf2b547dc128273948f78b7a3c) >>
   /Subtype /Link
 /ANN pdfmark
 0.000 0.000 1.000 nodecolor
-newpath 245 113 moveto
-245 134 lineto
-366 134 lineto
-366 113 lineto
+newpath 235 143 moveto
+235 162 lineto
+334 162 lineto
+334 143 lineto
 closepath fill
 1 setlinewidth
 filled
 0.000 0.000 0.000 nodecolor
-newpath 245 113 moveto
-245 134 lineto
-366 134 lineto
-366 113 lineto
+newpath 235 143 moveto
+235 162 lineto
+334 162 lineto
+334 143 lineto
 closepath stroke
 0.000 0.000 0.000 nodecolor
-10.00 /FreeSans.ttf set_font
-305 120 moveto 105 -0.5 (S3get_surrogatesplits) alignedtext
+10.00 /FreeSans set_font
+242.75 148.25 moveto 82.5 (S3get_sumweights) alignedtext
 grestore
 % Node2->Node14
 gsave
 1 setlinewidth
 solid
 0.667 0.776 0.439 edgecolor
-newpath 198 265 moveto
-202 263 205 260 208 257 curveto
-244 217 207 180 244 143 curveto
-245 142 246 141 247 140 curveto
+newpath 181 251 moveto
+185 249 189 246 192 243 curveto
+218 218 201 194 228 171 curveto
+229 170 231 168 233 167 curveto
 stroke
 0.667 0.776 0.439 edgecolor
-newpath 249.621 142.459 moveto
-256 134 lineto
-245.738 136.635 lineto
+newpath 234.958 169.916 moveto
+242 162 lineto
+231.559 163.797 lineto
 closepath fill
 1 setlinewidth
 solid
 0.667 0.776 0.439 edgecolor
-newpath 249.621 142.459 moveto
-256 134 lineto
-245.738 136.635 lineto
+newpath 234.958 169.916 moveto
+242 162 lineto
+231.559 163.797 lineto
 closepath stroke
 grestore
 % Node15
 gsave
-[ /Rect [ 267 76 343 96 ]
+[ /Rect [ 229 108 339 126 ]
   /Border [ 0 0 0 ]
-  /Action << /Subtype /URI /URI ($S3Classes_8c.html#67d50b82dea660a930cf7427be899efb) >>
-  /Subtype /Link
-/ANN pdfmark
-[ /Rect [ 267 76 343 96 ]
-  /Border [ 0 0 0 ]
-  /Action << /Subtype /URI /URI ($S3Classes_8c.html#67d50b82dea660a930cf7427be899efb) >>
+  /Action << /Subtype /URI /URI ($S3Classes_8c.html#f270d1d02bf86a4c5cdc8959045c3567) >>
   /Subtype /Link
 /ANN pdfmark
 0.000 0.000 1.000 nodecolor
-newpath 267 75 moveto
-267 96 lineto
-343 96 lineto
-343 75 lineto
+newpath 229 107 moveto
+229 126 lineto
+340 126 lineto
+340 107 lineto
 closepath fill
 1 setlinewidth
 filled
 0.000 0.000 0.000 nodecolor
-newpath 267 75 moveto
-267 96 lineto
-343 96 lineto
-343 75 lineto
+newpath 229 107 moveto
+229 126 lineto
+340 126 lineto
+340 107 lineto
 closepath stroke
 0.000 0.000 0.000 nodecolor
-10.00 /FreeSans.ttf set_font
-305 82 moveto 60 -0.5 (S3get_toleft) alignedtext
+10.00 /FreeSans set_font
+236.75 112.25 moveto 94.5 (S3get_surrogatesplits) alignedtext
 grestore
 % Node2->Node15
 gsave
 1 setlinewidth
 solid
 0.667 0.776 0.439 edgecolor
-newpath 199 265 moveto
-202 263 205 260 208 257 curveto
-253 203 197 155 244 105 curveto
-248 101 253 98 258 95 curveto
+newpath 182 251 moveto
+186 249 189 246 192 243 curveto
+226 205 193 170 228 135 curveto
+229 134 231 132 232 131 curveto
 stroke
 0.667 0.776 0.439 edgecolor
-newpath 259.283 98.2598 moveto
-267 91 lineto
-256.44 91.8631 lineto
+newpath 233.958 133.916 moveto
+241 126 lineto
+230.559 127.797 lineto
 closepath fill
 1 setlinewidth
 solid
 0.667 0.776 0.439 edgecolor
-newpath 259.283 98.2598 moveto
-267 91 lineto
-256.44 91.8631 lineto
+newpath 233.958 133.916 moveto
+241 126 lineto
+230.559 127.797 lineto
 closepath stroke
 grestore
 % Node16
 gsave
-[ /Rect [ 256 38 354 58 ]
+[ /Rect [ 250 72 318 90 ]
   /Border [ 0 0 0 ]
-  /Action << /Subtype /URI /URI ($S3Classes_8c.html#583f9148949f93b5fe894feb6567ca0d) >>
-  /Subtype /Link
-/ANN pdfmark
-[ /Rect [ 256 38 354 58 ]
-  /Border [ 0 0 0 ]
-  /Action << /Subtype /URI /URI ($S3Classes_8c.html#583f9148949f93b5fe894feb6567ca0d) >>
+  /Action << /Subtype /URI /URI ($S3Classes_8c.html#67d50b82dea660a930cf7427be899efb) >>
   /Subtype /Link
 /ANN pdfmark
 0.000 0.000 1.000 nodecolor
-newpath 256 37 moveto
-256 58 lineto
-355 58 lineto
-355 37 lineto
+newpath 250 71 moveto
+250 90 lineto
+319 90 lineto
+319 71 lineto
 closepath fill
 1 setlinewidth
 filled
 0.000 0.000 0.000 nodecolor
-newpath 256 37 moveto
-256 58 lineto
-355 58 lineto
-355 37 lineto
+newpath 250 71 moveto
+250 90 lineto
+319 90 lineto
+319 71 lineto
 closepath stroke
 0.000 0.000 0.000 nodecolor
-10.00 /FreeSans.ttf set_font
-305 44 moveto 83 -0.5 (S3get_variableID) alignedtext
+10.00 /FreeSans set_font
+257.75 76.25 moveto 52.5 (S3get_toleft) alignedtext
 grestore
 % Node2->Node16
 gsave
 1 setlinewidth
 solid
 0.667 0.776 0.439 edgecolor
-newpath 199 265 moveto
-203 263 206 260 208 257 curveto
-262 189 187 131 244 67 curveto
-245 66 246 64 247 63 curveto
+newpath 182 251 moveto
+186 249 189 246 192 243 curveto
+235 192 183 147 228 99 curveto
+232 95 236 92 240 90 curveto
 stroke
 0.667 0.776 0.439 edgecolor
-newpath 248.958 65.916 moveto
-256 58 lineto
-245.559 59.7969 lineto
+newpath 242.015 92.9636 moveto
+250 86 lineto
+239.415 86.4643 lineto
 closepath fill
 1 setlinewidth
 solid
 0.667 0.776 0.439 edgecolor
-newpath 248.958 65.916 moveto
-256 58 lineto
-245.559 59.7969 lineto
+newpath 242.015 92.9636 moveto
+250 86 lineto
+239.415 86.4643 lineto
 closepath stroke
 grestore
 % Node17
 gsave
-[ /Rect [ 266 0 344 20 ]
+[ /Rect [ 239 36 329 54 ]
   /Border [ 0 0 0 ]
-  /Action << /Subtype /URI /URI ($S3Classes_8c.html#54ed9f6b46c69d550ceea1a525287ecf) >>
-  /Subtype /Link
-/ANN pdfmark
-[ /Rect [ 266 0 344 20 ]
-  /Border [ 0 0 0 ]
-  /Action << /Subtype /URI /URI ($S3Classes_8c.html#54ed9f6b46c69d550ceea1a525287ecf) >>
+  /Action << /Subtype /URI /URI ($S3Classes_8c.html#583f9148949f93b5fe894feb6567ca0d) >>
   /Subtype /Link
 /ANN pdfmark
 0.000 0.000 1.000 nodecolor
-newpath 266 -1 moveto
-266 20 lineto
-345 20 lineto
-345 -1 lineto
+newpath 239 35 moveto
+239 54 lineto
+329 54 lineto
+329 35 lineto
 closepath fill
 1 setlinewidth
 filled
 0.000 0.000 0.000 nodecolor
-newpath 266 -1 moveto
-266 20 lineto
-345 20 lineto
-345 -1 lineto
+newpath 239 35 moveto
+239 54 lineto
+329 54 lineto
+329 35 lineto
 closepath stroke
 0.000 0.000 0.000 nodecolor
-10.00 /FreeSans.ttf set_font
-305 6 moveto 63 -0.5 (S3is_ordered) alignedtext
+10.00 /FreeSans set_font
+246.875 40.25 moveto 74.25 (S3get_variableID) alignedtext
 grestore
 % Node2->Node17
 gsave
 1 setlinewidth
 solid
 0.667 0.776 0.439 edgecolor
-newpath 199 265 moveto
-203 263 206 260 208 257 curveto
-271 175 177 106 244 29 curveto
-248 25 252 22 256 20 curveto
+newpath 183 251 moveto
+186 249 190 246 192 243 curveto
+243 178 174 123 228 63 curveto
+229 62 230 60 231 59 curveto
 stroke
 0.667 0.776 0.439 edgecolor
-newpath 258.015 22.9636 moveto
-266 16 lineto
-255.415 16.4643 lineto
+newpath 232.958 61.916 moveto
+240 54 lineto
+229.559 55.7969 lineto
 closepath fill
 1 setlinewidth
 solid
 0.667 0.776 0.439 edgecolor
-newpath 258.015 22.9636 moveto
-266 16 lineto
-255.415 16.4643 lineto
+newpath 232.958 61.916 moveto
+240 54 lineto
+229.559 55.7969 lineto
+closepath stroke
+grestore
+% Node18
+gsave
+[ /Rect [ 248 0 320 18 ]
+  /Border [ 0 0 0 ]
+  /Action << /Subtype /URI /URI ($S3Classes_8c.html#54ed9f6b46c69d550ceea1a525287ecf) >>
+  /Subtype /Link
+/ANN pdfmark
+0.000 0.000 1.000 nodecolor
+newpath 248 -1 moveto
+248 18 lineto
+321 18 lineto
+321 -1 lineto
+closepath fill
+1 setlinewidth
+filled
+0.000 0.000 0.000 nodecolor
+newpath 248 -1 moveto
+248 18 lineto
+321 18 lineto
+321 -1 lineto
+closepath stroke
+0.000 0.000 0.000 nodecolor
+10.00 /FreeSans set_font
+255.5 4.25 moveto 57 (S3is_ordered) alignedtext
+grestore
+% Node2->Node18
+gsave
+1 setlinewidth
+solid
+0.667 0.776 0.439 edgecolor
+newpath 183 251 moveto
+187 249 190 246 192 243 curveto
+252 165 165 100 228 27 curveto
+231 24 234 21 238 19 curveto
+stroke
+0.667 0.776 0.439 edgecolor
+newpath 240.015 21.9636 moveto
+248 15 lineto
+237.415 15.4643 lineto
+closepath fill
+1 setlinewidth
+solid
+0.667 0.776 0.439 edgecolor
+newpath 240.015 21.9636 moveto
+248 15 lineto
+237.415 15.4643 lineto
+closepath stroke
+grestore
+% Node4
+gsave
+[ /Rect [ 389 506 439 524 ]
+  /Border [ 0 0 0 ]
+  /Action << /Subtype /URI /URI ($Utils_8c.html#ae969040bb060d2874fd969e20675bbb) >>
+  /Subtype /Link
+/ANN pdfmark
+0.000 0.000 1.000 nodecolor
+newpath 389 505 moveto
+389 524 lineto
+439 524 lineto
+439 505 lineto
+closepath fill
+1 setlinewidth
+filled
+0.000 0.000 0.000 nodecolor
+newpath 389 505 moveto
+389 524 lineto
+439 524 lineto
+439 505 lineto
+closepath stroke
+0.000 0.000 0.000 nodecolor
+10.00 /FreeSans set_font
+397.125 510.25 moveto 33.75 (i_in_set) alignedtext
+grestore
+% Node3->Node4
+gsave
+1 setlinewidth
+solid
+0.667 0.776 0.439 edgecolor
+newpath 315 515 moveto
+334 515 359 515 379 515 curveto
+stroke
+0.667 0.776 0.439 edgecolor
+newpath 379 518.5 moveto
+389 515 lineto
+379 511.5 lineto
+closepath fill
+1 setlinewidth
+solid
+0.667 0.776 0.439 edgecolor
+newpath 379 518.5 moveto
+389 515 lineto
+379 511.5 lineto
+closepath stroke
+grestore
+% Node5->Node6
+gsave
+1 setlinewidth
+solid
+0.667 0.776 0.439 edgecolor
+newpath 321 474 moveto
+335 472 351 470 366 468 curveto
+stroke
+0.667 0.776 0.439 edgecolor
+newpath 366.398 471.478 moveto
+376 467 lineto
+365.701 464.512 lineto
+closepath fill
+1 setlinewidth
+solid
+0.667 0.776 0.439 edgecolor
+newpath 366.398 471.478 moveto
+376 467 lineto
+365.701 464.512 lineto
 closepath stroke
 grestore
 endpage
@@ -1112,7 +1079,7 @@ grestore
 %%EndPage: 1
 %%Trailer
 %%Pages: 1
-%%BoundingBox: 36 36 410 596
+%%BoundingBox: 36 36 496 568
 end
 restore
 %%EOF

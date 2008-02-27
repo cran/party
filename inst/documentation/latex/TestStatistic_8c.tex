@@ -33,22 +33,22 @@ SEXP \hyperlink{TestStatistic_8c_825d2b1db2c719f8d1c2e2ec3f79e1a4}{R\_\-quadform
 Test statistics for conditional inference
 
 \begin{Desc}
-\item[Author:]\begin{Desc}
-\item[Author]\end{Desc}
-\end{Desc}
+\item[Author:]\end{Desc}
 \begin{Desc}
-\item[Date:]\begin{Desc}
-\item[Date]\end{Desc}
-\end{Desc}
+\item[Author]hothorn \end{Desc}
+\begin{Desc}
+\item[Date:]\end{Desc}
+\begin{Desc}
+\item[Date]2005-06-14 11:21:32 +0200 (Tue, 14 Jun 2005) \end{Desc}
 
 
 Definition in file \hyperlink{TestStatistic_8c-source}{TestStatistic.c}.
 
 \subsection{Function Documentation}
 \hypertarget{TestStatistic_8c_6939f019d2c7f42ae824776043a8c704}{
-\index{TestStatistic.c@{TestStatistic.c}!C_absstandardize@{C\_\-absstandardize}}
-\index{C_absstandardize@{C\_\-absstandardize}!TestStatistic.c@{TestStatistic.c}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void C\_\-absstandardize (const double $\ast$ {\em t}, const double $\ast$ {\em mu}, const double $\ast$ {\em Sigma}, int {\em pq}, double {\em tol}, double $\ast$ {\em ans})}}
+\index{TestStatistic.c@{TestStatistic.c}!C\_\-absstandardize@{C\_\-absstandardize}}
+\index{C\_\-absstandardize@{C\_\-absstandardize}!TestStatistic.c@{TestStatistic.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void C\_\-absstandardize (const double $\ast$ {\em t}, \/  const double $\ast$ {\em mu}, \/  const double $\ast$ {\em Sigma}, \/  int {\em pq}, \/  double {\em tol}, \/  double $\ast$ {\em ans})}}
 \label{TestStatistic_8c_6939f019d2c7f42ae824776043a8c704}
 
 
@@ -69,13 +69,13 @@ Here is the call graph for this function:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=134pt]{TestStatistic_8c_6939f019d2c7f42ae824776043a8c704_cgraph}
+\includegraphics[width=126pt]{TestStatistic_8c_6939f019d2c7f42ae824776043a8c704_cgraph}
 \end{center}
 \end{figure}
 \hypertarget{TestStatistic_8c_a3a1f48e4bb3aa19d1bac85a53358638}{
-\index{TestStatistic.c@{TestStatistic.c}!C_maxabsTestStatistic@{C\_\-maxabsTestStatistic}}
-\index{C_maxabsTestStatistic@{C\_\-maxabsTestStatistic}!TestStatistic.c@{TestStatistic.c}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double C\_\-maxabsTestStatistic (const double $\ast$ {\em t}, const double $\ast$ {\em mu}, const double $\ast$ {\em Sigma}, int {\em pq}, double {\em tol})}}
+\index{TestStatistic.c@{TestStatistic.c}!C\_\-maxabsTestStatistic@{C\_\-maxabsTestStatistic}}
+\index{C\_\-maxabsTestStatistic@{C\_\-maxabsTestStatistic}!TestStatistic.c@{TestStatistic.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double C\_\-maxabsTestStatistic (const double $\ast$ {\em t}, \/  const double $\ast$ {\em mu}, \/  const double $\ast$ {\em Sigma}, \/  int {\em pq}, \/  double {\em tol})}}
 \label{TestStatistic_8c_a3a1f48e4bb3aa19d1bac85a53358638}
 
 
@@ -88,10 +88,21 @@ Maximum absolute values of standardized statistics \begin{Desc}
 
 Definition at line 66 of file TestStatistic.c.
 
-Referenced by C\_\-TestStatistic(), and R\_\-maxabsTestStatistic().\hypertarget{TestStatistic_8c_b45eb88ec3b2cc87e8610771cdcf53c4}{
-\index{TestStatistic.c@{TestStatistic.c}!C_quadformTestStatistic@{C\_\-quadformTestStatistic}}
-\index{C_quadformTestStatistic@{C\_\-quadformTestStatistic}!TestStatistic.c@{TestStatistic.c}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double C\_\-quadformTestStatistic (const double $\ast$ {\em t}, const double $\ast$ {\em mu}, const double $\ast$ {\em SigmaPlus}, int {\em pq})}}
+References C\_\-absstandardize(), and C\_\-max().
+
+Referenced by C\_\-TestStatistic(), and R\_\-maxabsTestStatistic().
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=203pt]{TestStatistic_8c_a3a1f48e4bb3aa19d1bac85a53358638_cgraph}
+\end{center}
+\end{figure}
+\hypertarget{TestStatistic_8c_b45eb88ec3b2cc87e8610771cdcf53c4}{
+\index{TestStatistic.c@{TestStatistic.c}!C\_\-quadformTestStatistic@{C\_\-quadformTestStatistic}}
+\index{C\_\-quadformTestStatistic@{C\_\-quadformTestStatistic}!TestStatistic.c@{TestStatistic.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double C\_\-quadformTestStatistic (const double $\ast$ {\em t}, \/  const double $\ast$ {\em mu}, \/  const double $\ast$ {\em SigmaPlus}, \/  int {\em pq})}}
 \label{TestStatistic_8c_b45eb88ec3b2cc87e8610771cdcf53c4}
 
 
@@ -106,9 +117,9 @@ Quadratic form t(t - mu) SigmaPlus (t - mu) \par
 Definition at line 110 of file TestStatistic.c.
 
 Referenced by C\_\-TestStatistic(), and R\_\-quadformTestStatistic().\hypertarget{TestStatistic_8c_9ecf0700a00ad5fd64601bf718f20439}{
-\index{TestStatistic.c@{TestStatistic.c}!C_standardize@{C\_\-standardize}}
-\index{C_standardize@{C\_\-standardize}!TestStatistic.c@{TestStatistic.c}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void C\_\-standardize (const double $\ast$ {\em t}, const double $\ast$ {\em mu}, const double $\ast$ {\em Sigma}, int {\em pq}, double {\em tol}, double $\ast$ {\em ans})}}
+\index{TestStatistic.c@{TestStatistic.c}!C\_\-standardize@{C\_\-standardize}}
+\index{C\_\-standardize@{C\_\-standardize}!TestStatistic.c@{TestStatistic.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void C\_\-standardize (const double $\ast$ {\em t}, \/  const double $\ast$ {\em mu}, \/  const double $\ast$ {\em Sigma}, \/  int {\em pq}, \/  double {\em tol}, \/  double $\ast$ {\em ans})}}
 \label{TestStatistic_8c_9ecf0700a00ad5fd64601bf718f20439}
 
 
@@ -123,9 +134,9 @@ Standardizes a statistic t of length pq with mean mu and covariance Sigma for va
 Definition at line 23 of file TestStatistic.c.
 
 Referenced by C\_\-absstandardize(), C\_\-Node(), and R\_\-splitcategorical().\hypertarget{TestStatistic_8c_499b26b98aaf073dc66135ecde8ad851}{
-\index{TestStatistic.c@{TestStatistic.c}!R_maxabsTestStatistic@{R\_\-maxabsTestStatistic}}
-\index{R_maxabsTestStatistic@{R\_\-maxabsTestStatistic}!TestStatistic.c@{TestStatistic.c}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}SEXP R\_\-maxabsTestStatistic (SEXP {\em t}, SEXP {\em mu}, SEXP {\em Sigma}, SEXP {\em tol})}}
+\index{TestStatistic.c@{TestStatistic.c}!R\_\-maxabsTestStatistic@{R\_\-maxabsTestStatistic}}
+\index{R\_\-maxabsTestStatistic@{R\_\-maxabsTestStatistic}!TestStatistic.c@{TestStatistic.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}SEXP R\_\-maxabsTestStatistic (SEXP {\em t}, \/  SEXP {\em mu}, \/  SEXP {\em Sigma}, \/  SEXP {\em tol})}}
 \label{TestStatistic_8c_499b26b98aaf073dc66135ecde8ad851}
 
 
@@ -144,13 +155,13 @@ Here is the call graph for this function:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=165pt]{TestStatistic_8c_499b26b98aaf073dc66135ecde8ad851_cgraph}
+\includegraphics[width=280pt]{TestStatistic_8c_499b26b98aaf073dc66135ecde8ad851_cgraph}
 \end{center}
 \end{figure}
 \hypertarget{TestStatistic_8c_825d2b1db2c719f8d1c2e2ec3f79e1a4}{
-\index{TestStatistic.c@{TestStatistic.c}!R_quadformTestStatistic@{R\_\-quadformTestStatistic}}
-\index{R_quadformTestStatistic@{R\_\-quadformTestStatistic}!TestStatistic.c@{TestStatistic.c}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}SEXP R\_\-quadformTestStatistic (SEXP {\em t}, SEXP {\em mu}, SEXP {\em SigmaPlus})}}
+\index{TestStatistic.c@{TestStatistic.c}!R\_\-quadformTestStatistic@{R\_\-quadformTestStatistic}}
+\index{R\_\-quadformTestStatistic@{R\_\-quadformTestStatistic}!TestStatistic.c@{TestStatistic.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}SEXP R\_\-quadformTestStatistic (SEXP {\em t}, \/  SEXP {\em mu}, \/  SEXP {\em SigmaPlus})}}
 \label{TestStatistic_8c_825d2b1db2c719f8d1c2e2ec3f79e1a4}
 
 
@@ -170,6 +181,6 @@ Here is the call graph for this function:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=174pt]{TestStatistic_8c_825d2b1db2c719f8d1c2e2ec3f79e1a4_cgraph}
+\includegraphics[width=164pt]{TestStatistic_8c_825d2b1db2c719f8d1c2e2ec3f79e1a4_cgraph}
 \end{center}
 \end{figure}

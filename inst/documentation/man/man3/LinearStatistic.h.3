@@ -1,4 +1,4 @@
-.TH "LinearStatistic.h" 3 "28 Feb 2008" "party" \" -*- nroff -*-
+.TH "LinearStatistic.h" 3 "6 Jun 2008" "party" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -51,6 +51,8 @@ Conditional expectation and covariance of the influence function
 Definition at line 101 of file LinearStatistic.c.
 .PP
 References PL2_covarianceSym, PL2_expectationSym, and PL2_sumweightsSym.
+.PP
+Referenced by C_GlobalTest(), C_LinStatExpCov(), C_surrogates(), and R_ExpectCovarInfluence().
 .SS "void C_ExpectCovarLinearStatistic (const double * x, const int p, const double * y, const int q, const double * weights, const int n, const SEXP expcovinf, SEXP ans)"
 .PP
 Conditional expectation and covariance of the a linear statistic
@@ -81,6 +83,8 @@ Conditional expectation and covariance of the a linear statistic
 Definition at line 213 of file LinearStatistic.c.
 .PP
 References C_kronecker(), PL2_covarianceSym, PL2_expectationSym, and PL2_sumweightsSym.
+.PP
+Referenced by C_LinStatExpCov(), and R_ExpectCovarLinearStatistic().
 .SS "void C_LinearStatistic (const double * x, const int p, const double * y, const int q, const double * weights, const int n, double * ans)"
 .PP
 Computes the linear statistic, formula (1) in the paper
@@ -107,6 +111,8 @@ Computes the linear statistic, formula (1) in the paper
 
 .PP
 Definition at line 23 of file LinearStatistic.c.
+.PP
+Referenced by C_LinStatExpCov(), C_MonteCarlo(), and R_LinearStatistic().
 .SS "void C_PermutedLinearStatistic (const double * x, const int p, const double * y, const int q, const int n, const int nperm, const int * indx, const int * perm, double * ans)"
 .PP
 Linear Statistic with permuted indices
@@ -137,6 +143,8 @@ Linear Statistic with permuted indices
 
 .PP
 Definition at line 351 of file LinearStatistic.c.
+.PP
+Referenced by C_MonteCarlo(), and R_PermutedLinearStatistic().
 .SS "SEXP R_ExpectCovarInfluence (SEXP y, SEXP weights)"
 .PP
 R-interface to C_ExpectCovarInfluence

@@ -3,7 +3,7 @@
     Suggorgate splits
     *\file SurrogateSplits.c
     *\author $Author: hothorn $
-    *\date $Date: 2007-11-30 17:12:26 +0100 (Fri, 30 Nov 2007) $
+    *\date $Date: 2008-03-31 18:41:07 +0200 (Mon, 31 Mar 2008) $
 */
                 
 #include "party.h"
@@ -27,7 +27,7 @@ void C_surrogates(SEXP node, SEXP learnsample, SEXP weights, SEXP controls,
     int nobs, ninputs, i, j, k, jselect, maxsurr, *order, nvar = 0;
     double ms, cp, *thisweights, *cutpoint, *maxstat, 
            *splitstat, *dweights, *tweights, *dx, *dy;
-    double cut, *twotab;
+    double cut, *twotab, *ytmp, sumw = 0.0;
     
     nobs = get_nobs(learnsample);
     ninputs = get_ninputs(learnsample);
@@ -35,7 +35,14 @@ void C_surrogates(SEXP node, SEXP learnsample, SEXP weights, SEXP controls,
     maxsurr = get_maxsurrogate(splitctrl);
     inputs = GET_SLOT(learnsample, PL2_inputsSym);
     jselect = S3get_variableID(S3get_primarysplit(node));
-    y = S3get_nodeweights(VECTOR_ELT(node, 7));
+    
+    /* (weights > 0) in left node are the new `response' to be approximated */
+    y = S3get_nodeweights(VECTOR_ELT(node, S3_LEFT));
+    ytmp = Calloc(nobs, double);
+    for (i = 0; i < nobs; i++) {
+        ytmp[i] = REAL(y)[i];
+        if (ytmp[i] > 1.0) ytmp[i] = 1.0;
+    }
 
     for (j = 0; j < ninputs; j++) {
         if (is_nominal(inputs, j + 1)) continue;
@@ -58,8 +65,14 @@ void C_surrogates(SEXP node, SEXP learnsample, SEXP weights, SEXP controls,
             tweights[INTEGER(thiswhichNA)[k] - 1] = 0.0;
     }
 
+    /* check if sum(weights) > 1 */
+    sumw = 0.0;
+    for (i = 0; i < nobs; i++) sumw += tweights[i];
+    if (sumw < 2.0)
+        error("can't implement surrogate splits, not enough observations available");
+
     expcovinf = GET_SLOT(fitmem, PL2_expcovinfssSym);
-    C_ExpectCovarInfluence(REAL(y), 1, REAL(weights), nobs, expcovinf);
+    C_ExpectCovarInfluence(ytmp, 1, tweights, nobs, expcovinf);
     
     splitstat = REAL(get_splitstatistics(fitmem));
     /* <FIXME> extend `TreeFitMemory' to those as well ... */
@@ -87,16 +100,21 @@ void C_surrogates(SEXP node, SEXP learnsample, SEXP weights, SEXP controls,
          if (has_missings(inputs, j + 1)) {
 
              thisweights = C_tempweights(j + 1, weights, fitmem, inputs);
+
+             /* check if sum(weights) > 1 */
+             sumw = 0.0;
+             for (i = 0; i < nobs; i++) sumw += tweights[i];
+             if (sumw < 2.0) continue;
                  
-             C_ExpectCovarInfluence(REAL(y), 1, thisweights, nobs, expcovinf);
+             C_ExpectCovarInfluence(ytmp, 1, thisweights, nobs, expcovinf);
              
-             C_split(REAL(x), 1, REAL(y), 1, thisweights, nobs,
+             C_split(REAL(x), 1, ytmp, 1, thisweights, nobs,
                      INTEGER(get_ordering(inputs, j + 1)), splitctrl,
                      GET_SLOT(fitmem, PL2_linexpcov2sampleSym),
                      expcovinf, &cp, &ms, splitstat);
          } else {
          
-             C_split(REAL(x), 1, REAL(y), 1, tweights, nobs,
+             C_split(REAL(x), 1, ytmp, 1, tweights, nobs,
              INTEGER(get_ordering(inputs, j + 1)), splitctrl,
              GET_SLOT(fitmem, PL2_linexpcov2sampleSym),
              expcovinf, &cp, &ms, splitstat);
@@ -105,6 +123,12 @@ void C_surrogates(SEXP node, SEXP learnsample, SEXP weights, SEXP controls,
          maxstat[j] = -ms;
          cutpoint[j] = cp;
     }
+
+    /* <FIXME>
+      what happens when maxstat == 0 for all j?
+      in case order[j] is a nominal variable, line
+      130 will give an error
+    </FIXME> */
 
     /* order with respect to maximal statistic */
     rsort_with_index(maxstat, order, ninputs);
@@ -143,6 +167,7 @@ void C_surrogates(SEXP node, SEXP learnsample, SEXP weights, SEXP controls,
     Free(order);
     Free(tweights);
     Free(twotab);
+    Free(ytmp);
 }
 
 /**

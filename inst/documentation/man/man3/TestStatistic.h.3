@@ -1,4 +1,4 @@
-.TH "TestStatistic.h" 3 "28 Feb 2008" "party" \" -*- nroff -*-
+.TH "TestStatistic.h" 3 "6 Jun 2008" "party" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -43,6 +43,8 @@ Maximum absolute values of standardized statistics
 Definition at line 66 of file TestStatistic.c.
 .PP
 References C_absstandardize(), and C_max().
+.PP
+Referenced by C_TestStatistic(), and R_maxabsTestStatistic().
 .SS "double C_quadformTestStatistic (const double * t, const double * mu, const double * SigmaPlus, int pq)"
 .PP
 Quadratic form t(t - mu) SigmaPlus (t - mu) 
@@ -63,6 +65,8 @@ Quadratic form t(t - mu) SigmaPlus (t - mu)
 
 .PP
 Definition at line 110 of file TestStatistic.c.
+.PP
+Referenced by C_TestStatistic(), and R_quadformTestStatistic().
 .SS "void C_standardize (const double * t, const double * mu, const double * Sigma, int pq, double tol, double * ans)"
 .PP
 Standardizes a statistic t of length pq with mean mu and covariance Sigma for variances > tol 
@@ -87,6 +91,8 @@ Standardizes a statistic t of length pq with mean mu and covariance Sigma for va
 
 .PP
 Definition at line 23 of file TestStatistic.c.
+.PP
+Referenced by C_absstandardize(), C_Node(), and R_splitcategorical().
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for party from the source code.

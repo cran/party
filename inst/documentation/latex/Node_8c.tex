@@ -27,22 +27,22 @@ SEXP \hyperlink{Node_8c_878214ca472c99cf036a426eb7cffb59}{R\_\-Node} (SEXP learn
 Node computations
 
 \begin{Desc}
-\item[Author:]\begin{Desc}
-\item[Author]\end{Desc}
-\end{Desc}
+\item[Author:]\end{Desc}
 \begin{Desc}
-\item[Date:]\begin{Desc}
-\item[Date]\end{Desc}
-\end{Desc}
+\item[Author]hothorn \end{Desc}
+\begin{Desc}
+\item[Date:]\end{Desc}
+\begin{Desc}
+\item[Date]2007-09-26 14:44:59 +0200 (Wed, 26 Sep 2007) \end{Desc}
 
 
 Definition in file \hyperlink{Node_8c-source}{Node.c}.
 
 \subsection{Function Documentation}
 \hypertarget{Node_8c_0ed8b15b2c14ec9f1f1585d6288a38e2}{
-\index{Node.c@{Node.c}!C_Node@{C\_\-Node}}
-\index{C_Node@{C\_\-Node}!Node.c@{Node.c}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void C\_\-Node (SEXP {\em node}, SEXP {\em learnsample}, SEXP {\em weights}, SEXP {\em fitmem}, SEXP {\em controls}, int {\em TERMINAL})}}
+\index{Node.c@{Node.c}!C\_\-Node@{C\_\-Node}}
+\index{C\_\-Node@{C\_\-Node}!Node.c@{Node.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void C\_\-Node (SEXP {\em node}, \/  SEXP {\em learnsample}, \/  SEXP {\em weights}, \/  SEXP {\em fitmem}, \/  SEXP {\em controls}, \/  int {\em TERMINAL})}}
 \label{Node_8c_0ed8b15b2c14ec9f1f1585d6288a38e2}
 
 
@@ -55,10 +55,21 @@ The main function for all node computations \begin{Desc}
 
 Definition at line 48 of file Node.c.
 
-Referenced by C\_\-TreeGrow(), and R\_\-Node().\hypertarget{Node_8c_ccc1b172efcfd43dc460efee333b6abf}{
-\index{Node.c@{Node.c}!C_prediction@{C\_\-prediction}}
-\index{C_prediction@{C\_\-prediction}!Node.c@{Node.c}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void C\_\-prediction (const double $\ast$ {\em y}, int {\em n}, int {\em q}, const double $\ast$ {\em weights}, const double {\em sweights}, double $\ast$ {\em ans})}}
+References C\_\-GlobalTest(), C\_\-init\_\-nominalsplit(), C\_\-init\_\-orderedsplit(), C\_\-max(), C\_\-prediction(), C\_\-split(), C\_\-splitcategorical(), C\_\-standardize(), C\_\-tempweights(), C\_\-whichmax(), get\_\-dimension(), get\_\-gtctrl(), get\_\-levels(), get\_\-mincriterion(), get\_\-minsplit(), get\_\-ninputs(), get\_\-nobs(), get\_\-ordering(), get\_\-predict\_\-trafo(), get\_\-savesplitstats(), get\_\-splitctrl(), get\_\-splitstatistics(), get\_\-test\_\-trafo(), get\_\-tgctrl(), get\_\-tol(), get\_\-transformation(), get\_\-varctrl(), get\_\-variable(), get\_\-varmemory(), has\_\-missings(), is\_\-nominal(), ncol(), PL2\_\-covarianceSym, PL2\_\-expcovinfSym, PL2\_\-expectationSym, PL2\_\-inputsSym, PL2\_\-linearstatisticSym, PL2\_\-linexpcov2sampleSym, PL2\_\-responsesSym, PL2\_\-sumweightsSym, S3\_\-SUMWEIGHTS, S3get\_\-criterion(), S3get\_\-maxcriterion(), S3get\_\-prediction(), S3get\_\-primarysplit(), S3get\_\-splitpoint(), S3get\_\-splitstatistics(), S3get\_\-table(), S3get\_\-teststat(), S3set\_\-nodeterminal(), and S3set\_\-variableID().
+
+Referenced by C\_\-TreeGrow(), and R\_\-Node().
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=278pt]{Node_8c_0ed8b15b2c14ec9f1f1585d6288a38e2_cgraph}
+\end{center}
+\end{figure}
+\hypertarget{Node_8c_ccc1b172efcfd43dc460efee333b6abf}{
+\index{Node.c@{Node.c}!C\_\-prediction@{C\_\-prediction}}
+\index{C\_\-prediction@{C\_\-prediction}!Node.c@{Node.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void C\_\-prediction (const double $\ast$ {\em y}, \/  int {\em n}, \/  int {\em q}, \/  const double $\ast$ {\em weights}, \/  const double {\em sweights}, \/  double $\ast$ {\em ans})}}
 \label{Node_8c_ccc1b172efcfd43dc460efee333b6abf}
 
 
@@ -72,9 +83,9 @@ Compute prediction of a node \begin{Desc}
 Definition at line 22 of file Node.c.
 
 Referenced by C\_\-Node().\hypertarget{Node_8c_878214ca472c99cf036a426eb7cffb59}{
-\index{Node.c@{Node.c}!R_Node@{R\_\-Node}}
-\index{R_Node@{R\_\-Node}!Node.c@{Node.c}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}SEXP R\_\-Node (SEXP {\em learnsample}, SEXP {\em weights}, SEXP {\em fitmem}, SEXP {\em controls})}}
+\index{Node.c@{Node.c}!R\_\-Node@{R\_\-Node}}
+\index{R\_\-Node@{R\_\-Node}!Node.c@{Node.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}SEXP R\_\-Node (SEXP {\em learnsample}, \/  SEXP {\em weights}, \/  SEXP {\em fitmem}, \/  SEXP {\em controls})}}
 \label{Node_8c_878214ca472c99cf036a426eb7cffb59}
 
 
@@ -93,6 +104,6 @@ Here is the call graph for this function:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=120pt]{Node_8c_878214ca472c99cf036a426eb7cffb59_cgraph}
+\includegraphics[width=343pt]{Node_8c_878214ca472c99cf036a426eb7cffb59_cgraph}
 \end{center}
 \end{figure}

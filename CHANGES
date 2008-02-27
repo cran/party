@@ -1,5 +1,10 @@
 
-                CHANGES IN party VERSION 0.9-95 (2008-02-xx)
+                CHANGES IN party VERSION 0.9-96 (2008-06-06)
+
+    o   make searching for surrogate splits a little more stable
+
+
+                CHANGES IN party VERSION 0.9-95 (2008-02-27)
 
     o   proximity() now gives _relative_ numbers 
         (similar to `randomForest'), not absolute numbers

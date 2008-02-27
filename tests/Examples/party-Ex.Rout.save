@@ -1,5 +1,5 @@
 
-R version 2.6.2 (2008-02-08)
+R version 2.7.0 (2008-04-22)
 Copyright (C) 2008 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 
@@ -36,18 +36,18 @@ Type 'q()' to quit R.
 +                outer <- (oma4 <- pp$oma[4]) > 0; mar4 <- pp$mar[4]
 +                mtext(sprintf("help(\"%s\")", nameEx()), side = 4,
 +                      line = if(outer)max(1, oma4 - 1) else min(1, mar4 - 1),
-+               outer = outer, adj = 1, cex = .8, col = "orchid", las=3)
++                outer = outer, adj = 1, cex = .8, col = "orchid", las=3)
 +            }
 +        },
 +        pos = "CheckExEnv")
 > assign("grid_plot_hook",
 +        function() {
-+            pushViewport(viewport(width=unit(1, "npc") - unit(1, "lines"),
-+                                  x=0, just="left"))
-+            grid.text(sprintf("help(\"%s\")", nameEx()),
-+                      x=unit(1, "npc") + unit(0.5, "lines"),
-+                      y=unit(0.8, "npc"), rot=90,
-+                      gp=gpar(col="orchid"))
++            grid::pushViewport(grid::viewport(width=grid::unit(1, "npc") - 
++                               grid::unit(1, "lines"), x=0, just="left"))
++            grid::grid.text(sprintf("help(\"%s\")", nameEx()),
++                            x=grid::unit(1, "npc") + grid::unit(0.5, "lines"),
++                            y=grid::unit(0.8, "npc"), rot=90,
++                            gp=grid::gpar(col="orchid"))
 +        },
 +        pos = "CheckExEnv")
 > setHook("plot.new",     get("base_plot_hook", pos = "CheckExEnv"))
@@ -75,7 +75,13 @@ Type 'q()' to quit R.
 +        },
 +        pos = "CheckExEnv")
 > assign("ptime", proc.time(), pos = "CheckExEnv")
+> ## at least one package changes these via ps.options(), so do this
+> ## before loading the package.
+> ## Use postscript as incomplete files may be viewable, unlike PDF.
+> ## Choose a size that is close to on-screen devices, fix paper
+> ps.options(width = 7, height = 7, paper = "a4", reset = TRUE)
 > grDevices::postscript("party-Ex.ps")
+> 		      
 > assign("par.postscript", graphics::par(no.readonly = TRUE), pos = "CheckExEnv")
 > options(contrasts = c(unordered = "contr.treatment", ordered = "contr.poly"))
 > options(warn = 1)    
@@ -96,6 +102,14 @@ Attaching package: 'modeltools'
 Loading required package: coin
 Loading required package: mvtnorm
 Loading required package: zoo
+
+Attaching package: 'zoo'
+
+
+	The following object(s) are masked from package:base :
+
+	 as.Date.numeric 
+
 Loading required package: sandwich
 Loading required package: strucchange
 Loading required package: vcd
@@ -614,7 +628,7 @@ Call: survival:::survfit(formula = resp, weights = w, subset = w >
 >     system.time(ens <- apply(bs, 2, function(w) cfit(ls, ct, weights = w, 
 +                                                      fitmem = mem)))
    user  system elapsed 
-  0.248   0.008   0.257 
+  0.240   0.000   0.236 
 > 
 > 
 > 
@@ -924,7 +938,7 @@ Linear model with coefficients:
 > ### * <FOOTER>
 > ###
 > cat("Time elapsed: ", proc.time() - get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  28.717 0.4 29.146 0 0 
+Time elapsed:  28.097 0.092 28.217 0 0 
 > grDevices::dev.off()
 null device 
           1 

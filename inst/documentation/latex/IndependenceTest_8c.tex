@@ -33,22 +33,22 @@ SEXP \hyperlink{IndependenceTest_8c_f80dcff3dd9196b9f861fd83f4efa8ac}{R\_\-Globa
 Functions for variable selection in each node of a tree
 
 \begin{Desc}
-\item[Author:]\begin{Desc}
-\item[Author]\end{Desc}
-\end{Desc}
+\item[Author:]\end{Desc}
 \begin{Desc}
-\item[Date:]\begin{Desc}
-\item[Date]\end{Desc}
-\end{Desc}
+\item[Author]hothorn \end{Desc}
+\begin{Desc}
+\item[Date:]\end{Desc}
+\begin{Desc}
+\item[Date]2007-09-26 14:44:59 +0200 (Wed, 26 Sep 2007) \end{Desc}
 
 
 Definition in file \hyperlink{IndependenceTest_8c-source}{IndependenceTest.c}.
 
 \subsection{Function Documentation}
 \hypertarget{IndependenceTest_8c_0de2357bd1d38058c0cfc68c3e743b34}{
-\index{IndependenceTest.c@{IndependenceTest.c}!C_GlobalTest@{C\_\-GlobalTest}}
-\index{C_GlobalTest@{C\_\-GlobalTest}!IndependenceTest.c@{IndependenceTest.c}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void C\_\-GlobalTest (const SEXP {\em learnsample}, const SEXP {\em weights}, SEXP {\em fitmem}, const SEXP {\em varctrl}, const SEXP {\em gtctrl}, const double {\em minsplit}, double $\ast$ {\em ans\_\-teststat}, double $\ast$ {\em ans\_\-criterion})}}
+\index{IndependenceTest.c@{IndependenceTest.c}!C\_\-GlobalTest@{C\_\-GlobalTest}}
+\index{C\_\-GlobalTest@{C\_\-GlobalTest}!IndependenceTest.c@{IndependenceTest.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void C\_\-GlobalTest (const SEXP {\em learnsample}, \/  const SEXP {\em weights}, \/  SEXP {\em fitmem}, \/  const SEXP {\em varctrl}, \/  const SEXP {\em gtctrl}, \/  const double {\em minsplit}, \/  double $\ast$ {\em ans\_\-teststat}, \/  double $\ast$ {\em ans\_\-criterion})}}
 \label{IndependenceTest_8c_0de2357bd1d38058c0cfc68c3e743b34}
 
 
@@ -62,10 +62,21 @@ Perform a global test on independence of a response and multiple inputs \par
 
 Definition at line 129 of file IndependenceTest.c.
 
-Referenced by C\_\-Node(), and R\_\-GlobalTest().\hypertarget{IndependenceTest_8c_e64c8d91a58113cee43788dc1663d645}{
-\index{IndependenceTest.c@{IndependenceTest.c}!C_IndependenceTest@{C\_\-IndependenceTest}}
-\index{C_IndependenceTest@{C\_\-IndependenceTest}!IndependenceTest.c@{IndependenceTest.c}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void C\_\-IndependenceTest (const SEXP {\em x}, const SEXP {\em y}, const SEXP {\em weights}, SEXP {\em linexpcov}, SEXP {\em varctrl}, SEXP {\em ans})}}
+References AGGREGATED, BONFERRONI, C\_\-ExpectCovarInfluence(), C\_\-LinStatExpCov(), C\_\-LinStatExpCovMPinv(), C\_\-MonteCarlo(), C\_\-SampleNoReplace(), C\_\-tempweights(), C\_\-TeststatCriterion(), get\_\-dontuse(), get\_\-dontusetmp(), get\_\-mtry(), get\_\-ninputs(), get\_\-nobs(), get\_\-randomsplits(), get\_\-test\_\-trafo(), get\_\-teststat(), get\_\-testtype(), get\_\-tol(), get\_\-transformation(), get\_\-varmemory(), has\_\-missings(), MONTECARLO, ncol(), nrow(), PL2\_\-expcovinfSym, PL2\_\-inputsSym, PL2\_\-responsesSym, PL2\_\-sumweightsSym, TESTSTATISTIC, and UNIVARIATE.
+
+Referenced by C\_\-Node(), and R\_\-GlobalTest().
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=420pt]{IndependenceTest_8c_0de2357bd1d38058c0cfc68c3e743b34_cgraph}
+\end{center}
+\end{figure}
+\hypertarget{IndependenceTest_8c_e64c8d91a58113cee43788dc1663d645}{
+\index{IndependenceTest.c@{IndependenceTest.c}!C\_\-IndependenceTest@{C\_\-IndependenceTest}}
+\index{C\_\-IndependenceTest@{C\_\-IndependenceTest}!IndependenceTest.c@{IndependenceTest.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void C\_\-IndependenceTest (const SEXP {\em x}, \/  const SEXP {\em y}, \/  const SEXP {\em weights}, \/  SEXP {\em linexpcov}, \/  SEXP {\em varctrl}, \/  SEXP {\em ans})}}
 \label{IndependenceTest_8c_e64c8d91a58113cee43788dc1663d645}
 
 
@@ -87,13 +98,13 @@ Here is the call graph for this function:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=165pt]{IndependenceTest_8c_e64c8d91a58113cee43788dc1663d645_cgraph}
+\includegraphics[width=420pt]{IndependenceTest_8c_e64c8d91a58113cee43788dc1663d645_cgraph}
 \end{center}
 \end{figure}
 \hypertarget{IndependenceTest_8c_d33688ffc38df769a95d6964e5bb193a}{
-\index{IndependenceTest.c@{IndependenceTest.c}!C_TeststatCriterion@{C\_\-TeststatCriterion}}
-\index{C_TeststatCriterion@{C\_\-TeststatCriterion}!IndependenceTest.c@{IndependenceTest.c}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void C\_\-TeststatCriterion (const SEXP {\em linexpcov}, const SEXP {\em varctrl}, double $\ast$ {\em ans\_\-teststat}, double $\ast$ {\em ans\_\-criterion})}}
+\index{IndependenceTest.c@{IndependenceTest.c}!C\_\-TeststatCriterion@{C\_\-TeststatCriterion}}
+\index{C\_\-TeststatCriterion@{C\_\-TeststatCriterion}!IndependenceTest.c@{IndependenceTest.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void C\_\-TeststatCriterion (const SEXP {\em linexpcov}, \/  const SEXP {\em varctrl}, \/  double $\ast$ {\em ans\_\-teststat}, \/  double $\ast$ {\em ans\_\-criterion})}}
 \label{IndependenceTest_8c_d33688ffc38df769a95d6964e5bb193a}
 
 
@@ -107,10 +118,21 @@ Computes the test statistic and the node criterion \par
 
 Definition at line 53 of file IndependenceTest.c.
 
-Referenced by C\_\-GlobalTest(), and C\_\-MonteCarlo().\hypertarget{IndependenceTest_8c_b02275a67ad210d96fed9864590ee3ef}{
-\index{IndependenceTest.c@{IndependenceTest.c}!C_TeststatPvalue@{C\_\-TeststatPvalue}}
-\index{C_TeststatPvalue@{C\_\-TeststatPvalue}!IndependenceTest.c@{IndependenceTest.c}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void C\_\-TeststatPvalue (const SEXP {\em linexpcov}, const SEXP {\em varctrl}, double $\ast$ {\em ans\_\-teststat}, double $\ast$ {\em ans\_\-pvalue})}}
+References C\_\-TeststatPvalue(), and get\_\-pvalue().
+
+Referenced by C\_\-GlobalTest(), and C\_\-MonteCarlo().
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=420pt]{IndependenceTest_8c_d33688ffc38df769a95d6964e5bb193a_cgraph}
+\end{center}
+\end{figure}
+\hypertarget{IndependenceTest_8c_b02275a67ad210d96fed9864590ee3ef}{
+\index{IndependenceTest.c@{IndependenceTest.c}!C\_\-TeststatPvalue@{C\_\-TeststatPvalue}}
+\index{C\_\-TeststatPvalue@{C\_\-TeststatPvalue}!IndependenceTest.c@{IndependenceTest.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void C\_\-TeststatPvalue (const SEXP {\em linexpcov}, \/  const SEXP {\em varctrl}, \/  double $\ast$ {\em ans\_\-teststat}, \/  double $\ast$ {\em ans\_\-pvalue})}}
 \label{IndependenceTest_8c_b02275a67ad210d96fed9864590ee3ef}
 
 
@@ -124,10 +146,21 @@ Computes the test statistic and, if requested, the corresponding P-value for a l
 
 Definition at line 21 of file IndependenceTest.c.
 
-Referenced by C\_\-IndependenceTest(), and C\_\-TeststatCriterion().\hypertarget{IndependenceTest_8c_f80dcff3dd9196b9f861fd83f4efa8ac}{
-\index{IndependenceTest.c@{IndependenceTest.c}!R_GlobalTest@{R\_\-GlobalTest}}
-\index{R_GlobalTest@{R\_\-GlobalTest}!IndependenceTest.c@{IndependenceTest.c}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}SEXP R\_\-GlobalTest (SEXP {\em learnsample}, SEXP {\em weights}, SEXP {\em fitmem}, SEXP {\em varctrl}, SEXP {\em gtctrl})}}
+References C\_\-ConditionalPvalue(), C\_\-TestStatistic(), get\_\-abseps(), get\_\-maxpts(), get\_\-pvalue(), get\_\-releps(), get\_\-teststat(), and get\_\-tol().
+
+Referenced by C\_\-IndependenceTest(), and C\_\-TeststatCriterion().
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=354pt]{IndependenceTest_8c_b02275a67ad210d96fed9864590ee3ef_cgraph}
+\end{center}
+\end{figure}
+\hypertarget{IndependenceTest_8c_f80dcff3dd9196b9f861fd83f4efa8ac}{
+\index{IndependenceTest.c@{IndependenceTest.c}!R\_\-GlobalTest@{R\_\-GlobalTest}}
+\index{R\_\-GlobalTest@{R\_\-GlobalTest}!IndependenceTest.c@{IndependenceTest.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}SEXP R\_\-GlobalTest (SEXP {\em learnsample}, \/  SEXP {\em weights}, \/  SEXP {\em fitmem}, \/  SEXP {\em varctrl}, \/  SEXP {\em gtctrl})}}
 \label{IndependenceTest_8c_f80dcff3dd9196b9f861fd83f4efa8ac}
 
 
@@ -147,13 +180,13 @@ Here is the call graph for this function:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=117pt]{IndependenceTest_8c_f80dcff3dd9196b9f861fd83f4efa8ac_cgraph}
+\includegraphics[width=420pt]{IndependenceTest_8c_f80dcff3dd9196b9f861fd83f4efa8ac_cgraph}
 \end{center}
 \end{figure}
 \hypertarget{IndependenceTest_8c_aab8e2db15687b6b95f802dd1719ed54}{
-\index{IndependenceTest.c@{IndependenceTest.c}!R_IndependenceTest@{R\_\-IndependenceTest}}
-\index{R_IndependenceTest@{R\_\-IndependenceTest}!IndependenceTest.c@{IndependenceTest.c}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}SEXP R\_\-IndependenceTest (SEXP {\em x}, SEXP {\em y}, SEXP {\em weights}, SEXP {\em linexpcov}, SEXP {\em varctrl})}}
+\index{IndependenceTest.c@{IndependenceTest.c}!R\_\-IndependenceTest@{R\_\-IndependenceTest}}
+\index{R\_\-IndependenceTest@{R\_\-IndependenceTest}!IndependenceTest.c@{IndependenceTest.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}SEXP R\_\-IndependenceTest (SEXP {\em x}, \/  SEXP {\em y}, \/  SEXP {\em weights}, \/  SEXP {\em linexpcov}, \/  SEXP {\em varctrl})}}
 \label{IndependenceTest_8c_aab8e2db15687b6b95f802dd1719ed54}
 
 
@@ -173,6 +206,6 @@ Here is the call graph for this function:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=240pt]{IndependenceTest_8c_aab8e2db15687b6b95f802dd1719ed54_cgraph}
+\includegraphics[width=420pt]{IndependenceTest_8c_aab8e2db15687b6b95f802dd1719ed54_cgraph}
 \end{center}
 \end{figure}

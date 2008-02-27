@@ -24,9 +24,9 @@ void \hyperlink{Distributions_8h_579a9b99cc4ab820a62f636869788cf8}{C\_\-MonteCar
 
 \subsection{Function Documentation}
 \hypertarget{Distributions_8h_0b0373aa22dcf8b8ecf6b9c560db9c70}{
-\index{Distributions.h@{Distributions.h}!C_maxabsConditionalPvalue@{C\_\-maxabsConditionalPvalue}}
-\index{C_maxabsConditionalPvalue@{C\_\-maxabsConditionalPvalue}!Distributions.h@{Distributions.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double C\_\-maxabsConditionalPvalue (const double {\em tstat}, const double $\ast$ {\em Sigma}, const int {\em pq}, int $\ast$ {\em maxpts}, double $\ast$ {\em releps}, double $\ast$ {\em abseps}, double $\ast$ {\em tol})}}
+\index{Distributions.h@{Distributions.h}!C\_\-maxabsConditionalPvalue@{C\_\-maxabsConditionalPvalue}}
+\index{C\_\-maxabsConditionalPvalue@{C\_\-maxabsConditionalPvalue}!Distributions.h@{Distributions.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double C\_\-maxabsConditionalPvalue (const double {\em tstat}, \/  const double $\ast$ {\em Sigma}, \/  const int {\em pq}, \/  int $\ast$ {\em maxpts}, \/  double $\ast$ {\em releps}, \/  double $\ast$ {\em abseps}, \/  double $\ast$ {\em tol})}}
 \label{Distributions_8h_0b0373aa22dcf8b8ecf6b9c560db9c70}
 
 
@@ -43,17 +43,19 @@ Definition at line 52 of file Distributions.c.
 
 References mvtdst().
 
+Referenced by C\_\-ConditionalPvalue(), and R\_\-maxabsConditionalPvalue().
+
 Here is the call graph for this function:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=144pt]{Distributions_8h_0b0373aa22dcf8b8ecf6b9c560db9c70_cgraph}
+\includegraphics[width=134pt]{Distributions_8h_0b0373aa22dcf8b8ecf6b9c560db9c70_cgraph}
 \end{center}
 \end{figure}
 \hypertarget{Distributions_8h_579a9b99cc4ab820a62f636869788cf8}{
-\index{Distributions.h@{Distributions.h}!C_MonteCarlo@{C\_\-MonteCarlo}}
-\index{C_MonteCarlo@{C\_\-MonteCarlo}!Distributions.h@{Distributions.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void C\_\-MonteCarlo (double $\ast$ {\em criterion}, SEXP {\em learnsample}, SEXP {\em weights}, SEXP {\em fitmem}, SEXP {\em varctrl}, SEXP {\em gtctrl}, double $\ast$ {\em ans\_\-pvalues})}}
+\index{Distributions.h@{Distributions.h}!C\_\-MonteCarlo@{C\_\-MonteCarlo}}
+\index{C\_\-MonteCarlo@{C\_\-MonteCarlo}!Distributions.h@{Distributions.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void C\_\-MonteCarlo (double $\ast$ {\em criterion}, \/  SEXP {\em learnsample}, \/  SEXP {\em weights}, \/  SEXP {\em fitmem}, \/  SEXP {\em varctrl}, \/  SEXP {\em gtctrl}, \/  double $\ast$ {\em ans\_\-pvalues})}}
 \label{Distributions_8h_579a9b99cc4ab820a62f636869788cf8}
 
 
@@ -68,17 +70,19 @@ Definition at line 169 of file Distributions.c.
 
 References C\_\-LinearStatistic(), C\_\-max(), C\_\-PermutedLinearStatistic(), C\_\-SampleNoReplace(), C\_\-TeststatCriterion(), get\_\-ninputs(), get\_\-nobs(), get\_\-nresample(), get\_\-test\_\-trafo(), get\_\-transformation(), get\_\-varmemory(), has\_\-missings(), ncol(), PL2\_\-expcovinfSym, PL2\_\-inputsSym, PL2\_\-linearstatisticSym, PL2\_\-responsesSym, and PL2\_\-sumweightsSym.
 
+Referenced by C\_\-GlobalTest(), and R\_\-MonteCarlo().
+
 Here is the call graph for this function:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=157pt]{Distributions_8h_579a9b99cc4ab820a62f636869788cf8_cgraph}
+\includegraphics[width=420pt]{Distributions_8h_579a9b99cc4ab820a62f636869788cf8_cgraph}
 \end{center}
 \end{figure}
 \hypertarget{Distributions_8h_a692392488ab88e95a62d2142e9d428c}{
-\index{Distributions.h@{Distributions.h}!C_quadformConditionalPvalue@{C\_\-quadformConditionalPvalue}}
-\index{C_quadformConditionalPvalue@{C\_\-quadformConditionalPvalue}!Distributions.h@{Distributions.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double C\_\-quadformConditionalPvalue (const double {\em tstat}, const double {\em df})}}
+\index{Distributions.h@{Distributions.h}!C\_\-quadformConditionalPvalue@{C\_\-quadformConditionalPvalue}}
+\index{C\_\-quadformConditionalPvalue@{C\_\-quadformConditionalPvalue}!Distributions.h@{Distributions.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double C\_\-quadformConditionalPvalue (const double {\em tstat}, \/  const double {\em df})}}
 \label{Distributions_8h_a692392488ab88e95a62d2142e9d428c}
 
 
@@ -91,3 +95,5 @@ Conditional asymptotic P-value of a quadratic form\par
 
 
 Definition at line 18 of file Distributions.c.
+
+Referenced by C\_\-ConditionalPvalue(), and R\_\-quadformConditionalPvalue().

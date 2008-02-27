@@ -1,5 +1,5 @@
 %!PS-Adobe-2.0
-%%Creator: Graphviz version 2.12 (Tue Sep  4 16:56:48 UTC 2007)
+%%Creator: Graphviz version 2.16 (Fri Feb  8 12:52:03 UTC 2008)
 %%For: (hothorn) Torsten Hothorn,,,
 %%Title: G
 %%Pages: (atend)
@@ -88,17 +88,15 @@ cleartomark
 	scalefont setfont
 } def
 
-% draw aligned label in bounding box aligned to current point
-/alignedtext {			% width adj text
+% draw text fitted to its expected width
+/alignedtext {			% width text
 	/text exch def
-	/adj exch def
 	/width exch def
 	gsave
 		width 0 gt {
-			text stringwidth pop adj mul 0 rmoveto
+			[] 0 setdash
+			text stringwidth pop width exch sub text length div 0 text ashow
 		} if
-		[] 0 setdash
-		text show
 	grestore
 } def
 
@@ -181,145 +179,168 @@ def
 %%EndSetup
 setupLatin1
 %%Page: 1 1
-%%PageBoundingBox: 36 36 390 102
+%%PageBoundingBox: 36 36 446 98
 %%PageOrientation: Portrait
-gsave
-36 36 390 102 boxprim clip newpath
 0 0 1 beginpage
+gsave
+36 36 410 62 boxprim clip newpath
 1 1 set_scale 0 rotate 40 40 translate
-0.000 0.000 1.000 graphcolor
-newpath -4 -4 moveto
--4 62 lineto
-350 62 lineto
-350 -4 lineto
-closepath fill
-1 setlinewidth
-0.000 0.000 1.000 graphcolor
-newpath -4 -4 moveto
--4 62 lineto
-350 62 lineto
-350 -4 lineto
-closepath stroke
 % Node1
 gsave
 0.000 0.000 0.749 nodecolor
-newpath 0 18 moveto
-0 39 lineto
-154 39 lineto
-154 18 lineto
+newpath 1 17 moveto
+1 36 lineto
+142 36 lineto
+142 17 lineto
 closepath fill
 1 setlinewidth
 filled
 0.000 0.000 0.000 nodecolor
-newpath 0 18 moveto
-0 39 lineto
-154 39 lineto
-154 18 lineto
+newpath 1 17 moveto
+1 36 lineto
+142 36 lineto
+142 17 lineto
 closepath stroke
 0.000 0.000 0.000 nodecolor
-10.00 /FreeSans.ttf set_font
-77 25 moveto 138 -0.5 (R_maxabsConditionalPvalue) alignedtext
+10.00 /FreeSans set_font
+8.75 22.25 moveto 124.5 (R_maxabsConditionalPvalue) alignedtext
 grestore
 % Node2
 gsave
-[ /Rect [ 191 38 345 58 ]
-  /Border [ 0 0 0 ]
-  /Action << /Subtype /URI /URI ($Distributions_8c.html#0b0373aa22dcf8b8ecf6b9c560db9c70) >>
-  /Subtype /Link
-/ANN pdfmark
-[ /Rect [ 191 38 345 58 ]
+[ /Rect [ 179 36 319 54 ]
   /Border [ 0 0 0 ]
   /Action << /Subtype /URI /URI ($Distributions_8c.html#0b0373aa22dcf8b8ecf6b9c560db9c70) >>
   /Subtype /Link
 /ANN pdfmark
 0.000 0.000 1.000 nodecolor
-newpath 191 37 moveto
-191 58 lineto
-346 58 lineto
-346 37 lineto
+newpath 179 35 moveto
+179 54 lineto
+320 54 lineto
+320 35 lineto
 closepath fill
 1 setlinewidth
 filled
 0.000 0.000 0.000 nodecolor
-newpath 191 37 moveto
-191 58 lineto
-346 58 lineto
-346 37 lineto
+newpath 179 35 moveto
+179 54 lineto
+320 54 lineto
+320 35 lineto
 closepath stroke
 0.000 0.000 0.000 nodecolor
-10.00 /FreeSans.ttf set_font
-268 44 moveto 139 -0.5 (C_maxabsConditionalPvalue) alignedtext
+10.00 /FreeSans set_font
+186.75 40.25 moveto 124.5 (C_maxabsConditionalPvalue) alignedtext
 grestore
 % Node1->Node2
 gsave
 1 setlinewidth
 solid
 0.667 0.776 0.439 edgecolor
-newpath 154 37 moveto
-163 38 172 38 181 40 curveto
+newpath 142 34 moveto
+151 35 160 36 169 37 curveto
 stroke
 0.667 0.776 0.439 edgecolor
-newpath 180.701 43.4875 moveto
-191 41 lineto
-181.398 36.5222 lineto
+newpath 168.701 40.4875 moveto
+179 38 lineto
+169.398 33.5222 lineto
 closepath fill
 1 setlinewidth
 solid
 0.667 0.776 0.439 edgecolor
-newpath 180.701 43.4875 moveto
-191 41 lineto
-181.398 36.5222 lineto
+newpath 168.701 40.4875 moveto
+179 38 lineto
+169.398 33.5222 lineto
 closepath stroke
 grestore
-% Node3
+% Node4
 gsave
-[ /Rect [ 248 0 288 20 ]
-  /Border [ 0 0 0 ]
-  /Action << /Subtype /URI /URI ($Utils_8c.html#eeb672a71c45ead28b7b354414f2427a) >>
-  /Subtype /Link
-/ANN pdfmark
-[ /Rect [ 248 0 288 20 ]
+[ /Rect [ 231 0 267 18 ]
   /Border [ 0 0 0 ]
   /Action << /Subtype /URI /URI ($Utils_8c.html#eeb672a71c45ead28b7b354414f2427a) >>
   /Subtype /Link
 /ANN pdfmark
 0.000 0.000 1.000 nodecolor
-newpath 248 -1 moveto
-248 20 lineto
-288 20 lineto
-288 -1 lineto
+newpath 231 -1 moveto
+231 18 lineto
+267 18 lineto
+267 -1 lineto
 closepath fill
 1 setlinewidth
 filled
 0.000 0.000 0.000 nodecolor
-newpath 248 -1 moveto
-248 20 lineto
-288 20 lineto
-288 -1 lineto
+newpath 231 -1 moveto
+231 18 lineto
+267 18 lineto
+267 -1 lineto
 closepath stroke
 0.000 0.000 0.000 nodecolor
-10.00 /FreeSans.ttf set_font
-268 6 moveto 24 -0.5 (nrow) alignedtext
+10.00 /FreeSans set_font
+238.875 4.25 moveto 20.25 (nrow) alignedtext
 grestore
-% Node1->Node3
+% Node1->Node4
 gsave
 1 setlinewidth
 solid
 0.667 0.776 0.439 edgecolor
-newpath 154 21 moveto
-183 18 215 15 238 13 curveto
+newpath 142 20 moveto
+169 17 200 14 221 12 curveto
 stroke
 0.667 0.776 0.439 edgecolor
-newpath 238.398 16.4778 moveto
-248 12 lineto
-237.701 9.5125 lineto
+newpath 221.398 15.4778 moveto
+231 11 lineto
+220.701 8.5125 lineto
 closepath fill
 1 setlinewidth
 solid
 0.667 0.776 0.439 edgecolor
-newpath 238.398 16.4778 moveto
-248 12 lineto
-237.701 9.5125 lineto
+newpath 221.398 15.4778 moveto
+231 11 lineto
+220.701 8.5125 lineto
+closepath stroke
+grestore
+% Node3
+gsave
+[ /Rect [ 356 36 402 54 ]
+  /Border [ 0 0 0 ]
+  /Action << /Subtype /URI /URI ($mvt_8h.html#2a7ae850a24d2fe1a610ca397d6871c7) >>
+  /Subtype /Link
+/ANN pdfmark
+0.000 0.000 1.000 nodecolor
+newpath 356 35 moveto
+356 54 lineto
+402 54 lineto
+402 35 lineto
+closepath fill
+1 setlinewidth
+filled
+0.000 0.000 0.000 nodecolor
+newpath 356 35 moveto
+356 54 lineto
+402 54 lineto
+402 35 lineto
+closepath stroke
+0.000 0.000 0.000 nodecolor
+10.00 /FreeSans set_font
+364 40.25 moveto 30 (mvtdst) alignedtext
+grestore
+% Node2->Node3
+gsave
+1 setlinewidth
+solid
+0.667 0.776 0.439 edgecolor
+newpath 320 45 moveto
+329 45 338 45 346 45 curveto
+stroke
+0.667 0.776 0.439 edgecolor
+newpath 346 48.5001 moveto
+356 45 lineto
+346 41.5001 lineto
+closepath fill
+1 setlinewidth
+solid
+0.667 0.776 0.439 edgecolor
+newpath 346 48.5001 moveto
+356 45 lineto
+346 41.5001 lineto
 closepath stroke
 grestore
 endpage
@@ -329,7 +350,7 @@ grestore
 %%EndPage: 1
 %%Trailer
 %%Pages: 1
-%%BoundingBox: 36 36 390 102
+%%BoundingBox: 36 36 446 98
 end
 restore
 %%EOF

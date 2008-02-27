@@ -72,9 +72,9 @@ void \hyperlink{S3Classes_8h_c092009b36513086514bbe7aff516f12}{S3set\_\-toleft} 
 
 \subsection{Function Documentation}
 \hypertarget{S3Classes_8h_f837f0cf74c62c53c74138c4dbb9acc0}{
-\index{S3Classes.h@{S3Classes.h}!C_init_node@{C\_\-init\_\-node}}
-\index{C_init_node@{C\_\-init\_\-node}!S3Classes.h@{S3Classes.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void C\_\-init\_\-node (SEXP {\em node}, int {\em nobs}, int {\em ninputs}, int {\em nsurr}, int {\em q})}}
+\index{S3Classes.h@{S3Classes.h}!C\_\-init\_\-node@{C\_\-init\_\-node}}
+\index{C\_\-init\_\-node@{C\_\-init\_\-node}!S3Classes.h@{S3Classes.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void C\_\-init\_\-node (SEXP {\em node}, \/  int {\em nobs}, \/  int {\em ninputs}, \/  int {\em nsurr}, \/  int {\em q})}}
 \label{S3Classes_8h_f837f0cf74c62c53c74138c4dbb9acc0}
 
 
@@ -82,10 +82,12 @@ void \hyperlink{S3Classes_8h_c092009b36513086514bbe7aff516f12}{S3set\_\-toleft} 
 
 Definition at line 11 of file S3Classes.c.
 
-References CRITERION\_\-LENGTH, NODE\_\-LENGTH, S3\_\-CRITERION, S3\_\-iCRITERION, S3\_\-MAXCRITERION, S3\_\-NODEID, S3\_\-PREDICTION, S3\_\-PSPLIT, S3\_\-SSPLIT, S3\_\-STATISTICS, S3\_\-SUMWEIGHTS, S3\_\-TERMINAL, S3\_\-WEIGHTS, and SPLIT\_\-LENGTH.\hypertarget{S3Classes_8h_07230eaacca448a8235ea7760adbfa04}{
-\index{S3Classes.h@{S3Classes.h}!C_init_nominalsplit@{C\_\-init\_\-nominalsplit}}
-\index{C_init_nominalsplit@{C\_\-init\_\-nominalsplit}!S3Classes.h@{S3Classes.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void C\_\-init\_\-nominalsplit (SEXP {\em split}, int {\em nlevels}, int {\em nobs})}}
+References CRITERION\_\-LENGTH, NODE\_\-LENGTH, S3\_\-CRITERION, S3\_\-iCRITERION, S3\_\-MAXCRITERION, S3\_\-NODEID, S3\_\-PREDICTION, S3\_\-PSPLIT, S3\_\-SSPLIT, S3\_\-STATISTICS, S3\_\-SUMWEIGHTS, S3\_\-TERMINAL, S3\_\-WEIGHTS, and SPLIT\_\-LENGTH.
+
+Referenced by C\_\-splitnode(), R\_\-Ensemble(), R\_\-Node(), and R\_\-TreeGrow().\hypertarget{S3Classes_8h_07230eaacca448a8235ea7760adbfa04}{
+\index{S3Classes.h@{S3Classes.h}!C\_\-init\_\-nominalsplit@{C\_\-init\_\-nominalsplit}}
+\index{C\_\-init\_\-nominalsplit@{C\_\-init\_\-nominalsplit}!S3Classes.h@{S3Classes.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void C\_\-init\_\-nominalsplit (SEXP {\em split}, \/  int {\em nlevels}, \/  int {\em nobs})}}
 \label{S3Classes_8h_07230eaacca448a8235ea7760adbfa04}
 
 
@@ -93,10 +95,12 @@ References CRITERION\_\-LENGTH, NODE\_\-LENGTH, S3\_\-CRITERION, S3\_\-iCRITERIO
 
 Definition at line 128 of file S3Classes.c.
 
-References S3\_\-ORDERED, S3\_\-SPLITPOINT, S3\_\-SPLITSTATISTICS, S3\_\-TABLE, S3\_\-TOLEFT, S3\_\-VARIABLEID, and SPLIT\_\-LENGTH.\hypertarget{S3Classes_8h_c727b2483cf36cd256889ac9f8203258}{
-\index{S3Classes.h@{S3Classes.h}!C_init_orderedsplit@{C\_\-init\_\-orderedsplit}}
-\index{C_init_orderedsplit@{C\_\-init\_\-orderedsplit}!S3Classes.h@{S3Classes.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void C\_\-init\_\-orderedsplit (SEXP {\em split}, int {\em nobs})}}
+References S3\_\-ORDERED, S3\_\-SPLITPOINT, S3\_\-SPLITSTATISTICS, S3\_\-TABLE, S3\_\-TOLEFT, S3\_\-VARIABLEID, and SPLIT\_\-LENGTH.
+
+Referenced by C\_\-Node().\hypertarget{S3Classes_8h_c727b2483cf36cd256889ac9f8203258}{
+\index{S3Classes.h@{S3Classes.h}!C\_\-init\_\-orderedsplit@{C\_\-init\_\-orderedsplit}}
+\index{C\_\-init\_\-orderedsplit@{C\_\-init\_\-orderedsplit}!S3Classes.h@{S3Classes.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void C\_\-init\_\-orderedsplit (SEXP {\em split}, \/  int {\em nobs})}}
 \label{S3Classes_8h_c727b2483cf36cd256889ac9f8203258}
 
 
@@ -104,9 +108,11 @@ References S3\_\-ORDERED, S3\_\-SPLITPOINT, S3\_\-SPLITSTATISTICS, S3\_\-TABLE, 
 
 Definition at line 104 of file S3Classes.c.
 
-References S3\_\-ORDERED, S3\_\-SPLITPOINT, S3\_\-SPLITSTATISTICS, S3\_\-TABLE, S3\_\-TOLEFT, S3\_\-VARIABLEID, and SPLIT\_\-LENGTH.\hypertarget{S3Classes_8h_7e1195f9e99aa93145f04e80c62ff687}{
-\index{S3Classes.h@{S3Classes.h}!S3get_criterion@{S3get\_\-criterion}}
-\index{S3get_criterion@{S3get\_\-criterion}!S3Classes.h@{S3Classes.h}}
+References S3\_\-ORDERED, S3\_\-SPLITPOINT, S3\_\-SPLITSTATISTICS, S3\_\-TABLE, S3\_\-TOLEFT, S3\_\-VARIABLEID, and SPLIT\_\-LENGTH.
+
+Referenced by C\_\-Node(), and C\_\-surrogates().\hypertarget{S3Classes_8h_7e1195f9e99aa93145f04e80c62ff687}{
+\index{S3Classes.h@{S3Classes.h}!S3get\_\-criterion@{S3get\_\-criterion}}
+\index{S3get\_\-criterion@{S3get\_\-criterion}!S3Classes.h@{S3Classes.h}}
 \subsubsection{\setlength{\rightskip}{0pt plus 5cm}SEXP S3get\_\-criterion (SEXP {\em node})}}
 \label{S3Classes_8h_7e1195f9e99aa93145f04e80c62ff687}
 
@@ -115,9 +121,11 @@ References S3\_\-ORDERED, S3\_\-SPLITPOINT, S3\_\-SPLITSTATISTICS, S3\_\-TABLE, 
 
 Definition at line 68 of file S3Classes.c.
 
-References S3\_\-CRITERION, and S3\_\-iCRITERION.\hypertarget{S3Classes_8h_5917f57e141432fd1e4f58a16b9149aa}{
-\index{S3Classes.h@{S3Classes.h}!S3get_leftnode@{S3get\_\-leftnode}}
-\index{S3get_leftnode@{S3get\_\-leftnode}!S3Classes.h@{S3Classes.h}}
+References S3\_\-CRITERION, and S3\_\-iCRITERION.
+
+Referenced by C\_\-Node().\hypertarget{S3Classes_8h_5917f57e141432fd1e4f58a16b9149aa}{
+\index{S3Classes.h@{S3Classes.h}!S3get\_\-leftnode@{S3get\_\-leftnode}}
+\index{S3get\_\-leftnode@{S3get\_\-leftnode}!S3Classes.h@{S3Classes.h}}
 \subsubsection{\setlength{\rightskip}{0pt plus 5cm}SEXP S3get\_\-leftnode (SEXP {\em node})}}
 \label{S3Classes_8h_5917f57e141432fd1e4f58a16b9149aa}
 
@@ -126,9 +134,11 @@ References S3\_\-CRITERION, and S3\_\-iCRITERION.\hypertarget{S3Classes_8h_5917f
 
 Definition at line 96 of file S3Classes.c.
 
-References S3\_\-LEFT.\hypertarget{S3Classes_8h_e5d3e3ccef4e5fbfe1b6cf683b4d2999}{
-\index{S3Classes.h@{S3Classes.h}!S3get_maxcriterion@{S3get\_\-maxcriterion}}
-\index{S3get_maxcriterion@{S3get\_\-maxcriterion}!S3Classes.h@{S3Classes.h}}
+References S3\_\-LEFT.
+
+Referenced by C\_\-get\_\-node(), C\_\-get\_\-nodebynum(), C\_\-remove\_\-weights(), C\_\-splitsurrogate(), and C\_\-TreeGrow().\hypertarget{S3Classes_8h_e5d3e3ccef4e5fbfe1b6cf683b4d2999}{
+\index{S3Classes.h@{S3Classes.h}!S3get\_\-maxcriterion@{S3get\_\-maxcriterion}}
+\index{S3get\_\-maxcriterion@{S3get\_\-maxcriterion}!S3Classes.h@{S3Classes.h}}
 \subsubsection{\setlength{\rightskip}{0pt plus 5cm}SEXP S3get\_\-maxcriterion (SEXP {\em node})}}
 \label{S3Classes_8h_e5d3e3ccef4e5fbfe1b6cf683b4d2999}
 
@@ -137,9 +147,11 @@ References S3\_\-LEFT.\hypertarget{S3Classes_8h_e5d3e3ccef4e5fbfe1b6cf683b4d2999
 
 Definition at line 72 of file S3Classes.c.
 
-References S3\_\-CRITERION, and S3\_\-MAXCRITERION.\hypertarget{S3Classes_8h_136b05ff188fc291196cc9d37d52e862}{
-\index{S3Classes.h@{S3Classes.h}!S3get_nodeID@{S3get\_\-nodeID}}
-\index{S3get_nodeID@{S3get\_\-nodeID}!S3Classes.h@{S3Classes.h}}
+References S3\_\-CRITERION, and S3\_\-MAXCRITERION.
+
+Referenced by C\_\-get\_\-node(), and C\_\-Node().\hypertarget{S3Classes_8h_136b05ff188fc291196cc9d37d52e862}{
+\index{S3Classes.h@{S3Classes.h}!S3get\_\-nodeID@{S3get\_\-nodeID}}
+\index{S3get\_\-nodeID@{S3get\_\-nodeID}!S3Classes.h@{S3Classes.h}}
 \subsubsection{\setlength{\rightskip}{0pt plus 5cm}int S3get\_\-nodeID (SEXP {\em node})}}
 \label{S3Classes_8h_136b05ff188fc291196cc9d37d52e862}
 
@@ -148,9 +160,11 @@ References S3\_\-CRITERION, and S3\_\-MAXCRITERION.\hypertarget{S3Classes_8h_136
 
 Definition at line 47 of file S3Classes.c.
 
-References S3\_\-NODEID.\hypertarget{S3Classes_8h_b8834f319068d2a248a5d6328cd10dc5}{
-\index{S3Classes.h@{S3Classes.h}!S3get_nodeterminal@{S3get\_\-nodeterminal}}
-\index{S3get_nodeterminal@{S3get\_\-nodeterminal}!S3Classes.h@{S3Classes.h}}
+References S3\_\-NODEID.
+
+Referenced by C\_\-get\_\-nodebynum(), and C\_\-get\_\-nodeID().\hypertarget{S3Classes_8h_b8834f319068d2a248a5d6328cd10dc5}{
+\index{S3Classes.h@{S3Classes.h}!S3get\_\-nodeterminal@{S3get\_\-nodeterminal}}
+\index{S3get\_\-nodeterminal@{S3get\_\-nodeterminal}!S3Classes.h@{S3Classes.h}}
 \subsubsection{\setlength{\rightskip}{0pt plus 5cm}int S3get\_\-nodeterminal (SEXP {\em node})}}
 \label{S3Classes_8h_b8834f319068d2a248a5d6328cd10dc5}
 
@@ -159,9 +173,11 @@ References S3\_\-NODEID.\hypertarget{S3Classes_8h_b8834f319068d2a248a5d6328cd10d
 
 Definition at line 80 of file S3Classes.c.
 
-References S3\_\-TERMINAL.\hypertarget{S3Classes_8h_c3785782483b5bf4afe9d606e280f3ca}{
-\index{S3Classes.h@{S3Classes.h}!S3get_nodeweights@{S3get\_\-nodeweights}}
-\index{S3get_nodeweights@{S3get\_\-nodeweights}!S3Classes.h@{S3Classes.h}}
+References S3\_\-TERMINAL.
+
+Referenced by C\_\-get\_\-node(), C\_\-get\_\-nodebynum(), C\_\-remove\_\-weights(), and C\_\-TreeGrow().\hypertarget{S3Classes_8h_c3785782483b5bf4afe9d606e280f3ca}{
+\index{S3Classes.h@{S3Classes.h}!S3get\_\-nodeweights@{S3get\_\-nodeweights}}
+\index{S3get\_\-nodeweights@{S3get\_\-nodeweights}!S3Classes.h@{S3Classes.h}}
 \subsubsection{\setlength{\rightskip}{0pt plus 5cm}SEXP S3get\_\-nodeweights (SEXP {\em node})}}
 \label{S3Classes_8h_c3785782483b5bf4afe9d606e280f3ca}
 
@@ -170,9 +186,11 @@ References S3\_\-TERMINAL.\hypertarget{S3Classes_8h_c3785782483b5bf4afe9d606e280
 
 Definition at line 51 of file S3Classes.c.
 
-References S3\_\-WEIGHTS.\hypertarget{S3Classes_8h_70a340b301b4e383107c92cbbeb4ae20}{
-\index{S3Classes.h@{S3Classes.h}!S3get_prediction@{S3get\_\-prediction}}
-\index{S3get_prediction@{S3get\_\-prediction}!S3Classes.h@{S3Classes.h}}
+References S3\_\-WEIGHTS.
+
+Referenced by C\_\-get\_\-nodeweights(), C\_\-splitnode(), C\_\-splitsurrogate(), C\_\-surrogates(), C\_\-TreeGrow(), R\_\-Ensemble(), and R\_\-TreeGrow().\hypertarget{S3Classes_8h_70a340b301b4e383107c92cbbeb4ae20}{
+\index{S3Classes.h@{S3Classes.h}!S3get\_\-prediction@{S3get\_\-prediction}}
+\index{S3get\_\-prediction@{S3get\_\-prediction}!S3Classes.h@{S3Classes.h}}
 \subsubsection{\setlength{\rightskip}{0pt plus 5cm}SEXP S3get\_\-prediction (SEXP {\em node})}}
 \label{S3Classes_8h_70a340b301b4e383107c92cbbeb4ae20}
 
@@ -181,9 +199,11 @@ References S3\_\-WEIGHTS.\hypertarget{S3Classes_8h_70a340b301b4e383107c92cbbeb4a
 
 Definition at line 92 of file S3Classes.c.
 
-References S3\_\-PREDICTION.\hypertarget{S3Classes_8h_220373298b30f12b22f82cce3c996a37}{
-\index{S3Classes.h@{S3Classes.h}!S3get_primarysplit@{S3get\_\-primarysplit}}
-\index{S3get_primarysplit@{S3get\_\-primarysplit}!S3Classes.h@{S3Classes.h}}
+References S3\_\-PREDICTION.
+
+Referenced by C\_\-get\_\-prediction(), C\_\-getpredictions(), C\_\-Node(), and R\_\-predictRF\_\-weights().\hypertarget{S3Classes_8h_220373298b30f12b22f82cce3c996a37}{
+\index{S3Classes.h@{S3Classes.h}!S3get\_\-primarysplit@{S3get\_\-primarysplit}}
+\index{S3get\_\-primarysplit@{S3get\_\-primarysplit}!S3Classes.h@{S3Classes.h}}
 \subsubsection{\setlength{\rightskip}{0pt plus 5cm}SEXP S3get\_\-primarysplit (SEXP {\em node})}}
 \label{S3Classes_8h_220373298b30f12b22f82cce3c996a37}
 
@@ -192,9 +212,11 @@ References S3\_\-PREDICTION.\hypertarget{S3Classes_8h_220373298b30f12b22f82cce3c
 
 Definition at line 84 of file S3Classes.c.
 
-References S3\_\-PSPLIT.\hypertarget{S3Classes_8h_14a38e81ed758a64367dc190f0e8229b}{
-\index{S3Classes.h@{S3Classes.h}!S3get_rightnode@{S3get\_\-rightnode}}
-\index{S3get_rightnode@{S3get\_\-rightnode}!S3Classes.h@{S3Classes.h}}
+References S3\_\-PSPLIT.
+
+Referenced by C\_\-get\_\-node(), C\_\-Node(), C\_\-splitnode(), C\_\-splitsurrogate(), and C\_\-surrogates().\hypertarget{S3Classes_8h_14a38e81ed758a64367dc190f0e8229b}{
+\index{S3Classes.h@{S3Classes.h}!S3get\_\-rightnode@{S3get\_\-rightnode}}
+\index{S3get\_\-rightnode@{S3get\_\-rightnode}!S3Classes.h@{S3Classes.h}}
 \subsubsection{\setlength{\rightskip}{0pt plus 5cm}SEXP S3get\_\-rightnode (SEXP {\em node})}}
 \label{S3Classes_8h_14a38e81ed758a64367dc190f0e8229b}
 
@@ -203,9 +225,11 @@ References S3\_\-PSPLIT.\hypertarget{S3Classes_8h_14a38e81ed758a64367dc190f0e822
 
 Definition at line 100 of file S3Classes.c.
 
-References S3\_\-RIGHT.\hypertarget{S3Classes_8h_acf87d496fd3b07bafd171c92404212a}{
-\index{S3Classes.h@{S3Classes.h}!S3get_splitpoint@{S3get\_\-splitpoint}}
-\index{S3get_splitpoint@{S3get\_\-splitpoint}!S3Classes.h@{S3Classes.h}}
+References S3\_\-RIGHT.
+
+Referenced by C\_\-get\_\-node(), C\_\-get\_\-nodebynum(), C\_\-remove\_\-weights(), C\_\-splitsurrogate(), and C\_\-TreeGrow().\hypertarget{S3Classes_8h_acf87d496fd3b07bafd171c92404212a}{
+\index{S3Classes.h@{S3Classes.h}!S3get\_\-splitpoint@{S3get\_\-splitpoint}}
+\index{S3get\_\-splitpoint@{S3get\_\-splitpoint}!S3Classes.h@{S3Classes.h}}
 \subsubsection{\setlength{\rightskip}{0pt plus 5cm}SEXP S3get\_\-splitpoint (SEXP {\em split})}}
 \label{S3Classes_8h_acf87d496fd3b07bafd171c92404212a}
 
@@ -214,9 +238,11 @@ References S3\_\-RIGHT.\hypertarget{S3Classes_8h_acf87d496fd3b07bafd171c92404212
 
 Definition at line 179 of file S3Classes.c.
 
-References S3\_\-SPLITPOINT.\hypertarget{S3Classes_8h_a22b5c06c2e2e7ad8bf873df35a8bb99}{
-\index{S3Classes.h@{S3Classes.h}!S3get_splitstatistics@{S3get\_\-splitstatistics}}
-\index{S3get_splitstatistics@{S3get\_\-splitstatistics}!S3Classes.h@{S3Classes.h}}
+References S3\_\-SPLITPOINT.
+
+Referenced by C\_\-get\_\-node(), C\_\-Node(), C\_\-splitnode(), C\_\-splitsurrogate(), and C\_\-surrogates().\hypertarget{S3Classes_8h_a22b5c06c2e2e7ad8bf873df35a8bb99}{
+\index{S3Classes.h@{S3Classes.h}!S3get\_\-splitstatistics@{S3get\_\-splitstatistics}}
+\index{S3get\_\-splitstatistics@{S3get\_\-splitstatistics}!S3Classes.h@{S3Classes.h}}
 \subsubsection{\setlength{\rightskip}{0pt plus 5cm}SEXP S3get\_\-splitstatistics (SEXP {\em split})}}
 \label{S3Classes_8h_a22b5c06c2e2e7ad8bf873df35a8bb99}
 
@@ -225,9 +251,11 @@ References S3\_\-SPLITPOINT.\hypertarget{S3Classes_8h_a22b5c06c2e2e7ad8bf873df35
 
 Definition at line 183 of file S3Classes.c.
 
-References S3\_\-SPLITSTATISTICS.\hypertarget{S3Classes_8h_d5b760cf2b547dc128273948f78b7a3c}{
-\index{S3Classes.h@{S3Classes.h}!S3get_sumweights@{S3get\_\-sumweights}}
-\index{S3get_sumweights@{S3get\_\-sumweights}!S3Classes.h@{S3Classes.h}}
+References S3\_\-SPLITSTATISTICS.
+
+Referenced by C\_\-Node().\hypertarget{S3Classes_8h_d5b760cf2b547dc128273948f78b7a3c}{
+\index{S3Classes.h@{S3Classes.h}!S3get\_\-sumweights@{S3get\_\-sumweights}}
+\index{S3get\_\-sumweights@{S3get\_\-sumweights}!S3Classes.h@{S3Classes.h}}
 \subsubsection{\setlength{\rightskip}{0pt plus 5cm}double S3get\_\-sumweights (SEXP {\em node})}}
 \label{S3Classes_8h_d5b760cf2b547dc128273948f78b7a3c}
 
@@ -236,9 +264,11 @@ References S3\_\-SPLITSTATISTICS.\hypertarget{S3Classes_8h_d5b760cf2b547dc128273
 
 Definition at line 60 of file S3Classes.c.
 
-References S3\_\-SUMWEIGHTS.\hypertarget{S3Classes_8h_f270d1d02bf86a4c5cdc8959045c3567}{
-\index{S3Classes.h@{S3Classes.h}!S3get_surrogatesplits@{S3get\_\-surrogatesplits}}
-\index{S3get_surrogatesplits@{S3get\_\-surrogatesplits}!S3Classes.h@{S3Classes.h}}
+References S3\_\-SUMWEIGHTS.
+
+Referenced by C\_\-get\_\-node().\hypertarget{S3Classes_8h_f270d1d02bf86a4c5cdc8959045c3567}{
+\index{S3Classes.h@{S3Classes.h}!S3get\_\-surrogatesplits@{S3get\_\-surrogatesplits}}
+\index{S3get\_\-surrogatesplits@{S3get\_\-surrogatesplits}!S3Classes.h@{S3Classes.h}}
 \subsubsection{\setlength{\rightskip}{0pt plus 5cm}SEXP S3get\_\-surrogatesplits (SEXP {\em node})}}
 \label{S3Classes_8h_f270d1d02bf86a4c5cdc8959045c3567}
 
@@ -247,9 +277,11 @@ References S3\_\-SUMWEIGHTS.\hypertarget{S3Classes_8h_f270d1d02bf86a4c5cdc895904
 
 Definition at line 88 of file S3Classes.c.
 
-References S3\_\-SSPLIT.\hypertarget{S3Classes_8h_bfaef93469acd8afe59da13b44097592}{
-\index{S3Classes.h@{S3Classes.h}!S3get_table@{S3get\_\-table}}
-\index{S3get_table@{S3get\_\-table}!S3Classes.h@{S3Classes.h}}
+References S3\_\-SSPLIT.
+
+Referenced by C\_\-get\_\-node(), C\_\-splitsurrogate(), C\_\-surrogates(), and R\_\-surrogates().\hypertarget{S3Classes_8h_bfaef93469acd8afe59da13b44097592}{
+\index{S3Classes.h@{S3Classes.h}!S3get\_\-table@{S3get\_\-table}}
+\index{S3get\_\-table@{S3get\_\-table}!S3Classes.h@{S3Classes.h}}
 \subsubsection{\setlength{\rightskip}{0pt plus 5cm}SEXP S3get\_\-table (SEXP {\em node})}}
 \label{S3Classes_8h_bfaef93469acd8afe59da13b44097592}
 
@@ -258,9 +290,11 @@ References S3\_\-SSPLIT.\hypertarget{S3Classes_8h_bfaef93469acd8afe59da13b440975
 
 Definition at line 192 of file S3Classes.c.
 
-References S3\_\-TABLE.\hypertarget{S3Classes_8h_174b61cf01697f1693e14e449611563c}{
-\index{S3Classes.h@{S3Classes.h}!S3get_teststat@{S3get\_\-teststat}}
-\index{S3get_teststat@{S3get\_\-teststat}!S3Classes.h@{S3Classes.h}}
+References S3\_\-TABLE.
+
+Referenced by C\_\-Node().\hypertarget{S3Classes_8h_174b61cf01697f1693e14e449611563c}{
+\index{S3Classes.h@{S3Classes.h}!S3get\_\-teststat@{S3get\_\-teststat}}
+\index{S3get\_\-teststat@{S3get\_\-teststat}!S3Classes.h@{S3Classes.h}}
 \subsubsection{\setlength{\rightskip}{0pt plus 5cm}SEXP S3get\_\-teststat (SEXP {\em node})}}
 \label{S3Classes_8h_174b61cf01697f1693e14e449611563c}
 
@@ -269,9 +303,11 @@ References S3\_\-TABLE.\hypertarget{S3Classes_8h_174b61cf01697f1693e14e449611563
 
 Definition at line 64 of file S3Classes.c.
 
-References S3\_\-CRITERION, and S3\_\-STATISTICS.\hypertarget{S3Classes_8h_67d50b82dea660a930cf7427be899efb}{
-\index{S3Classes.h@{S3Classes.h}!S3get_toleft@{S3get\_\-toleft}}
-\index{S3get_toleft@{S3get\_\-toleft}!S3Classes.h@{S3Classes.h}}
+References S3\_\-CRITERION, and S3\_\-STATISTICS.
+
+Referenced by C\_\-Node().\hypertarget{S3Classes_8h_67d50b82dea660a930cf7427be899efb}{
+\index{S3Classes.h@{S3Classes.h}!S3get\_\-toleft@{S3get\_\-toleft}}
+\index{S3get\_\-toleft@{S3get\_\-toleft}!S3Classes.h@{S3Classes.h}}
 \subsubsection{\setlength{\rightskip}{0pt plus 5cm}int S3get\_\-toleft (SEXP {\em split})}}
 \label{S3Classes_8h_67d50b82dea660a930cf7427be899efb}
 
@@ -280,9 +316,11 @@ References S3\_\-CRITERION, and S3\_\-STATISTICS.\hypertarget{S3Classes_8h_67d50
 
 Definition at line 170 of file S3Classes.c.
 
-References S3\_\-TOLEFT.\hypertarget{S3Classes_8h_583f9148949f93b5fe894feb6567ca0d}{
-\index{S3Classes.h@{S3Classes.h}!S3get_variableID@{S3get\_\-variableID}}
-\index{S3get_variableID@{S3get\_\-variableID}!S3Classes.h@{S3Classes.h}}
+References S3\_\-TOLEFT.
+
+Referenced by C\_\-get\_\-node(), and C\_\-splitsurrogate().\hypertarget{S3Classes_8h_583f9148949f93b5fe894feb6567ca0d}{
+\index{S3Classes.h@{S3Classes.h}!S3get\_\-variableID@{S3get\_\-variableID}}
+\index{S3get\_\-variableID@{S3get\_\-variableID}!S3Classes.h@{S3Classes.h}}
 \subsubsection{\setlength{\rightskip}{0pt plus 5cm}int S3get\_\-variableID (SEXP {\em split})}}
 \label{S3Classes_8h_583f9148949f93b5fe894feb6567ca0d}
 
@@ -291,9 +329,11 @@ References S3\_\-TOLEFT.\hypertarget{S3Classes_8h_583f9148949f93b5fe894feb6567ca
 
 Definition at line 154 of file S3Classes.c.
 
-References S3\_\-VARIABLEID.\hypertarget{S3Classes_8h_54ed9f6b46c69d550ceea1a525287ecf}{
-\index{S3Classes.h@{S3Classes.h}!S3is_ordered@{S3is\_\-ordered}}
-\index{S3is_ordered@{S3is\_\-ordered}!S3Classes.h@{S3Classes.h}}
+References S3\_\-VARIABLEID.
+
+Referenced by C\_\-get\_\-node(), C\_\-splitnode(), C\_\-splitsurrogate(), and C\_\-surrogates().\hypertarget{S3Classes_8h_54ed9f6b46c69d550ceea1a525287ecf}{
+\index{S3Classes.h@{S3Classes.h}!S3is\_\-ordered@{S3is\_\-ordered}}
+\index{S3is\_\-ordered@{S3is\_\-ordered}!S3Classes.h@{S3Classes.h}}
 \subsubsection{\setlength{\rightskip}{0pt plus 5cm}int S3is\_\-ordered (SEXP {\em split})}}
 \label{S3Classes_8h_54ed9f6b46c69d550ceea1a525287ecf}
 
@@ -302,10 +342,12 @@ References S3\_\-VARIABLEID.\hypertarget{S3Classes_8h_54ed9f6b46c69d550ceea1a525
 
 Definition at line 158 of file S3Classes.c.
 
-References S3\_\-ORDERED.\hypertarget{S3Classes_8h_3130204036068f194e66d7f8b39da73c}{
-\index{S3Classes.h@{S3Classes.h}!S3set_nodeID@{S3set\_\-nodeID}}
-\index{S3set_nodeID@{S3set\_\-nodeID}!S3Classes.h@{S3Classes.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void S3set\_\-nodeID (SEXP {\em node}, int {\em nodeID})}}
+References S3\_\-ORDERED.
+
+Referenced by C\_\-get\_\-node(), and C\_\-splitnode().\hypertarget{S3Classes_8h_3130204036068f194e66d7f8b39da73c}{
+\index{S3Classes.h@{S3Classes.h}!S3set\_\-nodeID@{S3set\_\-nodeID}}
+\index{S3set\_\-nodeID@{S3set\_\-nodeID}!S3Classes.h@{S3Classes.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void S3set\_\-nodeID (SEXP {\em node}, \/  int {\em nodeID})}}
 \label{S3Classes_8h_3130204036068f194e66d7f8b39da73c}
 
 
@@ -313,9 +355,11 @@ References S3\_\-ORDERED.\hypertarget{S3Classes_8h_3130204036068f194e66d7f8b39da
 
 Definition at line 43 of file S3Classes.c.
 
-References S3\_\-NODEID.\hypertarget{S3Classes_8h_81cae2a178f2bb5562a12c974d966add}{
-\index{S3Classes.h@{S3Classes.h}!S3set_nodeterminal@{S3set\_\-nodeterminal}}
-\index{S3set_nodeterminal@{S3set\_\-nodeterminal}!S3Classes.h@{S3Classes.h}}
+References S3\_\-NODEID.
+
+Referenced by C\_\-TreeGrow().\hypertarget{S3Classes_8h_81cae2a178f2bb5562a12c974d966add}{
+\index{S3Classes.h@{S3Classes.h}!S3set\_\-nodeterminal@{S3set\_\-nodeterminal}}
+\index{S3set\_\-nodeterminal@{S3set\_\-nodeterminal}!S3Classes.h@{S3Classes.h}}
 \subsubsection{\setlength{\rightskip}{0pt plus 5cm}void S3set\_\-nodeterminal (SEXP {\em node})}}
 \label{S3Classes_8h_81cae2a178f2bb5562a12c974d966add}
 
@@ -324,9 +368,11 @@ References S3\_\-NODEID.\hypertarget{S3Classes_8h_81cae2a178f2bb5562a12c974d966a
 
 Definition at line 76 of file S3Classes.c.
 
-References S3\_\-TERMINAL.\hypertarget{S3Classes_8h_abc3b50bbc29acb0b2c7ac0ed42fcb56}{
-\index{S3Classes.h@{S3Classes.h}!S3set_nominal@{S3set\_\-nominal}}
-\index{S3set_nominal@{S3set\_\-nominal}!S3Classes.h@{S3Classes.h}}
+References S3\_\-TERMINAL.
+
+Referenced by C\_\-Node().\hypertarget{S3Classes_8h_abc3b50bbc29acb0b2c7ac0ed42fcb56}{
+\index{S3Classes.h@{S3Classes.h}!S3set\_\-nominal@{S3set\_\-nominal}}
+\index{S3set\_\-nominal@{S3set\_\-nominal}!S3Classes.h@{S3Classes.h}}
 \subsubsection{\setlength{\rightskip}{0pt plus 5cm}void S3set\_\-nominal (SEXP {\em split})}}
 \label{S3Classes_8h_abc3b50bbc29acb0b2c7ac0ed42fcb56}
 
@@ -336,8 +382,8 @@ References S3\_\-TERMINAL.\hypertarget{S3Classes_8h_abc3b50bbc29acb0b2c7ac0ed42f
 Definition at line 166 of file S3Classes.c.
 
 References S3\_\-ORDERED.\hypertarget{S3Classes_8h_db2e0a52bc6a8eb0c74449942777d1a1}{
-\index{S3Classes.h@{S3Classes.h}!S3set_ordered@{S3set\_\-ordered}}
-\index{S3set_ordered@{S3set\_\-ordered}!S3Classes.h@{S3Classes.h}}
+\index{S3Classes.h@{S3Classes.h}!S3set\_\-ordered@{S3set\_\-ordered}}
+\index{S3set\_\-ordered@{S3set\_\-ordered}!S3Classes.h@{S3Classes.h}}
 \subsubsection{\setlength{\rightskip}{0pt plus 5cm}void S3set\_\-ordered (SEXP {\em split})}}
 \label{S3Classes_8h_db2e0a52bc6a8eb0c74449942777d1a1}
 
@@ -347,9 +393,9 @@ References S3\_\-ORDERED.\hypertarget{S3Classes_8h_db2e0a52bc6a8eb0c74449942777d
 Definition at line 162 of file S3Classes.c.
 
 References S3\_\-ORDERED.\hypertarget{S3Classes_8h_c092009b36513086514bbe7aff516f12}{
-\index{S3Classes.h@{S3Classes.h}!S3set_toleft@{S3set\_\-toleft}}
-\index{S3set_toleft@{S3set\_\-toleft}!S3Classes.h@{S3Classes.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void S3set\_\-toleft (SEXP {\em split}, int {\em left})}}
+\index{S3Classes.h@{S3Classes.h}!S3set\_\-toleft@{S3set\_\-toleft}}
+\index{S3set\_\-toleft@{S3set\_\-toleft}!S3Classes.h@{S3Classes.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void S3set\_\-toleft (SEXP {\em split}, \/  int {\em left})}}
 \label{S3Classes_8h_c092009b36513086514bbe7aff516f12}
 
 
@@ -357,10 +403,12 @@ References S3\_\-ORDERED.\hypertarget{S3Classes_8h_c092009b36513086514bbe7aff516
 
 Definition at line 174 of file S3Classes.c.
 
-References S3\_\-TOLEFT.\hypertarget{S3Classes_8h_06ea5a46f63ebc5c27c005610dc6f8fc}{
-\index{S3Classes.h@{S3Classes.h}!S3set_variableID@{S3set\_\-variableID}}
-\index{S3set_variableID@{S3set\_\-variableID}!S3Classes.h@{S3Classes.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void S3set\_\-variableID (SEXP {\em split}, int {\em variableID})}}
+References S3\_\-TOLEFT.
+
+Referenced by C\_\-surrogates().\hypertarget{S3Classes_8h_06ea5a46f63ebc5c27c005610dc6f8fc}{
+\index{S3Classes.h@{S3Classes.h}!S3set\_\-variableID@{S3set\_\-variableID}}
+\index{S3set\_\-variableID@{S3set\_\-variableID}!S3Classes.h@{S3Classes.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void S3set\_\-variableID (SEXP {\em split}, \/  int {\em variableID})}}
 \label{S3Classes_8h_06ea5a46f63ebc5c27c005610dc6f8fc}
 
 
@@ -369,3 +417,5 @@ References S3\_\-TOLEFT.\hypertarget{S3Classes_8h_06ea5a46f63ebc5c27c005610dc6f8
 Definition at line 150 of file S3Classes.c.
 
 References S3\_\-VARIABLEID.
+
+Referenced by C\_\-Node(), and C\_\-surrogates().

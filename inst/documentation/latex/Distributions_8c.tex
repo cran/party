@@ -33,22 +33,22 @@ SEXP \hyperlink{Distributions_8c_06bd58bb395eb700a056db4498c4db9c}{R\_\-MonteCar
 Conditional Distributions
 
 \begin{Desc}
-\item[Author:]\begin{Desc}
-\item[Author]\end{Desc}
-\end{Desc}
+\item[Author:]\end{Desc}
 \begin{Desc}
-\item[Date:]\begin{Desc}
-\item[Date]\end{Desc}
-\end{Desc}
+\item[Author]hothorn \end{Desc}
+\begin{Desc}
+\item[Date:]\end{Desc}
+\begin{Desc}
+\item[Date]2007-07-12 18:49:01 +0200 (Thu, 12 Jul 2007) \end{Desc}
 
 
 Definition in file \hyperlink{Distributions_8c-source}{Distributions.c}.
 
 \subsection{Function Documentation}
 \hypertarget{Distributions_8c_0b0373aa22dcf8b8ecf6b9c560db9c70}{
-\index{Distributions.c@{Distributions.c}!C_maxabsConditionalPvalue@{C\_\-maxabsConditionalPvalue}}
-\index{C_maxabsConditionalPvalue@{C\_\-maxabsConditionalPvalue}!Distributions.c@{Distributions.c}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double C\_\-maxabsConditionalPvalue (const double {\em tstat}, const double $\ast$ {\em Sigma}, const int {\em pq}, int $\ast$ {\em maxpts}, double $\ast$ {\em releps}, double $\ast$ {\em abseps}, double $\ast$ {\em tol})}}
+\index{Distributions.c@{Distributions.c}!C\_\-maxabsConditionalPvalue@{C\_\-maxabsConditionalPvalue}}
+\index{C\_\-maxabsConditionalPvalue@{C\_\-maxabsConditionalPvalue}!Distributions.c@{Distributions.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double C\_\-maxabsConditionalPvalue (const double {\em tstat}, \/  const double $\ast$ {\em Sigma}, \/  const int {\em pq}, \/  int $\ast$ {\em maxpts}, \/  double $\ast$ {\em releps}, \/  double $\ast$ {\em abseps}, \/  double $\ast$ {\em tol})}}
 \label{Distributions_8c_0b0373aa22dcf8b8ecf6b9c560db9c70}
 
 
@@ -63,10 +63,21 @@ Conditional asymptotic P-value of a maxabs-type test statistic\par
 
 Definition at line 52 of file Distributions.c.
 
-Referenced by C\_\-ConditionalPvalue(), and R\_\-maxabsConditionalPvalue().\hypertarget{Distributions_8c_662bfb70585ca9948ff29d7ed370273b}{
-\index{Distributions.c@{Distributions.c}!C_MonteCarlo@{C\_\-MonteCarlo}}
-\index{C_MonteCarlo@{C\_\-MonteCarlo}!Distributions.c@{Distributions.c}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void C\_\-MonteCarlo (double $\ast$ {\em criterion}, SEXP {\em learnsample}, SEXP {\em weights}, SEXP {\em fitmem}, SEXP {\em varctrl}, SEXP {\em gtctrl}, double $\ast$ {\em ans\_\-pvalues})}}
+References mvtdst().
+
+Referenced by C\_\-ConditionalPvalue(), and R\_\-maxabsConditionalPvalue().
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=134pt]{Distributions_8c_0b0373aa22dcf8b8ecf6b9c560db9c70_cgraph}
+\end{center}
+\end{figure}
+\hypertarget{Distributions_8c_662bfb70585ca9948ff29d7ed370273b}{
+\index{Distributions.c@{Distributions.c}!C\_\-MonteCarlo@{C\_\-MonteCarlo}}
+\index{C\_\-MonteCarlo@{C\_\-MonteCarlo}!Distributions.c@{Distributions.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void C\_\-MonteCarlo (double $\ast$ {\em criterion}, \/  SEXP {\em learnsample}, \/  SEXP {\em weights}, \/  SEXP {\em fitmem}, \/  SEXP {\em varctrl}, \/  SEXP {\em gtctrl}, \/  double $\ast$ {\em ans\_\-pvalues})}}
 \label{Distributions_8c_662bfb70585ca9948ff29d7ed370273b}
 
 
@@ -79,10 +90,21 @@ Monte-Carlo approximation to the conditional pvalues \begin{Desc}
 
 Definition at line 169 of file Distributions.c.
 
-Referenced by C\_\-GlobalTest(), and R\_\-MonteCarlo().\hypertarget{Distributions_8c_a692392488ab88e95a62d2142e9d428c}{
-\index{Distributions.c@{Distributions.c}!C_quadformConditionalPvalue@{C\_\-quadformConditionalPvalue}}
-\index{C_quadformConditionalPvalue@{C\_\-quadformConditionalPvalue}!Distributions.c@{Distributions.c}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double C\_\-quadformConditionalPvalue (const double {\em tstat}, const double {\em df})}}
+References C\_\-LinearStatistic(), C\_\-max(), C\_\-PermutedLinearStatistic(), C\_\-SampleNoReplace(), C\_\-TeststatCriterion(), get\_\-ninputs(), get\_\-nobs(), get\_\-nresample(), get\_\-test\_\-trafo(), get\_\-transformation(), get\_\-varmemory(), has\_\-missings(), ncol(), PL2\_\-expcovinfSym, PL2\_\-inputsSym, PL2\_\-linearstatisticSym, PL2\_\-responsesSym, and PL2\_\-sumweightsSym.
+
+Referenced by C\_\-GlobalTest(), and R\_\-MonteCarlo().
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=420pt]{Distributions_8c_662bfb70585ca9948ff29d7ed370273b_cgraph}
+\end{center}
+\end{figure}
+\hypertarget{Distributions_8c_a692392488ab88e95a62d2142e9d428c}{
+\index{Distributions.c@{Distributions.c}!C\_\-quadformConditionalPvalue@{C\_\-quadformConditionalPvalue}}
+\index{C\_\-quadformConditionalPvalue@{C\_\-quadformConditionalPvalue}!Distributions.c@{Distributions.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double C\_\-quadformConditionalPvalue (const double {\em tstat}, \/  const double {\em df})}}
 \label{Distributions_8c_a692392488ab88e95a62d2142e9d428c}
 
 
@@ -97,9 +119,9 @@ Conditional asymptotic P-value of a quadratic form\par
 Definition at line 18 of file Distributions.c.
 
 Referenced by C\_\-ConditionalPvalue(), and R\_\-quadformConditionalPvalue().\hypertarget{Distributions_8c_23e23063d2a1c5ecfb6e1603d0edc228}{
-\index{Distributions.c@{Distributions.c}!R_maxabsConditionalPvalue@{R\_\-maxabsConditionalPvalue}}
-\index{R_maxabsConditionalPvalue@{R\_\-maxabsConditionalPvalue}!Distributions.c@{Distributions.c}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}SEXP R\_\-maxabsConditionalPvalue (SEXP {\em tstat}, SEXP {\em Sigma}, SEXP {\em maxpts}, SEXP {\em releps}, SEXP {\em abseps}, SEXP {\em tol})}}
+\index{Distributions.c@{Distributions.c}!R\_\-maxabsConditionalPvalue@{R\_\-maxabsConditionalPvalue}}
+\index{R\_\-maxabsConditionalPvalue@{R\_\-maxabsConditionalPvalue}!Distributions.c@{Distributions.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}SEXP R\_\-maxabsConditionalPvalue (SEXP {\em tstat}, \/  SEXP {\em Sigma}, \/  SEXP {\em maxpts}, \/  SEXP {\em releps}, \/  SEXP {\em abseps}, \/  SEXP {\em tol})}}
 \label{Distributions_8c_23e23063d2a1c5ecfb6e1603d0edc228}
 
 
@@ -119,13 +141,13 @@ Here is the call graph for this function:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=195pt]{Distributions_8c_23e23063d2a1c5ecfb6e1603d0edc228_cgraph}
+\includegraphics[width=223pt]{Distributions_8c_23e23063d2a1c5ecfb6e1603d0edc228_cgraph}
 \end{center}
 \end{figure}
 \hypertarget{Distributions_8c_06bd58bb395eb700a056db4498c4db9c}{
-\index{Distributions.c@{Distributions.c}!R_MonteCarlo@{R\_\-MonteCarlo}}
-\index{R_MonteCarlo@{R\_\-MonteCarlo}!Distributions.c@{Distributions.c}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}SEXP R\_\-MonteCarlo (SEXP {\em criterion}, SEXP {\em learnsample}, SEXP {\em weights}, SEXP {\em fitmem}, SEXP {\em varctrl}, SEXP {\em gtctrl})}}
+\index{Distributions.c@{Distributions.c}!R\_\-MonteCarlo@{R\_\-MonteCarlo}}
+\index{R\_\-MonteCarlo@{R\_\-MonteCarlo}!Distributions.c@{Distributions.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}SEXP R\_\-MonteCarlo (SEXP {\em criterion}, \/  SEXP {\em learnsample}, \/  SEXP {\em weights}, \/  SEXP {\em fitmem}, \/  SEXP {\em varctrl}, \/  SEXP {\em gtctrl})}}
 \label{Distributions_8c_06bd58bb395eb700a056db4498c4db9c}
 
 
@@ -145,13 +167,13 @@ Here is the call graph for this function:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=126pt]{Distributions_8c_06bd58bb395eb700a056db4498c4db9c_cgraph}
+\includegraphics[width=420pt]{Distributions_8c_06bd58bb395eb700a056db4498c4db9c_cgraph}
 \end{center}
 \end{figure}
 \hypertarget{Distributions_8c_f9d46ed74aa1e81c94ddbfdbf5cf504f}{
-\index{Distributions.c@{Distributions.c}!R_quadformConditionalPvalue@{R\_\-quadformConditionalPvalue}}
-\index{R_quadformConditionalPvalue@{R\_\-quadformConditionalPvalue}!Distributions.c@{Distributions.c}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}SEXP R\_\-quadformConditionalPvalue (SEXP {\em tstat}, SEXP {\em df})}}
+\index{Distributions.c@{Distributions.c}!R\_\-quadformConditionalPvalue@{R\_\-quadformConditionalPvalue}}
+\index{R\_\-quadformConditionalPvalue@{R\_\-quadformConditionalPvalue}!Distributions.c@{Distributions.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}SEXP R\_\-quadformConditionalPvalue (SEXP {\em tstat}, \/  SEXP {\em df})}}
 \label{Distributions_8c_f9d46ed74aa1e81c94ddbfdbf5cf504f}
 
 
@@ -171,6 +193,6 @@ Here is the call graph for this function:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=204pt]{Distributions_8c_f9d46ed74aa1e81c94ddbfdbf5cf504f_cgraph}
+\includegraphics[width=188pt]{Distributions_8c_f9d46ed74aa1e81c94ddbfdbf5cf504f_cgraph}
 \end{center}
 \end{figure}

@@ -28,9 +28,9 @@ SEXP \hyperlink{LinearStatistic_8h_6216ea560644c08002fb32756ae67dcc}{R\_\-Expect
 
 \subsection{Function Documentation}
 \hypertarget{LinearStatistic_8h_e2f62abe13ee5b625141b5d4a496d832}{
-\index{LinearStatistic.h@{LinearStatistic.h}!C_ExpectCovarInfluence@{C\_\-ExpectCovarInfluence}}
-\index{C_ExpectCovarInfluence@{C\_\-ExpectCovarInfluence}!LinearStatistic.h@{LinearStatistic.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void C\_\-ExpectCovarInfluence (const double $\ast$ {\em y}, const int {\em q}, const double $\ast$ {\em weights}, const int {\em n}, SEXP {\em ans})}}
+\index{LinearStatistic.h@{LinearStatistic.h}!C\_\-ExpectCovarInfluence@{C\_\-ExpectCovarInfluence}}
+\index{C\_\-ExpectCovarInfluence@{C\_\-ExpectCovarInfluence}!LinearStatistic.h@{LinearStatistic.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void C\_\-ExpectCovarInfluence (const double $\ast$ {\em y}, \/  const int {\em q}, \/  const double $\ast$ {\em weights}, \/  const int {\em n}, \/  SEXP {\em ans})}}
 \label{LinearStatistic_8h_e2f62abe13ee5b625141b5d4a496d832}
 
 
@@ -44,10 +44,12 @@ Conditional expectation and covariance of the influence function\par
 
 Definition at line 101 of file LinearStatistic.c.
 
-References PL2\_\-covarianceSym, PL2\_\-expectationSym, and PL2\_\-sumweightsSym.\hypertarget{LinearStatistic_8h_94a0805ea258af79d426c095feee399a}{
-\index{LinearStatistic.h@{LinearStatistic.h}!C_ExpectCovarLinearStatistic@{C\_\-ExpectCovarLinearStatistic}}
-\index{C_ExpectCovarLinearStatistic@{C\_\-ExpectCovarLinearStatistic}!LinearStatistic.h@{LinearStatistic.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void C\_\-ExpectCovarLinearStatistic (const double $\ast$ {\em x}, const int {\em p}, const double $\ast$ {\em y}, const int {\em q}, const double $\ast$ {\em weights}, const int {\em n}, const SEXP {\em expcovinf}, SEXP {\em ans})}}
+References PL2\_\-covarianceSym, PL2\_\-expectationSym, and PL2\_\-sumweightsSym.
+
+Referenced by C\_\-GlobalTest(), C\_\-LinStatExpCov(), C\_\-surrogates(), and R\_\-ExpectCovarInfluence().\hypertarget{LinearStatistic_8h_94a0805ea258af79d426c095feee399a}{
+\index{LinearStatistic.h@{LinearStatistic.h}!C\_\-ExpectCovarLinearStatistic@{C\_\-ExpectCovarLinearStatistic}}
+\index{C\_\-ExpectCovarLinearStatistic@{C\_\-ExpectCovarLinearStatistic}!LinearStatistic.h@{LinearStatistic.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void C\_\-ExpectCovarLinearStatistic (const double $\ast$ {\em x}, \/  const int {\em p}, \/  const double $\ast$ {\em y}, \/  const int {\em q}, \/  const double $\ast$ {\em weights}, \/  const int {\em n}, \/  const SEXP {\em expcovinf}, \/  SEXP {\em ans})}}
 \label{LinearStatistic_8h_94a0805ea258af79d426c095feee399a}
 
 
@@ -63,17 +65,19 @@ Definition at line 213 of file LinearStatistic.c.
 
 References C\_\-kronecker(), PL2\_\-covarianceSym, PL2\_\-expectationSym, and PL2\_\-sumweightsSym.
 
+Referenced by C\_\-LinStatExpCov(), and R\_\-ExpectCovarLinearStatistic().
+
 Here is the call graph for this function:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=159pt]{LinearStatistic_8h_94a0805ea258af79d426c095feee399a_cgraph}
+\includegraphics[width=150pt]{LinearStatistic_8h_94a0805ea258af79d426c095feee399a_cgraph}
 \end{center}
 \end{figure}
 \hypertarget{LinearStatistic_8h_aefa2a9406bb30b323715e3db41da637}{
-\index{LinearStatistic.h@{LinearStatistic.h}!C_LinearStatistic@{C\_\-LinearStatistic}}
-\index{C_LinearStatistic@{C\_\-LinearStatistic}!LinearStatistic.h@{LinearStatistic.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void C\_\-LinearStatistic (const double $\ast$ {\em x}, const int {\em p}, const double $\ast$ {\em y}, const int {\em q}, const double $\ast$ {\em weights}, const int {\em n}, double $\ast$ {\em ans})}}
+\index{LinearStatistic.h@{LinearStatistic.h}!C\_\-LinearStatistic@{C\_\-LinearStatistic}}
+\index{C\_\-LinearStatistic@{C\_\-LinearStatistic}!LinearStatistic.h@{LinearStatistic.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void C\_\-LinearStatistic (const double $\ast$ {\em x}, \/  const int {\em p}, \/  const double $\ast$ {\em y}, \/  const int {\em q}, \/  const double $\ast$ {\em weights}, \/  const int {\em n}, \/  double $\ast$ {\em ans})}}
 \label{LinearStatistic_8h_aefa2a9406bb30b323715e3db41da637}
 
 
@@ -85,10 +89,12 @@ Computes the linear statistic, formula (1) in the paper\par
 \end{Desc}
 
 
-Definition at line 23 of file LinearStatistic.c.\hypertarget{LinearStatistic_8h_a34b0f12fac36231a105d6dc903bfe89}{
-\index{LinearStatistic.h@{LinearStatistic.h}!C_PermutedLinearStatistic@{C\_\-PermutedLinearStatistic}}
-\index{C_PermutedLinearStatistic@{C\_\-PermutedLinearStatistic}!LinearStatistic.h@{LinearStatistic.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void C\_\-PermutedLinearStatistic (const double $\ast$ {\em x}, const int {\em p}, const double $\ast$ {\em y}, const int {\em q}, const int {\em n}, const int {\em nperm}, const int $\ast$ {\em indx}, const int $\ast$ {\em perm}, double $\ast$ {\em ans})}}
+Definition at line 23 of file LinearStatistic.c.
+
+Referenced by C\_\-LinStatExpCov(), C\_\-MonteCarlo(), and R\_\-LinearStatistic().\hypertarget{LinearStatistic_8h_a34b0f12fac36231a105d6dc903bfe89}{
+\index{LinearStatistic.h@{LinearStatistic.h}!C\_\-PermutedLinearStatistic@{C\_\-PermutedLinearStatistic}}
+\index{C\_\-PermutedLinearStatistic@{C\_\-PermutedLinearStatistic}!LinearStatistic.h@{LinearStatistic.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void C\_\-PermutedLinearStatistic (const double $\ast$ {\em x}, \/  const int {\em p}, \/  const double $\ast$ {\em y}, \/  const int {\em q}, \/  const int {\em n}, \/  const int {\em nperm}, \/  const int $\ast$ {\em indx}, \/  const int $\ast$ {\em perm}, \/  double $\ast$ {\em ans})}}
 \label{LinearStatistic_8h_a34b0f12fac36231a105d6dc903bfe89}
 
 
@@ -100,10 +106,12 @@ Linear Statistic with permuted indices\par
 \end{Desc}
 
 
-Definition at line 351 of file LinearStatistic.c.\hypertarget{LinearStatistic_8h_6216ea560644c08002fb32756ae67dcc}{
-\index{LinearStatistic.h@{LinearStatistic.h}!R_ExpectCovarInfluence@{R\_\-ExpectCovarInfluence}}
-\index{R_ExpectCovarInfluence@{R\_\-ExpectCovarInfluence}!LinearStatistic.h@{LinearStatistic.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}SEXP R\_\-ExpectCovarInfluence (SEXP {\em y}, SEXP {\em weights})}}
+Definition at line 351 of file LinearStatistic.c.
+
+Referenced by C\_\-MonteCarlo(), and R\_\-PermutedLinearStatistic().\hypertarget{LinearStatistic_8h_6216ea560644c08002fb32756ae67dcc}{
+\index{LinearStatistic.h@{LinearStatistic.h}!R\_\-ExpectCovarInfluence@{R\_\-ExpectCovarInfluence}}
+\index{R\_\-ExpectCovarInfluence@{R\_\-ExpectCovarInfluence}!LinearStatistic.h@{LinearStatistic.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}SEXP R\_\-ExpectCovarInfluence (SEXP {\em y}, \/  SEXP {\em weights})}}
 \label{LinearStatistic_8h_6216ea560644c08002fb32756ae67dcc}
 
 
@@ -123,6 +131,6 @@ Here is the call graph for this function:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=177pt]{LinearStatistic_8h_6216ea560644c08002fb32756ae67dcc_cgraph}
+\includegraphics[width=164pt]{LinearStatistic_8h_6216ea560644c08002fb32756ae67dcc_cgraph}
 \end{center}
 \end{figure}

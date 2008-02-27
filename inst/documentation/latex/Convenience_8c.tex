@@ -33,22 +33,22 @@ void \hyperlink{Convenience_8c_a1e8edb4fa73a26e73bc153c45a867b0}{R\_\-set\_\-res
 Some convenience functions
 
 \begin{Desc}
-\item[Author:]\begin{Desc}
-\item[Author]\end{Desc}
-\end{Desc}
+\item[Author:]\end{Desc}
 \begin{Desc}
-\item[Date:]\begin{Desc}
-\item[Date]\end{Desc}
-\end{Desc}
+\item[Author]hothorn \end{Desc}
+\begin{Desc}
+\item[Date:]\end{Desc}
+\begin{Desc}
+\item[Date]2007-02-02 11:22:45 +0100 (Fri, 02 Feb 2007) \end{Desc}
 
 
 Definition in file \hyperlink{Convenience_8c-source}{Convenience.c}.
 
 \subsection{Function Documentation}
 \hypertarget{Convenience_8c_a1bfc91db235a3a166a39ed1e0a224d7}{
-\index{Convenience.c@{Convenience.c}!C_ConditionalPvalue@{C\_\-ConditionalPvalue}}
-\index{C_ConditionalPvalue@{C\_\-ConditionalPvalue}!Convenience.c@{Convenience.c}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double C\_\-ConditionalPvalue (const double {\em tstat}, SEXP {\em linexpcov}, const int {\em type}, double {\em tol}, int $\ast$ {\em maxpts}, double $\ast$ {\em releps}, double $\ast$ {\em abseps})}}
+\index{Convenience.c@{Convenience.c}!C\_\-ConditionalPvalue@{C\_\-ConditionalPvalue}}
+\index{C\_\-ConditionalPvalue@{C\_\-ConditionalPvalue}!Convenience.c@{Convenience.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double C\_\-ConditionalPvalue (const double {\em tstat}, \/  SEXP {\em linexpcov}, \/  const int {\em type}, \/  double {\em tol}, \/  int $\ast$ {\em maxpts}, \/  double $\ast$ {\em releps}, \/  double $\ast$ {\em abseps})}}
 \label{Convenience_8c_a1bfc91db235a3a166a39ed1e0a224d7}
 
 
@@ -61,10 +61,21 @@ Compute asymptotic conditional P-value \begin{Desc}
 
 Definition at line 99 of file Convenience.c.
 
-Referenced by C\_\-TeststatPvalue().\hypertarget{Convenience_8c_8d5dcca68051449e29f3b857d375c4a0}{
-\index{Convenience.c@{Convenience.c}!C_LinStatExpCov@{C\_\-LinStatExpCov}}
-\index{C_LinStatExpCov@{C\_\-LinStatExpCov}!Convenience.c@{Convenience.c}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void C\_\-LinStatExpCov (const double $\ast$ {\em x}, const int {\em p}, const double $\ast$ {\em y}, const int {\em q}, const double $\ast$ {\em weights}, const int {\em n}, const int {\em cexpcovinf}, SEXP {\em expcovinf}, SEXP {\em ans})}}
+References C\_\-maxabsConditionalPvalue(), C\_\-quadformConditionalPvalue(), get\_\-dimension(), MAXABS, PL2\_\-covarianceSym, PL2\_\-rankSym, and QUADFORM.
+
+Referenced by C\_\-TeststatPvalue().
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=208pt]{Convenience_8c_a1bfc91db235a3a166a39ed1e0a224d7_cgraph}
+\end{center}
+\end{figure}
+\hypertarget{Convenience_8c_8d5dcca68051449e29f3b857d375c4a0}{
+\index{Convenience.c@{Convenience.c}!C\_\-LinStatExpCov@{C\_\-LinStatExpCov}}
+\index{C\_\-LinStatExpCov@{C\_\-LinStatExpCov}!Convenience.c@{Convenience.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void C\_\-LinStatExpCov (const double $\ast$ {\em x}, \/  const int {\em p}, \/  const double $\ast$ {\em y}, \/  const int {\em q}, \/  const double $\ast$ {\em weights}, \/  const int {\em n}, \/  const int {\em cexpcovinf}, \/  SEXP {\em expcovinf}, \/  SEXP {\em ans})}}
 \label{Convenience_8c_8d5dcca68051449e29f3b857d375c4a0}
 
 
@@ -78,10 +89,21 @@ Linear statistic of x, y, and weights and its conditional expectation and covari
 
 Definition at line 26 of file Convenience.c.
 
-Referenced by C\_\-GlobalTest(), C\_\-IndependenceTest(), and R\_\-splitcategorical().\hypertarget{Convenience_8c_f39bdd14f23726fdd6bf74888ffbf920}{
-\index{Convenience.c@{Convenience.c}!C_LinStatExpCovMPinv@{C\_\-LinStatExpCovMPinv}}
-\index{C_LinStatExpCovMPinv@{C\_\-LinStatExpCovMPinv}!Convenience.c@{Convenience.c}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void C\_\-LinStatExpCovMPinv (SEXP {\em linexpcov}, double {\em tol})}}
+References C\_\-ExpectCovarInfluence(), C\_\-ExpectCovarLinearStatistic(), C\_\-LinearStatistic(), and PL2\_\-linearstatisticSym.
+
+Referenced by C\_\-GlobalTest(), C\_\-IndependenceTest(), and R\_\-splitcategorical().
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=215pt]{Convenience_8c_8d5dcca68051449e29f3b857d375c4a0_cgraph}
+\end{center}
+\end{figure}
+\hypertarget{Convenience_8c_f39bdd14f23726fdd6bf74888ffbf920}{
+\index{Convenience.c@{Convenience.c}!C\_\-LinStatExpCovMPinv@{C\_\-LinStatExpCovMPinv}}
+\index{C\_\-LinStatExpCovMPinv@{C\_\-LinStatExpCovMPinv}!Convenience.c@{Convenience.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void C\_\-LinStatExpCovMPinv (SEXP {\em linexpcov}, \/  double {\em tol})}}
 \label{Convenience_8c_f39bdd14f23726fdd6bf74888ffbf920}
 
 
@@ -95,10 +117,21 @@ Moore-Penrose inverse of the covariance matrix \par
 
 Definition at line 46 of file Convenience.c.
 
-Referenced by C\_\-GlobalTest(), and C\_\-IndependenceTest().\hypertarget{Convenience_8c_26159cd74cebf8ff7073ff588864e9ab}{
-\index{Convenience.c@{Convenience.c}!C_TestStatistic@{C\_\-TestStatistic}}
-\index{C_TestStatistic@{C\_\-TestStatistic}!Convenience.c@{Convenience.c}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double C\_\-TestStatistic (const SEXP {\em linexpcov}, const int {\em type}, const double {\em tol})}}
+References C\_\-MPinv(), PL2\_\-covarianceSym, and PL2\_\-svdmemSym.
+
+Referenced by C\_\-GlobalTest(), and C\_\-IndependenceTest().
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=224pt]{Convenience_8c_f39bdd14f23726fdd6bf74888ffbf920_cgraph}
+\end{center}
+\end{figure}
+\hypertarget{Convenience_8c_26159cd74cebf8ff7073ff588864e9ab}{
+\index{Convenience.c@{Convenience.c}!C\_\-TestStatistic@{C\_\-TestStatistic}}
+\index{C\_\-TestStatistic@{C\_\-TestStatistic}!Convenience.c@{Convenience.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double C\_\-TestStatistic (const SEXP {\em linexpcov}, \/  const int {\em type}, \/  const double {\em tol})}}
 \label{Convenience_8c_26159cd74cebf8ff7073ff588864e9ab}
 
 
@@ -111,9 +144,20 @@ Compute test statistic \begin{Desc}
 
 Definition at line 59 of file Convenience.c.
 
-Referenced by C\_\-TeststatPvalue().\hypertarget{Convenience_8c_5253d5c6a188d9b7a1318c91d958047d}{
-\index{Convenience.c@{Convenience.c}!R_get_response@{R\_\-get\_\-response}}
-\index{R_get_response@{R\_\-get\_\-response}!Convenience.c@{Convenience.c}}
+References C\_\-maxabsTestStatistic(), C\_\-quadformTestStatistic(), get\_\-dimension(), PL2\_\-covarianceSym, PL2\_\-expectationSym, PL2\_\-linearstatisticSym, and PL2\_\-MPinvSym.
+
+Referenced by C\_\-TeststatPvalue().
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=266pt]{Convenience_8c_26159cd74cebf8ff7073ff588864e9ab_cgraph}
+\end{center}
+\end{figure}
+\hypertarget{Convenience_8c_5253d5c6a188d9b7a1318c91d958047d}{
+\index{Convenience.c@{Convenience.c}!R\_\-get\_\-response@{R\_\-get\_\-response}}
+\index{R\_\-get\_\-response@{R\_\-get\_\-response}!Convenience.c@{Convenience.c}}
 \subsubsection{\setlength{\rightskip}{0pt plus 5cm}SEXP R\_\-get\_\-response (SEXP {\em learnsample})}}
 \label{Convenience_8c_5253d5c6a188d9b7a1318c91d958047d}
 
@@ -130,9 +174,9 @@ Definition at line 131 of file Convenience.c.
 References PL2\_\-responsesSym, and PL2\_\-variablesSym.
 
 Referenced by R\_\-set\_\-response().\hypertarget{Convenience_8c_a1e8edb4fa73a26e73bc153c45a867b0}{
-\index{Convenience.c@{Convenience.c}!R_set_response@{R\_\-set\_\-response}}
-\index{R_set_response@{R\_\-set\_\-response}!Convenience.c@{Convenience.c}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void R\_\-set\_\-response (SEXP {\em learnsample}, SEXP {\em y})}}
+\index{Convenience.c@{Convenience.c}!R\_\-set\_\-response@{R\_\-set\_\-response}}
+\index{R\_\-set\_\-response@{R\_\-set\_\-response}!Convenience.c@{Convenience.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void R\_\-set\_\-response (SEXP {\em learnsample}, \/  SEXP {\em y})}}
 \label{Convenience_8c_a1e8edb4fa73a26e73bc153c45a867b0}
 
 
@@ -151,6 +195,6 @@ Here is the call graph for this function:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=136pt]{Convenience_8c_a1e8edb4fa73a26e73bc153c45a867b0_cgraph}
+\includegraphics[width=129pt]{Convenience_8c_a1e8edb4fa73a26e73bc153c45a867b0_cgraph}
 \end{center}
 \end{figure}

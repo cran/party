@@ -24,9 +24,9 @@ double \hyperlink{TestStatistic_8h_b45eb88ec3b2cc87e8610771cdcf53c4}{C\_\-quadfo
 
 \subsection{Function Documentation}
 \hypertarget{TestStatistic_8h_a3a1f48e4bb3aa19d1bac85a53358638}{
-\index{TestStatistic.h@{TestStatistic.h}!C_maxabsTestStatistic@{C\_\-maxabsTestStatistic}}
-\index{C_maxabsTestStatistic@{C\_\-maxabsTestStatistic}!TestStatistic.h@{TestStatistic.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double C\_\-maxabsTestStatistic (const double $\ast$ {\em t}, const double $\ast$ {\em mu}, const double $\ast$ {\em Sigma}, int {\em pq}, double {\em tol})}}
+\index{TestStatistic.h@{TestStatistic.h}!C\_\-maxabsTestStatistic@{C\_\-maxabsTestStatistic}}
+\index{C\_\-maxabsTestStatistic@{C\_\-maxabsTestStatistic}!TestStatistic.h@{TestStatistic.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double C\_\-maxabsTestStatistic (const double $\ast$ {\em t}, \/  const double $\ast$ {\em mu}, \/  const double $\ast$ {\em Sigma}, \/  int {\em pq}, \/  double {\em tol})}}
 \label{TestStatistic_8h_a3a1f48e4bb3aa19d1bac85a53358638}
 
 
@@ -41,17 +41,19 @@ Definition at line 66 of file TestStatistic.c.
 
 References C\_\-absstandardize(), and C\_\-max().
 
+Referenced by C\_\-TestStatistic(), and R\_\-maxabsTestStatistic().
+
 Here is the call graph for this function:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=215pt]{TestStatistic_8h_a3a1f48e4bb3aa19d1bac85a53358638_cgraph}
+\includegraphics[width=203pt]{TestStatistic_8h_a3a1f48e4bb3aa19d1bac85a53358638_cgraph}
 \end{center}
 \end{figure}
 \hypertarget{TestStatistic_8h_b45eb88ec3b2cc87e8610771cdcf53c4}{
-\index{TestStatistic.h@{TestStatistic.h}!C_quadformTestStatistic@{C\_\-quadformTestStatistic}}
-\index{C_quadformTestStatistic@{C\_\-quadformTestStatistic}!TestStatistic.h@{TestStatistic.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double C\_\-quadformTestStatistic (const double $\ast$ {\em t}, const double $\ast$ {\em mu}, const double $\ast$ {\em SigmaPlus}, int {\em pq})}}
+\index{TestStatistic.h@{TestStatistic.h}!C\_\-quadformTestStatistic@{C\_\-quadformTestStatistic}}
+\index{C\_\-quadformTestStatistic@{C\_\-quadformTestStatistic}!TestStatistic.h@{TestStatistic.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double C\_\-quadformTestStatistic (const double $\ast$ {\em t}, \/  const double $\ast$ {\em mu}, \/  const double $\ast$ {\em SigmaPlus}, \/  int {\em pq})}}
 \label{TestStatistic_8h_b45eb88ec3b2cc87e8610771cdcf53c4}
 
 
@@ -63,10 +65,12 @@ Quadratic form t(t - mu) SigmaPlus (t - mu) \par
 \end{Desc}
 
 
-Definition at line 110 of file TestStatistic.c.\hypertarget{TestStatistic_8h_9ecf0700a00ad5fd64601bf718f20439}{
-\index{TestStatistic.h@{TestStatistic.h}!C_standardize@{C\_\-standardize}}
-\index{C_standardize@{C\_\-standardize}!TestStatistic.h@{TestStatistic.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void C\_\-standardize (const double $\ast$ {\em t}, const double $\ast$ {\em mu}, const double $\ast$ {\em Sigma}, int {\em pq}, double {\em tol}, double $\ast$ {\em ans})}}
+Definition at line 110 of file TestStatistic.c.
+
+Referenced by C\_\-TestStatistic(), and R\_\-quadformTestStatistic().\hypertarget{TestStatistic_8h_9ecf0700a00ad5fd64601bf718f20439}{
+\index{TestStatistic.h@{TestStatistic.h}!C\_\-standardize@{C\_\-standardize}}
+\index{C\_\-standardize@{C\_\-standardize}!TestStatistic.h@{TestStatistic.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void C\_\-standardize (const double $\ast$ {\em t}, \/  const double $\ast$ {\em mu}, \/  const double $\ast$ {\em Sigma}, \/  int {\em pq}, \/  double {\em tol}, \/  double $\ast$ {\em ans})}}
 \label{TestStatistic_8h_9ecf0700a00ad5fd64601bf718f20439}
 
 
@@ -79,3 +83,5 @@ Standardizes a statistic t of length pq with mean mu and covariance Sigma for va
 
 
 Definition at line 23 of file TestStatistic.c.
+
+Referenced by C\_\-absstandardize(), C\_\-Node(), and R\_\-splitcategorical().

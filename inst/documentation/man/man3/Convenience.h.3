@@ -1,4 +1,4 @@
-.TH "Convenience.h" 3 "28 Feb 2008" "party" \" -*- nroff -*-
+.TH "Convenience.h" 3 "6 Jun 2008" "party" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -53,6 +53,8 @@ Compute asymptotic conditional P-value
 Definition at line 99 of file Convenience.c.
 .PP
 References C_maxabsConditionalPvalue(), C_quadformConditionalPvalue(), get_dimension(), MAXABS, PL2_covarianceSym, PL2_rankSym, and QUADFORM.
+.PP
+Referenced by C_TeststatPvalue().
 .SS "void C_LinStatExpCov (const double * x, const int p, const double * y, const int q, const double * weights, const int n, const int cexpcovinf, SEXP expcovinf, SEXP ans)"
 .PP
 Linear statistic of x, y, and weights and its conditional expectation and covariance 
@@ -85,6 +87,8 @@ Linear statistic of x, y, and weights and its conditional expectation and covari
 Definition at line 26 of file Convenience.c.
 .PP
 References C_ExpectCovarInfluence(), C_ExpectCovarLinearStatistic(), C_LinearStatistic(), and PL2_linearstatisticSym.
+.PP
+Referenced by C_GlobalTest(), C_IndependenceTest(), and R_splitcategorical().
 .SS "void C_LinStatExpCovMPinv (SEXP linexpcov, double tol)"
 .PP
 Moore-Penrose inverse of the covariance matrix 
@@ -103,6 +107,8 @@ Moore-Penrose inverse of the covariance matrix
 Definition at line 46 of file Convenience.c.
 .PP
 References C_MPinv(), PL2_covarianceSym, and PL2_svdmemSym.
+.PP
+Referenced by C_GlobalTest(), and C_IndependenceTest().
 .SS "void C_MLinearStatistic (SEXP linexpcov, SEXP ScoreMatrix, SEXP ans)"
 .PP
 .SS "double C_TestStatistic (const SEXP linexpcov, const int type, const double tol)"
@@ -123,6 +129,8 @@ Compute test statistic
 Definition at line 59 of file Convenience.c.
 .PP
 References C_maxabsTestStatistic(), C_quadformTestStatistic(), get_dimension(), PL2_covarianceSym, PL2_expectationSym, PL2_linearstatisticSym, and PL2_MPinvSym.
+.PP
+Referenced by C_TeststatPvalue().
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for party from the source code.

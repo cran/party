@@ -1,4 +1,4 @@
-.TH "IndependenceTest.h" 3 "28 Feb 2008" "party" \" -*- nroff -*-
+.TH "IndependenceTest.h" 3 "6 Jun 2008" "party" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -51,6 +51,8 @@ Perform a global test on independence of a response and multiple inputs
 Definition at line 129 of file IndependenceTest.c.
 .PP
 References AGGREGATED, BONFERRONI, C_ExpectCovarInfluence(), C_LinStatExpCov(), C_LinStatExpCovMPinv(), C_MonteCarlo(), C_SampleNoReplace(), C_tempweights(), C_TeststatCriterion(), get_dontuse(), get_dontusetmp(), get_mtry(), get_ninputs(), get_nobs(), get_randomsplits(), get_test_trafo(), get_teststat(), get_testtype(), get_tol(), get_transformation(), get_varmemory(), has_missings(), MONTECARLO, ncol(), nrow(), PL2_expcovinfSym, PL2_inputsSym, PL2_responsesSym, PL2_sumweightsSym, TESTSTATISTIC, and UNIVARIATE.
+.PP
+Referenced by C_Node(), and R_GlobalTest().
 .SS "void C_TeststatCriterion (const SEXP linexpcov, const SEXP varctrl, double * ans_teststat, double * ans_criterion)"
 .PP
 Computes the test statistic and the node criterion 
@@ -73,6 +75,8 @@ Computes the test statistic and the node criterion
 Definition at line 53 of file IndependenceTest.c.
 .PP
 References C_TeststatPvalue(), and get_pvalue().
+.PP
+Referenced by C_GlobalTest(), and C_MonteCarlo().
 .SS "void C_TeststatPvalue (const SEXP linexpcov, const SEXP varctrl, double * ans_teststat, double * ans_pvalue)"
 .PP
 Computes the test statistic and, if requested, the corresponding P-value for a linear statistic 
@@ -95,6 +99,8 @@ Computes the test statistic and, if requested, the corresponding P-value for a l
 Definition at line 21 of file IndependenceTest.c.
 .PP
 References C_ConditionalPvalue(), C_TestStatistic(), get_abseps(), get_maxpts(), get_pvalue(), get_releps(), get_teststat(), and get_tol().
+.PP
+Referenced by C_IndependenceTest(), and C_TeststatCriterion().
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for party from the source code.

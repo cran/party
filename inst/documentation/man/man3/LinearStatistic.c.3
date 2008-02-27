@@ -1,4 +1,4 @@
-.TH "LinearStatistic.c" 3 "28 Feb 2008" "party" \" -*- nroff -*-
+.TH "LinearStatistic.c" 3 "6 Jun 2008" "party" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -43,18 +43,18 @@ Linear statistics for conditional inference based on Strasser & Weber (1999)
 .PP
 \fBAuthor:\fP
 .RS 4
-\fBAuthor\fP.RS 4
-
 .RE
 .PP
+\fBAuthor\fP.RS 4
+hothorn 
 .RE
 .PP
 \fBDate:\fP
 .RS 4
-\fBDate\fP.RS 4
-
 .RE
 .PP
+\fBDate\fP.RS 4
+2006-08-25 10:53:10 +0200 (Fri, 25 Aug 2006) 
 .RE
 .PP
 
@@ -85,6 +85,8 @@ Conditional expectation and covariance of the influence function
 .PP
 Definition at line 101 of file LinearStatistic.c.
 .PP
+References PL2_covarianceSym, PL2_expectationSym, and PL2_sumweightsSym.
+.PP
 Referenced by C_GlobalTest(), C_LinStatExpCov(), C_surrogates(), and R_ExpectCovarInfluence().
 .SS "void C_ExpectCovarLinearStatistic (const double * x, const int p, const double * y, const int q, const double * weights, const int n, const SEXP expcovinf, SEXP ans)"
 .PP
@@ -114,6 +116,8 @@ Conditional expectation and covariance of the a linear statistic
 
 .PP
 Definition at line 213 of file LinearStatistic.c.
+.PP
+References C_kronecker(), PL2_covarianceSym, PL2_expectationSym, and PL2_sumweightsSym.
 .PP
 Referenced by C_LinStatExpCov(), and R_ExpectCovarLinearStatistic().
 .SS "void C_LinearStatistic (const double * x, const int p, const double * y, const int q, const double * weights, const int n, double * ans)"
@@ -192,6 +196,8 @@ R-interface to C_ExpectCovarInfluence
 
 .PP
 Definition at line 171 of file LinearStatistic.c.
+.PP
+References C_ExpectCovarInfluence(), ncol(), nrow(), PL2_covarianceSym, PL2_expectationSym, and PL2_sumweightsSym.
 .SS "SEXP R_ExpectCovarLinearStatistic (SEXP x, SEXP y, SEXP weights, SEXP expcovinf)"
 .PP
 R-interface to C_ExpectCovarLinearStatistic
