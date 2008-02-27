@@ -1,4 +1,11 @@
 
+                CHANGES IN party VERSION 0.9-95 (2008-02-xx)
+
+    o   proximity() now gives _relative_ numbers 
+        (similar to `randomForest'), not absolute numbers
+        long-standing feature request by Henric Nilsson
+
+
                 CHANGES IN party VERSION 0.9-94 (2008-01-30)
 
     o   documentation updates

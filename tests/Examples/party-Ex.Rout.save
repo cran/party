@@ -1,6 +1,6 @@
 
-R version 2.6.0 (2007-10-03)
-Copyright (C) 2007 The R Foundation for Statistical Computing
+R version 2.6.2 (2008-02-08)
+Copyright (C) 2008 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -85,6 +85,14 @@ Loading required package: splines
 Loading required package: grid
 Loading required package: modeltools
 Loading required package: stats4
+
+Attaching package: 'modeltools'
+
+
+	The following object(s) are masked from package:survival :
+
+	 cluster 
+
 Loading required package: coin
 Loading required package: mvtnorm
 Loading required package: zoo
@@ -418,8 +426,20 @@ Loading required package: class
       55) estrec > 152
         57)*  weights = 0 
 > 
+>     ### proximity, see ?randomForest
+>     iris.cf <- cforest(Species ~ ., data = iris, 
++                        control = cforest_unbiased(mtry = 2))
+>     iris.mds <- cmdscale(1 - proximity(iris.cf), eig = TRUE)
+>     op <- par(pty="s")
+>     pairs(cbind(iris[,1:4], iris.mds$points), cex = 0.6, gap = 0, 
++           col = c("red", "green", "blue")[as.numeric(iris$Species)],
++           main = "Iris Data: Predictors and MDS of Proximity Based on cforest")
+>     par(op)
 > 
 > 
+> 
+> 
+> graphics::par(get("par.postscript", pos = 'CheckExEnv'))
 > cleanEx(); nameEx("ctree")
 > ### * ctree
 > 
@@ -594,7 +614,7 @@ Call: survival:::survfit(formula = resp, weights = w, subset = w >
 >     system.time(ens <- apply(bs, 2, function(w) cfit(ls, ct, weights = w, 
 +                                                      fitmem = mem)))
    user  system elapsed 
-  0.432   0.000   0.433 
+  0.248   0.008   0.257 
 > 
 > 
 > 
@@ -904,7 +924,7 @@ Linear model with coefficients:
 > ### * <FOOTER>
 > ###
 > cat("Time elapsed: ", proc.time() - get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  52.595 0.588 53.339 0 0 
+Time elapsed:  28.717 0.4 29.146 0 0 
 > grDevices::dev.off()
 null device 
           1 

@@ -1,6 +1,6 @@
 
-R version 2.6.0 (2007-10-03)
-Copyright (C) 2007 The R Foundation for Statistical Computing
+R version 2.6.2 (2008-02-08)
+Copyright (C) 2008 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -21,6 +21,14 @@ Loading required package: splines
 Loading required package: grid
 Loading required package: modeltools
 Loading required package: stats4
+
+Attaching package: 'modeltools'
+
+
+	The following object(s) are masked from package:survival :
+
+	 cluster 
+
 Loading required package: coin
 Loading required package: mvtnorm
 Loading required package: zoo
@@ -203,7 +211,7 @@ rm           0.68591    0.05136  13.354  < 2e-16 ***
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
 
 Residual standard error: 3.413 on 69 degrees of freedom
-Multiple R-Squared: 0.922,	Adjusted R-squared: 0.9197 
+Multiple R-squared: 0.922,	Adjusted R-squared: 0.9197 
 F-statistic: 407.8 on 2 and 69 DF,  p-value: < 2.2e-16 
 
 
@@ -225,7 +233,7 @@ rm           0.68813    0.07716   8.918 1.36e-12 ***
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
 
 Residual standard error: 3.2 on 60 degrees of freedom
-Multiple R-Squared: 0.8176,	Adjusted R-squared: 0.8115 
+Multiple R-squared: 0.8176,	Adjusted R-squared: 0.8115 
 F-statistic: 134.5 on 2 and 60 DF,  p-value: < 2.2e-16 
 
 
@@ -247,7 +255,7 @@ rm           0.65389    0.03757  17.404   <2e-16 ***
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
 
 Residual standard error: 2.652 on 159 degrees of freedom
-Multiple R-Squared: 0.8173,	Adjusted R-squared: 0.815 
+Multiple R-squared: 0.8173,	Adjusted R-squared: 0.815 
 F-statistic: 355.6 on 2 and 159 DF,  p-value: < 2.2e-16 
 
 
@@ -269,7 +277,7 @@ rm           0.33867    0.07574   4.472 4.13e-05 ***
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
 
 Residual standard error: 2.197 on 53 degrees of freedom
-Multiple R-Squared: 0.6446,	Adjusted R-squared: 0.6312 
+Multiple R-squared: 0.6446,	Adjusted R-squared: 0.6312 
 F-statistic: 48.07 on 2 and 53 DF,  p-value: 1.238e-12 
 
 
@@ -291,7 +299,7 @@ rm           -0.14779    0.05047  -2.928  0.00394 **
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
 
 Residual standard error: 4.689 on 150 degrees of freedom
-Multiple R-Squared: 0.6649,	Adjusted R-squared: 0.6604 
+Multiple R-squared: 0.6649,	Adjusted R-squared: 0.6604 
 F-statistic: 148.8 on 2 and 150 DF,  p-value: < 2.2e-16 
 
 

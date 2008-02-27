@@ -79,8 +79,9 @@ proximity(object)
   similar to those computed by \code{\link[randomForest]{importance}}.
 
   The \code{proximity} matrix is an \eqn{n \times n} matrix \eqn{P} with \eqn{P_{ij}}
-  equal to the number of trees where observations \eqn{i} and \eqn{j} 
-  are element of the same terminal node.
+  equal to the fraction of trees where observations \eqn{i} and \eqn{j} 
+  are element of the same terminal node (when both \eqn{i} and \eqn{j}
+  had non-zero weights in the same bootstrap sample).
 
 }
 \value{
@@ -123,5 +124,16 @@ proximity(object)
         ### if you can't resist to look at individual trees ...
         party:::prettytree(bst@ensemble[[1]], names(bst@data@get("input")))
     }
+
+    ### proximity, see ?randomForest
+    iris.cf <- cforest(Species ~ ., data = iris, 
+                       control = cforest_unbiased(mtry = 2))
+    iris.mds <- cmdscale(1 - proximity(iris.cf), eig = TRUE)
+    op <- par(pty="s")
+    pairs(cbind(iris[,1:4], iris.mds$points), cex = 0.6, gap = 0, 
+          col = c("red", "green", "blue")[as.numeric(iris$Species)],
+          main = "Iris Data: Predictors and MDS of Proximity Based on cforest")
+    par(op)
+
 }
 \keyword{tree}

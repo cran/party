@@ -3,7 +3,7 @@
     Node splitting and prediction
     *\file Predict.c
     *\author $Author: hothorn $
-    *\date $Date: 2007-09-27 16:24:46 +0200 (Thu, 27 Sep 2007) $
+    *\date $Date: 2008-02-27 17:33:24 +0100 (Wed, 27 Feb 2008) $
 */
                 
 #include "party.h"
@@ -482,18 +482,21 @@ SEXP R_predictRF_weights(SEXP forest, SEXP where, SEXP weights,
 
 SEXP R_proximity(SEXP where) {
 
-    SEXP ans, bw;
+    SEXP ans, bw, bin;
     int ntrees, nobs, i, b, j, iwhere;
     
     ntrees = LENGTH(where);
     nobs = LENGTH(VECTOR_ELT(where, 0));
     
     PROTECT(ans = allocVector(VECSXP, nobs));
-    
+    PROTECT(bin = allocVector(INTSXP, nobs));
+     
     for (i = 0; i < nobs; i++) {
-        SET_VECTOR_ELT(ans, i, bw = allocVector(INTSXP, nobs));
-        for (j = 0; j < nobs; j++)
-            INTEGER(bw)[j] = 0.0;
+        SET_VECTOR_ELT(ans, i, bw = allocVector(REALSXP, nobs));
+        for (j = 0; j < nobs; j++) {
+            REAL(bw)[j] = 0.0;
+            INTEGER(bin)[j] = 0;
+        }
         for (b = 0; b < ntrees; b++) {
             /* don't look at out-of-bag observations */
             if (INTEGER(VECTOR_ELT(where, b))[i] == 0)
@@ -502,10 +505,16 @@ SEXP R_proximity(SEXP where) {
             for (j = 0; j < nobs; j++) {
                 if (iwhere == INTEGER(VECTOR_ELT(where, b))[j])
                     /* only count the number of trees; no weights */
-                    INTEGER(bw)[j]++;
+                    REAL(bw)[j]++;
+                if (INTEGER(VECTOR_ELT(where, b))[j] > 0)
+                    /* count the number of bootstrap samples
+                    containing both i and j */
+                    INTEGER(bin)[j]++;
             }
         }
+        for (j = 0; j < nobs; j++)
+            REAL(bw)[j] = REAL(bw)[j] / INTEGER(bin)[j];
     }
-    UNPROTECT(1);
+    UNPROTECT(2);
     return(ans);
 }
