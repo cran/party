@@ -3,7 +3,7 @@
     Node splitting and prediction
     *\file Predict.c
     *\author $Author: hothorn $
-    *\date $Date: 2008-02-27 17:33:24 +0100 (Wed, 27 Feb 2008) $
+    *\date $Date: 2008-06-26 11:33:11 +0200 (Thu, 26 Jun 2008) $
 */
                 
 #include "party.h"
@@ -135,7 +135,8 @@ SEXP C_get_node(SEXP subtree, SEXP newinputs,
     if (has_missings(newinputs, S3get_variableID(split))) {
         whichNA = get_missings(newinputs, S3get_variableID(split));
     
-        if (C_i_in_set(numobs, whichNA)) {
+        /* numobs 0 ... n - 1 but whichNA has 1:n */
+        if (C_i_in_set(numobs + 1, whichNA)) {
         
             surrsplit = S3get_surrogatesplits(subtree);
             ns = 0;

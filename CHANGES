@@ -1,4 +1,13 @@
 
+
+                CHANGES IN party VERSION 0.9-97 (2008-06-26)
+
+    o   predictions for new data containing missing values were
+        wrong. Bug spotted by Wei-Yin Loh <loh@stat.wisc.edu>
+
+    o   vignette updates
+
+
                 CHANGES IN party VERSION 0.9-96 (2008-06-06)
 
     o   make searching for surrogate splits a little more stable

@@ -3,7 +3,7 @@
     Suggorgate splits
     *\file SurrogateSplits.c
     *\author $Author: hothorn $
-    *\date $Date: 2008-03-31 18:41:07 +0200 (Mon, 31 Mar 2008) $
+    *\date $Date: 2008-06-26 11:33:58 +0200 (Thu, 26 Jun 2008) $
 */
                 
 #include "party.h"

@@ -99,10 +99,9 @@ node, by default for all nodes. Some examples are given below.
 
 \references{ 
 
-   Achim Zeileis, Torsten Hothorn and Kurt Hornik (2005). Model-based
-   Recursive Partitioning. \emph{Report 19}, Department of Statistics and Mathematics, 
-   \enc{Wirtschaftsuniversität}{Wirtschaftsuniversitaet} Wien, Research Report Series.
-   \url{http://epub.wu-wien.ac.at/dyn/openURL?id=oai:epub-wu-01_86e}
+   Achim Zeileis, Torsten Hothorn, and Kurt Hornik (2005). Model-Based
+   Recursive Partitioning. \emph{Journal of Computational and Graphical Statistics}, 
+   \bold{17}(2), 492--514.
 
 }
 

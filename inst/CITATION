@@ -13,6 +13,41 @@ citEntry(entry="Article",
          textVersion =
          paste("Torsten Hothorn, Kurt Hornik and Achim Zeileis (2006).",
                "Unbiased Recursive Partitioning: A Conditional Inference Framework.",
-               "Journal of Computational and Graphical Statistics, 15(3), 651--674.")
+               "Journal of Computational and Graphical Statistics, 15(3), 651--674."),
+	 header = "If ctree() is used cite:"
+)
+
+citEntry(entry="Article",
+         title = "Model-Based Recursive Partitioning",
+         author = personList(as.person("Achim Zeileis"), as.person("Torsten Hothorn"),
+	                     as.person("Kurt Hornik")),
+         journal      = "Journal of Computational and Graphical Statistics",
+         year         = "2008",
+         volume       = "17",
+         number       = "2",
+         pages        = "492--514",
+
+         textVersion =
+         paste("Achim Zeileis, Torsten Hothorn and Kurt Hornik (2008).",
+               "Model-Based Recursive Partitioning.",
+               "Journal of Computational and Graphical Statistics, 17(2), 492--514."),
+	 header = "If mob() is used cite:"
+)
+
+citEntry(entry="Article",
+         title = "Bias in Random Forest Variable Importance Measures: Illustrations, Sources and a Solution",
+         author = personList(as.person("Carolin Strobl"), as.person("Anne-Laure Boulesteix"),
+	                     as.person("Achim Zeileis"), as.person("Torsten Hothorn")),
+         journal      = "BMC Bioinformatics",
+         year         = "2007",
+         volume       = "8",
+         number       = "25",
+         url          = "http://www.biomedcentral.com/1471-2105/8/25/abstract",
+
+         textVersion =
+         paste("Carolin Strobl, Anne-Laure Boulesteix, Achim Zeileis and Torsten Hothorn (2007).",
+               "Bias in Random Forest Variable Importance Measures: Illustrations, Sources and a Solution.",
+               "BMC Bioinformatics, 8(25). URL http://www.biomedcentral.com/1471-2105/8/25/abstract."),
+	 header = "If cforest() is used cite:"
 )
 

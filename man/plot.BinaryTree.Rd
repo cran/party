@@ -76,11 +76,10 @@
 }
 
 \references{
-  Meyer, D., Zeileis, A., and Hornik, K. (2005)
-  The strucplot framework: Visualizing multi-way contingency tables with vcd.
-  \emph{Report 22}, Department of Statistics and Mathematics, 
-  \enc{Wirtschaftsuniversität}{Wirtschaftsuniversitaet} Wien, Research Report Series.
-  \url{http://epub.wu-wien.ac.at/dyn/openURL?id=oai:epub.wu-wien.ac.at:epub-wu-01_8a1}
+  David Meyer, Achim Zeileis, and Kurt Hornik (2006).
+  The Strucplot Framework: Visualizing Multi-Way Contingency Tables with vcd.
+  \emph{Journal of Statistical Software}, \bold{17}(3).
+  \url{http://www.jstatsoft.org/v17/i03/}
 }
 
 

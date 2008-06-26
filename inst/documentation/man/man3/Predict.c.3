@@ -1,4 +1,4 @@
-.TH "Predict.c" 3 "6 Jun 2008" "party" \" -*- nroff -*-
+.TH "Predict.c" 3 "26 Jun 2008" "party" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -75,7 +75,7 @@ hothorn
 .RE
 .PP
 \fBDate\fP.RS 4
-2008-02-27 17:33:24 +0100 (Wed, 27 Feb 2008) 
+2008-06-26 11:33:11 +0200 (Thu, 26 Jun 2008) 
 .RE
 .PP
 
@@ -127,7 +127,7 @@ Get the node with nodeID `nodenum'
 .PP
 
 .PP
-Definition at line 242 of file Predict.c.
+Definition at line 243 of file Predict.c.
 .PP
 References S3get_leftnode(), S3get_nodeID(), S3get_nodeterminal(), and S3get_rightnode().
 .PP
@@ -151,7 +151,7 @@ Get the nodeID for a new observation
 .PP
 
 .PP
-Definition at line 306 of file Predict.c.
+Definition at line 307 of file Predict.c.
 .PP
 References C_get_node(), and S3get_nodeID().
 .PP
@@ -175,7 +175,7 @@ Get the weights for a new observation
 .PP
 
 .PP
-Definition at line 291 of file Predict.c.
+Definition at line 292 of file Predict.c.
 .PP
 References C_get_node(), and S3get_nodeweights().
 .SS "SEXP C_get_prediction (SEXP subtree, SEXP newinputs, double mincriterion, int numobs)"
@@ -197,7 +197,7 @@ Get the prediction of a new observation
 .PP
 
 .PP
-Definition at line 276 of file Predict.c.
+Definition at line 277 of file Predict.c.
 .PP
 References C_get_node(), and S3get_prediction().
 .PP
@@ -219,7 +219,7 @@ Get the predictions from `where' nodes
 .PP
 
 .PP
-Definition at line 384 of file Predict.c.
+Definition at line 385 of file Predict.c.
 .PP
 References C_get_nodebynum(), and S3get_prediction().
 .PP
@@ -243,7 +243,7 @@ Get all predictions for `newinputs'
 .PP
 
 .PP
-Definition at line 343 of file Predict.c.
+Definition at line 344 of file Predict.c.
 .PP
 References C_get_prediction(), and get_nobs().
 .PP
@@ -294,7 +294,7 @@ R-Interface to C_get_node
 .PP
 
 .PP
-Definition at line 229 of file Predict.c.
+Definition at line 230 of file Predict.c.
 .PP
 References C_get_node().
 .SS "SEXP R_get_nodebynum (SEXP subtree, SEXP nodenum)"
@@ -312,7 +312,7 @@ R-Interface to C_get_nodenum
 .PP
 
 .PP
-Definition at line 263 of file Predict.c.
+Definition at line 264 of file Predict.c.
 .PP
 References C_get_nodebynum().
 .SS "SEXP R_get_nodeID (SEXP tree, SEXP newinputs, SEXP mincriterion)"
@@ -332,7 +332,7 @@ R-Interface to C_get_nodeID
 .PP
 
 .PP
-Definition at line 320 of file Predict.c.
+Definition at line 321 of file Predict.c.
 .PP
 References C_get_nodeID(), and get_nobs().
 .SS "SEXP R_getpredictions (SEXP tree, SEXP where)"
@@ -350,7 +350,7 @@ R-Interface to C_getpredictions
 .PP
 
 .PP
-Definition at line 405 of file Predict.c.
+Definition at line 406 of file Predict.c.
 .PP
 References C_getpredictions().
 .SS "SEXP R_predict (SEXP tree, SEXP newinputs, SEXP mincriterion)"
@@ -370,7 +370,7 @@ R-Interface to C_predict
 .PP
 
 .PP
-Definition at line 364 of file Predict.c.
+Definition at line 365 of file Predict.c.
 .PP
 References C_predict(), and get_nobs().
 .SS "SEXP R_predictRF_weights (SEXP forest, SEXP where, SEXP weights, SEXP newinputs, SEXP mincriterion, SEXP oobpred)"
@@ -394,7 +394,7 @@ Predictions weights from RandomForest objects
 .PP
 
 .PP
-Definition at line 427 of file Predict.c.
+Definition at line 428 of file Predict.c.
 .PP
 References C_get_nodebynum(), C_get_nodeID(), get_nobs(), and S3get_prediction().
 .SS "SEXP R_proximity (SEXP where)"
@@ -408,7 +408,7 @@ Proximity matrix for random forests
 .PP
 
 .PP
-Definition at line 483 of file Predict.c.
+Definition at line 484 of file Predict.c.
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for party from the source code.

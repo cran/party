@@ -69,7 +69,7 @@ Node splitting and prediction<p>
 <dl class="author" compact><dt><b>Author:</b></dt><dd></dd></dl>
 <dl class="rcs" compact><dt><b>Author</b></dt><dd>hothorn </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd></dd></dl>
-<dl class="rcs" compact><dt><b>Date</b></dt><dd>2008-02-27 17:33:24 +0100 (Wed, 27 Feb 2008) </dd></dl>
+<dl class="rcs" compact><dt><b>Date</b></dt><dd>2008-06-26 11:33:11 +0200 (Thu, 26 Jun 2008) </dd></dl>
 
 <p>Definition in file <a class="el" href="Predict_8c-source.html">Predict.c</a>.</p>
 <hr><h2>Function Documentation</h2>
@@ -126,7 +126,7 @@ Get the terminal node for obs. number `numobs' of `newinputs' <br>
 
 <p>References <a class="el" href="Utils_8c-source.html#l00564">C_i_in_set()</a>, <a class="el" href="Classes_8c-source.html#l00258">get_missings()</a>, <a class="el" href="Classes_8c-source.html#l00202">get_variable()</a>, <a class="el" href="Classes_8c-source.html#l00220">has_missings()</a>, <a class="el" href="S3Classes_8c-source.html#l00096">S3get_leftnode()</a>, <a class="el" href="S3Classes_8c-source.html#l00072">S3get_maxcriterion()</a>, <a class="el" href="S3Classes_8c-source.html#l00080">S3get_nodeterminal()</a>, <a class="el" href="S3Classes_8c-source.html#l00084">S3get_primarysplit()</a>, <a class="el" href="S3Classes_8c-source.html#l00100">S3get_rightnode()</a>, <a class="el" href="S3Classes_8c-source.html#l00179">S3get_splitpoint()</a>, <a class="el" href="S3Classes_8c-source.html#l00060">S3get_sumweights()</a>, <a class="el" href="S3Classes_8c-source.html#l00088">S3get_surrogatesplits()</a>, <a class="el" href="S3Classes_8c-source.html#l00170">S3get_toleft()</a>, <a class="el" href="S3Classes_8c-source.html#l00154">S3get_variableID()</a>, and <a class="el" href="S3Classes_8c-source.html#l00158">S3is_ordered()</a>.</p>
 
-<p>Referenced by <a class="el" href="Predict_8c-source.html#l00306">C_get_nodeID()</a>, <a class="el" href="Predict_8c-source.html#l00291">C_get_nodeweights()</a>, <a class="el" href="Predict_8c-source.html#l00276">C_get_prediction()</a>, and <a class="el" href="Predict_8c-source.html#l00229">R_get_node()</a>.</p>
+<p>Referenced by <a class="el" href="Predict_8c-source.html#l00307">C_get_nodeID()</a>, <a class="el" href="Predict_8c-source.html#l00292">C_get_nodeweights()</a>, <a class="el" href="Predict_8c-source.html#l00277">C_get_prediction()</a>, and <a class="el" href="Predict_8c-source.html#l00230">R_get_node()</a>.</p>
 
 <p>
 <div class="dynheader">
@@ -173,11 +173,11 @@ Get the node with nodeID `nodenum' <br>
   </table>
 </dl>
 
-<p>Definition at line <a class="el" href="Predict_8c-source.html#l00242">242</a> of file <a class="el" href="Predict_8c-source.html">Predict.c</a>.</p>
+<p>Definition at line <a class="el" href="Predict_8c-source.html#l00243">243</a> of file <a class="el" href="Predict_8c-source.html">Predict.c</a>.</p>
 
 <p>References <a class="el" href="S3Classes_8c-source.html#l00096">S3get_leftnode()</a>, <a class="el" href="S3Classes_8c-source.html#l00047">S3get_nodeID()</a>, <a class="el" href="S3Classes_8c-source.html#l00080">S3get_nodeterminal()</a>, and <a class="el" href="S3Classes_8c-source.html#l00100">S3get_rightnode()</a>.</p>
 
-<p>Referenced by <a class="el" href="Predict_8c-source.html#l00384">C_getpredictions()</a>, <a class="el" href="Predict_8c-source.html#l00263">R_get_nodebynum()</a>, and <a class="el" href="Predict_8c-source.html#l00427">R_predictRF_weights()</a>.</p>
+<p>Referenced by <a class="el" href="Predict_8c-source.html#l00385">C_getpredictions()</a>, <a class="el" href="Predict_8c-source.html#l00264">R_get_nodebynum()</a>, and <a class="el" href="Predict_8c-source.html#l00428">R_predictRF_weights()</a>.</p>
 
 <p>
 <div class="dynheader">
@@ -238,11 +238,11 @@ Get the nodeID for a new observation <br>
   </table>
 </dl>
 
-<p>Definition at line <a class="el" href="Predict_8c-source.html#l00306">306</a> of file <a class="el" href="Predict_8c-source.html">Predict.c</a>.</p>
+<p>Definition at line <a class="el" href="Predict_8c-source.html#l00307">307</a> of file <a class="el" href="Predict_8c-source.html">Predict.c</a>.</p>
 
 <p>References <a class="el" href="Predict_8c-source.html#l00120">C_get_node()</a>, and <a class="el" href="S3Classes_8c-source.html#l00047">S3get_nodeID()</a>.</p>
 
-<p>Referenced by <a class="el" href="Predict_8c-source.html#l00320">R_get_nodeID()</a>, and <a class="el" href="Predict_8c-source.html#l00427">R_predictRF_weights()</a>.</p>
+<p>Referenced by <a class="el" href="Predict_8c-source.html#l00321">R_get_nodeID()</a>, and <a class="el" href="Predict_8c-source.html#l00428">R_predictRF_weights()</a>.</p>
 
 <p>
 <div class="dynheader">
@@ -303,7 +303,7 @@ Get the weights for a new observation <br>
   </table>
 </dl>
 
-<p>Definition at line <a class="el" href="Predict_8c-source.html#l00291">291</a> of file <a class="el" href="Predict_8c-source.html">Predict.c</a>.</p>
+<p>Definition at line <a class="el" href="Predict_8c-source.html#l00292">292</a> of file <a class="el" href="Predict_8c-source.html">Predict.c</a>.</p>
 
 <p>References <a class="el" href="Predict_8c-source.html#l00120">C_get_node()</a>, and <a class="el" href="S3Classes_8c-source.html#l00051">S3get_nodeweights()</a>.</p>
 
@@ -366,11 +366,11 @@ Get the prediction of a new observation<br>
   </table>
 </dl>
 
-<p>Definition at line <a class="el" href="Predict_8c-source.html#l00276">276</a> of file <a class="el" href="Predict_8c-source.html">Predict.c</a>.</p>
+<p>Definition at line <a class="el" href="Predict_8c-source.html#l00277">277</a> of file <a class="el" href="Predict_8c-source.html">Predict.c</a>.</p>
 
 <p>References <a class="el" href="Predict_8c-source.html#l00120">C_get_node()</a>, and <a class="el" href="S3Classes_8c-source.html#l00092">S3get_prediction()</a>.</p>
 
-<p>Referenced by <a class="el" href="Predict_8c-source.html#l00343">C_predict()</a>.</p>
+<p>Referenced by <a class="el" href="Predict_8c-source.html#l00344">C_predict()</a>.</p>
 
 <p>
 <div class="dynheader">
@@ -424,11 +424,11 @@ Get the predictions from `where' nodes<br>
   </table>
 </dl>
 
-<p>Definition at line <a class="el" href="Predict_8c-source.html#l00384">384</a> of file <a class="el" href="Predict_8c-source.html">Predict.c</a>.</p>
+<p>Definition at line <a class="el" href="Predict_8c-source.html#l00385">385</a> of file <a class="el" href="Predict_8c-source.html">Predict.c</a>.</p>
 
-<p>References <a class="el" href="Predict_8c-source.html#l00242">C_get_nodebynum()</a>, and <a class="el" href="S3Classes_8c-source.html#l00092">S3get_prediction()</a>.</p>
+<p>References <a class="el" href="Predict_8c-source.html#l00243">C_get_nodebynum()</a>, and <a class="el" href="S3Classes_8c-source.html#l00092">S3get_prediction()</a>.</p>
 
-<p>Referenced by <a class="el" href="Predict_8c-source.html#l00405">R_getpredictions()</a>.</p>
+<p>Referenced by <a class="el" href="Predict_8c-source.html#l00406">R_getpredictions()</a>.</p>
 
 <p>
 <div class="dynheader">
@@ -489,11 +489,11 @@ Get all predictions for `newinputs' <br>
   </table>
 </dl>
 
-<p>Definition at line <a class="el" href="Predict_8c-source.html#l00343">343</a> of file <a class="el" href="Predict_8c-source.html">Predict.c</a>.</p>
+<p>Definition at line <a class="el" href="Predict_8c-source.html#l00344">344</a> of file <a class="el" href="Predict_8c-source.html">Predict.c</a>.</p>
 
-<p>References <a class="el" href="Predict_8c-source.html#l00276">C_get_prediction()</a>, and <a class="el" href="Classes_8c-source.html#l00282">get_nobs()</a>.</p>
+<p>References <a class="el" href="Predict_8c-source.html#l00277">C_get_prediction()</a>, and <a class="el" href="Classes_8c-source.html#l00282">get_nobs()</a>.</p>
 
-<p>Referenced by <a class="el" href="Predict_8c-source.html#l00364">R_predict()</a>.</p>
+<p>Referenced by <a class="el" href="Predict_8c-source.html#l00365">R_predict()</a>.</p>
 
 <p>
 <div class="dynheader">
@@ -613,7 +613,7 @@ R-Interface to C_get_node <br>
   </table>
 </dl>
 
-<p>Definition at line <a class="el" href="Predict_8c-source.html#l00229">229</a> of file <a class="el" href="Predict_8c-source.html">Predict.c</a>.</p>
+<p>Definition at line <a class="el" href="Predict_8c-source.html#l00230">230</a> of file <a class="el" href="Predict_8c-source.html">Predict.c</a>.</p>
 
 <p>References <a class="el" href="Predict_8c-source.html#l00120">C_get_node()</a>.</p>
 
@@ -662,9 +662,9 @@ R-Interface to C_get_nodenum <br>
   </table>
 </dl>
 
-<p>Definition at line <a class="el" href="Predict_8c-source.html#l00263">263</a> of file <a class="el" href="Predict_8c-source.html">Predict.c</a>.</p>
+<p>Definition at line <a class="el" href="Predict_8c-source.html#l00264">264</a> of file <a class="el" href="Predict_8c-source.html">Predict.c</a>.</p>
 
-<p>References <a class="el" href="Predict_8c-source.html#l00242">C_get_nodebynum()</a>.</p>
+<p>References <a class="el" href="Predict_8c-source.html#l00243">C_get_nodebynum()</a>.</p>
 
 <p>
 <div class="dynheader">
@@ -718,9 +718,9 @@ R-Interface to C_get_nodeID <br>
   </table>
 </dl>
 
-<p>Definition at line <a class="el" href="Predict_8c-source.html#l00320">320</a> of file <a class="el" href="Predict_8c-source.html">Predict.c</a>.</p>
+<p>Definition at line <a class="el" href="Predict_8c-source.html#l00321">321</a> of file <a class="el" href="Predict_8c-source.html">Predict.c</a>.</p>
 
-<p>References <a class="el" href="Predict_8c-source.html#l00306">C_get_nodeID()</a>, and <a class="el" href="Classes_8c-source.html#l00282">get_nobs()</a>.</p>
+<p>References <a class="el" href="Predict_8c-source.html#l00307">C_get_nodeID()</a>, and <a class="el" href="Classes_8c-source.html#l00282">get_nobs()</a>.</p>
 
 <p>
 <div class="dynheader">
@@ -767,9 +767,9 @@ R-Interface to C_getpredictions<br>
   </table>
 </dl>
 
-<p>Definition at line <a class="el" href="Predict_8c-source.html#l00405">405</a> of file <a class="el" href="Predict_8c-source.html">Predict.c</a>.</p>
+<p>Definition at line <a class="el" href="Predict_8c-source.html#l00406">406</a> of file <a class="el" href="Predict_8c-source.html">Predict.c</a>.</p>
 
-<p>References <a class="el" href="Predict_8c-source.html#l00384">C_getpredictions()</a>.</p>
+<p>References <a class="el" href="Predict_8c-source.html#l00385">C_getpredictions()</a>.</p>
 
 <p>
 <div class="dynheader">
@@ -823,9 +823,9 @@ R-Interface to C_predict <br>
   </table>
 </dl>
 
-<p>Definition at line <a class="el" href="Predict_8c-source.html#l00364">364</a> of file <a class="el" href="Predict_8c-source.html">Predict.c</a>.</p>
+<p>Definition at line <a class="el" href="Predict_8c-source.html#l00365">365</a> of file <a class="el" href="Predict_8c-source.html">Predict.c</a>.</p>
 
-<p>References <a class="el" href="Predict_8c-source.html#l00343">C_predict()</a>, and <a class="el" href="Classes_8c-source.html#l00282">get_nobs()</a>.</p>
+<p>References <a class="el" href="Predict_8c-source.html#l00344">C_predict()</a>, and <a class="el" href="Classes_8c-source.html#l00282">get_nobs()</a>.</p>
 
 <p>
 <div class="dynheader">
@@ -899,9 +899,9 @@ Predictions weights from RandomForest objects <dl compact><dt><b>Parameters:</b>
   </table>
 </dl>
 
-<p>Definition at line <a class="el" href="Predict_8c-source.html#l00427">427</a> of file <a class="el" href="Predict_8c-source.html">Predict.c</a>.</p>
+<p>Definition at line <a class="el" href="Predict_8c-source.html#l00428">428</a> of file <a class="el" href="Predict_8c-source.html">Predict.c</a>.</p>
 
-<p>References <a class="el" href="Predict_8c-source.html#l00242">C_get_nodebynum()</a>, <a class="el" href="Predict_8c-source.html#l00306">C_get_nodeID()</a>, <a class="el" href="Classes_8c-source.html#l00282">get_nobs()</a>, and <a class="el" href="S3Classes_8c-source.html#l00092">S3get_prediction()</a>.</p>
+<p>References <a class="el" href="Predict_8c-source.html#l00243">C_get_nodebynum()</a>, <a class="el" href="Predict_8c-source.html#l00307">C_get_nodeID()</a>, <a class="el" href="Classes_8c-source.html#l00282">get_nobs()</a>, and <a class="el" href="S3Classes_8c-source.html#l00092">S3get_prediction()</a>.</p>
 
 <p>
 <div class="dynheader">
@@ -937,12 +937,12 @@ Proximity matrix for random forests <dl compact><dt><b>Parameters:</b></dt><dd>
   </table>
 </dl>
 
-<p>Definition at line <a class="el" href="Predict_8c-source.html#l00483">483</a> of file <a class="el" href="Predict_8c-source.html">Predict.c</a>.</p>
+<p>Definition at line <a class="el" href="Predict_8c-source.html#l00484">484</a> of file <a class="el" href="Predict_8c-source.html">Predict.c</a>.</p>
 
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Fri Jun 6 14:49:31 2008 for party by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu Jun 26 11:36:23 2008 for party by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
 </body>
