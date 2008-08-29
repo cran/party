@@ -59,7 +59,7 @@
 <a name="l00067"></a>00067         <span class="comment">/* we need to ensure that at least minbucket weights </span>
 <a name="l00068"></a>00068 <span class="comment">           are there to split (either left or right) */</span>
 <a name="l00069"></a>00069         minprob = <a class="code" href="Classes_8c.html#f7aaeccefe1bfbb1737ac3403a85c8e9">get_minprob</a>(splitctrl);
-<a name="l00070"></a>00070         minbucket = <a class="code" href="Classes_8c.html#0794d3cb26a60105140165d6dea3d70d">get_minbucket</a>(splitctrl);
+<a name="l00070"></a>00070         minbucket = <a class="code" href="Classes_8c.html#0794d3cb26a60105140165d6dea3d70d">get_minbucket</a>(splitctrl); <span class="comment">/* FIXME: minbucket - 1 would be OK */</span>
 <a name="l00071"></a>00071         minobs = sweights * minprob + 1.0;
 <a name="l00072"></a>00072 
 <a name="l00073"></a>00073         <span class="keywordflow">if</span> (minobs &lt; minbucket) 
@@ -286,7 +286,7 @@
 <a name="l00343"></a>00343     <span class="keywordflow">return</span>(ans);
 <a name="l00344"></a>00344 }
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Thu Jun 26 11:36:23 2008 for party by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Wed Oct 15 10:51:57 2008 for party by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
 </body>

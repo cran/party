@@ -3,7 +3,7 @@
     Binary splits 
     *\file Splits.c
     *\author $Author: hothorn $
-    *\date $Date: 2007-09-26 14:44:59 +0200 (Wed, 26 Sep 2007) $
+    *\date $Date: 2008-10-15 11:03:36 +0200 (Wed, 15 Oct 2008) $
 */
                 
 #include "party.h"
@@ -67,7 +67,7 @@ void C_split(const double *x, int p,
         /* we need to ensure that at least minbucket weights 
            are there to split (either left or right) */
         minprob = get_minprob(splitctrl);
-        minbucket = get_minbucket(splitctrl);
+        minbucket = get_minbucket(splitctrl); /* FIXME: minbucket - 1 would be OK */
         minobs = sweights * minprob + 1.0;
 
         if (minobs < minbucket) 

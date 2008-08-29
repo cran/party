@@ -1,4 +1,15 @@
 
+                CHANGES IN party VERSION 0.9-98 (2008-10-15)
+
+    o   don't compute ordering of censored variables (thanks to
+        Brian D. Ripley for the report)
+
+    o   experimental version of partialPlot for cforests
+
+    o   teststat = "quad" and testtype = "Univariate" produced
+        wrong criteria in the presence of constant exploratory variables.
+        Spotted by Sebastian Wietzke <Sebastian.Wietzke@axa.de>
+
 
                 CHANGES IN party VERSION 0.9-97 (2008-06-26)
 

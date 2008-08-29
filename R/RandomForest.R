@@ -1,5 +1,5 @@
 
-# $Id: RandomForest.R 3742 2007-09-27 14:24:46Z hothorn $
+# $Id: RandomForest.R 4115 2008-08-29 16:05:23Z hothorn $
 
 ### the fitting procedure
 cforestfit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
@@ -251,4 +251,97 @@ proximity <- function(object) {
     rownames(prox) <- rn
     colnames(prox) <- rn
     prox
+}
+
+
+### FIXME: newdata may be missing, reuse weights
+partialPlot.party <-
+    function (x, newdata, x.var, which.class, weights, plot = TRUE, add = FALSE,
+              n.pt = min(length(unique(newdata[, xname])), 51), rug = TRUE,
+              xlab = deparse(substitute(x.var)), ylab = "",
+              main = paste("Partial Dependence on", deparse(substitute(x.var))),
+              ...) 
+{
+    classRF <- all(x@responses@is_nominal || x@responses@is_ordinal)
+
+    x.var <- substitute(x.var)
+    xname <- if (is.character(x.var)) x.var else {
+        if (is.name(x.var)) deparse(x.var) else {
+            eval(x.var)
+        }
+    }
+
+    if (!xname %in% names(newdata))
+        stop("variable", " ", xname, " ", "not known")
+    xv <- newdata[, xname]
+    n <- nrow(newdata)
+
+    if (missing(weights)) weights <- rep(1, n)
+
+    if (classRF) {
+        if (missing(which.class)) {
+            focus <- 1
+        }
+        else {
+            focus <- charmatch(which.class, levels(x@responses@variables[[1]]))
+            if (is.na(focus)) 
+                stop(which.class, " ", "is not one of the class labels.")
+        }
+    }
+    if (is.factor(xv)) { ### includes ordered
+        x.pt <- levels(xv)
+        y.pt <- numeric(length(x.pt))
+        for (i in seq(along = x.pt)) {
+            x.data <- newdata
+            x.data[, xname] <- factor(rep(x.pt[i], n), levels = x.pt, ordered = is.ordered(xv))
+            if (classRF) {
+                pr <- treeresponse(x, newdata = x.data)
+                pr <- matrix(unlist(pr), nrow = length(pr), byrow = TRUE)
+                y.pt[i] <- weighted.mean(log(ifelse(pr[, focus] > 0,
+                                                    pr[, focus], 1)) -
+                                         rowMeans(log(ifelse(pr > 0, pr, 1))),
+                                         weights, na.rm=TRUE)
+            } else y.pt[i] <- weighted.mean(predict(x, newdata = x.data), weights, na.rm = TRUE)
+
+        }
+        if (add) {
+            points(1:length(x.pt), y.pt, type="h", lwd=2, ...)
+        } else {
+            if (plot) barplot(y.pt, width=rep(1, length(y.pt)), col="blue",
+                              xlab = xlab, ylab = ylab, main=main,
+                              names.arg=x.pt, ...)
+        }
+    } else {
+        x.pt <- seq(min(xv), max(xv), length = n.pt)
+        y.pt <- numeric(length(x.pt))
+        for (i in seq(along = x.pt)) {
+            x.data <- newdata
+            x.data[, xname] <- rep(x.pt[i], n)
+            class(x.data[, xname]) <- class(newdata[, xname])
+            storage.mode(x.data[, xname]) <- storage.mode(newdata[, xname])
+            if (classRF) {
+                pr <- treeresponse(x, newdata = x.data)
+                pr <- matrix(unlist(pr), nrow = length(pr), byrow = TRUE)
+                y.pt[i] <- weighted.mean(log(ifelse(pr[, focus] == 0, 1, pr[, focus]))
+                                         - rowMeans(log(ifelse(pr == 0, 1, pr))),
+                                         weights, na.rm=TRUE)
+            } else {
+                y.pt[i] <- weighted.mean(predict(x, newdata = x.data), weights, na.rm=TRUE)
+            }
+        }
+        if (add) {
+            lines(x.pt, y.pt, ...)
+        } else {
+            if (plot) plot(x.pt, y.pt, type = "l", xlab=xlab, ylab=ylab,
+                           main = main, ...)
+        }
+        if (rug && plot) {
+            if (n.pt > 10) {
+                rug(quantile(xv, seq(0.1, 0.9, by = 0.1)), side = 1)
+            } else {
+                rug(unique(xv, side = 1))
+            }
+        }
+    }
+    invisible(list(x = x.pt, y = y.pt))
 }

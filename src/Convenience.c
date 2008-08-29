@@ -3,7 +3,7 @@
     Some convenience functions
     *\file Convenience.c
     *\author $Author: hothorn $
-    *\date $Date: 2007-02-02 11:22:45 +0100 (Fri, 02 Feb 2007) $
+    *\date $Date: 2008-10-15 11:04:00 +0200 (Wed, 15 Oct 2008) $
 */
                 
 #include "party.h"
@@ -101,7 +101,7 @@ double C_ConditionalPvalue(const double tstat, SEXP linexpcov,
                            int *maxpts, double *releps, double *abseps) {
                            
     int pq;
-    double ans = 0.0;
+    double ans = 1.0;
     
     pq = get_dimension(linexpcov);
 
@@ -114,8 +114,10 @@ double C_ConditionalPvalue(const double tstat, SEXP linexpcov,
             break;
         /* quadform-type test statistic */
         case QUADFORM:
-            ans = C_quadformConditionalPvalue(tstat, 
-                REAL(GET_SLOT(linexpcov, PL2_rankSym))[0]);
+            /* var = 0 => rank = 0 */
+            if (REAL(GET_SLOT(linexpcov, PL2_rankSym))[0] > 0.5)
+                ans = C_quadformConditionalPvalue(tstat, 
+                    REAL(GET_SLOT(linexpcov, PL2_rankSym))[0]);
             break;
         default: error("C_ConditionalPvalue: undefined value for type argument");
     }

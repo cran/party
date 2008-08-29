@@ -1,5 +1,5 @@
 
-# $Id: Variables.R 3590 2007-06-28 16:16:00Z hothorn $
+# $Id: Variables.R 4115 2008-08-29 16:05:23Z hothorn $
 
 ### factor handling
 ff_trafo <- function(x) {
@@ -85,6 +85,7 @@ initVariableFrame.df <- function(obj, trafo = ptrafo, scores = NULL, response = 
     ### ordering
     ordering <- lapply(obj, function(x) {
         if (is.factor(x) && !is.ordered(x)) return(NULL)
+        if (inherits(x, "Surv")) return(NULL)
         if (is.ordered(x)) return(as.integer(order(as.numeric(x))))
         as.integer(order(x))
     })

@@ -177,3 +177,14 @@ foo <- function(nm)
 foo(4)
 try(foo(5))
 try(foo(6))
+
+### variance = 0 due to constant variables
+### spotted by Sebastian Wietzke <Sebastian.Wietzke@axa.de>
+v <- rep(0,20)
+w <- rep(0,20)
+x <- 1:20
+y <- rep(1,20)
+z <- c(4,5,8,2,6,1,3,6,8,2,5,8,9,3,5,8,9,4,6,8)
+tmp <- ctree(z ~ v+w+x+y,controls = ctree_control(mincriterion = 0.80,
+             minsplit = 2, minbucket = 1, testtype = "Univariate", teststat = "quad"))
+stopifnot(all(tmp@tree$criterion$criterion[c(1,2,4)] == 0))
