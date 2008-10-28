@@ -1,5 +1,5 @@
 
-R version 2.7.1 (2008-06-23)
+R version 2.8.0 (2008-10-20)
 Copyright (C) 2008 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 
@@ -234,7 +234,7 @@ Response:  y
 Input:  xNA 
 Number of observations:  100 
 
-1) xNA == {1}; criterion = 1, statistic = 72.397
+1) xNA == {1}; criterion = 1, statistic = 60.057
   2)*  weights = 48 
 1) xNA == {2}
   3)*  weights = 52 
@@ -333,4 +333,11 @@ Error in model@fit(data, ...) :
 > tmp <- ctree(z ~ v+w+x+y,controls = ctree_control(mincriterion = 0.80,
 +              minsplit = 2, minbucket = 1, testtype = "Univariate", teststat = "quad"))
 > stopifnot(all(tmp@tree$criterion$criterion[c(1,2,4)] == 0))
+> 
+> ### optimal split in last observation lead to selection of suboptimal split
+> data("GlaucomaM", package = "ipred")
+> tmp <- subset(GlaucomaM, vari <= 0.059)
+> weights <- rep(1.0, nrow(tmp))
+> stopifnot(all.equal(Split(tmp$vasg, tmp$Class, weights, 
++                     ctree_control()@splitctrl)[[1]], 0.066))
 > 

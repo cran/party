@@ -1,5 +1,5 @@
 
-R version 2.7.0 (2008-04-22)
+R version 2.8.0 (2008-10-20)
 Copyright (C) 2008 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 
@@ -21,14 +21,6 @@ Loading required package: splines
 Loading required package: grid
 Loading required package: modeltools
 Loading required package: stats4
-
-Attaching package: 'modeltools'
-
-
-	The following object(s) are masked from package:survival :
-
-	 cluster 
-
 Loading required package: coin
 Loading required package: mvtnorm
 Loading required package: zoo

@@ -1,4 +1,12 @@
 
+                CHANGES IN party VERSION 0.9-99 (2008-10-28)
+
+    o   a suboptimal split was implemented when the best
+        split corresponded to the last row of <data> due to
+        a coding error. This should have happend only very
+        rarely, however, the glaucoma example is affected.
+
+
                 CHANGES IN party VERSION 0.9-98 (2008-10-15)
 
     o   don't compute ordering of censored variables (thanks to

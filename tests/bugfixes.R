@@ -188,3 +188,10 @@ z <- c(4,5,8,2,6,1,3,6,8,2,5,8,9,3,5,8,9,4,6,8)
 tmp <- ctree(z ~ v+w+x+y,controls = ctree_control(mincriterion = 0.80,
              minsplit = 2, minbucket = 1, testtype = "Univariate", teststat = "quad"))
 stopifnot(all(tmp@tree$criterion$criterion[c(1,2,4)] == 0))
+
+### optimal split in last observation lead to selection of suboptimal split
+data("GlaucomaM", package = "ipred")
+tmp <- subset(GlaucomaM, vari <= 0.059)
+weights <- rep(1.0, nrow(tmp))
+stopifnot(all.equal(Split(tmp$vasg, tmp$Class, weights, 
+                    ctree_control()@splitctrl)[[1]], 0.066))

@@ -1,5 +1,5 @@
 
-R version 2.7.0 (2008-04-22)
+R version 2.8.0 (2008-10-20)
 Copyright (C) 2008 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 
@@ -91,14 +91,6 @@ Loading required package: splines
 Loading required package: grid
 Loading required package: modeltools
 Loading required package: stats4
-
-Attaching package: 'modeltools'
-
-
-	The following object(s) are masked from package:survival :
-
-	 cluster 
-
 Loading required package: coin
 Loading required package: mvtnorm
 Loading required package: zoo
@@ -231,7 +223,7 @@ Loading required package: colorspace
                
                 Never Within a Year Over a Year
   Never           205            29           0
-  Within a Year    62            42           0
+  Within a Year    56            47           1
   Over a Year      58            16           0
 > 
 > 
@@ -333,7 +325,7 @@ attr(,"assign")
                
                 Never Within a Year Over a Year
   Never           205            29           0
-  Within a Year    62            42           0
+  Within a Year    56            47           1
   Over a Year      58            16           0
 > 
 >     ### fit forest to censored response
@@ -354,91 +346,88 @@ Loading required package: rpart
 Loading required package: mlbench
 Loading required package: nnet
 Loading required package: class
-1) pnodes <= 4; criterion = 6.996, statistic = 6.996
-  2) progrec <= 11; criterion = 2.761, statistic = 2.761
-    3) pnodes <= 3; criterion = 2.047, statistic = 2.047
-      4) menostat == {}; criterion = 2.29, statistic = 2.29
-        5) estrec <= 1; criterion = 1.659, statistic = 1.659
+1) pnodes <= 3; criterion = 8.467, statistic = 8.467
+  2) horTh == {}; criterion = 4.016, statistic = 4.016
+    3) menostat == {}; criterion = 2.365, statistic = 2.365
+      4) age <= 56; criterion = 1.801, statistic = 1.801
+        5) progrec <= 28; criterion = 2.347, statistic = 2.347
           6)*  weights = 0 
-        5) estrec > 1
+        5) progrec > 28
           7)*  weights = 0 
-      4) menostat == {}
-        8) tgrade <= 2; criterion = 2.466, statistic = 2.466
-          9)*  weights = 0 
-        8) tgrade > 2
-          10)*  weights = 0 
-    3) pnodes > 3
-      11)*  weights = 0 
-  2) progrec > 11
-    12) estrec <= 64; criterion = 1.342, statistic = 1.342
-      13) horTh == {}; criterion = 3.52, statistic = 3.52
-        14) pnodes <= 3; criterion = 1.745, statistic = 1.745
-          15)*  weights = 0 
-        14) pnodes > 3
-          16)*  weights = 0 
-      13) horTh == {}
-        17)*  weights = 0 
-    12) estrec > 64
-      18) progrec <= 56; criterion = 1.915, statistic = 1.915
-        19) age <= 57; criterion = 2.495, statistic = 2.495
-          20)*  weights = 0 
-        19) age > 57
-          21)*  weights = 0 
-      18) progrec > 56
-        22) menostat == {}; criterion = 1.39, statistic = 1.39
-          23) tsize <= 25; criterion = 1.547, statistic = 1.547
-            24)*  weights = 0 
-          23) tsize > 25
-            25)*  weights = 0 
-        22) menostat == {}
-          26) pnodes <= 2; criterion = 1.631, statistic = 2.192
-            27)*  weights = 0 
-          26) pnodes > 2
+      4) age > 56
+        8) pnodes <= 2; criterion = 1.494, statistic = 1.494
+          9) tsize <= 27; criterion = 1.71, statistic = 1.71
+            10)*  weights = 0 
+          9) tsize > 27
+            11)*  weights = 0 
+        8) pnodes > 2
+          12)*  weights = 0 
+    3) menostat == {}
+      13) age <= 33; criterion = 3.153, statistic = 3.153
+        14)*  weights = 0 
+      13) age > 33
+        15)*  weights = 0 
+  2) horTh == {}
+    16) pnodes <= 2; criterion = 2.65, statistic = 2.65
+      17) tsize <= 15; criterion = 1.743, statistic = 1.743
+        18)*  weights = 0 
+      17) tsize > 15
+        19)*  weights = 0 
+    16) pnodes > 2
+      20) progrec <= 64; criterion = 2.061, statistic = 2.061
+        21)*  weights = 0 
+      20) progrec > 64
+        22)*  weights = 0 
+1) pnodes > 3
+  23) estrec <= 77; criterion = 3.961, statistic = 3.961
+    24) progrec <= 2; criterion = 2.025, statistic = 2.025
+      25) tgrade <= 2; criterion = 2.828, statistic = 2.828
+        26) tsize <= 30; criterion = 1.504, statistic = 1.504
+          27) horTh == {}; criterion = 1.88, statistic = 1.88
             28)*  weights = 0 
-1) pnodes > 4
-  29) estrec <= 81; criterion = 2.918, statistic = 2.918
-    30) tgrade <= 1; criterion = 2.979, statistic = 2.979
-      31)*  weights = 0 
-    30) tgrade > 1
-      32) progrec <= 98; criterion = 2.069, statistic = 3.084
-        33) tgrade <= 2; criterion = 2.148, statistic = 2.148
-          34) estrec <= 11; criterion = 2.087, statistic = 2.087
-            35) progrec <= 19; criterion = 2.661, statistic = 2.661
-              36) horTh == {}; criterion = 1.708, statistic = 1.708
-                37)*  weights = 0 
-              36) horTh == {}
-                38)*  weights = 0 
-            35) progrec > 19
-              39)*  weights = 0 
-          34) estrec > 11
-            40) menostat == {}; criterion = 2.256, statistic = 2.256
-              41)*  weights = 0 
-            40) menostat == {}
-              42)*  weights = 0 
-        33) tgrade > 2
-          43)*  weights = 0 
-      32) progrec > 98
-        44) age <= 44; criterion = 2.13, statistic = 2.13
-          45)*  weights = 0 
-        44) age > 44
-          46)*  weights = 0 
-  29) estrec > 81
-    47) pnodes <= 8; criterion = 2.312, statistic = 2.312
-      48) age <= 54; criterion = 1.831, statistic = 1.831
-        49)*  weights = 0 
-      48) age > 54
-        50) tsize <= 35; criterion = 2.053, statistic = 2.053
-          51) horTh == {}; criterion = 3.539, statistic = 3.539
-            52)*  weights = 0 
-          51) horTh == {}
-            53)*  weights = 0 
-        50) tsize > 35
+          27) horTh == {}
+            29)*  weights = 0 
+        26) tsize > 30
+          30)*  weights = 0 
+      25) tgrade > 2
+        31) horTh == {}; criterion = 2.017, statistic = 2.017
+          32)*  weights = 0 
+        31) horTh == {}
+          33) menostat == {}; criterion = 1.357, statistic = 1.357
+            34)*  weights = 0 
+          33) menostat == {}
+            35)*  weights = 0 
+    24) progrec > 2
+      36) horTh == {}; criterion = 2.671, statistic = 2.671
+        37) tsize <= 38; criterion = 1.567, statistic = 1.567
+          38) progrec <= 100; criterion = 2.052, statistic = 2.052
+            39) pnodes <= 11; criterion = 1.996, statistic = 1.996
+              40) age <= 46; criterion = 1.42, statistic = 1.42
+                41)*  weights = 0 
+              40) age > 46
+                42) estrec <= 8; criterion = 1.799, statistic = 1.799
+                  43)*  weights = 0 
+                42) estrec > 8
+                  44)*  weights = 0 
+            39) pnodes > 11
+              45)*  weights = 0 
+          38) progrec > 100
+            46) tsize <= 23; criterion = 2.818, statistic = 2.818
+              47)*  weights = 0 
+            46) tsize > 23
+              48)*  weights = 0 
+        37) tsize > 38
+          49) pnodes <= 6; criterion = 1.396, statistic = 1.841
+            50)*  weights = 0 
+          49) pnodes > 6
+            51)*  weights = 0 
+      36) horTh == {}
+        52) pnodes <= 4; criterion = 2.289, statistic = 2.289
+          53)*  weights = 0 
+        52) pnodes > 4
           54)*  weights = 0 
-    47) pnodes > 8
-      55) estrec <= 152; criterion = 2.352, statistic = 2.352
-        56)*  weights = 0 
-      55) estrec > 152
-        57)*  weights = 0 
+  23) estrec > 77
+    55)*  weights = 0 
 > 
 >     ### proximity, see ?randomForest
 >     iris.cf <- cforest(Species ~ ., data = iris, 
@@ -628,7 +617,7 @@ Call: survival:::survfit(formula = resp, weights = w, subset = w >
 >     system.time(ens <- apply(bs, 2, function(w) cfit(ls, ct, weights = w, 
 +                                                      fitmem = mem)))
    user  system elapsed 
-  0.240   0.000   0.236 
+  0.256   0.000   0.255 
 > 
 > 
 > 
@@ -938,7 +927,7 @@ Linear model with coefficients:
 > ### * <FOOTER>
 > ###
 > cat("Time elapsed: ", proc.time() - get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  28.097 0.092 28.217 0 0 
+Time elapsed:  28.833 0.088 29.083 0 0 
 > grDevices::dev.off()
 null device 
           1 

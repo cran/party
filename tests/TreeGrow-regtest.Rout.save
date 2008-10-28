@@ -1,5 +1,5 @@
 
-R version 2.7.0 (2008-04-22)
+R version 2.8.0 (2008-10-20)
 Copyright (C) 2008 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 
@@ -23,14 +23,6 @@ Loading required package: splines
 Loading required package: grid
 Loading required package: modeltools
 Loading required package: stats4
-
-Attaching package: 'modeltools'
-
-
-	The following object(s) are masked from package:survival :
-
-	 cluster 
-
 Loading required package: coin
 Loading required package: mvtnorm
 Loading required package: zoo
@@ -77,8 +69,8 @@ Loading required package: class
   [9] normal   normal   normal   glaucoma normal   normal   normal   normal  
  [17] normal   normal   normal   normal   normal   normal   normal   normal  
  [25] normal   normal   normal   normal   normal   normal   normal   normal  
- [33] normal   normal   normal   normal   normal   normal   normal   normal  
- [41] normal   normal   normal   normal   normal   normal   normal   normal  
+ [33] normal   normal   glaucoma normal   normal   normal   normal   normal  
+ [41] normal   normal   glaucoma normal   normal   normal   normal   normal  
  [49] normal   normal   normal   normal   normal   normal   normal   normal  
  [57] normal   normal   normal   normal   normal   normal   normal   normal  
  [65] normal   normal   normal   normal   normal   glaucoma normal   normal  
@@ -91,13 +83,13 @@ Loading required package: class
 [121] glaucoma glaucoma glaucoma glaucoma glaucoma glaucoma normal   glaucoma
 [129] normal   glaucoma normal   glaucoma glaucoma glaucoma glaucoma glaucoma
 [137] glaucoma glaucoma glaucoma glaucoma glaucoma glaucoma glaucoma glaucoma
-[145] glaucoma normal   normal   glaucoma glaucoma normal   glaucoma normal  
+[145] glaucoma glaucoma normal   glaucoma glaucoma glaucoma glaucoma normal  
 [153] glaucoma glaucoma glaucoma glaucoma normal   glaucoma glaucoma glaucoma
-[161] glaucoma glaucoma normal   normal   glaucoma normal   normal   glaucoma
+[161] glaucoma glaucoma normal   normal   glaucoma glaucoma normal   glaucoma
 [169] glaucoma glaucoma glaucoma glaucoma normal   glaucoma glaucoma glaucoma
 [177] normal   glaucoma normal   glaucoma glaucoma glaucoma normal   glaucoma
 [185] glaucoma glaucoma normal   glaucoma glaucoma normal   glaucoma normal  
-[193] glaucoma glaucoma glaucoma normal  
+[193] glaucoma glaucoma glaucoma glaucoma
 Levels: glaucoma normal
 > 
 > # print(tree)
@@ -140,25 +132,22 @@ Number of observations:  86
 > tr <- ctree(Class ~ ., data = GlaucomaM)
 > tr
 
-	 Conditional inference tree with 5 terminal nodes
+	 Conditional inference tree with 4 terminal nodes
 
 Response:  Class 
 Inputs:  ag, at, as, an, ai, eag, eat, eas, ean, eai, abrg, abrt, abrs, abrn, abri, hic, mhcg, mhct, mhcs, mhcn, mhci, phcg, phct, phcs, phcn, phci, hvc, vbsg, vbst, vbss, vbsn, vbsi, vasg, vast, vass, vasn, vasi, vbrg, vbrt, vbrs, vbrn, vbri, varg, vart, vars, varn, vari, mdg, mdt, mds, mdn, mdi, tmg, tmt, tms, tmn, tmi, mr, rnf, mdic, emd, mv 
 Number of observations:  196 
 
 1) vari <= 0.059; criterion = 1, statistic = 71.475
-  2) vasg <= 0.046; criterion = 1, statistic = 29.265
-    3) vart <= 0.005; criterion = 0.999, statistic = 18.185
-      4)*  weights = 51 
-    3) vart > 0.005
-      5)*  weights = 22 
-  2) vasg > 0.046
-    6)*  weights = 14 
+  2) vasg <= 0.066; criterion = 1, statistic = 29.265
+    3)*  weights = 79 
+  2) vasg > 0.066
+    4)*  weights = 8 
 1) vari > 0.059
-  7) tms <= -0.066; criterion = 0.951, statistic = 11.221
-    8)*  weights = 65 
-  7) tms > -0.066
-    9)*  weights = 44 
+  5) tms <= -0.066; criterion = 0.951, statistic = 11.221
+    6)*  weights = 65 
+  5) tms > -0.066
+    7)*  weights = 44 
 > plot(tr)
 > 
 > data(GBSG2, package = "ipred")  

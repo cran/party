@@ -3,7 +3,7 @@
     Binary splits 
     *\file Splits.c
     *\author $Author: hothorn $
-    *\date $Date: 2008-10-15 11:03:36 +0200 (Wed, 15 Oct 2008) $
+    *\date $Date: 2008-10-28 18:57:51 +0100 (Tue, 28 Oct 2008) $
 */
                 
 #include "party.h"
@@ -150,7 +150,7 @@ void C_split(const double *x, int p,
     
         /* search for the maximum and the best separating cutpoint */
         maxstat[0] = 0.0;        
-        for (i = 0; i < (n - 1); i++) {
+        for (i = 0; i < n; i++) {
             if (statistics[i] > maxstat[0]) {
                 maxstat[0] = statistics[i];
                 cutpoint[0] = x[i];
