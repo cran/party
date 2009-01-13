@@ -10,9 +10,9 @@
 ctree_control(teststat = c("quad", "max"), 
               testtype = c("Bonferroni", "MonteCarlo", 
                            "Univariate", "Teststatistic"), 
-              mincriterion = 0.95, minsplit = 20, minbucket = 7, stump = FALSE, 
-              nresample = 9999, maxsurrogate = 0, mtry = 0, 
-              savesplitstats = TRUE, maxdepth = 0)
+              mincriterion = 0.95, minsplit = 20, minbucket = 7, 
+              stump = FALSE, nresample = 9999, maxsurrogate = 0, 
+              mtry = 0, savesplitstats = TRUE, maxdepth = 0)
 }
 \arguments{
   \item{teststat}{ a character specifying the type of the test statistic

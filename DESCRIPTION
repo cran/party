@@ -1,8 +1,8 @@
 Package: party
 Title: A Laboratory for Recursive Partytioning
-Date: $Date: 2008-10-28 18:57:51 +0100 (Tue, 28 Oct 2008) $
-Version: 0.9-99
-Author: Torsten Hothorn, Kurt Hornik and Achim Zeileis
+Date: 2009-01-13
+Version: 0.9-991
+Author: Torsten Hothorn, Kurt Hornik, Carolin Strobl and Achim Zeileis
 Maintainer: Torsten Hothorn <Torsten.Hothorn@R-project.org>
 Description: A computational toolbox for recursive partitioning.
   The core of the package is ctree(), an implementation of
@@ -25,4 +25,4 @@ Suggests: ipred, mlbench, colorspace
 LazyLoad: yes
 LazyData: yes
 License: GPL-2
-Packaged: Tue Oct 28 19:49:54 2008; hothorn
+Packaged: Tue Jan 13 21:12:39 2009; hothorn

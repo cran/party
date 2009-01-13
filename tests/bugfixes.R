@@ -106,7 +106,7 @@ stopifnot(nrow(pr) == nrow(df) || ncol(pr) != 2)
 ### varimp with ordered response
 ### spotted by Max Kuhn <Max.Kuhn@pfizer.com>
 test <- cforest(ME ~ ., data = mammoexp, control = cforest_control(ntree = 50))
-stopifnot(sum(abs(varimp(test)[,1])) > 0)
+stopifnot(sum(abs(varimp(test))) > 0)
 
 ### missing values in factors lead to segfaults on 64 bit systems
 ### spotted by Carolin Strobl <carolin.strobl@lme.de>

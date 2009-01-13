@@ -27,17 +27,18 @@ cforest_control(teststat = "max",
   \item{mincriterion}{ the value of the test statistic or 1 - p-value that
                        must be exceeded in order to implement a split. }
   \item{mtry}{ number of input variables randomly sampled as candidates 
-               at each node for random forest like algorithms. The default
-               \code{mtry = 0} means that no random selection takes place
-               and bagging is performed.}
-  \item{savesplitstats}{ a logical determining if the process of standardized
+               at each node for random forest like algorithms. Bagging, as special case 
+               of a random forest without random input variable sampling, can 
+               be performed by setting \code{mtry} either equal to \code{NULL} or 
+               manually equal to the number of input variables.}
+  \item{savesplitstats}{ a logical determining whether the process of standardized
                          two-sample statistics for split point estimate
                          is saved for each primary split.}
   \item{ntree}{ number of trees to grow in a forest.}
   \item{replace}{ a logical indicating whether sampling of observations is 
                  done with or without replacement.}
   \item{fraction}{ fraction of number of observations to draw without 
-                   replacement (only relevant if \code{replace = TRUE}).}
+                   replacement (only relevant if \code{replace = FALSE}).}
   \item{\dots}{ additional arguments to be passed to 
                 \code{\link{ctree_control}}.}
 }
@@ -58,29 +59,32 @@ cforest_control(teststat = "max",
   borders. When \code{stump = TRUE}, a tree with at most two terminal nodes
   is computed.
 
-  The argument \code{mtry > 0} means that a random forest like `variable
-  selection', i.e., a random selection of \code{mtry} input variables, is
-  performed in each node. Make sure that \code{mtry} is defined
-  properly before using \code{cforest}.
+  The \code{mtry} argument regulates a random selection of \code{mtry} input 
+  variables in each node. Note that here \code{mtry} is fixed to the value 5 by 
+  default for merely technical reasons, while in \code{\link[randomForest]{randomForest}} 
+  the default values for classification and regression vary with the number of input 
+  variables. Make sure that \code{mtry} is defined properly before using \code{cforest}.
 
   It might be informative to look at scatterplots of input variables against
   the standardized two-sample split statistics, those are available when
   \code{savesplitstats = TRUE}. Each node is then associated with a vector
-  those length is determined by the number of observations in the learning
+  whose length is determined by the number of observations in the learning
   sample and thus much more memory is required.
 
+  The number of trees \code{ntree} can be increased for large numbers of input variables.
+
   Function \code{cforest_unbiased} returns the settings suggested 
-  for the construction of unbiased random forests by Strobl et al. (2007)
+  for the construction of unbiased random forests (\code{teststat = "quad", testtype = "Univ", 
+    replace = FALSE}) by Strobl et al. (2007)
   and is the default since version 0.9-90.
   Hyper parameter settings mimicing the behaviour of
   \code{\link[randomForest]{randomForest}} are available in
   \code{cforest_classical} which have been used as default up to
   version 0.9-14. 
 
-  Please not that \code{\link{cforest}}, in contrast to 
+  Please note that \code{\link{cforest}}, in contrast to 
   \code{\link[randomForest]{randomForest}}, doesn't grow trees of
-  maximal depth, one needs to define \code{mincriterion = 0} in order
-  to get a forest of very large trees.
+  maximal depth. To grow large trees, set \code{mincriterion = 0}.
 
 }
 \value{

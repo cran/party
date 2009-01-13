@@ -1,5 +1,5 @@
 
-# $Id: RandomForest.R 4115 2008-08-29 16:05:23Z hothorn $
+# $Id: RandomForest.R 4252 2009-01-13 19:03:31Z hothorn $
 
 ### the fitting procedure
 cforestfit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
@@ -119,6 +119,8 @@ cforest_control <- function(teststat = "max",
                             savesplitstats = FALSE,
                             ntree = 500, mtry = 5, replace = TRUE, 
                             fraction = 0.632, ...) {
+
+    if (is.null(mtry)) mtry <- 0
     RET <- ctree_control(teststat = teststat, testtype = testtype,
                          mincriterion = mincriterion, 
                          savesplitstats = savesplitstats, 
@@ -179,65 +181,6 @@ varIDs <- function(node) {
     }
     foo(node)
     return(v)
-}
-
-varimp <- function(object, mincriterion = 0.0) {
-
-    inputs <- object@data@get("input")
-    response <- object@responses
-    if (length(response@variables) != 1)
-        stop("cannot compute variable importance measure for multivariate response")
-    y <- object@responses@variables[[1]]
-    inp <- initVariableFrame(inputs, trafo = NULL) 
-    if (!all(complete.cases(inp@variables)))
-        stop("cannot compute variable importance measure with missing values")
-    tmp <- inp
-    ### jt <- response@jointtransf
-
-    CLASS <- all(response@is_nominal)
-    ORDERED  <- all(response@is_ordinal)
-    if (CLASS) {
-        error <- function(x, oob) 
-            mean((levels(y)[sapply(x, which.max)] != y)[oob])
-    } else {
-        ### <FIXME> ordered variables are of class was_ordered
-        if (ORDERED) {
-            error <- function(x, oob) 
-                mean((sapply(x, which.max) != y)[oob])
-        ### </FIXME>
-        } else {
-            error <- function(x, oob) mean((unlist(x) - y)[oob]^2)
-        }
-    }
-
-    perror <- matrix(0, nrow = length(object@ensemble), ncol = ncol(inputs))
-    colnames(perror) <- colnames(inputs)
-
-    for (b in 1:length(object@ensemble)) {
-
-        tree <- object@ensemble[[b]]
-        oob <- object@weights[[b]] == 0
-
-        p <- .Call("R_predict", tree, inp, mincriterion,
-                   PACKAGE = "party")
-        eoob <- error(p, oob)
-
-        for (j in unique(varIDs(tree))) {
-            perm <- sample(which(oob))
-            tmp@variables[[j]][which(oob)] <- tmp@variables[[j]][perm]
-            ### <FIXME> check for NA's
-            ### tmp@whichNA[[j]] <- which(is.na(tmp@variables[[j]]))
-            ### </FIXME>
-
-            p <- .Call("R_predict", tree, tmp, mincriterion,
-                       PACKAGE = "party")
-
-            perror[b, j] <- (error(p, oob) - eoob)
-            tmp <- inp
-        }
-    }
-    data.frame("MeanDecreaseAccuracy" = colMeans(perror), 
-               "Standard Deviation" = apply(perror, 2, sd))
 }
 
 ### calculate proximity matrix: p[i,j] = number of times obs i and j are 

@@ -1,6 +1,6 @@
 
-R version 2.8.0 (2008-10-20)
-Copyright (C) 2008 The R Foundation for Statistical Computing
+R version 2.9.0 Under development (unstable) (2009-01-08 r47515)
+Copyright (C) 2009 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -216,7 +216,7 @@ There were 50 or more warnings (use warnings() to see the first 50)
 > ### varimp with ordered response
 > ### spotted by Max Kuhn <Max.Kuhn@pfizer.com>
 > test <- cforest(ME ~ ., data = mammoexp, control = cforest_control(ntree = 50))
-> stopifnot(sum(abs(varimp(test)[,1])) > 0)
+> stopifnot(sum(abs(varimp(test))) > 0)
 > 
 > ### missing values in factors lead to segfaults on 64 bit systems
 > ### spotted by Carolin Strobl <carolin.strobl@lme.de>
