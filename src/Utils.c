@@ -3,7 +3,7 @@
     Some commonly needed utility functions.
     *\file Utils.c
     *\author $Author: hothorn $
-    *\date $Date: 2007-09-26 19:24:45 +0200 (Wed, 26 Sep 2007) $
+    *\date $Date: 2009-01-29 10:48:11 +0100 (Thu, 29 Jan 2009) $
 */
                 
 #include "party.h"
@@ -707,6 +707,12 @@ void C_remove_weights(SEXP subtree) {
         C_remove_weights(S3get_leftnode(subtree));
         C_remove_weights(S3get_rightnode(subtree));
     }
+}
+
+SEXP R_remove_weights(SEXP subtree) {
+
+    C_remove_weights(subtree);
+    return(R_NilValue);
 }
 
 double* C_tempweights(int j, SEXP weights, SEXP fitmem, SEXP inputs) {

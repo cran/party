@@ -1,5 +1,10 @@
 
-                CHANGES IN party VERSION 0.9-991 (2009-01-19)
+                CHANGES IN party VERSION 0.9-993 (2009-01-29)
+
+    o    new C-level function R_remove_weights
+
+
+                CHANGES IN party VERSION 0.9-992 (2009-01-19)
 
     o   update CITATION file
 

@@ -1,7 +1,7 @@
 Package: party
 Title: A Laboratory for Recursive Partytioning
-Date: 2009-01-13
-Version: 0.9-992
+Date: 2009-01-29
+Version: 0.9-993
 Author: Torsten Hothorn, Kurt Hornik, Carolin Strobl and Achim Zeileis
 Maintainer: Torsten Hothorn <Torsten.Hothorn@R-project.org>
 Description: A computational toolbox for recursive partitioning.
@@ -25,4 +25,4 @@ Suggests: ipred, mlbench, colorspace
 LazyLoad: yes
 LazyData: yes
 License: GPL-2
-Packaged: Mon Jan 19 17:34:00 2009; hothorn
+Packaged: Thu Jan 29 10:49:11 2009; hothorn
