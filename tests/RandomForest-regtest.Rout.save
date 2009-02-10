@@ -1,6 +1,6 @@
 
-R version 2.9.0 Under development (unstable) (2009-01-08 r47515)
-Copyright (C) 2009 The R Foundation for Statistical Computing
+R version 2.8.0 (2008-10-20)
+Copyright (C) 2008 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -79,7 +79,7 @@ Call: survival:::survfit(formula = resp, weights = w, subset = w >
           eag           eat           eas           ean           eai 
  0.0009386894 -0.0003955231  0.0011738154  0.0016381320  0.0007000744 
          abrg          abrt          abrs          abrn          abri 
- 0.0053624023  0.0011377530  0.0065449183  0.0023212596  0.0044496678 
+ 0.0053624023  0.0011377530  0.0065449183  0.0023212596  0.0047236404 
           hic          mhcg          mhct          mhcs          mhcn 
  0.0134229360  0.0011303540  0.0002739726  0.0005209986  0.0050906248 
          mhci          phcg          phct          phcs          phcn 
@@ -89,7 +89,7 @@ Call: survival:::survfit(formula = resp, weights = w, subset = w >
          vbsn          vbsi          vasg          vast          vass 
  0.0019109589  0.0004190376  0.0008571429 -0.0002458419  0.0018156052 
          vasn          vasi          vbrg          vbrt          vbrs 
--0.0006612686  0.0023169159  0.0006969697  0.0011287330  0.0041538372 
+-0.0006612686  0.0023169159  0.0006969697  0.0009917467  0.0041538372 
          vbrn          vbri          varg          vart          vars 
  0.0005355819  0.0056179677  0.0341056984  0.0049173442  0.0223239750 
          varn          vari           mdg           mdt           mds 
@@ -97,9 +97,9 @@ Call: survival:::survfit(formula = resp, weights = w, subset = w >
           mdn           mdi           tmg           tmt           tms 
  0.0005338962  0.0004109589  0.0062488098  0.0005895152  0.0129647670 
           tmn           tmi            mr           rnf          mdic 
- 0.0015380487  0.0099121608  0.0019202562  0.0084726600  0.0042333014 
+ 0.0015380487  0.0099121608  0.0020572425  0.0084726600  0.0042333014 
           emd            mv 
- 0.0023210111 -0.0007252216 
+ 0.0023210111 -0.0008622079 
 > 
 > P <- proximity(rf)
 > stopifnot(max(abs(P - t(P))) == 0)

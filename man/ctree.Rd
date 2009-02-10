@@ -57,6 +57,15 @@ ctree(formula, data, subset = NULL, weights = NULL,
   is based on the univariate p-values avoiding a variable selection bias
   towards input variables with many possible cutpoints.
 
+  Multiplicity-adjusted Monte-Carlo p-values are computed 
+  following a "min-p" approach. The univariate 
+  p-values based on the limiting distribution (chi-square
+  or normal) are computed for each of the random 
+  permutations of the data. This means that one should
+  use a quadratic test statistic when factors are in
+  play (because the evaluation of the corresponding
+  multivariate normal distribution is time-consuming).
+
   By default, the scores for each ordinal factor \code{x} are
   \code{1:length(x)}, this may be changed using \code{scores = list(x =
   c(1,5,6))}, for example.

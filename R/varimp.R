@@ -1,23 +1,6 @@
-
-#
-# Optionen: ???
-#
-# - conditional = NULL 
-#
-# - conditional = Liste mit Variablennamen ansprechen: z.B. 
-#   list(X1 = c("X2"), X2 = c("X1", "X3"))
-#   alle nicht spezifizierten sind weiterhin NULL
-#   d.h. ???
-#
-# - conditional = Zahl zwischen 0 und 1, d.h. bedinge auf alle mit Korrelation > Zahl
-
-## mincriterion = 0 so that complete tree is evaluated; 
-## regulate size of considered tree here via, e.g., mincriterion = 0.95
-## or when building the forest in the first place via cforest_control(mincriterion = 0.95)
-
-
 # for the current variable of interest, xname,
 # create the list of variables to condition on:
+
 create_cond_list <- function(cond, threshold, xname, input) {
 
    stopifnot(is.logical(cond))
@@ -28,10 +11,18 @@ create_cond_list <- function(cond, threshold, xname, input) {
            xnames <- xnames[xnames != xname]
            ct <- ctree(as.formula(paste(xname, "~", paste(xnames, collapse = "+"), collapse = "")),
                        data = input, control = ctrl)
-           return(xnames[ct@tree$criterion[[2]] > threshold])
+           crit <- ct@tree$criterion[[2]]
+           crit[which(is.na(crit))] <- 0
+           return(xnames[crit > threshold])
        }
    stop()
 }
+
+
+
+## mincriterion = 0 so that complete tree is evaluated; 
+## regulate size of considered tree here via, e.g., mincriterion = 0.95
+## or when building the forest in the first place via cforest_control(mincriterion = 0.95)
 
 varimp <- function (object, mincriterion = 0, conditional = FALSE, threshold = 0.2, nperm = 1, OOB = TRUE)
 {
@@ -137,7 +128,7 @@ conditional_perm <- function(cond, xnames, input, tree, oob){
 
         ## if conditioning variable is not used for splitting in current tree
         ## proceed with next conditioning variable
-        cl <- unique(cutpoints_list(tree, varID))
+        cl <- cutpoints_list(tree, varID)
         if (is.null(cl)) next
 
         ## proceed cutpoints for different types of variables
@@ -145,8 +136,8 @@ conditional_perm <- function(cond, xnames, input, tree, oob){
         xclass <- class(x)[1]
         if (xclass == "integer") xclass <- "numeric"
 
-        block <- switch(xclass, "numeric" = cut(x, breaks = c(-Inf, sort(cl), Inf)),
-                        "ordered" = cut(as.numeric(x), breaks =  c(-Inf, sort(cl), Inf)),
+        block <- switch(xclass, "numeric" = cut(x, breaks = c(-Inf, sort(unique(cl)), Inf)),
+                        "ordered" = cut(as.numeric(x), breaks =  c(-Inf, sort(unique(cl)), Inf)),
                         "factor" = {
                             CL <- matrix(as.logical(cl), nrow = nlevels(x))                            
                             rs <- rowSums(CL)
