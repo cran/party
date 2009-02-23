@@ -1,4 +1,4 @@
-.TH "Utils.h" 3 "28 Oct 2008" "party" \" -*- nroff -*-
+.TH "Utils.h" 3 "23 Feb 2009" "party" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -209,7 +209,7 @@ Definition at line 702 of file Utils.c.
 .PP
 References C_remove_weights(), S3_WEIGHTS, S3get_leftnode(), S3get_nodeterminal(), and S3get_rightnode().
 .PP
-Referenced by C_remove_weights(), and R_Ensemble().
+Referenced by C_remove_weights(), R_Ensemble(), and R_remove_weights().
 .SS "void C_SampleNoReplace (int * x, int m, int k, int * ans)"
 .PP
 compute a permutation of a (random subset of) 0:(m-1) 
@@ -239,7 +239,7 @@ References C_ProbSampleNoReplace().
 Referenced by R_Ensemble().
 .SS "double* C_tempweights (int j, SEXP weights, SEXP fitmem, SEXP inputs)"
 .PP
-Definition at line 712 of file Utils.c.
+Definition at line 718 of file Utils.c.
 .PP
 References get_missings(), and get_weights().
 .PP

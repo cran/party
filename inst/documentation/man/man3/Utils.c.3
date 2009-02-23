@@ -1,4 +1,4 @@
-.TH "Utils.c" 3 "28 Oct 2008" "party" \" -*- nroff -*-
+.TH "Utils.c" 3 "23 Feb 2009" "party" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -100,6 +100,9 @@ Utils.c \-
 .RI "void \fBC_remove_weights\fP (SEXP subtree)"
 .br
 .ti -1c
+.RI "SEXP \fBR_remove_weights\fP (SEXP subtree)"
+.br
+.ti -1c
 .RI "double * \fBC_tempweights\fP (int j, SEXP weights, SEXP fitmem, SEXP inputs)"
 .br
 .in -1c
@@ -120,7 +123,7 @@ hothorn
 .RE
 .PP
 \fBDate\fP.RS 4
-2007-09-26 19:24:45 +0200 (Wed, 26 Sep 2007) 
+2009-01-29 10:48:11 +0100 (Thu, 29 Jan 2009) 
 .RE
 .PP
 
@@ -282,7 +285,7 @@ Definition at line 702 of file Utils.c.
 .PP
 References C_remove_weights(), S3_WEIGHTS, S3get_leftnode(), S3get_nodeterminal(), and S3get_rightnode().
 .PP
-Referenced by C_remove_weights(), and R_Ensemble().
+Referenced by C_remove_weights(), R_Ensemble(), and R_remove_weights().
 .SS "void C_SampleNoReplace (int * x, int m, int k, int * ans)"
 .PP
 compute a permutation of a (random subset of) 0:(m-1) 
@@ -312,7 +315,7 @@ References C_ProbSampleNoReplace().
 Referenced by R_Ensemble().
 .SS "double* C_tempweights (int j, SEXP weights, SEXP fitmem, SEXP inputs)"
 .PP
-Definition at line 712 of file Utils.c.
+Definition at line 718 of file Utils.c.
 .PP
 References get_missings(), and get_weights().
 .PP
@@ -510,6 +513,11 @@ R-interface to C_SampleNoReplace: the permutation case
 Definition at line 472 of file Utils.c.
 .PP
 References C_SampleNoReplace().
+.SS "SEXP R_remove_weights (SEXP subtree)"
+.PP
+Definition at line 712 of file Utils.c.
+.PP
+References C_remove_weights().
 .SS "SEXP R_rsubset (SEXP m, SEXP k)"
 .PP
 R-interface to C_SampleNoReplace: the subset case 

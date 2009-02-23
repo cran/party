@@ -70,7 +70,12 @@ ctree(formula, data, subset = NULL, weights = NULL,
   \code{1:length(x)}, this may be changed using \code{scores = list(x =
   c(1,5,6))}, for example.
 
-  Predictions can be computed using \code{\link{predict}}. For observations
+  Predictions can be computed using \code{\link{predict}} or
+  \code{\link{treeresponse}}. The first returns predicted means,
+  predicted classes or median predicted survival times, whereas
+  the latter gives more information about the conditional
+  distribution of the response, i.e., class probabilities
+  or predicted Kaplan-Meier curves. For observations
   with zero weights, predictions are computed from the fitted tree 
   when \code{newdata = NULL}.
 

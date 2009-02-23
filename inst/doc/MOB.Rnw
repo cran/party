@@ -1,7 +1,9 @@
-\documentclass{Z}
+\documentclass[nojss]{jss}
 
-%%\VignetteIndexEntry{party with the mob}
-%%\VignetteDepends{mlbench,colorspace}
+%\VignetteIndexEntry{party with the mob}
+%\VignetteDepends{mlbench,colorspace}
+%\VignetteKeywords{parametric models, object-orientation, recursive partitioning}
+%\VignettePackage{party}
 
 %% packages
 \usepackage{amsmath}
@@ -19,7 +21,7 @@ require("party")
 
 %% author/title
 \author{Achim Zeileis\\Wirtschaftsuniversit\"at Wien \And
-        Torsten Hothorn\\Friedrich-Alexander-Universit\"at\\Erlangen-N\"urnberg \And
+        Torsten Hothorn\\Ludwig-Maximilians-\\Universit\"at M\"unchen \And
 	Kurt Hornik\\Wirtschaftsuniversit\"at Wien}
 \Plainauthor{Achim Zeileis, Torsten Hothorn, Kurt Hornik}
 
@@ -44,6 +46,25 @@ require("party")
   plug in various types of parametric models. The outcome is a tree where
   each node is associated with a fitted parametric model that can be
   effectively visualized and summarized.
+}
+
+\Address{
+  Achim Zeileis, Kurt Hornik\\
+  Department of Statistics and Mathematics\\
+  Wirtschaftsuniversit\"at Wien\\
+  Augasse 2--6\\
+  AT-1090 Wien, Austria\\
+  E-mail: \email{Achim.Zeileis@R-project.org}, \email{Kurt.Hornik@R-project.org}\\
+  URL: \url{http://statmath.wu-wien.ac.at/~zeileis/},\\
+  \phantom{URL:} \url{http://statmath.wu-wien.ac.at/~hornik/}\\
+
+  Torsten Hothorn\\
+  Institut f\"ur Statistik\\
+  Ludwig-Maximilians-Universit\"at M\"unchen\\
+  Ludwigstra{\ss}e 33\\
+  DE-80539 M\"unchen, Germany\\
+  E-mail: \email{Torsten.Hothorn@R-project.org}\\
+  URL: \url{http://www.stat.uni-muenchen.de/~hothorn/}
 }
 
 \begin{document}
