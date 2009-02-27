@@ -1,5 +1,5 @@
 
-R version 2.9.0 Under development (unstable) (2009-01-08 r47515)
+R version 2.9.0 alpha (2009-03-22 r48193)
 Copyright (C) 2009 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 
@@ -177,11 +177,16 @@ Number of observations:  686
 Call: survfit(formula = Surv(time, cens) ~ as.factor(GBSG2tree@where), 
     data = GBSG2)
 
-                               n events median 0.95LCL 0.95UCL
-as.factor(GBSG2tree@where)=3 248     88   2093    1814     Inf
-as.factor(GBSG2tree@where)=4 128     31    Inf    2372     Inf
-as.factor(GBSG2tree@where)=6 144    103    624     525     797
-as.factor(GBSG2tree@where)=7 166     77   1701    1174    2018
+                             records n.max n.start events median 0.95LCL
+as.factor(GBSG2tree@where)=3     248   248     248     88   2093    1814
+as.factor(GBSG2tree@where)=4     128   128     128     31     NA    2372
+as.factor(GBSG2tree@where)=6     144   144     144    103    624     525
+as.factor(GBSG2tree@where)=7     166   166     166     77   1701    1174
+                             0.95UCL
+as.factor(GBSG2tree@where)=3      NA
+as.factor(GBSG2tree@where)=4      NA
+as.factor(GBSG2tree@where)=6     797
+as.factor(GBSG2tree@where)=7    2018
 > names(GBSG2)
  [1] "horTh"    "age"      "menostat" "tsize"    "tgrade"   "pnodes"  
  [7] "progrec"  "estrec"   "time"     "cens"    

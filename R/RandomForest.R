@@ -1,5 +1,5 @@
 
-# $Id: RandomForest.R 4252 2009-01-13 19:03:31Z hothorn $
+# $Id: RandomForest.R 4314 2009-03-27 16:25:13Z hothorn $
 
 ### the fitting procedure
 cforestfit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
@@ -49,7 +49,7 @@ cforestfit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
         if (any(response@is_censored)) {
             resp <- response@variables[[1]]
             RET <- lapply(pw, function(w) 
-                survival:::survfit(resp, weights = w, subset = w > 0))
+                mysurvfit(resp, weights = w))
             return(RET)
         }
 

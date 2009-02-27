@@ -1,6 +1,6 @@
 
-R version 2.8.0 (2008-10-20)
-Copyright (C) 2008 The R Foundation for Statistical Computing
+R version 2.9.0 alpha (2009-03-22 r48193)
+Copyright (C) 2009 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -58,18 +58,12 @@ Loading required package: class
 > rfS <- cforest(Surv(time, cens) ~ ., data = GBSG2, control = cforest_control(ntree = 100))
 > treeresponse(rfS, newdata = GBSG2[1:2,])
 $`1`
-Call: survival:::survfit(formula = resp, weights = w, subset = w > 
-    0)
-
-      n  events  median 0.95LCL 0.95UCL 
-   9238    3881    1814    1806    1814 
+records   n.max n.start  events  median 0.95LCL 0.95UCL 
+    686    9238    9238    3881    1814    1806    1814 
 
 $`2`
-Call: survival:::survfit(formula = resp, weights = w, subset = w > 
-    0)
-
-      n  events  median 0.95LCL 0.95UCL 
-   4989    2367    1806    1587    1807 
+records   n.max n.start  events  median 0.95LCL 0.95UCL 
+    686    4989    4989    2367    1806    1587    1807 
 
 > 
 > ### give it a try, at least

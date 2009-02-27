@@ -1,5 +1,5 @@
 
-# $Id: Plot.R 3735 2007-09-26 15:42:39Z zeileis $
+# $Id: Plot.R 4314 2009-03-27 16:25:13Z hothorn $
 
 ## utility functions for querying the number of
 ## terminal nodes and the maximal depth of (sub-)trees
@@ -104,7 +104,7 @@ node_surv <- function(ctreeobj,
 
     ### panel function for Kaplan-Meier curves in nodes
     rval <- function(node) {
-        km <- survfit(survobj, subset = node$weights > 0, ...)
+        km <- mysurvfit(survobj, weights = node$weights, ...)
 
         a <- dostep(km$time, km$surv)
 

@@ -1,5 +1,5 @@
 
-# $Id: ConditionalTree.R 3790 2007-11-22 17:04:46Z hothorn $
+# $Id: ConditionalTree.R 4314 2009-03-27 16:25:13Z hothorn $
 
 ### the fitting procedure
 ctreefit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
@@ -73,8 +73,7 @@ ctreefit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
             resp <- response@variables[[1]]
             for (i in 1:length(swh)) {
                 w <- weights * (where == swh[i])
-                RET[wh == swh[i]] <- list(survival:::survfit(resp,
-                    weights = w, subset = w > 0))
+                RET[wh == swh[i]] <- list(mysurvfit(resp, weights = w))
             }
             return(RET)
         }

@@ -1,5 +1,5 @@
 
-R version 2.9.0 Under development (unstable) (2009-01-08 r47515)
+R version 2.9.0 alpha (2009-03-22 r48193)
 Copyright (C) 2009 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 
@@ -43,12 +43,12 @@ Loading required package: strucchange
 Loading required package: vcd
 Loading required package: MASS
 Loading required package: colorspace
-mob_fit_fluctests: local variable ‘beta’ assigned but may not be used
-node_density: local variable ‘xr’ assigned but may not be used
-node_density: local variable ‘yr’ assigned but may not be used
-residuals.mob: local variable ‘newinput’ assigned but may not be used
-reweight.glinearModel: local variable ‘fit’ assigned but may not be used
-reweight.linearModel: local variable ‘fit’ assigned but may not be used
-reweight.survReg: local variable ‘fit’ assigned but may not be used
+mob_fit_fluctests: local variable 'beta' assigned but may not be used
+node_density: local variable 'xr' assigned but may not be used
+node_density: local variable 'yr' assigned but may not be used
+residuals.mob: local variable 'newinput' assigned but may not be used
+reweight.glinearModel: local variable 'fit' assigned but may not be used
+reweight.linearModel: local variable 'fit' assigned but may not be used
+reweight.survReg: local variable 'fit' assigned but may not be used
 NULL
 > 

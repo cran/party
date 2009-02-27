@@ -1,5 +1,5 @@
 
-R version 2.9.0 Under development (unstable) (2009-01-08 r47515)
+R version 2.9.0 alpha (2009-03-22 r48193)
 Copyright (C) 2009 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 
@@ -92,21 +92,21 @@ Error in validObject(object@splitctrl) :
   invalid class "SplitControl" object: FALSE
 In addition: Warning message:
 In validityMethod(object) :
-  no negative values allowed in objects of class ‘SplitControl’
+  no negative values allowed in objects of class 'SplitControl'
 > try(cforest_control(ntree = -1))
 Error in validObject(RET) : invalid class "ForestControl" object: FALSE
 In addition: Warning message:
-In validityMethod(object) : ‘ntree’ must be equal or greater 1
+In validityMethod(object) : 'ntree' must be equal or greater 1
 > try(cforest_control(maxdepth = -1))
 Error in validObject(object@tgctrl) : 
   invalid class "TreeGrowControl" object: FALSE
 In addition: Warning message:
-In validityMethod(object) : ‘maxdepth’ must be positive
+In validityMethod(object) : 'maxdepth' must be positive
 > try(cforest_control(nresample = 10))
 Error in validObject(object@gtctrl) : 
   invalid class "GlobalTestControl" object: FALSE
 In addition: Warning message:
-In validityMethod(object) : ‘nresample’ must be larger than 100
+In validityMethod(object) : 'nresample' must be larger than 100
 > 
 > ### NA handling for factors and in random forest
 > ### more than one (ordinal) response variable

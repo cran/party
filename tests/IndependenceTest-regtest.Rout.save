@@ -1,5 +1,5 @@
 
-R version 2.9.0 Under development (unstable) (2009-01-08 r47515)
+R version 2.9.0 alpha (2009-03-22 r48193)
 Copyright (C) 2009 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 
@@ -88,7 +88,7 @@ alternative hypothesis: true location shift is not equal to 0
 > varctrl <- new("VariableControl")
 > varctrl@teststat <- factor("quad", levels = c("max", "quad"))
 > print(varctrl)
-An object of class “VariableControl”
+An object of class "VariableControl"
 Slot "teststat":
 [1] quad
 Levels: max quad
@@ -134,7 +134,7 @@ Kruskal-Wallis chi-squared = 0.622, df = 2, p-value = 0.7327
 > varctrl <- new("VariableControl")
 > varctrl@teststat <- factor("quad", levels = c("max", "quad"))
 > print(varctrl)
-An object of class “VariableControl”
+An object of class "VariableControl"
 Slot "teststat":
 [1] quad
 Levels: max quad
@@ -182,7 +182,7 @@ Kruskal-Wallis chi-squared = 0.622, df = 2, p-value = 0.7327
 > varctrl <- new("VariableControl")
 > varctrl@teststat <- factor("quad", levels = c("max", "quad"))
 > print(varctrl)
-An object of class “VariableControl”
+An object of class "VariableControl"
 Slot "teststat":
 [1] quad
 Levels: max quad
@@ -273,7 +273,7 @@ alternative hypothesis: true location shift is not equal to 0
 > varctrl <- new("VariableControl")
 > varctrl@teststat <- factor("quad", levels = c("max", "quad"))
 > print(varctrl)
-An object of class “VariableControl”
+An object of class "VariableControl"
 Slot "teststat":
 [1] quad
 Levels: max quad
