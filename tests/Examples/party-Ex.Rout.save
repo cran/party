@@ -1,5 +1,5 @@
 
-R version 2.9.0 Under development (unstable) (2009-01-08 r47515)
+R version 2.10.0 Under development (unstable) (2009-06-03 r48707)
 Copyright (C) 2009 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 
@@ -79,7 +79,7 @@ Type 'q()' to quit R.
 > ## before loading the package.
 > ## Use postscript as incomplete files may be viewable, unlike PDF.
 > ## Choose a size that is close to on-screen devices, fix paper
-> ps.options(width = 7, height = 7, paper = "a4", reset = TRUE)
+> grDevices::ps.options(width = 7, height = 7, paper = "a4", reset = TRUE)
 > grDevices::postscript("party-Ex.ps")
 > 
 > assign("par.postscript", graphics::par(no.readonly = TRUE), pos = "CheckExEnv")
@@ -566,18 +566,12 @@ Loading required package: mlbench
 Loading required package: nnet
 Loading required package: class
 [[1]]
-Call: survival:::survfit(formula = resp, weights = w, subset = w > 
-    0)
-
-      n  events  median 0.95LCL 0.95UCL 
-    248      88    2093    1814     Inf 
+records   n.max n.start  events  median 0.95LCL 0.95UCL 
+    686     248     248      88    2093    1814      NA 
 
 [[2]]
-Call: survival:::survfit(formula = resp, weights = w, subset = w > 
-    0)
-
-      n  events  median 0.95LCL 0.95UCL 
-    166      77    1701    1174    2018 
+records   n.max n.start  events  median 0.95LCL 0.95UCL 
+    686     166     166      77    1701    1174    2018 
 
 > 
 >     ### if you are interested in the internals:
@@ -617,7 +611,7 @@ Call: survival:::survfit(formula = resp, weights = w, subset = w >
 >     system.time(ens <- apply(bs, 2, function(w) cfit(ls, ct, weights = w, 
 +                                                      fitmem = mem)))
    user  system elapsed 
-  0.328   0.000   0.328 
+  0.256   0.000   0.257 
 > 
 > 
 > 
@@ -985,7 +979,7 @@ nativeSpeaker           age      shoeSize
 > ### * <FOOTER>
 > ###
 > cat("Time elapsed: ", proc.time() - get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  55.063 0.152 55.245 0 0 
+Time elapsed:  44.498 0.136 45.369 0 0 
 > grDevices::dev.off()
 null device 
           1 

@@ -74,9 +74,13 @@ mob <- function(formula, weights, data = list(), na.action = na.omit,
   nodeid <- 1
   tr <- mob_fit(fm, formula, weights = weights, control = control)
 
+  y <- formula@get("response")
+  yy <- new("VariableFrame", nrow(y), ncol(y))
+  yy@variables <- formula@get("response")
+
   ## package into return object
   rval <- new("mob", tree = tr, 
-    responses = initVariableFrame(formula@get("response"), trafo = NULL, response = TRUE),
+    responses = yy,
     data = formula, where = where)
   return(rval)
 }

@@ -12,6 +12,7 @@
 
 <<setup, echo = FALSE, results = hide>>=
 require("party")
+options(useFancyQuotes = FALSE)
 @
 
 %% commands
