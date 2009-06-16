@@ -1,5 +1,5 @@
 
-# $Id: ConditionalTree.R 4314 2009-03-27 16:25:13Z hothorn $
+# $Id: ConditionalTree.R 4360 2009-06-16 07:17:31Z hothorn $
 
 ### the fitting procedure
 ctreefit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
@@ -208,7 +208,7 @@ ctree_control <- function(teststat = c("quad", "max"),
 
     RET@gtctrl@nresample <- as.integer(nresample)
     RET@gtctrl@mincriterion <- mincriterion
-    if (mtry > 0) {
+    if (all(mtry > 0)) {
         RET@gtctrl@randomsplits <- TRUE
         RET@gtctrl@mtry <- as.integer(mtry)
     }

@@ -1,4 +1,11 @@
 
+                CHANGES IN party VERSION 0.9-998 (2009-06-17)
+
+    o    mtry may vary with tree depth
+
+    o    finding surrogate variables may have failed, fixed.
+
+
                 CHANGES IN party VERSION 0.9-997 (2009-06-04)
 
     o    documentation fixes

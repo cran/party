@@ -3,7 +3,7 @@
     Functions for variable selection in each node of a tree
     *\file IndependenceTest.c
     *\author $Author: hothorn $
-    *\date $Date: 2007-09-26 14:44:59 +0200 (Wed, 26 Sep 2007) $
+    *\date $Date: 2009-06-17 12:46:51 +0200 (Wed, 17 Jun 2009) $
 */
                 
 #include "party.h"
@@ -124,16 +124,17 @@ SEXP R_IndependenceTest(SEXP x, SEXP y, SEXP weights, SEXP linexpcov, SEXP varct
     *\param ans_teststat return value; vector of test statistics
     *\param ans_criterion return value; vector of node criteria 
             (adjusted) pvalues or raw test statistics
+    *\param depth an integer giving the depth of the current node
 */
 
 void C_GlobalTest(const SEXP learnsample, const SEXP weights, 
                   SEXP fitmem, const SEXP varctrl, 
                   const SEXP gtctrl, const double minsplit, 
-                  double *ans_teststat, double *ans_criterion) {
+                  double *ans_teststat, double *ans_criterion, int depth) {
 
     int ninputs, nobs, j, i, k, RECALC = 1, type;
     SEXP responses, inputs, y, x, xmem, expcovinf;
-    SEXP thiswhichNA;
+    SEXP thiswhichNA, Smtry;
     double *thisweights, *dweights, *pvaltmp, stweights = 0.0;
     int *ithiswhichNA, RANDOM, mtry, *randomvar, *index;
     int *dontuse, *dontusetmp;
@@ -165,7 +166,14 @@ void C_GlobalTest(const SEXP learnsample, const SEXP weights,
     
         /* random forest */
         RANDOM = get_randomsplits(gtctrl);
-        mtry = get_mtry(gtctrl);
+        Smtry = get_mtry(gtctrl);
+        if (LENGTH(Smtry) == 1) {
+            mtry = INTEGER(Smtry)[0];
+        } else {
+            /* mtry may vary with tree depth */
+            depth = (depth <= LENGTH(Smtry)) ? depth : LENGTH(Smtry);
+            mtry = INTEGER(get_mtry(gtctrl))[depth - 1];
+        }
         if (RANDOM & (mtry > ninputs)) {
             warning("mtry is larger than ninputs, using mtry = inputs");
             mtry = ninputs;
@@ -283,7 +291,7 @@ SEXP R_GlobalTest(SEXP learnsample, SEXP weights, SEXP fitmem,
         criterion = allocVector(REALSXP, get_ninputs(learnsample)));
 
     C_GlobalTest(learnsample, weights, fitmem, varctrl, gtctrl, 0, 
-                 REAL(teststat), REAL(criterion));
+                 REAL(teststat), REAL(criterion), 1);
                  
     PutRNGstate();
     

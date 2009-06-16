@@ -14,26 +14,26 @@ This graph shows which files directly or indirectly include this file:\nopagebre
 \subsection*{Functions}
 \begin{CompactItemize}
 \item 
-void \hyperlink{Node_8h_0ed8b15b2c14ec9f1f1585d6288a38e2}{C\_\-Node} (SEXP node, SEXP learnsample, SEXP weights, SEXP fitmem, SEXP controls, int TERMINAL)
+void \hyperlink{Node_8h_1b0cb9ac9a78efda36001d9da708574d}{C\_\-Node} (SEXP node, SEXP learnsample, SEXP weights, SEXP fitmem, SEXP controls, int TERMINAL, int depth)
 \end{CompactItemize}
 
 
 \subsection{Function Documentation}
-\hypertarget{Node_8h_0ed8b15b2c14ec9f1f1585d6288a38e2}{
+\hypertarget{Node_8h_1b0cb9ac9a78efda36001d9da708574d}{
 \index{Node.h@{Node.h}!C\_\-Node@{C\_\-Node}}
 \index{C\_\-Node@{C\_\-Node}!Node.h@{Node.h}}
-\subsubsection[C\_\-Node]{\setlength{\rightskip}{0pt plus 5cm}void C\_\-Node (SEXP {\em node}, \/  SEXP {\em learnsample}, \/  SEXP {\em weights}, \/  SEXP {\em fitmem}, \/  SEXP {\em controls}, \/  int {\em TERMINAL})}}
-\label{Node_8h_0ed8b15b2c14ec9f1f1585d6288a38e2}
+\subsubsection[{C\_\-Node}]{\setlength{\rightskip}{0pt plus 5cm}void C\_\-Node (SEXP {\em node}, \/  SEXP {\em learnsample}, \/  SEXP {\em weights}, \/  SEXP {\em fitmem}, \/  SEXP {\em controls}, \/  int {\em TERMINAL}, \/  int {\em depth})}}
+\label{Node_8h_1b0cb9ac9a78efda36001d9da708574d}
 
 
 The main function for all node computations \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[{\em node}]an initialized node (an S3 object!) \item[{\em learnsample}]an object of class `LearningSample' \item[{\em weights}]case weights \item[{\em fitmem}]an object of class `TreeFitMemory' \item[{\em controls}]an object of class `TreeControl' \item[{\em TERMINAL}]logical indicating if this node will be a terminal node \end{description}
+\item[{\em node}]an initialized node (an S3 object!) \item[{\em learnsample}]an object of class `LearningSample' \item[{\em weights}]case weights \item[{\em fitmem}]an object of class `TreeFitMemory' \item[{\em controls}]an object of class `TreeControl' \item[{\em TERMINAL}]logical indicating if this node will be a terminal node \item[{\em depth}]an integer giving the depth of the current node \end{description}
 \end{Desc}
 
 
-Definition at line 48 of file Node.c.
+Definition at line 49 of file Node.c.
 
 References C\_\-GlobalTest(), C\_\-init\_\-nominalsplit(), C\_\-init\_\-orderedsplit(), C\_\-max(), C\_\-prediction(), C\_\-split(), C\_\-splitcategorical(), C\_\-standardize(), C\_\-tempweights(), C\_\-whichmax(), get\_\-dimension(), get\_\-gtctrl(), get\_\-levels(), get\_\-mincriterion(), get\_\-minsplit(), get\_\-ninputs(), get\_\-nobs(), get\_\-ordering(), get\_\-predict\_\-trafo(), get\_\-savesplitstats(), get\_\-splitctrl(), get\_\-splitstatistics(), get\_\-test\_\-trafo(), get\_\-tgctrl(), get\_\-tol(), get\_\-transformation(), get\_\-varctrl(), get\_\-variable(), get\_\-varmemory(), has\_\-missings(), is\_\-nominal(), ncol(), PL2\_\-covarianceSym, PL2\_\-expcovinfSym, PL2\_\-expectationSym, PL2\_\-inputsSym, PL2\_\-linearstatisticSym, PL2\_\-linexpcov2sampleSym, PL2\_\-responsesSym, PL2\_\-sumweightsSym, S3\_\-SUMWEIGHTS, S3get\_\-criterion(), S3get\_\-maxcriterion(), S3get\_\-prediction(), S3get\_\-primarysplit(), S3get\_\-splitpoint(), S3get\_\-splitstatistics(), S3get\_\-table(), S3get\_\-teststat(), S3set\_\-nodeterminal(), and S3set\_\-variableID().
 
@@ -43,6 +43,6 @@ Here is the call graph for this function:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=278pt]{Node_8h_0ed8b15b2c14ec9f1f1585d6288a38e2_cgraph}
+\includegraphics[width=278pt]{Node_8h_1b0cb9ac9a78efda36001d9da708574d_cgraph}
 \end{center}
 \end{figure}

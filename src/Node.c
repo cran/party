@@ -3,7 +3,7 @@
     Node computations
     *\file Node.c
     *\author $Author: hothorn $
-    *\date $Date: 2007-09-26 14:44:59 +0200 (Wed, 26 Sep 2007) $
+    *\date $Date: 2009-06-16 09:17:31 +0200 (Tue, 16 Jun 2009) $
 */
                 
 #include "party.h"
@@ -43,10 +43,11 @@ void C_prediction(const double *y, int n, int q, const double *weights,
     *\param controls an object of class `TreeControl'
     *\param TERMINAL logical indicating if this node will
                      be a terminal node
+    *\param depth an integer giving the depth of the current node
 */
 
 void C_Node(SEXP node, SEXP learnsample, SEXP weights, 
-            SEXP fitmem, SEXP controls, int TERMINAL) {
+            SEXP fitmem, SEXP controls, int TERMINAL, int depth) {
     
     int nobs, ninputs, jselect, q, j, k, i;
     double mincriterion, sweights, *dprediction;
@@ -75,7 +76,7 @@ void C_Node(SEXP node, SEXP learnsample, SEXP weights,
     /* compute the test statistics and the node criteria for each input */        
     C_GlobalTest(learnsample, weights, fitmem, varctrl,
                  gtctrl, get_minsplit(splitctrl), 
-                 REAL(S3get_teststat(node)), REAL(S3get_criterion(node)));
+                 REAL(S3get_teststat(node)), REAL(S3get_criterion(node)), depth);
     
     /* sum of weights: C_GlobalTest did nothing if sweights < mincriterion */
     sweights = REAL(GET_SLOT(GET_SLOT(fitmem, PL2_expcovinfSym), 
@@ -233,7 +234,7 @@ SEXP R_Node(SEXP learnsample, SEXP weights, SEXP fitmem, SEXP controls) {
                  get_maxsurrogate(get_splitctrl(controls)),
                  ncol(get_predict_trafo(GET_SLOT(learnsample, PL2_responsesSym))));
 
-     C_Node(ans, learnsample, weights, fitmem, controls, 0);
+     C_Node(ans, learnsample, weights, fitmem, controls, 0, 1);
      UNPROTECT(1);
      return(ans);
 }

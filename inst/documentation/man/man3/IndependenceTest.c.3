@@ -1,4 +1,4 @@
-.TH "IndependenceTest.c" 3 "23 Feb 2009" "party" \" -*- nroff -*-
+.TH "IndependenceTest.c" 3 "16 Jun 2009" "party" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -25,7 +25,7 @@ IndependenceTest.c \-
 .RI "SEXP \fBR_IndependenceTest\fP (SEXP x, SEXP y, SEXP weights, SEXP linexpcov, SEXP varctrl)"
 .br
 .ti -1c
-.RI "void \fBC_GlobalTest\fP (const SEXP learnsample, const SEXP weights, SEXP fitmem, const SEXP varctrl, const SEXP gtctrl, const double minsplit, double *ans_teststat, double *ans_criterion)"
+.RI "void \fBC_GlobalTest\fP (const SEXP learnsample, const SEXP weights, SEXP fitmem, const SEXP varctrl, const SEXP gtctrl, const double minsplit, double *ans_teststat, double *ans_criterion, int depth)"
 .br
 .ti -1c
 .RI "SEXP \fBR_GlobalTest\fP (SEXP learnsample, SEXP weights, SEXP fitmem, SEXP varctrl, SEXP gtctrl)"
@@ -56,7 +56,7 @@ hothorn
 Definition in file \fBIndependenceTest.c\fP.
 .SH "Function Documentation"
 .PP 
-.SS "void C_GlobalTest (const SEXP learnsample, const SEXP weights, SEXP fitmem, const SEXP varctrl, const SEXP gtctrl, const double minsplit, double * ans_teststat, double * ans_criterion)"
+.SS "void C_GlobalTest (const SEXP learnsample, const SEXP weights, SEXP fitmem, const SEXP varctrl, const SEXP gtctrl, const double minsplit, double * ans_teststat, double * ans_criterion, int depth)"
 .PP
 Perform a global test on independence of a response and multiple inputs 
 .br
@@ -79,11 +79,13 @@ Perform a global test on independence of a response and multiple inputs
 \fIans_teststat\fP return value; vector of test statistics 
 .br
 \fIans_criterion\fP return value; vector of node criteria (adjusted) pvalues or raw test statistics 
+.br
+\fIdepth\fP an integer giving the depth of the current node 
 .RE
 .PP
 
 .PP
-Definition at line 129 of file IndependenceTest.c.
+Definition at line 130 of file IndependenceTest.c.
 .PP
 References AGGREGATED, BONFERRONI, C_ExpectCovarInfluence(), C_LinStatExpCov(), C_LinStatExpCovMPinv(), C_MonteCarlo(), C_SampleNoReplace(), C_tempweights(), C_TeststatCriterion(), get_dontuse(), get_dontusetmp(), get_mtry(), get_ninputs(), get_nobs(), get_randomsplits(), get_test_trafo(), get_teststat(), get_testtype(), get_tol(), get_transformation(), get_varmemory(), has_missings(), MONTECARLO, ncol(), nrow(), PL2_expcovinfSym, PL2_inputsSym, PL2_responsesSym, PL2_sumweightsSym, TESTSTATISTIC, and UNIVARIATE.
 .PP
@@ -185,7 +187,7 @@ R-interface to C_GlobalTest
 .PP
 
 .PP
-Definition at line 272 of file IndependenceTest.c.
+Definition at line 281 of file IndependenceTest.c.
 .PP
 References C_GlobalTest(), and get_ninputs().
 .SS "SEXP R_IndependenceTest (SEXP x, SEXP y, SEXP weights, SEXP linexpcov, SEXP varctrl)"

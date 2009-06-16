@@ -3,7 +3,7 @@
     S4 classes for package `party'
     *\file Classes.c
     *\author $Author: hothorn $
-    *\date $Date: 2007-09-26 14:45:48 +0200 (Wed, 26 Sep 2007) $
+    *\date $Date: 2009-06-16 09:17:31 +0200 (Tue, 16 Jun 2009) $
 */
 
 #include "party.h"
@@ -327,8 +327,8 @@ int get_randomsplits(SEXP object) {
     return(INTEGER(GET_SLOT(object, PL2_randomsplitsSym))[0]);
 }
 
-int get_mtry(SEXP object) {
-    return(INTEGER(GET_SLOT(object, PL2_mtrySym))[0]);
+SEXP get_mtry(SEXP object) {
+    return(GET_SLOT(object, PL2_mtrySym));
 }
 
 SEXP get_dontuse(SEXP object) {

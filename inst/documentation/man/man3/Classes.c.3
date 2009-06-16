@@ -1,4 +1,4 @@
-.TH "Classes.c" 3 "23 Feb 2009" "party" \" -*- nroff -*-
+.TH "Classes.c" 3 "16 Jun 2009" "party" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -127,7 +127,7 @@ Classes.c \-
 .RI "int \fBget_randomsplits\fP (SEXP object)"
 .br
 .ti -1c
-.RI "int \fBget_mtry\fP (SEXP object)"
+.RI "SEXP \fBget_mtry\fP (SEXP object)"
 .br
 .ti -1c
 .RI "SEXP \fBget_dontuse\fP (SEXP object)"
@@ -477,7 +477,7 @@ Definition at line 258 of file Classes.c.
 References has_missings(), and PL2_whichNASym.
 .PP
 Referenced by C_get_node(), C_splitnode(), C_splitsurrogate(), C_surrogates(), and C_tempweights().
-.SS "int get_mtry (SEXP object)"
+.SS "SEXP get_mtry (SEXP object)"
 .PP
 Definition at line 330 of file Classes.c.
 .PP

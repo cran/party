@@ -3,7 +3,7 @@
     Suggorgate splits
     *\file SurrogateSplits.c
     *\author $Author: hothorn $
-    *\date $Date: 2008-06-26 11:33:58 +0200 (Thu, 26 Jun 2008) $
+    *\date $Date: 2009-06-17 11:51:31 +0200 (Wed, 17 Jun 2009) $
 */
                 
 #include "party.h"
@@ -103,7 +103,7 @@ void C_surrogates(SEXP node, SEXP learnsample, SEXP weights, SEXP controls,
 
              /* check if sum(weights) > 1 */
              sumw = 0.0;
-             for (i = 0; i < nobs; i++) sumw += tweights[i];
+             for (i = 0; i < nobs; i++) sumw += thisweights[i];
              if (sumw < 2.0) continue;
                  
              C_ExpectCovarInfluence(ytmp, 1, thisweights, nobs, expcovinf);

@@ -1,5 +1,5 @@
 
-# $Id: Classes.R 3732 2007-09-26 12:46:10Z hothorn $
+# $Id: Classes.R 4360 2009-06-16 07:17:31Z hothorn $
 
 ### Conditional Expectation and Covariance
 setClass(Class = "ExpectCovar",
@@ -142,7 +142,7 @@ setClass(Class = "GlobalTestControl",
             warning(sQuote("mincriterion"), " must not be negative")
             return(FALSE)
         }
-        if (object@mtry < 0) {
+        if (any(object@mtry < 0)) {
             warning(sQuote("mtry"), " must be positive")
             return(FALSE)
         }
