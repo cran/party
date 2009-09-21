@@ -58,7 +58,7 @@ releases of the package.
 }
 \section{Slots}{
   \describe{
-    \item{\code{data}:}{ an object of class \code{\link[modeltools]{ModelEnv}}.}
+    \item{\code{data}:}{ an object of class \code{"\linkS4class{ModelEnv}"}.}
     \item{\code{responses}:}{ an object of class \code{"VariableFrame"}
                               storing the values of the response variable(s). }
     \item{\code{cond_distr_response}:}{ a function computing the conditional
@@ -107,6 +107,8 @@ Class \code{"BinaryTreePartition"}, directly.
 }
 }
 \examples{
+
+  set.seed(290875)
 
   airq <- subset(airquality, !is.na(Ozone))
   airct <- ctree(Ozone ~ ., data = airq,   

@@ -119,6 +119,8 @@ proximity(object)
 }
 \examples{
 
+    set.seed(290875)
+
     ### honest (i.e., out-of-bag) cross-classification of
     ### true vs. predicted classes
     table(mammoexp$ME, predict(cforest(ME ~ ., data = mammoexp, 

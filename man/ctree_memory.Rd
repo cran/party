@@ -26,6 +26,8 @@ ctree_memory(object, MPinv = FALSE)
 }
 \examples{
 
+    set.seed(290875)
+
     ### setup learning sample
     airq <- subset(airquality, !is.na(Ozone))
     ls <- dpp(conditionalTree, Ozone ~ ., data = airq)

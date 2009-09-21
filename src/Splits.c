@@ -3,7 +3,7 @@
     Binary splits 
     *\file Splits.c
     *\author $Author: hothorn $
-    *\date $Date: 2008-10-28 18:57:51 +0100 (Tue, 28 Oct 2008) $
+    *\date $Date: 2009-09-17 11:59:10 +0200 (Thu, 17 Sep 2009) $
 */
                 
 #include "party.h"
@@ -67,7 +67,7 @@ void C_split(const double *x, int p,
         /* we need to ensure that at least minbucket weights 
            are there to split (either left or right) */
         minprob = get_minprob(splitctrl);
-        minbucket = get_minbucket(splitctrl); /* FIXME: minbucket - 1 would be OK */
+        minbucket = get_minbucket(splitctrl);
         minobs = sweights * minprob + 1.0;
 
         if (minobs < minbucket) 
@@ -115,14 +115,14 @@ void C_split(const double *x, int p,
             w += weights[j];
 
             /* do not consider those splits */
-            if (w >= maxobs || x[j] >= xmax) break;
+            if (w > maxobs || x[j] >= xmax) break;
 
             /* compute the linear statistic and expectation and 
              * covariance if needed */
             for (k = 0; k < q; k++)
                 dlinstat[k] += y[n * k + j] * weights[j];
  
-            if (w > minobs) {
+            if (w >= minobs) {
                 for (k = 0; k < q; k++)
                     dexpect[k] = w * dExp_y[k];
 

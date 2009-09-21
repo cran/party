@@ -104,6 +104,8 @@ ctree(formula, data, subset = NULL, weights = NULL,
 }
 \examples{
 
+    set.seed(290875)
+
     ### regression
     airq <- subset(airquality, !is.na(Ozone))
     airct <- ctree(Ozone ~ ., data = airq, 

@@ -1,5 +1,5 @@
 
-R version 2.9.0 alpha (2009-03-22 r48193)
+R version 2.9.0 (2009-04-17)
 Copyright (C) 2009 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 
@@ -234,7 +234,7 @@ Response:  y
 Input:  xNA 
 Number of observations:  100 
 
-1) xNA == {1}; criterion = 1, statistic = 60.057
+1) xNA == {1}; criterion = 1, statistic = 62.221
   2)*  weights = 48 
 1) xNA == {2}
   3)*  weights = 52 
@@ -312,10 +312,10 @@ Number of observations:  116
     4) Temp > 77
       6)*  weights = 21 
 1) Temp > 82
-  7) Wind <= 8.6; criterion = 0.995, statistic = 11.712
-    8)*  weights = 27 
-  7) Wind > 8.6
-    9)*  weights = 10 
+  7) Wind <= 10.3; criterion = 0.995, statistic = 11.712
+    8)*  weights = 30 
+  7) Wind > 10.3
+    9)*  weights = 7 
 > try(foo(5))
 Error in model@fit(data, ...) : 
   cannot set up 5 surrogate splits with only 4 ordered input variable(s)

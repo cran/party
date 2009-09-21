@@ -33,6 +33,9 @@
   \code{\link{plot.BinaryTree}}, \code{\link{mob}}}
 
 \examples{
+
+set.seed(290875)
+
 if(require("mlbench")) {
 
 ## recursive partitioning of a linear regression model

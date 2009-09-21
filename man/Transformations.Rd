@@ -33,7 +33,7 @@ ff_trafo(x)
 \details{
 
   \code{trafo} applies its arguments to the elements of \code{data}
-  according to the classes of the elements. See \code{\link[coin]{trafo}}
+  according to the classes of the elements. See \code{\link[coin]{Transformations}}
   for more documentation and examples.
 
   In the presence of missing values, one needs to make sure that all

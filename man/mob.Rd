@@ -40,12 +40,12 @@ mob(formula, weights, data = list(), na.action = na.omit, model = glinearModel,
     process. Only non-negative integer valued weights are allowed (default = 1).}
   \item{data}{A data frame containing the variables in the model.}
   \item{na.action}{A function which indicates what should happen when the data
-    contain \code{NA}s, defaulting to \code{\link[stats]{na.omit}}.}
-  \item{model}{A model of class \code{\link[modeltools]{StatModel-class}}. See details
+    contain \code{NA}s, defaulting to \code{\link{na.omit}}.}
+  \item{model}{A model of class \code{"\linkS4class{StatModel}"}. See details
     for requirements.}
   \item{control}{A list with control parameters as returned by
     \code{\link{mob_control}}.}
-  \item{\dots}{Additional arguments passed to the \code{\link[modeltools]{fit}} call for
+  \item{\dots}{Additional arguments passed to the \code{fit} call for
     the \code{model}.}
   \item{object, x}{A fitted \code{mob} object.}
   \item{newdata}{A data frame with new inputs, by default the learning data
@@ -61,7 +61,7 @@ mob(formula, weights, data = list(), na.action = na.omit, model = glinearModel,
 Model-based partitioning fits a model tree using the following algorithm:
   \enumerate{
     \item \code{fit} a \code{model} (default: a generalized linear model
-          \code{\link[modeltools]{glinearModel}} with formula \code{y ~ x1 + \dots + xk}
+          \code{"\linkS4class{StatModel}"} with formula \code{y ~ x1 + \dots + xk}
 	  for the observations in the current node.
     \item Assess the stability of the model parameters with respect to each
           of the partitioning variables \code{z1}, \dots, \code{zl}. If
@@ -108,6 +108,8 @@ node, by default for all nodes. Some examples are given below.
 \seealso{\code{\link{plot.mob}}, \code{\link{mob_control}}}
 
 \examples{
+
+set.seed(290875)
 
 if(require("mlbench")) {
 

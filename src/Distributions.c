@@ -3,7 +3,7 @@
     Conditional Distributions
     *\file Distributions.c
     *\author $Author: hothorn $
-    *\date $Date: 2007-07-12 18:49:01 +0200 (Thu, 12 Jul 2007) $
+    *\date $Date: 2009-09-17 11:59:10 +0200 (Thu, 17 Sep 2009) $
 */
                 
 #include "party.h"
@@ -52,7 +52,7 @@ SEXP R_quadformConditionalPvalue(SEXP tstat, SEXP df) {
 double C_maxabsConditionalPvalue(const double tstat, const double *Sigma, 
     const int pq, int *maxpts, double *releps, double *abseps, double *tol) {
 
-    int *n, *nu, *inform, i, j, *infin, sub;
+    int *n, *nu, *inform, i, j, *infin, sub, *index, nonzero, iz, jz;
     double *lower, *upper, *delta, *corr, *sd, *myerror,
            *prob, ans;
 
@@ -78,31 +78,48 @@ double C_maxabsConditionalPvalue(const double tstat, const double *Sigma,
     upper = Calloc(n[0], double);
     infin = Calloc(n[0], int);
     delta = Calloc(n[0], double);
- 
+    index = Calloc(n[0], int);
+
+    /* determine elements with non-zero variance */ 
+
+    nonzero = 0;
+    for (i = 0; i < n[0]; i++) {
+        if (Sigma[i*n[0] + i] > tol[0]) {
+            index[nonzero] = i;
+            nonzero++;
+        }
+    }
+
     /* mvtdst assumes the unique elements of the triangular 
        covariance matrix to be passes as argument CORREL 
     */
-        
-    for (i = 0; i < n[0]; i++) {
+
+    for (iz = 0; iz < nonzero; iz++) {
+
+        /* handle elements with non-zero variance only */
+        i = index[iz];
+
         /* standard deviations */
-        if (Sigma[i*n[0] + i] < tol[0])
-            sd[i] = 0.0;
-        else
-             sd[i] = sqrt(Sigma[i*n[0] + i]);
+        sd[i] = sqrt(Sigma[i*n[0] + i]);
                 
         /* always look at the two-sided problem */           
-        lower[i] = fabs(tstat) * -1.0;
-        upper[i] = fabs(tstat);
-        infin[i] = 2;
-        delta[i] = 0.0;
-        for (j = 0; j < i; j++) {
-            sub = (int) (j+1) + (double) ((i-1)*(i)) / 2 - 1;
+        lower[iz] = fabs(tstat) * -1.0;
+        upper[iz] = fabs(tstat);
+        infin[iz] = 2;
+        delta[iz] = 0.0;
+        
+        /* set up vector of correlations, i.e., the upper 
+           triangular part of the covariance matrix) */
+        for (jz = 0; jz < iz; jz++) {
+            j = index[jz]; 
+            sub = (int) (jz + 1) + (double) ((iz - 1) * iz) / 2 - 1;
             if (sd[i] == 0.0 || sd[j] == 0.0) 
                 corr[sub] = 0.0; 
             else 
                 corr[sub] = Sigma[i*n[0] + j] / (sd[i] * sd[j]);
         }
     }
+    n[0] = nonzero;
         
     /* call FORTRAN subroutine */
     F77_CALL(mvtdst)(n, nu, lower, upper, infin, corr, delta, 

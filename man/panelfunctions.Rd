@@ -141,6 +141,8 @@ node_bivplot(mobobj, which = NULL, id = TRUE, pop = TRUE,
 
 \examples{
 
+  set.seed(290875)
+
   airq <- subset(airquality, !is.na(Ozone))
   airct <- ctree(Ozone ~ ., data = airq)
 
