@@ -1,4 +1,8 @@
 
+                CHANGES IN party VERSION 0.9-9991 (2010-01-27)
+
+    o    Bug fix in error handling of mob().
+
                 CHANGES IN party VERSION 0.9-999 (2009-09-24)
 
     o    minbucket was erronously interpreted as minbucket + 1

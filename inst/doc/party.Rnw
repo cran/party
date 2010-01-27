@@ -96,18 +96,18 @@
   Institut f\"ur Statistik\\
   Ludwig-Maximilians-Universit\"at M\"unchen\\
   Ludwigstra{\ss}e 33\\
-  DE-80539 M\"unchen, Germany\\
+  80539 M\"unchen, Germany\\
   E-mail: \email{Torsten.Hothorn@R-project.org}\\
   URL: \url{http://www.stat.uni-muenchen.de/~hothorn/}\\
 
   Kurt Hornik, Achim Zeileis\\
-  Department of Statistics and Mathematics\\
-  Wirtschaftsuniversit\"at Wien\\
+  Institute for Statistics and Mathematics\\
+  WU Wirtschaftsuniversit\"at Wien\\
   Augasse 2--6\\
-  AT-1090 Wien, Austria\\
+  1090 Wien, Austria\\
   E-mail: \email{Kurt.Hornik@R-project.org}, \email{Achim.Zeileis@R-project.org}\\
-  URL: \url{http://statmath.wu-wien.ac.at/~hornik/},\\
-  \phantom{URL:} \url{http://statmath.wu-wien.ac.at/~zeileis/}
+  URL: \url{http://statmath.wu.ac.at/~hornik/},\\
+  \phantom{URL:} \url{http://statmath.wu.ac.at/~zeileis/}
 }
 
 
