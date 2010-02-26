@@ -1,4 +1,9 @@
 
+                CHANGES IN party VERSION 0.9-9992 (2010-02-26)
+
+    o    Bug fix in mob plotting for anova models
+
+
                 CHANGES IN party VERSION 0.9-9991 (2010-01-27)
 
     o    Bug fix in error handling of mob().

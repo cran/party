@@ -222,26 +222,26 @@ node_bivplot <- function(mobobj, which = NULL, id = TRUE, pop = TRUE,
         pushViewport(plotViewport(margins = margins, name = name,
 	  yscale = yscale, xscale = c(0.3, xscale[2,i]+0.7)))
 
-        for(i in seq(along = xlev)) {
-	  by <- boxplot(y[x == xlev[i]], plot = FALSE)
-          xl <- i - boxwidth/4
-	  xr <- i + boxwidth/4
+        for(j in seq(along = xlev)) {
+	  by <- boxplot(y[x == xlev[j]], plot = FALSE)
+          xl <- j - boxwidth/4
+	  xr <- j + boxwidth/4
 
           ## box & whiskers
           grid.lines(unit(c(xl, xr), "native"), 
                      unit(by$stats[1], "native"), gp = gpar(col = boxcol))
-          grid.lines(unit(i, "native"), 
+          grid.lines(unit(j, "native"), 
                      unit(by$stats[1:2], "native"), gp = gpar(col = boxcol, lty = 2))
-          grid.rect(unit(i, "native"), unit(by$stats[2], "native"), 
+          grid.rect(unit(j, "native"), unit(by$stats[2], "native"), 
                     width = unit(boxwidth, "native"), height = unit(diff(by$stats[2:3]), "native"),
                     just = c("center", "bottom"), 
                     gp = gpar(col = boxcol, fill = boxfill))
-          grid.rect(unit(i, "native"), unit(by$stats[3], "native"),
+          grid.rect(unit(j, "native"), unit(by$stats[3], "native"),
                     width = unit(boxwidth, "native"), 
                     height = unit(diff(by$stats[3:4]), "native"),
                     just = c("center", "bottom"), 
                     gp = gpar(col = boxcol, fill = boxfill))
-          grid.lines(unit(i, "native"), unit(by$stats[4:5], "native"), 
+          grid.lines(unit(j, "native"), unit(by$stats[4:5], "native"), 
                      gp = gpar(col = boxcol, lty = 2))
           grid.lines(unit(c(xl, xr), "native"), unit(by$stats[5], "native"), 
                      gp = gpar(col = boxcol))
@@ -249,7 +249,7 @@ node_bivplot <- function(mobobj, which = NULL, id = TRUE, pop = TRUE,
           ## outlier
           n <- length(by$out)
           if (n > 0) {
-            grid.points(unit(rep.int(i, n), "native"),  unit(by$out, "native"),
+            grid.points(unit(rep.int(j, n), "native"),  unit(by$out, "native"),
                         size = unit(0.5, "char"), gp = gpar(col = boxcol))
           }	  
 	}
