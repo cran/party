@@ -52,7 +52,7 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Utils_8h.html#aae969040bb060d2874fd969e20675bbb">i_in_set</a> (int i, int *iset, int p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Utils_8h.html#aff0eae9aa0175cd8fe73324707418ce0">C_i_in_set</a> (int i, SEXP set)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Utils_8h.html#a88c1a807c7856d57d07d10027d588602">C_SampleSplitting</a> (int n, double *prob, int *weights, int k)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Utils_8h.html#accce6f00d55276c0a01b30651f1c206c">C_remove_weights</a> (SEXP subtree)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Utils_8h.html#a98f2de1eb2ad7315b48e7e2d9e7a829c">C_remove_weights</a> (SEXP subtree, int removestats)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">double *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Utils_8h.html#af9716d8427688ac52d3dd254337316b1">C_tempweights</a> (int j, SEXP weights, SEXP fitmem, SEXP inputs)</td></tr>
 </table>
 <hr/><h2>Function Documentation</h2>
@@ -463,7 +463,7 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a class="anchor" id="accce6f00d55276c0a01b30651f1c206c"></a><!-- doxytag: member="Utils.h::C_remove_weights" ref="accce6f00d55276c0a01b30651f1c206c" args="(SEXP subtree)" -->
+<a class="anchor" id="a98f2de1eb2ad7315b48e7e2d9e7a829c"></a><!-- doxytag: member="Utils.h::C_remove_weights" ref="a98f2de1eb2ad7315b48e7e2d9e7a829c" args="(SEXP subtree, int removestats)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -471,9 +471,18 @@ Here is the call graph for this function:</div>
           <td class="memname">void C_remove_weights </td>
           <td>(</td>
           <td class="paramtype">SEXP&nbsp;</td>
-          <td class="paramname"> <em>subtree</em></td>
-          <td>&nbsp;)&nbsp;</td>
+          <td class="paramname"> <em>subtree</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>removestats</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
         </tr>
       </table>
 </div>
@@ -482,16 +491,16 @@ Here is the call graph for this function:</div>
 
 <p>Definition at line <a class="el" href="Utils_8c_source.html#l00702">702</a> of file <a class="el" href="Utils_8c_source.html">Utils.c</a>.</p>
 
-<p>References <a class="el" href="Utils_8c_source.html#l00702">C_remove_weights()</a>, <a class="el" href="party_8h_source.html#l00035">S3_WEIGHTS</a>, <a class="el" href="S3Classes_8c_source.html#l00096">S3get_leftnode()</a>, <a class="el" href="S3Classes_8c_source.html#l00080">S3get_nodeterminal()</a>, and <a class="el" href="S3Classes_8c_source.html#l00100">S3get_rightnode()</a>.</p>
+<p>References <a class="el" href="Utils_8c_source.html#l00702">C_remove_weights()</a>, <a class="el" href="party_8h_source.html#l00036">S3_CRITERION</a>, <a class="el" href="party_8h_source.html#l00048">S3_iCRITERION</a>, <a class="el" href="party_8h_source.html#l00047">S3_STATISTICS</a>, <a class="el" href="party_8h_source.html#l00035">S3_WEIGHTS</a>, <a class="el" href="S3Classes_8c_source.html#l00096">S3get_leftnode()</a>, <a class="el" href="S3Classes_8c_source.html#l00080">S3get_nodeterminal()</a>, and <a class="el" href="S3Classes_8c_source.html#l00100">S3get_rightnode()</a>.</p>
 
-<p>Referenced by <a class="el" href="Utils_8c_source.html#l00702">C_remove_weights()</a>, <a class="el" href="RandomForest_8c_source.html#l00022">R_Ensemble()</a>, and <a class="el" href="Utils_8c_source.html#l00712">R_remove_weights()</a>.</p>
+<p>Referenced by <a class="el" href="Utils_8c_source.html#l00702">C_remove_weights()</a>, <a class="el" href="RandomForest_8c_source.html#l00022">R_Ensemble()</a>, and <a class="el" href="Utils_8c_source.html#l00718">R_remove_weights()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dynsection">
-<div class="center"><img src="Utils_8h_accce6f00d55276c0a01b30651f1c206c_cgraph.png" border="0" usemap="#Utils_8h_accce6f00d55276c0a01b30651f1c206c_cgraph_map" alt=""></div>
-<map name="Utils_8h_accce6f00d55276c0a01b30651f1c206c_cgraph_map" id="Utils_8h_accce6f00d55276c0a01b30651f1c206c_cgraph">
-<area shape="rect" href="Utils_8c.html#accce6f00d55276c0a01b30651f1c206c" title="C_remove_weights" alt="" coords="188,63,319,92"/><area shape="rect" href="S3Classes_8c.html#a5917f57e141432fd1e4f58a16b9149aa" title="S3get_leftnode" alt="" coords="383,5,489,35"/><area shape="rect" href="S3Classes_8c.html#ab8834f319068d2a248a5d6328cd10dc5" title="S3get_nodeterminal" alt="" coords="368,76,504,105"/><area shape="rect" href="S3Classes_8c.html#a14a38e81ed758a64367dc190f0e8229b" title="S3get_rightnode" alt="" coords="379,141,493,171"/></map>
+<div class="center"><img src="Utils_8h_a98f2de1eb2ad7315b48e7e2d9e7a829c_cgraph.png" border="0" usemap="#Utils_8h_a98f2de1eb2ad7315b48e7e2d9e7a829c_cgraph_map" alt=""></div>
+<map name="Utils_8h_a98f2de1eb2ad7315b48e7e2d9e7a829c_cgraph_map" id="Utils_8h_a98f2de1eb2ad7315b48e7e2d9e7a829c_cgraph">
+<area shape="rect" href="Utils_8c.html#a98f2de1eb2ad7315b48e7e2d9e7a829c" title="C_remove_weights" alt="" coords="188,63,319,92"/><area shape="rect" href="S3Classes_8c.html#a5917f57e141432fd1e4f58a16b9149aa" title="S3get_leftnode" alt="" coords="383,5,489,35"/><area shape="rect" href="S3Classes_8c.html#ab8834f319068d2a248a5d6328cd10dc5" title="S3get_nodeterminal" alt="" coords="368,76,504,105"/><area shape="rect" href="S3Classes_8c.html#a14a38e81ed758a64367dc190f0e8229b" title="S3get_rightnode" alt="" coords="379,141,493,171"/></map>
 </div>
 </p>
 
@@ -641,7 +650,7 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="Utils_8c_source.html#l00718">718</a> of file <a class="el" href="Utils_8c_source.html">Utils.c</a>.</p>
+<p>Definition at line <a class="el" href="Utils_8c_source.html#l00724">724</a> of file <a class="el" href="Utils_8c_source.html">Utils.c</a>.</p>
 
 <p>References <a class="el" href="Classes_8c_source.html#l00258">get_missings()</a>, and <a class="el" href="Classes_8c_source.html#l00290">get_weights()</a>.</p>
 
@@ -843,7 +852,7 @@ Here is the call graph for this function:</div>
 </div>
 </div>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on Wed Jan 27 15:02:37 2010 for party by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on Thu Mar 4 17:17:16 2010 for party by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

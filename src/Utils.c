@@ -699,19 +699,25 @@ void C_SampleSplitting(int n, double *prob, int *weights, int k) {
     \*param subtree a tree
 */ 
 
-void C_remove_weights(SEXP subtree) {
+void C_remove_weights(SEXP subtree, int removestats) {
 
     SET_VECTOR_ELT(subtree, S3_WEIGHTS, R_NilValue);
     
     if (!S3get_nodeterminal(subtree)) {
-        C_remove_weights(S3get_leftnode(subtree));
-        C_remove_weights(S3get_rightnode(subtree));
+        if (removestats) {
+            SET_VECTOR_ELT(VECTOR_ELT(subtree, S3_CRITERION), 
+                           S3_iCRITERION, R_NilValue);
+            SET_VECTOR_ELT(VECTOR_ELT(subtree, S3_CRITERION), 
+                           S3_STATISTICS, R_NilValue);
+        }
+        C_remove_weights(S3get_leftnode(subtree), removestats);
+        C_remove_weights(S3get_rightnode(subtree), removestats);
     }
 }
 
-SEXP R_remove_weights(SEXP subtree) {
+SEXP R_remove_weights(SEXP subtree, SEXP removestats) {
 
-    C_remove_weights(subtree);
+    C_remove_weights(subtree, LOGICAL(removestats)[0]);
     return(R_NilValue);
 }
 

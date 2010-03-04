@@ -1,4 +1,9 @@
 
+                CHANGES IN party VERSION 0.9-9993 (2010-03-04)
+
+    o    just internals needed for mboost
+
+
                 CHANGES IN party VERSION 0.9-9992 (2010-02-26)
 
     o    Bug fix in mob plotting for anova models

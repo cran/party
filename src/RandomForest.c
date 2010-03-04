@@ -101,7 +101,7 @@ SEXP R_Ensemble(SEXP learnsample, SEXP weights, SEXP bwhere, SEXP bweights,
      
          C_TreeGrow(tree, learnsample, fitmem, controls, iwhere, &nodenum, 1);
          nodenum = 1;
-         C_remove_weights(tree);
+         C_remove_weights(tree, 0);
      }
 
      PutRNGstate();
