@@ -1,4 +1,11 @@
 
+                CHANGES IN party VERSION 0.9-9994 (2010-04-14)
+
+    o    varimp() gives warning for non-unity weights
+
+    o    "no admissible split found" warnings disabled
+
+
                 CHANGES IN party VERSION 0.9-9993 (2010-03-04)
 
     o    just internals needed for mboost

@@ -61,6 +61,11 @@ varimp <- function (object, mincriterion = 0, conditional = FALSE, threshold = 0
         for (b in 1:length(object@ensemble)){
             tree <- object@ensemble[[b]]
 
+            w <- object@weights[[b]]
+            w[w == 0] <- 1
+            if (max(abs(w - 1)) > sqrt(.Machine$double.eps))
+                warning(sQuote("varimp"), " with non-unity weights might give misleading results")
+
             ## if OOB == TRUE use only oob observations, otherwise use all observations in learning sample
             if(OOB){oob <- object@weights[[b]] == 0} else{ oob <- rep(TRUE, nrow(input))}
             p <- .Call("R_predict", tree, inp, mincriterion, PACKAGE = "party")

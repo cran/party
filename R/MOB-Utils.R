@@ -114,7 +114,8 @@ mob_fit_setupnode <- function(obj, mf, weights, control) {
                          terminal = TRUE, prediction = 0)
             class(node) <- "TerminalModelNode"  
             
-	    warning("no admissable split found", call. = FALSE)
+            ### more confusion than information
+	    ### warning("no admissable split found", call. = FALSE)
 	    if(verbose)
 	      cat(paste("\nNo admissable split found in ", sQuote(names(test$stat)[best]), "\n", sep = ""))	    
 	    return(node)
