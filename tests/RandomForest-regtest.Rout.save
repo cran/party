@@ -1,6 +1,6 @@
 
-R version 2.10.1 (2009-12-14)
-Copyright (C) 2009 The R Foundation for Statistical Computing
+R version 2.11.0 (2010-04-22)
+Copyright (C) 2010 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -86,6 +86,7 @@ records   n.max n.start  events  median 0.95LCL 0.95UCL
 -8.831169e-04  9.304242e-03  2.483731e-03  3.580956e-03  5.975207e-03 
           emd            mv 
  2.511682e-03  1.100651e-03 
+There were 50 or more warnings (use warnings() to see the first 50)
 > 
 > P <- proximity(rf)
 > stopifnot(max(abs(P - t(P))) == 0)
@@ -138,7 +139,49 @@ Sepal.Length  Sepal.Width Petal.Length  Petal.Width
 > varimp(a)   
       SYMPT          PB        HIST         BSE        DECT 
 0.026676924 0.017718899 0.024070157 0.003977788 0.004566563 
+Warning messages:
+1: In varimp(a) :
+  'varimp' with non-unity weights might give misleading results
+2: In varimp(a) :
+  'varimp' with non-unity weights might give misleading results
+3: In varimp(a) :
+  'varimp' with non-unity weights might give misleading results
+4: In varimp(a) :
+  'varimp' with non-unity weights might give misleading results
+5: In varimp(a) :
+  'varimp' with non-unity weights might give misleading results
+6: In varimp(a) :
+  'varimp' with non-unity weights might give misleading results
+7: In varimp(a) :
+  'varimp' with non-unity weights might give misleading results
+8: In varimp(a) :
+  'varimp' with non-unity weights might give misleading results
+9: In varimp(a) :
+  'varimp' with non-unity weights might give misleading results
+10: In varimp(a) :
+  'varimp' with non-unity weights might give misleading results
 > varimp(a, conditional = TRUE)
       SYMPT          PB        HIST         BSE        DECT 
 0.027007376 0.014911124 0.019483110 0.008703068 0.004605263 
+Warning messages:
+1: In varimp(a, conditional = TRUE) :
+  'varimp' with non-unity weights might give misleading results
+2: In varimp(a, conditional = TRUE) :
+  'varimp' with non-unity weights might give misleading results
+3: In varimp(a, conditional = TRUE) :
+  'varimp' with non-unity weights might give misleading results
+4: In varimp(a, conditional = TRUE) :
+  'varimp' with non-unity weights might give misleading results
+5: In varimp(a, conditional = TRUE) :
+  'varimp' with non-unity weights might give misleading results
+6: In varimp(a, conditional = TRUE) :
+  'varimp' with non-unity weights might give misleading results
+7: In varimp(a, conditional = TRUE) :
+  'varimp' with non-unity weights might give misleading results
+8: In varimp(a, conditional = TRUE) :
+  'varimp' with non-unity weights might give misleading results
+9: In varimp(a, conditional = TRUE) :
+  'varimp' with non-unity weights might give misleading results
+10: In varimp(a, conditional = TRUE) :
+  'varimp' with non-unity weights might give misleading results
 > 

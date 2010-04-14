@@ -1,6 +1,6 @@
 
-R version 2.10.1 (2009-12-14)
-Copyright (C) 2009 The R Foundation for Statistical Computing
+R version 2.11.0 (2010-04-22)
+Copyright (C) 2010 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -43,11 +43,14 @@ Loading required package: class
 > 
 > ### get rid of the NAMESPACE
 > attach(asNamespace("party"))
+The following object(s) are masked from 'package:party':
 
-	The following object(s) are masked from package:party :
-
-	 cforest cforest_classical cforest_control cforest_unbiased conditionalTree ctree ctree_control ctree_memory edge_simple mob mob_control node_barplot node_bivplot node_boxplot node_density node_hist node_inner node_scatterplot node_surv node_terminal proximity ptrafo reweight sctest.mob varimp 
-
+    cforest, cforest_classical, cforest_control, cforest_unbiased,
+    conditionalTree, ctree, ctree_control, ctree_memory, edge_simple,
+    mob, mob_control, node_barplot, node_bivplot, node_boxplot,
+    node_density, node_hist, node_inner, node_scatterplot, node_surv,
+    node_terminal, nodes, proximity, ptrafo, response, reweight,
+    sctest.mob, treeresponse, varimp, where
 > 
 > gtctrl <- new("GlobalTestControl")
 > tlev <- levels(gtctrl@testtype)
