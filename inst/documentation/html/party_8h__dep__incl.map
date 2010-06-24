@@ -1,14 +1,15 @@
-<area shape="rect" href="$Classes_8c.html" title="Classes.c" alt="" coords="5,80,85,107">
-<area shape="rect" href="$Convenience_8c.html" title="Convenience.c" alt="" coords="109,80,216,107">
-<area shape="rect" href="$Distributions_8c.html" title="Distributions.c" alt="" coords="240,80,344,107">
-<area shape="rect" href="$IndependenceTest_8c.html" title="IndependenceTest.c" alt="" coords="368,80,507,107">
-<area shape="rect" href="$LinearStatistic_8c.html" title="LinearStatistic.c" alt="" coords="531,80,645,107">
-<area shape="rect" href="$Node_8c.html" title="Node.c" alt="" coords="669,80,731,107">
-<area shape="rect" href="$Predict_8c.html" title="Predict.c" alt="" coords="755,80,827,107">
-<area shape="rect" href="$RandomForest_8c.html" title="RandomForest.c" alt="" coords="851,80,968,107">
-<area shape="rect" href="$S3Classes_8c.html" title="S3Classes.c" alt="" coords="992,80,1088,107">
-<area shape="rect" href="$Splits_8c.html" title="Splits.c" alt="" coords="1112,80,1176,107">
-<area shape="rect" href="$SurrogateSplits_8c.html" title="SurrogateSplits.c" alt="" coords="1200,80,1320,107">
-<area shape="rect" href="$TestStatistic_8c.html" title="TestStatistic.c" alt="" coords="1344,80,1448,107">
-<area shape="rect" href="$TreeGrow_8c.html" title="TreeGrow.c" alt="" coords="1472,80,1557,107">
-<area shape="rect" href="$Utils_8c.html" title="Utils.c" alt="" coords="1581,80,1640,107">
+<map id="G" name="G">
+<area shape="rect" href="$Convenience_8c.html" title="Convenience.c" alt="" coords="5,83,112,112"/>
+<area shape="rect" href="$Distributions_8c.html" title="Distributions.c" alt="" coords="136,83,240,112"/>
+<area shape="rect" href="$IndependenceTest_8c.html" title="IndependenceTest.c" alt="" coords="264,83,403,112"/>
+<area shape="rect" href="$LinearStatistic_8c.html" title="LinearStatistic.c" alt="" coords="427,83,541,112"/>
+<area shape="rect" href="$Node_8c.html" title="Node.c" alt="" coords="565,83,627,112"/>
+<area shape="rect" href="$Predict_8c.html" title="Predict.c" alt="" coords="651,83,723,112"/>
+<area shape="rect" href="$RandomForest_8c.html" title="RandomForest.c" alt="" coords="747,83,864,112"/>
+<area shape="rect" href="$S3Classes_8c.html" title="S3Classes.c" alt="" coords="888,83,984,112"/>
+<area shape="rect" href="$Splits_8c.html" title="Splits.c" alt="" coords="1008,83,1072,112"/>
+<area shape="rect" href="$SurrogateSplits_8c.html" title="SurrogateSplits.c" alt="" coords="1096,83,1216,112"/>
+<area shape="rect" href="$TestStatistic_8c.html" title="TestStatistic.c" alt="" coords="1240,83,1344,112"/>
+<area shape="rect" href="$TreeGrow_8c.html" title="TreeGrow.c" alt="" coords="1368,83,1456,112"/>
+<area shape="rect" href="$Utils_8c.html" title="Utils.c" alt="" coords="1480,83,1539,112"/>
+</map>

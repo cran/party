@@ -1,6 +1,6 @@
 
-R version 2.10.1 (2009-12-14)
-Copyright (C) 2009 The R Foundation for Statistical Computing
+R version 2.11.0 (2010-04-22)
+Copyright (C) 2010 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -389,6 +389,10 @@ Loading required package: class
 > 
 > graphics::par(get("par.postscript", pos = 'CheckExEnv'))
 > cleanEx()
+
+detaching ‘package:ipred’, ‘package:class’, ‘package:nnet’,
+  ‘package:mlbench’, ‘package:rpart’
+
 > nameEx("ctree")
 > ### * ctree
 > 
@@ -532,6 +536,10 @@ records   n.max n.start  events  median 0.95LCL 0.95UCL
 > 
 > 
 > cleanEx()
+
+detaching ‘package:ipred’, ‘package:class’, ‘package:nnet’,
+  ‘package:mlbench’, ‘package:rpart’
+
 > nameEx("ctree_memory")
 > ### * ctree_memory
 > 
@@ -562,7 +570,7 @@ records   n.max n.start  events  median 0.95LCL 0.95UCL
 >     system.time(ens <- apply(bs, 2, function(w) cfit(ls, ct, weights = w, 
 +                                                      fitmem = mem)))
    user  system elapsed 
-  0.248   0.000   0.251 
+  0.240   0.000   0.239 
 > 
 > 
 > 
@@ -682,11 +690,13 @@ Number of observations:  412
 + plot(fmPID, tp_args = list(cdplot = TRUE))
 + }
 Loading required package: mlbench
-Warning: no admissable split found
 > 
 > 
 > 
 > cleanEx()
+
+detaching ‘package:mlbench’
+
 > nameEx("panelfunctions")
 > ### * panelfunctions
 > 
@@ -774,6 +784,10 @@ Loading required package: class
 > 
 > 
 > cleanEx()
+
+detaching ‘package:ipred’, ‘package:class’, ‘package:nnet’,
+  ‘package:mlbench’, ‘package:rpart’
+
 > nameEx("plot.mob")
 > ### * plot.mob
 > 
@@ -845,11 +859,13 @@ Loading required package: class
 + 
 + }
 Loading required package: mlbench
-Warning: no admissable split found
 > 
 > 
 > 
 > cleanEx()
+
+detaching ‘package:mlbench’
+
 > nameEx("readingSkills")
 > ### * readingSkills
 > 
@@ -942,7 +958,7 @@ nativeSpeaker           age      shoeSize
 > ### * <FOOTER>
 > ###
 > cat("Time elapsed: ", proc.time() - get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  43.506 0.168 44.348 0 0 
+Time elapsed:  41.622 0.116 41.746 0 0 
 > grDevices::dev.off()
 null device 
           1 

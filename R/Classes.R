@@ -1,5 +1,5 @@
 
-# $Id: Classes.R 4360 2009-06-16 07:17:31Z hothorn $
+# $Id: Classes.R 4568 2010-06-24 11:21:31Z hothorn $
 
 ### Conditional Expectation and Covariance
 setClass(Class = "ExpectCovar",
@@ -194,7 +194,8 @@ setClass(Class = "ForestControl",
     representation = representation(
         ntree    = "integer",
         replace  = "logical",
-        fraction = "numeric"),
+        fraction = "numeric",
+        trace    = "logical"),
     contains = "TreeControl",
     validity = function(object) {
         if (object@ntree < 1) {

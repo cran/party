@@ -17,7 +17,7 @@ cforest_control(teststat = "max",
                 mincriterion = qnorm(0.9),
                 savesplitstats = FALSE,
                 ntree = 500, mtry = 5, replace = TRUE,
-                fraction = 0.632, \dots)
+                fraction = 0.632, trace = FALSE, \dots)
 }
 \arguments{
   \item{teststat}{ a character specifying the type of the test statistic
@@ -39,6 +39,8 @@ cforest_control(teststat = "max",
                  done with or without replacement.}
   \item{fraction}{ fraction of number of observations to draw without 
                    replacement (only relevant if \code{replace = FALSE}).}
+  \item{trace}{ a logical indicating if a progress bar shall be printed
+                while the forest grows.}
   \item{\dots}{ additional arguments to be passed to 
                 \code{\link{ctree_control}}.}
 }

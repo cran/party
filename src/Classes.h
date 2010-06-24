@@ -62,7 +62,8 @@ extern SEXP
     PL2_tgctrlSym,
     PL2_ntreeSym,
     PL2_replaceSym,
-    PL2_fractionSym;
+    PL2_fractionSym,
+    PL2_traceSym;
             
 int get_dimension(SEXP object);
 int get_teststat(SEXP object);
@@ -110,3 +111,4 @@ int check_depth(SEXP object, int depth);
 int get_ntree(SEXP object);
 int get_replace(SEXP object);
 double get_fraction(SEXP object);
+int get_trace(SEXP object);

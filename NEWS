@@ -1,4 +1,11 @@
 
+
+                CHANGES IN party VERSION 0.9-9996 (2010-06-24)
+
+    o    print progress bar while forest grows (via trace = TRUE
+         in cforest_control())
+
+
                 CHANGES IN party VERSION 0.9-9995 (2010-05-19)
 
     o    assignment of observations based on surrogate splits
