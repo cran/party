@@ -54,7 +54,9 @@ mob_fit_setupnode <- function(obj, mf, weights, control) {
     if (sum(weights) < 2 * minsplit) {
         node <- list(nodeID = NULL, weights = weights,
                      criterion = list(statistic = 0, criterion = 0, maxcriterion = 0),
-                     terminal = TRUE, prediction = 0)
+                     terminal = TRUE, psplit = NULL, ssplits = NULL,
+                     prediction = 0, left = NULL, right = NULL,
+                     sumweights = as.double(sum(weights)))
         class(node) <- "TerminalModelNode"
         return(node)
     }
@@ -96,7 +98,9 @@ mob_fit_setupnode <- function(obj, mf, weights, control) {
 	             criterion = list(statistic = test$stat, 
                                       criterion = 1 - test$pval,
 				      maxcriterion = na_max(1 - test$pval)),
-                     terminal = TRUE, prediction = 0)
+                     terminal = TRUE, psplit = NULL, ssplits = NULL,
+                     prediction = 0, left = NULL, right = NULL, 
+                     sumweights = as.double(sum(weights)))
         class(node) <- "TerminalModelNode"
         return(node)
     } else {
@@ -111,7 +115,9 @@ mob_fit_setupnode <- function(obj, mf, weights, control) {
                          criterion = list(statistic = test$stat, 
                                           criterion = 1 - test$pval, 
                                           maxcriterion = na_max(1 - test$pval)),
-                         terminal = TRUE, prediction = 0)
+                         terminal = TRUE, psplit = NULL, ssplits = NULL,
+                         prediction = 0, left = NULL, right = NULL, 
+                         sumweights = as.double(sum(weights)))
             class(node) <- "TerminalModelNode"  
             
             ### more confusion than information
@@ -129,7 +135,8 @@ mob_fit_setupnode <- function(obj, mf, weights, control) {
                                       maxcriterion = na_max(1 - test$pval)),
                      terminal = FALSE,
                      psplit = thissplit, ssplits = NULL, 
-                     prediction = 0, left = NULL, right = NULL)
+                     prediction = 0, left = NULL, right = NULL, 
+                     sumweights = as.double(sum(weights)))
         class(node) <- "SplittingNode"
     }
     

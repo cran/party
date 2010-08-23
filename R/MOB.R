@@ -38,7 +38,9 @@ mob <- function(formula, weights, data = list(), na.action = na.omit,
     if(inherits(obj, "try-error")) {
       node <- list(nodeID = NULL, weights = weights,
                    criterion = list(statistic = 0, criterion = 0, maxcriterion = 0),
-                   terminal = TRUE, prediction = 0, model = obj)
+                   terminal = TRUE, psplit = NULL, ssplits = NULL,
+                   prediction = 0, left = NULL, right = NULL,
+                   sumweights = as.double(sum(weights)), model = obj)
       class(node) <- "TerminalNodeModel"
       node$nodeID <- as.integer(nodeid)
       where[weights > 0] <<- as.integer(nodeid)

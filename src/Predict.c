@@ -3,7 +3,7 @@
     Node splitting and prediction
     *\file Predict.c
     *\author $Author: hothorn $
-    *\date $Date: 2008-06-26 11:33:11 +0200 (Thu, 26 Jun 2008) $
+    *\date $Date: 2010-08-23 12:52:49 +0200 (Mon, 23 Aug 2010) $
 */
                 
 #include "party.h"
@@ -114,11 +114,12 @@ void C_splitnode(SEXP node, SEXP learnsample, SEXP control) {
     *\param newinputs an object of class `VariableFrame'
     *\param mincriterion overwrites mincriterion used for tree growing
     *\param numobs observation number
+    *\param varperm which variable shall be permuted?
     *\todo handle surrogate splits
 */
 
 SEXP C_get_node(SEXP subtree, SEXP newinputs, 
-                double mincriterion, int numobs) {
+                double mincriterion, int numobs, int varperm) {
 
     SEXP split, whichNA, weights, ssplit, surrsplit;
     double cutpoint, x, *dweights, swleft, swright;
@@ -130,8 +131,22 @@ SEXP C_get_node(SEXP subtree, SEXP newinputs,
     
     split = S3get_primarysplit(subtree);
 
-    /* missing values. Maybe store the proportions left / 
-       right in each node? */
+    /* Maybe store the proportions left / right in each node? */
+    swleft = S3get_sumweights(S3get_leftnode(subtree));
+    swright = S3get_sumweights(S3get_rightnode(subtree));
+
+    /* splits based on variable varperm are random */    
+    if (S3get_variableID(split) == varperm) {
+        if (unif_rand() < swleft / (swleft + swright)) {
+            return(C_get_node(S3get_leftnode(subtree),
+                       newinputs, mincriterion, numobs, varperm));
+        } else {
+            return(C_get_node(S3get_rightnode(subtree),
+                       newinputs, mincriterion, numobs, varperm));
+        }
+    }
+                   
+    /* missing values */
     if (has_missings(newinputs, S3get_variableID(split))) {
         whichNA = get_missings(newinputs, S3get_variableID(split));
     
@@ -162,32 +177,30 @@ SEXP C_get_node(SEXP subtree, SEXP newinputs,
                 if (S3get_toleft(ssplit)) {
                     if (x <= cutpoint) {
                         return(C_get_node(S3get_leftnode(subtree),
-                                          newinputs, mincriterion, numobs));
+                                          newinputs, mincriterion, numobs, varperm));
                     } else {
                         return(C_get_node(S3get_rightnode(subtree),
-                               newinputs, mincriterion, numobs));
+                               newinputs, mincriterion, numobs, varperm));
                     }
                 } else {
                     if (x <= cutpoint) {
                         return(C_get_node(S3get_rightnode(subtree),
-                                          newinputs, mincriterion, numobs));
+                                          newinputs, mincriterion, numobs, varperm));
                     } else {
                         return(C_get_node(S3get_leftnode(subtree),
-                               newinputs, mincriterion, numobs));
+                               newinputs, mincriterion, numobs, varperm));
                     }
                 }
                 break;
             }
 
             /* if this was not successful, we go with the majority */
-            swleft = S3get_sumweights(S3get_leftnode(subtree));
-            swright = S3get_sumweights(S3get_rightnode(subtree));
             if (swleft > swright) {
                 return(C_get_node(S3get_leftnode(subtree), 
-                                  newinputs, mincriterion, numobs));
+                                  newinputs, mincriterion, numobs, varperm));
             } else {
                 return(C_get_node(S3get_rightnode(subtree), 
-                                  newinputs, mincriterion, numobs));
+                                  newinputs, mincriterion, numobs, varperm));
             }
         }
     }
@@ -198,10 +211,10 @@ SEXP C_get_node(SEXP subtree, SEXP newinputs,
                      S3get_variableID(split)))[numobs];
         if (x <= cutpoint) {
             return(C_get_node(S3get_leftnode(subtree), 
-                              newinputs, mincriterion, numobs));
+                              newinputs, mincriterion, numobs, varperm));
         } else {
             return(C_get_node(S3get_rightnode(subtree), 
-                              newinputs, mincriterion, numobs));
+                              newinputs, mincriterion, numobs, varperm));
         }
     } else {
         levelset = INTEGER(S3get_splitpoint(split));
@@ -210,10 +223,10 @@ SEXP C_get_node(SEXP subtree, SEXP newinputs,
         /* level is in 1, ..., K */
         if (levelset[level - 1]) {
             return(C_get_node(S3get_leftnode(subtree), newinputs, 
-                              mincriterion, numobs));
+                              mincriterion, numobs, varperm));
         } else {
             return(C_get_node(S3get_rightnode(subtree), newinputs, 
-                              mincriterion, numobs));
+                              mincriterion, numobs, varperm));
         }
     }
 }
@@ -230,7 +243,7 @@ SEXP C_get_node(SEXP subtree, SEXP newinputs,
 SEXP R_get_node(SEXP subtree, SEXP newinputs, SEXP mincriterion, 
                 SEXP numobs) {
     return(C_get_node(subtree, newinputs, REAL(mincriterion)[0],
-                      INTEGER(numobs)[0] - 1));
+                      INTEGER(numobs)[0] - 1, -1));
 }
 
 
@@ -272,12 +285,13 @@ SEXP R_get_nodebynum(SEXP subtree, SEXP nodenum) {
     *\param newinputs an object of class `VariableFrame'
     *\param mincriterion overwrites mincriterion used for tree growing
     *\param numobs observation number
+    *\param varperm which variable shall be permuted?
 */
 
 SEXP C_get_prediction(SEXP subtree, SEXP newinputs, 
-                      double mincriterion, int numobs) {
+                      double mincriterion, int numobs, int varperm) {
     return(S3get_prediction(C_get_node(subtree, newinputs, 
-                            mincriterion, numobs)));
+                            mincriterion, numobs, varperm)));
 }
 
 
@@ -292,7 +306,7 @@ SEXP C_get_prediction(SEXP subtree, SEXP newinputs,
 SEXP C_get_nodeweights(SEXP subtree, SEXP newinputs, 
                        double mincriterion, int numobs) {
     return(S3get_nodeweights(C_get_node(subtree, newinputs, 
-                             mincriterion, numobs)));
+                             mincriterion, numobs, -1)));
 }
 
 
@@ -307,7 +321,7 @@ SEXP C_get_nodeweights(SEXP subtree, SEXP newinputs,
 int C_get_nodeID(SEXP subtree, SEXP newinputs,
                   double mincriterion, int numobs) {
      return(S3get_nodeID(C_get_node(subtree, newinputs, 
-            mincriterion, numobs)));
+            mincriterion, numobs, -1)));
 }
 
 
@@ -338,10 +352,12 @@ SEXP R_get_nodeID(SEXP tree, SEXP newinputs, SEXP mincriterion) {
     *\param tree a tree
     *\param newinputs an object of class `VariableFrame'
     *\param mincriterion overwrites mincriterion used for tree growing
+    *\param varperm which variable shall be permuted?
     *\param ans return value
 */
 
-void C_predict(SEXP tree, SEXP newinputs, double mincriterion, SEXP ans) {
+void C_predict(SEXP tree, SEXP newinputs, double mincriterion, 
+               int varperm, SEXP ans) {
     
     int nobs, i;
     
@@ -351,7 +367,7 @@ void C_predict(SEXP tree, SEXP newinputs, double mincriterion, SEXP ans) {
         
     for (i = 0; i < nobs; i++)
         SET_VECTOR_ELT(ans, i, C_get_prediction(tree, newinputs, 
-                       mincriterion, i));
+                       mincriterion, i, varperm));
 }
 
 
@@ -369,11 +385,33 @@ SEXP R_predict(SEXP tree, SEXP newinputs, SEXP mincriterion) {
     
     nobs = get_nobs(newinputs);
     PROTECT(ans = allocVector(VECSXP, nobs));
-    C_predict(tree, newinputs, REAL(mincriterion)[0], ans);
+    C_predict(tree, newinputs, REAL(mincriterion)[0], 
+              -1, ans);
     UNPROTECT(1);
     return(ans);
 }
 
+/**
+    R-Interface to C_predict \n
+    *\param tree a tree
+    *\param newinputs an object of class `VariableFrame'
+    *\param mincriterion overwrites mincriterion used for tree growing
+    *\param varperm which variable shall be permuted?
+*/
+
+SEXP R_predict2(SEXP tree, SEXP newinputs, SEXP mincriterion,
+               SEXP varperm) {
+
+    SEXP ans;
+    int nobs;
+    
+    nobs = get_nobs(newinputs);
+    PROTECT(ans = allocVector(VECSXP, nobs));
+    C_predict(tree, newinputs, REAL(mincriterion)[0], 
+              INTEGER(varperm)[0], ans);
+    UNPROTECT(1);
+    return(ans);
+}
 
 /**
     Get the predictions from `where' nodes\n

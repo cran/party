@@ -1,0 +1,22 @@
+<map id="G" name="G">
+<area shape="rect" href="$Predict_8c.html#ab942ed2cef731605228c3ef78a10532c" title="C_get_prediction" alt="" coords="132,403,249,432"/>
+<area shape="rect" href="$Classes_8c.html#a45df17685bc6c95d03fb65b6f6214de0" title="get_nobs" alt="" coords="153,456,228,485"/>
+<area shape="rect" href="$Predict_8c.html#a1e6dc4bb322ef648c0fe127fdda11b9d" title="C_get_node" alt="" coords="313,376,404,405"/>
+<area shape="rect" href="$S3Classes_8c.html#a70a340b301b4e383107c92cbbeb4ae20" title="S3get_prediction" alt="" coords="300,429,417,459"/>
+<area shape="rect" href="$Utils_8c.html#aff0eae9aa0175cd8fe73324707418ce0" title="C_i_in_set" alt="" coords="500,5,583,35"/>
+<area shape="rect" href="$Classes_8c.html#afd6cfc2dd239b138d91e92a8ce9353f8" title="get_missings" alt="" coords="492,59,591,88"/>
+<area shape="rect" href="$Classes_8c.html#a50548fbe6024d9a7118db3fce5085fd9" title="has_missings" alt="" coords="664,84,765,113"/>
+<area shape="rect" href="$Classes_8c.html#a0f91efa916e815ec7d90c6f9516f18e4" title="get_variable" alt="" coords="496,163,587,192"/>
+<area shape="rect" href="$S3Classes_8c.html#a5917f57e141432fd1e4f58a16b9149aa" title="S3get_leftnode" alt="" coords="488,216,595,245"/>
+<area shape="rect" href="$S3Classes_8c.html#ae5d3e3ccef4e5fbfe1b6cf683b4d2999" title="S3get_maxcriterion" alt="" coords="475,269,608,299"/>
+<area shape="rect" href="$S3Classes_8c.html#ab8834f319068d2a248a5d6328cd10dc5" title="S3get_nodeterminal" alt="" coords="473,323,609,352"/>
+<area shape="rect" href="$S3Classes_8c.html#a220373298b30f12b22f82cce3c996a37" title="S3get_primarysplit" alt="" coords="477,376,605,405"/>
+<area shape="rect" href="$S3Classes_8c.html#a14a38e81ed758a64367dc190f0e8229b" title="S3get_rightnode" alt="" coords="484,429,599,459"/>
+<area shape="rect" href="$S3Classes_8c.html#aacf87d496fd3b07bafd171c92404212a" title="S3get_splitpoint" alt="" coords="484,483,599,512"/>
+<area shape="rect" href="$S3Classes_8c.html#ad5b760cf2b547dc128273948f78b7a3c" title="S3get_sumweights" alt="" coords="476,536,607,565"/>
+<area shape="rect" href="$S3Classes_8c.html#af270d1d02bf86a4c5cdc8959045c3567" title="S3get_surrogatesplits" alt="" coords="468,589,615,619"/>
+<area shape="rect" href="$S3Classes_8c.html#a67d50b82dea660a930cf7427be899efb" title="S3get_toleft" alt="" coords="496,643,587,672"/>
+<area shape="rect" href="$S3Classes_8c.html#a583f9148949f93b5fe894feb6567ca0d" title="S3get_variableID" alt="" coords="481,696,601,725"/>
+<area shape="rect" href="$S3Classes_8c.html#a54ed9f6b46c69d550ceea1a525287ecf" title="S3is_ordered" alt="" coords="493,749,589,779"/>
+<area shape="rect" href="$Utils_8c.html#aae969040bb060d2874fd969e20675bbb" title="i_in_set" alt="" coords="681,5,748,35"/>
+</map>

@@ -1,4 +1,9 @@
 
+                CHANGES IN party VERSION 0.9-9998 (2010-08-23)
+
+    o    allow for internal permutations in predict via R_predict2
+
+
                 CHANGES IN party VERSION 0.9-9997 (2010-07-06)
 
     o    update mvt.f (see mvtnorm)
