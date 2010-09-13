@@ -1,4 +1,10 @@
 
+                CHANGES IN party VERSION 0.9-9999 (2010-10-13)
+
+    o    add update slots to tree and forest objects (later to be used
+         for crossvalidation)
+
+
                 CHANGES IN party VERSION 0.9-9998 (2010-08-23)
 
     o    allow for internal permutations in predict via R_predict2

@@ -28,6 +28,7 @@ Objects can be created by calls of the form \code{new("RandomForest", ...)}.
     \item{\code{predict_response}:}{ a function for computing predictions. }
     \item{\code{prediction_weights}:}{ a function for extracting weights from
                                      terminal nodes. }
+    \item{\code{update}:}{ a function for updating weights.}
   }
 }
 \section{Methods}{

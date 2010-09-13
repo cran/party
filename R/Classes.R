@@ -1,5 +1,5 @@
 
-# $Id: Classes.R 4568 2010-06-24 11:21:31Z hothorn $
+# $Id: Classes.R 4596 2010-09-13 12:07:18Z hothorn $
 
 ### Conditional Expectation and Covariance
 setClass(Class = "ExpectCovar",
@@ -283,7 +283,8 @@ setClass(Class = "BinaryTree",
         cond_distr_response = "function",      # predict distribtion
         predict_response    = "function",      # predict responses
         prediction_weights  = "function",      # prediction weights
-        get_where           = "function"       # node numbers
+        get_where           = "function",      # node numbers
+        update              = "function"       # update weights
     ),
     contains = "BinaryTreePartition"
 )
@@ -299,7 +300,8 @@ setClass(Class = "RandomForest",
                                                # for computing predictions
         cond_distr_response = "function",      # predict distribtion
         predict_response    = "function",      # predict responses
-        prediction_weights  = "function"      # prediction weights
+        prediction_weights  = "function",      # prediction weights
+	update              = "function"       # update weights
     )
 )
 

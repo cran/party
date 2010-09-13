@@ -1,5 +1,5 @@
 
-# $Id: ConditionalTree.R 4360 2009-06-16 07:17:31Z hothorn $
+# $Id: ConditionalTree.R 4596 2010-09-13 12:07:18Z hothorn $
 
 ### the fitting procedure
 ctreefit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
@@ -43,6 +43,11 @@ ctreefit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
     RET@responses <- object@responses
     if (inherits(object, "LearningSampleFormula"))
         RET@data <- object@menv
+
+    RET@update <- function(weights = NULL) {
+        ctreefit(object = object, controls = controls, 
+                 weights = weights, fitmem = fitmem, ...)
+    }
 
     ### get terminal node numbers
     RET@get_where <- function(newdata = NULL, mincriterion = 0, ...) {

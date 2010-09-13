@@ -73,6 +73,7 @@ releases of the package.
                                      terminal nodes. }
     \item{\code{get_where}:}{ a function for determining the number
         of terminal nodes observations fall into. }
+    \item{\code{update}:}{ a function for updating weights.}
   }
 }
 \section{Extends}{

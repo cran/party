@@ -1,5 +1,5 @@
 
-# $Id: RandomForest.R 4568 2010-06-24 11:21:31Z hothorn $
+# $Id: RandomForest.R 4596 2010-09-13 12:07:18Z hothorn $
 
 ### the fitting procedure
 cforestfit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
@@ -35,6 +35,12 @@ cforestfit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
     RET@responses <- object@responses
     if (inherits(object, "LearningSampleFormula"))
         RET@data <- object@menv
+
+    RET@update <- function(weights = NULL) {
+        cforestfit(object = object, controls = controls,
+                   weights = weights, fitmem = fitmem, ...)
+    }
+
 
     ### (estimated) conditional distribution of the response given the
     ### covariates
