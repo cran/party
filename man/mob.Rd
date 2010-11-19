@@ -79,7 +79,7 @@ Model-based partitioning fits a model tree using the following algorithm:
   }
   
 More details on the conceptual design of the algorithm can be found in 
-Zeileis, Hothorn, Hornik (2005) and some illustrations are provided in
+Zeileis, Hothorn, Hornik (2008) and some illustrations are provided in
 \code{vignette("MOB")}.  
   
 For the fitted MOB tree, several standard methods are inherited if they are
@@ -99,7 +99,7 @@ node, by default for all nodes. Some examples are given below.
 
 \references{ 
 
-   Achim Zeileis, Torsten Hothorn, and Kurt Hornik (2005). Model-Based
+   Achim Zeileis, Torsten Hothorn, and Kurt Hornik (2008). Model-Based
    Recursive Partitioning. \emph{Journal of Computational and Graphical Statistics}, 
    \bold{17}(2), 492--514.
 

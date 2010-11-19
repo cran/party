@@ -1,6 +1,6 @@
 <map id="G" name="G">
-<area shape="rect" href="$Classes_8c.html#ab86d70ff194260cc9bd391d3ff55b157" title="get_predict_trafo" alt="" coords="196,5,313,35"/>
-<area shape="rect" href="$Classes_8c.html#a9ec50a13a7c7e82143cced16ff4f3968" title="get_test_trafo" alt="" coords="204,59,305,88"/>
-<area shape="rect" href="$Classes_8c.html#a20a55355301b5f90ec48b9114d1ff597" title="get_transformation" alt="" coords="191,112,319,141"/>
-<area shape="rect" href="$Classes_8c.html#a0f91efa916e815ec7d90c6f9516f18e4" title="get_variable" alt="" coords="209,165,300,195"/>
+<area shape="rect" id="node3" href="$Classes_8c.html#ab86d70ff194260cc9bd391d3ff55b157" title="get_predict_trafo" alt="" coords="208,5,339,35"/>
+<area shape="rect" id="node5" href="$Classes_8c.html#a9ec50a13a7c7e82143cced16ff4f3968" title="get_test_trafo" alt="" coords="217,59,329,88"/>
+<area shape="rect" id="node7" href="$Classes_8c.html#a20a55355301b5f90ec48b9114d1ff597" title="get_transformation" alt="" coords="201,112,345,141"/>
+<area shape="rect" id="node9" href="$Classes_8c.html#a0f91efa916e815ec7d90c6f9516f18e4" title="get_variable" alt="" coords="224,165,323,195"/>
 </map>

@@ -1,51 +1,51 @@
 <map id="G" name="G">
-<area shape="rect" href="$S3Classes_8c.html#af837f0cf74c62c53c74138c4dbb9acc0" title="C_init_node" alt="" coords="496,100,584,129"/>
-<area shape="rect" href="$TreeGrow_8c.html#a67d352c38f59d30c7b9954bf5d3a57ad" title="C_TreeGrow" alt="" coords="148,644,239,673"/>
-<area shape="rect" href="$Classes_8c.html#a9117d8f57ea1378c725c7299d6cc2923" title="get_ninputs" alt="" coords="677,668,765,697"/>
-<area shape="rect" href="$Classes_8c.html#a45df17685bc6c95d03fb65b6f6214de0" title="get_nobs" alt="" coords="684,2024,759,2053"/>
-<area shape="rect" href="$Utils_8c.html#af1f46cc3e98630497a1ccb21d943fe65" title="ncol" alt="" coords="699,2497,744,2527"/>
-<area shape="rect" href="$Classes_8c.html#ab86d70ff194260cc9bd391d3ff55b157" title="get_predict_trafo" alt="" coords="481,1028,599,1057"/>
-<area shape="rect" href="$Classes_8c.html#ad914bd038dca4d2a1b9847f46bdb78f9" title="get_splitctrl" alt="" coords="496,975,584,1004"/>
-<area shape="rect" href="$Classes_8c.html#ab89e4da7a60580c3adbe7c4f4935581c" title="get_maxsurrogate" alt="" coords="477,921,603,951"/>
-<area shape="rect" href="$S3Classes_8c.html#ac3785782483b5bf4afe9d606e280f3ca" title="S3get_nodeweights" alt="" coords="473,255,607,284"/>
-<area shape="rect" href="$Node_8c.html#a1b0cb9ac9a78efda36001d9da708574d" title="C_Node" alt="" coords="323,1791,389,1820"/>
-<area shape="rect" href="$Classes_8c.html#aa88e9e2563188b5500b48a6efaee9734" title="get_tgctrl" alt="" coords="503,2756,577,2785"/>
-<area shape="rect" href="$Predict_8c.html#adaf8a0eb8790ebf14f0e265de164d50e" title="C_splitnode" alt="" coords="312,571,400,600"/>
-<area shape="rect" href="$SurrogateSplits_8c.html#a6f9f8c3b4147854cacc43d67a055d911" title="C_splitsurrogate" alt="" coords="299,467,413,496"/>
-<area shape="rect" href="$S3Classes_8c.html#a5917f57e141432fd1e4f58a16b9149aa" title="S3get_leftnode" alt="" coords="487,47,593,76"/>
-<area shape="rect" href="$S3Classes_8c.html#a14a38e81ed758a64367dc190f0e8229b" title="S3get_rightnode" alt="" coords="483,308,597,337"/>
-<area shape="rect" href="$SurrogateSplits_8c.html#afd8931db67339ca2bb679d8d38135275" title="C_surrogates" alt="" coords="307,717,405,747"/>
-<area shape="rect" href="$Classes_8c.html#a871d0c7dc9639a559b15a8790268063d" title="check_depth" alt="" coords="308,307,404,336"/>
-<area shape="rect" href="$Classes_8c.html#ac7779f00dc36c589dd24e3b4f6247be3" title="get_stump" alt="" coords="315,360,397,389"/>
-<area shape="rect" href="$S3Classes_8c.html#ab8834f319068d2a248a5d6328cd10dc5" title="S3get_nodeterminal" alt="" coords="288,413,424,443"/>
-<area shape="rect" href="$S3Classes_8c.html#a3130204036068f194e66d7f8b39da73c" title="S3set_nodeID" alt="" coords="304,771,408,800"/>
-<area shape="rect" href="$IndependenceTest_8c.html#a3b7d8664edac79abe6c4f528ad2c4f35" title="C_GlobalTest" alt="" coords="491,2081,589,2111"/>
-<area shape="rect" href="$Utils_8c.html#af9716d8427688ac52d3dd254337316b1" title="C_tempweights" alt="" coords="667,1341,776,1371"/>
-<area shape="rect" href="$Classes_8c.html#a9ec50a13a7c7e82143cced16ff4f3968" title="get_test_trafo" alt="" coords="671,2128,772,2157"/>
-<area shape="rect" href="$Classes_8c.html#aaa5df349ffd6e5faccab211ac972722b" title="get_tol" alt="" coords="836,2315,895,2344"/>
-<area shape="rect" href="$Classes_8c.html#a20a55355301b5f90ec48b9114d1ff597" title="get_transformation" alt="" coords="657,2181,785,2211"/>
-<area shape="rect" href="$Classes_8c.html#a31bf6c4f0764bc42b413cc319a0f9ec2" title="get_varmemory" alt="" coords="665,2235,777,2264"/>
-<area shape="rect" href="$Classes_8c.html#a50548fbe6024d9a7118db3fce5085fd9" title="has_missings" alt="" coords="671,615,772,644"/>
-<area shape="rect" href="$S3Classes_8c.html#a07230eaacca448a8235ea7760adbfa04" title="C_init_nominalsplit" alt="" coords="475,1924,605,1953"/>
-<area shape="rect" href="$S3Classes_8c.html#ac727b2483cf36cd256889ac9f8203258" title="C_init_orderedsplit" alt="" coords="476,1135,604,1164"/>
-<area shape="rect" href="$Utils_8c.html#a5b306a6923d1155e6ce877cf6fa12a42" title="C_max" alt="" coords="509,1977,571,2007"/>
-<area shape="rect" href="$Node_8c.html#accc1b172efcfd43dc460efee333b6abf" title="C_prediction" alt="" coords="493,2340,587,2369"/>
-<area shape="rect" href="$Splits_8c.html#a00d4080fae6513962bd1e54ec9d476bc" title="C_split" alt="" coords="691,2288,752,2317"/>
-<area shape="rect" href="$Splits_8c.html#a1b9f04a865d61c1c9757ba77bff49ab7" title="C_splitcategorical" alt="" coords="479,2287,601,2316"/>
-<area shape="rect" href="$TestStatistic_8c.html#a9ecf0700a00ad5fd64601bf718f20439" title="C_standardize" alt="" coords="488,2393,592,2423"/>
-<area shape="rect" href="$Utils_8c.html#a2a701345082320c18e49d8e7e8150d64" title="C_whichmax" alt="" coords="492,2447,588,2476"/>
-<area shape="rect" href="$Classes_8c.html#a8bc9164a2291bb7f61c12b79f6bc7c5f" title="get_dimension" alt="" coords="488,2500,592,2529"/>
-<area shape="rect" href="$Classes_8c.html#a43fe1d056590d0d70d3a72beda13963e" title="get_gtctrl" alt="" coords="503,1393,577,1423"/>
-<area shape="rect" href="$Classes_8c.html#a0e317821da8f3bc0fb6da5006abb81f6" title="get_levels" alt="" coords="500,1711,580,1740"/>
-<area shape="rect" href="$Classes_8c.html#af836613ade2cdc01c401b574fc1e7fdb" title="is_nominal" alt="" coords="680,1184,763,1213"/>
-<area shape="rect" href="$Classes_8c.html#a3578ef4fb8f0c3ecd7d166687acde94a" title="get_mincriterion" alt="" coords="484,1447,596,1476"/>
-<area shape="rect" href="$Classes_8c.html#a024b7f74a61afa9b3eb465a98f35584c" title="get_minsplit" alt="" coords="495,1500,585,1529"/>
-<area shape="rect" href="$Classes_8c.html#aa160107e2d687d3fa2411af7e25763ef" title="get_ordering" alt="" coords="495,1081,585,1111"/>
-<area shape="rect" href="$Classes_8c.html#a2c17918334d53626178a38518f9f25ff" title="get_savesplitstats" alt="" coords="476,1553,604,1583"/>
-<area shape="rect" href="$Classes_8c.html#a3a0ec14f5047b8c9bf8d8e6ba3c6e306" title="get_splitstatistics" alt="" coords="479,1188,601,1217"/>
-<area shape="rect" href="$Classes_8c.html#aa7f64a77df0cfbcae9428aa6684a1ad1" title="get_varctrl" alt="" coords="499,1607,581,1636"/>
-<area shape="rect" href="$Classes_8c.html#a0f91efa916e815ec7d90c6f9516f18e4" title="get_variable" alt="" coords="495,564,585,593"/>
-<area shape="rect" href="$S3Classes_8c.html#a7e1195f9e99aa93145f04e80c62ff687" title="S3get_criterion" alt="" coords="487,1764,593,1793"/>
-<area shape="rect" href="$S3Classes_8c.html#ae5d3e3ccef4e5fbfe1b6cf683b4d2999" title="S3get_maxcriterion" alt="" coords="473,1817,607,1847"/>
-<area shape="rect" href="$S3Classes_8c.html#a70a340b301b4e383107c92cbbeb4ae20" title="S3get_prediction" alt="" coords="481,1871,599,1900"/>
+<area shape="rect" id="node3" href="$S3Classes_8c.html#af837f0cf74c62c53c74138c4dbb9acc0" title="C_init_node" alt="" coords="519,95,615,125"/>
+<area shape="rect" id="node5" href="$TreeGrow_8c.html#a67d352c38f59d30c7b9954bf5d3a57ad" title="C_TreeGrow" alt="" coords="149,639,245,669"/>
+<area shape="rect" id="node13" href="$Classes_8c.html#a9117d8f57ea1378c725c7299d6cc2923" title="get_ninputs" alt="" coords="713,663,809,693"/>
+<area shape="rect" id="node15" href="$Classes_8c.html#a45df17685bc6c95d03fb65b6f6214de0" title="get_nobs" alt="" coords="721,2019,801,2049"/>
+<area shape="rect" id="node27" href="$Utils_8c.html#af1f46cc3e98630497a1ccb21d943fe65" title="ncol" alt="" coords="737,2493,785,2522"/>
+<area shape="rect" id="node66" href="$Classes_8c.html#ab86d70ff194260cc9bd391d3ff55b157" title="get_predict_trafo" alt="" coords="501,1023,632,1053"/>
+<area shape="rect" id="node70" href="$Classes_8c.html#ad914bd038dca4d2a1b9847f46bdb78f9" title="get_splitctrl" alt="" coords="519,970,615,999"/>
+<area shape="rect" id="node96" href="$Classes_8c.html#ab89e4da7a60580c3adbe7c4f4935581c" title="get_maxsurrogate" alt="" coords="497,917,636,946"/>
+<area shape="rect" id="node105" href="$S3Classes_8c.html#ac3785782483b5bf4afe9d606e280f3ca" title="S3get_nodeweights" alt="" coords="493,250,640,279"/>
+<area shape="rect" id="node7" href="$Node_8c.html#a1b0cb9ac9a78efda36001d9da708574d" title="C_Node" alt="" coords="333,1786,405,1815"/>
+<area shape="rect" id="node75" href="$Classes_8c.html#aa88e9e2563188b5500b48a6efaee9734" title="get_tgctrl" alt="" coords="525,2751,608,2781"/>
+<area shape="rect" id="node93" href="$Predict_8c.html#adaf8a0eb8790ebf14f0e265de164d50e" title="C_splitnode" alt="" coords="321,566,417,595"/>
+<area shape="rect" id="node107" href="$SurrogateSplits_8c.html#a6f9f8c3b4147854cacc43d67a055d911" title="C_splitsurrogate" alt="" coords="307,462,432,491"/>
+<area shape="rect" id="node112" href="$S3Classes_8c.html#a5917f57e141432fd1e4f58a16b9149aa" title="S3get_leftnode" alt="" coords="508,42,625,71"/>
+<area shape="rect" id="node115" href="$S3Classes_8c.html#a14a38e81ed758a64367dc190f0e8229b" title="S3get_rightnode" alt="" coords="503,303,631,333"/>
+<area shape="rect" id="node117" href="$SurrogateSplits_8c.html#afd8931db67339ca2bb679d8d38135275" title="C_surrogates" alt="" coords="316,713,423,742"/>
+<area shape="rect" id="node133" href="$Classes_8c.html#a871d0c7dc9639a559b15a8790268063d" title="check_depth" alt="" coords="319,302,420,331"/>
+<area shape="rect" id="node138" href="$Classes_8c.html#ac7779f00dc36c589dd24e3b4f6247be3" title="get_stump" alt="" coords="324,355,415,385"/>
+<area shape="rect" id="node142" href="$S3Classes_8c.html#ab8834f319068d2a248a5d6328cd10dc5" title="S3get_nodeterminal" alt="" coords="293,409,445,438"/>
+<area shape="rect" id="node146" href="$S3Classes_8c.html#a3130204036068f194e66d7f8b39da73c" title="S3set_nodeID" alt="" coords="315,766,424,795"/>
+<area shape="rect" id="node9" href="$IndependenceTest_8c.html#a3b7d8664edac79abe6c4f528ad2c4f35" title="C_GlobalTest" alt="" coords="516,2077,617,2106"/>
+<area shape="rect" id="node11" href="$Utils_8c.html#af9716d8427688ac52d3dd254337316b1" title="C_tempweights" alt="" coords="701,1337,821,1366"/>
+<area shape="rect" id="node17" href="$Classes_8c.html#a9ec50a13a7c7e82143cced16ff4f3968" title="get_test_trafo" alt="" coords="705,2123,817,2153"/>
+<area shape="rect" id="node19" href="$Classes_8c.html#aaa5df349ffd6e5faccab211ac972722b" title="get_tol" alt="" coords="883,2310,949,2339"/>
+<area shape="rect" id="node21" href="$Classes_8c.html#a20a55355301b5f90ec48b9114d1ff597" title="get_transformation" alt="" coords="689,2177,833,2206"/>
+<area shape="rect" id="node23" href="$Classes_8c.html#a31bf6c4f0764bc42b413cc319a0f9ec2" title="get_varmemory" alt="" coords="700,2230,823,2259"/>
+<area shape="rect" id="node25" href="$Classes_8c.html#a50548fbe6024d9a7118db3fce5085fd9" title="has_missings" alt="" coords="708,610,815,639"/>
+<area shape="rect" id="node29" href="$S3Classes_8c.html#a07230eaacca448a8235ea7760adbfa04" title="C_init_nominalsplit" alt="" coords="496,1919,637,1949"/>
+<area shape="rect" id="node31" href="$S3Classes_8c.html#ac727b2483cf36cd256889ac9f8203258" title="C_init_orderedsplit" alt="" coords="497,1130,636,1159"/>
+<area shape="rect" id="node33" href="$Utils_8c.html#a5b306a6923d1155e6ce877cf6fa12a42" title="C_max" alt="" coords="533,1973,600,2002"/>
+<area shape="rect" id="node35" href="$Node_8c.html#accc1b172efcfd43dc460efee333b6abf" title="C_prediction" alt="" coords="516,2335,617,2365"/>
+<area shape="rect" id="node37" href="$Splits_8c.html#a00d4080fae6513962bd1e54ec9d476bc" title="C_split" alt="" coords="729,2283,793,2313"/>
+<area shape="rect" id="node40" href="$Splits_8c.html#a1b9f04a865d61c1c9757ba77bff49ab7" title="C_splitcategorical" alt="" coords="500,2282,633,2311"/>
+<area shape="rect" id="node44" href="$TestStatistic_8c.html#a9ecf0700a00ad5fd64601bf718f20439" title="C_standardize" alt="" coords="511,2389,623,2418"/>
+<area shape="rect" id="node47" href="$Utils_8c.html#a2a701345082320c18e49d8e7e8150d64" title="C_whichmax" alt="" coords="516,2442,617,2471"/>
+<area shape="rect" id="node49" href="$Classes_8c.html#a8bc9164a2291bb7f61c12b79f6bc7c5f" title="get_dimension" alt="" coords="509,2495,624,2525"/>
+<area shape="rect" id="node51" href="$Classes_8c.html#a43fe1d056590d0d70d3a72beda13963e" title="get_gtctrl" alt="" coords="525,1389,608,1418"/>
+<area shape="rect" id="node53" href="$Classes_8c.html#a0e317821da8f3bc0fb6da5006abb81f6" title="get_levels" alt="" coords="524,1706,609,1735"/>
+<area shape="rect" id="node55" href="$Classes_8c.html#af836613ade2cdc01c401b574fc1e7fdb" title="is_nominal" alt="" coords="716,1179,807,1209"/>
+<area shape="rect" id="node57" href="$Classes_8c.html#a3578ef4fb8f0c3ecd7d166687acde94a" title="get_mincriterion" alt="" coords="504,1442,629,1471"/>
+<area shape="rect" id="node59" href="$Classes_8c.html#a024b7f74a61afa9b3eb465a98f35584c" title="get_minsplit" alt="" coords="517,1495,616,1525"/>
+<area shape="rect" id="node63" href="$Classes_8c.html#aa160107e2d687d3fa2411af7e25763ef" title="get_ordering" alt="" coords="516,1077,617,1106"/>
+<area shape="rect" id="node68" href="$Classes_8c.html#a2c17918334d53626178a38518f9f25ff" title="get_savesplitstats" alt="" coords="497,1549,636,1578"/>
+<area shape="rect" id="node72" href="$Classes_8c.html#a3a0ec14f5047b8c9bf8d8e6ba3c6e306" title="get_splitstatistics" alt="" coords="500,1183,633,1213"/>
+<area shape="rect" id="node79" href="$Classes_8c.html#aa7f64a77df0cfbcae9428aa6684a1ad1" title="get_varctrl" alt="" coords="521,1602,612,1631"/>
+<area shape="rect" id="node81" href="$Classes_8c.html#a0f91efa916e815ec7d90c6f9516f18e4" title="get_variable" alt="" coords="517,559,616,589"/>
+<area shape="rect" id="node87" href="$S3Classes_8c.html#a7e1195f9e99aa93145f04e80c62ff687" title="S3get_criterion" alt="" coords="508,1759,625,1789"/>
+<area shape="rect" id="node89" href="$S3Classes_8c.html#ae5d3e3ccef4e5fbfe1b6cf683b4d2999" title="S3get_maxcriterion" alt="" coords="493,1813,640,1842"/>
+<area shape="rect" id="node91" href="$S3Classes_8c.html#a70a340b301b4e383107c92cbbeb4ae20" title="S3get_prediction" alt="" coords="501,1866,632,1895"/>
 </map>

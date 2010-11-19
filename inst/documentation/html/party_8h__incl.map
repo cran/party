@@ -1,14 +1,16 @@
-<area shape="rect" href="$Classes_8h.html" title="Classes.h" alt="" coords="651,80,731,107">
-<area shape="rect" href="$Utils_8h.html" title="Utils.h" alt="" coords="755,80,813,107">
-<area shape="rect" href="$mvt_8h.html" title="mvt.h" alt="" coords="837,80,891,107">
-<area shape="rect" href="$LinearStatistic_8h.html" title="LinearStatistic.h" alt="" coords="915,80,1029,107">
-<area shape="rect" href="$TestStatistic_8h.html" title="TestStatistic.h" alt="" coords="1053,80,1157,107">
-<area shape="rect" href="$Distributions_8h.html" title="Distributions.h" alt="" coords="1181,80,1285,107">
-<area shape="rect" href="$Convenience_8h.html" title="Convenience.h" alt="" coords="1309,80,1416,107">
-<area shape="rect" href="$S3Classes_8h.html" title="S3Classes.h" alt="" coords="1440,80,1536,107">
-<area shape="rect" href="$IndependenceTest_8h.html" title="IndependenceTest.h" alt="" coords="1560,80,1699,107">
-<area shape="rect" href="$Splits_8h.html" title="Splits.h" alt="" coords="1723,80,1787,107">
-<area shape="rect" href="$Node_8h.html" title="Node.h" alt="" coords="1811,80,1872,107">
-<area shape="rect" href="$Predict_8h.html" title="Predict.h" alt="" coords="1896,80,1968,107">
-<area shape="rect" href="$SurrogateSplits_8h.html" title="SurrogateSplits.h" alt="" coords="1992,80,2112,107">
-<area shape="rect" href="$TreeGrow_8h.html" title="TreeGrow.h" alt="" coords="2136,80,2221,107">
+<map id="G" name="G">
+<area shape="rect" id="node15" href="$Classes_8h.html" title="Classes.h" alt="" coords="677,83,760,112"/>
+<area shape="rect" id="node17" href="$Utils_8h.html" title="Utils.h" alt="" coords="784,83,845,112"/>
+<area shape="rect" id="node19" href="$mvt_8h.html" title="mvt.h" alt="" coords="869,83,928,112"/>
+<area shape="rect" id="node21" href="$LinearStatistic_8h.html" title="LinearStatistic.h" alt="" coords="952,83,1077,112"/>
+<area shape="rect" id="node23" href="$TestStatistic_8h.html" title="TestStatistic.h" alt="" coords="1101,83,1211,112"/>
+<area shape="rect" id="node25" href="$Distributions_8h.html" title="Distributions.h" alt="" coords="1235,83,1349,112"/>
+<area shape="rect" id="node27" href="$Convenience_8h.html" title="Convenience.h" alt="" coords="1373,83,1488,112"/>
+<area shape="rect" id="node29" href="$S3Classes_8h.html" title="S3Classes.h" alt="" coords="1512,83,1611,112"/>
+<area shape="rect" id="node31" href="$IndependenceTest_8h.html" title="IndependenceTest.h" alt="" coords="1635,83,1784,112"/>
+<area shape="rect" id="node33" href="$Splits_8h.html" title="Splits.h" alt="" coords="1808,83,1877,112"/>
+<area shape="rect" id="node35" href="$Node_8h.html" title="Node.h" alt="" coords="1901,83,1968,112"/>
+<area shape="rect" id="node37" href="$Predict_8h.html" title="Predict.h" alt="" coords="1992,83,2069,112"/>
+<area shape="rect" id="node39" href="$SurrogateSplits_8h.html" title="SurrogateSplits.h" alt="" coords="2093,83,2227,112"/>
+<area shape="rect" id="node41" href="$TreeGrow_8h.html" title="TreeGrow.h" alt="" coords="2251,83,2341,112"/>
+</map>

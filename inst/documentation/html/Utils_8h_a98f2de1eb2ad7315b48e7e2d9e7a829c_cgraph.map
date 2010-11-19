@@ -1,6 +1,6 @@
 <map id="G" name="G">
-<area shape="rect" href="$Utils_8c.html#a98f2de1eb2ad7315b48e7e2d9e7a829c" title="C_remove_weights" alt="" coords="188,63,319,92"/>
-<area shape="rect" href="$S3Classes_8c.html#a5917f57e141432fd1e4f58a16b9149aa" title="S3get_leftnode" alt="" coords="383,5,489,35"/>
-<area shape="rect" href="$S3Classes_8c.html#ab8834f319068d2a248a5d6328cd10dc5" title="S3get_nodeterminal" alt="" coords="368,76,504,105"/>
-<area shape="rect" href="$S3Classes_8c.html#a14a38e81ed758a64367dc190f0e8229b" title="S3get_rightnode" alt="" coords="379,141,493,171"/>
+<area shape="rect" id="node3" href="$Utils_8c.html#a98f2de1eb2ad7315b48e7e2d9e7a829c" title="C_remove_weights" alt="" coords="199,63,340,92"/>
+<area shape="rect" id="node6" href="$S3Classes_8c.html#a5917f57e141432fd1e4f58a16b9149aa" title="S3get_leftnode" alt="" coords="407,5,524,35"/>
+<area shape="rect" id="node8" href="$S3Classes_8c.html#ab8834f319068d2a248a5d6328cd10dc5" title="S3get_nodeterminal" alt="" coords="389,76,541,105"/>
+<area shape="rect" id="node10" href="$S3Classes_8c.html#a14a38e81ed758a64367dc190f0e8229b" title="S3get_rightnode" alt="" coords="401,141,529,171"/>
 </map>

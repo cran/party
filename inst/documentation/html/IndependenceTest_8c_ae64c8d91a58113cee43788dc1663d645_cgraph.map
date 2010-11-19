@@ -1,32 +1,32 @@
 <map id="G" name="G">
-<area shape="rect" href="$Convenience_8c.html#a8d5dcca68051449e29f3b857d375c4a0" title="C_LinStatExpCov" alt="" coords="217,85,340,115"/>
-<area shape="rect" href="$Convenience_8c.html#af39bdd14f23726fdd6bf74888ffbf920" title="C_LinStatExpCovMPinv" alt="" coords="199,165,359,195"/>
-<area shape="rect" href="$Utils_8c.html#aeeb672a71c45ead28b7b354414f2427a" title="nrow" alt="" coords="937,217,985,247"/>
-<area shape="rect" href="$IndependenceTest_8c.html#ab02275a67ad210d96fed9864590ee3ef" title="C_TeststatPvalue" alt="" coords="217,429,340,459"/>
-<area shape="rect" href="$Classes_8c.html#a847e08eb9fce554539de3106ea03e9e2" title="get_teststat" alt="" coords="461,589,552,619"/>
-<area shape="rect" href="$Classes_8c.html#aaa5df349ffd6e5faccab211ac972722b" title="get_tol" alt="" coords="477,643,536,672"/>
-<area shape="rect" href="$Utils_8c.html#af1f46cc3e98630497a1ccb21d943fe65" title="ncol" alt="" coords="256,584,301,613"/>
-<area shape="rect" href="$LinearStatistic_8c.html#ae2f62abe13ee5b625141b5d4a496d832" title="C_ExpectCovarInfluence" alt="" coords="424,5,589,35"/>
-<area shape="rect" href="$LinearStatistic_8c.html#a94a0805ea258af79d426c095feee399a" title="C_ExpectCovarLinearStatistic" alt="" coords="409,59,604,88"/>
-<area shape="rect" href="$LinearStatistic_8c.html#aaefa2a9406bb30b323715e3db41da637" title="C_LinearStatistic" alt="" coords="447,112,567,141"/>
-<area shape="rect" href="$Utils_8c.html#a12e882779ecd0445c3a0dd9ac85dfeee" title="C_kronecker" alt="" coords="705,59,799,88"/>
-<area shape="rect" href="$Utils_8c.html#ac0d5c2fe971923d7a1b1869dffabddb1" title="C_MPinv" alt="" coords="469,165,544,195"/>
-<area shape="rect" href="$Utils_8c.html#a4534205c84c2784248b60818d7c2f3d6" title="CR_svd" alt="" coords="719,165,785,195"/>
-<area shape="rect" href="$Utils_8c.html#aa8a5e9e33269198241964dab2ed4e591" title="CR_La_svd" alt="" coords="917,164,1005,193"/>
-<area shape="rect" href="$Convenience_8c.html#aa1bfc91db235a3a166a39ed1e0a224d7" title="C_ConditionalPvalue" alt="" coords="436,429,577,459"/>
-<area shape="rect" href="$Convenience_8c.html#a26159cd74cebf8ff7073ff588864e9ab" title="C_TestStatistic" alt="" coords="452,483,561,512"/>
-<area shape="rect" href="$Classes_8c.html#a4e2233c1c47758c555f99235f60984f0" title="get_abseps" alt="" coords="463,536,551,565"/>
-<area shape="rect" href="$Classes_8c.html#ab0fc0f7fb33f87cfa58cb8c617d946a1" title="get_maxpts" alt="" coords="463,269,551,299"/>
-<area shape="rect" href="$Classes_8c.html#a309a9064403a71aba540cad646ba5854" title="get_pvalue" alt="" coords="465,323,548,352"/>
-<area shape="rect" href="$Classes_8c.html#aa17053ff24db1859af60e2d71baf924c" title="get_releps" alt="" coords="467,376,547,405"/>
-<area shape="rect" href="$Distributions_8c.html#a0b0373aa22dcf8b8ecf6b9c560db9c70" title="C_maxabsConditionalPvalue" alt="" coords="659,349,845,379"/>
-<area shape="rect" href="$Distributions_8c.html#aa692392488ab88e95a62d2142e9d428c" title="C_quadformConditionalPvalue" alt="" coords="655,403,849,432"/>
-<area shape="rect" href="$Classes_8c.html#a8bc9164a2291bb7f61c12b79f6bc7c5f" title="get_dimension" alt="" coords="700,456,804,485"/>
-<area shape="rect" href="$mvt_8h.html#a2a7ae850a24d2fe1a610ca397d6871c7" title="mvtdst" alt="" coords="931,349,992,379"/>
-<area shape="rect" href="$TestStatistic_8c.html#aa3a1f48e4bb3aa19d1bac85a53358638" title="C_maxabsTestStatistic" alt="" coords="675,509,829,539"/>
-<area shape="rect" href="$TestStatistic_8c.html#ab45eb88ec3b2cc87e8610771cdcf53c4" title="C_quadformTestStatistic" alt="" coords="671,563,833,592"/>
-<area shape="rect" href="$TestStatistic_8c.html#a6939f019d2c7f42ae824776043a8c704" title="C_absstandardize" alt="" coords="899,536,1024,565"/>
-<area shape="rect" href="$Utils_8c.html#a5b306a6923d1155e6ce877cf6fa12a42" title="C_max" alt="" coords="931,483,992,512"/>
-<area shape="rect" href="$Utils_8c.html#aa5479e1fef3da77537e06730826379e1" title="C_abs" alt="" coords="1095,509,1153,539"/>
-<area shape="rect" href="$TestStatistic_8c.html#a9ecf0700a00ad5fd64601bf718f20439" title="C_standardize" alt="" coords="1072,563,1176,592"/>
+<area shape="rect" id="node3" href="$Convenience_8c.html#a8d5dcca68051449e29f3b857d375c4a0" title="C_LinStatExpCov" alt="" coords="227,85,357,115"/>
+<area shape="rect" id="node13" href="$Convenience_8c.html#af39bdd14f23726fdd6bf74888ffbf920" title="C_LinStatExpCovMPinv" alt="" coords="209,165,375,195"/>
+<area shape="rect" id="node21" href="$Utils_8c.html#aeeb672a71c45ead28b7b354414f2427a" title="nrow" alt="" coords="987,217,1037,247"/>
+<area shape="rect" id="node23" href="$IndependenceTest_8c.html#ab02275a67ad210d96fed9864590ee3ef" title="C_TeststatPvalue" alt="" coords="227,429,357,459"/>
+<area shape="rect" id="node58" href="$Classes_8c.html#a847e08eb9fce554539de3106ea03e9e2" title="get_teststat" alt="" coords="480,589,579,619"/>
+<area shape="rect" id="node60" href="$Classes_8c.html#aaa5df349ffd6e5faccab211ac972722b" title="get_tol" alt="" coords="496,643,563,672"/>
+<area shape="rect" id="node64" href="$Utils_8c.html#af1f46cc3e98630497a1ccb21d943fe65" title="ncol" alt="" coords="268,584,316,613"/>
+<area shape="rect" id="node5" href="$LinearStatistic_8c.html#ae2f62abe13ee5b625141b5d4a496d832" title="C_ExpectCovarInfluence" alt="" coords="443,5,616,35"/>
+<area shape="rect" id="node7" href="$LinearStatistic_8c.html#a94a0805ea258af79d426c095feee399a" title="C_ExpectCovarLinearStatistic" alt="" coords="425,59,633,88"/>
+<area shape="rect" id="node11" href="$LinearStatistic_8c.html#aaefa2a9406bb30b323715e3db41da637" title="C_LinearStatistic" alt="" coords="465,112,593,141"/>
+<area shape="rect" id="node9" href="$Utils_8c.html#a12e882779ecd0445c3a0dd9ac85dfeee" title="C_kronecker" alt="" coords="739,59,840,88"/>
+<area shape="rect" id="node15" href="$Utils_8c.html#ac0d5c2fe971923d7a1b1869dffabddb1" title="C_MPinv" alt="" coords="492,165,567,195"/>
+<area shape="rect" id="node17" href="$Utils_8c.html#a4534205c84c2784248b60818d7c2f3d6" title="CR_svd" alt="" coords="756,165,823,195"/>
+<area shape="rect" id="node19" href="$Utils_8c.html#aa8a5e9e33269198241964dab2ed4e591" title="CR_La_svd" alt="" coords="967,164,1057,193"/>
+<area shape="rect" id="node25" href="$Convenience_8c.html#aa1bfc91db235a3a166a39ed1e0a224d7" title="C_ConditionalPvalue" alt="" coords="455,429,604,459"/>
+<area shape="rect" id="node35" href="$Convenience_8c.html#a26159cd74cebf8ff7073ff588864e9ab" title="C_TestStatistic" alt="" coords="472,483,587,512"/>
+<area shape="rect" id="node50" href="$Classes_8c.html#a4e2233c1c47758c555f99235f60984f0" title="get_abseps" alt="" coords="481,536,577,565"/>
+<area shape="rect" id="node52" href="$Classes_8c.html#ab0fc0f7fb33f87cfa58cb8c617d946a1" title="get_maxpts" alt="" coords="480,269,579,299"/>
+<area shape="rect" id="node54" href="$Classes_8c.html#a309a9064403a71aba540cad646ba5854" title="get_pvalue" alt="" coords="484,323,575,352"/>
+<area shape="rect" id="node56" href="$Classes_8c.html#aa17053ff24db1859af60e2d71baf924c" title="get_releps" alt="" coords="485,376,573,405"/>
+<area shape="rect" id="node27" href="$Distributions_8c.html#a0b0373aa22dcf8b8ecf6b9c560db9c70" title="C_maxabsConditionalPvalue" alt="" coords="688,349,891,379"/>
+<area shape="rect" id="node31" href="$Distributions_8c.html#aa692392488ab88e95a62d2142e9d428c" title="C_quadformConditionalPvalue" alt="" coords="683,403,896,432"/>
+<area shape="rect" id="node33" href="$Classes_8c.html#a8bc9164a2291bb7f61c12b79f6bc7c5f" title="get_dimension" alt="" coords="732,456,847,485"/>
+<area shape="rect" id="node29" href="$mvt_8h.html#a2a7ae850a24d2fe1a610ca397d6871c7" title="mvtdst" alt="" coords="979,349,1045,379"/>
+<area shape="rect" id="node37" href="$TestStatistic_8c.html#aa3a1f48e4bb3aa19d1bac85a53358638" title="C_maxabsTestStatistic" alt="" coords="707,509,872,539"/>
+<area shape="rect" id="node47" href="$TestStatistic_8c.html#ab45eb88ec3b2cc87e8610771cdcf53c4" title="C_quadformTestStatistic" alt="" coords="701,563,877,592"/>
+<area shape="rect" id="node39" href="$TestStatistic_8c.html#a6939f019d2c7f42ae824776043a8c704" title="C_absstandardize" alt="" coords="944,536,1080,565"/>
+<area shape="rect" id="node45" href="$Utils_8c.html#a5b306a6923d1155e6ce877cf6fa12a42" title="C_max" alt="" coords="979,483,1045,512"/>
+<area shape="rect" id="node41" href="$Utils_8c.html#aa5479e1fef3da77537e06730826379e1" title="C_abs" alt="" coords="1155,509,1216,539"/>
+<area shape="rect" id="node43" href="$TestStatistic_8c.html#a9ecf0700a00ad5fd64601bf718f20439" title="C_standardize" alt="" coords="1129,563,1241,592"/>
 </map>

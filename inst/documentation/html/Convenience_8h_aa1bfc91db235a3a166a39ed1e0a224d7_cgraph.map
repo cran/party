@@ -1,6 +1,6 @@
 <map id="G" name="G">
-<area shape="rect" href="$Distributions_8c.html#a0b0373aa22dcf8b8ecf6b9c560db9c70" title="C_maxabsConditionalPvalue" alt="" coords="200,5,387,35"/>
-<area shape="rect" href="$Distributions_8c.html#aa692392488ab88e95a62d2142e9d428c" title="C_quadformConditionalPvalue" alt="" coords="196,59,391,88"/>
-<area shape="rect" href="$Classes_8c.html#a8bc9164a2291bb7f61c12b79f6bc7c5f" title="get_dimension" alt="" coords="241,112,345,141"/>
-<area shape="rect" href="$mvt_8h.html#a2a7ae850a24d2fe1a610ca397d6871c7" title="mvtdst" alt="" coords="440,5,501,35"/>
+<area shape="rect" id="node3" href="$Distributions_8c.html#a0b0373aa22dcf8b8ecf6b9c560db9c70" title="C_maxabsConditionalPvalue" alt="" coords="211,5,413,35"/>
+<area shape="rect" id="node7" href="$Distributions_8c.html#aa692392488ab88e95a62d2142e9d428c" title="C_quadformConditionalPvalue" alt="" coords="205,59,419,88"/>
+<area shape="rect" id="node9" href="$Classes_8c.html#a8bc9164a2291bb7f61c12b79f6bc7c5f" title="get_dimension" alt="" coords="255,112,369,141"/>
+<area shape="rect" id="node5" href="$mvt_8h.html#a2a7ae850a24d2fe1a610ca397d6871c7" title="mvtdst" alt="" coords="467,5,533,35"/>
 </map>
