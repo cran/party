@@ -10,7 +10,7 @@ create_cond_list <- function(cond, threshold, xname, input) {
            xnames <- names(input)
            xnames <- xnames[xnames != xname]
            ct <- ctree(as.formula(paste(xname, "~", paste(xnames, collapse = "+"), collapse = "")),
-                       data = input, control = ctrl)
+                       data = input, controls = ctrl)
            crit <- ct@tree$criterion[[2]]
            crit[which(is.na(crit))] <- 0
            return(xnames[crit > threshold])

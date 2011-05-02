@@ -1,4 +1,9 @@
 
+                CHANGES IN party VERSION 0.9-99992 (2011-05-02)
+
+    o    fix partial matching problems
+
+
                 CHANGES IN party VERSION 0.9-99991 (2010-11-19)
 
     o    fix tests/ dependencies
