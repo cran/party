@@ -34,8 +34,7 @@ c("1",
 
 
 ### get rid of the NAMESPACE
-nsparty <- attach(NULL, name="ns-party")
-.Internal(lib.fixup(asNamespace("party"), nsparty))
+attach(asNamespace("party"))
 
 ### 
 ###

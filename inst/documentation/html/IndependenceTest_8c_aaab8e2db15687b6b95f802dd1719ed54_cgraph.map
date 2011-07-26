@@ -12,7 +12,7 @@
 <area shape="rect" id="node13" href="$LinearStatistic_8c.html#aaefa2a9406bb30b323715e3db41da637" title="C_LinearStatistic" alt="" coords="665,112,793,141"/>
 <area shape="rect" id="node11" href="$Utils_8c.html#a12e882779ecd0445c3a0dd9ac85dfeee" title="C_kronecker" alt="" coords="939,59,1040,88"/>
 <area shape="rect" id="node17" href="$Utils_8c.html#ac0d5c2fe971923d7a1b1869dffabddb1" title="C_MPinv" alt="" coords="692,165,767,195"/>
-<area shape="rect" id="node19" href="$Utils_8c.html#a4534205c84c2784248b60818d7c2f3d6" title="CR_svd" alt="" coords="956,165,1023,195"/>
+<area shape="rect" id="node19" href="$Utils_8c.html#a7d7d78de793f6a7b6fd0e2a4f8435908" title="C_svd" alt="" coords="960,165,1019,195"/>
 <area shape="rect" id="node21" href="$Utils_8c.html#aa8a5e9e33269198241964dab2ed4e591" title="CR_La_svd" alt="" coords="1167,164,1257,193"/>
 <area shape="rect" id="node27" href="$Convenience_8c.html#aa1bfc91db235a3a166a39ed1e0a224d7" title="C_ConditionalPvalue" alt="" coords="655,429,804,459"/>
 <area shape="rect" id="node37" href="$Convenience_8c.html#a26159cd74cebf8ff7073ff588864e9ab" title="C_TestStatistic" alt="" coords="672,483,787,512"/>

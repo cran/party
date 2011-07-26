@@ -3,7 +3,7 @@
     Functions for variable selection in each node of a tree
     *\file IndependenceTest.c
     *\author $Author: hothorn $
-    *\date $Date: 2009-06-17 12:46:51 +0200 (Wed, 17 Jun 2009) $
+    *\date $Date: 2011-05-06 17:01:10 +0200 (Fri, 06 May 2011) $
 */
                 
 #include "party.h"
@@ -134,16 +134,15 @@ void C_GlobalTest(const SEXP learnsample, const SEXP weights,
 
     int ninputs, nobs, j, i, k, RECALC = 1, type;
     SEXP responses, inputs, y, x, xmem, expcovinf;
-    SEXP thiswhichNA, Smtry;
-    double *thisweights, *dweights, *pvaltmp, stweights = 0.0;
-    int *ithiswhichNA, RANDOM, mtry, *randomvar, *index;
+    SEXP Smtry;
+    double *thisweights, *pvaltmp, stweights = 0.0;
+    int RANDOM, mtry, *randomvar, *index;
     int *dontuse, *dontusetmp;
     
     ninputs = get_ninputs(learnsample);
     nobs = get_nobs(learnsample);
     responses = GET_SLOT(learnsample, PL2_responsesSym);
     inputs = GET_SLOT(learnsample, PL2_inputsSym);
-    dweights = REAL(weights);
     
     /* y = get_transformation(responses, 1); */
     y = get_test_trafo(responses);

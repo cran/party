@@ -3,7 +3,7 @@
     Node splitting and prediction
     *\file Predict.c
     *\author $Author: hothorn $
-    *\date $Date: 2010-08-23 12:52:49 +0200 (Mon, 23 Aug 2010) $
+    *\date $Date: 2011-05-06 17:01:10 +0200 (Fri, 06 May 2011) $
 */
                 
 #include "party.h"
@@ -37,7 +37,7 @@ void C_splitnode(SEXP node, SEXP learnsample, SEXP control) {
     SET_VECTOR_ELT(node, S3_LEFT, leftnode = allocVector(VECSXP, NODE_LENGTH));
     C_init_node(leftnode, nobs, 
         get_ninputs(learnsample), get_maxsurrogate(get_splitctrl(control)),
-        ncol(get_predict_trafo(GET_SLOT(learnsample, PL2_responsesSym))));
+        ncol(get_predict_trafo(responses)));
     leftweights = REAL(S3get_nodeweights(leftnode));
 
     /* set up memory for the right daughter */
@@ -45,7 +45,7 @@ void C_splitnode(SEXP node, SEXP learnsample, SEXP control) {
                    rightnode = allocVector(VECSXP, NODE_LENGTH));
     C_init_node(rightnode, nobs, 
         get_ninputs(learnsample), get_maxsurrogate(get_splitctrl(control)),
-        ncol(get_predict_trafo(GET_SLOT(learnsample, PL2_responsesSym))));
+        ncol(get_predict_trafo(responses)));
     rightweights = REAL(S3get_nodeweights(rightnode));
 
     /* split according to the primary split */
@@ -121,8 +121,8 @@ void C_splitnode(SEXP node, SEXP learnsample, SEXP control) {
 SEXP C_get_node(SEXP subtree, SEXP newinputs, 
                 double mincriterion, int numobs, int varperm) {
 
-    SEXP split, whichNA, weights, ssplit, surrsplit;
-    double cutpoint, x, *dweights, swleft, swright;
+    SEXP split, whichNA, ssplit, surrsplit;
+    double cutpoint, x, swleft, swright;
     int level, *levelset, i, ns;
 
     if (S3get_nodeterminal(subtree) || 
@@ -467,14 +467,12 @@ SEXP R_predictRF_weights(SEXP forest, SEXP where, SEXP weights,
                          SEXP newinputs, SEXP mincriterion, SEXP oobpred) {
 
     SEXP ans, tree, bw;
-    int ntrees, nobs, i, b, j, q, iwhere, oob = 0, count = 0, ntrain;
+    int ntrees, nobs, i, b, j, iwhere, oob = 0, count = 0, ntrain;
     
     if (LOGICAL(oobpred)[0]) oob = 1;
     
     nobs = get_nobs(newinputs);
     ntrees = LENGTH(forest);
-    q = LENGTH(S3get_prediction(
-                   C_get_nodebynum(VECTOR_ELT(forest, 0), 1)));
 
     if (oob) {
         if (LENGTH(VECTOR_ELT(weights, 0)) != nobs)

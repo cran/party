@@ -1,5 +1,5 @@
 
-# $Id: Plot.R 4314 2009-03-27 16:25:13Z hothorn $
+# $Id: Plot.R 4678 2011-05-02 14:14:52Z hothorn $
 
 ## utility functions for querying the number of
 ## terminal nodes and the maximal depth of (sub-)trees

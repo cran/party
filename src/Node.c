@@ -3,7 +3,7 @@
     Node computations
     *\file Node.c
     *\author $Author: hothorn $
-    *\date $Date: 2009-06-16 09:17:31 +0200 (Tue, 16 Jun 2009) $
+    *\date $Date: 2011-05-06 17:01:10 +0200 (Fri, 06 May 2011) $
 */
                 
 #include "party.h"
@@ -55,7 +55,7 @@ void C_Node(SEXP node, SEXP learnsample, SEXP weights,
     double *standstat, *splitstat;
     SEXP responses, inputs, x, expcovinf, linexpcov;
     SEXP varctrl, splitctrl, gtctrl, tgctrl, split, testy, predy;
-    double *dxtransf, *dweights, *thisweights;
+    double *dxtransf, *thisweights;
     int *itable;
     
     nobs = get_nobs(learnsample);

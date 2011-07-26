@@ -25,7 +25,7 @@
 <area shape="rect" id="node12" href="$LinearStatistic_8c.html#aaefa2a9406bb30b323715e3db41da637" title="C_LinearStatistic" alt="" coords="415,117,543,147"/>
 <area shape="rect" id="node10" href="$Utils_8c.html#a12e882779ecd0445c3a0dd9ac85dfeee" title="C_kronecker" alt="" coords="647,64,748,93"/>
 <area shape="rect" id="node16" href="$Utils_8c.html#ac0d5c2fe971923d7a1b1869dffabddb1" title="C_MPinv" alt="" coords="441,1064,516,1093"/>
-<area shape="rect" id="node18" href="$Utils_8c.html#a4534205c84c2784248b60818d7c2f3d6" title="CR_svd" alt="" coords="664,1064,731,1093"/>
+<area shape="rect" id="node18" href="$Utils_8c.html#a7d7d78de793f6a7b6fd0e2a4f8435908" title="C_svd" alt="" coords="668,1064,727,1093"/>
 <area shape="rect" id="node20" href="$Utils_8c.html#aa8a5e9e33269198241964dab2ed4e591" title="CR_La_svd" alt="" coords="841,1063,932,1092"/>
 <area shape="rect" id="node27" href="$Utils_8c.html#a5b306a6923d1155e6ce877cf6fa12a42" title="C_max" alt="" coords="1307,417,1373,447"/>
 <area shape="rect" id="node29" href="$LinearStatistic_8c.html#aa34b0f12fac36231a105d6dc903bfe89" title="C_PermutedLinearStatistic" alt="" coords="383,483,575,512"/>

@@ -52,7 +52,8 @@ Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Utils_8c.html#a12e882779ecd0445c3a0dd9ac85dfeee">C_kronecker</a> (const double *A, const int m, const int n, const double *B, const int r, const int s, double *ans)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">SEXP&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Utils_8c.html#a95f5ed4c75d42e2e98ed09c9c9d48ff5">R_kronecker</a> (SEXP A, SEXP B)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Utils_8c.html#aa8a5e9e33269198241964dab2ed4e591">CR_La_svd</a> (SEXP jobu, SEXP jobv, SEXP x, SEXP s, SEXP u, SEXP v, SEXP method)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">SEXP&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Utils_8c.html#a4534205c84c2784248b60818d7c2f3d6">CR_svd</a> (SEXP x, SEXP svdmem)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Utils_8c.html#a7d7d78de793f6a7b6fd0e2a4f8435908">C_svd</a> (SEXP x, SEXP svdmem)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">SEXP&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Utils_8c.html#a46c7a1ff234b36c5417eea8a0a93464c">R_svd</a> (SEXP x, SEXP svdmem)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Utils_8c.html#ac0d5c2fe971923d7a1b1869dffabddb1">C_MPinv</a> (SEXP x, double tol, SEXP svdmem, SEXP ans)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">SEXP&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Utils_8c.html#a9aa84c21406d338bd7116cbe9444ea3c">R_MPinv</a> (SEXP x, SEXP tol, SEXP svdmem)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Utils_8c.html#a5b306a6923d1155e6ce877cf6fa12a42">C_max</a> (const double *x, const int n)</td></tr>
@@ -123,9 +124,9 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Utils_8c_source.html#l00315">315</a> of file <a class="el" href="Utils_8c_source.html">Utils.c</a>.</p>
+<p>Definition at line <a class="el" href="Utils_8c_source.html#l00327">327</a> of file <a class="el" href="Utils_8c_source.html">Utils.c</a>.</p>
 
-<p>Referenced by <a class="el" href="TestStatistic_8c_source.html#l00049">C_absstandardize()</a>, and <a class="el" href="Utils_8c_source.html#l00327">R_abs()</a>.</p>
+<p>Referenced by <a class="el" href="TestStatistic_8c_source.html#l00049">C_absstandardize()</a>, and <a class="el" href="Utils_8c_source.html#l00339">R_abs()</a>.</p>
 
 </div>
 </div>
@@ -154,9 +155,9 @@ Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="Utils_8c_source.html#l00564">564</a> of file <a class="el" href="Utils_8c_source.html">Utils.c</a>.</p>
+<p>Definition at line <a class="el" href="Utils_8c_source.html#l00576">576</a> of file <a class="el" href="Utils_8c_source.html">Utils.c</a>.</p>
 
-<p>References <a class="el" href="Utils_8c_source.html#l00549">i_in_set()</a>.</p>
+<p>References <a class="el" href="Utils_8c_source.html#l00561">i_in_set()</a>.</p>
 
 <p>Referenced by <a class="el" href="Predict_8c_source.html#l00121">C_get_node()</a>, and <a class="el" href="SurrogateSplits_8c_source.html#l00198">C_splitsurrogate()</a>.</p>
 
@@ -242,7 +243,7 @@ Here is the call graph for this function:</div>
 
 <p>Definition at line <a class="el" href="Utils_8c_source.html#l00023">23</a> of file <a class="el" href="Utils_8c_source.html">Utils.c</a>.</p>
 
-<p>Referenced by <a class="el" href="LinearStatistic_8c_source.html#l00213">C_ExpectCovarLinearStatistic()</a>, and <a class="el" href="Utils_8c_source.html#l00052">R_kronecker()</a>.</p>
+<p>Referenced by <a class="el" href="LinearStatistic_8c_source.html#l00212">C_ExpectCovarLinearStatistic()</a>, and <a class="el" href="Utils_8c_source.html#l00052">R_kronecker()</a>.</p>
 
 </div>
 </div>
@@ -314,9 +315,9 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Utils_8c_source.html#l00353">353</a> of file <a class="el" href="Utils_8c_source.html">Utils.c</a>.</p>
+<p>Definition at line <a class="el" href="Utils_8c_source.html#l00365">365</a> of file <a class="el" href="Utils_8c_source.html">Utils.c</a>.</p>
 
-<p>Referenced by <a class="el" href="Utils_8c_source.html#l00374">R_matprod()</a>.</p>
+<p>Referenced by <a class="el" href="Utils_8c_source.html#l00386">R_matprod()</a>.</p>
 
 </div>
 </div>
@@ -388,9 +389,9 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Utils_8c_source.html#l00405">405</a> of file <a class="el" href="Utils_8c_source.html">Utils.c</a>.</p>
+<p>Definition at line <a class="el" href="Utils_8c_source.html#l00417">417</a> of file <a class="el" href="Utils_8c_source.html">Utils.c</a>.</p>
 
-<p>Referenced by <a class="el" href="Utils_8c_source.html#l00426">R_matprodT()</a>.</p>
+<p>Referenced by <a class="el" href="Utils_8c_source.html#l00438">R_matprodT()</a>.</p>
 
 </div>
 </div>
@@ -427,9 +428,9 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Utils_8c_source.html#l00278">278</a> of file <a class="el" href="Utils_8c_source.html">Utils.c</a>.</p>
+<p>Definition at line <a class="el" href="Utils_8c_source.html#l00290">290</a> of file <a class="el" href="Utils_8c_source.html">Utils.c</a>.</p>
 
-<p>Referenced by <a class="el" href="TestStatistic_8c_source.html#l00066">C_maxabsTestStatistic()</a>, <a class="el" href="Distributions_8c_source.html#l00186">C_MonteCarlo()</a>, <a class="el" href="Node_8c_source.html#l00049">C_Node()</a>, and <a class="el" href="Utils_8c_source.html#l00294">R_max()</a>.</p>
+<p>Referenced by <a class="el" href="TestStatistic_8c_source.html#l00066">C_maxabsTestStatistic()</a>, <a class="el" href="Distributions_8c_source.html#l00186">C_MonteCarlo()</a>, <a class="el" href="Node_8c_source.html#l00049">C_Node()</a>, and <a class="el" href="Utils_8c_source.html#l00306">R_max()</a>.</p>
 
 </div>
 </div>
@@ -480,18 +481,18 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Utils_8c_source.html#l00185">185</a> of file <a class="el" href="Utils_8c_source.html">Utils.c</a>.</p>
+<p>Definition at line <a class="el" href="Utils_8c_source.html#l00197">197</a> of file <a class="el" href="Utils_8c_source.html">Utils.c</a>.</p>
 
-<p>References <a class="el" href="Utils_8c_source.html#l00153">CR_svd()</a>, <a class="el" href="Classes_8c_source.html#l00012">PL2_MPinvSym</a>, <a class="el" href="Classes_8c_source.html#l00012">PL2_rankSym</a>, <a class="el" href="Classes_8c_source.html#l00012">PL2_sSym</a>, <a class="el" href="Classes_8c_source.html#l00012">PL2_uSym</a>, and <a class="el" href="Classes_8c_source.html#l00012">PL2_vSym</a>.</p>
+<p>References <a class="el" href="Utils_8c_source.html#l00153">C_svd()</a>, <a class="el" href="Classes_8c_source.html#l00012">PL2_MPinvSym</a>, <a class="el" href="Classes_8c_source.html#l00012">PL2_rankSym</a>, <a class="el" href="Classes_8c_source.html#l00012">PL2_sSym</a>, <a class="el" href="Classes_8c_source.html#l00012">PL2_uSym</a>, and <a class="el" href="Classes_8c_source.html#l00012">PL2_vSym</a>.</p>
 
-<p>Referenced by <a class="el" href="Convenience_8c_source.html#l00046">C_LinStatExpCovMPinv()</a>, and <a class="el" href="Utils_8c_source.html#l00243">R_MPinv()</a>.</p>
+<p>Referenced by <a class="el" href="Convenience_8c_source.html#l00046">C_LinStatExpCovMPinv()</a>, and <a class="el" href="Utils_8c_source.html#l00255">R_MPinv()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="Utils_8c_ac0d5c2fe971923d7a1b1869dffabddb1_cgraph.png" border="0" usemap="#Utils_8c_ac0d5c2fe971923d7a1b1869dffabddb1_cgraph" alt=""/></div>
 <map name="Utils_8c_ac0d5c2fe971923d7a1b1869dffabddb1_cgraph" id="Utils_8c_ac0d5c2fe971923d7a1b1869dffabddb1_cgraph">
-<area shape="rect" id="node3" href="Utils_8c.html#a4534205c84c2784248b60818d7c2f3d6" title="CR_svd" alt="" coords="129,32,196,61"/><area shape="rect" id="node5" href="Utils_8c.html#aa8a5e9e33269198241964dab2ed4e591" title="CR_La_svd" alt="" coords="245,5,336,35"/><area shape="rect" id="node7" href="Utils_8c.html#aeeb672a71c45ead28b7b354414f2427a" title="nrow" alt="" coords="265,59,316,88"/></map>
+<area shape="rect" id="node3" href="Utils_8c.html#a7d7d78de793f6a7b6fd0e2a4f8435908" title="C_svd" alt="" coords="129,32,188,61"/><area shape="rect" id="node5" href="Utils_8c.html#aa8a5e9e33269198241964dab2ed4e591" title="CR_La_svd" alt="" coords="237,5,328,35"/><area shape="rect" id="node7" href="Utils_8c.html#aeeb672a71c45ead28b7b354414f2427a" title="nrow" alt="" coords="257,59,308,88"/></map>
 </div>
 </p>
 
@@ -540,9 +541,9 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="Utils_8c_source.html#l00508">508</a> of file <a class="el" href="Utils_8c_source.html">Utils.c</a>.</p>
+<p>Definition at line <a class="el" href="Utils_8c_source.html#l00520">520</a> of file <a class="el" href="Utils_8c_source.html">Utils.c</a>.</p>
 
-<p>Referenced by <a class="el" href="Utils_8c_source.html#l00679">C_SampleSplitting()</a>.</p>
+<p>Referenced by <a class="el" href="Utils_8c_source.html#l00691">C_SampleSplitting()</a>.</p>
 
 </div>
 </div>
@@ -572,11 +573,11 @@ Here is the call graph for this function:</div>
 <div class="memdoc">
 <p>Remove weights vector from each node of a tree (in order to save memory) \*param subtree a tree </p>
 
-<p>Definition at line <a class="el" href="Utils_8c_source.html#l00702">702</a> of file <a class="el" href="Utils_8c_source.html">Utils.c</a>.</p>
+<p>Definition at line <a class="el" href="Utils_8c_source.html#l00714">714</a> of file <a class="el" href="Utils_8c_source.html">Utils.c</a>.</p>
 
-<p>References <a class="el" href="Utils_8c_source.html#l00702">C_remove_weights()</a>, <a class="el" href="party_8h_source.html#l00036">S3_CRITERION</a>, <a class="el" href="party_8h_source.html#l00048">S3_iCRITERION</a>, <a class="el" href="party_8h_source.html#l00047">S3_STATISTICS</a>, <a class="el" href="party_8h_source.html#l00035">S3_WEIGHTS</a>, <a class="el" href="S3Classes_8c_source.html#l00096">S3get_leftnode()</a>, <a class="el" href="S3Classes_8c_source.html#l00080">S3get_nodeterminal()</a>, and <a class="el" href="S3Classes_8c_source.html#l00100">S3get_rightnode()</a>.</p>
+<p>References <a class="el" href="Utils_8c_source.html#l00714">C_remove_weights()</a>, <a class="el" href="party_8h_source.html#l00036">S3_CRITERION</a>, <a class="el" href="party_8h_source.html#l00048">S3_iCRITERION</a>, <a class="el" href="party_8h_source.html#l00047">S3_STATISTICS</a>, <a class="el" href="party_8h_source.html#l00035">S3_WEIGHTS</a>, <a class="el" href="S3Classes_8c_source.html#l00096">S3get_leftnode()</a>, <a class="el" href="S3Classes_8c_source.html#l00080">S3get_nodeterminal()</a>, and <a class="el" href="S3Classes_8c_source.html#l00100">S3get_rightnode()</a>.</p>
 
-<p>Referenced by <a class="el" href="Utils_8c_source.html#l00702">C_remove_weights()</a>, <a class="el" href="RandomForest_8c_source.html#l00022">R_Ensemble()</a>, and <a class="el" href="Utils_8c_source.html#l00718">R_remove_weights()</a>.</p>
+<p>Referenced by <a class="el" href="Utils_8c_source.html#l00714">C_remove_weights()</a>, <a class="el" href="RandomForest_8c_source.html#l00022">R_Ensemble()</a>, and <a class="el" href="Utils_8c_source.html#l00730">R_remove_weights()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -636,9 +637,9 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Utils_8c_source.html#l00453">453</a> of file <a class="el" href="Utils_8c_source.html">Utils.c</a>.</p>
+<p>Definition at line <a class="el" href="Utils_8c_source.html#l00465">465</a> of file <a class="el" href="Utils_8c_source.html">Utils.c</a>.</p>
 
-<p>Referenced by <a class="el" href="IndependenceTest_8c_source.html#l00130">C_GlobalTest()</a>, <a class="el" href="Distributions_8c_source.html#l00186">C_MonteCarlo()</a>, <a class="el" href="Utils_8c_source.html#l00472">R_permute()</a>, and <a class="el" href="Utils_8c_source.html#l00492">R_rsubset()</a>.</p>
+<p>Referenced by <a class="el" href="IndependenceTest_8c_source.html#l00130">C_GlobalTest()</a>, <a class="el" href="Distributions_8c_source.html#l00186">C_MonteCarlo()</a>, <a class="el" href="Utils_8c_source.html#l00484">R_permute()</a>, and <a class="el" href="Utils_8c_source.html#l00504">R_rsubset()</a>.</p>
 
 </div>
 </div>
@@ -679,9 +680,9 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="Utils_8c_source.html#l00679">679</a> of file <a class="el" href="Utils_8c_source.html">Utils.c</a>.</p>
+<p>Definition at line <a class="el" href="Utils_8c_source.html#l00691">691</a> of file <a class="el" href="Utils_8c_source.html">Utils.c</a>.</p>
 
-<p>References <a class="el" href="Utils_8c_source.html#l00508">C_ProbSampleNoReplace()</a>.</p>
+<p>References <a class="el" href="Utils_8c_source.html#l00520">C_ProbSampleNoReplace()</a>.</p>
 
 <p>Referenced by <a class="el" href="RandomForest_8c_source.html#l00022">R_Ensemble()</a>.</p>
 
@@ -691,6 +692,56 @@ Here is the call graph for this function:</div>
 <div class="center"><img src="Utils_8c_a88c1a807c7856d57d07d10027d588602_cgraph.png" border="0" usemap="#Utils_8c_a88c1a807c7856d57d07d10027d588602_cgraph" alt=""/></div>
 <map name="Utils_8c_a88c1a807c7856d57d07d10027d588602_cgraph" id="Utils_8c_a88c1a807c7856d57d07d10027d588602_cgraph">
 <area shape="rect" id="node3" href="Utils_8c.html#addcc956c37a6db1886b633ee484cee1b" title="C_ProbSampleNoReplace" alt="" coords="193,5,375,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a7d7d78de793f6a7b6fd0e2a4f8435908"></a><!-- doxytag: member="Utils.c::C_svd" ref="a7d7d78de793f6a7b6fd0e2a4f8435908" args="(SEXP x, SEXP svdmem)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void C_svd </td>
+          <td>(</td>
+          <td class="paramtype">SEXP&nbsp;</td>
+          <td class="paramname"> <em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SEXP&nbsp;</td>
+          <td class="paramname"> <em>svdmem</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>C-interface to CR_La_svd </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>x</em>&nbsp;</td><td>matrix </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>svdmem</em>&nbsp;</td><td>an object of class `svd_mem' </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="Utils_8c_source.html#l00153">153</a> of file <a class="el" href="Utils_8c_source.html">Utils.c</a>.</p>
+
+<p>References <a class="el" href="Utils_8c_source.html#l00102">CR_La_svd()</a>, <a class="el" href="Utils_8c_source.html#l00583">nrow()</a>, <a class="el" href="Classes_8c_source.html#l00012">PL2_jobuSym</a>, <a class="el" href="Classes_8c_source.html#l00012">PL2_jobvSym</a>, <a class="el" href="Classes_8c_source.html#l00012">PL2_methodSym</a>, <a class="el" href="Classes_8c_source.html#l00012">PL2_pSym</a>, <a class="el" href="Classes_8c_source.html#l00012">PL2_sSym</a>, <a class="el" href="Classes_8c_source.html#l00012">PL2_uSym</a>, and <a class="el" href="Classes_8c_source.html#l00012">PL2_vSym</a>.</p>
+
+<p>Referenced by <a class="el" href="Utils_8c_source.html#l00197">C_MPinv()</a>, and <a class="el" href="Utils_8c_source.html#l00182">R_svd()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="Utils_8c_a7d7d78de793f6a7b6fd0e2a4f8435908_cgraph.png" border="0" usemap="#Utils_8c_a7d7d78de793f6a7b6fd0e2a4f8435908_cgraph" alt=""/></div>
+<map name="Utils_8c_a7d7d78de793f6a7b6fd0e2a4f8435908_cgraph" id="Utils_8c_a7d7d78de793f6a7b6fd0e2a4f8435908_cgraph">
+<area shape="rect" id="node3" href="Utils_8c.html#aa8a5e9e33269198241964dab2ed4e591" title="CR_La_svd" alt="" coords="115,5,205,35"/><area shape="rect" id="node5" href="Utils_8c.html#aeeb672a71c45ead28b7b354414f2427a" title="nrow" alt="" coords="135,59,185,88"/></map>
 </div>
 </p>
 
@@ -733,7 +784,7 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="Utils_8c_source.html#l00724">724</a> of file <a class="el" href="Utils_8c_source.html">Utils.c</a>.</p>
+<p>Definition at line <a class="el" href="Utils_8c_source.html#l00736">736</a> of file <a class="el" href="Utils_8c_source.html">Utils.c</a>.</p>
 
 <p>References <a class="el" href="Classes_8c_source.html#l00260">get_missings()</a>, and <a class="el" href="Classes_8c_source.html#l00292">get_weights()</a>.</p>
 
@@ -781,9 +832,9 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="Utils_8c_source.html#l00583">583</a> of file <a class="el" href="Utils_8c_source.html">Utils.c</a>.</p>
+<p>Definition at line <a class="el" href="Utils_8c_source.html#l00595">595</a> of file <a class="el" href="Utils_8c_source.html">Utils.c</a>.</p>
 
-<p>Referenced by <a class="el" href="Node_8c_source.html#l00049">C_Node()</a>, and <a class="el" href="Utils_8c_source.html#l00608">R_whichmax()</a>.</p>
+<p>Referenced by <a class="el" href="Node_8c_source.html#l00049">C_Node()</a>, and <a class="el" href="Utils_8c_source.html#l00620">R_whichmax()</a>.</p>
 
 </div>
 </div>
@@ -857,57 +908,7 @@ Here is the call graph for this function:</div>
 
 <p>Definition at line <a class="el" href="Utils_8c_source.html#l00102">102</a> of file <a class="el" href="Utils_8c_source.html">Utils.c</a>.</p>
 
-<p>Referenced by <a class="el" href="Utils_8c_source.html#l00153">CR_svd()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a4534205c84c2784248b60818d7c2f3d6"></a><!-- doxytag: member="Utils.c::CR_svd" ref="a4534205c84c2784248b60818d7c2f3d6" args="(SEXP x, SEXP svdmem)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">SEXP CR_svd </td>
-          <td>(</td>
-          <td class="paramtype">SEXP&nbsp;</td>
-          <td class="paramname"> <em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">SEXP&nbsp;</td>
-          <td class="paramname"> <em>svdmem</em></td><td>&nbsp;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<p>C- and R-interface to CR_La_svd </p>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>x</em>&nbsp;</td><td>matrix </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>svdmem</em>&nbsp;</td><td>an object of class `svd_mem' </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="Utils_8c_source.html#l00153">153</a> of file <a class="el" href="Utils_8c_source.html">Utils.c</a>.</p>
-
-<p>References <a class="el" href="Utils_8c_source.html#l00102">CR_La_svd()</a>, <a class="el" href="Utils_8c_source.html#l00571">nrow()</a>, <a class="el" href="Classes_8c_source.html#l00012">PL2_jobuSym</a>, <a class="el" href="Classes_8c_source.html#l00012">PL2_jobvSym</a>, <a class="el" href="Classes_8c_source.html#l00012">PL2_methodSym</a>, <a class="el" href="Classes_8c_source.html#l00012">PL2_pSym</a>, <a class="el" href="Classes_8c_source.html#l00012">PL2_sSym</a>, <a class="el" href="Classes_8c_source.html#l00012">PL2_uSym</a>, and <a class="el" href="Classes_8c_source.html#l00012">PL2_vSym</a>.</p>
-
-<p>Referenced by <a class="el" href="Utils_8c_source.html#l00185">C_MPinv()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="Utils_8c_a4534205c84c2784248b60818d7c2f3d6_cgraph.png" border="0" usemap="#Utils_8c_a4534205c84c2784248b60818d7c2f3d6_cgraph" alt=""/></div>
-<map name="Utils_8c_a4534205c84c2784248b60818d7c2f3d6_cgraph" id="Utils_8c_a4534205c84c2784248b60818d7c2f3d6_cgraph">
-<area shape="rect" id="node3" href="Utils_8c.html#aa8a5e9e33269198241964dab2ed4e591" title="CR_La_svd" alt="" coords="123,5,213,35"/><area shape="rect" id="node5" href="Utils_8c.html#aeeb672a71c45ead28b7b354414f2427a" title="nrow" alt="" coords="143,59,193,88"/></map>
-</div>
-</p>
+<p>Referenced by <a class="el" href="Utils_8c_source.html#l00153">C_svd()</a>.</p>
 
 </div>
 </div>
@@ -951,9 +952,9 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Utils_8c_source.html#l00549">549</a> of file <a class="el" href="Utils_8c_source.html">Utils.c</a>.</p>
+<p>Definition at line <a class="el" href="Utils_8c_source.html#l00561">561</a> of file <a class="el" href="Utils_8c_source.html">Utils.c</a>.</p>
 
-<p>Referenced by <a class="el" href="Utils_8c_source.html#l00564">C_i_in_set()</a>, and <a class="el" href="Predict_8c_source.html#l00021">C_splitnode()</a>.</p>
+<p>Referenced by <a class="el" href="Utils_8c_source.html#l00576">C_i_in_set()</a>, and <a class="el" href="Predict_8c_source.html#l00021">C_splitnode()</a>.</p>
 
 </div>
 </div>
@@ -973,9 +974,9 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="Utils_8c_source.html#l00575">575</a> of file <a class="el" href="Utils_8c_source.html">Utils.c</a>.</p>
+<p>Definition at line <a class="el" href="Utils_8c_source.html#l00587">587</a> of file <a class="el" href="Utils_8c_source.html">Utils.c</a>.</p>
 
-<p>Referenced by <a class="el" href="IndependenceTest_8c_source.html#l00130">C_GlobalTest()</a>, <a class="el" href="IndependenceTest_8c_source.html#l00078">C_IndependenceTest()</a>, <a class="el" href="Distributions_8c_source.html#l00186">C_MonteCarlo()</a>, <a class="el" href="Node_8c_source.html#l00049">C_Node()</a>, <a class="el" href="Predict_8c_source.html#l00021">C_splitnode()</a>, <a class="el" href="RandomForest_8c_source.html#l00022">R_Ensemble()</a>, <a class="el" href="LinearStatistic_8c_source.html#l00171">R_ExpectCovarInfluence()</a>, <a class="el" href="LinearStatistic_8c_source.html#l00306">R_ExpectCovarLinearStatistic()</a>, <a class="el" href="LinearStatistic_8c_source.html#l00059">R_LinearStatistic()</a>, <a class="el" href="Utils_8c_source.html#l00374">R_matprod()</a>, <a class="el" href="Utils_8c_source.html#l00426">R_matprodT()</a>, <a class="el" href="Utils_8c_source.html#l00243">R_MPinv()</a>, <a class="el" href="Node_8c_source.html#l00228">R_Node()</a>, <a class="el" href="LinearStatistic_8c_source.html#l00384">R_PermutedLinearStatistic()</a>, <a class="el" href="Splits_8c_source.html#l00175">R_split()</a>, <a class="el" href="Splits_8c_source.html#l00313">R_splitcategorical()</a>, and <a class="el" href="TreeGrow_8c_source.html#l00081">R_TreeGrow()</a>.</p>
+<p>Referenced by <a class="el" href="IndependenceTest_8c_source.html#l00130">C_GlobalTest()</a>, <a class="el" href="IndependenceTest_8c_source.html#l00078">C_IndependenceTest()</a>, <a class="el" href="Distributions_8c_source.html#l00186">C_MonteCarlo()</a>, <a class="el" href="Node_8c_source.html#l00049">C_Node()</a>, <a class="el" href="Predict_8c_source.html#l00021">C_splitnode()</a>, <a class="el" href="RandomForest_8c_source.html#l00022">R_Ensemble()</a>, <a class="el" href="LinearStatistic_8c_source.html#l00170">R_ExpectCovarInfluence()</a>, <a class="el" href="LinearStatistic_8c_source.html#l00304">R_ExpectCovarLinearStatistic()</a>, <a class="el" href="LinearStatistic_8c_source.html#l00058">R_LinearStatistic()</a>, <a class="el" href="Utils_8c_source.html#l00386">R_matprod()</a>, <a class="el" href="Utils_8c_source.html#l00438">R_matprodT()</a>, <a class="el" href="Utils_8c_source.html#l00255">R_MPinv()</a>, <a class="el" href="Node_8c_source.html#l00228">R_Node()</a>, <a class="el" href="LinearStatistic_8c_source.html#l00382">R_PermutedLinearStatistic()</a>, <a class="el" href="Splits_8c_source.html#l00175">R_split()</a>, <a class="el" href="Splits_8c_source.html#l00311">R_splitcategorical()</a>, and <a class="el" href="TreeGrow_8c_source.html#l00081">R_TreeGrow()</a>.</p>
 
 </div>
 </div>
@@ -995,9 +996,9 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="Utils_8c_source.html#l00571">571</a> of file <a class="el" href="Utils_8c_source.html">Utils.c</a>.</p>
+<p>Definition at line <a class="el" href="Utils_8c_source.html#l00583">583</a> of file <a class="el" href="Utils_8c_source.html">Utils.c</a>.</p>
 
-<p>Referenced by <a class="el" href="IndependenceTest_8c_source.html#l00130">C_GlobalTest()</a>, <a class="el" href="IndependenceTest_8c_source.html#l00078">C_IndependenceTest()</a>, <a class="el" href="Utils_8c_source.html#l00153">CR_svd()</a>, <a class="el" href="LinearStatistic_8c_source.html#l00171">R_ExpectCovarInfluence()</a>, <a class="el" href="LinearStatistic_8c_source.html#l00306">R_ExpectCovarLinearStatistic()</a>, <a class="el" href="LinearStatistic_8c_source.html#l00059">R_LinearStatistic()</a>, <a class="el" href="Utils_8c_source.html#l00374">R_matprod()</a>, <a class="el" href="Utils_8c_source.html#l00426">R_matprodT()</a>, <a class="el" href="Distributions_8c_source.html#l00159">R_maxabsConditionalPvalue()</a>, <a class="el" href="Utils_8c_source.html#l00243">R_MPinv()</a>, <a class="el" href="LinearStatistic_8c_source.html#l00384">R_PermutedLinearStatistic()</a>, <a class="el" href="Splits_8c_source.html#l00175">R_split()</a>, and <a class="el" href="Splits_8c_source.html#l00313">R_splitcategorical()</a>.</p>
+<p>Referenced by <a class="el" href="IndependenceTest_8c_source.html#l00130">C_GlobalTest()</a>, <a class="el" href="IndependenceTest_8c_source.html#l00078">C_IndependenceTest()</a>, <a class="el" href="Utils_8c_source.html#l00153">C_svd()</a>, <a class="el" href="LinearStatistic_8c_source.html#l00170">R_ExpectCovarInfluence()</a>, <a class="el" href="LinearStatistic_8c_source.html#l00304">R_ExpectCovarLinearStatistic()</a>, <a class="el" href="LinearStatistic_8c_source.html#l00058">R_LinearStatistic()</a>, <a class="el" href="Utils_8c_source.html#l00386">R_matprod()</a>, <a class="el" href="Utils_8c_source.html#l00438">R_matprodT()</a>, <a class="el" href="Distributions_8c_source.html#l00159">R_maxabsConditionalPvalue()</a>, <a class="el" href="Utils_8c_source.html#l00255">R_MPinv()</a>, <a class="el" href="LinearStatistic_8c_source.html#l00382">R_PermutedLinearStatistic()</a>, <a class="el" href="Splits_8c_source.html#l00175">R_split()</a>, and <a class="el" href="Splits_8c_source.html#l00311">R_splitcategorical()</a>.</p>
 
 </div>
 </div>
@@ -1024,9 +1025,9 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Utils_8c_source.html#l00327">327</a> of file <a class="el" href="Utils_8c_source.html">Utils.c</a>.</p>
+<p>Definition at line <a class="el" href="Utils_8c_source.html#l00339">339</a> of file <a class="el" href="Utils_8c_source.html">Utils.c</a>.</p>
 
-<p>References <a class="el" href="Utils_8c_source.html#l00315">C_abs()</a>.</p>
+<p>References <a class="el" href="Utils_8c_source.html#l00327">C_abs()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -1118,7 +1119,7 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="Utils_8c_source.html#l00618">618</a> of file <a class="el" href="Utils_8c_source.html">Utils.c</a>.</p>
+<p>Definition at line <a class="el" href="Utils_8c_source.html#l00630">630</a> of file <a class="el" href="Utils_8c_source.html">Utils.c</a>.</p>
 
 </div>
 </div>
@@ -1155,9 +1156,9 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Utils_8c_source.html#l00374">374</a> of file <a class="el" href="Utils_8c_source.html">Utils.c</a>.</p>
+<p>Definition at line <a class="el" href="Utils_8c_source.html#l00386">386</a> of file <a class="el" href="Utils_8c_source.html">Utils.c</a>.</p>
 
-<p>References <a class="el" href="Utils_8c_source.html#l00353">C_matprod()</a>, <a class="el" href="Utils_8c_source.html#l00575">ncol()</a>, and <a class="el" href="Utils_8c_source.html#l00571">nrow()</a>.</p>
+<p>References <a class="el" href="Utils_8c_source.html#l00365">C_matprod()</a>, <a class="el" href="Utils_8c_source.html#l00587">ncol()</a>, and <a class="el" href="Utils_8c_source.html#l00583">nrow()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -1203,9 +1204,9 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Utils_8c_source.html#l00426">426</a> of file <a class="el" href="Utils_8c_source.html">Utils.c</a>.</p>
+<p>Definition at line <a class="el" href="Utils_8c_source.html#l00438">438</a> of file <a class="el" href="Utils_8c_source.html">Utils.c</a>.</p>
 
-<p>References <a class="el" href="Utils_8c_source.html#l00405">C_matprodT()</a>, <a class="el" href="Utils_8c_source.html#l00575">ncol()</a>, and <a class="el" href="Utils_8c_source.html#l00571">nrow()</a>.</p>
+<p>References <a class="el" href="Utils_8c_source.html#l00417">C_matprodT()</a>, <a class="el" href="Utils_8c_source.html#l00587">ncol()</a>, and <a class="el" href="Utils_8c_source.html#l00583">nrow()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -1241,9 +1242,9 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Utils_8c_source.html#l00294">294</a> of file <a class="el" href="Utils_8c_source.html">Utils.c</a>.</p>
+<p>Definition at line <a class="el" href="Utils_8c_source.html#l00306">306</a> of file <a class="el" href="Utils_8c_source.html">Utils.c</a>.</p>
 
-<p>References <a class="el" href="Utils_8c_source.html#l00278">C_max()</a>.</p>
+<p>References <a class="el" href="Utils_8c_source.html#l00290">C_max()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -1281,7 +1282,7 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="Utils_8c_source.html#l00650">650</a> of file <a class="el" href="Utils_8c_source.html">Utils.c</a>.</p>
+<p>Definition at line <a class="el" href="Utils_8c_source.html#l00662">662</a> of file <a class="el" href="Utils_8c_source.html">Utils.c</a>.</p>
 
 <p>References <a class="el" href="Classes_8c_source.html#l00199">get_predict_trafo()</a>, <a class="el" href="Classes_8c_source.html#l00195">get_test_trafo()</a>, <a class="el" href="Classes_8c_source.html#l00189">get_transformation()</a>, and <a class="el" href="Classes_8c_source.html#l00204">get_variable()</a>.</p>
 
@@ -1336,16 +1337,16 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Utils_8c_source.html#l00243">243</a> of file <a class="el" href="Utils_8c_source.html">Utils.c</a>.</p>
+<p>Definition at line <a class="el" href="Utils_8c_source.html#l00255">255</a> of file <a class="el" href="Utils_8c_source.html">Utils.c</a>.</p>
 
-<p>References <a class="el" href="Utils_8c_source.html#l00185">C_MPinv()</a>, <a class="el" href="Utils_8c_source.html#l00575">ncol()</a>, <a class="el" href="Utils_8c_source.html#l00571">nrow()</a>, <a class="el" href="Classes_8c_source.html#l00012">PL2_MPinvSym</a>, <a class="el" href="Classes_8c_source.html#l00012">PL2_pSym</a>, and <a class="el" href="Classes_8c_source.html#l00012">PL2_rankSym</a>.</p>
+<p>References <a class="el" href="Utils_8c_source.html#l00197">C_MPinv()</a>, <a class="el" href="Utils_8c_source.html#l00587">ncol()</a>, <a class="el" href="Utils_8c_source.html#l00583">nrow()</a>, <a class="el" href="Classes_8c_source.html#l00012">PL2_MPinvSym</a>, <a class="el" href="Classes_8c_source.html#l00012">PL2_pSym</a>, and <a class="el" href="Classes_8c_source.html#l00012">PL2_rankSym</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="Utils_8c_a9aa84c21406d338bd7116cbe9444ea3c_cgraph.png" border="0" usemap="#Utils_8c_a9aa84c21406d338bd7116cbe9444ea3c_cgraph" alt=""/></div>
 <map name="Utils_8c_a9aa84c21406d338bd7116cbe9444ea3c_cgraph" id="Utils_8c_a9aa84c21406d338bd7116cbe9444ea3c_cgraph">
-<area shape="rect" id="node3" href="Utils_8c.html#ac0d5c2fe971923d7a1b1869dffabddb1" title="C_MPinv" alt="" coords="128,7,203,36"/><area shape="rect" id="node9" href="Utils_8c.html#aeeb672a71c45ead28b7b354414f2427a" title="nrow" alt="" coords="388,59,439,88"/><area shape="rect" id="node11" href="Utils_8c.html#af1f46cc3e98630497a1ccb21d943fe65" title="ncol" alt="" coords="141,111,189,140"/><area shape="rect" id="node5" href="Utils_8c.html#a4534205c84c2784248b60818d7c2f3d6" title="CR_svd" alt="" coords="252,7,319,36"/><area shape="rect" id="node7" href="Utils_8c.html#aa8a5e9e33269198241964dab2ed4e591" title="CR_La_svd" alt="" coords="368,5,459,35"/></map>
+<area shape="rect" id="node3" href="Utils_8c.html#ac0d5c2fe971923d7a1b1869dffabddb1" title="C_MPinv" alt="" coords="128,7,203,36"/><area shape="rect" id="node9" href="Utils_8c.html#aeeb672a71c45ead28b7b354414f2427a" title="nrow" alt="" coords="380,59,431,88"/><area shape="rect" id="node11" href="Utils_8c.html#af1f46cc3e98630497a1ccb21d943fe65" title="ncol" alt="" coords="141,111,189,140"/><area shape="rect" id="node5" href="Utils_8c.html#a7d7d78de793f6a7b6fd0e2a4f8435908" title="C_svd" alt="" coords="252,7,311,36"/><area shape="rect" id="node7" href="Utils_8c.html#aa8a5e9e33269198241964dab2ed4e591" title="CR_La_svd" alt="" coords="360,5,451,35"/></map>
 </div>
 </p>
 
@@ -1374,9 +1375,9 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Utils_8c_source.html#l00472">472</a> of file <a class="el" href="Utils_8c_source.html">Utils.c</a>.</p>
+<p>Definition at line <a class="el" href="Utils_8c_source.html#l00484">484</a> of file <a class="el" href="Utils_8c_source.html">Utils.c</a>.</p>
 
-<p>References <a class="el" href="Utils_8c_source.html#l00453">C_SampleNoReplace()</a>.</p>
+<p>References <a class="el" href="Utils_8c_source.html#l00465">C_SampleNoReplace()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -1414,9 +1415,9 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="Utils_8c_source.html#l00718">718</a> of file <a class="el" href="Utils_8c_source.html">Utils.c</a>.</p>
+<p>Definition at line <a class="el" href="Utils_8c_source.html#l00730">730</a> of file <a class="el" href="Utils_8c_source.html">Utils.c</a>.</p>
 
-<p>References <a class="el" href="Utils_8c_source.html#l00702">C_remove_weights()</a>.</p>
+<p>References <a class="el" href="Utils_8c_source.html#l00714">C_remove_weights()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -1462,9 +1463,9 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Utils_8c_source.html#l00492">492</a> of file <a class="el" href="Utils_8c_source.html">Utils.c</a>.</p>
+<p>Definition at line <a class="el" href="Utils_8c_source.html#l00504">504</a> of file <a class="el" href="Utils_8c_source.html">Utils.c</a>.</p>
 
-<p>References <a class="el" href="Utils_8c_source.html#l00453">C_SampleNoReplace()</a>.</p>
+<p>References <a class="el" href="Utils_8c_source.html#l00465">C_SampleNoReplace()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -1472,6 +1473,54 @@ Here is the call graph for this function:</div>
 <div class="center"><img src="Utils_8c_a2f3955eb1326f77826baad7194f6ea67_cgraph.png" border="0" usemap="#Utils_8c_a2f3955eb1326f77826baad7194f6ea67_cgraph" alt=""/></div>
 <map name="Utils_8c_a2f3955eb1326f77826baad7194f6ea67_cgraph" id="Utils_8c_a2f3955eb1326f77826baad7194f6ea67_cgraph">
 <area shape="rect" id="node3" href="Utils_8c.html#af7c710920d1496d23fdabad9b1d0e18c" title="C_SampleNoReplace" alt="" coords="139,5,293,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a46c7a1ff234b36c5417eea8a0a93464c"></a><!-- doxytag: member="Utils.c::R_svd" ref="a46c7a1ff234b36c5417eea8a0a93464c" args="(SEXP x, SEXP svdmem)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SEXP R_svd </td>
+          <td>(</td>
+          <td class="paramtype">SEXP&nbsp;</td>
+          <td class="paramname"> <em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SEXP&nbsp;</td>
+          <td class="paramname"> <em>svdmem</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>R-interface to CR_La_svd </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>x</em>&nbsp;</td><td>matrix </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>svdmem</em>&nbsp;</td><td>an object of class `svd_mem' </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="Utils_8c_source.html#l00182">182</a> of file <a class="el" href="Utils_8c_source.html">Utils.c</a>.</p>
+
+<p>References <a class="el" href="Utils_8c_source.html#l00153">C_svd()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="Utils_8c_a46c7a1ff234b36c5417eea8a0a93464c_cgraph.png" border="0" usemap="#Utils_8c_a46c7a1ff234b36c5417eea8a0a93464c_cgraph" alt=""/></div>
+<map name="Utils_8c_a46c7a1ff234b36c5417eea8a0a93464c_cgraph" id="Utils_8c_a46c7a1ff234b36c5417eea8a0a93464c_cgraph">
+<area shape="rect" id="node3" href="Utils_8c.html#a7d7d78de793f6a7b6fd0e2a4f8435908" title="C_svd" alt="" coords="113,32,172,61"/><area shape="rect" id="node5" href="Utils_8c.html#aa8a5e9e33269198241964dab2ed4e591" title="CR_La_svd" alt="" coords="221,5,312,35"/><area shape="rect" id="node7" href="Utils_8c.html#aeeb672a71c45ead28b7b354414f2427a" title="nrow" alt="" coords="241,59,292,88"/></map>
 </div>
 </p>
 
@@ -1502,9 +1551,9 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="Utils_8c_source.html#l00608">608</a> of file <a class="el" href="Utils_8c_source.html">Utils.c</a>.</p>
+<p>Definition at line <a class="el" href="Utils_8c_source.html#l00620">620</a> of file <a class="el" href="Utils_8c_source.html">Utils.c</a>.</p>
 
-<p>References <a class="el" href="Utils_8c_source.html#l00583">C_whichmax()</a>.</p>
+<p>References <a class="el" href="Utils_8c_source.html#l00595">C_whichmax()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -1533,12 +1582,12 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="Utils_8c_source.html#l00677">677</a> of file <a class="el" href="Utils_8c_source.html">Utils.c</a>.</p>
+<p>Definition at line <a class="el" href="Utils_8c_source.html#l00689">689</a> of file <a class="el" href="Utils_8c_source.html">Utils.c</a>.</p>
 
 </div>
 </div>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Mon May 2 2011 16:01:36 for party by&nbsp;
+<hr class="footer"/><address class="footer"><small>Generated on Fri May 6 2011 17:00:51 for party by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.1 </small></address>
 </body>

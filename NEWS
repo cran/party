@@ -1,4 +1,8 @@
 
+                CHANGES IN party VERSION 0.9-99993 (2011-07-26)
+
+    o    attach NAMESPACE properly in tests
+
                 CHANGES IN party VERSION 0.9-99992 (2011-05-02)
 
     o    fix partial matching problems

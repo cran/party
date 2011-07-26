@@ -2,8 +2,8 @@
 void C_kronecker (const double *A, const int m, const int n,
                   const double *B, const int r, const int s,
                   double *ans);
-SEXP La_svd(SEXP jobu, SEXP jobv, SEXP x, SEXP s, SEXP u, 
-            SEXP v, SEXP method);
+/* SEXP La_svd(SEXP jobu, SEXP jobv, SEXP x, SEXP s, SEXP u, 
+            SEXP v, SEXP method); */
 void C_SampleNoReplace(int *x, int m, int k, int *ans);
 void C_MPinv (SEXP x, double tol, SEXP svdmem, SEXP ans);
 double C_max(const double *x, const int n);

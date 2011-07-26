@@ -2,15 +2,14 @@
 <area shape="rect" id="node3" href="$Utils_8c.html#aff0eae9aa0175cd8fe73324707418ce0" title="C_i_in_set" alt="" coords="220,5,305,35"/>
 <area shape="rect" id="node7" href="$Classes_8c.html#afd6cfc2dd239b138d91e92a8ce9353f8" title="get_missings" alt="" coords="209,59,316,88"/>
 <area shape="rect" id="node9" href="$Classes_8c.html#a50548fbe6024d9a7118db3fce5085fd9" title="has_missings" alt="" coords="393,84,500,113"/>
-<area shape="rect" id="node11" href="$Classes_8c.html#a45df17685bc6c95d03fb65b6f6214de0" title="get_nobs" alt="" coords="223,163,303,192"/>
-<area shape="rect" id="node13" href="$Classes_8c.html#a0f91efa916e815ec7d90c6f9516f18e4" title="get_variable" alt="" coords="213,216,312,245"/>
-<area shape="rect" id="node16" href="$S3Classes_8c.html#a5917f57e141432fd1e4f58a16b9149aa" title="S3get_leftnode" alt="" coords="204,269,321,299"/>
-<area shape="rect" id="node18" href="$S3Classes_8c.html#ac3785782483b5bf4afe9d606e280f3ca" title="S3get_nodeweights" alt="" coords="189,323,336,352"/>
-<area shape="rect" id="node20" href="$S3Classes_8c.html#a220373298b30f12b22f82cce3c996a37" title="S3get_primarysplit" alt="" coords="192,376,333,405"/>
-<area shape="rect" id="node22" href="$S3Classes_8c.html#a14a38e81ed758a64367dc190f0e8229b" title="S3get_rightnode" alt="" coords="199,429,327,459"/>
-<area shape="rect" id="node24" href="$S3Classes_8c.html#aacf87d496fd3b07bafd171c92404212a" title="S3get_splitpoint" alt="" coords="200,483,325,512"/>
-<area shape="rect" id="node26" href="$S3Classes_8c.html#af270d1d02bf86a4c5cdc8959045c3567" title="S3get_surrogatesplits" alt="" coords="181,536,344,565"/>
-<area shape="rect" id="node28" href="$S3Classes_8c.html#a67d50b82dea660a930cf7427be899efb" title="S3get_toleft" alt="" coords="213,589,312,619"/>
-<area shape="rect" id="node30" href="$S3Classes_8c.html#a583f9148949f93b5fe894feb6567ca0d" title="S3get_variableID" alt="" coords="197,643,328,672"/>
+<area shape="rect" id="node11" href="$Classes_8c.html#a0f91efa916e815ec7d90c6f9516f18e4" title="get_variable" alt="" coords="213,163,312,192"/>
+<area shape="rect" id="node14" href="$S3Classes_8c.html#a5917f57e141432fd1e4f58a16b9149aa" title="S3get_leftnode" alt="" coords="204,216,321,245"/>
+<area shape="rect" id="node16" href="$S3Classes_8c.html#ac3785782483b5bf4afe9d606e280f3ca" title="S3get_nodeweights" alt="" coords="189,269,336,299"/>
+<area shape="rect" id="node18" href="$S3Classes_8c.html#a220373298b30f12b22f82cce3c996a37" title="S3get_primarysplit" alt="" coords="192,323,333,352"/>
+<area shape="rect" id="node20" href="$S3Classes_8c.html#a14a38e81ed758a64367dc190f0e8229b" title="S3get_rightnode" alt="" coords="199,376,327,405"/>
+<area shape="rect" id="node22" href="$S3Classes_8c.html#aacf87d496fd3b07bafd171c92404212a" title="S3get_splitpoint" alt="" coords="200,429,325,459"/>
+<area shape="rect" id="node24" href="$S3Classes_8c.html#af270d1d02bf86a4c5cdc8959045c3567" title="S3get_surrogatesplits" alt="" coords="181,483,344,512"/>
+<area shape="rect" id="node26" href="$S3Classes_8c.html#a67d50b82dea660a930cf7427be899efb" title="S3get_toleft" alt="" coords="213,536,312,565"/>
+<area shape="rect" id="node28" href="$S3Classes_8c.html#a583f9148949f93b5fe894feb6567ca0d" title="S3get_variableID" alt="" coords="197,589,328,619"/>
 <area shape="rect" id="node5" href="$Utils_8c.html#aae969040bb060d2874fd969e20675bbb" title="i_in_set" alt="" coords="412,5,481,35"/>
 </map>

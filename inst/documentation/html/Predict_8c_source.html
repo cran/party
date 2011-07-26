@@ -57,7 +57,7 @@
 <a name="l00037"></a>00037     SET_VECTOR_ELT(node, <a class="code" href="party_8h.html#ae6b64412ed72a9b5f4af50dbdeb46f5f">S3_LEFT</a>, leftnode = allocVector(VECSXP, <a class="code" href="party_8h.html#a2594b3a85c654c34048133cb81ad0fab">NODE_LENGTH</a>));
 <a name="l00038"></a>00038     <a class="code" href="S3Classes_8c.html#af837f0cf74c62c53c74138c4dbb9acc0">C_init_node</a>(leftnode, nobs, 
 <a name="l00039"></a>00039         <a class="code" href="Classes_8c.html#a9117d8f57ea1378c725c7299d6cc2923">get_ninputs</a>(learnsample), <a class="code" href="Classes_8c.html#ab89e4da7a60580c3adbe7c4f4935581c">get_maxsurrogate</a>(<a class="code" href="Classes_8c.html#ad914bd038dca4d2a1b9847f46bdb78f9">get_splitctrl</a>(control)),
-<a name="l00040"></a>00040         <a class="code" href="Utils_8c.html#af1f46cc3e98630497a1ccb21d943fe65">ncol</a>(<a class="code" href="Classes_8c.html#ab86d70ff194260cc9bd391d3ff55b157">get_predict_trafo</a>(GET_SLOT(learnsample, <a class="code" href="Classes_8c.html#a9ad5f5cd65458d95a8ffae2d450ec850">PL2_responsesSym</a>))));
+<a name="l00040"></a>00040         <a class="code" href="Utils_8c.html#af1f46cc3e98630497a1ccb21d943fe65">ncol</a>(<a class="code" href="Classes_8c.html#ab86d70ff194260cc9bd391d3ff55b157">get_predict_trafo</a>(responses)));
 <a name="l00041"></a>00041     leftweights = REAL(<a class="code" href="S3Classes_8c.html#ac3785782483b5bf4afe9d606e280f3ca">S3get_nodeweights</a>(leftnode));
 <a name="l00042"></a>00042 
 <a name="l00043"></a>00043     <span class="comment">/* set up memory for the right daughter */</span>
@@ -65,7 +65,7 @@
 <a name="l00045"></a>00045                    rightnode = allocVector(VECSXP, <a class="code" href="party_8h.html#a2594b3a85c654c34048133cb81ad0fab">NODE_LENGTH</a>));
 <a name="l00046"></a>00046     <a class="code" href="S3Classes_8c.html#af837f0cf74c62c53c74138c4dbb9acc0">C_init_node</a>(rightnode, nobs, 
 <a name="l00047"></a>00047         <a class="code" href="Classes_8c.html#a9117d8f57ea1378c725c7299d6cc2923">get_ninputs</a>(learnsample), <a class="code" href="Classes_8c.html#ab89e4da7a60580c3adbe7c4f4935581c">get_maxsurrogate</a>(<a class="code" href="Classes_8c.html#ad914bd038dca4d2a1b9847f46bdb78f9">get_splitctrl</a>(control)),
-<a name="l00048"></a>00048         <a class="code" href="Utils_8c.html#af1f46cc3e98630497a1ccb21d943fe65">ncol</a>(<a class="code" href="Classes_8c.html#ab86d70ff194260cc9bd391d3ff55b157">get_predict_trafo</a>(GET_SLOT(learnsample, <a class="code" href="Classes_8c.html#a9ad5f5cd65458d95a8ffae2d450ec850">PL2_responsesSym</a>))));
+<a name="l00048"></a>00048         <a class="code" href="Utils_8c.html#af1f46cc3e98630497a1ccb21d943fe65">ncol</a>(<a class="code" href="Classes_8c.html#ab86d70ff194260cc9bd391d3ff55b157">get_predict_trafo</a>(responses)));
 <a name="l00049"></a>00049     rightweights = REAL(<a class="code" href="S3Classes_8c.html#ac3785782483b5bf4afe9d606e280f3ca">S3get_nodeweights</a>(rightnode));
 <a name="l00050"></a>00050 
 <a name="l00051"></a>00051     <span class="comment">/* split according to the primary split */</span>
@@ -131,8 +131,8 @@
 <a name="l00121"></a><a class="code" href="Predict_8c.html#a1e6dc4bb322ef648c0fe127fdda11b9d">00121</a> SEXP <a class="code" href="Predict_8c.html#a1e6dc4bb322ef648c0fe127fdda11b9d">C_get_node</a>(SEXP subtree, SEXP newinputs, 
 <a name="l00122"></a>00122                 <span class="keywordtype">double</span> mincriterion, <span class="keywordtype">int</span> numobs, <span class="keywordtype">int</span> varperm) {
 <a name="l00123"></a>00123 
-<a name="l00124"></a>00124     SEXP split, whichNA, weights, ssplit, surrsplit;
-<a name="l00125"></a>00125     <span class="keywordtype">double</span> cutpoint, x, *dweights, swleft, swright;
+<a name="l00124"></a>00124     SEXP split, whichNA, ssplit, surrsplit;
+<a name="l00125"></a>00125     <span class="keywordtype">double</span> cutpoint, x, swleft, swright;
 <a name="l00126"></a>00126     <span class="keywordtype">int</span> level, *levelset, i, ns;
 <a name="l00127"></a>00127 
 <a name="l00128"></a>00128     <span class="keywordflow">if</span> (<a class="code" href="S3Classes_8c.html#ab8834f319068d2a248a5d6328cd10dc5">S3get_nodeterminal</a>(subtree) || 
@@ -378,94 +378,92 @@
 <a name="l00467"></a>00467                          SEXP newinputs, SEXP mincriterion, SEXP oobpred) {
 <a name="l00468"></a>00468 
 <a name="l00469"></a>00469     SEXP ans, tree, bw;
-<a name="l00470"></a>00470     <span class="keywordtype">int</span> ntrees, nobs, i, b, j, q, iwhere, oob = 0, count = 0, ntrain;
+<a name="l00470"></a>00470     <span class="keywordtype">int</span> ntrees, nobs, i, b, j, iwhere, oob = 0, count = 0, ntrain;
 <a name="l00471"></a>00471     
 <a name="l00472"></a>00472     <span class="keywordflow">if</span> (LOGICAL(oobpred)[0]) oob = 1;
 <a name="l00473"></a>00473     
 <a name="l00474"></a>00474     nobs = <a class="code" href="Classes_8c.html#a45df17685bc6c95d03fb65b6f6214de0">get_nobs</a>(newinputs);
 <a name="l00475"></a>00475     ntrees = LENGTH(forest);
-<a name="l00476"></a>00476     q = LENGTH(<a class="code" href="S3Classes_8c.html#a70a340b301b4e383107c92cbbeb4ae20">S3get_prediction</a>(
-<a name="l00477"></a>00477                    <a class="code" href="Predict_8c.html#a201fdee9dc7e3e71e90ea6609ed353cb">C_get_nodebynum</a>(VECTOR_ELT(forest, 0), 1)));
-<a name="l00478"></a>00478 
-<a name="l00479"></a>00479     <span class="keywordflow">if</span> (oob) {
-<a name="l00480"></a>00480         <span class="keywordflow">if</span> (LENGTH(VECTOR_ELT(weights, 0)) != nobs)
-<a name="l00481"></a>00481             error(<span class="stringliteral">&quot;number of observations don&#39;t match&quot;</span>);
-<a name="l00482"></a>00482     }    
-<a name="l00483"></a>00483     
-<a name="l00484"></a>00484     tree = VECTOR_ELT(forest, 0);
-<a name="l00485"></a>00485     ntrain = LENGTH(VECTOR_ELT(weights, 0));
+<a name="l00476"></a>00476 
+<a name="l00477"></a>00477     <span class="keywordflow">if</span> (oob) {
+<a name="l00478"></a>00478         <span class="keywordflow">if</span> (LENGTH(VECTOR_ELT(weights, 0)) != nobs)
+<a name="l00479"></a>00479             error(<span class="stringliteral">&quot;number of observations don&#39;t match&quot;</span>);
+<a name="l00480"></a>00480     }    
+<a name="l00481"></a>00481     
+<a name="l00482"></a>00482     tree = VECTOR_ELT(forest, 0);
+<a name="l00483"></a>00483     ntrain = LENGTH(VECTOR_ELT(weights, 0));
+<a name="l00484"></a>00484     
+<a name="l00485"></a>00485     PROTECT(ans = allocVector(VECSXP, nobs));
 <a name="l00486"></a>00486     
-<a name="l00487"></a>00487     PROTECT(ans = allocVector(VECSXP, nobs));
-<a name="l00488"></a>00488     
-<a name="l00489"></a>00489     <span class="keywordflow">for</span> (i = 0; i &lt; nobs; i++) {
-<a name="l00490"></a>00490         count = 0;
-<a name="l00491"></a>00491         SET_VECTOR_ELT(ans, i, bw = allocVector(REALSXP, ntrain));
-<a name="l00492"></a>00492         <span class="keywordflow">for</span> (j = 0; j &lt; ntrain; j++)
-<a name="l00493"></a>00493             REAL(bw)[j] = 0.0;
-<a name="l00494"></a>00494         <span class="keywordflow">for</span> (b = 0; b &lt; ntrees; b++) {
-<a name="l00495"></a>00495             tree = VECTOR_ELT(forest, b);
-<a name="l00496"></a>00496 
-<a name="l00497"></a>00497             <span class="keywordflow">if</span> (oob &amp;&amp; 
-<a name="l00498"></a>00498                 REAL(VECTOR_ELT(weights, b))[i] &gt; 0.0) 
-<a name="l00499"></a>00499                 <span class="keywordflow">continue</span>;
-<a name="l00500"></a>00500 
-<a name="l00501"></a>00501             iwhere = <a class="code" href="Predict_8c.html#ad9d49b6a210f5c09a2a1d1aa496859ce">C_get_nodeID</a>(tree, newinputs, REAL(mincriterion)[0], i);
-<a name="l00502"></a>00502             
-<a name="l00503"></a>00503             <span class="keywordflow">for</span> (j = 0; j &lt; ntrain; j++) {
-<a name="l00504"></a>00504                 <span class="keywordflow">if</span> (iwhere == INTEGER(VECTOR_ELT(where, b))[j])
-<a name="l00505"></a>00505                     REAL(bw)[j] += REAL(VECTOR_ELT(weights, b))[j];
-<a name="l00506"></a>00506             }
-<a name="l00507"></a>00507             count++;
-<a name="l00508"></a>00508         }
-<a name="l00509"></a>00509         <span class="keywordflow">if</span> (count == 0) 
-<a name="l00510"></a>00510             error(<span class="stringliteral">&quot;cannot compute out-of-bag predictions for obs &quot;</span>, i + 1);
-<a name="l00511"></a>00511     }
-<a name="l00512"></a>00512     UNPROTECT(1);
-<a name="l00513"></a>00513     <span class="keywordflow">return</span>(ans);
-<a name="l00514"></a>00514 }
-<a name="l00515"></a>00515 
-<a name="l00516"></a>00516 
-<a name="l00522"></a><a class="code" href="Predict_8c.html#a3be1a8f3155b0481350cecd4c094a416">00522</a> SEXP <a class="code" href="Predict_8c.html#a3be1a8f3155b0481350cecd4c094a416">R_proximity</a>(SEXP where) {
-<a name="l00523"></a>00523 
-<a name="l00524"></a>00524     SEXP ans, bw, bin;
-<a name="l00525"></a>00525     <span class="keywordtype">int</span> ntrees, nobs, i, b, j, iwhere;
-<a name="l00526"></a>00526     
-<a name="l00527"></a>00527     ntrees = LENGTH(where);
-<a name="l00528"></a>00528     nobs = LENGTH(VECTOR_ELT(where, 0));
-<a name="l00529"></a>00529     
-<a name="l00530"></a>00530     PROTECT(ans = allocVector(VECSXP, nobs));
-<a name="l00531"></a>00531     PROTECT(bin = allocVector(INTSXP, nobs));
-<a name="l00532"></a>00532      
-<a name="l00533"></a>00533     <span class="keywordflow">for</span> (i = 0; i &lt; nobs; i++) {
-<a name="l00534"></a>00534         SET_VECTOR_ELT(ans, i, bw = allocVector(REALSXP, nobs));
-<a name="l00535"></a>00535         <span class="keywordflow">for</span> (j = 0; j &lt; nobs; j++) {
-<a name="l00536"></a>00536             REAL(bw)[j] = 0.0;
-<a name="l00537"></a>00537             INTEGER(bin)[j] = 0;
-<a name="l00538"></a>00538         }
-<a name="l00539"></a>00539         <span class="keywordflow">for</span> (b = 0; b &lt; ntrees; b++) {
-<a name="l00540"></a>00540             <span class="comment">/* don&#39;t look at out-of-bag observations */</span>
-<a name="l00541"></a>00541             <span class="keywordflow">if</span> (INTEGER(VECTOR_ELT(where, b))[i] == 0)
-<a name="l00542"></a>00542                 <span class="keywordflow">continue</span>;
-<a name="l00543"></a>00543             iwhere = INTEGER(VECTOR_ELT(where, b))[i];
-<a name="l00544"></a>00544             <span class="keywordflow">for</span> (j = 0; j &lt; nobs; j++) {
-<a name="l00545"></a>00545                 <span class="keywordflow">if</span> (iwhere == INTEGER(VECTOR_ELT(where, b))[j])
-<a name="l00546"></a>00546                     <span class="comment">/* only count the number of trees; no weights */</span>
-<a name="l00547"></a>00547                     REAL(bw)[j]++;
-<a name="l00548"></a>00548                 <span class="keywordflow">if</span> (INTEGER(VECTOR_ELT(where, b))[j] &gt; 0)
-<a name="l00549"></a>00549                     <span class="comment">/* count the number of bootstrap samples</span>
-<a name="l00550"></a>00550 <span class="comment">                    containing both i and j */</span>
-<a name="l00551"></a>00551                     INTEGER(bin)[j]++;
-<a name="l00552"></a>00552             }
-<a name="l00553"></a>00553         }
-<a name="l00554"></a>00554         <span class="keywordflow">for</span> (j = 0; j &lt; nobs; j++)
-<a name="l00555"></a>00555             REAL(bw)[j] = REAL(bw)[j] / INTEGER(bin)[j];
-<a name="l00556"></a>00556     }
-<a name="l00557"></a>00557     UNPROTECT(2);
-<a name="l00558"></a>00558     <span class="keywordflow">return</span>(ans);
-<a name="l00559"></a>00559 }
+<a name="l00487"></a>00487     <span class="keywordflow">for</span> (i = 0; i &lt; nobs; i++) {
+<a name="l00488"></a>00488         count = 0;
+<a name="l00489"></a>00489         SET_VECTOR_ELT(ans, i, bw = allocVector(REALSXP, ntrain));
+<a name="l00490"></a>00490         <span class="keywordflow">for</span> (j = 0; j &lt; ntrain; j++)
+<a name="l00491"></a>00491             REAL(bw)[j] = 0.0;
+<a name="l00492"></a>00492         <span class="keywordflow">for</span> (b = 0; b &lt; ntrees; b++) {
+<a name="l00493"></a>00493             tree = VECTOR_ELT(forest, b);
+<a name="l00494"></a>00494 
+<a name="l00495"></a>00495             <span class="keywordflow">if</span> (oob &amp;&amp; 
+<a name="l00496"></a>00496                 REAL(VECTOR_ELT(weights, b))[i] &gt; 0.0) 
+<a name="l00497"></a>00497                 <span class="keywordflow">continue</span>;
+<a name="l00498"></a>00498 
+<a name="l00499"></a>00499             iwhere = <a class="code" href="Predict_8c.html#ad9d49b6a210f5c09a2a1d1aa496859ce">C_get_nodeID</a>(tree, newinputs, REAL(mincriterion)[0], i);
+<a name="l00500"></a>00500             
+<a name="l00501"></a>00501             <span class="keywordflow">for</span> (j = 0; j &lt; ntrain; j++) {
+<a name="l00502"></a>00502                 <span class="keywordflow">if</span> (iwhere == INTEGER(VECTOR_ELT(where, b))[j])
+<a name="l00503"></a>00503                     REAL(bw)[j] += REAL(VECTOR_ELT(weights, b))[j];
+<a name="l00504"></a>00504             }
+<a name="l00505"></a>00505             count++;
+<a name="l00506"></a>00506         }
+<a name="l00507"></a>00507         <span class="keywordflow">if</span> (count == 0) 
+<a name="l00508"></a>00508             error(<span class="stringliteral">&quot;cannot compute out-of-bag predictions for obs &quot;</span>, i + 1);
+<a name="l00509"></a>00509     }
+<a name="l00510"></a>00510     UNPROTECT(1);
+<a name="l00511"></a>00511     <span class="keywordflow">return</span>(ans);
+<a name="l00512"></a>00512 }
+<a name="l00513"></a>00513 
+<a name="l00514"></a>00514 
+<a name="l00520"></a><a class="code" href="Predict_8c.html#a3be1a8f3155b0481350cecd4c094a416">00520</a> SEXP <a class="code" href="Predict_8c.html#a3be1a8f3155b0481350cecd4c094a416">R_proximity</a>(SEXP where) {
+<a name="l00521"></a>00521 
+<a name="l00522"></a>00522     SEXP ans, bw, bin;
+<a name="l00523"></a>00523     <span class="keywordtype">int</span> ntrees, nobs, i, b, j, iwhere;
+<a name="l00524"></a>00524     
+<a name="l00525"></a>00525     ntrees = LENGTH(where);
+<a name="l00526"></a>00526     nobs = LENGTH(VECTOR_ELT(where, 0));
+<a name="l00527"></a>00527     
+<a name="l00528"></a>00528     PROTECT(ans = allocVector(VECSXP, nobs));
+<a name="l00529"></a>00529     PROTECT(bin = allocVector(INTSXP, nobs));
+<a name="l00530"></a>00530      
+<a name="l00531"></a>00531     <span class="keywordflow">for</span> (i = 0; i &lt; nobs; i++) {
+<a name="l00532"></a>00532         SET_VECTOR_ELT(ans, i, bw = allocVector(REALSXP, nobs));
+<a name="l00533"></a>00533         <span class="keywordflow">for</span> (j = 0; j &lt; nobs; j++) {
+<a name="l00534"></a>00534             REAL(bw)[j] = 0.0;
+<a name="l00535"></a>00535             INTEGER(bin)[j] = 0;
+<a name="l00536"></a>00536         }
+<a name="l00537"></a>00537         <span class="keywordflow">for</span> (b = 0; b &lt; ntrees; b++) {
+<a name="l00538"></a>00538             <span class="comment">/* don&#39;t look at out-of-bag observations */</span>
+<a name="l00539"></a>00539             <span class="keywordflow">if</span> (INTEGER(VECTOR_ELT(where, b))[i] == 0)
+<a name="l00540"></a>00540                 <span class="keywordflow">continue</span>;
+<a name="l00541"></a>00541             iwhere = INTEGER(VECTOR_ELT(where, b))[i];
+<a name="l00542"></a>00542             <span class="keywordflow">for</span> (j = 0; j &lt; nobs; j++) {
+<a name="l00543"></a>00543                 <span class="keywordflow">if</span> (iwhere == INTEGER(VECTOR_ELT(where, b))[j])
+<a name="l00544"></a>00544                     <span class="comment">/* only count the number of trees; no weights */</span>
+<a name="l00545"></a>00545                     REAL(bw)[j]++;
+<a name="l00546"></a>00546                 <span class="keywordflow">if</span> (INTEGER(VECTOR_ELT(where, b))[j] &gt; 0)
+<a name="l00547"></a>00547                     <span class="comment">/* count the number of bootstrap samples</span>
+<a name="l00548"></a>00548 <span class="comment">                    containing both i and j */</span>
+<a name="l00549"></a>00549                     INTEGER(bin)[j]++;
+<a name="l00550"></a>00550             }
+<a name="l00551"></a>00551         }
+<a name="l00552"></a>00552         <span class="keywordflow">for</span> (j = 0; j &lt; nobs; j++)
+<a name="l00553"></a>00553             REAL(bw)[j] = REAL(bw)[j] / INTEGER(bin)[j];
+<a name="l00554"></a>00554     }
+<a name="l00555"></a>00555     UNPROTECT(2);
+<a name="l00556"></a>00556     <span class="keywordflow">return</span>(ans);
+<a name="l00557"></a>00557 }
 </pre></div></div>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Mon May 2 2011 16:01:35 for party by&nbsp;
+<hr class="footer"/><address class="footer"><small>Generated on Fri May 6 2011 17:00:51 for party by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.1 </small></address>
 </body>

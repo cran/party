@@ -1,5 +1,5 @@
 
-# $Id: Utils.R 4314 2009-03-27 16:25:13Z hothorn $
+# $Id: Utils.R 4680 2011-05-06 15:01:10Z hothorn $
 
 ### Wrapper for functions defined in ./src/Utilsc
 
@@ -8,7 +8,7 @@ qsvd <- function(x) {
         stop(sQuote("x"), " is not a quadratic matrix")
 
     svdmem <- new("svd_mem", ncol(x)) 
-    dummy <- .Call("CR_svd", x, svdmem, PACKAGE = "party")
+    dummy <- .Call("R_svd", x, svdmem, PACKAGE = "party")
     rm(dummy)
     return(list(u = svdmem@u, vt = svdmem@v, d = svdmem@s))
 }

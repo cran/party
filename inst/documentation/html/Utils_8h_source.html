@@ -38,8 +38,8 @@
 <a name="l00002"></a>00002 <span class="keywordtype">void</span> <a class="code" href="Utils_8c.html#a12e882779ecd0445c3a0dd9ac85dfeee">C_kronecker</a> (<span class="keyword">const</span> <span class="keywordtype">double</span> *A, <span class="keyword">const</span> <span class="keywordtype">int</span> m, <span class="keyword">const</span> <span class="keywordtype">int</span> n,
 <a name="l00003"></a>00003                   <span class="keyword">const</span> <span class="keywordtype">double</span> *B, <span class="keyword">const</span> <span class="keywordtype">int</span> r, <span class="keyword">const</span> <span class="keywordtype">int</span> s,
 <a name="l00004"></a>00004                   <span class="keywordtype">double</span> *ans);
-<a name="l00005"></a>00005 SEXP <a class="code" href="Utils_8h.html#a572286b2fd0bd9993473cfd0c6b165c0">La_svd</a>(SEXP jobu, SEXP jobv, SEXP x, SEXP s, SEXP u, 
-<a name="l00006"></a>00006             SEXP v, SEXP method);
+<a name="l00005"></a>00005 <span class="comment">/* SEXP La_svd(SEXP jobu, SEXP jobv, SEXP x, SEXP s, SEXP u, </span>
+<a name="l00006"></a>00006 <span class="comment">            SEXP v, SEXP method); */</span>
 <a name="l00007"></a>00007 <span class="keywordtype">void</span> <a class="code" href="Utils_8c.html#af7c710920d1496d23fdabad9b1d0e18c">C_SampleNoReplace</a>(<span class="keywordtype">int</span> *x, <span class="keywordtype">int</span> m, <span class="keywordtype">int</span> k, <span class="keywordtype">int</span> *ans);
 <a name="l00008"></a>00008 <span class="keywordtype">void</span> <a class="code" href="Utils_8c.html#ac0d5c2fe971923d7a1b1869dffabddb1">C_MPinv</a> (SEXP x, <span class="keywordtype">double</span> tol, SEXP svdmem, SEXP ans);
 <a name="l00009"></a>00009 <span class="keywordtype">double</span> <a class="code" href="Utils_8c.html#a5b306a6923d1155e6ce877cf6fa12a42">C_max</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> *x, <span class="keyword">const</span> <span class="keywordtype">int</span> n);
@@ -58,7 +58,7 @@
 <a name="l00022"></a>00022 <span class="keywordtype">double</span>* <a class="code" href="Utils_8c.html#af9716d8427688ac52d3dd254337316b1">C_tempweights</a>(<span class="keywordtype">int</span> j, SEXP weights, SEXP fitmem, SEXP inputs);
 </pre></div></div>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Mon May 2 2011 16:01:35 for party by&nbsp;
+<hr class="footer"/><address class="footer"><small>Generated on Fri May 6 2011 17:00:51 for party by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.1 </small></address>
 </body>

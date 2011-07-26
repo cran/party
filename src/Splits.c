@@ -3,7 +3,7 @@
     Binary splits 
     *\file Splits.c
     *\author $Author: hothorn $
-    *\date $Date: 2009-09-17 11:59:10 +0200 (Thu, 17 Sep 2009) $
+    *\date $Date: 2011-05-06 17:01:10 +0200 (Fri, 06 May 2011) $
 */
                 
 #include "party.h"
@@ -222,11 +222,9 @@ void C_splitcategorical(const int *codingx, int p,
                         SEXP expcovinf, double *cutpoint, int *levelset, 
                         double *maxstat, double *statistics) {
 
-    double tol, *tmpx, *tmptmpx, tmp = 0.0;
+    double *tmpx, *tmptmpx, tmp = 0.0;
     int *irank, *ordertmpx, i, j, k, l, jp, chk;
 
-    tol = get_tol(splitctrl);          
-                     
     /* allocate memory */
     tmpx = Calloc(n, double);
     ordertmpx = Calloc(n, int);

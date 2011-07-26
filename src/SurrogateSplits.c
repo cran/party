@@ -3,7 +3,7 @@
     Suggorgate splits
     *\file SurrogateSplits.c
     *\author $Author: hothorn $
-    *\date $Date: 2010-05-19 17:43:48 +0200 (Wed, 19 May 2010) $
+    *\date $Date: 2011-05-06 17:01:10 +0200 (Fri, 06 May 2011) $
 */
                 
 #include "party.h"
@@ -201,12 +201,11 @@ void C_splitsurrogate(SEXP node, SEXP learnsample) {
     SEXP inputs, whichNA, whichNAns;
     double cutpoint, *dx, *dweights, *leftweights, *rightweights;
     int *iwhichNA, k;
-    int nobs, i, nna, ns;
+    int i, nna, ns;
                     
     weights = S3get_nodeweights(node);
     dweights = REAL(weights);
     inputs = GET_SLOT(learnsample, PL2_inputsSym);
-    nobs = get_nobs(learnsample);
             
     leftweights = REAL(S3get_nodeweights(S3get_leftnode(node)));
     rightweights = REAL(S3get_nodeweights(S3get_rightnode(node)));
