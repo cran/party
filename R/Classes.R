@@ -1,23 +1,5 @@
 
-# $Id: Classes.R 4596 2010-09-13 12:07:18Z hothorn $
-
-### Conditional Expectation and Covariance
-setClass(Class = "ExpectCovar",
-    representation = representation(
-        expectation = "numeric",
-        covariance  = "matrix",
-        dimension   = "integer"
-   )
-)
-
-### Expectation and Covariance of the influence function 
-### (+ sum of weights)
-setClass(Class = "ExpectCovarInfluence",
-    representation = representation(
-        sumweights = "numeric"
-    ),
-    contains = "ExpectCovar"
-)
+# $Id: Classes.R 4722 2011-08-22 09:49:52Z hothorn $
 
 ### Linear statistic with expectation and covariance
 setClass(Class = "LinStatExpectCovar",

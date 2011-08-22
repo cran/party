@@ -1,6 +1,9 @@
 
 importFrom("coin", "logrank_trafo")
 importFrom("modeltools", "fit")
+importFrom("stats", "weights")
+
+importClassesFrom("coin", "ExpectCovar", "ExpectCovarInfluence")
 
 export(ctree, ctree_memory, ctree_control, 
        node_inner, edge_simple, node_terminal,

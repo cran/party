@@ -1,7 +1,13 @@
 
+                CHANGES IN party VERSION 0.9-99994 (2011-08-22)
+
+    o    reuse classes exported by coin
+
+
                 CHANGES IN party VERSION 0.9-99993 (2011-07-26)
 
     o    attach NAMESPACE properly in tests
+
 
                 CHANGES IN party VERSION 0.9-99992 (2011-05-02)
 

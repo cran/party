@@ -1,7 +1,7 @@
 Package: party
 Title: A Laboratory for Recursive Partytioning
-Date: 2011-07-26
-Version: 0.9-99993
+Date: 2011-08-22
+Version: 0.9-99994
 Author: Torsten Hothorn, Kurt Hornik, Carolin Strobl and Achim Zeileis
 Maintainer: Torsten Hothorn <Torsten.Hothorn@R-project.org>
 Description: A computational toolbox for recursive partitioning. The
@@ -20,11 +20,12 @@ Description: A computational toolbox for recursive partitioning. The
         instability tests for split selection. Extensible functionality
         for visualizing tree-structured regression models is available.
 Depends: R (>= 2.0.1), methods, survival, grid, modeltools (>= 0.2-6),
-        coin (>= 0.6-4), zoo, sandwich (>= 1.1-1), strucchange, vcd
+        coin (>= 0.6-4), zoo, sandwich (>= 1.1-1), strucchange, vcd,
+        stats
 Suggests: ipred, mlbench, colorspace, MASS, mvtnorm
 LazyLoad: yes
 LazyData: yes
 License: GPL-2
-Packaged: 2011-07-26 13:08:13 UTC; hothorn
+Packaged: 2011-08-22 09:00:17 UTC; hothorn
 Repository: CRAN
-Date/Publication: 2011-07-29 06:21:44
+Date/Publication: 2011-08-24 09:30:42
