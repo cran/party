@@ -1,6 +1,6 @@
-1eac2cf74c032bca309ee6f114dfd120 *DESCRIPTION
+e3a94064136b2d7ab9320744d4faa482 *DESCRIPTION
 1337fd1b0e39938251354580a6978a14 *NAMESPACE
-1975aca40b6089b2ca01c665c8d2cfb7 *NEWS
+c79e35f329325f1dc32c2c3d0f4ad455 *NEWS
 e8c02e34209fd68de1b72d36ff87d8c7 *R/AAA.R
 7ae127c54e1a52cd2e7d090df7748d51 *R/Classes.R
 bcb6622cbbbefe3a2fc632d3e637e3bb *R/ConditionalTree.R
@@ -18,15 +18,15 @@ c87b276b68a6af0cd0ecfc1608be4faa *R/reweight.R
 25e6f430288b8af5ca9e4abffe6e38e4 *R/varimp.R
 a299063cf4e104eb5383de781a200fe8 *R/zInitMethods.R
 68de086b58de2ba03a8e380c985e03c9 *cleanup
-00b5381ecbda6a1f5651524e33dd90ee *data/mammoexp.rda
+05f33c99221004711d568e45cdee64c2 *data/mammoexp.rda
 daf0d9485bc3bd5ab672d388165ae023 *data/readingSkills.rda
 df32d3053e4f6a461a74ffcfbd9bfc3b *doxygen.cfg
 d939b5d2a70fe896889921a02588e794 *inst/CITATION
 a1eee736541462cb74f16f914e03775d *inst/README
 b5cd189cb0a5928f1f02b383d764ae11 *inst/doc/MOB.Rnw
-2b690ea4ca1317079af2770cd55ac924 *inst/doc/MOB.pdf
+0b010dcb5d524c61f6c860960a0128a7 *inst/doc/MOB.pdf
 99693851dc6273afc0c102100bcc8e4d *inst/doc/party.Rnw
-ee3b767df65d3de73106929e73d5bea7 *inst/doc/party.pdf
+cd8238325fc7bdb93ac61e9ca543919c *inst/doc/party.pdf
 82ffa18b6dc131cbaf6c1ea2bea06dcf *inst/doc/partyrefs.bib
 ab9449cbd71ea2d4d17b52eeba542e40 *inst/documentation/html/Classes_8c.html
 d78187aa1997b17aca01b459d1fe0cab *inst/documentation/html/Classes_8c__incl.map
@@ -610,7 +610,7 @@ ad8dc772c0da0d3ccbea36d689c213e9 *src/LinearStatistic.c
 1e4ca6677049dd76728b70f8dbb66ff0 *src/Predict.c
 e4f95f4e38ac9b634cb5ed2efda1a48e *src/Predict.h
 8a650b9f04c8fc8bacdd9148108786aa *src/RandomForest.c
-e25ed12bec50e9241f34111baaec1c29 *src/S3Classes.c
+e8a41110e731ce97ca2b6e881283ce35 *src/S3Classes.c
 8e9e9e8158bc9f9be6f5bdf6da6caf23 *src/S3Classes.h
 21c2aaf06ae2a93865c88c7d8792b3d4 *src/Splits.c
 2fdcecd080da5e2bec8ebf4e76e751e9 *src/Splits.h
@@ -622,7 +622,7 @@ e25ed12bec50e9241f34111baaec1c29 *src/S3Classes.c
 b81872778e263507b2552aefb1dfbf44 *src/TreeGrow.h
 b5b58dfd7d05548a2447a516ef34c172 *src/Utils.c
 f8b502f45f9154d4c6b59096ae0aa478 *src/Utils.h
-f40f640748d456b2d9c2eeadbcca4112 *src/mvt.f
+12a2cd85d4f4c35258b4c3a711c69351 *src/mvt.f
 c5e04dff3e5dce2d6d3df583acac3e21 *src/mvt.h
 a5c8223502cefd3b0a9658954a494762 *src/party.h
 d1cb5ac3d7be6c5b5a3b2a844fc4846d *tests/Distributions.R

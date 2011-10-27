@@ -75,7 +75,7 @@
 *           Call the lattice rule integration subroutine
 *
             CALL MVKBRV( ND, IVLS, MAXPTS, 1, MVSUBR, ABSEPS, RELEPS, 
-     &                    E, V, INFORM )
+     &                    E(1), V, INFORM )
             ERROR = E(1)
             VALUE = V(1)
          ENDIF

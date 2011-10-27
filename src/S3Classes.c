@@ -3,7 +3,7 @@
     S3 classes for dealing with nodes and splits
     *\file S3Classes.c
     *\author $Author: hothorn $
-    *\date $Date: 2007-07-23 09:44:00 +0200 (Mon, 23 Jul 2007) $
+    *\date $Date: 2011-10-27 17:43:21 +0200 (Thu, 27 Oct 2011) $
 */
                 
 #include "party.h"
@@ -58,7 +58,7 @@ SEXP S3get_nodeweights(SEXP node) {
 }
 
 double S3get_sumweights(SEXP node) {
-    REAL(VECTOR_ELT(node, S3_SUMWEIGHTS))[0];
+    return(REAL(VECTOR_ELT(node, S3_SUMWEIGHTS))[0]);
 }
 
 SEXP S3get_teststat(SEXP node) {
