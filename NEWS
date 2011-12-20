@@ -1,4 +1,13 @@
 
+
+                CHANGES IN party VERSION 0.9-99996 (2011-12-20)
+
+    o    don't ship doxygen documentation with package
+
+    o    ctree() and cforest() don't handle `-' in formulae,
+         warning added to Rd files
+
+
                 CHANGES IN party VERSION 0.9-99995 (2011-10-27)
 
     o    observations with missing values in newdata might not have gone 

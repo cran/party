@@ -13,7 +13,10 @@ cforest(formula, data = list(), subset = NULL, weights = NULL,
 proximity(object)
 }
 \arguments{
-  \item{formula}{ a symbolic description of the model to be fit. }
+  \item{formula}{ a symbolic description of the model to be fit. Note 
+                  that symbols like \code{:} and \code{-} will not work
+                  and the tree will make use of all variables listed on the
+                  rhs of \code{formula}.}                  
   \item{data}{ an data frame containing the variables in the model. }
   \item{subset}{ an optional vector specifying a subset of observations to be
                  used in the fitting process.}

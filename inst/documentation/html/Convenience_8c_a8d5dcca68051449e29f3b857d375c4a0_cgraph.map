@@ -1,6 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$LinearStatistic_8c.html#ae2f62abe13ee5b625141b5d4a496d832" title="C_ExpectCovarInfluence" alt="" coords="203,5,376,35"/>
-<area shape="rect" id="node5" href="$LinearStatistic_8c.html#a94a0805ea258af79d426c095feee399a" title="C_ExpectCovarLinearStatistic" alt="" coords="185,59,393,88"/>
-<area shape="rect" id="node9" href="$LinearStatistic_8c.html#aaefa2a9406bb30b323715e3db41da637" title="C_LinearStatistic" alt="" coords="225,112,353,141"/>
-<area shape="rect" id="node7" href="$Utils_8c.html#a12e882779ecd0445c3a0dd9ac85dfeee" title="C_kronecker" alt="" coords="443,59,544,88"/>
-</map>

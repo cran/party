@@ -1,9 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$Predict_8c.html#a8964e7493ed9cb96c271b168b721e329" title="C_getpredictions" alt="" coords="183,112,311,141"/>
-<area shape="rect" id="node5" href="$Predict_8c.html#a201fdee9dc7e3e71e90ea6609ed353cb" title="C_get_nodebynum" alt="" coords="361,85,503,115"/>
-<area shape="rect" id="node15" href="$S3Classes_8c.html#a70a340b301b4e383107c92cbbeb4ae20" title="S3get_prediction" alt="" coords="367,139,497,168"/>
-<area shape="rect" id="node7" href="$S3Classes_8c.html#a5917f57e141432fd1e4f58a16b9149aa" title="S3get_leftnode" alt="" coords="569,5,687,35"/>
-<area shape="rect" id="node9" href="$S3Classes_8c.html#a136b05ff188fc291196cc9d37d52e862" title="S3get_nodeID" alt="" coords="572,59,684,88"/>
-<area shape="rect" id="node11" href="$S3Classes_8c.html#ab8834f319068d2a248a5d6328cd10dc5" title="S3get_nodeterminal" alt="" coords="552,112,704,141"/>
-<area shape="rect" id="node13" href="$S3Classes_8c.html#a14a38e81ed758a64367dc190f0e8229b" title="S3get_rightnode" alt="" coords="564,165,692,195"/>
-</map>

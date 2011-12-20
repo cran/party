@@ -5,9 +5,6 @@ library("party")
 ### get rid of the NAMESPACE
 attach(asNamespace("party"))
 
-### check if doxygen documentation is there
-stopifnot(nchar(system.file("documentation/html/index.html", package = "party")) > 29)
-
 ### check nominal level printing
 set.seed(290875)
 x <- gl(5, 50)
