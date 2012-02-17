@@ -1,4 +1,15 @@
 
+                CHANGES IN party VERSION 1.0-0 (2012-01-26)
+
+    o    varimp can now partially deal with missing values
+
+    o    Kaplan-Meier curves are now computed _after_ removing
+         zero case weights (see comment in ?survfit); plots may change
+         slightly.
+
+    o    use cforest_unbiased instead of cforest_control/cforest_classical
+         in examples and regression tests
+
 
                 CHANGES IN party VERSION 0.9-99996 (2011-12-20)
 

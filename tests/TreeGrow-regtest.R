@@ -78,8 +78,8 @@ p2 <- unlist(treeresponse(ctreefit(ls, control = ctree_control()), newdata = as.
 stopifnot(identical(max(abs(p1 - p2)), 0))
 
 set.seed(29)
-p1 <- unlist(treeresponse(cforestfit(ls, control = cforest_control(mtry = 1)), newdata = as.matrix(newx)))
+p1 <- unlist(treeresponse(cforestfit(ls, control = cforest_unbiased(mtry = 1)), newdata = as.matrix(newx)))
 set.seed(29)
-p2 <- unlist(treeresponse(cforest(Species ~ ., data = iris, control = cforest_control(mtry = 1)), 
+p2 <- unlist(treeresponse(cforest(Species ~ ., data = iris, control = cforest_unbiased(mtry = 1)), 
              newdata = as.data.frame(newx)))
 stopifnot(identical(max(abs(p1 - p2)), 0))

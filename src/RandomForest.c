@@ -2,8 +2,8 @@
 /**
     Random forest with conditional inference trees
     *\file RandomForest.c
-    *\author $Author: hothorn $
-    *\date $Date: 2010-06-24 13:21:31 +0200 (Thu, 24 Jun 2010) $
+    *\author $Author: thothorn $
+    *\date $Date: 2012-02-21 11:44:21 +0100 (Tue, 21 Feb 2012) $
 */
 
 #include "party.h"
@@ -26,7 +26,7 @@ SEXP R_Ensemble(SEXP learnsample, SEXP weights, SEXP bwhere, SEXP bweights,
      double *dnweights, *dweights, sw = 0.0, *prob, tmp;
      int nobs, i, b, B , nodenum = 1, *iweights, *iweightstmp, 
          *iwhere, replace, fraction, wgrzero = 0, realweights = 0;
-     int j, k, l;
+     int j, k, l, swi = 0;
      
      B = get_ntree(controls);
      nobs = get_nobs(learnsample);
@@ -49,6 +49,7 @@ SEXP R_Ensemble(SEXP learnsample, SEXP weights, SEXP bwhere, SEXP bweights,
      }
      for (i = 0; i < nobs; i++)
          prob[i] = dweights[i]/sw;
+     swi = (int) ftrunc(sw);
 
      replace = get_replace(controls);
      /* fraction of number of obs with weight > 0 */
@@ -89,7 +90,7 @@ SEXP R_Ensemble(SEXP learnsample, SEXP weights, SEXP bwhere, SEXP bweights,
          /* generate altered weights for perturbation */
          if (replace) {
              /* weights for a bootstrap sample */
-             rmultinom((int) sw, prob, nobs, iweights);
+             rmultinom(swi, prob, nobs, iweights);
          } else {
              /* weights for sample splitting */
              C_SampleSplitting(nobs, prob, iweights, fraction);
@@ -123,7 +124,7 @@ SEXP R_Ensemble(SEXP learnsample, SEXP weights, SEXP bwhere, SEXP bweights,
              /* To delete the previous line */
              Rprintf("\r");
              /* Flush all char in buffer */
-             fflush(stdout);
+             /* fflush(stdout); */
          }
      }
      if (get_trace(controls))

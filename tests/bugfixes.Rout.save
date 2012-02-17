@@ -1,7 +1,8 @@
 
-R version 2.11.0 (2010-04-22)
-Copyright (C) 2010 The R Foundation for Statistical Computing
+R version 2.14.1 (2011-12-22)
+Copyright (C) 2011 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
+Platform: i686-pc-linux-gnu (32-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
 You are welcome to redistribute it under certain conditions.
@@ -25,7 +26,15 @@ Loading required package: modeltools
 Loading required package: stats4
 Loading required package: coin
 Loading required package: mvtnorm
+Loading required package: multcomp
 Loading required package: zoo
+
+Attaching package: 'zoo'
+
+The following object(s) are masked from 'package:base':
+
+    as.Date, as.Date.numeric
+
 Loading required package: sandwich
 Loading required package: strucchange
 Loading required package: vcd
@@ -105,7 +114,7 @@ In validityMethod(object) : 'nresample' must be larger than 100
 > xo <- ordered(x)
 > x[sample(1:length(x), 10)] <- NA
 > cforest(y + xo ~ x + z, data = df, 
-+         control = cforest_control(ntree = 50))
++         control = cforest_unbiased(ntree = 50))
 
 	 Random Forest using Conditional Inference Trees
 
@@ -203,13 +212,12 @@ In factor_trafo(x) : factors at only one level may lead to problems
 > cf <- cforest(y1 + y2 ~ x1 + x2, data = df)
 There were 50 or more warnings (use warnings() to see the first 50)
 > pr <- predict(cf)
-> stopifnot(nrow(pr) == nrow(df) || ncol(pr) != 2)
+> stopifnot(length(pr) == nrow(df) || lengthl(pr[[1]]) != 2)
 > 
 > ### varimp with ordered response
 > ### spotted by Max Kuhn <Max.Kuhn@pfizer.com>
-> test <- cforest(ME ~ ., data = mammoexp, control = cforest_control(ntree = 50))
+> test <- cforest(ME ~ ., data = mammoexp, control = cforest_unbiased(ntree = 50))
 > stopifnot(sum(abs(varimp(test))) > 0)
-There were 50 or more warnings (use warnings() to see the first 50)
 > 
 > ### missing values in factors lead to segfaults on 64 bit systems
 > ### spotted by Carolin Strobl <carolin.strobl@lme.de>
@@ -227,7 +235,7 @@ Response:  y
 Input:  xNA 
 Number of observations:  100 
 
-1) xNA == {1}; criterion = 1, statistic = 62.221
+1) xNA == {1}; criterion = 1, statistic = 72.566
   2)*  weights = 48 
 1) xNA == {2}
   3)*  weights = 52 
@@ -290,7 +298,7 @@ Number of observations:  100
 +           controls = ctree_control(maxsurrogate = nm))
 > foo(4)
 
-	 Conditional inference tree with 5 terminal nodes
+	 Conditional inference tree with 6 terminal nodes
 
 Response:  Ozone 
 Inputs:  Solar.R, Wind, Temp, Month, Day, x1, x2, x3 
@@ -306,9 +314,12 @@ Number of observations:  116
       6)*  weights = 21 
 1) Temp > 82
   7) Wind <= 10.3; criterion = 0.995, statistic = 11.712
-    8)*  weights = 30 
+    8) x1 == {1}; criterion = 0.961, statistic = 7.877
+      9)*  weights = 15 
+    8) x1 == {0}
+      10)*  weights = 15 
   7) Wind > 10.3
-    9)*  weights = 7 
+    11)*  weights = 7 
 > try(foo(5))
 Error in model@fit(data, ...) : 
   cannot set up 5 surrogate splits with only 4 ordered input variable(s)
@@ -333,4 +344,15 @@ Error in model@fit(data, ...) :
 > weights <- rep(1.0, nrow(tmp))
 > stopifnot(all.equal(Split(tmp$vasg, tmp$Class, weights, 
 +                     ctree_control()@splitctrl)[[1]], 0.066))
+> 
+> ### model.matrix.survReg was missing from modeltools
+> data("GBSG2", package = "ipred")
+> nloglik <- function(x) -logLik(x)
+> GBSG2$time <- GBSG2$time/365
+> mobGBSG2 <- mob(Surv(time, cens) ~ horTh + pnodes | progrec + menostat +
++   estrec + menostat + age + tsize + tgrade, data = GBSG2, model = survReg,
++   control = mob_control(objfun = nloglik, minsplit = 40))
+> plot(mobGBSG2, terminal = node_scatterplot, tp_args = list(yscale = c(-0.1, 11)))
+> 
+> 
 > 

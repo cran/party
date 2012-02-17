@@ -19,6 +19,9 @@ ct <- ctree(Class ~ ., data = GlaucomaM)
 stopifnot(isequal(predict(ct), predict(ct, newdata = GlaucomaM)))
 stopifnot(isequal(predict(ct, type = "prob"), predict(ct, type = "prob", 
                   newdata = GlaucomaM)))
+stopifnot(isequal(predict(ct, type = "node"), predict(ct, type = "node", 
+                  newdata = GlaucomaM)))
+stopifnot(isequal(predict(ct, type = "prob"), treeresponse(ct)))
 
 data(GBSG2, package = "ipred")  
 

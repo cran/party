@@ -40,8 +40,8 @@ ctree_memory(object, MPinv = FALSE)
     bs <- rmultinom(50, nrow(airq), rep(1, nrow(airq))/nrow(airq))
     storage.mode(bs) <- "double"
     cfit <- conditionalTree@fit
-    system.time(ens <- apply(bs, 2, function(w) cfit(ls, ct, weights = w, 
-                                                     fitmem = mem)))
+    ens <- apply(bs, 2, function(w) cfit(ls, ct, weights = w, 
+                                         fitmem = mem))
 
 }
 \keyword{misc}

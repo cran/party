@@ -1,7 +1,8 @@
 
-R version 2.11.0 (2010-04-22)
-Copyright (C) 2010 The R Foundation for Statistical Computing
+R version 2.14.1 (2011-12-22)
+Copyright (C) 2011 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
+Platform: i686-pc-linux-gnu (32-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
 You are welcome to redistribute it under certain conditions.
@@ -25,7 +26,15 @@ Loading required package: modeltools
 Loading required package: stats4
 Loading required package: coin
 Loading required package: mvtnorm
+Loading required package: multcomp
 Loading required package: zoo
+
+Attaching package: 'zoo'
+
+The following object(s) are masked from 'package:base':
+
+    as.Date, as.Date.numeric
+
 Loading required package: sandwich
 Loading required package: strucchange
 Loading required package: vcd
@@ -38,6 +47,10 @@ Loading required package: rpart
 Loading required package: mlbench
 Loading required package: nnet
 Loading required package: class
+Loading required package: prodlim
+Loading required package: KernSmooth
+KernSmooth 2.23 loaded
+Copyright M. P. Wand 1997-2009
 > if (!require("coin"))
 +     stop("cannot load package coin")
 > 
@@ -284,9 +297,9 @@ Number of observations:  412
 > stopifnot(identical(max(abs(p1 - p2)), 0))
 > 
 > set.seed(29)
-> p1 <- unlist(treeresponse(cforestfit(ls, control = cforest_control(mtry = 1)), newdata = as.matrix(newx)))
+> p1 <- unlist(treeresponse(cforestfit(ls, control = cforest_unbiased(mtry = 1)), newdata = as.matrix(newx)))
 > set.seed(29)
-> p2 <- unlist(treeresponse(cforest(Species ~ ., data = iris, control = cforest_control(mtry = 1)), 
+> p2 <- unlist(treeresponse(cforest(Species ~ ., data = iris, control = cforest_unbiased(mtry = 1)), 
 +              newdata = as.data.frame(newx)))
 > stopifnot(identical(max(abs(p1 - p2)), 0))
 > 

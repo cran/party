@@ -1,7 +1,8 @@
 
-R version 2.11.0 (2010-04-22)
-Copyright (C) 2010 The R Foundation for Statistical Computing
+R version 2.14.1 (2011-12-22)
+Copyright (C) 2011 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
+Platform: i686-pc-linux-gnu (32-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
 You are welcome to redistribute it under certain conditions.
@@ -28,7 +29,15 @@ Loading required package: modeltools
 Loading required package: stats4
 Loading required package: coin
 Loading required package: mvtnorm
+Loading required package: multcomp
 Loading required package: zoo
+
+Attaching package: ‘zoo’
+
+The following object(s) are masked from ‘package:base’:
+
+    as.Date, as.Date.numeric
+
 Loading required package: sandwich
 Loading required package: strucchange
 Loading required package: vcd
@@ -150,13 +159,13 @@ Loading required package: colorspace
 >     ### honest (i.e., out-of-bag) cross-classification of 
 >     ### true vs. predicted classes
 >     table(mammoexp$ME, predict(cforest(ME ~ ., data = mammoexp, 
-+                                control = cforest_classical(ntree = 50)), 
++                                control = cforest_unbiased(ntree = 50)), 
 +                                OOB = TRUE))
                
                 Never Within a Year Over a Year
-  Never           207            27           0
-  Within a Year    64            40           0
-  Over a Year      62            12           0
+  Never           193            28          13
+  Within a Year    60            43           1
+  Over a Year      56            18           0
 > 
 > 
 > 
@@ -256,20 +265,20 @@ attr(,"assign")
 >     ### honest (i.e., out-of-bag) cross-classification of
 >     ### true vs. predicted classes
 >     table(mammoexp$ME, predict(cforest(ME ~ ., data = mammoexp, 
-+                                control = cforest_classical(ntree = 50)),
++                                control = cforest_unbiased(ntree = 50)),
 +                                OOB = TRUE))
                
                 Never Within a Year Over a Year
-  Never           207            27           0
-  Within a Year    64            40           0
-  Over a Year      62            12           0
+  Never           193            28          13
+  Within a Year    60            43           1
+  Over a Year      56            18           0
 > 
 >     ### fit forest to censored response
 >     if (require("ipred")) {
 + 
 +         data("GBSG2", package = "ipred")
 +         bst <- cforest(Surv(time, cens) ~ ., data = GBSG2, 
-+                    control = cforest_classical(ntree = 50))
++                    control = cforest_unbiased(ntree = 50))
 + 
 +         ### estimate conditional Kaplan-Meier curves
 +         treeresponse(bst, newdata = GBSG2[1:2,], OOB = TRUE)
@@ -282,97 +291,113 @@ Loading required package: rpart
 Loading required package: mlbench
 Loading required package: nnet
 Loading required package: class
-1) tgrade <= 1; criterion = 5.039, statistic = 5.039
-  2) age <= 51; criterion = 2.187, statistic = 2.187
-    3)*  weights = 0 
-  2) age > 51
-    4) horTh == {}; criterion = 1.351, statistic = 1.351
-      5)*  weights = 0 
-    4) horTh == {}
-      6)*  weights = 0 
-1) tgrade > 1
-  7) pnodes <= 7; criterion = 5.371, statistic = 5.371
-    8) progrec <= 89; criterion = 2.701, statistic = 2.701
-      9) pnodes <= 3; criterion = 1.78, statistic = 1.78
-        10) progrec <= 63; criterion = 1.812, statistic = 1.812
-          11) menostat == {}; criterion = 2.344, statistic = 2.344
-            12) pnodes <= 2; criterion = 1.385, statistic = 1.385
-              13) horTh == {}; criterion = 2.757, statistic = 2.757
-                14)*  weights = 0 
-              13) horTh == {}
-                15) progrec <= 5; criterion = 2.595, statistic = 2.595
-                  16)*  weights = 0 
-                15) progrec > 5
-                  17)*  weights = 0 
-            12) pnodes > 2
-              18) tsize <= 23; criterion = 2.103, statistic = 2.103
-                19)*  weights = 0 
-              18) tsize > 23
-                20)*  weights = 0 
-          11) menostat == {}
-            21) pnodes <= 1; criterion = 2.459, statistic = 2.459
-              22)*  weights = 0 
-            21) pnodes > 1
-              23) tgrade <= 2; criterion = 2.534, statistic = 2.534
-                24) pnodes <= 2; criterion = 1.356, statistic = 1.356
-                  25)*  weights = 0 
-                24) pnodes > 2
-                  26)*  weights = 0 
-              23) tgrade > 2
+Loading required package: prodlim
+Loading required package: KernSmooth
+KernSmooth 2.23 loaded
+Copyright M. P. Wand 1997-2009
+1) pnodes <= 3; criterion = 1, statistic = 37.638
+  2) horTh == {}; criterion = 0.986, statistic = 6.053
+    3) menostat == {}; criterion = 0.895, statistic = 2.635
+      4) tgrade <= 1; criterion = 0.58, statistic = 0.65
+        5)*  weights = 0 
+      4) tgrade > 1
+        6) progrec <= 206; criterion = 0.874, statistic = 2.337
+          7) pnodes <= 1; criterion = 0.494, statistic = 0.442
+            8) estrec <= 5; criterion = 0.579, statistic = 0.647
+              9)*  weights = 0 
+            8) estrec > 5
+              10) progrec <= 16; criterion = 0.688, statistic = 1.02
+                11)*  weights = 0 
+              10) progrec > 16
+                12)*  weights = 0 
+          7) pnodes > 1
+            13) pnodes <= 2; criterion = 0.324, statistic = 0.246
+              14)*  weights = 0 
+            13) pnodes > 2
+              15)*  weights = 0 
+        6) progrec > 206
+          16)*  weights = 0 
+    3) menostat == {}
+      17) tsize <= 19; criterion = 0.541, statistic = 0.548
+        18) age <= 45; criterion = 0.979, statistic = 5.301
+          19)*  weights = 0 
+        18) age > 45
+          20)*  weights = 0 
+      17) tsize > 19
+        21) age <= 37; criterion = 0.943, statistic = 3.631
+          22)*  weights = 0 
+        21) age > 37
+          23) pnodes <= 2; criterion = 0.951, statistic = 3.866
+            24) age <= 49; criterion = 0.913, statistic = 2.922
+              25) tsize <= 23; criterion = 0.606, statistic = 0.728
+                26)*  weights = 0 
+              25) tsize > 23
                 27)*  weights = 0 
-        10) progrec > 63
-          28)*  weights = 0 
-      9) pnodes > 3
-        29) progrec <= 61; criterion = 2.435, statistic = 2.435
-          30) estrec <= 77; criterion = 1.791, statistic = 1.791
-            31) horTh == {}; criterion = 1.305, statistic = 1.305
-              32) tgrade <= 2; criterion = 1.556, statistic = 1.556
-                33)*  weights = 0 
-              32) tgrade > 2
-                34)*  weights = 0 
-            31) horTh == {}
-              35) estrec <= 4; criterion = 1.443, statistic = 1.443
-                36)*  weights = 0 
-              35) estrec > 4
-                37) age <= 44; criterion = 1.863, statistic = 1.863
-                  38)*  weights = 0 
-                37) age > 44
-                  39)*  weights = 0 
-          30) estrec > 77
-            40)*  weights = 0 
-        29) progrec > 61
-          41)*  weights = 0 
-    8) progrec > 89
-      42) horTh == {}; criterion = 3.499, statistic = 3.499
-        43) estrec <= 117; criterion = 1.913, statistic = 1.913
-          44) menostat == {}; criterion = 3.365, statistic = 3.365
-            45) pnodes <= 3; criterion = 2.629, statistic = 2.629
-              46) tsize <= 21; criterion = 1.522, statistic = 1.522
-                47)*  weights = 0 
-              46) tsize > 21
-                48)*  weights = 0 
-            45) pnodes > 3
-              49)*  weights = 0 
-          44) menostat == {}
-            50)*  weights = 0 
-        43) estrec > 117
-          51)*  weights = 0 
-      42) horTh == {}
-        52) tgrade <= 2; criterion = 1.639, statistic = 1.639
-          53)*  weights = 0 
-        52) tgrade > 2
-          54)*  weights = 0 
-  7) pnodes > 7
-    55) horTh == {}; criterion = 3.183, statistic = 3.183
-      56)*  weights = 0 
-    55) horTh == {}
-      57) progrec <= 16; criterion = 2.87, statistic = 2.87
-        58)*  weights = 0 
-      57) progrec > 16
-        59) tsize <= 29; criterion = 2.421, statistic = 2.421
+            24) age > 49
+              28)*  weights = 0 
+          23) pnodes > 2
+            29)*  weights = 0 
+  2) horTh == {}
+    30) progrec <= 74; criterion = 0.895, statistic = 2.634
+      31) pnodes <= 2; criterion = 0.989, statistic = 6.497
+        32) tsize <= 28; criterion = 0.769, statistic = 2.556
+          33)*  weights = 0 
+        32) tsize > 28
+          34)*  weights = 0 
+      31) pnodes > 2
+        35)*  weights = 0 
+    30) progrec > 74
+      36) pnodes <= 1; criterion = 0.853, statistic = 2.099
+        37) estrec <= 109; criterion = 0.482, statistic = 0.417
+          38)*  weights = 0 
+        37) estrec > 109
+          39)*  weights = 0 
+      36) pnodes > 1
+        40)*  weights = 0 
+1) pnodes > 3
+  41) horTh == {}; criterion = 0.981, statistic = 5.458
+    42) estrec <= 79; criterion = 0.997, statistic = 8.922
+      43) progrec <= 132; criterion = 0.981, statistic = 5.529
+        44) menostat == {}; criterion = 0.772, statistic = 1.452
+          45) progrec <= 20; criterion = 0.502, statistic = 0.46
+            46) estrec <= 1; criterion = 0.466, statistic = 0.386
+              47)*  weights = 0 
+            46) estrec > 1
+              48)*  weights = 0 
+          45) progrec > 20
+            49)*  weights = 0 
+        44) menostat == {}
+          50) age <= 60; criterion = 0.953, statistic = 3.945
+            51)*  weights = 0 
+          50) age > 60
+            52)*  weights = 0 
+      43) progrec > 132
+        53)*  weights = 0 
+    42) estrec > 79
+      54) tsize <= 21; criterion = 0.641, statistic = 1.879
+        55)*  weights = 0 
+      54) tsize > 21
+        56)*  weights = 0 
+  41) horTh == {}
+    57) tgrade <= 2; criterion = 0.97, statistic = 4.689
+      58) age <= 53; criterion = 0.96, statistic = 4.238
+        59) tsize <= 37; criterion = 0.827, statistic = 1.856
           60)*  weights = 0 
-        59) tsize > 29
+        59) tsize > 37
           61)*  weights = 0 
+      58) age > 53
+        62) progrec <= 113; criterion = 0.78, statistic = 1.506
+          63) tsize <= 30; criterion = 0.809, statistic = 1.713
+            64)*  weights = 0 
+          63) tsize > 30
+            65)*  weights = 0 
+        62) progrec > 113
+          66)*  weights = 0 
+    57) tgrade > 2
+      67) progrec <= 10; criterion = 0.974, statistic = 4.963
+        68)*  weights = 0 
+      67) progrec > 10
+        69)*  weights = 0 
 > 
 >     ### proximity, see ?randomForest
 >     iris.cf <- cforest(Species ~ ., data = iris, 
@@ -390,8 +415,8 @@ Loading required package: class
 > graphics::par(get("par.postscript", pos = 'CheckExEnv'))
 > cleanEx()
 
-detaching ‘package:ipred’, ‘package:class’, ‘package:nnet’,
-  ‘package:mlbench’, ‘package:rpart’
+detaching ‘package:ipred’, ‘package:prodlim’, ‘package:KernSmooth’,
+  ‘package:class’, ‘package:nnet’, ‘package:mlbench’, ‘package:rpart’
 
 > nameEx("ctree")
 > ### * ctree
@@ -436,6 +461,9 @@ Number of observations:  116
 >     plot(airct)
 >     mean((airq$Ozone - predict(airct))^2)
 [1] 403.6668
+>     ### extract terminal node ID, two ways
+>     all.equal(predict(airct, type = "node"), where(airct))
+[1] TRUE
 > 
 >     ### classification
 >     irisct <- ctree(Species ~ .,data = iris)
@@ -517,19 +545,33 @@ Loading required package: rpart
 Loading required package: mlbench
 Loading required package: nnet
 Loading required package: class
+Loading required package: prodlim
+Loading required package: KernSmooth
 [[1]]
 records   n.max n.start  events  median 0.95LCL 0.95UCL 
-    686     248     248      88    2093    1814      NA 
+    248     248     248      88    2093    1814      NA 
 
 [[2]]
 records   n.max n.start  events  median 0.95LCL 0.95UCL 
-    686     166     166      77    1701    1174    2018 
+    166     166     166      77    1701    1174    2018 
 
 > 
 >     ### if you are interested in the internals:
+>     ### generate doxygen documentation
 >     ## Not run: 
-> ##D         browseURL(system.file("documentation/html/index.html", 
-> ##D                               package = "party"))
+> ##D 
+> ##D         ### download src package into temp dir
+> ##D         tmpdir <- tempdir()
+> ##D         tgz <- download.packages("party", destdir = tmpdir)[2]
+> ##D         ### extract
+> ##D         untar(tgz, exdir = tmpdir)
+> ##D         wd <- setwd(file.path(tmpdir, "party"))
+> ##D         ### run doxygen (assuming it is there)
+> ##D         system("doxygen doxygen.cfg")
+> ##D         setwd(wd)
+> ##D         ### have fun
+> ##D         browseURL(file.path(tmpdir, "party", "inst", 
+> ##D                             "documentation", "html", "index.html")) 
 > ##D     
 > ## End(Not run)
 > 
@@ -537,8 +579,8 @@ records   n.max n.start  events  median 0.95LCL 0.95UCL
 > 
 > cleanEx()
 
-detaching ‘package:ipred’, ‘package:class’, ‘package:nnet’,
-  ‘package:mlbench’, ‘package:rpart’
+detaching ‘package:ipred’, ‘package:prodlim’, ‘package:KernSmooth’,
+  ‘package:class’, ‘package:nnet’, ‘package:mlbench’, ‘package:rpart’
 
 > nameEx("ctree_memory")
 > ### * ctree_memory
@@ -567,10 +609,8 @@ detaching ‘package:ipred’, ‘package:class’, ‘package:nnet’,
 >     bs <- rmultinom(50, nrow(airq), rep(1, nrow(airq))/nrow(airq))
 >     storage.mode(bs) <- "double"
 >     cfit <- conditionalTree@fit
->     system.time(ens <- apply(bs, 2, function(w) cfit(ls, ct, weights = w, 
-+                                                      fitmem = mem)))
-   user  system elapsed 
-  0.240   0.000   0.239 
+>     ens <- apply(bs, 2, function(w) cfit(ls, ct, weights = w, 
++                                          fitmem = mem))
 > 
 > 
 > 
@@ -779,14 +819,16 @@ Loading required package: rpart
 Loading required package: mlbench
 Loading required package: nnet
 Loading required package: class
+Loading required package: prodlim
+Loading required package: KernSmooth
 > 
 > 
 > 
 > 
 > cleanEx()
 
-detaching ‘package:ipred’, ‘package:class’, ‘package:nnet’,
-  ‘package:mlbench’, ‘package:rpart’
+detaching ‘package:ipred’, ‘package:prodlim’, ‘package:KernSmooth’,
+  ‘package:class’, ‘package:nnet’, ‘package:mlbench’, ‘package:rpart’
 
 > nameEx("plot.mob")
 > ### * plot.mob
@@ -883,13 +925,19 @@ detaching ‘package:mlbench’
 >    readingSkills.cf <- cforest(score ~ ., data = readingSkills,
 +        control = cforest_unbiased(mtry = 2, ntree = 50))
 > 
+>    # standard importance
 >    varimp(readingSkills.cf)
 nativeSpeaker           age      shoeSize 
-     13.13315      81.79755      15.69448 
-> 
->    varimp(readingSkills.cf, conditional = TRUE)
+     12.69213      82.26737      13.60017 
+>    # the same modulo random variation
+>    varimp(readingSkills.cf, pre1.0_0 = TRUE)
 nativeSpeaker           age      shoeSize 
-    11.616286     51.106067      1.233911 
+     13.06254      80.44754      14.38979 
+> 
+>    # conditional importance, may take a while...
+>    varimp(readingSkills.cf, conditional = TRUE) 
+nativeSpeaker           age      shoeSize 
+    11.870034     52.114547      1.461803 
 > 
 > 
 > 
@@ -945,12 +993,16 @@ Linear model with coefficients:
 >    # standard importance
 >    varimp(readingSkills.cf)
 nativeSpeaker           age      shoeSize 
-     13.13315      81.79755      15.69448 
+     12.69213      82.26737      13.60017 
+>    # the same modulo random variation
+>    varimp(readingSkills.cf, pre1.0_0 = TRUE)
+nativeSpeaker           age      shoeSize 
+     13.06254      80.44754      14.38979 
 > 
 >    # conditional importance, may take a while...
 >    varimp(readingSkills.cf, conditional = TRUE)
 nativeSpeaker           age      shoeSize 
-    11.616286     51.106067      1.233911 
+    11.870034     52.114547      1.461803 
 > 
 > 
 > 
@@ -958,7 +1010,7 @@ nativeSpeaker           age      shoeSize
 > ### * <FOOTER>
 > ###
 > cat("Time elapsed: ", proc.time() - get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  41.622 0.116 41.746 0 0 
+Time elapsed:  22.365 0.26 22.693 0 0 
 > grDevices::dev.off()
 null device 
           1 

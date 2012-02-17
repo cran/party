@@ -1,5 +1,5 @@
 
-# $Id: zInitMethods.R 2361 2005-06-09 13:40:51Z hothorn $
+# $Id: zInitMethods.R 82 2005-06-09 13:40:51Z hothorn $
 
 setMethod(f = "initialize", signature = "ExpectCovar",
     definition = function(.Object, pq = 1) {

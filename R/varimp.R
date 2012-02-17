@@ -24,19 +24,22 @@ create_cond_list <- function(cond, threshold, xname, input) {
 ## regulate size of considered tree here via, e.g., mincriterion = 0.95
 ## or when building the forest in the first place via cforest_control(mincriterion = 0.95)
 
-varimp <- function (object, mincriterion = 0, conditional = FALSE, threshold = 0.2, nperm = 1, OOB = TRUE)
+varimp <- function (object, mincriterion = 0, conditional = FALSE, 
+                    threshold = 0.2, nperm = 1, OOB = TRUE, pre1.0_0 = conditional)
 {
 
+    response <- object@responses
     input <- object@data@get("input")
     xnames <- colnames(input)
-    response <- object@responses
+    inp <- initVariableFrame(input, trafo = NULL)
+    y <- object@responses@variables[[1]]
     if(length(response@variables) != 1)
         stop("cannot compute variable importance measure for multivariate response")
-    y <- object@responses@variables[[1]]
-    inp <- initVariableFrame(input, trafo = NULL)
-    if(!all(complete.cases(inp@variables)))
-        stop("cannot compute variable importance measure with missing values")
-    tmp <- inp
+
+    if (conditional || pre1.0_0) {
+        if(!all(complete.cases(inp@variables)))
+            stop("cannot compute variable importance measure with missing values")
+    }
     CLASS <- all(response@is_nominal)
     ORDERED <- all(response@is_ordinal)
     if (CLASS) {
@@ -54,7 +57,7 @@ varimp <- function (object, mincriterion = 0, conditional = FALSE, threshold = 0
     }
 
     ## list for several permutations
-    perror <- matrix(0, nrow = nperm*length(object@ensemble), ncol = ncol(input))
+    perror <- matrix(0, nrow = nperm*length(object@ensemble), ncol = length(xnames))
     ## this matrix is initialized with values 0 so that a tree that does not 
     ## contain the current variable adds importance 0 to its average importance
     colnames(perror) <- xnames
@@ -67,26 +70,31 @@ varimp <- function (object, mincriterion = 0, conditional = FALSE, threshold = 0
                 warning(sQuote("varimp"), " with non-unity weights might give misleading results")
 
             ## if OOB == TRUE use only oob observations, otherwise use all observations in learning sample
-            if(OOB){oob <- object@weights[[b]] == 0} else{ oob <- rep(TRUE, nrow(input))}
-            p <- .Call("R_predict", tree, inp, mincriterion, PACKAGE = "party")
+            if(OOB){oob <- object@weights[[b]] == 0} else{ oob <- rep(TRUE, length(xnames))}
+            p <- .Call("R_predict", tree, inp, mincriterion, -1L, PACKAGE = "party")
             eoob <- error(p, oob)
 
             ## for all variables (j = 1 ... number of variables) 
             for(j in unique(varIDs(tree))){
               for (per in 1:nperm){
 
-                ccl <- create_cond_list(conditional, threshold, xnames[j], input)
-                if (is.null(ccl)) {
-                    perm <- sample(which(oob))
+                if (conditional || pre1.0_0) {
+                    tmp <- inp
+                    ccl <- create_cond_list(conditional, threshold, xnames[j], input)
+                    if (is.null(ccl)) {
+                        perm <- sample(which(oob))
+                    } else {
+                        perm <- conditional_perm(ccl, xnames, input, tree, oob)
+                    }
+                    tmp@variables[[j]][which(oob)] <- tmp@variables[[j]][perm]
+                    p <- .Call("R_predict", tree, tmp, mincriterion, -1L,
+                       PACKAGE = "party")
                 } else {
-                    perm <- conditional_perm(ccl, xnames, input, tree, oob)
+                    p <- .Call("R_predict", tree, inp, mincriterion, as.integer(j),
+                               PACKAGE = "party")
                 }
-                tmp@variables[[j]][which(oob)] <- tmp@variables[[j]][perm]
-                p <- .Call("R_predict", tree, tmp, mincriterion,
-                   PACKAGE = "party")
                 ## run through all rows of perror
                 perror[(per+(b-1)*nperm), j] <- (error(p, oob) - eoob)
-                tmp <- inp
 
               } ## end of for (per in 1:nperm)
             } ## end of for(j in unique(varIDs(tree)))

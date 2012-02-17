@@ -74,13 +74,15 @@ ctree(formula, data, subset = NULL, weights = NULL,
   c(1,5,6))}, for example.
 
   Predictions can be computed using \code{\link{predict}} or
-  \code{\link{treeresponse}}. The first returns predicted means,
-  predicted classes or median predicted survival times, whereas
-  the latter gives more information about the conditional
-  distribution of the response, i.e., class probabilities
-  or predicted Kaplan-Meier curves. For observations
-  with zero weights, predictions are computed from the fitted tree 
-  when \code{newdata = NULL}.
+  \code{\link{treeresponse}}.  The first function accepts arguments
+  \code{type = c("response", "node", "prob")} where \code{type = "response"}
+  returns predicted means, predicted classes or median predicted survival
+  times, \code{type = "node"} returns terminal node IDs (identical to
+  \code{\link{where}}) and \code{type = "prob"} gives more information about
+  the conditional distribution of the response, i.e., class probabilities or
+  predicted Kaplan-Meier curves and is identical to
+  \code{\link{treeresponse}}.  For observations with zero weights,
+  predictions are computed from the fitted tree when \code{newdata = NULL}.
 
   For a general description of the methodology see Hothorn, Hornik and
   Zeileis (2006) and Hothorn, Hornik, van de Wiel and Zeileis (2006).
@@ -116,6 +118,8 @@ ctree(formula, data, subset = NULL, weights = NULL,
     airct
     plot(airct)
     mean((airq$Ozone - predict(airct))^2)
+    ### extract terminal node ID, two ways
+    all.equal(predict(airct, type = "node"), where(airct))
 
     ### classification
     irisct <- ctree(Species ~ .,data = iris)

@@ -1,5 +1,5 @@
 
-# $Id: Print.R 3043 2006-10-09 14:23:30Z hothorn $
+# $Id: Print.R 282 2006-10-09 14:23:30Z hothorn $
 
 prettysplit <- function(x, inames = NULL, ilevels = NULL) {
     if (length(x) == 4)

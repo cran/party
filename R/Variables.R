@@ -1,5 +1,5 @@
 
-# $Id: Variables.R 4115 2008-08-29 16:05:23Z hothorn $
+# $Id: Variables.R 391 2008-08-29 16:05:23Z hothorn $
 
 ### factor handling
 ff_trafo <- function(x) {

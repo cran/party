@@ -31,7 +31,7 @@ try(cforest_control(nresample = 10))
 xo <- ordered(x)
 x[sample(1:length(x), 10)] <- NA
 cforest(y + xo ~ x + z, data = df, 
-        control = cforest_control(ntree = 50))
+        control = cforest_unbiased(ntree = 50))
 
 ### make sure minsplit is OK in the presence of missing values
 ### spotted by Han Lee <Han.Lee@GeodeCapital.com>
@@ -98,11 +98,11 @@ df <- data.frame(y1 = rnorm(100), y2 = rnorm(100), x1 = runif(100), x2 = runif(1
 df$y1[df$x1 < 0.5] <- df$y1[df$x1 < 0.5] + 1
 cf <- cforest(y1 + y2 ~ x1 + x2, data = df)
 pr <- predict(cf)
-stopifnot(nrow(pr) == nrow(df) || ncol(pr) != 2)
+stopifnot(length(pr) == nrow(df) || lengthl(pr[[1]]) != 2)
 
 ### varimp with ordered response
 ### spotted by Max Kuhn <Max.Kuhn@pfizer.com>
-test <- cforest(ME ~ ., data = mammoexp, control = cforest_control(ntree = 50))
+test <- cforest(ME ~ ., data = mammoexp, control = cforest_unbiased(ntree = 50))
 stopifnot(sum(abs(varimp(test))) > 0)
 
 ### missing values in factors lead to segfaults on 64 bit systems
@@ -192,3 +192,14 @@ tmp <- subset(GlaucomaM, vari <= 0.059)
 weights <- rep(1.0, nrow(tmp))
 stopifnot(all.equal(Split(tmp$vasg, tmp$Class, weights, 
                     ctree_control()@splitctrl)[[1]], 0.066))
+
+### model.matrix.survReg was missing from modeltools
+data("GBSG2", package = "ipred")
+nloglik <- function(x) -logLik(x)
+GBSG2$time <- GBSG2$time/365
+mobGBSG2 <- mob(Surv(time, cens) ~ horTh + pnodes | progrec + menostat +
+  estrec + menostat + age + tsize + tgrade, data = GBSG2, model = survReg,
+  control = mob_control(objfun = nloglik, minsplit = 40))
+plot(mobGBSG2, terminal = node_scatterplot, tp_args = list(yscale = c(-0.1, 11)))
+
+

@@ -7,7 +7,7 @@
 }
 \usage{
 varimp(object, mincriterion = 0, conditional = FALSE, 
-       threshold = 0.2, nperm = 1, OOB = TRUE)
+       threshold = 0.2, nperm = 1, OOB = TRUE, pre1.0_0 = conditional)
 }
 \arguments{
   \item{object}{ an object as returned by \code{cforest}.}
@@ -25,6 +25,15 @@ varimp(object, mincriterion = 0, conditional = FALSE,
   \item{nperm}{ the number of permutations performed.}
   \item{OOB}{ a logical determining whether the importance is computed from the out-of-bag 
               sample or the learning sample (not suggested).}
+  \item{pre1.0_0}{ Prior to party version 1.0-0, the actual data values
+                   were permuted according to the original permutation
+                   importance suggested by Breiman (2001). Now the assignments
+                   to child nodes of splits in the variable of interest
+                   are permuted as described by Hapfelmeier et al. (2012),
+                   which allows for missing values in the explanatory
+                   variables and is more efficient wrt memory consumption and 
+                   computing time. This method does not apply to conditional
+                   variable importances.}
 }
 \details{
 
@@ -40,15 +49,10 @@ varimp(object, mincriterion = 0, conditional = FALSE,
   regression models, but represents the effect of a variable in both main effects and interactions.
   See Strobl et al. (2008) for details.
 
-  Note, however, 
-
-  1. that all random forest results are subject to random variation. Thus, before
+  Note, however, that all random forest results are subject to random variation. Thus, before
   interpreting the importance ranking, check whether the same ranking is achieved with a
   different random seed -- or otherwise increase the number of trees \code{ntree} in 
-  \code{\link{ctree_control}}!
-
-  2. that \code{varimp} cannot (yet) handle missing values.
-  
+  \code{\link{ctree_control}}.
 
 }
 \value{
@@ -58,13 +62,17 @@ varimp(object, mincriterion = 0, conditional = FALSE,
 
     Leo Breiman (2001). Random Forests. \emph{Machine Learning}, 45(1), 5--32.
 
-    Torsten Hothorn, Kurt Hornik and Achim Zeileis (2006b). Unbiased
+    Alexander Hapfelmeier, Torsten Hothorn, Kurt Ulm, and Carolin Strobl (2012).
+    A New Variable Importance Measure for Random Forests with Missing Data.
+    Manuscript under review.
+
+    Torsten Hothorn, Kurt Hornik, and Achim Zeileis (2006b). Unbiased
     Recursive Partitioning: A Conditional Inference Framework.
     \emph{Journal of Computational and Graphical Statistics}, \bold{15} (3),
     651-674.  Preprint available from 
     \url{http://statmath.wu-wien.ac.at/~zeileis/papers/Hothorn+Hornik+Zeileis-2006.pdf}
 
-    Carolin Strobl, Anne-Laure Boulesteix, Thomas Kneib, Thomas Augustin and Achim Zeileis (2008).
+    Carolin Strobl, Anne-Laure Boulesteix, Thomas Kneib, Thomas Augustin, and Achim Zeileis (2008).
     Conditional Variable Importance for Random Forests. \emph{BMC Bioinformatics}, \bold{9}, 307. 
     \url{http://www.biomedcentral.com/1471-2105/9/307}
 }
@@ -76,6 +84,8 @@ varimp(object, mincriterion = 0, conditional = FALSE,
 
    # standard importance
    varimp(readingSkills.cf)
+   # the same modulo random variation
+   varimp(readingSkills.cf, pre1.0_0 = TRUE)
 
    # conditional importance, may take a while...
    varimp(readingSkills.cf, conditional = TRUE)

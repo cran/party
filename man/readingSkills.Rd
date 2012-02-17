@@ -37,9 +37,13 @@
    readingSkills.cf <- cforest(score ~ ., data = readingSkills,
        control = cforest_unbiased(mtry = 2, ntree = 50))
 
+   # standard importance
    varimp(readingSkills.cf)
+   # the same modulo random variation
+   varimp(readingSkills.cf, pre1.0_0 = TRUE)
 
-   varimp(readingSkills.cf, conditional = TRUE)
+   # conditional importance, may take a while...
+   varimp(readingSkills.cf, conditional = TRUE) 
 
 }
 \keyword{datasets}

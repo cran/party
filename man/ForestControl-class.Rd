@@ -16,10 +16,10 @@ Objects can be created by \code{\link{cforest_control}}.
     \item{\code{replace}:}{sampling with or without replacement.}
     \item{\code{fraction}:}{fraction of observations to sample without replacement.}
     \item{\code{trace}:}{logical indicating if a progress bar shall be printed.}
-    \item{\code{varctrl}:}{Object of class \code{"VariableControl"} ~~ }
-    \item{\code{splitctrl}:}{Object of class \code{"SplitControl"} ~~ }
-    \item{\code{gtctrl}:}{Object of class \code{"GlobalTestControl"} ~~ }
-    \item{\code{tgctrl}:}{Object of class \code{"TreeGrowControl"} ~~ }
+    \item{\code{varctrl}:}{Object of class \code{"VariableControl"}}
+    \item{\code{splitctrl}:}{Object of class \code{"SplitControl"}}
+    \item{\code{gtctrl}:}{Object of class \code{"GlobalTestControl"}}
+    \item{\code{tgctrl}:}{Object of class \code{"TreeGrowControl"}}
   }
 }
 \section{Extends}{

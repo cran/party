@@ -1,7 +1,8 @@
 
-R version 2.11.0 (2010-04-22)
-Copyright (C) 2010 The R Foundation for Statistical Computing
+R version 2.14.1 (2011-12-22)
+Copyright (C) 2011 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
+Platform: i686-pc-linux-gnu (32-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
 You are welcome to redistribute it under certain conditions.
@@ -23,7 +24,15 @@ Loading required package: modeltools
 Loading required package: stats4
 Loading required package: coin
 Loading required package: mvtnorm
+Loading required package: multcomp
 Loading required package: zoo
+
+Attaching package: 'zoo'
+
+The following object(s) are masked from 'package:base':
+
+    as.Date, as.Date.numeric
+
 Loading required package: sandwich
 Loading required package: strucchange
 Loading required package: vcd
@@ -60,9 +69,9 @@ tax <= 432; criterion = 1, statistic = 115.364
 
 -------------------------------------------
 Fluctuation tests of splitting variables:
-                    zn       indus      chas          nox        age
-statistic 27.785009791 21.33293464 8.0272421 23.774323202 11.9204284
-p.value    0.001494064  0.02851930 0.4005192  0.009518732  0.7666366
+                    zn      indus      chas          nox        age
+statistic 27.785009791 21.3329346 8.0272421 23.774323202 11.9204284
+p.value    0.001494064  0.0285193 0.4005192  0.009518732  0.7666366
                    dis          rad          tax         crim         b
 statistic 24.268011081 50.481593270 3.523250e+01 3.276813e+01 9.0363245
 p.value    0.007601532  0.003437763 4.275527e-05 1.404487e-04 0.9871502
@@ -114,12 +123,12 @@ tax <= 265; criterion = 1, statistic = 43.178
 
 -------------------------------------------
 Fluctuation tests of splitting variables:
-                 zn     indus     chas      nox        age       dis        rad
-statistic 11.998039 7.3971233 7.227770 9.293619 14.3023962 8.9239826 33.1746444
-p.value    0.574642 0.9931875 0.522447 0.911962  0.2886603 0.9389895  0.3926249
-                 tax       crim         b    ptratio
-statistic 16.6666129 11.7143758 9.9050903 11.5927528
-p.value    0.1206412  0.6153455 0.8539893  0.6328381
+                 zn     indus     chas       nox        age       dis
+statistic 11.998039 7.3971233 7.227770 9.2936189 14.3023962 8.9239826
+p.value    0.574642 0.9931875 0.522447 0.9119621  0.2886603 0.9389895
+                 rad        tax       crim         b    ptratio
+statistic 33.1746444 16.6666129 11.7143758 9.9050903 11.5927528
+p.value    0.3926249  0.1206412  0.6153455 0.8539893  0.6328381
 
 Best splitting variable: tax
 Perform split? no
@@ -425,7 +434,7 @@ NULL
 
 Deviance Residuals: 
     Min       1Q   Median       3Q      Max  
--1.9438  -0.3484   0.0000   0.0000   2.4894  
+-1.9438  -0.3484   0.0000   0.0000   2.4893  
 
 Coefficients:
              Estimate Std. Error z value Pr(>|z|)    

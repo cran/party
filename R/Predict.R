@@ -1,5 +1,5 @@
 
-# $Id: Predict.R 3537 2007-06-11 11:38:24Z hothorn $
+# $Id: Predict.R 332 2007-06-11 11:38:24Z hothorn $
 
 predict.BinaryTree <- function(object, ...) {
     conditionalTree@predict(object, ...)

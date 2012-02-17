@@ -1,5 +1,5 @@
 
-# $Id: RandomForest.R 4596 2010-09-13 12:07:18Z hothorn $
+# $Id: RandomForest.R 474 2012-02-27 11:27:14Z thothorn $
 
 ### the fitting procedure
 cforestfit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
@@ -66,10 +66,14 @@ cforestfit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
     }
 
     ### predict in the response space, always!
-    RET@predict_response <- function(newdata = NULL, mincriterion = 0, ...) { 
+    RET@predict_response <- function(newdata = NULL, mincriterion = 0, 
+        type = c("response", "prob"), ...) { 
 
+        type <- match.arg(type)
         cdresp <- RET@cond_distr_response(newdata = newdata, 
                                           mincriterion = mincriterion, ...)
+        if (type == "prob" || object@responses@ninputs > 1)
+            return(cdresp)
 
         response <- object@responses
         ### classification: classes

@@ -1,5 +1,5 @@
 
-# $Id: Utils.R 4680 2011-05-06 15:01:10Z hothorn $
+# $Id: Utils.R 464 2012-02-16 13:36:13Z thothorn $
 
 ### Wrapper for functions defined in ./src/Utilsc
 
@@ -214,6 +214,9 @@ isequal <- function(a, b) {
 mysurvfit <- function(y, weights, ...) {
 
     stopifnot(extends(class(y), "Surv"))
+    ### see comment on weights and subset in ?survfit
+    y <- y[weights > 0,]
+    weights <- weights[weights > 0]
     ret <- survival:::survfitKM(x = gl(1, NROW(y)), y = y, 
                          casewt = weights, ...)
     class(ret) <- "survfit"

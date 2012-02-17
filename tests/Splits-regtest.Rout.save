@@ -1,7 +1,8 @@
 
-R version 2.11.0 (2010-04-22)
-Copyright (C) 2010 The R Foundation for Statistical Computing
+R version 2.14.1 (2011-12-22)
+Copyright (C) 2011 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
+Platform: i686-pc-linux-gnu (32-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
 You are welcome to redistribute it under certain conditions.
@@ -25,7 +26,15 @@ Loading required package: modeltools
 Loading required package: stats4
 Loading required package: coin
 Loading required package: mvtnorm
+Loading required package: multcomp
 Loading required package: zoo
+
+Attaching package: 'zoo'
+
+The following object(s) are masked from 'package:base':
+
+    as.Date, as.Date.numeric
+
 Loading required package: sandwich
 Loading required package: strucchange
 Loading required package: vcd
@@ -65,6 +74,14 @@ Loading required package: colorspace
 > 
 > ### get rid of the NAMESPACE
 > attach(asNamespace("party"))
+The following object(s) are masked from 'package:party':
+
+    cforest, cforest_classical, cforest_control, cforest_unbiased,
+    conditionalTree, ctree, ctree_control, ctree_memory, edge_simple,
+    mob, mob_control, node_barplot, node_bivplot, node_boxplot,
+    node_density, node_hist, node_inner, node_scatterplot, node_surv,
+    node_terminal, nodes, proximity, ptrafo, response, reweight,
+    sctest.mob, treeresponse, varimp, where
 > 
 > ### 
 > ###

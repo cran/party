@@ -72,9 +72,11 @@ proximity(object)
   Predictions can be computed using \code{\link{predict}}. For observations
   with zero weights, predictions are computed from the fitted tree 
   when \code{newdata = NULL}. While \code{\link{predict}} returns predictions
-  of the same type as the response in the data set (i.e., predicted class labels for factors), 
+  of the same type as the response in the data set by default (i.e., predicted class labels for factors), 
   \code{\link{treeresponse}} returns the statistics of the conditional distribution of the response
-  (i.e., predicted class probabilities for factors).
+  (i.e., predicted class probabilities for factors). The same is done by \code{predict(..., type = "prob")}.
+  Note that for multivariate responses \code{predict} does not convert predictions to the type 
+  of the response, i.e., \code{type = "prob"} is used.
 
   Ensembles of conditional inference trees have not yet been extensively
   tested, so this routine is meant for the expert user only and its current
@@ -127,7 +129,7 @@ proximity(object)
     ### honest (i.e., out-of-bag) cross-classification of
     ### true vs. predicted classes
     table(mammoexp$ME, predict(cforest(ME ~ ., data = mammoexp, 
-                               control = cforest_classical(ntree = 50)),
+                               control = cforest_unbiased(ntree = 50)),
                                OOB = TRUE))
 
     ### fit forest to censored response
@@ -135,7 +137,7 @@ proximity(object)
 
         data("GBSG2", package = "ipred")
         bst <- cforest(Surv(time, cens) ~ ., data = GBSG2, 
-                   control = cforest_classical(ntree = 50))
+                   control = cforest_unbiased(ntree = 50))
 
         ### estimate conditional Kaplan-Meier curves
         treeresponse(bst, newdata = GBSG2[1:2,], OOB = TRUE)
