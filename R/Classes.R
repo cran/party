@@ -277,6 +277,7 @@ setClass(Class = "RandomForest",
         ensemble            = "list",
         where               = "list",
         weights             = "list",
+        initweights         = "numeric",
         data                = "ModelEnv",
         responses           = "VariableFrame", # a list of response `variables'
                                                # for computing predictions

@@ -32,6 +32,7 @@ cforestfit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
     RET@ensemble <- ensemble
     RET@where <- bwhere
     RET@weights <- bweights
+    RET@initweights <- weights
     RET@responses <- object@responses
     if (inherits(object, "LearningSampleFormula"))
         RET@data <- object@menv

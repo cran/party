@@ -15,7 +15,8 @@ Objects can be created by calls of the form \code{new("RandomForest", ...)}.
     \item{\code{ensemble}:}{Object of class \code{"list"}, each element
                            being an object of class \code{"\linkS4class{BinaryTree}"}.}
     \item{\code{data}:}{ an object of class \code{"\linkS4class{ModelEnv}"}.}
-    \item{\code{weights}:}{ a vector of weights.}
+    \item{\code{initweights}:}{ a vector of initial weights.}
+    \item{\code{weights}:}{ a list of weights defining the sub-samples.}
     \item{\code{where}:}{ a matrix of integers vectors of length n (number of
                           observations in the learning sample) giving the
                           number of the terminal node the corresponding

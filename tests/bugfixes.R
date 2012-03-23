@@ -202,4 +202,7 @@ mobGBSG2 <- mob(Surv(time, cens) ~ horTh + pnodes | progrec + menostat +
   control = mob_control(objfun = nloglik, minsplit = 40))
 plot(mobGBSG2, terminal = node_scatterplot, tp_args = list(yscale = c(-0.1, 11)))
 
-
+### factors were evaluated for surrogate splits
+data("Ozone", package = "mlbench")
+Ozone <- subset(Ozone, !is.na(V4))
+rf <- cforest(V4 ~ ., data = Ozone, control = cforest_unbiased(maxsurrogate = 7))

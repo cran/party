@@ -2,8 +2,8 @@
 /**
     Some commonly needed utility functions.
     *\file Utils.c
-    *\author $Author: hothorn $
-    *\date $Date: 2011-05-06 17:01:10 +0200 (Fri, 06 May 2011) $
+    *\author $Author: thothorn $
+    *\date $Date: 2012-03-15 10:29:17 +0100 (Thu, 15 Mar 2012) $
 */
                 
 #include "party.h"
@@ -365,7 +365,7 @@ SEXP R_abs(SEXP x) {
 void C_matprod(double *x, int nrx, int ncx,
                double *y, int nry, int ncy, double *z)
 {
-    char *transa = "N", *transb = "N";
+    const char *transa = "N", *transb = "N";
     double one = 1.0, zero = 0.0;
     int i;
 
@@ -417,7 +417,7 @@ SEXP R_matprod(SEXP x, SEXP y) {
 void C_matprodT(double *x, int nrx, int ncx,
                 double *y, int nry, int ncy, double *z)
 {
-    char *transa = "N", *transb = "T";
+    const char *transa = "N", *transb = "T";
     double one = 1.0, zero = 0.0;
     int i;
 

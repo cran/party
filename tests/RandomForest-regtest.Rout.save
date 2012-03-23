@@ -1,6 +1,6 @@
 
-R version 2.14.1 (2011-12-22)
-Copyright (C) 2011 The R Foundation for Statistical Computing
+R version 2.14.2 (2012-02-29)
+Copyright (C) 2012 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 Platform: i686-pc-linux-gnu (32-bit)
 
@@ -26,7 +26,6 @@ Loading required package: modeltools
 Loading required package: stats4
 Loading required package: coin
 Loading required package: mvtnorm
-Loading required package: multcomp
 Loading required package: zoo
 
 Attaching package: 'zoo'
@@ -151,51 +150,9 @@ Sepal.Length  Sepal.Width Petal.Length  Petal.Width
 > varimp(a, pre1.0_0 = TRUE)   
        SYMPT           PB         HIST          BSE         DECT 
 0.0330240459 0.0204430720 0.0118361515 0.0007600432 0.0023535057 
-Warning messages:
-1: In varimp(a, pre1.0_0 = TRUE) :
-  'varimp' with non-unity weights might give misleading results
-2: In varimp(a, pre1.0_0 = TRUE) :
-  'varimp' with non-unity weights might give misleading results
-3: In varimp(a, pre1.0_0 = TRUE) :
-  'varimp' with non-unity weights might give misleading results
-4: In varimp(a, pre1.0_0 = TRUE) :
-  'varimp' with non-unity weights might give misleading results
-5: In varimp(a, pre1.0_0 = TRUE) :
-  'varimp' with non-unity weights might give misleading results
-6: In varimp(a, pre1.0_0 = TRUE) :
-  'varimp' with non-unity weights might give misleading results
-7: In varimp(a, pre1.0_0 = TRUE) :
-  'varimp' with non-unity weights might give misleading results
-8: In varimp(a, pre1.0_0 = TRUE) :
-  'varimp' with non-unity weights might give misleading results
-9: In varimp(a, pre1.0_0 = TRUE) :
-  'varimp' with non-unity weights might give misleading results
-10: In varimp(a, pre1.0_0 = TRUE) :
-  'varimp' with non-unity weights might give misleading results
 > varimp(a, conditional = TRUE)
       SYMPT          PB        HIST         BSE        DECT 
 0.027567506 0.010011961 0.016523930 0.004138910 0.008821166 
-Warning messages:
-1: In varimp(a, conditional = TRUE) :
-  'varimp' with non-unity weights might give misleading results
-2: In varimp(a, conditional = TRUE) :
-  'varimp' with non-unity weights might give misleading results
-3: In varimp(a, conditional = TRUE) :
-  'varimp' with non-unity weights might give misleading results
-4: In varimp(a, conditional = TRUE) :
-  'varimp' with non-unity weights might give misleading results
-5: In varimp(a, conditional = TRUE) :
-  'varimp' with non-unity weights might give misleading results
-6: In varimp(a, conditional = TRUE) :
-  'varimp' with non-unity weights might give misleading results
-7: In varimp(a, conditional = TRUE) :
-  'varimp' with non-unity weights might give misleading results
-8: In varimp(a, conditional = TRUE) :
-  'varimp' with non-unity weights might give misleading results
-9: In varimp(a, conditional = TRUE) :
-  'varimp' with non-unity weights might give misleading results
-10: In varimp(a, conditional = TRUE) :
-  'varimp' with non-unity weights might give misleading results
 > 
 > stopifnot(all.equal(unique(sapply(a@weights, sum)), nrow(mammoexp)))
 > 

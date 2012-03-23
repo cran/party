@@ -1,5 +1,15 @@
 
-                CHANGES IN party VERSION 1.0-0 (2012-01-26)
+                CHANGES IN party VERSION 1.0-1 (2012-03-23)
+
+    o    fix -Werror warnings suggested by Murray Stokely <mstokely@google.com>
+
+    o    make sure no factor variables are evaluated as surrogate split
+
+    o    fix confusing warning messages in varimp and check
+         for non-unity weights
+
+
+                CHANGES IN party VERSION 1.0-0 (2012-02-17)
 
     o    varimp can now partially deal with missing values
 
