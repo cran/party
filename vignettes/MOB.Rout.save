@@ -1,22 +1,4 @@
 
-R version 2.14.1 (2011-12-22)
-Copyright (C) 2011 The R Foundation for Statistical Computing
-ISBN 3-900051-07-0
-Platform: i686-pc-linux-gnu (32-bit)
-
-R is free software and comes with ABSOLUTELY NO WARRANTY.
-You are welcome to redistribute it under certain conditions.
-Type 'license()' or 'licence()' for distribution details.
-
-  Natural language support but running in an English locale
-
-R is a collaborative project with many contributors.
-Type 'contributors()' for more information and
-'citation()' on how to cite R or R packages in publications.
-
-Type 'demo()' for some demos, 'help()' for on-line help, or
-'help.start()' for an HTML browser interface to help.
-Type 'q()' to quit R.
 > require("party")
 Loading required package: party
 Loading required package: survival
@@ -26,7 +8,6 @@ Loading required package: modeltools
 Loading required package: stats4
 Loading required package: coin
 Loading required package: mvtnorm
-Loading required package: multcomp
 Loading required package: zoo
 
 Attaching package: ‘zoo’
@@ -223,7 +204,7 @@ Linear model with coefficients:
 Call:
 NULL
 
-Residuals:
+Weighted Residuals:
    Min     1Q Median     3Q    Max 
 -9.092  0.000  0.000  0.000 10.236 
 

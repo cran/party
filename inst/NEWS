@@ -1,4 +1,11 @@
 
+                CHANGES IN party VERSION 1.0-2 (2012-04-26)
+
+    o    version 1.0-0 introduced a new bug in plotting Kaplan-Meier curves
+         when fixing the weight problem in survfit; the x-axis labels where
+         incorrect. Spotted by Sarah Vowler <Sarah.Vowler@cancer.org.uk>.
+
+
                 CHANGES IN party VERSION 1.0-1 (2012-03-23)
 
     o    fix -Werror warnings suggested by Murray Stokely <mstokely@google.com>

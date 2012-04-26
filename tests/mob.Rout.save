@@ -1,6 +1,6 @@
 
-R version 2.14.1 (2011-12-22)
-Copyright (C) 2011 The R Foundation for Statistical Computing
+R version 2.15.0 Patched (2012-04-25 r59190) -- "Easter Beagle"
+Copyright (C) 2012 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 Platform: i686-pc-linux-gnu (32-bit)
 
@@ -24,7 +24,6 @@ Loading required package: modeltools
 Loading required package: stats4
 Loading required package: coin
 Loading required package: mvtnorm
-Loading required package: multcomp
 Loading required package: zoo
 
 Attaching package: 'zoo'
@@ -197,7 +196,7 @@ $`3`
 Call:
 NULL
 
-Residuals:
+Weighted Residuals:
    Min     1Q Median     3Q    Max 
 -7.910  0.000  0.000  0.000  6.632 
 
@@ -219,7 +218,7 @@ $`6`
 Call:
 NULL
 
-Residuals:
+Weighted Residuals:
    Min     1Q Median     3Q    Max 
 -4.614  0.000  0.000  0.000 12.473 
 
@@ -241,7 +240,7 @@ $`7`
 Call:
 NULL
 
-Residuals:
+Weighted Residuals:
    Min     1Q Median     3Q    Max 
 -9.092  0.000  0.000  0.000 10.236 
 
@@ -263,7 +262,7 @@ $`8`
 Call:
 NULL
 
-Residuals:
+Weighted Residuals:
    Min     1Q Median     3Q    Max 
 -8.466  0.000  0.000  0.000  4.947 
 
@@ -285,7 +284,7 @@ $`9`
 Call:
 NULL
 
-Residuals:
+Weighted Residuals:
    Min     1Q Median     3Q    Max 
 -10.56   0.00   0.00   0.00  24.28 
 
@@ -479,3 +478,6 @@ Number of Fisher Scoring iterations: 4
 
 > 
 > 
+> proc.time()
+   user  system elapsed 
+  4.976   0.120   5.102 

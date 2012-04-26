@@ -1,5 +1,5 @@
 
-# $Id: RandomForest.R 474 2012-02-27 11:27:14Z thothorn $
+# $Id: RandomForest.R 483 2012-03-23 15:04:08Z thothorn $
 
 ### the fitting procedure
 cforestfit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {

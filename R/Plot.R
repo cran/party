@@ -1,5 +1,5 @@
 
-# $Id: Plot.R 439 2011-05-02 14:14:52Z hothorn $
+# $Id: Plot.R 486 2012-04-26 08:57:36Z thothorn $
 
 ## utility functions for querying the number of
 ## terminal nodes and the maximal depth of (sub-)trees
@@ -136,7 +136,7 @@ node_surv <- function(ctreeobj,
                          sep = ""))
 
         pushViewport(plot)
-        grid.lines(a$x/max(a$x), a$y)
+        grid.lines(a$x/max(survobj[,1]), a$y)
         grid.xaxis()
         grid.yaxis()
         grid.rect(gp = gpar(fill = "transparent"))
