@@ -1,6 +1,6 @@
 
-R version 2.14.1 (2011-12-22)
-Copyright (C) 2011 The R Foundation for Statistical Computing
+R Under development (unstable) (2012-08-27 r60457) -- "Unsuffered Consequences"
+Copyright (C) 2012 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 Platform: i686-pc-linux-gnu (32-bit)
 
@@ -26,7 +26,6 @@ Loading required package: modeltools
 Loading required package: stats4
 Loading required package: coin
 Loading required package: mvtnorm
-Loading required package: multcomp
 Loading required package: zoo
 
 Attaching package: 'zoo'
@@ -67,7 +66,7 @@ The following object(s) are masked from 'package:party':
 +     A = matrix(rnorm(i*5), ncol = i, nrow = 5)
 +     B = matrix(rnorm(i*10), ncol = 10, nrow = i)
 +     Rkr = kronecker(A, B)
-+     mykr = .Call("R_kronecker", A, B)
++     mykr = .Call("R_kronecker", A, B, PACKAGE = "party")
 +     stopifnot(isequal(Rkr, mykr))
 + }
 > 
@@ -105,12 +104,15 @@ The following object(s) are masked from 'package:party':
 > ### permutation case
 > m <- 10000
 > storage.mode(m) <- "integer"
-> perm <- .Call("R_permute", m) + 1 
+> perm <- .Call("R_permute", m, PACKAGE = "party") + 1 
 > stopifnot(all(sort(perm) == (1:m)))
 > 
 > ### the random subset case
 > k <- 100
 > storage.mode(k) <- "integer"
-> perm <- .Call("R_rsubset", m, k) + 1 
+> perm <- .Call("R_rsubset", m, k, PACKAGE = "party") + 1 
 > stopifnot(all(perm %in% (1:m)))
 > 
+> proc.time()
+   user  system elapsed 
+  1.212   0.084   1.287 

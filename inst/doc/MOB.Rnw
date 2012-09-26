@@ -21,13 +21,13 @@ options(useFancyQuotes = FALSE)
 \newcommand{\argmin}{\operatorname{argmin}\displaylimits}
 
 %% author/title
-\author{Achim Zeileis\\Wirtschaftsuniversit\"at Wien \And
+\author{Achim Zeileis\\Universit\"at Innsbruck \And
         Torsten Hothorn\\Ludwig-Maximilians-\\Universit\"at M\"unchen \And
-	Kurt Hornik\\Wirtschaftsuniversit\"at Wien}
+	Kurt Hornik\\WU Wirtschafts-\\universit\"at Wien}
 \Plainauthor{Achim Zeileis, Torsten Hothorn, Kurt Hornik}
 
-\title{\pkg{party} with the \code{mob}: Model-based Recursive Partitioning in \proglang{R}}
-\Plaintitle{party with the mob: Model-based Recursive Partitioning in R}
+\title{\pkg{party} with the \code{mob}: Model-Based Recursive Partitioning in \proglang{R}}
+\Plaintitle{party with the mob: Model-Based Recursive Partitioning in R}
 \Shorttitle{\pkg{party} with the \texttt{mob}}
 
 \Keywords{parametric models, object-orientation, recursive partitioning}
@@ -50,14 +50,14 @@ options(useFancyQuotes = FALSE)
 }
 
 \Address{
-  Achim Zeileis, Kurt Hornik\\
-  Institute for Statistics and Mathematics\\
-  WU Wirtschaftsuniversit\"at Wien\\
-  Augasse 2--6\\
-  1090 Wien, Austria\\
-  E-mail: \email{Achim.Zeileis@R-project.org}, \email{Kurt.Hornik@R-project.org}\\
-  URL: \url{http://statmath.wu.ac.at/~zeileis/},\\
-  \phantom{URL:} \url{http://statmath.wu.ac.at/~hornik/}\\
+  Achim Zeileis\\
+  Department of Statistics\\
+  Faculty of Economics and Statistics\\
+  Universit\"at Innsbruck\\
+  Universit\"atsstr.~15\\
+  6020 Innsbruck, Austria\\
+  E-mail: \email{Achim.Zeileis@R-project.org}\\
+  URL: \url{http://eeecon.uibk.ac.at/~zeileis/}\\
 
   Torsten Hothorn\\
   Institut f\"ur Statistik\\
@@ -65,7 +65,16 @@ options(useFancyQuotes = FALSE)
   Ludwigstra{\ss}e 33\\
   80539 M\"unchen, Germany\\
   E-mail: \email{Torsten.Hothorn@R-project.org}\\
-  URL: \url{http://www.stat.uni-muenchen.de/~hothorn/}
+  URL: \url{http://www.stat.uni-muenchen.de/~hothorn/}\\
+  
+  Kurt Hornik\\
+  Institute for Statistics and Mathematics\\
+  WU Wirtschaftsuniversit\"at Wien\\
+  Augasse 2--6\\
+  1090 Wien, Austria\\
+  E-mail: \email{Kurt.Hornik@R-project.org}\\
+  URL: \url{http://statmath.wu.ac.at/~hornik/}\\
+
 }
 
 \begin{document}

@@ -3,7 +3,7 @@
     Node splitting and prediction
     *\file Predict.c
     *\author $Author: thothorn $
-    *\date $Date: 2012-01-26 13:52:15 +0100 (Thu, 26 Jan 2012) $
+    *\date $Date: 2012-09-14 13:14:00 +0200 (Fri, 14 Sep 2012) $
 */
                 
 #include "party.h"
@@ -487,7 +487,7 @@ SEXP R_predictRF_weights(SEXP forest, SEXP where, SEXP weights,
             count++;
         }
         if (count == 0) 
-            error("cannot compute out-of-bag predictions for obs ", i + 1);
+            error("cannot compute out-of-bag predictions for observation number %d", i + 1);
     }
     UNPROTECT(1);
     return(ans);

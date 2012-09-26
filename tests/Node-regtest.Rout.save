@@ -1,6 +1,6 @@
 
-R version 2.14.1 (2011-12-22)
-Copyright (C) 2011 The R Foundation for Statistical Computing
+R Under development (unstable) (2012-08-27 r60457) -- "Unsuffered Consequences"
+Copyright (C) 2012 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 Platform: i686-pc-linux-gnu (32-bit)
 
@@ -26,7 +26,6 @@ Loading required package: modeltools
 Loading required package: stats4
 Loading required package: coin
 Loading required package: mvtnorm
-Loading required package: multcomp
 Loading required package: zoo
 
 Attaching package: 'zoo'
@@ -74,7 +73,7 @@ The following object(s) are masked from 'package:party':
 +           ninputs = inp@ninputs)
 > tm <- ctree_memory(ls, TRUE)
 > ctrl <- ctree_control()
-> node <- .Call("R_Node", ls, ls@weights, tm, ctrl)
+> node <- .Call("R_Node", ls, ls@weights, tm, ctrl, PACKAGE = "party")
 > stopifnot(isequal(node[[5]][[3]], 0.059))
 > 
 > ### and now with ranked inputs -> Wilcoxon-Mann-Whitney tests
@@ -86,6 +85,9 @@ The following object(s) are masked from 'package:party':
 +           ninputs = inp@ninputs)
 > tm <- ctree_memory(ls, TRUE)
 > ctrl <- ctree_control()
-> node <- .Call("R_Node", ls, ls@weights, tm, ctrl)
+> node <- .Call("R_Node", ls, ls@weights, tm, ctrl, PACKAGE = "party")
 > stopifnot(isequal(node[[5]][[3]], 0.059))
 > 
+> proc.time()
+   user  system elapsed 
+  1.756   0.160   1.909 

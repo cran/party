@@ -208,25 +208,35 @@ mob_fit_fluctests <- function(obj, mf, minsplit, trim, breakties, parm) {
     beta <- get("sc.beta.sup")
     logp.supLM <- function(x, k, lambda)
     {
-      if(k > 40) k <- 40
-      m <- ncol(beta)-1
-      if(lambda<1) tau <- lambda
-      else tau <- 1/(1+sqrt(lambda))
-      beta <- beta[(((k-1)*25 +1):(k*25)),]
-      dummy <- beta[,(1:m)]%*%x^(0:(m-1))
-      dummy <- dummy*(dummy>0)
-      pp <- pchisq(dummy, beta[,(m+1)], lower.tail = FALSE, log.p = TRUE)
-      if(tau==0.5)
-        p <- pchisq(x, k, lower.tail = FALSE, log.p = TRUE)
-      else if(tau <= 0.01)
-        p <- pp[25]
-      else if(tau >= 0.49)
-        p <- log((exp(log(0.5-tau) + pp[1]) + exp(log(tau-0.49) + pchisq(x,k,lower.tail = FALSE, log.p = TRUE)))*100)
-      else
-      {
-        taua <- (0.51-tau)*50
-        tau1 <- floor(taua)
-        p <- log(exp(log(tau1 + 1 - taua) + pp[tau1]) + exp(log(taua-tau1) + pp[tau1+1]))
+      if(k > 40) {
+        ## use Estrella (2003) asymptotic approximation
+        logp_estrella2003 <- function(x, k, lambda)
+          -lgamma(k/2) + k/2 * log(x/2) - x/2 + log(abs(log(lambda) * (1 - k/x) + 2/x))
+        ## FIXME: Estrella only works well for large enough x
+	## hence require x > 1.5 * k for Estrella approximation and
+	## use an ad hoc interpolation for larger p-values
+	p <- ifelse(x <= 1.5 * k, (x/(1.5 * k))^sqrt(k) * logp_estrella2003(1.5 * k, k, lambda), logp_estrella2003(x, k, lambda))
+      } else {
+        ## use Hansen (1997) approximation
+        m <- ncol(beta)-1
+        if(lambda<1) tau <- lambda
+        else tau <- 1/(1+sqrt(lambda))
+        beta <- beta[(((k-1)*25 +1):(k*25)),]
+        dummy <- beta[,(1:m)]%*%x^(0:(m-1))
+        dummy <- dummy*(dummy>0)
+        pp <- pchisq(dummy, beta[,(m+1)], lower.tail = FALSE, log.p = TRUE)
+        if(tau==0.5)
+          p <- pchisq(x, k, lower.tail = FALSE, log.p = TRUE)
+        else if(tau <= 0.01)
+          p <- pp[25]
+        else if(tau >= 0.49)
+          p <- log((exp(log(0.5-tau) + pp[1]) + exp(log(tau-0.49) + pchisq(x,k,lower.tail = FALSE, log.p = TRUE)))*100)
+        else
+        {
+          taua <- (0.51-tau)*50
+          tau1 <- floor(taua)
+          p <- log(exp(log(tau1 + 1 - taua) + pp[tau1]) + exp(log(taua-tau1) + pp[tau1+1]))
+        }
       }
       return(as.vector(p))
     }

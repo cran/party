@@ -18,7 +18,7 @@ ls <- new("LearningSample", inputs = inp, responses = resp,
           ninputs = inp@ninputs)
 tm <- ctree_memory(ls, TRUE)
 ctrl <- ctree_control()
-node <- .Call("R_Node", ls, ls@weights, tm, ctrl)
+node <- .Call("R_Node", ls, ls@weights, tm, ctrl, PACKAGE = "party")
 stopifnot(isequal(node[[5]][[3]], 0.059))
 
 ### and now with ranked inputs -> Wilcoxon-Mann-Whitney tests
@@ -30,5 +30,5 @@ ls <- new("LearningSample", inputs = inp, responses = resp,
           ninputs = inp@ninputs)
 tm <- ctree_memory(ls, TRUE)
 ctrl <- ctree_control()
-node <- .Call("R_Node", ls, ls@weights, tm, ctrl)
+node <- .Call("R_Node", ls, ls@weights, tm, ctrl, PACKAGE = "party")
 stopifnot(isequal(node[[5]][[3]], 0.059))

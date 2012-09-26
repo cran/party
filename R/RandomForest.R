@@ -1,5 +1,5 @@
 
-# $Id: RandomForest.R 483 2012-03-23 15:04:08Z thothorn $
+# $Id: RandomForest.R 496 2012-09-12 19:40:46Z thothorn $
 
 ### the fitting procedure
 cforestfit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
@@ -17,22 +17,39 @@ cforestfit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
     if (is.null(weights))
         weights <- object@weights
     storage.mode(weights) <- "double"
-    if (length(weights) != object@nobs || storage.mode(weights) != "double")
-        stop(sQuote("weights"), " are not a double vector of ", 
-             object@nobs, " elements")
-
-    ### grow the tree
-    bweights <- vector(mode = "list", length = controls@ntree)
-    bwhere <- vector(mode = "list", length = controls@ntree)
-    ensemble <- .Call("R_Ensemble", object, weights, bwhere, bweights, fitmem, controls,
-                      PACKAGE = "party")
+    USER_WEIGHTS <- is.matrix(weights)
+    if (USER_WEIGHTS) {
+        controls@ntree <- ncol(weights)
+        weights <- as.data.frame(weights)
+        if (nrow(weights) != object@nobs)
+            stop(sQuote("weights"), " are not a double matrix of ", 
+                 object@nobs, " rows")
+        bweights <- weights
+        bwhere <- vector(mode = "list", length = controls@ntree)
+        ### grow the tree
+        ensemble <- .Call("R_Ensemble_weights", object, bwhere, bweights, fitmem, controls,
+                          PACKAGE = "party")
+    } else {
+        if (length(weights) != object@nobs || storage.mode(weights) != "double")
+            stop(sQuote("weights"), " are not a double vector of ", 
+                 object@nobs, " elements")
+        bweights <- vector(mode = "list", length = controls@ntree)
+        bwhere <- vector(mode = "list", length = controls@ntree)
+        ### grow the tree
+        ensemble <- .Call("R_Ensemble", object, weights, bwhere, bweights, fitmem, controls,
+                          PACKAGE = "party")
+    }
 
     ### prepare the returned object
     RET <- new("RandomForest")
     RET@ensemble <- ensemble
     RET@where <- bwhere
     RET@weights <- bweights
-    RET@initweights <- weights
+    if (USER_WEIGHTS) {
+        RET@initweights <- rep(1.0, object@nobs) ### <FIXME>
+    } else {
+        RET@initweights <- weights
+    }
     RET@responses <- object@responses
     if (inherits(object, "LearningSampleFormula"))
         RET@data <- object@menv

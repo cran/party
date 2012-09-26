@@ -1,6 +1,6 @@
 
-R version 2.14.1 (2011-12-22)
-Copyright (C) 2011 The R Foundation for Statistical Computing
+R Under development (unstable) (2012-09-25 r60811) -- "Unsuffered Consequences"
+Copyright (C) 2012 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 Platform: i686-pc-linux-gnu (32-bit)
 
@@ -29,7 +29,6 @@ Loading required package: modeltools
 Loading required package: stats4
 Loading required package: coin
 Loading required package: mvtnorm
-Loading required package: multcomp
 Loading required package: zoo
 
 Attaching package: ‘zoo’
@@ -980,7 +979,7 @@ Linear model with coefficients:
 > 
 > ### Name: varimp
 > ### Title: Variable Importance
-> ### Aliases: varimp
+> ### Aliases: varimp varimpAUC
 > ### Keywords: tree
 > 
 > ### ** Examples
@@ -1010,7 +1009,7 @@ nativeSpeaker           age      shoeSize
 > ### * <FOOTER>
 > ###
 > cat("Time elapsed: ", proc.time() - get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  22.365 0.26 22.693 0 0 
+Time elapsed:  21.925 0.28 22.249 0 0 
 > grDevices::dev.off()
 null device 
           1 

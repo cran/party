@@ -1,5 +1,6 @@
 \name{varimp}
 \alias{varimp}
+\alias{varimpAUC}
 \title{ Variable Importance }
 \description{
     Standard and conditional variable importance for `cforest', following the permutation
@@ -7,6 +8,8 @@
 }
 \usage{
 varimp(object, mincriterion = 0, conditional = FALSE, 
+       threshold = 0.2, nperm = 1, OOB = TRUE, pre1.0_0 = conditional)
+varimpAUC(object, mincriterion = 0, conditional = FALSE, 
        threshold = 0.2, nperm = 1, OOB = TRUE, pre1.0_0 = conditional)
 }
 \arguments{
@@ -54,6 +57,12 @@ varimp(object, mincriterion = 0, conditional = FALSE,
   different random seed -- or otherwise increase the number of trees \code{ntree} in 
   \code{\link{ctree_control}}.
 
+  Function \code{varimpAUC} implements AUC-based variables importances as
+  described by Janitza et al. (2012).  Here, the area under the curve
+  instead of the accuracy is used to calculate the importance of each variable. 
+  This AUC-based variable importance measure is more robust towards class imbalance.
+
+
 }
 \value{
   A vector of `mean decrease in accuracy' importance scores.
@@ -71,6 +80,10 @@ varimp(object, mincriterion = 0, conditional = FALSE,
     \emph{Journal of Computational and Graphical Statistics}, \bold{15} (3),
     651-674.  Preprint available from 
     \url{http://statmath.wu-wien.ac.at/~zeileis/papers/Hothorn+Hornik+Zeileis-2006.pdf}
+
+    Silke Janitza and Anne-Laure Boulesteix (2012). An AUC-based Permutation 
+    Variable Importance Measure for Random Forests for Unbalanced Data.
+    Technical Report 130, Institut fuer Statistik, LMU Muenchen.
 
     Carolin Strobl, Anne-Laure Boulesteix, Thomas Kneib, Thomas Augustin, and Achim Zeileis (2008).
     Conditional Variable Importance for Random Forests. \emph{BMC Bioinformatics}, \bold{9}, 307. 

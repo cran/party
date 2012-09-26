@@ -1,5 +1,5 @@
 
-R version 2.14.2 (2012-02-29)
+R Under development (unstable) (2012-09-25 r60811) -- "Unsuffered Consequences"
 Copyright (C) 2012 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 Platform: i686-pc-linux-gnu (32-bit)
@@ -156,4 +156,18 @@ Sepal.Length  Sepal.Width Petal.Length  Petal.Width
 > 
 > stopifnot(all.equal(unique(sapply(a@weights, sum)), nrow(mammoexp)))
 > 
+> ### check user-defined weights
+> nobs <- nrow(GlaucomaM)
+> i <- rep(0.0, nobs)
+> i[1:floor(.632 * nobs)] <- 1
+> folds <- replicate(100, sample(i))
+> rf2 <- cforest(Class ~ ., data = GlaucomaM, control = cforest_unbiased(ntree = 100), weights = folds)
+> table(predict(rf), predict(rf2))
+          
+           glaucoma normal
+  glaucoma       91      2
+  normal          0    103
 > 
+> proc.time()
+   user  system elapsed 
+  8.160   0.212   8.378 

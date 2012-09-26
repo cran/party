@@ -20,7 +20,7 @@ for (i in 1:10) {
     A = matrix(rnorm(i*5), ncol = i, nrow = 5)
     B = matrix(rnorm(i*10), ncol = 10, nrow = i)
     Rkr = kronecker(A, B)
-    mykr = .Call("R_kronecker", A, B)
+    mykr = .Call("R_kronecker", A, B, PACKAGE = "party")
     stopifnot(isequal(Rkr, mykr))
 }
 
@@ -58,11 +58,11 @@ stopifnot(isequal(x %*% t(y),
 ### permutation case
 m <- 10000
 storage.mode(m) <- "integer"
-perm <- .Call("R_permute", m) + 1 
+perm <- .Call("R_permute", m, PACKAGE = "party") + 1 
 stopifnot(all(sort(perm) == (1:m)))
 
 ### the random subset case
 k <- 100
 storage.mode(k) <- "integer"
-perm <- .Call("R_rsubset", m, k) + 1 
+perm <- .Call("R_rsubset", m, k, PACKAGE = "party") + 1 
 stopifnot(all(perm %in% (1:m)))

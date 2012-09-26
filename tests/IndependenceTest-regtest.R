@@ -153,7 +153,7 @@ ls <- new("LearningSample", inputs = inp, responses = resp,
           ninputs = inp@ninputs)
 tm <- ctree_memory(ls)
 varctrl <- new("VariableControl")
-pvals <- .Call("R_GlobalTest", ls, ls@weights, tm, varctrl, gtctrl)[[2]]
+pvals <- .Call("R_GlobalTest", ls, ls@weights, tm, varctrl, gtctrl, PACKAGE = "party")[[2]]
 wpvals <- rep(0, 3)
 wpvals[1] <- wilcox.test(x1 ~ y, data = mydata,
                          correct = FALSE, exact = FALSE)$p.value
@@ -172,6 +172,6 @@ resp <- initVariableFrame(mydata[,"y",drop = FALSE], trafo = NULL, response = TR
 ls <- new("LearningSample", inputs = inp, responses = resp,
           weights = rep(1, inp@nobs), nobs = nrow(mydata), 
           ninputs = as.integer(1))
-pvals <- .Call("R_GlobalTest", ls, ls@weights, tm, varctrl, gtctrl)[[2]]
+pvals <- .Call("R_GlobalTest", ls, ls@weights, tm, varctrl, gtctrl, PACKAGE = "party")[[2]]
 stopifnot(abs((1 - pvals) - wilcox.test(x1 ~ y, data = mydata, 
     exact = TRUE)$p.value) < 1e-2)

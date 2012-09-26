@@ -28,7 +28,9 @@ proximity(object)
                   The fraction of observations to be sampled (without replacement)
                   is computed based on the sum of the weights if all weights
                   are integer-valued and based on the number of weights greater zero
-                  else. }
+                  else. Alternatively, \code{weights} can be a double matrix defining
+                  case weights for all \code{ncol(weights)} trees in the forest directly.
+                  This requires more storage but gives the user more control.}
   \item{controls}{an object of class \code{\link{ForestControl-class}}, which can be
                   obtained using \code{\link{cforest_control}} (and its
 		  convenience interfaces \code{cforest_unbiased} and \code{cforest_classical}).}

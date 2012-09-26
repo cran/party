@@ -1,6 +1,6 @@
 
-R version 2.14.1 (2011-12-22)
-Copyright (C) 2011 The R Foundation for Statistical Computing
+R Under development (unstable) (2012-08-27 r60457) -- "Unsuffered Consequences"
+Copyright (C) 2012 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 Platform: i686-pc-linux-gnu (32-bit)
 
@@ -26,7 +26,6 @@ Loading required package: modeltools
 Loading required package: stats4
 Loading required package: coin
 Loading required package: mvtnorm
-Loading required package: multcomp
 Loading required package: zoo
 
 Attaching package: 'zoo'
@@ -332,7 +331,7 @@ X-squared = 2.1741, df = 4, p-value = 0.7038
 +           ninputs = inp@ninputs)
 > tm <- ctree_memory(ls)
 > varctrl <- new("VariableControl")
-> pvals <- .Call("R_GlobalTest", ls, ls@weights, tm, varctrl, gtctrl)[[2]]
+> pvals <- .Call("R_GlobalTest", ls, ls@weights, tm, varctrl, gtctrl, PACKAGE = "party")[[2]]
 > wpvals <- rep(0, 3)
 > wpvals[1] <- wilcox.test(x1 ~ y, data = mydata,
 +                          correct = FALSE, exact = FALSE)$p.value
@@ -351,7 +350,10 @@ X-squared = 2.1741, df = 4, p-value = 0.7038
 > ls <- new("LearningSample", inputs = inp, responses = resp,
 +           weights = rep(1, inp@nobs), nobs = nrow(mydata), 
 +           ninputs = as.integer(1))
-> pvals <- .Call("R_GlobalTest", ls, ls@weights, tm, varctrl, gtctrl)[[2]]
+> pvals <- .Call("R_GlobalTest", ls, ls@weights, tm, varctrl, gtctrl, PACKAGE = "party")[[2]]
 > stopifnot(abs((1 - pvals) - wilcox.test(x1 ~ y, data = mydata, 
 +     exact = TRUE)$p.value) < 1e-2)
 > 
+> proc.time()
+   user  system elapsed 
+  1.744   0.076   1.814 

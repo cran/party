@@ -3,7 +3,7 @@
     Random forest with conditional inference trees
     *\file RandomForest.c
     *\author $Author: thothorn $
-    *\date $Date: 2012-02-21 11:44:21 +0100 (Tue, 21 Feb 2012) $
+    *\date $Date: 2012-09-12 21:40:46 +0200 (Wed, 12 Sep 2012) $
 */
 
 #include "party.h"
@@ -133,6 +133,88 @@ SEXP R_Ensemble(SEXP learnsample, SEXP weights, SEXP bwhere, SEXP bweights,
      PutRNGstate();
 
      Free(prob); Free(iweights); Free(iweightstmp);
+     UNPROTECT(1);
+     return(ans);
+}
+
+/**
+    An experimental implementation of random forest like algorithms \n
+    *\param learnsample an object of class `LearningSample'
+    *\param weights a vector of case weights
+    *\param bwhere integer matrix (n x ntree) for terminal node numbers
+    *\param bweights double matrix (n x ntree) for bootstrap case weights
+    *\param fitmem an object of class `TreeFitMemory'
+    *\param controls an object of class `TreeControl'
+*/
+
+
+SEXP R_Ensemble_weights(SEXP learnsample, SEXP bwhere, SEXP bweights, 
+                SEXP fitmem, SEXP controls) {
+            
+     SEXP nweights, tree, where, ans;
+     double *dnweights, *dweights;
+     int nobs, i, b, B , nodenum = 1, *iwhere;
+     int j, k, l, swi = 0;
+     
+     B = get_ntree(controls);
+     nobs = get_nobs(learnsample);
+     
+     PROTECT(ans = allocVector(VECSXP, B));
+
+     /* <FIXME> can we call those guys ONCE? what about the deeper
+         calls??? </FIXME> */
+     GetRNGstate();
+  
+     if (get_trace(controls))
+         Rprintf("\n");
+     for (b  = 0; b < B; b++) {
+         SET_VECTOR_ELT(ans, b, tree = allocVector(VECSXP, NODE_LENGTH + 1));
+         SET_VECTOR_ELT(bwhere, b, where = allocVector(INTSXP, nobs));
+         
+         iwhere = INTEGER(where);
+         for (i = 0; i < nobs; i++) iwhere[i] = 0;
+     
+         C_init_node(tree, nobs, get_ninputs(learnsample), 
+                     get_maxsurrogate(get_splitctrl(controls)),
+                     ncol(get_predict_trafo(GET_SLOT(learnsample, 
+                                                   PL2_responsesSym))));
+
+         nweights = S3get_nodeweights(tree);
+         dnweights = REAL(nweights);
+         dweights = REAL(VECTOR_ELT(bweights, b));
+         for (i = 0; i < nobs; i++) {
+             dnweights[i] = dweights[i];
+         }
+     
+         C_TreeGrow(tree, learnsample, fitmem, controls, iwhere, &nodenum, 1);
+         nodenum = 1;
+         C_remove_weights(tree, 0);
+         
+         if (get_trace(controls)) {
+             /* progress bar; inspired by 
+             http://avinashjoshi.co.in/2009/10/13/creating-a-progress-bar-in-c/ */
+             Rprintf("[");
+             /* Print the = until the current percentage */
+             l = (int) ceil( ((double) b * 50.0) / B);
+             for (j = 0; j < l; j++)
+                 Rprintf("=");
+             Rprintf(">");
+             for (k = j; k < 50; k++)
+                 Rprintf(" ");
+             Rprintf("]");
+             /* % completed */
+                 Rprintf(" %3d%% completed", j * 2);
+             /* To delete the previous line */
+             Rprintf("\r");
+             /* Flush all char in buffer */
+             /* fflush(stdout); */
+         }
+     }
+     if (get_trace(controls))
+         Rprintf("\n");
+
+     PutRNGstate();
+
      UNPROTECT(1);
      return(ans);
 }

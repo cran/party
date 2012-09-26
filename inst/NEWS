@@ -1,4 +1,12 @@
 
+                CHANGES IN party VERSION 1.0-3 (2012-09-26)
+
+    o    new function varimpAUC() for AUC-based variable importance measures
+
+    o    the `weights' argument in cforest() can now be used to define
+         alternative case weights for each of the trees in the forest.
+
+
                 CHANGES IN party VERSION 1.0-2 (2012-04-26)
 
     o    version 1.0-0 introduced a new bug in plotting Kaplan-Meier curves

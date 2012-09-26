@@ -1,6 +1,6 @@
 
-R version 2.14.1 (2011-12-22)
-Copyright (C) 2011 The R Foundation for Statistical Computing
+R Under development (unstable) (2012-08-27 r60457) -- "Unsuffered Consequences"
+Copyright (C) 2012 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 Platform: i686-pc-linux-gnu (32-bit)
 
@@ -26,7 +26,6 @@ Loading required package: modeltools
 Loading required package: stats4
 Loading required package: coin
 Loading required package: mvtnorm
-Loading required package: multcomp
 Loading required package: zoo
 
 Attaching package: 'zoo'
@@ -100,3 +99,6 @@ The following object(s) are masked from 'package:party':
 > stopifnot(isequal(predict(mtree), predict(mtree, newdata = mammoexp)))
 > stopifnot(isequal(predict(mtree), predict(mtree, newdata = mammoexp)))
 > 
+> proc.time()
+   user  system elapsed 
+  3.196   0.128   3.321 

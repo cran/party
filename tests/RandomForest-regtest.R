@@ -41,3 +41,10 @@ varimp(a, conditional = TRUE)
 
 stopifnot(all.equal(unique(sapply(a@weights, sum)), nrow(mammoexp)))
 
+### check user-defined weights
+nobs <- nrow(GlaucomaM)
+i <- rep(0.0, nobs)
+i[1:floor(.632 * nobs)] <- 1
+folds <- replicate(100, sample(i))
+rf2 <- cforest(Class ~ ., data = GlaucomaM, control = cforest_unbiased(ntree = 100), weights = folds)
+table(predict(rf), predict(rf2))
