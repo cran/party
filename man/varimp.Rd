@@ -73,7 +73,7 @@ varimpAUC(object, mincriterion = 0, conditional = FALSE,
 
     Alexander Hapfelmeier, Torsten Hothorn, Kurt Ulm, and Carolin Strobl (2012).
     A New Variable Importance Measure for Random Forests with Missing Data.
-    Manuscript under review.
+    \emph{Statistics and Computing}, accepted.
 
     Torsten Hothorn, Kurt Hornik, and Achim Zeileis (2006b). Unbiased
     Recursive Partitioning: A Conditional Inference Framework.
@@ -84,6 +84,7 @@ varimpAUC(object, mincriterion = 0, conditional = FALSE,
     Silke Janitza and Anne-Laure Boulesteix (2012). An AUC-based Permutation 
     Variable Importance Measure for Random Forests for Unbalanced Data.
     Technical Report 130, Institut fuer Statistik, LMU Muenchen.
+    \url{http://epub.ub.uni-muenchen.de/14206/}
 
     Carolin Strobl, Anne-Laure Boulesteix, Thomas Kneib, Thomas Augustin, and Achim Zeileis (2008).
     Conditional Variable Importance for Random Forests. \emph{BMC Bioinformatics}, \bold{9}, 307. 

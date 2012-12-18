@@ -3,6 +3,7 @@
 \alias{RandomForest-class}
 \alias{treeresponse,RandomForest-method}
 \alias{weights,RandomForest-method}
+\alias{where,RandomForest-method}
 \alias{show,RandomForest-method}
 
 \title{Class "RandomForest"}
@@ -29,6 +30,8 @@ Objects can be created by calls of the form \code{new("RandomForest", ...)}.
     \item{\code{predict_response}:}{ a function for computing predictions. }
     \item{\code{prediction_weights}:}{ a function for extracting weights from
                                      terminal nodes. }
+    \item{\code{get_where}:}{ a function for determining the number
+        of terminal nodes observations fall into. }
     \item{\code{update}:}{ a function for updating weights.}
   }
 }
@@ -36,6 +39,7 @@ Objects can be created by calls of the form \code{new("RandomForest", ...)}.
   \describe{
     \item{treeresponse}{\code{signature(object = "RandomForest")}: ... }
     \item{weights}{\code{signature(object = "RandomForest")}: ... }
+    \item{where}{\code{signature(object = "RandomForest")}: ... }
 	 }
 }
 \examples{

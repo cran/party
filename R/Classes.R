@@ -1,5 +1,5 @@
 
-# $Id: Classes.R 483 2012-03-23 15:04:08Z thothorn $
+# $Id: Classes.R 503 2012-12-13 09:54:17Z thothorn $
 
 ### Linear statistic with expectation and covariance
 setClass(Class = "LinStatExpectCovar",
@@ -284,6 +284,7 @@ setClass(Class = "RandomForest",
         cond_distr_response = "function",      # predict distribtion
         predict_response    = "function",      # predict responses
         prediction_weights  = "function",      # prediction weights
+        get_where           = "function",      # node numbers
 	update              = "function"       # update weights
     )
 )

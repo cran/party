@@ -2,8 +2,8 @@
 /**
     Binary splits 
     *\file Splits.c
-    *\author $Author: hothorn $
-    *\date $Date: 2011-05-06 17:01:10 +0200 (Fri, 06 May 2011) $
+    *\author $Author: thothorn $
+    *\date $Date: 2012-12-17 11:31:10 +0100 (Mon, 17 Dec 2012) $
 */
                 
 #include "party.h"
@@ -149,6 +149,8 @@ void C_split(const double *x, int p,
         }
     
         /* search for the maximum and the best separating cutpoint */
+        /* <FIXME> the result might differ between 32 and 64bit systems 
+                   because of rounding errors in 'statistics' */
         maxstat[0] = 0.0;        
         for (i = 0; i < n; i++) {
             if (statistics[i] > maxstat[0]) {
@@ -156,6 +158,7 @@ void C_split(const double *x, int p,
                 cutpoint[0] = x[i];
             }
         }
+        /* </FIXME> */
     }
 }
 

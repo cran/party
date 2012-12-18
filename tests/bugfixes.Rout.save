@@ -1,5 +1,5 @@
 
-R Under development (unstable) (2012-08-27 r60457) -- "Unsuffered Consequences"
+R version 2.15.2 (2012-10-26) -- "Trick or Treat"
 Copyright (C) 2012 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 Platform: i686-pc-linux-gnu (32-bit)
@@ -49,7 +49,7 @@ The following object(s) are masked from 'package:party':
     mob, mob_control, node_barplot, node_bivplot, node_boxplot,
     node_density, node_hist, node_inner, node_scatterplot, node_surv,
     node_terminal, nodes, proximity, ptrafo, response, reweight,
-    sctest.mob, treeresponse, varimp, where
+    sctest.mob, treeresponse, varimp, varimpAUC, where
 > 
 > ### check nominal level printing
 > set.seed(290875)
@@ -358,4 +358,4 @@ Error in model@fit(data, ...) :
 > 
 > proc.time()
    user  system elapsed 
- 15.752   0.176  15.946 
+ 16.013   0.176  16.202 

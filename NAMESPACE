@@ -13,7 +13,7 @@ export(ctree, ctree_memory, ctree_control,
        where, nodes, conditionalTree,
        treeresponse, response, ptrafo, cforest,
        mob, mob_control,
-       reweight, sctest.mob, cforest_control, varimp,
+       reweight, sctest.mob, cforest_control, varimp, varimpAUC,
        cforest_classical, cforest_unbiased, proximity)
 
 exportClasses("BinaryTree", "LearningSample", "SplittingNode",
