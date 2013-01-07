@@ -1,5 +1,5 @@
 
-# $Id: Utils.R 493 2012-09-02 09:56:20Z thothorn $
+# $Id: Utils.R 509 2013-01-07 13:02:45Z thothorn $
 
 ### Wrapper for functions defined in ./src/Utilsc
 
@@ -239,3 +239,13 @@ R_modify_response <- function(y, responses)
 R_TreeGrow <- function(object, weights, fitmem, ctrl, where)
     .Call("R_TreeGrow", object, weights, fitmem, ctrl,
           where, PACKAGE = "party")
+
+copyslots <- function(source, target) {
+    slots <- names(getSlots(class(source)))
+    slots <- slots[(slots %in% names(getSlots(class(target))))]
+    if (length(slots) == 0) 
+        stop("no common slots to copy to")
+    for (s in slots)
+        eval(parse(text = paste("target@", s, " <- source@", s)))
+    return(target)
+}

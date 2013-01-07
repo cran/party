@@ -1,5 +1,5 @@
 
-# $Id: RandomForest.R 503 2012-12-13 09:54:17Z thothorn $
+# $Id: RandomForest.R 509 2013-01-07 13:02:45Z thothorn $
 
 ### the fitting procedure
 cforestfit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
@@ -162,15 +162,16 @@ cforest_control <- function(teststat = "max",
                             trace = FALSE, ...) {
 
     if (is.null(mtry)) mtry <- 0
-    RET <- ctree_control(teststat = teststat, testtype = testtype,
+    tmp <- ctree_control(teststat = teststat, testtype = testtype,
                          mincriterion = mincriterion, 
                          savesplitstats = savesplitstats, 
                          mtry = mtry, ...)
-    class(RET) <- "ForestControl"
+    RET <- new("ForestControl")
     RET@ntree <- as.integer(ntree)
     RET@replace <- replace
     RET@fraction <- as.double(fraction)
     RET@trace <- as.logical(trace)
+    RET <- copyslots(tmp, RET)
     if (!validObject(RET))
         stop("RET is not a valid object of class", class(RET))
     RET

@@ -12,7 +12,7 @@ Loading required package: zoo
 
 Attaching package: ‘zoo’
 
-The following object(s) are masked from ‘package:base’:
+The following object is masked from ‘package:base’:
 
     as.Date, as.Date.numeric
 
@@ -214,11 +214,11 @@ Coefficients:
 lstat       -0.26771    0.69581  -0.385    0.701    
 rm           0.65389    0.03757  17.404   <2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.652 on 159 degrees of freedom
-Multiple R-squared: 0.8173,	Adjusted R-squared: 0.815 
-F-statistic: 355.6 on 2 and 159 DF,  p-value: < 2.2e-16 
+Multiple R-squared:  0.8173,	Adjusted R-squared:  0.815 
+F-statistic: 355.6 on 2 and 159 DF,  p-value: < 2.2e-16
 
 
 > sctest(fmBH, node = 7)
@@ -266,3 +266,6 @@ p.value    0.3926249  0.1206412  0.6153455 0.8539893  0.6328381
 > risk <- round(100 * (exp(coef(fmPID)[, 2]) - 1), digits = 1)
 
  *** Run successfully completed ***
+> proc.time()
+   user  system elapsed 
+  5.152   0.084   5.236 

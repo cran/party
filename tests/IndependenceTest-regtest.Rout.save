@@ -1,6 +1,6 @@
 
-R version 2.15.2 (2012-10-26) -- "Trick or Treat"
-Copyright (C) 2012 The R Foundation for Statistical Computing
+R Under development (unstable) (2013-01-06 r61571) -- "Unsuffered Consequences"
+Copyright (C) 2013 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 Platform: i686-pc-linux-gnu (32-bit)
 
@@ -30,7 +30,7 @@ Loading required package: zoo
 
 Attaching package: 'zoo'
 
-The following object(s) are masked from 'package:base':
+The following object is masked from 'package:base':
 
     as.Date, as.Date.numeric
 
@@ -42,7 +42,7 @@ Loading required package: colorspace
 > 
 > ### get rid of the NAMESPACE
 > attach(asNamespace("party"))
-The following object(s) are masked from 'package:party':
+The following objects are masked from package:party:
 
     cforest, cforest_classical, cforest_control, cforest_unbiased,
     conditionalTree, ctree, ctree_control, ctree_memory, edge_simple,
@@ -76,9 +76,9 @@ The following object(s) are masked from 'package:party':
 
 	Wilcoxon rank sum test
 
-data:  xval by yf 
+data:  xval by yf
 W = 477, p-value = 0.6898
-alternative hypothesis: true location shift is not equal to 0 
+alternative hypothesis: true location shift is not equal to 0
 
 > stopifnot(isequal(res[2], wmw$p.value))
 > 
@@ -125,7 +125,7 @@ Slot "releps":
 
 	Kruskal-Wallis rank sum test
 
-data:  xval by yf 
+data:  xval by yf
 Kruskal-Wallis chi-squared = 0.622, df = 2, p-value = 0.7327
 
 > stopifnot(isequal(res[2], kw$p.value))
@@ -171,7 +171,7 @@ Slot "releps":
 
 	Kruskal-Wallis rank sum test
 
-data:  xval by yf 
+data:  xval by yf
 Kruskal-Wallis chi-squared = 0.622, df = 2, p-value = 0.7327
 
 > stopifnot(isequal(res[2], kw$p.value))
@@ -219,7 +219,7 @@ Slot "releps":
 
 	Pearson's Chi-squared test
 
-data:  table(xf, yf) 
+data:  table(xf, yf)
 X-squared = 1.335, df = 4, p-value = 0.8554
 
 > stopifnot(isequal(round(res[2],3), round(chis$p.value,3)))
@@ -243,9 +243,9 @@ X-squared = 1.335, df = 4, p-value = 0.8554
 
 	Wilcoxon rank sum test
 
-data:  xval by yf 
+data:  xval by yf
 W = 80, p-value = 0.1241
-alternative hypothesis: true location shift is not equal to 0 
+alternative hypothesis: true location shift is not equal to 0
 
 > stopifnot(isequal(res[2], wmw$p.value))
 > 
@@ -261,9 +261,9 @@ alternative hypothesis: true location shift is not equal to 0
 
 	Wilcoxon rank sum test
 
-data:  xval by yf 
+data:  xval by yf
 W = 80, p-value = 0.1241
-alternative hypothesis: true location shift is not equal to 0 
+alternative hypothesis: true location shift is not equal to 0
 
 > stopifnot(isequal(res[2], wmw$p.value))
 > 
@@ -310,7 +310,7 @@ Slot "releps":
 
 	Pearson's Chi-squared test
 
-data:  table(xf, yf) 
+data:  table(xf, yf)
 X-squared = 2.1741, df = 4, p-value = 0.7038
 
 > stopifnot(isequal(round(res[2],3), round(chis$p.value,3)))
@@ -356,4 +356,4 @@ X-squared = 2.1741, df = 4, p-value = 0.7038
 > 
 > proc.time()
    user  system elapsed 
-  1.540   0.128   1.666 
+  1.624   0.088   1.705 

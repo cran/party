@@ -1,6 +1,6 @@
 
-R version 2.15.2 (2012-10-26) -- "Trick or Treat"
-Copyright (C) 2012 The R Foundation for Statistical Computing
+R Under development (unstable) (2013-01-06 r61571) -- "Unsuffered Consequences"
+Copyright (C) 2013 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 Platform: i686-pc-linux-gnu (32-bit)
 
@@ -28,7 +28,7 @@ Loading required package: zoo
 
 Attaching package: 'zoo'
 
-The following object(s) are masked from 'package:base':
+The following object is masked from 'package:base':
 
     as.Date, as.Date.numeric
 
@@ -206,11 +206,11 @@ Coefficients:
 lstat       -4.93910    0.88285  -5.595 4.14e-07 ***
 rm           0.68591    0.05136  13.354  < 2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 3.413 on 69 degrees of freedom
-Multiple R-squared: 0.922,	Adjusted R-squared: 0.9197 
-F-statistic: 407.8 on 2 and 69 DF,  p-value: < 2.2e-16 
+Multiple R-squared:  0.922,	Adjusted R-squared:  0.9197 
+F-statistic: 407.8 on 2 and 69 DF,  p-value: < 2.2e-16
 
 
 $`6`
@@ -228,11 +228,11 @@ Coefficients:
 lstat       -2.76629    1.00406  -2.755  0.00776 ** 
 rm           0.68813    0.07716   8.918 1.36e-12 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 3.2 on 60 degrees of freedom
-Multiple R-squared: 0.8176,	Adjusted R-squared: 0.8115 
-F-statistic: 134.5 on 2 and 60 DF,  p-value: < 2.2e-16 
+Multiple R-squared:  0.8176,	Adjusted R-squared:  0.8115 
+F-statistic: 134.5 on 2 and 60 DF,  p-value: < 2.2e-16
 
 
 $`7`
@@ -250,11 +250,11 @@ Coefficients:
 lstat       -0.26771    0.69581  -0.385    0.701    
 rm           0.65389    0.03757  17.404   <2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.652 on 159 degrees of freedom
-Multiple R-squared: 0.8173,	Adjusted R-squared: 0.815 
-F-statistic: 355.6 on 2 and 159 DF,  p-value: < 2.2e-16 
+Multiple R-squared:  0.8173,	Adjusted R-squared:  0.815 
+F-statistic: 355.6 on 2 and 159 DF,  p-value: < 2.2e-16
 
 
 $`8`
@@ -272,11 +272,11 @@ Coefficients:
 lstat       -4.61897    0.84025  -5.497 1.13e-06 ***
 rm           0.33867    0.07574   4.472 4.13e-05 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.197 on 53 degrees of freedom
-Multiple R-squared: 0.6446,	Adjusted R-squared: 0.6312 
-F-statistic: 48.07 on 2 and 53 DF,  p-value: 1.238e-12 
+Multiple R-squared:  0.6446,	Adjusted R-squared:  0.6312 
+F-statistic: 48.07 on 2 and 53 DF,  p-value: 1.238e-12
 
 
 $`9`
@@ -294,11 +294,11 @@ Coefficients:
 lstat       -16.35401    0.96577 -16.934  < 2e-16 ***
 rm           -0.14779    0.05047  -2.928  0.00394 ** 
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 4.689 on 150 degrees of freedom
-Multiple R-squared: 0.6649,	Adjusted R-squared: 0.6604 
-F-statistic: 148.8 on 2 and 150 DF,  p-value: < 2.2e-16 
+Multiple R-squared:  0.6649,	Adjusted R-squared:  0.6604 
+F-statistic: 148.8 on 2 and 150 DF,  p-value: < 2.2e-16
 
 
 > 
@@ -415,7 +415,7 @@ Coefficients:
 (Intercept) -9.95151    1.74013  -5.719 1.07e-08 ***
 glucose      0.05871    0.01211   4.846 1.26e-06 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 (Dispersion parameter for binomial family taken to be 1)
 
@@ -440,7 +440,7 @@ Coefficients:
 (Intercept) -6.705586   0.800193  -8.380  < 2e-16 ***
 glucose      0.046837   0.006208   7.544 4.54e-14 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 (Dispersion parameter for binomial family taken to be 1)
 
@@ -465,7 +465,7 @@ Coefficients:
 (Intercept) -2.770954   0.548241  -5.054 4.32e-07 ***
 glucose      0.023536   0.004202   5.601 2.13e-08 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 (Dispersion parameter for binomial family taken to be 1)
 
@@ -480,4 +480,4 @@ Number of Fisher Scoring iterations: 4
 > 
 > proc.time()
    user  system elapsed 
-  4.740   0.156   4.894 
+  4.692   0.136   4.828 

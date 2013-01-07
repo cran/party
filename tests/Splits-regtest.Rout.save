@@ -1,6 +1,6 @@
 
-R version 2.15.2 (2012-10-26) -- "Trick or Treat"
-Copyright (C) 2012 The R Foundation for Statistical Computing
+R Under development (unstable) (2013-01-06 r61571) -- "Unsuffered Consequences"
+Copyright (C) 2013 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 Platform: i686-pc-linux-gnu (32-bit)
 
@@ -30,7 +30,7 @@ Loading required package: zoo
 
 Attaching package: 'zoo'
 
-The following object(s) are masked from 'package:base':
+The following object is masked from 'package:base':
 
     as.Date, as.Date.numeric
 
@@ -73,7 +73,7 @@ Loading required package: colorspace
 > 
 > ### get rid of the NAMESPACE
 > attach(asNamespace("party"))
-The following object(s) are masked from 'package:party':
+The following objects are masked from package:party:
 
     cforest, cforest_classical, cforest_control, cforest_unbiased,
     conditionalTree, ctree, ctree_control, ctree_memory, edge_simple,
@@ -99,7 +99,7 @@ The following object(s) are masked from 'package:party':
 
 	Approximative Maxstat Test
 
-data:  y by x 
+data:  y by x
 maxT = 1.1008, p-value = 0.9
 sample estimates:
 $cutpoint
@@ -116,7 +116,7 @@ $cutpoint
 
 	Approximative Maxstat Test
 
-data:  Surv(month, cens) by EF 
+data:  Surv(month, cens) by EF
 maxT = 3.5647, p-value = 0.1
 sample estimates:
 $cutpoint
@@ -193,4 +193,4 @@ $cutpoint
 > 
 > proc.time()
    user  system elapsed 
-  1.272   0.120   1.382 
+  1.336   0.072   1.402 

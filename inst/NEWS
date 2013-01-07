@@ -1,4 +1,9 @@
 
+                CHANGES IN party VERSION 1.0-5 (2013-01-07)
+
+    o    fix class problem reported by R 3.0.0 to be
+
+
                 CHANGES IN party VERSION 1.0-4 (2012-12-18)
 
     o    export varimpAUC()

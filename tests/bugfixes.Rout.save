@@ -1,6 +1,6 @@
 
-R version 2.15.2 (2012-10-26) -- "Trick or Treat"
-Copyright (C) 2012 The R Foundation for Statistical Computing
+R Under development (unstable) (2013-01-06 r61571) -- "Unsuffered Consequences"
+Copyright (C) 2013 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 Platform: i686-pc-linux-gnu (32-bit)
 
@@ -30,7 +30,7 @@ Loading required package: zoo
 
 Attaching package: 'zoo'
 
-The following object(s) are masked from 'package:base':
+The following object is masked from 'package:base':
 
     as.Date, as.Date.numeric
 
@@ -42,7 +42,7 @@ Loading required package: colorspace
 > 
 > ### get rid of the NAMESPACE
 > attach(asNamespace("party"))
-The following object(s) are masked from 'package:party':
+The following objects are masked from package:party:
 
     cforest, cforest_classical, cforest_control, cforest_unbiased,
     conditionalTree, ctree, ctree_control, ctree_memory, edge_simple,
@@ -358,4 +358,4 @@ Error in model@fit(data, ...) :
 > 
 > proc.time()
    user  system elapsed 
- 16.013   0.176  16.202 
+ 16.069   0.188  16.272 
