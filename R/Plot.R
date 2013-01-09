@@ -382,7 +382,7 @@ node_hist <- function(ctreeobj,
     if (is.null(ymax)) {
         if (is.null(ymax)) 
             ymax <- if (freq) 0.7 * max(yhist$counts) 
-                else 2.5 * max(yhist$intensities)
+                else 2.5 * max(yhist$density)
     }
     yscale <- c(0, ymax)
     
@@ -427,7 +427,7 @@ node_hist <- function(ctreeobj,
         ## histogram
         xpos <- yhist$breaks[-1]
 	ypos <- 0
-	yheight <- if (freq) yhist$counts else yhist$intensities
+	yheight <- if (freq) yhist$counts else yhist$density
 	xwidth <- diff(yhist$breaks)
 
         if (horizontal) {

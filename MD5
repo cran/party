@@ -1,4 +1,4 @@
-9cb0a10c9f1e5366fe4a4c6c8d74d9c7 *DESCRIPTION
+00b0b1ec69d13720fe8f90f711aae425 *DESCRIPTION
 1bc7c45eeddbcbb5d85a221983d023e3 *NAMESPACE
 f5c8adb28ff82ad9c75357eb2cbe3bb4 *R/AAA.R
 ca9a8549e715b2c2111341463ed66316 *R/Classes.R
@@ -7,7 +7,7 @@ b2d11b713ab5a368400fd43fa6dc67cd *R/MOB-Plot.R
 7d90d01d7f846481880d74cc7565cbf0 *R/MOB-Utils.R
 1d838e968aeba31ae6c78746f558a6c7 *R/MOB.R
 3e8ce62e01e1cd4bd89daac251ace7b0 *R/Memory.R
-006efa15ab05fc047fa8f862c9a749a5 *R/Plot.R
+88aabb6764b27021441c9ede14f6b611 *R/Plot.R
 38c7c68cf541f38d78b27c8bf5f76046 *R/Predict.R
 4d05e578ebb5163e6d11854200a13731 *R/Print.R
 01b365cdd268defed24fce09c72fcd56 *R/RandomForest.R
@@ -21,11 +21,11 @@ c32b41e682d4ced64297d483cf5cc4ea *data/mammoexp.rda
 daf0d9485bc3bd5ab672d388165ae023 *data/readingSkills.rda
 df32d3053e4f6a461a74ffcfbd9bfc3b *doxygen.cfg
 d939b5d2a70fe896889921a02588e794 *inst/CITATION
-f9fdfa6a70df0fdcda1ba947cb7e5cbe *inst/NEWS
+e4221918cdeb624410b7ab5f9fb16b7e *inst/NEWS
 a5e3a263f76c0a39d998ca631fb79c18 *inst/doc/MOB.Rnw
-4aeb82de38b0a36cdb79e0f3010d2d75 *inst/doc/MOB.pdf
+530d6742cb4ebab8989ef3066e33ed38 *inst/doc/MOB.pdf
 99693851dc6273afc0c102100bcc8e4d *inst/doc/party.Rnw
-bb8a352f5026fe7c534c8130ba6b6270 *inst/doc/party.pdf
+4f790ca3395b07fb87de64f84a06e4e4 *inst/doc/party.pdf
 bf2e2b566abc607e58a690c30356877b *man/BinaryTree-class.Rd
 cd00385ded07c7c3f6e14cdd7f68b43f *man/ForestControl-class.Rd
 db09812ba0a64c2f05271862a823a47f *man/LearningSample-class.Rd
