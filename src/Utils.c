@@ -3,7 +3,7 @@
     Some commonly needed utility functions.
     *\file Utils.c
     *\author $Author: thothorn $
-    *\date $Date: 2012-03-15 10:29:17 +0100 (Thu, 15 Mar 2012) $
+    *\date $Date: 2013-03-22 10:27:13 +0100 (Fri, 22 Mar 2013) $
 */
                 
 #include "party.h"
@@ -469,7 +469,7 @@ void C_SampleNoReplace(int *x, int m, int k, int *ans) {
     for (i = 0; i < m; i++)
         x[i] = i;
     for (i = 0; i < k; i++) {
-        j = n * unif_rand(); 
+        j = floor((double) n * unif_rand()); 
         ans[i] = x[j];
         x[j] = x[--n];  
     }

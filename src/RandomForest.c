@@ -3,7 +3,7 @@
     Random forest with conditional inference trees
     *\file RandomForest.c
     *\author $Author: thothorn $
-    *\date $Date: 2012-09-12 21:40:46 +0200 (Wed, 12 Sep 2012) $
+    *\date $Date: 2013-02-11 18:14:58 +0100 (Mon, 11 Feb 2013) $
 */
 
 #include "party.h"
@@ -154,7 +154,7 @@ SEXP R_Ensemble_weights(SEXP learnsample, SEXP bwhere, SEXP bweights,
      SEXP nweights, tree, where, ans;
      double *dnweights, *dweights;
      int nobs, i, b, B , nodenum = 1, *iwhere;
-     int j, k, l, swi = 0;
+     int j, k, l;
      
      B = get_ntree(controls);
      nobs = get_nobs(learnsample);

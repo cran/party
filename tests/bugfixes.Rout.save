@@ -1,8 +1,7 @@
 
-R Under development (unstable) (2013-01-06 r61571) -- "Unsuffered Consequences"
+R Under development (unstable) (2013-06-04 r62868) -- "Unsuffered Consequences"
 Copyright (C) 2013 The R Foundation for Statistical Computing
-ISBN 3-900051-07-0
-Platform: i686-pc-linux-gnu (32-bit)
+Platform: x86_64-unknown-linux-gnu (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
 You are welcome to redistribute it under certain conditions.
@@ -353,9 +352,16 @@ Error in model@fit(data, ...) :
 > 
 > ### factors were evaluated for surrogate splits
 > data("Ozone", package = "mlbench")
+> Ozone$V2 <- ordered(Ozone$V2)
 > Ozone <- subset(Ozone, !is.na(V4))
 > rf <- cforest(V4 ~ ., data = Ozone, control = cforest_unbiased(maxsurrogate = 7))
 > 
+> ### scores for response
+> ### spotted and fixed by Silke Janitza <janitza@ibe.med.uni-muenchen.de>
+> tmp <- data.frame(y = gl(3, 10, ordered = TRUE), x = gl(3, 10, ordered = TRUE))
+> ct <- ctree(y ~ x, data = tmp, scores = list(y = c(0, 10, 11), x = c(1, 2, 5)))
+> stopifnot(isTRUE(all.equal(ct@responses@scores, list(y = c(0, 10, 11)))))
+> 
 > proc.time()
    user  system elapsed 
- 16.069   0.188  16.272 
+  9.700   0.060   9.768 
