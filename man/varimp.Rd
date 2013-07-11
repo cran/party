@@ -57,6 +57,9 @@ varimpAUC(object, mincriterion = 0, conditional = FALSE,
   different random seed -- or otherwise increase the number of trees \code{ntree} in 
   \code{\link{ctree_control}}.
 
+  Note that in the presence of missings in the predictor variables the procedure
+  described in Hapfelmeier et al. (2012) is performed.
+
   Function \code{varimpAUC} implements AUC-based variables importances as
   described by Janitza et al. (2012).  Here, the area under the curve
   instead of the accuracy is used to calculate the importance of each variable. 
@@ -73,7 +76,7 @@ varimpAUC(object, mincriterion = 0, conditional = FALSE,
 
     Alexander Hapfelmeier, Torsten Hothorn, Kurt Ulm, and Carolin Strobl (2012).
     A New Variable Importance Measure for Random Forests with Missing Data.
-    \emph{Statistics and Computing}, accepted.
+    \emph{Statistics and Computing}, \url{http://dx.doi.org/10.1007/s11222-012-9349-1}
 
     Torsten Hothorn, Kurt Hornik, and Achim Zeileis (2006b). Unbiased
     Recursive Partitioning: A Conditional Inference Framework.

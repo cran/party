@@ -1,4 +1,4 @@
-af623933bec4d84c40ea9039f8df744f *DESCRIPTION
+9047225e77326d2a9972a0f15c11f2ce *DESCRIPTION
 1bc7c45eeddbcbb5d85a221983d023e3 *NAMESPACE
 f5c8adb28ff82ad9c75357eb2cbe3bb4 *R/AAA.R
 ca9a8549e715b2c2111341463ed66316 *R/Classes.R
@@ -21,13 +21,13 @@ ed082ba4c64e52cd35ff409807d3f2fe *R/zInitMethods.R
 daf0d9485bc3bd5ab672d388165ae023 *data/readingSkills.rda
 df32d3053e4f6a461a74ffcfbd9bfc3b *doxygen.cfg
 d939b5d2a70fe896889921a02588e794 *inst/CITATION
-2cd67c20ed67d4ad473bb7a5f560e4dd *inst/NEWS
+f9a2791203d7aaecbbf2ff843917ffc5 *inst/NEWS
 fac2dcc81e63e6a3ad6e52cd3626e112 *inst/doc/MOB.R
 a5e3a263f76c0a39d998ca631fb79c18 *inst/doc/MOB.Rnw
-5a7fe7332cd91a263b15b65c0852fa38 *inst/doc/MOB.pdf
+d6e4f80863cfd67eb6d6f81514b9a3be *inst/doc/MOB.pdf
 2bca0089fc83d47cbe01bb2a7ab9fdaf *inst/doc/party.R
 99693851dc6273afc0c102100bcc8e4d *inst/doc/party.Rnw
-7fda2bc35a0bd964940576615c0e5785 *inst/doc/party.pdf
+bbf94f1372d69c6f72c06c955da8a1e0 *inst/doc/party.pdf
 bf2e2b566abc607e58a690c30356877b *man/BinaryTree-class.Rd
 cd00385ded07c7c3f6e14cdd7f68b43f *man/ForestControl-class.Rd
 db09812ba0a64c2f05271862a823a47f *man/LearningSample-class.Rd
@@ -50,7 +50,7 @@ d6939abcca76feb4b48e27e83c060efb *man/initialize-methods.Rd
 a05bdb5e6f83338701f003cd5c93aca5 *man/plot.mob.Rd
 93fd57d680727c2cc2551b07f9b71966 *man/readingSkills.Rd
 c76876d5219c25a4c6c15e780e8cca2e *man/reweight.Rd
-76637b30c0012613f2cf0b6732527f82 *man/varimp.Rd
+4aa9e4d731f7cc636ebb61db55627e5f *man/varimp.Rd
 4d08eba841616e28d1bb368238e0e652 *src/Classes.c
 5010367b620faf5bd3dd0a8cf9b4e18c *src/Classes.h
 ef1fccd449003539140b5f6400ca871c *src/Convenience.c
@@ -79,7 +79,7 @@ e8a41110e731ce97ca2b6e881283ce35 *src/S3Classes.c
 b81872778e263507b2552aefb1dfbf44 *src/TreeGrow.h
 c1babd912a1ebae93c0bbca350e3b08b *src/Utils.c
 f8b502f45f9154d4c6b59096ae0aa478 *src/Utils.h
-7126d4e406b481849745db50928820a1 *src/mvt.f
+7cd49d5314d9c6b9862b4a222d7b2cb9 *src/mvt.f
 c5e04dff3e5dce2d6d3df583acac3e21 *src/mvt.h
 a5c8223502cefd3b0a9658954a494762 *src/party.h
 6dae0accdaeb82aea64db17bdea50685 *tests/Distributions.R
