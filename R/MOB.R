@@ -14,7 +14,7 @@ mob <- function(formula, weights, data = list(), na.action = na.omit,
     ## convenience preprocessor for formula like
     ## y ~ x + z | a + b
     mobpp <- function(formula, data, model) {
-      ff <- attr(modeltools:::ParseFormula(formula), "formula")
+      ff <- attr(ParseFormula(formula), "formula")
       ff$input[[3]] <- ff$input[[2]]
       ff$input[[2]] <- ff$response[[2]]
       dpp(model, as.formula(ff$input), other = list(part = as.formula(ff$blocks)), 

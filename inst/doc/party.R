@@ -132,7 +132,7 @@ x <- tptree@tree
 ###################################################
 ### code chunk number 21: glaucoma-ctree
 ###################################################
-data("GlaucomaM", package = "ipred")
+data("GlaucomaM", package = "TH.data")
 gtree <- ctree(Class ~ ., data = GlaucomaM)
 
 
@@ -207,7 +207,7 @@ legend(0.15, 0.7, pch = 1:2, legend = levels(GlaucomaM$Class), bty = "n")
 ###################################################
 ### code chunk number 30: GBSGS-ctree
 ###################################################
-data("GBSG2", package = "ipred")  
+data("GBSG2", package = "TH.data")  
 stree <- ctree(Surv(time, cens) ~ ., data = GBSG2)
 
 

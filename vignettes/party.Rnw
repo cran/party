@@ -1,7 +1,7 @@
 \documentclass[nojss]{jss}
 
 %\VignetteIndexEntry{party: A Laboratory for Recursive Partytioning}
-%\VignetteDepends{coin, ipred}
+%\VignetteDepends{coin, TH.data}
 %\VignetteKeywords{conditional inference, non-parametric models, recursive partitioning}
 %\VignettePackage{party}
 
@@ -709,7 +709,7 @@ of near natural forest environments.
 \subsection{Glaucoma and laser scanning images}
 
 <<glaucoma-ctree, echo = TRUE>>=
-data("GlaucomaM", package = "ipred")
+data("GlaucomaM", package = "TH.data")
 gtree <- ctree(Class ~ ., data = GlaucomaM)
 @
 
@@ -726,8 +726,7 @@ structures inherent in the learning sample with subject matter knowledge.
 For $98$ patients and $98$ controls, matched by age
 and gender, $62$ covariates describing the eye morphology are available. The
 data is part of the 
-\pkg{ipred} package
-(\cite{Rnews:Peters+Hothorn+Lausen:2002}, \url{http://CRAN.R-project.org}).
+\pkg{TH.data} package, \url{http://CRAN.R-project.org}).
 The first split in Figure~\ref{glaucoma} separates eyes with a volume 
 above reference less than
 $\Sexpr{x$psplit$splitpoint} \text{ mm}^3$ in the inferior part of the
@@ -844,7 +843,7 @@ legend(0.15, 0.7, pch = 1:2, legend = levels(GlaucomaM$Class), bty = "n")
 \subsection{Node positive breast cancer}
 
 <<GBSGS-ctree, echo = TRUE>>=
-data("GBSG2", package = "ipred")  
+data("GBSG2", package = "TH.data")  
 stree <- ctree(Surv(time, cens) ~ ., data = GBSG2)
 @
 
@@ -871,7 +870,7 @@ treatment of node positive breast cancer patients. Here, we use
 Logrank scores as well. Complete data of seven prognostic factors of $686$
 women are used for prognostic modeling, the
 dataset is available within the 
-\pkg{ipred} package.
+\pkg{TH.data} package.
 The number of positive lymph nodes
 (\texttt{pnodes}) and the progesterone receptor (\texttt{progrec}) have
 been identified as prognostic factors in the survival tree analysis

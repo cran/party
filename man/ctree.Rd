@@ -85,7 +85,9 @@ ctree(formula, data, subset = NULL, weights = NULL,
   predictions are computed from the fitted tree when \code{newdata = NULL}.
 
   For a general description of the methodology see Hothorn, Hornik and
-  Zeileis (2006) and Hothorn, Hornik, van de Wiel and Zeileis (2006).
+  Zeileis (2006) and Hothorn, Hornik, van de Wiel and Zeileis (2006). 
+  Introductions for novices can be found in Strobl et al. (2009) and
+  at \url{http://github.com/christophM/overview-ctrees.git}.
 
 }
 \value{
@@ -105,6 +107,11 @@ ctree(formula, data, subset = NULL, weights = NULL,
    Computational and Graphical Statistics}, \bold{15}(3), 651--674. 
    Preprint available
    from \url{http://statmath.wu-wien.ac.at/~zeileis/papers/Hothorn+Hornik+Zeileis-2006.pdf}
+
+   Carolin Strobl, James Malley and Gerhard Tutz (2009).
+   An Introduction to Recursive Partitioning: Rationale, Application, and Characteristics of 
+   Classification and Regression Trees, Bagging, and Random forests.
+   \emph{Psychological Methods}, \bold{14}(4), 323--348. 
 
 }
 \examples{
@@ -138,8 +145,8 @@ ctree(formula, data, subset = NULL, weights = NULL,
     treeresponse(mammoct, newdata = mammoexp[1:10,])
 
     ### survival analysis
-    if (require("ipred")) {
-        data("GBSG2", package = "ipred")
+    if (require("TH.data") && require("survival")) {
+        data("GBSG2", package = "TH.data")
         GBSG2ct <- ctree(Surv(time, cens) ~ .,data = GBSG2)
         plot(GBSG2ct)
         treeresponse(GBSG2ct, newdata = GBSG2[1:2,])        

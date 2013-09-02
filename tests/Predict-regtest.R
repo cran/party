@@ -1,8 +1,8 @@
 
 set.seed(290875)
 library("party")
-if (!require("ipred"))
-    stop("cannot load package ipred")
+if (!require("TH.data"))
+    stop("cannot load package TH.data")
 if (!require("coin"))
     stop("cannot load package coin")
 
@@ -14,7 +14,7 @@ ct <- ctree(counts ~ ., data = treepipit)
 stopifnot(isequal(predict(ct), predict(ct, newdata = treepipit)))
 
 
-data(GlaucomaM, package = "ipred")
+data(GlaucomaM, package = "TH.data")
 ct <- ctree(Class ~ ., data = GlaucomaM)
 stopifnot(isequal(predict(ct), predict(ct, newdata = GlaucomaM)))
 stopifnot(isequal(predict(ct, type = "prob"), predict(ct, type = "prob", 
@@ -23,7 +23,7 @@ stopifnot(isequal(predict(ct, type = "node"), predict(ct, type = "node",
                   newdata = GlaucomaM)))
 stopifnot(isequal(predict(ct, type = "prob"), treeresponse(ct)))
 
-data(GBSG2, package = "ipred")  
+data(GBSG2, package = "TH.data")  
 
 GBSG2tree <- ctree(Surv(time, cens) ~ ., data = GBSG2)
 stopifnot(isequal(GBSG2tree@predict_response(), 

@@ -1,7 +1,13 @@
 
-importFrom("coin", "logrank_trafo")
-importFrom("modeltools", "fit")
+importFrom("coin", "logrank_trafo", "trafo", "id_trafo", "of_trafo")
 importFrom("stats", "weights")
+importFrom("survival", "Surv", "survfit", "is.Surv")
+
+import("modeltools")
+import("methods")
+import("zoo")
+import("strucchange")
+import("sandwich")
 
 importClassesFrom("coin", "ExpectCovar", "ExpectCovarInfluence")
 
@@ -19,7 +25,7 @@ export(ctree, ctree_memory, ctree_control,
 exportClasses("BinaryTree", "LearningSample", "SplittingNode",
               "TerminalNode", "TreeControl", "RandomForest", "mob",
               "ForestControl", "TerminalModelNode")
-exportMethods("initialize", "fit", "show")
+exportMethods("initialize", "fit", "show", "initVariableFrame")
 
 S3method(print, BinaryTree)
 S3method(print, nominalSplit)

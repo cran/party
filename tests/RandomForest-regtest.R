@@ -1,17 +1,17 @@
 
 set.seed(290875)
 library("party")
-if (!require("ipred"))
-    stop("cannot load package ipred")
+if (!require("TH.data"))
+    stop("cannot load package TH.data")
 if (!require("coin"))
     stop("cannot load package coin")
 
-data("GlaucomaM", package = "ipred")
+data("GlaucomaM", package = "TH.data")
 rf <- cforest(Class ~ ., data = GlaucomaM, control = cforest_unbiased(ntree = 30))
 stopifnot(mean(GlaucomaM$Class != predict(rf)) < 
           mean(GlaucomaM$Class != predict(rf, OOB = TRUE)))
 
-data("GBSG2", package = "ipred")
+data("GBSG2", package = "TH.data")
 rfS <- cforest(Surv(time, cens) ~ ., data = GBSG2, control = cforest_unbiased(ntree = 30))
 treeresponse(rfS, newdata = GBSG2[1:2,])
 

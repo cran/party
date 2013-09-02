@@ -1,8 +1,8 @@
 
 set.seed(290875)
 library("party")
-if (!require("ipred"))
-    stop("cannot load package ipred")
+if (!require("TH.data"))
+    stop("cannot load package TH.data")
 if (!require("coin"))
     stop("cannot load package coin")
 
@@ -12,7 +12,7 @@ attach(asNamespace("party"))
 gtctrl <- new("GlobalTestControl")
 tlev <- levels(gtctrl@testtype)
 
-data(GlaucomaM, package = "ipred")
+data(GlaucomaM, package = "TH.data")
 gtree <- ctree(Class ~ ., data = GlaucomaM)
 tree <- gtree@tree
 stopifnot(isequal(tree[[5]][[3]], 0.059))
@@ -31,13 +31,13 @@ tr
 plot(tr)
 
 
-data(GlaucomaM, package = "ipred")
+data(GlaucomaM, package = "TH.data")
 
 tr <- ctree(Class ~ ., data = GlaucomaM)
 tr
 plot(tr)
 
-data(GBSG2, package = "ipred")  
+data(GBSG2, package = "TH.data")  
 
 GBSG2tree <- ctree(Surv(time, cens) ~ ., data = GBSG2)
 GBSG2tree

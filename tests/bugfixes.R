@@ -1,6 +1,7 @@
 
 set.seed(290875)
 library("party")
+library("survival")
 
 ### get rid of the NAMESPACE
 attach(asNamespace("party"))
@@ -187,14 +188,14 @@ tmp <- ctree(z ~ v+w+x+y,controls = ctree_control(mincriterion = 0.80,
 stopifnot(all(tmp@tree$criterion$criterion[c(1,2,4)] == 0))
 
 ### optimal split in last observation lead to selection of suboptimal split
-data("GlaucomaM", package = "ipred")
+data("GlaucomaM", package = "TH.data")
 tmp <- subset(GlaucomaM, vari <= 0.059)
 weights <- rep(1.0, nrow(tmp))
 stopifnot(all.equal(Split(tmp$vasg, tmp$Class, weights, 
                     ctree_control()@splitctrl)[[1]], 0.066))
 
 ### model.matrix.survReg was missing from modeltools
-data("GBSG2", package = "ipred")
+data("GBSG2", package = "TH.data")
 nloglik <- function(x) -logLik(x)
 GBSG2$time <- GBSG2$time/365
 mobGBSG2 <- mob(Surv(time, cens) ~ horTh + pnodes | progrec + menostat +

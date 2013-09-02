@@ -1,6 +1,7 @@
 
 set.seed(290875)
 library("party")
+library("coin")
 
 "hohnloser" <-
 structure(list(EF = as.integer(c(11, 11, 12, 13, 13, 13, 15,

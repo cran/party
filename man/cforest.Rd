@@ -91,7 +91,8 @@ proximity(object)
   of categories, variable selection and computation of variable importance is biased 
   in favor of variables with many potential cutpoints in \code{\link[randomForest]{randomForest}}, 
   while in \code{\link{cforest}} unbiased trees and an adequate resampling scheme 
-  are used by default. See Hothorn et al. (2006b) and Strobl et al. (2007). 
+  are used by default. See Hothorn et al. (2006b) and Strobl et al. (2007) 
+  as well as Strobl et al. (2009). 
 
   The \code{proximity} matrix is an \eqn{n \times n} matrix \eqn{P} with \eqn{P_{ij}}
   equal to the fraction of trees where observations \eqn{i} and \eqn{j} 
@@ -123,6 +124,12 @@ proximity(object)
     Bias in Random Forest Variable Importance Measures: Illustrations, Sources and 
     a Solution. \emph{BMC Bioinformatics}, \bold{8}, 25. 
     \url{http://www.biomedcentral.com/1471-2105/8/25}
+
+    Carolin Strobl, James Malley and Gerhard Tutz (2009).
+    An Introduction to Recursive Partitioning: Rationale, Application, and Characteristics of
+    Classification and Regression Trees, Bagging, and Random forests.
+    \emph{Psychological Methods}, \bold{14}(4), 323--348.
+
 }
 \examples{
 
@@ -135,9 +142,9 @@ proximity(object)
                                OOB = TRUE))
 
     ### fit forest to censored response
-    if (require("ipred")) {
+    if (require("TH.data") && require("survival")) {
 
-        data("GBSG2", package = "ipred")
+        data("GBSG2", package = "TH.data")
         bst <- cforest(Surv(time, cens) ~ ., data = GBSG2, 
                    control = cforest_unbiased(ntree = 50))
 

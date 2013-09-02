@@ -97,9 +97,9 @@
   ### regression: boxplots in each node
   plot(airct, terminal_panel = node_boxplot, drop_terminal = TRUE)
 
-  if(require("ipred")) {
+  if(require("TH.data")) {
   ## classification: barplots in each node
-  data("GlaucomaM", package = "ipred")
+  data("GlaucomaM", package = "TH.data")
   glauct <- ctree(Class ~ ., data = GlaucomaM)
   plot(glauct)
   plot(glauct, inner_panel = node_barplot,
@@ -107,7 +107,8 @@
     tnex = 1)
 
   ## survival: Kaplan-Meier curves in each node
-  data("GBSG2", package = "ipred")
+  data("GBSG2", package = "TH.data")
+  library("survival")
   gbsg2ct <- ctree(Surv(time, cens) ~ ., data = GBSG2)
   plot(gbsg2ct)
   plot(gbsg2ct, type = "simple")  

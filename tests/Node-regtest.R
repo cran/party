@@ -1,8 +1,8 @@
 
 set.seed(290875)
 library("party")
-if (!require("ipred"))
-    stop("cannot load package ipred")
+if (!require("TH.data"))
+    stop("cannot load package TH.data")
 
 ### get rid of the NAMESPACE
 attach(asNamespace("party"))
@@ -10,7 +10,7 @@ attach(asNamespace("party"))
 gtctrl <- new("GlobalTestControl")
 tlev <- levels(gtctrl@testtype)
 
-data(GlaucomaM, package = "ipred")
+data(GlaucomaM, package = "TH.data")
 inp <- initVariableFrame(GlaucomaM[,-63,drop = FALSE], trafo = NULL) #, fun = rank)
 resp <- initVariableFrame(GlaucomaM[,"Class",drop = FALSE], trafo = NULL, response = TRUE)
 ls <- new("LearningSample", inputs = inp, responses = resp,
