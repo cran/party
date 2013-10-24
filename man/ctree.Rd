@@ -163,7 +163,7 @@ ctree(formula, data, subset = NULL, weights = NULL,
         untar(tgz, exdir = tmpdir)
         wd <- setwd(file.path(tmpdir, "party"))
         ### run doxygen (assuming it is there)
-        system("doxygen doxygen.cfg")
+        system("doxygen inst/doxygen.cfg")
         setwd(wd)
         ### have fun
         browseURL(file.path(tmpdir, "party", "inst", 

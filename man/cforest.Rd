@@ -10,7 +10,7 @@
 cforest(formula, data = list(), subset = NULL, weights = NULL, 
         controls = cforest_unbiased(),
         xtrafo = ptrafo, ytrafo = ptrafo, scores = NULL)
-proximity(object)
+proximity(object, newdata = NULL)
 }
 \arguments{
   \item{formula}{ a symbolic description of the model to be fit. Note 
@@ -41,6 +41,7 @@ proximity(object)
   \item{scores}{ an optional named list of scores to be attached to ordered
                factors.}
   \item{object}{ an object as returned by \code{cforest}.}
+  \item{newdata}{ an optional data frame containing test data.}
 }
 \details{
 

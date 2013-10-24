@@ -1,5 +1,5 @@
 
-# $Id: Utils.R 509 2013-01-07 13:02:45Z thothorn $
+# $Id: Utils.R 523 2013-09-03 11:06:31Z thothorn $
 
 ### Wrapper for functions defined in ./src/Utilsc
 
@@ -217,9 +217,7 @@ mysurvfit <- function(y, weights, ...) {
     ### see comment on weights and subset in ?survfit
     y <- y[weights > 0,]
     weights <- weights[weights > 0]
-    ret <- survfit(y ~ 1, weights = weights, ...)
-    class(ret) <- "survfit"
-    ret
+    return(survfit(y ~ 1, weights = weights, ...))
 }
 
 R_get_nodeID <- function(tree, inputs, mincriterion)

@@ -1,5 +1,5 @@
 
-# $Id: RandomForest.R 509 2013-01-07 13:02:45Z thothorn $
+# $Id: RandomForest.R 526 2013-10-23 14:14:40Z thothorn $
 
 ### the fitting procedure
 cforestfit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
@@ -228,11 +228,17 @@ varIDs <- function(node) {
 
 ### calculate proximity matrix: p[i,j] = number of times obs i and j are 
 ### in the same terminal node
-proximity <- function(object) {
+proximity <- function(object, newdata = NULL) {
 
+    if (is.null(newdata)) {
+        wh <- object@where
+        rn <- rownames(object@data@get("response"))
+    } else {
+        wh <- object@get_where(newdata = newdata)
+        rn <- rownames(newdata)
+    }
     ### extract prediction weights
-    prox <- .Call("R_proximity", object@where, package = "party")
-    rn <- rownames(object@data@get("response"))
+    prox <- .Call("R_proximity", wh, package = "party")
     prox <- matrix(unlist(prox), ncol = length(prox))
     rownames(prox) <- rn
     colnames(prox) <- rn

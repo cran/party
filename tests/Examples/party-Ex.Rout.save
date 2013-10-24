@@ -1,5 +1,5 @@
 
-R Under development (unstable) (2013-09-01 r63796) -- "Unsuffered Consequences"
+R version 3.0.2 (2013-09-25) -- "Frisbee Sailing"
 Copyright (C) 2013 The R Foundation for Statistical Computing
 Platform: x86_64-unknown-linux-gnu (64-bit)
 
@@ -552,7 +552,7 @@ records   n.max n.start  events  median 0.95LCL 0.95UCL
 > ##D         untar(tgz, exdir = tmpdir)
 > ##D         wd <- setwd(file.path(tmpdir, "party"))
 > ##D         ### run doxygen (assuming it is there)
-> ##D         system("doxygen doxygen.cfg")
+> ##D         system("doxygen inst/doxygen.cfg")
 > ##D         setwd(wd)
 > ##D         ### have fun
 > ##D         browseURL(file.path(tmpdir, "party", "inst", 
@@ -715,15 +715,12 @@ Number of observations:  412
 + }
 Loading required package: mlbench
 Loading required package: vcd
-Loading required package: MASS
-Loading required package: colorspace
 > 
 > 
 > 
 > cleanEx()
 
-detaching ‘package:vcd’, ‘package:colorspace’, ‘package:MASS’,
-  ‘package:mlbench’
+detaching ‘package:vcd’, ‘package:mlbench’
 
 > nameEx("panelfunctions")
 > ### * panelfunctions
@@ -885,15 +882,12 @@ detaching ‘package:survival’, ‘package:splines’, ‘package:TH.data’
 + }
 Loading required package: mlbench
 Loading required package: vcd
-Loading required package: MASS
-Loading required package: colorspace
 > 
 > 
 > 
 > cleanEx()
 
-detaching ‘package:vcd’, ‘package:colorspace’, ‘package:MASS’,
-  ‘package:mlbench’
+detaching ‘package:vcd’, ‘package:mlbench’
 
 > nameEx("readingSkills")
 > ### * readingSkills
@@ -998,7 +992,7 @@ nativeSpeaker           age      shoeSize
 > ###
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  13.64 0.144 13.803 0 0 
+Time elapsed:  14.188 0.192 14.41 0 0 
 > grDevices::dev.off()
 null device 
           1 
