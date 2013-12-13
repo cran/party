@@ -2,8 +2,8 @@
 /**
     Node computations
     *\file Node.c
-    *\author $Author: hothorn $
-    *\date $Date: 2011-05-06 17:01:10 +0200 (Fri, 06 May 2011) $
+    *\author $Author: thothorn $
+    *\date $Date: 2013-12-13 20:51:08 +0100 (Fri, 13 Dec 2013) $
 */
                 
 #include "party.h"
@@ -198,7 +198,6 @@ void C_Node(SEXP node, SEXP learnsample, SEXP weights,
                  Free(standstat);
             }
             if (maxstat == 0) {
-            
                 if (j == 1) {          
                     S3set_nodeterminal(node);
                 } else {

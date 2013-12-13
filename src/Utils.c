@@ -3,7 +3,7 @@
     Some commonly needed utility functions.
     *\file Utils.c
     *\author $Author: thothorn $
-    *\date $Date: 2013-03-22 10:27:13 +0100 (Fri, 22 Mar 2013) $
+    *\date $Date: 2013-12-13 20:51:08 +0100 (Fri, 13 Dec 2013) $
 */
                 
 #include "party.h"
@@ -99,7 +99,7 @@ SEXP R_kronecker (SEXP A, SEXP B) {
     *\param method
 */
 
-void CR_La_svd(SEXP jobu, SEXP jobv, SEXP x, SEXP s, SEXP u, SEXP v,
+void CR_La_svd(int dim, SEXP jobu, SEXP jobv, SEXP x, SEXP s, SEXP u, SEXP v,
                SEXP method)
 {
     int *xdims, n, p, lwork, info = 0;
@@ -120,12 +120,18 @@ void CR_La_svd(SEXP jobu, SEXP jobv, SEXP x, SEXP s, SEXP u, SEXP v,
     {
 	int ldu = INTEGER(getAttrib(u, R_DimSymbol))[0],
 	    ldvt = INTEGER(getAttrib(v, R_DimSymbol))[0];
+        /* this only works for SQUARE matrices, potentially
+           with reduced dimension, so use dim x dim for input and
+           output */
+        ldu = dim;
+        ldvt = dim;
 	int *iwork= (int *) R_alloc(8*(n<p ? n : p), sizeof(int));
 
 	/* ask for optimal size of work array */
 	lwork = -1;
 	F77_CALL(dgesdd)(CHAR(STRING_ELT(jobu, 0)),
-			 &n, &p, xvals, &n, REAL(s),
+/* was			 &n, &p, xvals, &n, REAL(s), for the non-square case */
+			 &dim, &dim, xvals, &dim, REAL(s),
 			 REAL(u), &ldu,
 			 REAL(v), &ldvt,
 			 &tmp, &lwork, iwork, &info);
@@ -134,7 +140,8 @@ void CR_La_svd(SEXP jobu, SEXP jobv, SEXP x, SEXP s, SEXP u, SEXP v,
 	lwork = (int) tmp;
 	work = Calloc(lwork, double);
 	F77_CALL(dgesdd)(CHAR(STRING_ELT(jobu, 0)),
-			 &n, &p, xvals, &n, REAL(s),
+			 &dim, &dim, xvals, &dim, REAL(s),
+/* was			 &n, &p, xvals, &n, REAL(s), for the non-square case */
 			 REAL(u), &ldu,
 			 REAL(v), &ldvt,
 			 work, &lwork, iwork, &info);
@@ -161,17 +168,18 @@ void C_svd (SEXP x, SEXP svdmem) {
     du = REAL(GET_SLOT(svdmem, PL2_uSym));
     dv = REAL(GET_SLOT(svdmem, PL2_vSym));
     p = INTEGER(GET_SLOT(svdmem, PL2_pSym))[0];
-    if (nrow(x) != p) error("svd p x error");
+    if (nrow(x) < p) error("svd p x error");
     for (i = 0; i < p*p; i++) {
         du[i] = 0.0;
         dv[i] = 0.0;
     }
-    CR_La_svd(GET_SLOT(svdmem, PL2_jobuSym), 
+    CR_La_svd(p, GET_SLOT(svdmem, PL2_jobuSym), 
         GET_SLOT(svdmem, PL2_jobvSym), x, GET_SLOT(svdmem, PL2_sSym), 
         GET_SLOT(svdmem, PL2_uSym), GET_SLOT(svdmem, PL2_vSym), 
         GET_SLOT(svdmem, PL2_methodSym));
     /* return(R_NilValue); */
 }
+
 
 /**
     R-interface to CR_La_svd
@@ -187,6 +195,106 @@ SEXP R_svd (SEXP x, SEXP svdmem) {
 
 
 /**
+    Reorder the linear statistic, expectation, and covariance
+    in a way that elements with zero variance come last. These
+    will be ignored in later computation of the MP inverse
+    *\param x an object of class `LinStatExpectCovarMPinv'
+*/
+
+void C_linexpcovReduce (SEXP x) {
+
+    double *dlinstat, *dexp, *dcov;
+    double *dlinstat2, *dexp2, *dcov2;
+    int pq, pqn, *zerovar, i, j, itmp, jtmp, sumzv = 0, *dim;
+
+    /* the statistic, expectation, covariance in original dimension */    
+    pq = INTEGER(GET_SLOT(x, PL2_dimensionSym))[0];
+    dlinstat = REAL(GET_SLOT(x, PL2_linearstatisticSym));
+    dexp = REAL(GET_SLOT(x, PL2_expectationSym));
+    dcov = REAL(GET_SLOT(x, PL2_covarianceSym));
+
+    /* indicator of zero variance */
+    zerovar = Calloc(pq, int);
+
+    /* identify and count zero variances (we can use 0.0 because variances
+       corresponding to empty levels are exactly zero */
+    for (i = 0; i < pq; i++) {
+        if (dcov[i + i * pq] > 0.0) {
+            zerovar[i] = 0;
+        } else {
+            zerovar[i] = 1;
+            sumzv++;
+        }
+    }
+
+    /* if there is any such element and not all variances are zero*/
+    if ((sumzv > 0) & (sumzv < pq)) {
+
+        /* do we really need a copy ? */
+        pqn = pq - sumzv;
+        dlinstat2 = Calloc(pq, double);
+        dexp2 = Calloc(pq, double);
+        dcov2 = Calloc(pq * pq, double);
+        
+        /* init */
+        for (i = 0; i < pq; i++) {
+            dlinstat2[i] = 0.0; 
+            dexp2[i] = 0.0; 
+            for (j = 0; j < pq; j++)
+                dcov2[i + j*pq] = 0.0;
+        }
+        
+        /* overwrite zero variance elements with subsequent elements */
+        itmp = 0;
+        for (i = 0; i < pq; i++) {
+            if (zerovar[i] == 0) {
+                dlinstat2[itmp] = dlinstat[i];
+                dexp2[itmp] = dexp[i];
+                jtmp = 0;
+                for (j = 0; j < pq; j++) {
+                    if (zerovar[j] == 0) {
+                        dcov2[itmp + jtmp * pqn] = dcov[i + j * pq];
+                        jtmp++;
+                    }
+                }
+                itmp++;
+            }
+        }
+                                        
+        for (i = 0; i < pq; i++) {
+            dlinstat[i] = dlinstat2[i]; 
+            dexp[i] = dexp2[i]; 
+            for (j = 0; j < pq; j++)
+                dcov[i + j*pq] = dcov2[i + j * pq];
+        }
+
+        /* ATTENTION: This is dangerous but the only way to tell
+           svd and friends that we want to use the first pqn elements only! */
+        dim = INTEGER(GET_SLOT(x, PL2_dimensionSym));
+        dim[0] = pqn;
+        /* we reset the original dimension in C_TestStatistic */
+        
+        Free(dlinstat2);
+        Free(dexp2);
+        Free(dcov2);
+    }
+    Free(zerovar);
+}
+
+
+/**
+    R-interface to C_linexpcovReduce
+    *\param x an object of class `LinStatExpectCovarMPinv'
+*/
+
+SEXP R_linexpcovReduce (SEXP x) {
+
+    C_linexpcovReduce(x);
+    return(R_NilValue);
+}
+        
+
+/**
     Moore-Penrose inverse of a matrix
     *\param x matrix
     *\param tol a tolerance bound
@@ -197,7 +305,7 @@ SEXP R_svd (SEXP x, SEXP svdmem) {
 void C_MPinv (SEXP x, double tol, SEXP svdmem, SEXP ans) {
 
     SEXP d, u, vt;
-    int i, j, p, k, *positive;
+    int i, j, p, pn, k, *positive;
     double *dd, *du, *dvt, *dMPinv;
     double *drank;
     
@@ -211,7 +319,8 @@ void C_MPinv (SEXP x, double tol, SEXP svdmem, SEXP ans) {
     du = REAL(u);
     vt = GET_SLOT(svdmem, PL2_vSym);
     dvt = REAL(vt);
-    p = LENGTH(d);
+    /* this may be the reduced dimension! Use the first p elements only!!!*/
+    p = INTEGER(GET_SLOT(svdmem, PL2_pSym))[0];
 
     if (tol * dd[0] > tol) tol = tol * dd[0];
 
@@ -237,13 +346,14 @@ void C_MPinv (SEXP x, double tol, SEXP svdmem, SEXP ans) {
             dMPinv[j * p + i] = 0.0;
             for (k = 0; k < p; k++) {
                 if (positive[k])
-                    dMPinv[j * p + i] += dvt[i * p + k] * du[p * k + j]; 
+                    dMPinv[j * p + i] += dvt[i * p + k] * du[p * k + j];
             }
         }
     }
 
     Free(positive);
 }
+
 
 /**
     R-interface to C_MPinv 
@@ -265,10 +375,12 @@ SEXP R_MPinv (SEXP x, SEXP tol, SEXP svdmem) {
 
     if (!isReal(tol) || LENGTH(tol) != 1)
         error("R_MPinv: tol is not a scalar real");
-    
+
     p = nrow(x);
+    /* potentially, the effective dimension was reduced
     if (p != INTEGER(GET_SLOT(svdmem, PL2_pSym))[0])
         error("R_MPinv: dimensions don't match");
+    */
 
     PROTECT(ans = NEW_OBJECT(MAKE_CLASS("LinStatExpectCovarMPinv")));
     SET_SLOT(ans, PL2_MPinvSym, PROTECT(allocMatrix(REALSXP, p, p)));
@@ -279,6 +391,7 @@ SEXP R_MPinv (SEXP x, SEXP tol, SEXP svdmem) {
     UNPROTECT(3);
     return(ans);
 }
+
 
 /**
     the maximum of a double vector

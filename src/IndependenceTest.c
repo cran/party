@@ -2,8 +2,8 @@
 /**
     Functions for variable selection in each node of a tree
     *\file IndependenceTest.c
-    *\author $Author: hothorn $
-    *\date $Date: 2011-05-06 17:01:10 +0200 (Fri, 06 May 2011) $
+    *\author $Author: thothorn $
+    *\date $Date: 2013-12-13 20:51:08 +0100 (Fri, 13 Dec 2013) $
 */
                 
 #include "party.h"
@@ -231,10 +231,32 @@ void C_GlobalTest(const SEXP learnsample, const SEXP weights,
                                 xmem);
             }
 
+            /* teststat = "quad" 
+               ATTENTION: we mess with xmem by putting elements with zero variances last
+                          but C_Node() reuses the original xmem for setting up 
+                          categorical splits */
             if (get_teststat(varctrl) == 2)
                 C_LinStatExpCovMPinv(xmem, get_tol(varctrl));
+                
             C_TeststatCriterion(xmem, varctrl, &ans_teststat[j - 1], 
                                 &ans_criterion[j - 1]);
+                            
+            /* teststat = "quad"
+               make sure that the test statistics etc match the original order of levels 
+               <FIXME> can we avoid to compute these things twice??? */ 
+            if (get_teststat(varctrl) == 2) {
+                if (!has_missings(inputs, j)) {
+                    C_LinStatExpCov(REAL(x), ncol(x), REAL(y), ncol(y),
+                                    REAL(weights), nrow(x), !RECALC, expcovinf,
+                                    xmem);
+                } else {
+                    C_LinStatExpCov(REAL(x), ncol(x), REAL(y), ncol(y),
+                                    thisweights, nrow(x), RECALC, 
+                                    GET_SLOT(xmem, PL2_expcovinfSym),
+                                    xmem);
+                }
+            }
+            /* </FIXME> */
         }                
 
         type = get_testtype(gtctrl);

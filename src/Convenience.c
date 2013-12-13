@@ -2,8 +2,8 @@
 /**
     Some convenience functions
     *\file Convenience.c
-    *\author $Author: hothorn $
-    *\date $Date: 2008-10-15 11:04:00 +0200 (Wed, 15 Oct 2008) $
+    *\author $Author: thothorn $
+    *\date $Date: 2013-12-13 20:51:08 +0100 (Fri, 13 Dec 2013) $
 */
                 
 #include "party.h"
@@ -44,10 +44,28 @@ void C_LinStatExpCov(const double *x, const int p,
 */
 
 void C_LinStatExpCovMPinv(SEXP linexpcov, double tol) {
-    C_MPinv(GET_SLOT(linexpcov, PL2_covarianceSym), tol, 
-            GET_SLOT(linexpcov, PL2_svdmemSym), linexpcov);
-}
 
+    int pq, pqn;
+
+    /* correct working dimension */    
+    pq = get_dimension(linexpcov);
+
+    /* reduce dimension to non-zero variance part */        
+    C_linexpcovReduce(linexpcov);
+            
+    /* reduced dimension */
+    pqn = get_dimension(linexpcov);
+    INTEGER(GET_SLOT(GET_SLOT(linexpcov, PL2_svdmemSym), PL2_pSym))[0] = pqn;
+ 
+    /* compute MPinv in reduced dimension */                   
+    C_MPinv(GET_SLOT(linexpcov, PL2_covarianceSym), tol,
+            GET_SLOT(linexpcov, PL2_svdmemSym), linexpcov);
+
+    /* make sure to reset svdmem to original dimension;
+       the dimension of linexpcov is reset in C_TestStatistic */
+    INTEGER(GET_SLOT(GET_SLOT(linexpcov, PL2_svdmemSym), PL2_pSym))[0] = pq;
+}
+                                            
 
 /**
     Compute test statistic
@@ -60,7 +78,8 @@ double C_TestStatistic(const SEXP linexpcov, const int type, const double tol) {
 
     int pq;
     double ans = 0.0;
-    
+
+    /* this is possibly the reduced one, see C_LinStatExpCovMPinv */    
     pq = get_dimension(linexpcov);
 
     switch(type) {
@@ -81,6 +100,11 @@ double C_TestStatistic(const SEXP linexpcov, const int type, const double tol) {
             break;
         default: error("C_TestStatistic: undefined value for type argument");
     }
+
+    /* dimension was potentially reduced; reset to initial value */
+    INTEGER(GET_SLOT(linexpcov, PL2_dimensionSym))[0] = 
+        LENGTH(GET_SLOT(linexpcov, PL2_linearstatisticSym));
+
     return(ans);
 }
 

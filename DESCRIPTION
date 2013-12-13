@@ -1,7 +1,7 @@
 Package: party
 Title: A Laboratory for Recursive Partytioning
-Date: 2013-10-24
-Version: 1.0-10
+Date: 2013-12-13
+Version: 1.0-11
 Authors@R: c(person("Torsten", "Hothorn", role = c("aut", "cre"),
                     email = "Torsten.Hothorn@R-project.org"),
              person("Kurt", "Hornik", role = "aut"),
@@ -28,7 +28,7 @@ Imports: survival, coin
 Suggests: TH.data, mlbench, colorspace, MASS, mvtnorm, vcd
 LazyData: yes
 License: GPL-2
-Packaged: 2013-10-24 11:26:00 UTC; hothorn
+Packaged: 2013-12-14 09:56:46 UTC; hothorn
 Author: Torsten Hothorn [aut, cre],
   Kurt Hornik [aut],
   Carolin Strobl [aut],
@@ -36,4 +36,4 @@ Author: Torsten Hothorn [aut, cre],
 Maintainer: Torsten Hothorn <Torsten.Hothorn@R-project.org>
 NeedsCompilation: yes
 Repository: CRAN
-Date/Publication: 2013-10-24 14:14:01
+Date/Publication: 2013-12-14 11:52:17

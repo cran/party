@@ -45,12 +45,16 @@ for f in ./src/*~; do
     rm -f $f
 done
 
+for f in ./demo/*~; do
+    rm -f $f
+done
+
 for f in *~; do
     rm -f $f
 done
 
-rm -rf inst/documentation/latex
-rm -rf inst/documentation/man
+rm -rf inst/documentation
+rm -rf inst/documentation
 
 find . -name "DEADJOE" -exec rm -f {} \;
 
