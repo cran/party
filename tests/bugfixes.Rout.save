@@ -208,6 +208,7 @@ There were 50 or more warnings (use warnings() to see the first 50)
 > 
 > ### varimp with ordered response
 > ### spotted by Max Kuhn <Max.Kuhn@pfizer.com>
+> data("mammoexp", package = "TH.data")
 > test <- cforest(ME ~ ., data = mammoexp, control = cforest_unbiased(ntree = 50))
 > stopifnot(sum(abs(varimp(test))) > 0)
 > 
@@ -782,4 +783,4 @@ Error in model@fit(data, ...) :
 > 
 > proc.time()
    user  system elapsed 
- 10.824   0.112  10.946 
+ 10.332   0.128  10.477 

@@ -52,7 +52,7 @@ tr <- ctree(Surv(time, cens) ~ ., data = GBSG2,
 tr
 plot(tr)
 
-data(mammoexp)
+data("mammoexp", package = "TH.data")
 attr(mammoexp$ME, "scores") <- 1:3   
 attr(mammoexp$SYMPT, "scores") <- 1:4
 attr(mammoexp$DECT, "scores") <- 1:3 

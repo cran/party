@@ -138,6 +138,7 @@ ctree(formula, data, subset = NULL, weights = NULL,
     tr <- treeresponse(irisct, newdata = iris[1:10,])
 
     ### ordinal regression
+    data("mammoexp", package = "TH.data")
     mammoct <- ctree(ME ~ ., data = mammoexp) 
     plot(mammoct)
 

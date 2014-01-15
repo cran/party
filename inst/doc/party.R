@@ -226,6 +226,7 @@ treeresponse(stree, newdata = GBSG2[1:2,])
 ###################################################
 ### code chunk number 33: mammo-ctree
 ###################################################
+data("mammoexp", package = "TH.data")
 mtree <- ctree(ME ~ ., data = mammoexp)
 
 

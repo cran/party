@@ -889,6 +889,7 @@ treeresponse(stree, newdata = GBSG2[1:2,])
 \subsection{Mammography experience}
 
 <<mammo-ctree, echo = TRUE>>=
+data("mammoexp", package = "TH.data")
 mtree <- ctree(ME ~ ., data = mammoexp)
 @
 

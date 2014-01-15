@@ -23,7 +23,7 @@ stopifnot(isequal(predict(ct, type = "node"), predict(ct, type = "node",
                   newdata = GlaucomaM)))
 stopifnot(isequal(predict(ct, type = "prob"), treeresponse(ct)))
 
-data(GBSG2, package = "TH.data")  
+data("GBSG2", package = "TH.data")  
 
 GBSG2tree <- ctree(Surv(time, cens) ~ ., data = GBSG2)
 stopifnot(isequal(GBSG2tree@predict_response(), 
@@ -31,7 +31,7 @@ stopifnot(isequal(GBSG2tree@predict_response(),
 stopifnot(isequal(GBSG2tree@cond_distr_response(), 
           GBSG2tree@cond_distr_response(newdata = GBSG2)))
 
-data(mammoexp)
+data("mammoexp", package = "TH.data")
 attr(mammoexp$ME, "scores") <- 1:3   
 attr(mammoexp$SYMPT, "scores") <- 1:4
 attr(mammoexp$DECT, "scores") <- 1:3 

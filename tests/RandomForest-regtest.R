@@ -35,6 +35,7 @@ a <- cforest(Ozone ~ ., data = airq,
 varimp(a, pre1.0_0 = TRUE)   
 varimp(a, conditional = TRUE)
 
+data("mammoexp", package = "TH.data")
 a <- cforest(ME ~ ., data = mammoexp, control = cforest_classical(ntree = 10))
 varimp(a, pre1.0_0 = TRUE)   
 varimp(a, conditional = TRUE)

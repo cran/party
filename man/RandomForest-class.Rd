@@ -48,6 +48,7 @@ Objects can be created by calls of the form \code{new("RandomForest", ...)}.
 
     ### honest (i.e., out-of-bag) cross-classification of 
     ### true vs. predicted classes
+    data("mammoexp", package = "TH.data")
     table(mammoexp$ME, predict(cforest(ME ~ ., data = mammoexp, 
                                control = cforest_unbiased(ntree = 50)), 
                                OOB = TRUE))

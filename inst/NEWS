@@ -1,4 +1,9 @@
 
+                CHANGES IN party VERSION 1.0-12 (2014-01-15)
+
+    o    mammoexp -> TH.data
+
+
                 CHANGES IN party VERSION 1.0-11 (2013-12-13)
 
     o    deal with empty levels for teststat = "quad"

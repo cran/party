@@ -1,5 +1,5 @@
 
-R Under development (unstable) (2013-09-01 r63796) -- "Unsuffered Consequences"
+R version 3.0.2 (2013-09-25) -- "Frisbee Sailing"
 Copyright (C) 2013 The R Foundation for Statistical Computing
 Platform: x86_64-unknown-linux-gnu (64-bit)
 
@@ -137,6 +137,7 @@ Sepal.Length  Sepal.Width Petal.Length  Petal.Width
    Solar.R       Wind       Temp      Month        Day 
  93.220640 334.737163 212.686904  14.329278   2.061793 
 > 
+> data("mammoexp", package = "TH.data")
 > a <- cforest(ME ~ ., data = mammoexp, control = cforest_classical(ntree = 10))
 > varimp(a, pre1.0_0 = TRUE)   
       SYMPT          PB        HIST         BSE        DECT 
@@ -161,4 +162,4 @@ Sepal.Length  Sepal.Width Petal.Length  Petal.Width
 > 
 > proc.time()
    user  system elapsed 
-  3.836   0.060   3.896 
+  3.880   0.072   3.952 

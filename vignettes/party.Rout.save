@@ -550,6 +550,8 @@ records   n.max n.start  events  median 0.95LCL 0.95UCL
     166     166     166      77    1701    1174    2018 
 
 
+> data("mammoexp", package = "TH.data")
+
 > mtree <- ctree(ME ~ ., data = mammoexp)
 
 > plot(mtree)
@@ -557,4 +559,4 @@ records   n.max n.start  events  median 0.95LCL 0.95UCL
  *** Run successfully completed ***
 > proc.time()
    user  system elapsed 
-  1.444   0.084   1.528 
+  1.404   0.056   1.457 

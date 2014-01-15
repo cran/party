@@ -103,6 +103,7 @@ stopifnot(length(pr) == nrow(df) || lengthl(pr[[1]]) != 2)
 
 ### varimp with ordered response
 ### spotted by Max Kuhn <Max.Kuhn@pfizer.com>
+data("mammoexp", package = "TH.data")
 test <- cforest(ME ~ ., data = mammoexp, control = cforest_unbiased(ntree = 50))
 stopifnot(sum(abs(varimp(test))) > 0)
 
