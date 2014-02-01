@@ -68,11 +68,11 @@ setClass(Class = "VariableControl",
     ),
     prototype = list(
         teststat = factor("max", levels = c("max", "quad")),
-        pvalue   = TRUE,
-        tol      = 1e-10,
+        pvalue   = as.logical(TRUE),
+        tol      = as.double(1e-10),
         maxpts   = as.integer(25000),
-        abseps   = 1e-4,
-        releps   = 0.0
+        abseps   = as.double(1e-4),
+        releps   = as.double(0.0)
     )
 )
 
@@ -84,8 +84,11 @@ setClass(Class = "SplitControl",
         tol          = "numeric",
         maxsurrogate = "integer"
     ),
-    prototype = list(minprob = 0.01, minsplit = 20, 
-                     minbucket = 7, tol = 1e-10, maxsurrogate = as.integer(0)
+    prototype = list(minprob = as.double(0.01), 
+                     minsplit = as.double(20), 
+                     minbucket = as.double(7), 
+                     tol = as.double(1e-10), 
+                     maxsurrogate = as.integer(0)
     ),
     validity = function(object) {
         if (any(c(object@minsplit, object@minbucket, 
@@ -115,9 +118,9 @@ setClass(Class = "GlobalTestControl",
             levels = c("Bonferroni", "MonteCarlo", "Aggregated", 
                        "Univariate", "Teststatistic")),
         nresample = as.integer(9999),
-        randomsplits = FALSE,
+        randomsplits = as.logical(FALSE),
         mtry = as.integer(0),
-        mincriterion = 0.95
+        mincriterion = as.double(0.95)
     ),
     validity = function(object) {
         if (object@mincriterion < 0) {
@@ -142,7 +145,9 @@ setClass(Class = "TreeGrowControl",
         maxdepth        = "integer",
         savesplitstats  = "logical"
     ),
-    prototype = list(stump = FALSE, maxdepth = as.integer(0), savesplitstats = TRUE),
+    prototype = list(stump = as.logical(FALSE), 
+                     maxdepth = as.integer(0), 
+                     savesplitstats = as.logical(TRUE)),
     validity = function(object) {
         if (object@maxdepth < 0) {
             warning(sQuote("maxdepth"), " must be positive")

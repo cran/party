@@ -46,9 +46,9 @@ cforestfit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
     RET@where <- bwhere
     RET@weights <- bweights
     if (USER_WEIGHTS) {
-        RET@initweights <- rep(1.0, object@nobs) ### <FIXME>
+        RET@initweights <- as.double(rep(1.0, object@nobs)) ### <FIXME>
     } else {
-        RET@initweights <- weights
+        RET@initweights <- as.double(weights)
     }
     RET@responses <- object@responses
     if (inherits(object, "LearningSampleFormula"))
@@ -168,7 +168,7 @@ cforest_control <- function(teststat = "max",
                          mtry = mtry, ...)
     RET <- new("ForestControl")
     RET@ntree <- as.integer(ntree)
-    RET@replace <- replace
+    RET@replace <- as.logical(replace)
     RET@fraction <- as.double(fraction)
     RET@trace <- as.logical(trace)
     RET <- copyslots(tmp, RET)

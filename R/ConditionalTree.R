@@ -218,21 +218,21 @@ ctree_control <- function(teststat = c("quad", "max"),
         stop(testtype, " not defined")
 
     if (RET@gtctrl@testtype == "Teststatistic")
-        RET@varctrl@pvalue <- FALSE
+        RET@varctrl@pvalue <- as.logical(FALSE)
 
     RET@gtctrl@nresample <- as.integer(nresample)
-    RET@gtctrl@mincriterion <- mincriterion
+    RET@gtctrl@mincriterion <- as.double(mincriterion)
     if (all(mtry > 0)) {
-        RET@gtctrl@randomsplits <- TRUE
+        RET@gtctrl@randomsplits <- as.logical(TRUE)
         RET@gtctrl@mtry <- as.integer(mtry)
     }
-    RET@tgctrl@savesplitstats <- savesplitstats
-    RET@splitctrl@minsplit <- minsplit
+    RET@tgctrl@savesplitstats <- as.logical(savesplitstats)
+    RET@splitctrl@minsplit <- as.double(minsplit)
     RET@splitctrl@maxsurrogate <- as.integer(maxsurrogate)
     RET@splitctrl@minbucket <- as.double(minbucket)
-    RET@tgctrl@stump <- stump
+    RET@tgctrl@stump <- as.logical(stump)
     RET@tgctrl@maxdepth <- as.integer(maxdepth)
-    RET@tgctrl@savesplitstats <- savesplitstats
+    RET@tgctrl@savesplitstats <- as.logical(savesplitstats)
     if (!validObject(RET))
         stop("RET is not a valid object of class", class(RET))
     RET

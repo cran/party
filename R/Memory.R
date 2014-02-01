@@ -33,8 +33,8 @@ ctree_memory <- function(object, MPinv = FALSE) {
     RET@linexpcov2sample  <- linexpcov2sample
     RET@weights <- as.double(rep(0, nobs))
     RET@varmemory <- varmemory
-    RET@dontuse <- dontuse
-    RET@dontusetmp <- dontusetmp
+    RET@dontuse <- as.logical(dontuse)
+    RET@dontusetmp <- as.logical(dontusetmp)
     RET@splitstatistics <- splitstatistics
     RET
 }
