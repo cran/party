@@ -1,5 +1,5 @@
 
-# $Id: zInitMethods.R 531 2014-01-31 09:42:06Z thothorn $
+# $Id: zInitMethods.R 532 2014-02-01 08:56:55Z thothorn $
 
 setMethod(f = "initialize", signature = "ExpectCovar",
     definition = function(.Object, pq = 1) {
@@ -17,7 +17,8 @@ setMethod(f = "initialize", signature = "ExpectCovarInfluence",
         .Object@expectation <- rep(0, q)
         .Object@covariance <- matrix(0, nrow = q, ncol = q)
         .Object@dimension  <- as.integer(q)
-        .Object@sumweights <- log(1)
+        .Object@sumweights <- log(1) ### was as.double(0.0) but 
+                                     ### there seem to be protection issues
         .Object
     }
 )

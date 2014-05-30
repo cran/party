@@ -1,5 +1,5 @@
 
-# $Id: Classes.R 503 2012-12-13 09:54:17Z thothorn $
+# $Id: Classes.R 532 2014-02-01 08:56:55Z thothorn $
 
 ### Linear statistic with expectation and covariance
 setClass(Class = "LinStatExpectCovar",

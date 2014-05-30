@@ -65,6 +65,9 @@ varimpAUC(object, mincriterion = 0, conditional = FALSE,
   instead of the accuracy is used to calculate the importance of each variable. 
   This AUC-based variable importance measure is more robust towards class imbalance.
 
+  For right-censored responses, \code{varimp} uses the integrated Brier score as a 
+  risk measure for computing variable importances. This feature is extremely slow and
+  experimental; use at your own risk.
 
 }
 \value{
@@ -106,5 +109,19 @@ varimpAUC(object, mincriterion = 0, conditional = FALSE,
    # conditional importance, may take a while...
    varimp(readingSkills.cf, conditional = TRUE)
 
+   \dontrun{
+   data("GBSG2", package = "TH.data")
+   ### add a random covariate for sanity check
+   set.seed(29)
+   GBSG2$rand <- runif(nrow(GBSG2))
+   object <- cforest(Surv(time, cens) ~ ., data = GBSG2, 
+                     control = cforest_unbiased(ntree = 20)) 
+   vi <- varimp(object)
+   ### compare variable importances and absolute z-statistics
+   layout(matrix(1:2))
+   barplot(vi)
+   barplot(abs(summary(coxph(Surv(time, cens) ~ ., data = GBSG2))$coeff[,"z"]))
+   ### looks more or less the same
+   }
 }
 \keyword{tree}

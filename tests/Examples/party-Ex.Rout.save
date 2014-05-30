@@ -1,6 +1,6 @@
 
-R version 3.0.2 (2013-09-25) -- "Frisbee Sailing"
-Copyright (C) 2013 The R Foundation for Statistical Computing
+R version 3.1.0 (2014-04-10) -- "Spring Dance"
+Copyright (C) 2014 The R Foundation for Statistical Computing
 Platform: x86_64-unknown-linux-gnu (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -952,6 +952,21 @@ nativeSpeaker           age      shoeSize
 nativeSpeaker           age      shoeSize 
     11.870034     52.114547      1.461803 
 > 
+>    ## Not run: 
+> ##D    data("GBSG2", package = "TH.data")
+> ##D    ### add a random covariate for sanity check
+> ##D    set.seed(29)
+> ##D    GBSG2$rand <- runif(nrow(GBSG2))
+> ##D    object <- cforest(Surv(time, cens) ~ ., data = GBSG2, 
+> ##D                      control = cforest_unbiased(ntree = 20)) 
+> ##D    vi <- varimp(object)
+> ##D    ### compare variable importances and absolute z-statistics
+> ##D    layout(matrix(1:2))
+> ##D    barplot(vi)
+> ##D    barplot(abs(summary(coxph(Surv(time, cens) ~ ., data = GBSG2))$coeff[,"z"]))
+> ##D    ### looks more or less the same
+> ##D    
+> ## End(Not run)
 > 
 > 
 > 
@@ -959,7 +974,7 @@ nativeSpeaker           age      shoeSize
 > ###
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  14.216 0.156 14.402 0 0 
+Time elapsed:  12.888 0.188 13.098 0 0 
 > grDevices::dev.off()
 null device 
           1 
