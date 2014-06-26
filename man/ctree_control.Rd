@@ -19,7 +19,8 @@ ctree_control(teststat = c("quad", "max"),
                        to be applied. }
   \item{testtype}{ a character specifying how to compute the distribution of
                    the test statistic. }
-  \item{mincriterion}{ the value of the test statistic or 1 - p-value that
+  \item{mincriterion}{ the value of the test statistic (for \code{testtype == "Teststatistic"}),
+                       or 1 - p-value (for other values of \code{testtype}) that
                        must be exceeded in order to implement a split. }
   \item{minsplit}{ the minimum sum of weights in a node in order to be considered
                    for splitting. }

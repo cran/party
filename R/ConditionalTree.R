@@ -1,5 +1,5 @@
 
-# $Id: ConditionalTree.R 532 2014-02-01 08:56:55Z thothorn $
+# $Id: ConditionalTree.R 536 2014-06-26 12:08:54Z thothorn $
 
 ### the fitting procedure
 ctreefit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
@@ -58,7 +58,7 @@ ctreefit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
 
         newinp <- newinputs(object, newdata)
 
-        .Call("R_get_nodeID", tree, newinp, mincriterion, PACKAGE = "party")
+        R_get_nodeID(tree, newinp, mincriterion)
     }
 
     ### (estimated) conditional distribution of the response given the

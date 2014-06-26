@@ -1,5 +1,5 @@
 
-# $Id: Utils.R 523 2013-09-03 11:06:31Z thothorn $
+# $Id: Utils.R 537 2014-06-26 12:09:22Z thothorn $
 
 ### Wrapper for functions defined in ./src/Utilsc
 
@@ -221,7 +221,7 @@ mysurvfit <- function(y, weights, ...) {
 }
 
 R_get_nodeID <- function(tree, inputs, mincriterion)
-    .Call("R_get_nodeID", tree, inputs, 0.0, PACKAGE = "party")
+    .Call("R_get_nodeID", tree, inputs, 0.0, -1L, PACKAGE = "party")
 
 R_getpredictions <- function(tree, where)
     .Call("R_getpredictions", tree, where, PACKAGE = "party")

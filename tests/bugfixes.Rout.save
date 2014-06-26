@@ -1,6 +1,6 @@
 
-R version 3.0.2 (2013-09-25) -- "Frisbee Sailing"
-Copyright (C) 2013 The R Foundation for Statistical Computing
+R Under development (unstable) (2014-06-29 r66051) -- "Unsuffered Consequences"
+Copyright (C) 2014 The R Foundation for Statistical Computing
 Platform: x86_64-unknown-linux-gnu (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -40,11 +40,11 @@ The following objects are masked from package:party:
 
     cforest, cforest_classical, cforest_control, cforest_unbiased,
     conditionalTree, ctree, ctree_control, ctree_memory, edge_simple,
-    initVariableFrame, mob, mob_control, node_barplot, node_bivplot,
-    node_boxplot, node_density, node_hist, node_inner,
-    node_scatterplot, node_surv, node_terminal, nodes, proximity,
-    ptrafo, response, reweight, sctest.mob, treeresponse, varimp,
-    varimpAUC, where
+    mob, mob_control, node_barplot, node_bivplot, node_boxplot,
+    node_density, node_hist, node_inner, node_scatterplot, node_surv,
+    node_terminal, proximity, ptrafo, reweight, sctest.mob, varimp,
+    varimpAUC
+
 > 
 > ### check nominal level printing
 > set.seed(290875)
@@ -783,4 +783,4 @@ Error in model@fit(data, ...) :
 > 
 > proc.time()
    user  system elapsed 
- 10.332   0.128  10.477 
+  8.260   0.284   8.560 

@@ -128,7 +128,7 @@ predict.mob <- function(object, newdata = NULL, type = c("response", "node"), ..
     nobs <- NROW(newpart)
     newpart <- initVariableFrame(newpart, trafo = NULL)
     
-    nodeIDs <- .Call("R_get_nodeID", object@tree, newpart, as.double(0.0), PACKAGE = "party")
+    nodeIDs <- R_get_nodeID(object@tree, newpart, as.double(0.0))
 
     type <- match.arg(type)
     if(type == "response") {
@@ -152,7 +152,7 @@ residuals.mob <- function(object, ...)
     newinput <- object@data@get("input")
     nobs <- NROW(newpart)
     newpart <- initVariableFrame(newpart, trafo = NULL)
-    nodeIDs <- .Call("R_get_nodeID", object@tree, newpart, as.double(0.0), PACKAGE = "party")
+    nodeIDs <- R_get_nodeID(object@tree, newpart, as.double(0.0))
 
     res <- vector(mode = "list", length = nobs)
     for (n in unique(nodeIDs)) {

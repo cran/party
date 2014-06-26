@@ -3,7 +3,7 @@
     Node splitting and prediction
     *\file Predict.c
     *\author $Author: thothorn $
-    *\date $Date: 2012-09-14 13:14:00 +0200 (Fri, 14 Sep 2012) $
+    *\date $Date: 2014-06-26 14:09:22 +0200 (Thu, 26 Jun 2014) $
 */
                 
 #include "party.h"
@@ -241,9 +241,9 @@ SEXP C_get_node(SEXP subtree, SEXP newinputs,
 */
 
 SEXP R_get_node(SEXP subtree, SEXP newinputs, SEXP mincriterion, 
-                SEXP numobs) {
+                SEXP numobs, SEXP varperm) {
     return(C_get_node(subtree, newinputs, REAL(mincriterion)[0],
-                      INTEGER(numobs)[0] - 1, -1));
+                      INTEGER(numobs)[0] - 1, INTEGER(varperm)[0]));
 }
 
 
@@ -316,12 +316,13 @@ SEXP C_get_nodeweights(SEXP subtree, SEXP newinputs,
     *\param newinputs an object of class `VariableFrame'
     *\param mincriterion overwrites mincriterion used for tree growing
     *\param numobs observation number
+    *\param varperm which variable shall be permuted?
 */
 
 int C_get_nodeID(SEXP subtree, SEXP newinputs,
-                  double mincriterion, int numobs) {
+                  double mincriterion, int numobs, int varperm) {
      return(S3get_nodeID(C_get_node(subtree, newinputs, 
-            mincriterion, numobs, -1)));
+            mincriterion, numobs, varperm)));
 }
 
 
@@ -332,7 +333,7 @@ int C_get_nodeID(SEXP subtree, SEXP newinputs,
     *\param mincriterion overwrites mincriterion used for tree growing
 */
 
-SEXP R_get_nodeID(SEXP tree, SEXP newinputs, SEXP mincriterion) {
+SEXP R_get_nodeID(SEXP tree, SEXP newinputs, SEXP mincriterion, SEXP varperm) {
 
     SEXP ans;
     int nobs, i, *dans;
@@ -341,7 +342,7 @@ SEXP R_get_nodeID(SEXP tree, SEXP newinputs, SEXP mincriterion) {
     PROTECT(ans = allocVector(INTSXP, nobs));
     dans = INTEGER(ans);
     for (i = 0; i < nobs; i++)
-         dans[i] = C_get_nodeID(tree, newinputs, REAL(mincriterion)[0], i);
+         dans[i] = C_get_nodeID(tree, newinputs, REAL(mincriterion)[0], i, INTEGER(varperm)[0]);
     UNPROTECT(1);
     return(ans);
 }
@@ -478,7 +479,7 @@ SEXP R_predictRF_weights(SEXP forest, SEXP where, SEXP weights,
                 REAL(VECTOR_ELT(weights, b))[i] > 0.0) 
                 continue;
 
-            iwhere = C_get_nodeID(tree, newinputs, REAL(mincriterion)[0], i);
+            iwhere = C_get_nodeID(tree, newinputs, REAL(mincriterion)[0], i, -1);
             
             for (j = 0; j < ntrain; j++) {
                 if (iwhere == INTEGER(VECTOR_ELT(where, b))[j])

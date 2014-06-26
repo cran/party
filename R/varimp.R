@@ -130,10 +130,10 @@ varimpsurv <- function (object, mincriterion = 0, conditional = FALSE,
     stopifnot(require("ipred", quietly = TRUE))
     error <- function(x, oob) sbrier(y[oob,,drop = FALSE], x[oob])
 
-    pred <- function(tree, newinp) {
+    pred <- function(tree, newinp, j = -1L) {
 
-        where <- .Call("R_get_nodeID", tree, inp, mincriterion, PACKAGE = "party")
-        wh <- .Call("R_get_nodeID", tree, newinp, mincriterion, PACKAGE = "party")
+        where <- R_get_nodeID(tree, inp, mincriterion)
+        wh <- .Call("R_get_nodeID", tree, newinp, mincriterion, as.integer(j), PACKAGE = "party")
         swh <- sort(unique(wh))
         RET <- vector(mode = "list", length = length(wh))
         for (i in 1:length(swh)) {
@@ -164,7 +164,7 @@ varimpsurv <- function (object, mincriterion = 0, conditional = FALSE,
             ## for all variables (j = 1 ... number of variables) 
             for(j in unique(varIDs(tree))){
               for (per in 1:nperm){
-
+                 if (conditional || pre1.0_0) {
                     tmp <- inp
                     ccl <- create_cond_list(conditional, threshold, xnames[j], input)
                     if (is.null(ccl)) {
@@ -173,7 +173,10 @@ varimpsurv <- function (object, mincriterion = 0, conditional = FALSE,
                         perm <- conditional_perm(ccl, xnames, input, tree, oob)
                     }
                     tmp@variables[[j]][which(oob)] <- tmp@variables[[j]][perm]
-                    p <- pred(tree, tmp)
+                    p <- pred(tree, tmp, -1L)
+                } else {
+                    p <- pred(tree, inp, as.integer(j))
+                }
 
                 ## run through all rows of perror
                 perror[(per+(b-1)*nperm), j] <- (error(p, oob) - eoob)

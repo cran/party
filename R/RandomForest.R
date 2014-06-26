@@ -1,5 +1,5 @@
 
-# $Id: RandomForest.R 532 2014-02-01 08:56:55Z thothorn $
+# $Id: RandomForest.R 540 2014-06-27 07:41:46Z thothorn $
 
 ### the fitting procedure
 cforestfit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
@@ -126,7 +126,8 @@ cforestfit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
 
         newinp <- newinputs(object, newdata)
 
-        lapply(ensemble, function(e) .Call("R_get_nodeID", e, newinp, mincriterion, PACKAGE = "party"))
+        lapply(ensemble, function(e) 
+            R_get_nodeID(e, newinp, mincriterion))
     }
 
     RET@prediction_weights <- function(newdata = NULL, 
@@ -247,6 +248,7 @@ proximity <- function(object, newdata = NULL) {
 
 
 ### FIXME: newdata may be missing, reuse weights
+### partialPlot.BinaryTree?
 partialPlot.party <-
     function (x, newdata, x.var, which.class, weights, plot = TRUE, add = FALSE,
               n.pt = min(length(unique(newdata[, xname])), 51), rug = TRUE,
