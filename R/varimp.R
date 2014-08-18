@@ -127,8 +127,8 @@ varimpsurv <- function (object, mincriterion = 0, conditional = FALSE,
         if(!all(complete.cases(inp@variables)))
             stop("cannot compute variable importance measure with missing values")
     }
-    stopifnot(require("ipred", quietly = TRUE))
-    error <- function(x, oob) sbrier(y[oob,,drop = FALSE], x[oob])
+    stopifnot(requireNamespace("ipred", quietly = TRUE))
+    error <- function(x, oob) ipred::sbrier(y[oob,,drop = FALSE], x[oob])
 
     pred <- function(tree, newinp, j = -1L) {
 

@@ -1,5 +1,5 @@
 
-R version 3.1.0 (2014-04-10) -- "Spring Dance"
+R Under development (unstable) (2014-08-18 r66424) -- "Unsuffered Consequences"
 Copyright (C) 2014 The R Foundation for Statistical Computing
 Platform: x86_64-unknown-linux-gnu (64-bit)
 
@@ -681,13 +681,12 @@ detaching ‘package:survival’, ‘package:splines’, ‘package:TH.data’
 + plot(fmPID, tp_args = list(cdplot = TRUE))
 + }
 Loading required package: mlbench
-Loading required package: vcd
 > 
 > 
 > 
 > cleanEx()
 
-detaching ‘package:vcd’, ‘package:mlbench’
+detaching ‘package:mlbench’
 
 > nameEx("panelfunctions")
 > ### * panelfunctions
@@ -848,13 +847,12 @@ detaching ‘package:survival’, ‘package:splines’, ‘package:TH.data’
 + 
 + }
 Loading required package: mlbench
-Loading required package: vcd
 > 
 > 
 > 
 > cleanEx()
 
-detaching ‘package:vcd’, ‘package:mlbench’
+detaching ‘package:mlbench’
 
 > nameEx("readingSkills")
 > ### * readingSkills
@@ -974,7 +972,7 @@ nativeSpeaker           age      shoeSize
 > ###
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  12.888 0.188 13.098 0 0 
+Time elapsed:  12.052 0.16 12.234 0 0 
 > grDevices::dev.off()
 null device 
           1 

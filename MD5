@@ -1,9 +1,9 @@
-498d1f30e6ec9287912572b91440158e *DESCRIPTION
-c9ed38a4eda7870931204042cdf1c000 *NAMESPACE
+83abe5b84d7e68b6df53e56464040c4e *DESCRIPTION
+93fdf395e5ef737e81e750c580eb4963 *NAMESPACE
 f5c8adb28ff82ad9c75357eb2cbe3bb4 *R/AAA.R
 a9738c8c4ad71534971b2981fe2710f6 *R/Classes.R
 f224d2fb560ad4858efc94e554b563d7 *R/ConditionalTree.R
-b2d11b713ab5a368400fd43fa6dc67cd *R/MOB-Plot.R
+c11f82500368da8f30d04e0fd145cead *R/MOB-Plot.R
 7d90d01d7f846481880d74cc7565cbf0 *R/MOB-Utils.R
 042a88945ea3447c5b52359caa21cede *R/MOB.R
 dd73a5ea145665570a84e84333bfd83a *R/Memory.R
@@ -14,7 +14,7 @@ dd73a5ea145665570a84e84333bfd83a *R/Memory.R
 77a30854a14d529a1b31fb85cc1dca4e *R/Utils.R
 590e7af01c81c8ffab47316515e586d9 *R/Variables.R
 c87b276b68a6af0cd0ecfc1608be4faa *R/reweight.R
-0c44d9433f3351d704a655bd89b3d0e1 *R/varimp.R
+74efb77f081a3161a897b56c6f11b864 *R/varimp.R
 d6927cbe4839e709e88b26719d47c38e *R/zInitMethods.R
 3507e857742b356f8ba43be59a608636 *build/vignette.rds
 fa239b95800aa1f16ce324850cb0342e *cleanup
@@ -22,13 +22,13 @@ daf0d9485bc3bd5ab672d388165ae023 *data/readingSkills.rda
 78d0eab02c48127b6864e71dd5e3814a *demo/00Index
 d865e6cc6d64c447bf1db88ee971bacf *demo/strucchange-perm.R
 d939b5d2a70fe896889921a02588e794 *inst/CITATION
-2a36907b888ab56158a1280745c0f33e *inst/NEWS
+d2a0a724b98bb52ceada6a4d55ba3b08 *inst/NEWS
 fac2dcc81e63e6a3ad6e52cd3626e112 *inst/doc/MOB.R
 a5e3a263f76c0a39d998ca631fb79c18 *inst/doc/MOB.Rnw
-f835a3883fa910ae3f4db855f1886094 *inst/doc/MOB.pdf
+75cfb5401a26394c733e240e35c22577 *inst/doc/MOB.pdf
 a982554b662732dc510cc61c60f74de4 *inst/doc/party.R
 5fcd0c80f54d9d34b87d826b0290d1df *inst/doc/party.Rnw
-73d18c7fcc4fc0e62c3321b02fd767b0 *inst/doc/party.pdf
+66a926841c2ba4d18711a635763cbfef *inst/doc/party.pdf
 df32d3053e4f6a461a74ffcfbd9bfc3b *inst/doxygen.cfg
 bf2e2b566abc607e58a690c30356877b *man/BinaryTree-class.Rd
 cd00385ded07c7c3f6e14cdd7f68b43f *man/ForestControl-class.Rd
@@ -86,7 +86,7 @@ c5e04dff3e5dce2d6d3df583acac3e21 *src/mvt.h
 a5c8223502cefd3b0a9658954a494762 *src/party.h
 6dae0accdaeb82aea64db17bdea50685 *tests/Distributions.R
 c3e2942a1b4fac5728e5532ad22f996a *tests/Distributions.Rout.save
-03e1a91173470cdf7f9b7a8d50e963df *tests/Examples/party-Ex.Rout.save
+6f41d88f0e1b1fab1bf267fb0bdd2722 *tests/Examples/party-Ex.Rout.save
 a37ea83f053fe89fea0a38b8c26ad4b1 *tests/IndependenceTest-regtest.R
 fdc493b92be460c4fe8a8c8ea27ddcdc *tests/IndependenceTest-regtest.Rout.save
 88a8657919c162c464aebe85df99a562 *tests/LinearStatistic-regtest.R

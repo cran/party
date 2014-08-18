@@ -8,6 +8,7 @@ import("methods")
 import("zoo")
 import("strucchange")
 import("sandwich")
+import("grid")
 
 importClassesFrom("coin", "ExpectCovar", "ExpectCovarInfluence")
 

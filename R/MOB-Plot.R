@@ -140,10 +140,11 @@ node_bivplot <- function(mobobj, which = NULL, id = TRUE, pop = TRUE,
     if(is.factor(y)) {
       ## CD plots and spine plots
       ## re-use implementation from vcd package
-      if(!require("vcd")) stop("the `vcd' package is required for CD plots")
+      if(!requireNamespace("vcd", quietly = TRUE)) 
+          stop("the `vcd' package is required for CD plots")
       if(cdplot) {
         num_fun <- function(x, y, yfit, i, name, ...) {
-          cd_plot(x, y, xlab = xlab[i], ylab = ylab, name = name, newpage = FALSE,
+          vcd::cd_plot(x, y, xlab = xlab[i], ylab = ylab, name = name, newpage = FALSE,
 	    margins = margins, pop = FALSE, ...)
     	  if(fitmean) {
 	    #FIXME# downViewport(name = name)
@@ -162,7 +163,7 @@ node_bivplot <- function(mobobj, which = NULL, id = TRUE, pop = TRUE,
 	  if(is.list(breaks)) breaks else list(breaks)
 	}
         num_fun <- function(x, y, yfit, i, name, ...) {
-          spine(x, y, xlab = xlab[i], ylab = ylab, name = name, newpage = FALSE,
+          vcd::spine(x, y, xlab = xlab[i], ylab = ylab, name = name, newpage = FALSE,
 	    margins = margins, pop = FALSE, breaks = xscale[[i]], ...)
     	  if(fitmean) {
 	    #FIXME# downViewport(name = name)
@@ -181,7 +182,7 @@ node_bivplot <- function(mobobj, which = NULL, id = TRUE, pop = TRUE,
         }
       }
       cat_fun <- function(x, y, yfit, i, name, ...) {
-        spine(x, y, xlab = xlab[i], ylab = ylab, name = name, newpage = FALSE,
+        vcd::spine(x, y, xlab = xlab[i], ylab = ylab, name = name, newpage = FALSE,
 	  margins = margins, pop = FALSE, ...)
     	if(fitmean) {
 	  #FIXME# downViewport(name = name)
