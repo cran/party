@@ -11,6 +11,7 @@ import("sandwich")
 import("grid")
 
 importClassesFrom("coin", "ExpectCovar", "ExpectCovarInfluence")
+importMethodsFrom("coin", "initialize")
 
 export(ctree, ctree_memory, ctree_control, 
        node_inner, edge_simple, node_terminal,
