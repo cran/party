@@ -1,5 +1,5 @@
 
-# $Id: zInitMethods.R 532 2014-02-01 08:56:55Z thothorn $
+# $Id: zInitMethods.R 571 2014-09-17 16:11:00Z thothorn $
 
 ### moved to coin as of coin 1.0-24
 if (FALSE) {

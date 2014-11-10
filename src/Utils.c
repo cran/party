@@ -3,7 +3,7 @@
     Some commonly needed utility functions.
     *\file Utils.c
     *\author $Author: thothorn $
-    *\date $Date: 2013-12-13 20:51:08 +0100 (Fri, 13 Dec 2013) $
+    *\date $Date: 2014-11-09 10:03:59 +0100 (Sun, 09 Nov 2014) $
 */
                 
 #include "party.h"
@@ -103,6 +103,7 @@ void CR_La_svd(int dim, SEXP jobu, SEXP jobv, SEXP x, SEXP s, SEXP u, SEXP v,
                SEXP method)
 {
     int *xdims, n, p, lwork, info = 0;
+    int *iwork;
     double *work, *xvals, tmp;
     /* const char * meth; not used*/
 
@@ -125,7 +126,7 @@ void CR_La_svd(int dim, SEXP jobu, SEXP jobv, SEXP x, SEXP s, SEXP u, SEXP v,
            output */
         ldu = dim;
         ldvt = dim;
-	int *iwork= (int *) R_alloc(8*(n<p ? n : p), sizeof(int));
+	iwork= (int *) Calloc(8*(n<p ? n : p), int);
 
 	/* ask for optimal size of work array */
 	lwork = -1;
@@ -148,7 +149,7 @@ void CR_La_svd(int dim, SEXP jobu, SEXP jobv, SEXP x, SEXP s, SEXP u, SEXP v,
 	if (info != 0)
 	    error(("error code %d from Lapack routine '%s'"), info, "dgesdd");
     }
-    Free(work); Free(xvals);
+    Free(work); Free(xvals); Free(iwork);
 }
 
 /**
