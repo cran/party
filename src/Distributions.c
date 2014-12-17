@@ -2,11 +2,12 @@
 /**
     Conditional Distributions
     *\file Distributions.c
-    *\author $Author: hothorn $
-    *\date $Date: 2009-09-17 11:59:10 +0200 (Thu, 17 Sep 2009) $
+    *\author $Author: thothorn $
+    *\date $Date: 2014-12-16 16:51:36 +0100 (Tue, 16 Dec 2014) $
 */
                 
 #include "party.h"
+#include <mvtnormAPI.h>
 
 
 /**
@@ -52,7 +53,7 @@ SEXP R_quadformConditionalPvalue(SEXP tstat, SEXP df) {
 double C_maxabsConditionalPvalue(const double tstat, const double *Sigma, 
     const int pq, int *maxpts, double *releps, double *abseps, double *tol) {
 
-    int *n, *nu, *inform, i, j, *infin, sub, *index, nonzero, iz, jz;
+    int *n, *nu, *inform, i, j, *infin, sub, *index, nonzero, iz, jz, rnd = 0;
     double *lower, *upper, *delta, *corr, *sd, *myerror,
            *prob, ans;
 
@@ -121,10 +122,10 @@ double C_maxabsConditionalPvalue(const double tstat, const double *Sigma,
     }
     n[0] = nonzero;
         
-    /* call FORTRAN subroutine */
-    F77_CALL(mvtdst)(n, nu, lower, upper, infin, corr, delta, 
-                     maxpts, abseps, releps, myerror, prob, inform);
-                         
+    /* call mvtnorm's mvtdst C function defined in mvtnorm/include/mvtnormAPI.h */
+    mvtnorm_C_mvtdst(n, nu, lower, upper, infin, corr, delta, 
+                     maxpts, abseps, releps, myerror, prob, inform, &rnd);
+
     /* inform == 0 means: everything is OK */
     switch (inform[0]) {
         case 0: break;
@@ -163,10 +164,16 @@ SEXP R_maxabsConditionalPvalue(SEXP tstat, SEXP Sigma, SEXP maxpts,
     int pq;
     
     pq = nrow(Sigma);
+
+    /* make sure mvtdst has access to RNG */
+    GetRNGstate();
    
     PROTECT(ans = allocVector(REALSXP, 1));
     REAL(ans)[0] = C_maxabsConditionalPvalue(REAL(tstat)[0], REAL(Sigma), pq, 
         INTEGER(maxpts), REAL(releps), REAL(abseps), REAL(tol));
+           
+    PutRNGstate();
+        
     UNPROTECT(1);
     return(ans);
 }
@@ -199,7 +206,7 @@ void C_MonteCarlo(double *criterion, SEXP learnsample, SEXP weights,
     
     /* number of Monte-Carlo replications */
     B = get_nresample(gtctrl);
-    
+
     /* y = get_transformation(responses, 1); */
     y = get_test_trafo(responses);
     
@@ -228,7 +235,7 @@ void C_MonteCarlo(double *criterion, SEXP learnsample, SEXP weights,
 
     for (b = 0; b < B; b++) {
 
-        /* generate a admissible permutation */
+        /* generate an admissible permutation */
         C_SampleNoReplace(dummy, m, m, permute);
         for (k = 0; k < m; k++) permindex[k] = index[permute[k]];
 
@@ -258,7 +265,7 @@ void C_MonteCarlo(double *criterion, SEXP learnsample, SEXP weights,
             if (smax > criterion[j]) counts[j]++;
         }
     }
-    
+
     /* return adjusted pvalues */
     for (j = 0; j < ninputs; j++)
         ans_pvalues[j] = (double) counts[j] / B;
@@ -298,7 +305,7 @@ SEXP R_MonteCarlo(SEXP criterion, SEXP learnsample, SEXP weights,
      SEXP ans;
      
      GetRNGstate();
-     
+
      PROTECT(ans = allocVector(REALSXP, get_ninputs(learnsample)));
      C_MonteCarlo(REAL(criterion), learnsample, weights, fitmem, varctrl, 
                   gtctrl, REAL(ans));

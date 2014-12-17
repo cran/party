@@ -42,8 +42,8 @@ The following objects are masked from package:party:
     conditionalTree, ctree, ctree_control, ctree_memory, edge_simple,
     mob, mob_control, node_barplot, node_bivplot, node_boxplot,
     node_density, node_hist, node_inner, node_scatterplot, node_surv,
-    node_terminal, proximity, ptrafo, reweight, sctest.mob, varimp,
-    varimpAUC
+    node_terminal, prettytree, proximity, ptrafo, reweight, sctest.mob, 
+    varimp, varimpAUC
 
 > 
 > ###

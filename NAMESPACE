@@ -1,7 +1,7 @@
 
 importFrom("coin", "logrank_trafo", "trafo", "id_trafo", "of_trafo")
 importFrom("stats", "weights")
-importFrom("survival", "Surv", "survfit", "is.Surv")
+importFrom("survival", "Surv", "survfit", "is.Surv", "is.na.Surv")
 
 import("modeltools")
 import("methods")
@@ -9,6 +9,7 @@ import("zoo")
 import("strucchange")
 import("sandwich")
 import("grid")
+import("mvtnorm")
 
 importClassesFrom("coin", "ExpectCovar", "ExpectCovarInfluence")
 importMethodsFrom("coin", "initialize")
@@ -22,7 +23,7 @@ export(ctree, ctree_memory, ctree_control,
        treeresponse, response, ptrafo, cforest,
        mob, mob_control,
        reweight, sctest.mob, cforest_control, varimp, varimpAUC,
-       cforest_classical, cforest_unbiased, proximity)
+       cforest_classical, cforest_unbiased, proximity, prettytree)
 
 exportClasses("BinaryTree", "LearningSample", "SplittingNode",
               "TerminalNode", "TreeControl", "RandomForest", "mob",
@@ -50,7 +51,7 @@ S3method(plot, mob)
 S3method(predict, mob)
 S3method(print, mob)
 S3method(residuals, mob)
-### S3method(sctest, mob)
+S3method(sctest, mob)
 S3method(summary, mob)
 S3method(weights, mob)
 

@@ -3,7 +3,7 @@
     Some commonly needed utility functions.
     *\file Utils.c
     *\author $Author: thothorn $
-    *\date $Date: 2014-11-09 10:03:59 +0100 (Sun, 09 Nov 2014) $
+    *\date $Date: 2014-12-16 16:51:36 +0100 (Tue, 16 Dec 2014) $
 */
                 
 #include "party.h"
@@ -800,7 +800,6 @@ SEXP R_modify_response(SEXP x, SEXP vf) {
     return(R_NilValue);
 }
 
-double F77_SUB(unifrnd)(void) { return unif_rand(); }
 
 void C_SampleSplitting(int n, double *prob, int *weights, int k) {
 

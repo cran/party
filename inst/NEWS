@@ -1,4 +1,12 @@
 
+                CHANGES IN party VERSION 1.0-19 (2014-12-17)
+
+    o    directly link to mvtnorm and thus make duplication of 
+         FORTRAN code obsolate.
+
+    o    export prettytree (for package mlmeta by Andrew Z)
+
+
                 CHANGES IN party VERSION 1.0-18 (2014-11-10)
 
     o    internal call to svd acummulated memory until the 

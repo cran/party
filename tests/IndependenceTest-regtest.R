@@ -143,7 +143,7 @@ gtctrl <- new("GlobalTestControl")
 tlev <- levels(gtctrl@testtype)   
 gtctrl@testtype <- factor("Univariate", levels = tlev)
 
-mydata = data.frame(y = gl(2, 50), x1 = rnorm(100),
+mydata <- data.frame(y = gl(2, 50), x1 = rnorm(100),
                     x2 = rnorm(100), x3 = rnorm(100))
 inp <- initVariableFrame(mydata[,c("x1", "x2", "x3"),drop = FALSE], 
     trafo = function(data) ptrafo(data, numeric_trafo = rank))
@@ -172,6 +172,7 @@ resp <- initVariableFrame(mydata[,"y",drop = FALSE], trafo = NULL, response = TR
 ls <- new("LearningSample", inputs = inp, responses = resp,
           weights = rep(1, inp@nobs), nobs = nrow(mydata), 
           ninputs = as.integer(1))
+tm <- ctree_memory(ls)
 pvals <- .Call("R_GlobalTest", ls, ls@weights, tm, varctrl, gtctrl, PACKAGE = "party")[[2]]
 stopifnot(abs((1 - pvals) - wilcox.test(x1 ~ y, data = mydata, 
     exact = TRUE)$p.value) < 1e-2)

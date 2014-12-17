@@ -14,7 +14,6 @@
 
 #include "Classes.h"
 #include "Utils.h"
-#include "mvt.h"
 #include "LinearStatistic.h"
 #include "TestStatistic.h"
 #include "Distributions.h"
