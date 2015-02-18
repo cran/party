@@ -1,4 +1,9 @@
 
+                CHANGES IN party VERSION 1.0-20 (2015-02-18)
+
+    o    is.na.Surv is now an S3 generic in survival 2.37-7
+
+
                 CHANGES IN party VERSION 1.0-19 (2014-12-17)
 
     o    directly link to mvtnorm and thus make duplication of 

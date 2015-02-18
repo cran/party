@@ -1,5 +1,5 @@
-ba33db6e6685d280ae63cfb529bac889 *DESCRIPTION
-45800d5b696e591b77b5fd3ff9ab6038 *NAMESPACE
+536aa483580b61465ce795abfd6d17e8 *DESCRIPTION
+0c3c33e549903da816b85399866eb688 *NAMESPACE
 f5c8adb28ff82ad9c75357eb2cbe3bb4 *R/AAA.R
 a9738c8c4ad71534971b2981fe2710f6 *R/Classes.R
 f224d2fb560ad4858efc94e554b563d7 *R/ConditionalTree.R
@@ -22,13 +22,13 @@ daf0d9485bc3bd5ab672d388165ae023 *data/readingSkills.rda
 78d0eab02c48127b6864e71dd5e3814a *demo/00Index
 d865e6cc6d64c447bf1db88ee971bacf *demo/strucchange-perm.R
 d939b5d2a70fe896889921a02588e794 *inst/CITATION
-70d3f2968c2e66384cdc8c4ca7d44c7c *inst/NEWS
+72295a713840953b61f8e3f9c3e2f0e3 *inst/NEWS
 fac2dcc81e63e6a3ad6e52cd3626e112 *inst/doc/MOB.R
 a5e3a263f76c0a39d998ca631fb79c18 *inst/doc/MOB.Rnw
-b85e2ae03ec8564dd9fa001f3add4797 *inst/doc/MOB.pdf
+41939488586f94bc371f68aff6d796fb *inst/doc/MOB.pdf
 a982554b662732dc510cc61c60f74de4 *inst/doc/party.R
 5fcd0c80f54d9d34b87d826b0290d1df *inst/doc/party.Rnw
-8ca0dd3e04f0d6c59590d77b18aff194 *inst/doc/party.pdf
+faca19e4f46f9a593269f0ea38678110 *inst/doc/party.pdf
 df32d3053e4f6a461a74ffcfbd9bfc3b *inst/doxygen.cfg
 bf2e2b566abc607e58a690c30356877b *man/BinaryTree-class.Rd
 cd00385ded07c7c3f6e14cdd7f68b43f *man/ForestControl-class.Rd

@@ -1,7 +1,7 @@
 
 importFrom("coin", "logrank_trafo", "trafo", "id_trafo", "of_trafo")
 importFrom("stats", "weights")
-importFrom("survival", "Surv", "survfit", "is.Surv", "is.na.Surv")
+importFrom("survival", "Surv", "survfit", "is.Surv")
 
 import("modeltools")
 import("methods")
