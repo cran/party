@@ -1,5 +1,5 @@
 
-R Under development (unstable) (2014-08-18 r66424) -- "Unsuffered Consequences"
+R version 3.1.2 (2014-10-31) -- "Pumpkin Helmet"
 Copyright (C) 2014 The R Foundation for Statistical Computing
 Platform: x86_64-unknown-linux-gnu (64-bit)
 
@@ -22,6 +22,10 @@ Type 'q()' to quit R.
 > options(warn = 1)
 > library('party')
 Loading required package: grid
+Loading required package: mvtnorm
+Loading required package: modeltools
+Loading required package: stats4
+Loading required package: strucchange
 Loading required package: zoo
 
 Attaching package: ‘zoo’
@@ -31,9 +35,6 @@ The following objects are masked from ‘package:base’:
     as.Date, as.Date.numeric
 
 Loading required package: sandwich
-Loading required package: strucchange
-Loading required package: modeltools
-Loading required package: stats4
 > 
 > base::assign(".oldSearch", base::search(), pos = 'CheckExEnv')
 > cleanEx()
@@ -282,7 +283,6 @@ attr(,"assign")
 +     }
 Loading required package: TH.data
 Loading required package: survival
-Loading required package: splines
 1) pnodes <= 3; criterion = 1, statistic = 37.638
   2) horTh == {}; criterion = 0.986, statistic = 6.053
     3) menostat == {}; criterion = 0.895, statistic = 2.635
@@ -403,7 +403,7 @@ Loading required package: splines
 > graphics::par(get("par.postscript", pos = 'CheckExEnv'))
 > cleanEx()
 
-detaching ‘package:survival’, ‘package:splines’, ‘package:TH.data’
+detaching ‘package:survival’, ‘package:TH.data’
 
 > nameEx("ctree")
 > ### * ctree
@@ -530,7 +530,6 @@ Number of observations:  150
 +     }
 Loading required package: TH.data
 Loading required package: survival
-Loading required package: splines
 [[1]]
 Call: survfit(formula = y ~ 1, weights = weights)
 
@@ -567,7 +566,7 @@ records   n.max n.start  events  median 0.95LCL 0.95UCL
 > 
 > cleanEx()
 
-detaching ‘package:survival’, ‘package:splines’, ‘package:TH.data’
+detaching ‘package:survival’, ‘package:TH.data’
 
 > nameEx("ctree_memory")
 > ### * ctree_memory
@@ -767,14 +766,13 @@ detaching ‘package:mlbench’
 +   plot(gbsg2ct, type = "simple")  
 +   }
 Loading required package: TH.data
-Loading required package: splines
 > 
 > 
 > 
 > 
 > cleanEx()
 
-detaching ‘package:survival’, ‘package:splines’, ‘package:TH.data’
+detaching ‘package:survival’, ‘package:TH.data’
 
 > nameEx("plot.mob")
 > ### * plot.mob
@@ -972,7 +970,7 @@ nativeSpeaker           age      shoeSize
 > ###
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  12.052 0.16 12.234 0 0 
+Time elapsed:  16.642 0.076 16.761 0 0 
 > grDevices::dev.off()
 null device 
           1 

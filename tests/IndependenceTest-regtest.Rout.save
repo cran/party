@@ -1,7 +1,7 @@
 
-R Under development (unstable) (2014-06-29 r66051) -- "Unsuffered Consequences"
-Copyright (C) 2014 The R Foundation for Statistical Computing
-Platform: x86_64-unknown-linux-gnu (64-bit)
+R version 3.2.0 (2015-04-16) -- "Full of Ingredients"
+Copyright (C) 2015 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
 You are welcome to redistribute it under certain conditions.
@@ -19,6 +19,10 @@ Type 'q()' to quit R.
 > set.seed(290875)
 > library("party")
 Loading required package: grid
+Loading required package: mvtnorm
+Loading required package: modeltools
+Loading required package: stats4
+Loading required package: strucchange
 Loading required package: zoo
 
 Attaching package: 'zoo'
@@ -28,9 +32,6 @@ The following objects are masked from 'package:base':
     as.Date, as.Date.numeric
 
 Loading required package: sandwich
-Loading required package: strucchange
-Loading required package: modeltools
-Loading required package: stats4
 > 
 > ### get rid of the NAMESPACE
 > attach(asNamespace("party"))
@@ -40,7 +41,7 @@ The following objects are masked from package:party:
     conditionalTree, ctree, ctree_control, ctree_memory, edge_simple,
     mob, mob_control, node_barplot, node_bivplot, node_boxplot,
     node_density, node_hist, node_inner, node_scatterplot, node_surv,
-    node_terminal, prettytree, proximity, ptrafo, reweight, sctest.mob, 
+    node_terminal, prettytree, proximity, ptrafo, reweight, sctest.mob,
     varimp, varimpAUC
 
 > 
@@ -119,7 +120,7 @@ Slot "releps":
 	Kruskal-Wallis rank sum test
 
 data:  xval by yf
-Kruskal-Wallis chi-squared = 0.622, df = 2, p-value = 0.7327
+Kruskal-Wallis chi-squared = 0.62197, df = 2, p-value = 0.7327
 
 > stopifnot(isequal(res[2], kw$p.value))
 > stopifnot(isequal(lec@rank, kw$parameter))
@@ -165,7 +166,7 @@ Slot "releps":
 	Kruskal-Wallis rank sum test
 
 data:  xval by yf
-Kruskal-Wallis chi-squared = 0.622, df = 2, p-value = 0.7327
+Kruskal-Wallis chi-squared = 0.62197, df = 2, p-value = 0.7327
 
 > stopifnot(isequal(res[2], kw$p.value))
 > 
@@ -350,4 +351,4 @@ X-squared = 2.1741, df = 4, p-value = 0.7038
 > 
 > proc.time()
    user  system elapsed 
-  0.964   0.048   1.012 
+  1.780   0.068   1.841 
