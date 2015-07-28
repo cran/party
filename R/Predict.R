@@ -1,5 +1,5 @@
 
-# $Id: Predict.R 503 2012-12-13 09:54:17Z thothorn $
+# $Id: Predict.R 587 2015-07-28 14:31:55Z thothorn $
 
 predict.BinaryTree <- function(object, ...) {
     conditionalTree@predict(object, ...)
@@ -8,7 +8,6 @@ predict.BinaryTree <- function(object, ...) {
 predict.RandomForest <- function(object, OOB = FALSE, ...) {
     RandomForest@predict(object, OOB = OOB, ...)
 }
-
 
 setGeneric("treeresponse", function(object, ...) 
            standardGeneric("treeresponse"))

@@ -1,7 +1,7 @@
 
-R version 3.1.2 (2014-10-31) -- "Pumpkin Helmet"
-Copyright (C) 2014 The R Foundation for Statistical Computing
-Platform: x86_64-unknown-linux-gnu (64-bit)
+R Under development (unstable) (2015-07-25 r68745) -- "Unsuffered Consequences"
+Copyright (C) 2015 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
 You are welcome to redistribute it under certain conditions.
@@ -533,14 +533,14 @@ Loading required package: survival
 [[1]]
 Call: survfit(formula = y ~ 1, weights = weights)
 
-records   n.max n.start  events  median 0.95LCL 0.95UCL 
-    248     248     248      88    2093    1814      NA 
+      n  events  median 0.95LCL 0.95UCL 
+    248      88    2093    1814      NA 
 
 [[2]]
 Call: survfit(formula = y ~ 1, weights = weights)
 
-records   n.max n.start  events  median 0.95LCL 0.95UCL 
-    166     166     166      77    1701    1174    2018 
+      n  events  median 0.95LCL 0.95UCL 
+    166      77    1701    1174    2018 
 
 > 
 >     ### if you are interested in the internals:
@@ -970,7 +970,7 @@ nativeSpeaker           age      shoeSize
 > ###
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  16.642 0.076 16.761 0 0 
+Time elapsed:  15.082 0.063 15.157 0 0 
 > grDevices::dev.off()
 null device 
           1 

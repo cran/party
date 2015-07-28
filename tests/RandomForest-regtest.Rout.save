@@ -1,7 +1,7 @@
 
-R Under development (unstable) (2014-06-29 r66051) -- "Unsuffered Consequences"
-Copyright (C) 2014 The R Foundation for Statistical Computing
-Platform: x86_64-unknown-linux-gnu (64-bit)
+R Under development (unstable) (2015-07-25 r68745) -- "Unsuffered Consequences"
+Copyright (C) 2015 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
 You are welcome to redistribute it under certain conditions.
@@ -19,6 +19,10 @@ Type 'q()' to quit R.
 > set.seed(290875)
 > library("party")
 Loading required package: grid
+Loading required package: mvtnorm
+Loading required package: modeltools
+Loading required package: stats4
+Loading required package: strucchange
 Loading required package: zoo
 
 Attaching package: 'zoo'
@@ -28,9 +32,6 @@ The following objects are masked from 'package:base':
     as.Date, as.Date.numeric
 
 Loading required package: sandwich
-Loading required package: strucchange
-Loading required package: modeltools
-Loading required package: stats4
 > if (!require("TH.data"))
 +     stop("cannot load package TH.data")
 Loading required package: TH.data
@@ -38,7 +39,6 @@ Loading required package: TH.data
 +     stop("cannot load package coin")
 Loading required package: coin
 Loading required package: survival
-Loading required package: splines
 > 
 > data("GlaucomaM", package = "TH.data")
 > rf <- cforest(Class ~ ., data = GlaucomaM, control = cforest_unbiased(ntree = 30))
@@ -51,14 +51,14 @@ Loading required package: splines
 $`1`
 Call: survfit(formula = y ~ 1, weights = weights)
 
-records   n.max n.start  events  median 0.95LCL 0.95UCL 
-    143     394     394     237    1528    1306    1675 
+records       n  events  median 0.95LCL 0.95UCL 
+    143     394     237    1528    1306    1675 
 
 $`2`
 Call: survfit(formula = y ~ 1, weights = weights)
 
-records   n.max n.start  events  median 0.95LCL 0.95UCL 
-    145     380     380     160    2015    1807    2018 
+records       n  events  median 0.95LCL 0.95UCL 
+    145     380     160    2015    1807    2018 
 
 > 
 > ### give it a try, at least
@@ -162,4 +162,4 @@ Sepal.Length  Sepal.Width Petal.Length  Petal.Width
 > 
 > proc.time()
    user  system elapsed 
-  3.132   0.052   3.185 
+  3.430   0.091   3.510 

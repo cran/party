@@ -1,6 +1,5 @@
 
 importFrom("coin", "logrank_trafo", "trafo", "id_trafo", "of_trafo")
-importFrom("stats", "weights")
 importFrom("survival", "Surv", "survfit", "is.Surv")
 
 import("modeltools")
@@ -13,6 +12,14 @@ import("mvtnorm")
 
 importClassesFrom("coin", "ExpectCovar", "ExpectCovarInfluence")
 importMethodsFrom("coin", "initialize")
+
+importFrom("grDevices", "gray.colors")
+importFrom("graphics", "barplot", "boxplot", "hist", "lines", "points")
+importFrom("stats", "weights", "approx", "as.formula", "coef", "complete.cases",
+     "density", "deviance", "fitted", "logLik", "model.matrix",
+     "pchisq", "predict", "qnorm", "quantile", "residuals",
+     "runif", "weighted.mean")
+importFrom("utils", "head")
 
 export(ctree, ctree_memory, ctree_control, 
        node_inner, edge_simple, node_terminal,

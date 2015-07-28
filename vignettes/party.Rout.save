@@ -5,6 +5,10 @@
 > require("party")
 Loading required package: party
 Loading required package: grid
+Loading required package: mvtnorm
+Loading required package: modeltools
+Loading required package: stats4
+Loading required package: strucchange
 Loading required package: zoo
 
 Attaching package: ‘zoo’
@@ -14,14 +18,10 @@ The following objects are masked from ‘package:base’:
     as.Date, as.Date.numeric
 
 Loading required package: sandwich
-Loading required package: strucchange
-Loading required package: modeltools
-Loading required package: stats4
 
 > require("coin")
 Loading required package: coin
 Loading required package: survival
-Loading required package: splines
 
 > set.seed(290875)
 
@@ -540,14 +540,14 @@ Levels: A B C
 [[1]]
 Call: survfit(formula = y ~ 1, weights = weights)
 
-records   n.max n.start  events  median 0.95LCL 0.95UCL 
-    248     248     248      88    2093    1814      NA 
+      n  events  median 0.95LCL 0.95UCL 
+    248      88    2093    1814      NA 
 
 [[2]]
 Call: survfit(formula = y ~ 1, weights = weights)
 
-records   n.max n.start  events  median 0.95LCL 0.95UCL 
-    166     166     166      77    1701    1174    2018 
+      n  events  median 0.95LCL 0.95UCL 
+    166      77    1701    1174    2018 
 
 
 > data("mammoexp", package = "TH.data")
@@ -559,4 +559,4 @@ records   n.max n.start  events  median 0.95LCL 0.95UCL
  *** Run successfully completed ***
 > proc.time()
    user  system elapsed 
-  1.404   0.056   1.457 
+  1.797   0.092   1.894 

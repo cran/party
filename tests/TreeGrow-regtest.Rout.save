@@ -1,7 +1,7 @@
 
-R Under development (unstable) (2014-06-29 r66051) -- "Unsuffered Consequences"
-Copyright (C) 2014 The R Foundation for Statistical Computing
-Platform: x86_64-unknown-linux-gnu (64-bit)
+R Under development (unstable) (2015-07-25 r68745) -- "Unsuffered Consequences"
+Copyright (C) 2015 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
 You are welcome to redistribute it under certain conditions.
@@ -19,6 +19,10 @@ Type 'q()' to quit R.
 > set.seed(290875)
 > library("party")
 Loading required package: grid
+Loading required package: mvtnorm
+Loading required package: modeltools
+Loading required package: stats4
+Loading required package: strucchange
 Loading required package: zoo
 
 Attaching package: 'zoo'
@@ -28,9 +32,6 @@ The following objects are masked from 'package:base':
     as.Date, as.Date.numeric
 
 Loading required package: sandwich
-Loading required package: strucchange
-Loading required package: modeltools
-Loading required package: stats4
 > if (!require("TH.data"))
 +     stop("cannot load package TH.data")
 Loading required package: TH.data
@@ -38,7 +39,6 @@ Loading required package: TH.data
 +     stop("cannot load package coin")
 Loading required package: coin
 Loading required package: survival
-Loading required package: splines
 > 
 > ### get rid of the NAMESPACE
 > attach(asNamespace("party"))
@@ -48,7 +48,7 @@ The following objects are masked from package:party:
     conditionalTree, ctree, ctree_control, ctree_memory, edge_simple,
     mob, mob_control, node_barplot, node_bivplot, node_boxplot,
     node_density, node_hist, node_inner, node_scatterplot, node_surv,
-    node_terminal, prettytree, proximity, ptrafo, reweight, sctest.mob, 
+    node_terminal, prettytree, proximity, ptrafo, reweight, sctest.mob,
     varimp, varimpAUC
 
 > 
@@ -172,16 +172,11 @@ Number of observations:  686
 Call: survfit(formula = Surv(time, cens) ~ as.factor(GBSG2tree@where), 
     data = GBSG2)
 
-                             records n.max n.start events median 0.95LCL
-as.factor(GBSG2tree@where)=3     248   248     248     88   2093    1814
-as.factor(GBSG2tree@where)=4     128   128     128     31     NA    2372
-as.factor(GBSG2tree@where)=6     144   144     144    103    624     525
-as.factor(GBSG2tree@where)=7     166   166     166     77   1701    1174
-                             0.95UCL
-as.factor(GBSG2tree@where)=3      NA
-as.factor(GBSG2tree@where)=4      NA
-as.factor(GBSG2tree@where)=6     797
-as.factor(GBSG2tree@where)=7    2018
+                               n events median 0.95LCL 0.95UCL
+as.factor(GBSG2tree@where)=3 248     88   2093    1814      NA
+as.factor(GBSG2tree@where)=4 128     31     NA    2372      NA
+as.factor(GBSG2tree@where)=6 144    103    624     525     797
+as.factor(GBSG2tree@where)=7 166     77   1701    1174    2018
 > names(GBSG2)
  [1] "horTh"    "age"      "menostat" "tsize"    "tgrade"   "pnodes"  
  [7] "progrec"  "estrec"   "time"     "cens"    
@@ -292,4 +287,4 @@ Number of observations:  412
 > 
 > proc.time()
    user  system elapsed 
-  2.492   0.112   2.604 
+  2.766   0.101   2.856 
