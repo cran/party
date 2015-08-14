@@ -1,5 +1,5 @@
 
-R Under development (unstable) (2015-07-25 r68745) -- "Unsuffered Consequences"
+R version 3.2.2 (2015-08-14) -- "Fire Safety"
 Copyright (C) 2015 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
@@ -52,43 +52,43 @@ $`1`
 Call: survfit(formula = y ~ 1, weights = weights)
 
 records       n  events  median 0.95LCL 0.95UCL 
-    143     394     237    1528    1306    1675 
+    146     402     213    1753    1601    1814 
 
 $`2`
 Call: survfit(formula = y ~ 1, weights = weights)
 
 records       n  events  median 0.95LCL 0.95UCL 
-    145     380     160    2015    1807    2018 
+    148     393     176    1975    1502    2015 
 
 > 
 > ### give it a try, at least
 > varimp(rf, pre1.0_0 = TRUE)
            ag            at            as            an            ai 
- 0.0000000000  0.0004629630  0.0027777778  0.0013888889  0.0032407407 
+ 0.0000000000 -0.0023148148  0.0009259259  0.0009259259  0.0078703704 
           eag           eat           eas           ean           eai 
- 0.0000000000  0.0000000000  0.0000000000  0.0027777778 -0.0004629630 
+ 0.0000000000  0.0000000000  0.0000000000  0.0013888889 -0.0009259259 
          abrg          abrt          abrs          abrn          abri 
- 0.0000000000  0.0023148148  0.0013888889  0.0018518519  0.0046296296 
+ 0.0000000000  0.0000000000  0.0032407407  0.0027777778  0.0041666667 
           hic          mhcg          mhct          mhcs          mhcn 
- 0.0069444444  0.0000000000  0.0009259259  0.0000000000  0.0009259259 
+ 0.0060185185  0.0000000000  0.0013888889 -0.0004629630  0.0027777778 
          mhci          phcg          phct          phcs          phcn 
- 0.0078703704  0.0097222222  0.0000000000  0.0000000000 -0.0004629630 
+ 0.0078703704  0.0060185185  0.0000000000  0.0004629630  0.0018518519 
          phci           hvc          vbsg          vbst          vbss 
- 0.0171296296  0.0018518519  0.0013888889 -0.0004629630  0.0018518519 
+ 0.0166666667  0.0032407407  0.0032407407  0.0013888889  0.0000000000 
          vbsn          vbsi          vasg          vast          vass 
- 0.0000000000  0.0000000000 -0.0023148148  0.0000000000  0.0000000000 
+ 0.0000000000  0.0000000000  0.0000000000  0.0000000000  0.0000000000 
          vasn          vasi          vbrg          vbrt          vbrs 
- 0.0000000000  0.0018518519  0.0000000000  0.0013888889 -0.0004629630 
+ 0.0000000000  0.0046296296  0.0000000000  0.0018518519  0.0004629630 
          vbrn          vbri          varg          vart          vars 
- 0.0032407407  0.0004629630  0.0351851852  0.0000000000  0.0254629630 
+ 0.0032407407  0.0004629630  0.0351851852  0.0000000000  0.0245370370 
          varn          vari           mdg           mdt           mds 
- 0.0138888889  0.0425925926  0.0000000000  0.0000000000 -0.0023148148 
+ 0.0129629630  0.0481481481  0.0000000000  0.0000000000 -0.0013888889 
           mdn           mdi           tmg           tmt           tms 
- 0.0032407407  0.0004629630  0.0222222222  0.0009259259  0.0069444444 
+ 0.0000000000  0.0000000000  0.0273148148  0.0000000000  0.0097222222 
           tmn           tmi            mr           rnf          mdic 
--0.0027777778  0.0273148148  0.0000000000  0.0055555556  0.0074074074 
+-0.0023148148  0.0226851852  0.0000000000  0.0037037037  0.0055555556 
           emd            mv 
- 0.0000000000 -0.0013888889 
+ 0.0000000000 -0.0009259259 
 > 
 > P <- proximity(rf)
 > stopifnot(max(abs(P - t(P))) == 0)
@@ -122,29 +122,29 @@ records       n  events  median 0.95LCL 0.95UCL
 +              control = cforest_unbiased(mtry = 2, ntree = 10))
 > varimp(a, pre1.0_0 = TRUE)
 Sepal.Length  Sepal.Width Petal.Length  Petal.Width 
- 0.036363636  0.007272727  0.312727273  0.276363636 
+  0.06181818   0.00000000   0.20727273   0.33636364 
 > varimp(a, conditional = TRUE)
 Sepal.Length  Sepal.Width Petal.Length  Petal.Width 
- 0.003636364 -0.003636364  0.167272727  0.194545455 
+ 0.007272727  0.000000000  0.103636364  0.243636364 
 > 
 > airq <- subset(airquality, complete.cases(airquality))
 > a <- cforest(Ozone ~ ., data = airq,
 +              control = cforest_unbiased(mtry = 2, ntree = 10))
 > varimp(a, pre1.0_0 = TRUE)   
-   Solar.R       Wind       Temp      Month        Day 
-139.397699 501.974401 500.220403  28.532700   3.806919 
+  Solar.R      Wind      Temp     Month       Day 
+137.76700 550.19004 295.40387  16.21802   5.42690 
 > varimp(a, conditional = TRUE)
    Solar.R       Wind       Temp      Month        Day 
- 93.220640 334.737163 212.686904  14.329278   2.061793 
+ 67.713060 341.413307 227.670123   4.257196   3.204209 
 > 
 > data("mammoexp", package = "TH.data")
 > a <- cforest(ME ~ ., data = mammoexp, control = cforest_classical(ntree = 10))
 > varimp(a, pre1.0_0 = TRUE)   
-      SYMPT          PB        HIST         BSE        DECT 
-0.027998627 0.021174836 0.018630793 0.002646901 0.005578231 
+     SYMPT         PB       HIST        BSE       DECT 
+0.02466021 0.01046237 0.01607246 0.01045324 0.00133305 
 > varimp(a, conditional = TRUE)
       SYMPT          PB        HIST         BSE        DECT 
-0.021408831 0.012420497 0.013407572 0.001282682 0.002857143 
+0.019882337 0.009532482 0.006163146 0.007732481 0.003382481 
 > 
 > stopifnot(all.equal(unique(sapply(a@weights, sum)), nrow(mammoexp)))
 > 
@@ -158,8 +158,8 @@ Sepal.Length  Sepal.Width Petal.Length  Petal.Width
           
            glaucoma normal
   glaucoma       89      4
-  normal          2    101
+  normal          1    102
 > 
 > proc.time()
    user  system elapsed 
-  3.430   0.091   3.510 
+  2.248   0.022   2.263 

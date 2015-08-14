@@ -1,5 +1,5 @@
 
-R Under development (unstable) (2015-07-25 r68745) -- "Unsuffered Consequences"
+R version 3.2.2 (2015-08-14) -- "Fire Safety"
 Copyright (C) 2015 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
@@ -48,8 +48,8 @@ The following objects are masked from package:party:
     conditionalTree, ctree, ctree_control, ctree_memory, edge_simple,
     mob, mob_control, node_barplot, node_bivplot, node_boxplot,
     node_density, node_hist, node_inner, node_scatterplot, node_surv,
-    node_terminal, prettytree, proximity, ptrafo, reweight, sctest.mob,
-    varimp, varimpAUC
+    node_terminal, party_intern, prettytree, proximity, ptrafo,
+    reweight, sctest.mob, varimp, varimpAUC
 
 > 
 > gtctrl <- new("GlobalTestControl")
@@ -157,10 +157,10 @@ Inputs:  horTh, age, menostat, tsize, tgrade, pnodes, progrec, estrec
 Number of observations:  686 
 
 1) pnodes <= 3; criterion = 1, statistic = 56.156
-  2) horTh == {no}; criterion = 0.965, statistic = 8.113
-    3)*  weights = 248 
-  2) horTh == {yes}
-    4)*  weights = 128 
+  2) horTh == {yes}; criterion = 0.965, statistic = 8.113
+    3)*  weights = 128 
+  2) horTh == {no}
+    4)*  weights = 248 
 1) pnodes > 3
   5) progrec <= 20; criterion = 0.999, statistic = 14.941
     6)*  weights = 144 
@@ -173,8 +173,8 @@ Call: survfit(formula = Surv(time, cens) ~ as.factor(GBSG2tree@where),
     data = GBSG2)
 
                                n events median 0.95LCL 0.95UCL
-as.factor(GBSG2tree@where)=3 248     88   2093    1814      NA
-as.factor(GBSG2tree@where)=4 128     31     NA    2372      NA
+as.factor(GBSG2tree@where)=3 128     31     NA    2372      NA
+as.factor(GBSG2tree@where)=4 248     88   2093    1814      NA
 as.factor(GBSG2tree@where)=6 144    103    624     525     797
 as.factor(GBSG2tree@where)=7 166     77   1701    1174    2018
 > names(GBSG2)
@@ -194,19 +194,19 @@ Inputs:  horTh, age, menostat, tsize, tgrade, pnodes, progrec, estrec
 Number of observations:  686 
 
 1) pnodes <= 3; criterion = 1, statistic = 7.494
-  2) horTh == {no}; criterion = 0.996, statistic = 2.848
-    3) menostat == {Post}; criterion = 0.978, statistic = 2.286
-      4)*  weights = 112 
-    3) menostat == {Pre}
-      5) age <= 37; criterion = 1, statistic = 3.858
-        6)*  weights = 21 
-      5) age > 37
-        7)*  weights = 115 
-  2) horTh == {yes}
-    8) progrec <= 74; criterion = 0.975, statistic = 2.241
-      9)*  weights = 73 
-    8) progrec > 74
-      10)*  weights = 55 
+  2) horTh == {yes}; criterion = 0.996, statistic = 2.848
+    3) progrec <= 74; criterion = 0.975, statistic = 2.241
+      4)*  weights = 73 
+    3) progrec > 74
+      5)*  weights = 55 
+  2) horTh == {no}
+    6) menostat == {Pre}; criterion = 0.978, statistic = 2.286
+      7) age <= 37; criterion = 1, statistic = 3.858
+        8)*  weights = 21 
+      7) age > 37
+        9)*  weights = 115 
+    6) menostat == {Post}
+      10)*  weights = 112 
 1) pnodes > 3
   11) progrec <= 20; criterion = 1, statistic = 3.865
     12) pnodes <= 9; criterion = 0.991, statistic = 2.612
@@ -214,13 +214,13 @@ Number of observations:  686
     12) pnodes > 9
       14)*  weights = 57 
   11) progrec > 20
-    15) horTh == {no}; criterion = 0.976, statistic = 2.251
-      16)*  weights = 101 
-    15) horTh == {yes}
-      17) menostat == {Post}; criterion = 0.965, statistic = 2.105
+    15) horTh == {yes}; criterion = 0.976, statistic = 2.251
+      16) menostat == {Pre}; criterion = 0.965, statistic = 2.105
+        17)*  weights = 20 
+      16) menostat == {Post}
         18)*  weights = 45 
-      17) menostat == {Pre}
-        19)*  weights = 20 
+    15) horTh == {no}
+      19)*  weights = 101 
 > plot(tr)
 > 
 > data("mammoexp", package = "TH.data")
@@ -287,4 +287,4 @@ Number of observations:  412
 > 
 > proc.time()
    user  system elapsed 
-  2.766   0.101   2.856 
+  1.907   0.032   1.927 

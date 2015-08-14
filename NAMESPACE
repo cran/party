@@ -2,8 +2,13 @@
 importFrom("coin", "logrank_trafo", "trafo", "id_trafo", "of_trafo")
 importFrom("survival", "Surv", "survfit", "is.Surv")
 
-import("modeltools")
-import("methods")
+
+importFrom("modeltools", "ModelEnvFormula", "ParseFormula",
+                         "linearModel", "glinearModel", "survReg")
+
+importMethodsFrom("modeltools", "dimension", "dpp", "fit", "na.omit",
+                                "na.pass")
+importFrom("methods", "extends", "getSlots", "new", "validObject")
 import("zoo")
 import("strucchange")
 import("sandwich")
@@ -30,7 +35,8 @@ export(ctree, ctree_memory, ctree_control,
        treeresponse, response, ptrafo, cforest,
        mob, mob_control,
        reweight, sctest.mob, cforest_control, varimp, varimpAUC,
-       cforest_classical, cforest_unbiased, proximity, prettytree)
+       cforest_classical, cforest_unbiased, proximity, prettytree,
+       party_intern)
 
 exportClasses("BinaryTree", "LearningSample", "SplittingNode",
               "TerminalNode", "TreeControl", "RandomForest", "mob",

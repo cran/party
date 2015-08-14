@@ -1,5 +1,5 @@
 
-R Under development (unstable) (2015-07-25 r68745) -- "Unsuffered Consequences"
+R version 3.2.2 (2015-08-14) -- "Fire Safety"
 Copyright (C) 2015 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
@@ -285,107 +285,110 @@ Loading required package: TH.data
 Loading required package: survival
 1) pnodes <= 3; criterion = 1, statistic = 37.638
   2) horTh == {}; criterion = 0.986, statistic = 6.053
-    3) menostat == {}; criterion = 0.895, statistic = 2.635
-      4) tgrade <= 1; criterion = 0.58, statistic = 0.65
+    3) pnodes <= 2; criterion = 0.905, statistic = 2.788
+      4) progrec <= 16; criterion = 0.761, statistic = 1.384
         5)*  weights = 0 
-      4) tgrade > 1
-        6) progrec <= 206; criterion = 0.874, statistic = 2.337
-          7) pnodes <= 1; criterion = 0.494, statistic = 0.442
-            8) estrec <= 5; criterion = 0.579, statistic = 0.647
-              9)*  weights = 0 
-            8) estrec > 5
-              10) progrec <= 16; criterion = 0.688, statistic = 1.02
-                11)*  weights = 0 
-              10) progrec > 16
-                12)*  weights = 0 
-          7) pnodes > 1
-            13) pnodes <= 2; criterion = 0.324, statistic = 0.246
-              14)*  weights = 0 
-            13) pnodes > 2
-              15)*  weights = 0 
-        6) progrec > 206
-          16)*  weights = 0 
-    3) menostat == {}
-      17) tsize <= 19; criterion = 0.541, statistic = 0.548
-        18) age <= 45; criterion = 0.979, statistic = 5.301
-          19)*  weights = 0 
-        18) age > 45
-          20)*  weights = 0 
-      17) tsize > 19
-        21) age <= 37; criterion = 0.943, statistic = 3.631
-          22)*  weights = 0 
-        21) age > 37
-          23) pnodes <= 2; criterion = 0.951, statistic = 3.866
-            24) age <= 49; criterion = 0.913, statistic = 2.922
-              25) tsize <= 23; criterion = 0.606, statistic = 0.728
-                26)*  weights = 0 
-              25) tsize > 23
-                27)*  weights = 0 
-            24) age > 49
-              28)*  weights = 0 
-          23) pnodes > 2
-            29)*  weights = 0 
+      4) progrec > 16
+        6) pnodes <= 1; criterion = 0.857, statistic = 2.149
+          7) progrec <= 154; criterion = 0.295, statistic = 0.143
+            8)*  weights = 0 
+          7) progrec > 154
+            9)*  weights = 0 
+        6) pnodes > 1
+          10)*  weights = 0 
+    3) pnodes > 2
+      11) age <= 54; criterion = 0.99, statistic = 6.605
+        12)*  weights = 0 
+      11) age > 54
+        13)*  weights = 0 
   2) horTh == {}
-    30) progrec <= 74; criterion = 0.895, statistic = 2.634
-      31) pnodes <= 2; criterion = 0.989, statistic = 6.497
-        32) tsize <= 28; criterion = 0.769, statistic = 2.556
-          33)*  weights = 0 
-        32) tsize > 28
-          34)*  weights = 0 
-      31) pnodes > 2
-        35)*  weights = 0 
-    30) progrec > 74
-      36) pnodes <= 1; criterion = 0.853, statistic = 2.099
-        37) estrec <= 109; criterion = 0.482, statistic = 0.417
-          38)*  weights = 0 
-        37) estrec > 109
-          39)*  weights = 0 
-      36) pnodes > 1
-        40)*  weights = 0 
+    14) menostat == {}; criterion = 0.895, statistic = 2.635
+      15) tsize <= 19; criterion = 0.541, statistic = 0.548
+        16) age <= 45; criterion = 0.979, statistic = 5.301
+          17)*  weights = 0 
+        16) age > 45
+          18)*  weights = 0 
+      15) tsize > 19
+        19) age <= 37; criterion = 0.943, statistic = 3.631
+          20)*  weights = 0 
+        19) age > 37
+          21) pnodes <= 2; criterion = 0.951, statistic = 3.866
+            22) age <= 49; criterion = 0.913, statistic = 2.922
+              23) tsize <= 23; criterion = 0.606, statistic = 0.728
+                24)*  weights = 0 
+              23) tsize > 23
+                25)*  weights = 0 
+            22) age > 49
+              26)*  weights = 0 
+          21) pnodes > 2
+            27)*  weights = 0 
+    14) menostat == {}
+      28) tgrade <= 1; criterion = 0.58, statistic = 0.65
+        29)*  weights = 0 
+      28) tgrade > 1
+        30) progrec <= 206; criterion = 0.874, statistic = 2.337
+          31) tsize <= 30; criterion = 0.847, statistic = 2.04
+            32) tgrade <= 2; criterion = 0.788, statistic = 1.558
+              33) pnodes <= 1; criterion = 0.141, statistic = 0.032
+                34)*  weights = 0 
+              33) pnodes > 1
+                35) tsize <= 23; criterion = 0.756, statistic = 1.356
+                  36)*  weights = 0 
+                35) tsize > 23
+                  37)*  weights = 0 
+            32) tgrade > 2
+              38)*  weights = 0 
+          31) tsize > 30
+            39)*  weights = 0 
+        30) progrec > 206
+          40)*  weights = 0 
 1) pnodes > 3
   41) horTh == {}; criterion = 0.981, statistic = 5.458
-    42) estrec <= 79; criterion = 0.997, statistic = 8.922
-      43) progrec <= 132; criterion = 0.981, statistic = 5.529
-        44) menostat == {}; criterion = 0.772, statistic = 1.452
-          45) progrec <= 20; criterion = 0.502, statistic = 0.46
-            46) estrec <= 1; criterion = 0.466, statistic = 0.386
-              47)*  weights = 0 
-            46) estrec > 1
-              48)*  weights = 0 
-          45) progrec > 20
-            49)*  weights = 0 
-        44) menostat == {}
-          50) age <= 60; criterion = 0.953, statistic = 3.945
+    42) pnodes <= 13; criterion = 0.982, statistic = 5.549
+      43) progrec <= 19; criterion = 0.918, statistic = 3.019
+        44) tgrade <= 2; criterion = 0.887, statistic = 2.518
+          45)*  weights = 0 
+        44) tgrade > 2
+          46)*  weights = 0 
+      43) progrec > 19
+        47) menostat == {}; criterion = 0.977, statistic = 5.147
+          48)*  weights = 0 
+        47) menostat == {}
+          49) pnodes <= 6; criterion = 0.6, statistic = 3.518
+            50)*  weights = 0 
+          49) pnodes > 6
             51)*  weights = 0 
-          50) age > 60
-            52)*  weights = 0 
-      43) progrec > 132
-        53)*  weights = 0 
-    42) estrec > 79
-      54) tsize <= 21; criterion = 0.641, statistic = 1.879
-        55)*  weights = 0 
-      54) tsize > 21
-        56)*  weights = 0 
+    42) pnodes > 13
+      52)*  weights = 0 
   41) horTh == {}
-    57) tgrade <= 2; criterion = 0.97, statistic = 4.689
-      58) age <= 53; criterion = 0.96, statistic = 4.238
-        59) tsize <= 37; criterion = 0.827, statistic = 1.856
-          60)*  weights = 0 
-        59) tsize > 37
-          61)*  weights = 0 
-      58) age > 53
-        62) progrec <= 113; criterion = 0.78, statistic = 1.506
-          63) tsize <= 30; criterion = 0.809, statistic = 1.713
-            64)*  weights = 0 
-          63) tsize > 30
-            65)*  weights = 0 
-        62) progrec > 113
-          66)*  weights = 0 
-    57) tgrade > 2
-      67) progrec <= 10; criterion = 0.974, statistic = 4.963
+    53) estrec <= 79; criterion = 0.997, statistic = 8.922
+      54) progrec <= 132; criterion = 0.981, statistic = 5.529
+        55) estrec <= 38; criterion = 0.484, statistic = 0.422
+          56) age <= 59; criterion = 0.943, statistic = 3.615
+            57) tsize <= 20; criterion = 0.473, statistic = 0.399
+              58)*  weights = 0 
+            57) tsize > 20
+              59) progrec <= 0; criterion = 0.552, statistic = 0.576
+                60)*  weights = 0 
+              59) progrec > 0
+                61) estrec <= 2; criterion = 0.481, statistic = 0.416
+                  62)*  weights = 0 
+                61) estrec > 2
+                  63) progrec <= 20; criterion = 0.637, statistic = 1.917
+                    64)*  weights = 0 
+                  63) progrec > 20
+                    65)*  weights = 0 
+          56) age > 59
+            66)*  weights = 0 
+        55) estrec > 38
+          67)*  weights = 0 
+      54) progrec > 132
         68)*  weights = 0 
-      67) progrec > 10
-        69)*  weights = 0 
+    53) estrec > 79
+      69) tsize <= 21; criterion = 0.641, statistic = 0.875
+        70)*  weights = 0 
+      69) tsize > 21
+        71)*  weights = 0 
 > 
 >     ### proximity, see ?randomForest
 >     iris.cf <- cforest(Species ~ ., data = iris, 
@@ -970,7 +973,7 @@ nativeSpeaker           age      shoeSize
 > ###
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  15.082 0.063 15.157 0 0 
+Time elapsed:  9.707 0.075 9.792 0 0 
 > grDevices::dev.off()
 null device 
           1 
