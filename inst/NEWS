@@ -1,4 +1,14 @@
 
+                CHANGES IN party VERSION 1.0-25 (2015-11-04)
+
+    o    remove show from export
+
+
+                CHANGES IN party VERSION 1.0-24 (2015-08-25)
+
+    o    initialize, show needed import
+
+
                 CHANGES IN party VERSION 1.0-23 (2015-08-14)
 
     o    update Rout.saves to coin 1.1-0: logrank_trafo now

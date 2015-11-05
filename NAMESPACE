@@ -8,7 +8,7 @@ importFrom("modeltools", "ModelEnvFormula", "ParseFormula",
 
 importMethodsFrom("modeltools", "dimension", "dpp", "fit", "na.omit",
                                 "na.pass")
-importFrom("methods", "extends", "getSlots", "new", "validObject")
+importFrom("methods", "extends", "getSlots", "new", "validObject", "initialize", "show")
 import("zoo")
 import("strucchange")
 import("sandwich")
@@ -41,7 +41,7 @@ export(ctree, ctree_memory, ctree_control,
 exportClasses("BinaryTree", "LearningSample", "SplittingNode",
               "TerminalNode", "TreeControl", "RandomForest", "mob",
               "ForestControl", "TerminalModelNode")
-exportMethods("initialize", "fit", "show", "initVariableFrame")
+exportMethods("initialize", "fit", "initVariableFrame")
 
 S3method(print, BinaryTree)
 S3method(print, nominalSplit)
