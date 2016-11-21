@@ -97,7 +97,6 @@ cforest_control(teststat = "max",
 
     Carolin Strobl, Anne-Laure Boulesteix, Achim Zeileis and Torsten Hothorn (2007).
     Bias in Random Forest Variable Importance Measures: Illustrations, Sources and  
-    a Solution. \emph{BMC Bioinformatics}, \bold{8}, 25. 
-    \url{http://www.BioMedCentral.com/1471-2105/8/25/}
+    a Solution. \emph{BMC Bioinformatics}, \bold{8}, 25. DOI: 10.1186/1471-2105-8-25
 }
 \keyword{misc}

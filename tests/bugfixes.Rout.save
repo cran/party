@@ -1,6 +1,6 @@
 
-R version 3.2.2 (2015-08-14) -- "Fire Safety"
-Copyright (C) 2015 The R Foundation for Statistical Computing
+R version 3.3.2 (2016-10-31) -- "Sincere Pumpkin Patch"
+Copyright (C) 2016 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -35,15 +35,16 @@ Loading required package: sandwich
 > library("survival")
 > 
 > ### get rid of the NAMESPACE
-> attach(asNamespace("party"))
+> attach(list2env(as.list(asNamespace("party"))))
 The following objects are masked from package:party:
 
     cforest, cforest_classical, cforest_control, cforest_unbiased,
-    conditionalTree, ctree, ctree_control, ctree_memory, edge_simple,
-    mob, mob_control, node_barplot, node_bivplot, node_boxplot,
-    node_density, node_hist, node_inner, node_scatterplot, node_surv,
-    node_terminal, party_intern, prettytree, proximity, ptrafo,
-    reweight, sctest.mob, varimp, varimpAUC
+    conditionalTree, ctree, ctree_control, edge_simple,
+    initVariableFrame, mob, mob_control, node_barplot, node_bivplot,
+    node_boxplot, node_density, node_hist, node_inner,
+    node_scatterplot, node_surv, node_terminal, nodes, party_intern,
+    prettytree, proximity, ptrafo, response, reweight, sctest.mob,
+    treeresponse, varimp, varimpAUC, where
 
 > 
 > ### check nominal level printing
@@ -738,49 +739,57 @@ Error in model@fit(data, ...) :
 > X <- model.matrix(~ ytrain -1, data = subset(tdata, language != "8"))
 > w <- rep(1, nrow(X))
 > 
-> lin <- coin:::LinearStatistic(Y, X, weights = w)
-> expcov <- coin:::ExpectCovarLinearStatistic(Y, X, weights = w)
-> 
-> tmp <- new("LinStatExpectCovar", ncol(Y), ncol(X))
-> tmp@linearstatistic <- lin
-> tmp@expectation <- expcov@expectation
-> tmp@covariance <- expcov@covariance
-> 
-> a <- .Call("R_linexpcovReduce", tmp)
-> 
-> u <- matrix(tmp@linearstatistic - tmp@expectation, nc = 1)
-> d <- tmp@dimension
-> u <- matrix(tmp@linearstatistic - tmp@expectation, nc = 1)[1:d,,drop = FALSE]
-> S <- coin:::MPinv(matrix(as.vector(tmp@covariance[1:d^2]), ncol = d))
-> 
-> stat <- t(u) %*% S$MPinv %*% u
-> stopifnot(isTRUE(all.equal(stat[1,1], statistic(it), 
-+                            check.attributes = FALSE)))
-> 
-> x <- matrix(as.vector(tmp@covariance[1:d^2]), ncol = d)
-> s <- svd(x)
-> 
-> m <- new("svd_mem", 18L)
-> m@p <- as.integer(d)
-> 
-> s2 <- .Call("R_svd", x, m)
-> 
-> stopifnot(max(abs(s$d - m@s[1:d])) < sqrt(.Machine$double.eps))
-> stopifnot(max(abs(s$v - t(matrix(m@v[1:d^2], nrow = d)))) < sqrt(.Machine$double.eps))
-> stopifnot(max(abs(s$u - matrix(m@u[1:d^2], nrow = d))) < sqrt(.Machine$double.eps))
-> 
-> s2 <- .Call("R_svd", tmp@covariance, m)
-> 
-> stopifnot(max(abs(s$d - m@s[1:d])) < sqrt(.Machine$double.eps))
-> stopifnot(max(abs(s$v - t(matrix(m@v[1:d^2], nrow = d)))) < sqrt(.Machine$double.eps))
-> stopifnot(max(abs(s$u - matrix(m@u[1:d^2], nrow = d))) < sqrt(.Machine$double.eps))
-> 
-> a <- .Call("R_MPinv", tmp@covariance, sqrt(.Machine$double.eps), m)
-> 
-> stat <- t(u) %*% matrix(a@MPinv[1:d^2], ncol = d) %*% u  
-> stopifnot(isTRUE(all.equal(stat[1,1], statistic(it), 
-+                            check.attributes = FALSE)))
+> ### coin:::LinearStatistic and coin:::ExpectCovarLinearStatistic
+> ### have been removed from coin as of 2.0-0
+> ### use libcoin to compare with
+> if (FALSE) { ### (require("libcoin")) {
++     lstec <- LinStatExpCov(X = X, Y = Y, weights = as.integer(w))
++ 
++     tmp <- new("LinStatExpectCovar", ncol(Y), ncol(X))
++     tmp@linearstatistic <-  lstec$LinearStatistic
++     tmp@expectation <- lstec$Expectation
++     tmp@covariance <- matrix(0, nrow = length(lstec$LinearStatistic), 
++                              ncol = length(lstec$LinearStatistic))
++     tmp@covariance[lower.tri(tmp@covariance, diag = TRUE)] <- lstec$Covariance
++     tmp@covariance <- tmp@covariance + t(tmp@covariance)
++     diag(tmp@covariance) <- diag(tmp@covariance) / 2
++ 
++    a <- .Call("R_linexpcovReduce", tmp)
++ 
++     u <- matrix(tmp@linearstatistic - tmp@expectation, nc = 1)
++     d <- tmp@dimension
++     u <- matrix(tmp@linearstatistic - tmp@expectation, nc = 1)[1:d,,drop = FALSE]
++     S <- coin:::MPinv(matrix(as.vector(tmp@covariance[1:d^2]), ncol = d))
++     
++     stat <- t(u) %*% S$MPinv %*% u
++     stopifnot(isTRUE(all.equal(stat[1,1], statistic(it), 
++                                check.attributes = FALSE)))
++ 
++     x <- matrix(as.vector(tmp@covariance[1:d^2]), ncol = d)
++     s <- svd(x)
++ 
++     m <- new("svd_mem", 18L)
++     m@p <- as.integer(d)
++ 
++     s2 <- .Call("R_svd", x, m)
++ 
++     stopifnot(max(abs(s$d - m@s[1:d])) < sqrt(.Machine$double.eps))
++     stopifnot(max(abs(s$v - t(matrix(m@v[1:d^2], nrow = d)))) < sqrt(.Machine$double.eps))
++     stopifnot(max(abs(s$u - matrix(m@u[1:d^2], nrow = d))) < sqrt(.Machine$double.eps))
++ 
++     s2 <- .Call("R_svd", tmp@covariance, m)
++ 
++     stopifnot(max(abs(s$d - m@s[1:d])) < sqrt(.Machine$double.eps))
++     stopifnot(max(abs(s$v - t(matrix(m@v[1:d^2], nrow = d)))) < sqrt(.Machine$double.eps))
++     stopifnot(max(abs(s$u - matrix(m@u[1:d^2], nrow = d))) < sqrt(.Machine$double.eps))
++ 
++     a <- .Call("R_MPinv", tmp@covariance, sqrt(.Machine$double.eps), m)
++ 
++     stat <- t(u) %*% matrix(a@MPinv[1:d^2], ncol = d) %*% u  
++     stopifnot(isTRUE(all.equal(stat[1,1], statistic(it), 
++                                check.attributes = FALSE)))
++ }
 > 
 > proc.time()
    user  system elapsed 
-  5.887   0.079   5.958 
+  9.464   0.104   9.575 

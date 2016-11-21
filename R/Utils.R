@@ -1,5 +1,5 @@
 
-# $Id: Utils.R 537 2014-06-26 12:09:22Z thothorn $
+# $Id: Utils.R 602 2016-11-07 13:35:19Z thothorn $
 
 ### Wrapper for functions defined in ./src/Utilsc
 
@@ -226,16 +226,16 @@ R_get_nodeID <- function(tree, inputs, mincriterion)
 R_getpredictions <- function(tree, where)
     .Call("R_getpredictions", tree, where, PACKAGE = "party")
 
-R_remove_weights <- function(tree, remove)
-    .Call("R_remove_weights", tree, remove, package = "party")
+### no longer available as for party 1.1-0
+#R_remove_weights <- function(tree, remove)
+#    .Call("R_remove_weights", tree, remove, package = "party")
 
-R_modify_response <- function(y, responses)
-    .Call("R_modify_response", as.double(y), responses,
-          PACKAGE = "party")
+#R_modify_response <- function(y, responses)
+#    .Call("R_modify_response", as.double(y), responses,
+#          PACKAGE = "party")
 
-R_TreeGrow <- function(object, weights, fitmem, ctrl, where)
-    .Call("R_TreeGrow", object, weights, fitmem, ctrl,
-          where, PACKAGE = "party")
+R_TreeGrow <- function(object, weights, ctrl)
+    .Call("R_TreeGrow", object, weights, ctrl, PACKAGE = "party")
 
 copyslots <- function(source, target) {
     slots <- names(getSlots(class(source)))

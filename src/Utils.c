@@ -3,7 +3,7 @@
     Some commonly needed utility functions.
     *\file Utils.c
     *\author $Author: thothorn $
-    *\date $Date: 2014-12-16 16:51:36 +0100 (Tue, 16 Dec 2014) $
+    *\date $Date: 2016-11-07 14:04:33 +0100 (Mon, 07 Nov 2016) $
 */
                 
 #include "party.h"
@@ -306,7 +306,7 @@ SEXP R_linexpcovReduce (SEXP x) {
 void C_MPinv (SEXP x, double tol, SEXP svdmem, SEXP ans) {
 
     SEXP d, u, vt;
-    int i, j, p, pn, k, *positive;
+    int i, j, p, k, *positive;
     double *dd, *du, *dvt, *dMPinv;
     double *drank;
     
@@ -773,6 +773,8 @@ SEXP R_listplus(SEXP a, SEXP b, SEXP which) {
     return(a);
 }
 
+/* <FIXME> will not work with byte compiler </FIXME> */
+/*
 SEXP R_modify_response(SEXP x, SEXP vf) {
 
     double *src, *tar;
@@ -799,7 +801,7 @@ SEXP R_modify_response(SEXP x, SEXP vf) {
                                           
     return(R_NilValue);
 }
-
+*/
 
 void C_SampleSplitting(int n, double *prob, int *weights, int k) {
 
@@ -840,11 +842,13 @@ void C_remove_weights(SEXP subtree, int removestats) {
     }
 }
 
+/*
 SEXP R_remove_weights(SEXP subtree, SEXP removestats) {
 
     C_remove_weights(subtree, LOGICAL(removestats)[0]);
     return(R_NilValue);
 }
+*/
 
 double* C_tempweights(int j, SEXP weights, SEXP fitmem, SEXP inputs) {
 

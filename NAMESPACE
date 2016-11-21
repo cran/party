@@ -26,7 +26,7 @@ importFrom("stats", "weights", "approx", "as.formula", "coef", "complete.cases",
      "runif", "weighted.mean")
 importFrom("utils", "head")
 
-export(ctree, ctree_memory, ctree_control, 
+export(ctree, ctree_control, 
        node_inner, edge_simple, node_terminal,
        node_surv, node_barplot, node_boxplot,
        node_hist, node_density,

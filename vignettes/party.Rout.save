@@ -130,6 +130,9 @@ Slot "maxdepth":
 Slot "savesplitstats":
 [1] TRUE
 
+Slot "remove_weights":
+[1] FALSE
+
 
 
 > ctree_control(testtype = "MonteCarlo")
@@ -203,6 +206,9 @@ Slot "maxdepth":
 
 Slot "savesplitstats":
 [1] TRUE
+
+Slot "remove_weights":
+[1] FALSE
 
 
 
@@ -278,6 +284,9 @@ Slot "maxdepth":
 Slot "savesplitstats":
 [1] TRUE
 
+Slot "remove_weights":
+[1] FALSE
+
 
 
 > ctree_control(minsplit = 20)
@@ -352,6 +361,9 @@ Slot "maxdepth":
 Slot "savesplitstats":
 [1] TRUE
 
+Slot "remove_weights":
+[1] FALSE
+
 
 
 > ctree_control(maxsurrogate = 3)
@@ -425,6 +437,9 @@ Slot "maxdepth":
 
 Slot "savesplitstats":
 [1] TRUE
+
+Slot "remove_weights":
+[1] FALSE
 
 
 
@@ -559,4 +574,4 @@ Call: survfit(formula = y ~ 1, weights = weights)
  *** Run successfully completed ***
 > proc.time()
    user  system elapsed 
-  1.797   0.092   1.894 
+  1.452   0.072   1.520 

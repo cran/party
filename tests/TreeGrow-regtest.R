@@ -7,7 +7,7 @@ if (!require("coin"))
     stop("cannot load package coin")
 
 ### get rid of the NAMESPACE
-attach(asNamespace("party"))
+attach(list2env(as.list(asNamespace("party"))))
 
 gtctrl <- new("GlobalTestControl")
 tlev <- levels(gtctrl@testtype)

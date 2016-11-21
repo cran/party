@@ -1,9 +1,9 @@
 
-# $Id: Classes.R 532 2014-02-01 08:56:55Z thothorn $
+# $Id: Classes.R 604 2016-11-08 11:42:39Z thothorn $
 
 ### Linear statistic with expectation and covariance
 setClass(Class = "LinStatExpectCovar",
-    representation = representation(
+    slots = c(
         linearstatistic = "numeric",
         expcovinf = "ExpectCovarInfluence"
     ),
@@ -12,7 +12,7 @@ setClass(Class = "LinStatExpectCovar",
 
 ### Memory for C_svd
 setClass(Class = "svd_mem",
-    representation = representation(
+    slots = c(
         method = "character",
         jobu   = "character",
         jobv   = "character",
@@ -25,7 +25,7 @@ setClass(Class = "svd_mem",
 
 ### with Moore-Penrose inverse of the covariance matrix
 setClass(Class = "LinStatExpectCovarMPinv",
-    representation = representation(
+    slots = c(
         MPinv  = "matrix",   
         rank   = "numeric",
         svdmem = "svd_mem"
@@ -36,7 +36,7 @@ setClass(Class = "LinStatExpectCovarMPinv",
 ################ Memory Classes #####################
 
 setClass(Class = "TreeFitMemory",
-    representation = representation(
+    slots = c(
         expcovinf         = "ExpectCovarInfluence",
         expcovinfss       = "ExpectCovarInfluence",
         linexpcov2sample  = "LinStatExpectCovar",
@@ -58,7 +58,7 @@ setClass(Class = "TreeFitMemory",
 setClassUnion("df_OR_list", c("data.frame", "list"))
 
 setClass(Class = "VariableControl",
-    representation = representation(
+    slots = c(
         teststat = "factor",
         pvalue   = "logical",
         tol      = "numeric",
@@ -77,7 +77,7 @@ setClass(Class = "VariableControl",
 )
 
 setClass(Class = "SplitControl",
-    representation = representation(
+    slots = c(
         minprob      = "numeric",
         minsplit     = "numeric",
         minbucket    = "numeric",
@@ -106,7 +106,7 @@ setClass(Class = "SplitControl",
 )
 
 setClass(Class = "GlobalTestControl",
-    representation = representation(
+    slots = c(
         testtype     = "factor",
         nresample    = "integer",
         randomsplits = "logical",
@@ -140,14 +140,16 @@ setClass(Class = "GlobalTestControl",
 )
 
 setClass(Class = "TreeGrowControl",
-    representation = representation(
+    slots = c(
         stump           = "logical",
         maxdepth        = "integer",
-        savesplitstats  = "logical"
+        savesplitstats  = "logical",
+        remove_weights  = "logical"
     ),
     prototype = list(stump = as.logical(FALSE), 
                      maxdepth = as.integer(0), 
-                     savesplitstats = as.logical(TRUE)),
+                     savesplitstats = as.logical(TRUE),
+                     remove_weights = as.logical(FALSE)),
     validity = function(object) {
         if (object@maxdepth < 0) {
             warning(sQuote("maxdepth"), " must be positive")
@@ -158,7 +160,7 @@ setClass(Class = "TreeGrowControl",
 )
 
 setClass(Class = "TreeControl",
-    representation = representation(
+    slots = c(
         varctrl   = "VariableControl",
         splitctrl = "SplitControl",
         gtctrl    = "GlobalTestControl",
@@ -178,7 +180,7 @@ setClass(Class = "TreeControl",
 )
 
 setClass(Class = "ForestControl",
-    representation = representation(
+    slots = c(
         ntree    = "integer",
         replace  = "logical",
         fraction = "numeric",
@@ -198,7 +200,7 @@ setClass(Class = "ForestControl",
 )
 
 setClass(Class = "VariableFrame",
-    representation = representation(
+    slots = c(
         variables       = "df_OR_list", 
         transformations = "list", 
         is_nominal      = "logical", 
@@ -214,14 +216,14 @@ setClass(Class = "VariableFrame",
 )
 
 setClass(Class = "ResponseFrame",
-    representation = representation(
+    slots = c(
         test_trafo = "matrix",
         predict_trafo = "matrix"
     ), contains = "VariableFrame"
 )   
 
 setClass(Class = "LearningSample",
-    representation = representation(
+    slots = c(
         responses = "ResponseFrame",
         inputs    = "VariableFrame",
         weights   = "numeric",
@@ -231,7 +233,7 @@ setClass(Class = "LearningSample",
 )
 
 setClass(Class = "LearningSampleFormula",
-    representation = representation(
+    slots = c(
         menv      = "ModelEnv"
     ), contains = "LearningSample"
 )
@@ -252,7 +254,7 @@ setClass(Class = "Surv", contains = "list")
 
 ### A class for partitions induced by recursive binary splits
 setClass(Class = "BinaryTreePartition",
-    representation = representation(
+    slots = c(
         tree     = "list",          # the basic tree structure as (named or
                                     # unnamed) list
         where    = "integer",       # the nodeID of the observations in the
@@ -263,7 +265,7 @@ setClass(Class = "BinaryTreePartition",
 
 ### A class for binary trees   
 setClass(Class = "BinaryTree", 
-    representation = representation(
+    slots = c(
         data                = "ModelEnv",
         responses           = "VariableFrame", # a list of response `variables'
                                                # for computing predictions
@@ -278,7 +280,7 @@ setClass(Class = "BinaryTree",
 
 ### A class for random forest  
 setClass(Class = "RandomForest", 
-    representation = representation(
+    slots = c(
         ensemble            = "list",
         where               = "list",
         weights             = "list",
@@ -293,4 +295,3 @@ setClass(Class = "RandomForest",
 	update              = "function"       # update weights
     )
 )
-

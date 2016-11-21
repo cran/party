@@ -2,8 +2,8 @@
 /**
     S4 classes for package `party'
     *\file Classes.c
-    *\author $Author: hothorn $
-    *\date $Date: 2010-06-24 13:21:31 +0200 (Thu, 24 Jun 2010) $
+    *\author $Author: thothorn $
+    *\date $Date: 2016-11-07 14:04:33 +0100 (Mon, 07 Nov 2016) $
 */
 
 #include "party.h"
@@ -73,7 +73,10 @@ SEXP
     PL2_ntreeSym,
     PL2_replaceSym,
     PL2_fractionSym,
-    PL2_traceSym;
+    PL2_traceSym,
+    PL2_ensembleSym,
+    PL2_whereSym,
+    PL2_remove_weightsSym;
 
 SEXP party_init(void) {
     PL2_expectationSym = install("expectation");
@@ -141,6 +144,9 @@ SEXP party_init(void) {
     PL2_replaceSym = install("replace"),
     PL2_fractionSym = install("fraction");
     PL2_traceSym = install("trace");
+    PL2_ensembleSym = install("ensemble");
+    PL2_whereSym = install("where");
+    PL2_remove_weightsSym = install("remove_weights");
     return(R_NilValue);
 }
 

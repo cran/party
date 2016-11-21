@@ -12,7 +12,7 @@ ctree_control(teststat = c("quad", "max"),
                            "Univariate", "Teststatistic"), 
               mincriterion = 0.95, minsplit = 20, minbucket = 7, 
               stump = FALSE, nresample = 9999, maxsurrogate = 0, 
-              mtry = 0, savesplitstats = TRUE, maxdepth = 0)
+              mtry = 0, savesplitstats = TRUE, maxdepth = 0, remove_weights = FALSE)
 }
 \arguments{
   \item{teststat}{ a character specifying the type of the test statistic
@@ -40,6 +40,9 @@ ctree_control(teststat = c("quad", "max"),
                          is saved for each primary split.}
   \item{maxdepth}{ maximum depth of the tree. The default \code{maxdepth = 0}
                    means that no restrictions are applied to tree sizes.}
+  \item{remove_weights}{ a logical determining if weights attached to nodes shall be removed
+                         after fitting the tree.}
+
 }
 \details{
 

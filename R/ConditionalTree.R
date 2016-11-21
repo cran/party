@@ -1,18 +1,18 @@
 
-# $Id: ConditionalTree.R 536 2014-06-26 12:08:54Z thothorn $
+# $Id: ConditionalTree.R 601 2016-11-07 13:04:33Z thothorn $
 
 ### the fitting procedure
-ctreefit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
+ctreefit <- function(object, controls, weights = NULL, ...) {
 
     if (!extends(class(object), "LearningSample"))
         stop(sQuote("object"), " is not of class ", sQuote("LearningSample"))
     if (!extends(class(controls), "TreeControl"))
         stop(sQuote("controls"), " is not of class ", sQuote("TreeControl"))
 
-    if (is.null(fitmem)) 
-        fitmem <- ctree_memory(object, TRUE)
-    if (!extends(class(fitmem), "TreeFitMemory"))
-        stop(sQuote("fitmem"), " is not of class ", sQuote("TreeFitMemory"))
+#    if (is.null(fitmem)) 
+#        fitmem <- ctree_memory(object, TRUE)
+#    if (!extends(class(fitmem), "TreeFitMemory"))
+#        stop(sQuote("fitmem"), " is not of class ", sQuote("TreeFitMemory"))
 
     if (is.null(weights))
         weights <- object@weights
@@ -24,12 +24,10 @@ ctreefit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
         stop(sQuote("weights"), " contains real valued elements; currently
              only integer values are allowed") 
 
-    where <- rep(0, object@nobs)
-    storage.mode(where) <- "integer"
-
     ### grow the tree
-    tree <- .Call("R_TreeGrow", object, weights, fitmem, controls, where,
-                  PACKAGE = "party")
+    tree <- .Call("R_TreeGrow", object, weights, controls, PACKAGE = "party")
+    where <- tree[[1]]
+    tree <- tree[[2]]
 
     ### create S3 classes and put names on lists
     tree <- prettytree(tree, names(object@inputs@variables), 
@@ -46,7 +44,7 @@ ctreefit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
 
     RET@update <- function(weights = NULL) {
         ctreefit(object = object, controls = controls, 
-                 weights = weights, fitmem = fitmem, ...)
+                 weights = weights, ...)
     }
 
     ### get terminal node numbers
@@ -199,7 +197,7 @@ ctree_control <- function(teststat = c("quad", "max"),
                           testtype = c("Bonferroni", "MonteCarlo", "Univariate", "Teststatistic"),
                           mincriterion = 0.95, minsplit = 20, minbucket = 7, stump = FALSE,
                           nresample = 9999, maxsurrogate = 0, mtry = 0, 
-                          savesplitstats = TRUE, maxdepth = 0) {
+                          savesplitstats = TRUE, maxdepth = 0, remove_weights = FALSE) {
 
     teststat <- match.arg(teststat)
     testtype <- match.arg(testtype)
@@ -233,6 +231,7 @@ ctree_control <- function(teststat = c("quad", "max"),
     RET@tgctrl@stump <- as.logical(stump)
     RET@tgctrl@maxdepth <- as.integer(maxdepth)
     RET@tgctrl@savesplitstats <- as.logical(savesplitstats)
+    RET@tgctrl@remove_weights <- as.logical(remove_weights)
     if (!validObject(RET))
         stop("RET is not a valid object of class", class(RET))
     RET
@@ -247,10 +246,9 @@ ctree <- function(formula, data = list(), subset = NULL, weights = NULL,
     ls <- dpp(conditionalTree, formula, data, subset, xtrafo = xtrafo, 
               ytrafo = ytrafo, scores = scores)
 
-    ### setup memory
-    fitmem <- ctree_memory(ls, TRUE)
+#    ### setup memory
+#    fitmem <- ctree_memory(ls, TRUE)
 
     ### fit and return a conditional tree
-    fit(conditionalTree, ls, controls = controls, weights = weights, 
-        fitmem = fitmem)
+    fit(conditionalTree, ls, controls = controls, weights = weights)
 }

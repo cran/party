@@ -2,8 +2,8 @@
 /**
     The tree growing recursion
     *\file TreeGrow.c
-    *\author $Author: hothorn $
-    *\date $Date: 2009-06-16 09:17:31 +0200 (Tue, 16 Jun 2009) $
+    *\author $Author: thothorn $
+    *\date $Date: 2016-11-07 14:04:33 +0100 (Mon, 07 Nov 2016) $
 */
 
 #include "party.h"
@@ -78,28 +78,35 @@ void C_TreeGrow(SEXP node, SEXP learnsample, SEXP fitmem,
     *\param where a vector of node indices for each observation
 */
 
-SEXP R_TreeGrow(SEXP learnsample, SEXP weights, SEXP fitmem, SEXP controls, SEXP where) {
+SEXP R_TreeGrow(SEXP learnsample, SEXP weights, SEXP controls) {
             
-     SEXP ans, nweights;
+     SEXP ans, tree, where, nweights, fitmem;
      double *dnweights, *dweights;
      int nobs, i, nodenum = 1;
 
+
      GetRNGstate();
      
+     PROTECT(fitmem = ctree_memory(learnsample, PROTECT(ScalarLogical(1))));
      nobs = get_nobs(learnsample);
-     PROTECT(ans = allocVector(VECSXP, NODE_LENGTH));
-     C_init_node(ans, nobs, get_ninputs(learnsample), get_maxsurrogate(get_splitctrl(controls)),
+     PROTECT(ans = allocVector(VECSXP, 2));
+     SET_VECTOR_ELT(ans, 0, where = allocVector(INTSXP, nobs));
+     SET_VECTOR_ELT(ans, 1, tree = allocVector(VECSXP, NODE_LENGTH));
+     C_init_node(tree, nobs, get_ninputs(learnsample), get_maxsurrogate(get_splitctrl(controls)),
                  ncol(get_predict_trafo(GET_SLOT(learnsample, PL2_responsesSym))));
 
-     nweights = S3get_nodeweights(ans);
+     nweights = S3get_nodeweights(tree);
      dnweights = REAL(nweights);
      dweights = REAL(weights);
      for (i = 0; i < nobs; i++) dnweights[i] = dweights[i];
      
-     C_TreeGrow(ans, learnsample, fitmem, controls, INTEGER(where), &nodenum, 1);
+     C_TreeGrow(tree, learnsample, fitmem, controls, INTEGER(where), &nodenum, 1);
+
+     if (LOGICAL(GET_SLOT(get_tgctrl(controls), PL2_remove_weightsSym))[0])
+         C_remove_weights(tree, 0);
      
      PutRNGstate();
      
-     UNPROTECT(1);
+     UNPROTECT(3);
      return(ans);
 }

@@ -1,5 +1,9 @@
 
-# $Id: Memory.R 532 2014-02-01 08:56:55Z thothorn $
+### This is deprecated as of party 1.1-0
+### Allocating memory in R for later modification in R does not
+### work with byte compiling
+
+# $Id: Memory.R 601 2016-11-07 13:04:33Z thothorn $
 
 ctree_memory <- function(object, MPinv = FALSE) {
 

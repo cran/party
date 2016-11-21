@@ -4,7 +4,7 @@ library("party")
 library("survival")
 
 ### get rid of the NAMESPACE
-attach(asNamespace("party"))
+attach(list2env(as.list(asNamespace("party"))))
 
 ### check nominal level printing
 set.seed(290875)
@@ -595,45 +595,53 @@ Y <- model.matrix(~ language - 1, data = subset(tdata, language != "8"))
 X <- model.matrix(~ ytrain -1, data = subset(tdata, language != "8"))
 w <- rep(1, nrow(X))
 
-lin <- coin:::LinearStatistic(Y, X, weights = w)
-expcov <- coin:::ExpectCovarLinearStatistic(Y, X, weights = w)
+### coin:::LinearStatistic and coin:::ExpectCovarLinearStatistic
+### have been removed from coin as of 2.0-0
+### use libcoin to compare with
+if (FALSE) { ### (require("libcoin")) {
+    lstec <- LinStatExpCov(X = X, Y = Y, weights = as.integer(w))
 
-tmp <- new("LinStatExpectCovar", ncol(Y), ncol(X))
-tmp@linearstatistic <- lin
-tmp@expectation <- expcov@expectation
-tmp@covariance <- expcov@covariance
+    tmp <- new("LinStatExpectCovar", ncol(Y), ncol(X))
+    tmp@linearstatistic <-  lstec$LinearStatistic
+    tmp@expectation <- lstec$Expectation
+    tmp@covariance <- matrix(0, nrow = length(lstec$LinearStatistic), 
+                             ncol = length(lstec$LinearStatistic))
+    tmp@covariance[lower.tri(tmp@covariance, diag = TRUE)] <- lstec$Covariance
+    tmp@covariance <- tmp@covariance + t(tmp@covariance)
+    diag(tmp@covariance) <- diag(tmp@covariance) / 2
 
-a <- .Call("R_linexpcovReduce", tmp)
+   a <- .Call("R_linexpcovReduce", tmp)
 
-u <- matrix(tmp@linearstatistic - tmp@expectation, nc = 1)
-d <- tmp@dimension
-u <- matrix(tmp@linearstatistic - tmp@expectation, nc = 1)[1:d,,drop = FALSE]
-S <- coin:::MPinv(matrix(as.vector(tmp@covariance[1:d^2]), ncol = d))
+    u <- matrix(tmp@linearstatistic - tmp@expectation, nc = 1)
+    d <- tmp@dimension
+    u <- matrix(tmp@linearstatistic - tmp@expectation, nc = 1)[1:d,,drop = FALSE]
+    S <- coin:::MPinv(matrix(as.vector(tmp@covariance[1:d^2]), ncol = d))
+    
+    stat <- t(u) %*% S$MPinv %*% u
+    stopifnot(isTRUE(all.equal(stat[1,1], statistic(it), 
+                               check.attributes = FALSE)))
 
-stat <- t(u) %*% S$MPinv %*% u
-stopifnot(isTRUE(all.equal(stat[1,1], statistic(it), 
-                           check.attributes = FALSE)))
+    x <- matrix(as.vector(tmp@covariance[1:d^2]), ncol = d)
+    s <- svd(x)
 
-x <- matrix(as.vector(tmp@covariance[1:d^2]), ncol = d)
-s <- svd(x)
+    m <- new("svd_mem", 18L)
+    m@p <- as.integer(d)
 
-m <- new("svd_mem", 18L)
-m@p <- as.integer(d)
+    s2 <- .Call("R_svd", x, m)
 
-s2 <- .Call("R_svd", x, m)
+    stopifnot(max(abs(s$d - m@s[1:d])) < sqrt(.Machine$double.eps))
+    stopifnot(max(abs(s$v - t(matrix(m@v[1:d^2], nrow = d)))) < sqrt(.Machine$double.eps))
+    stopifnot(max(abs(s$u - matrix(m@u[1:d^2], nrow = d))) < sqrt(.Machine$double.eps))
 
-stopifnot(max(abs(s$d - m@s[1:d])) < sqrt(.Machine$double.eps))
-stopifnot(max(abs(s$v - t(matrix(m@v[1:d^2], nrow = d)))) < sqrt(.Machine$double.eps))
-stopifnot(max(abs(s$u - matrix(m@u[1:d^2], nrow = d))) < sqrt(.Machine$double.eps))
+    s2 <- .Call("R_svd", tmp@covariance, m)
 
-s2 <- .Call("R_svd", tmp@covariance, m)
+    stopifnot(max(abs(s$d - m@s[1:d])) < sqrt(.Machine$double.eps))
+    stopifnot(max(abs(s$v - t(matrix(m@v[1:d^2], nrow = d)))) < sqrt(.Machine$double.eps))
+    stopifnot(max(abs(s$u - matrix(m@u[1:d^2], nrow = d))) < sqrt(.Machine$double.eps))
 
-stopifnot(max(abs(s$d - m@s[1:d])) < sqrt(.Machine$double.eps))
-stopifnot(max(abs(s$v - t(matrix(m@v[1:d^2], nrow = d)))) < sqrt(.Machine$double.eps))
-stopifnot(max(abs(s$u - matrix(m@u[1:d^2], nrow = d))) < sqrt(.Machine$double.eps))
+    a <- .Call("R_MPinv", tmp@covariance, sqrt(.Machine$double.eps), m)
 
-a <- .Call("R_MPinv", tmp@covariance, sqrt(.Machine$double.eps), m)
-
-stat <- t(u) %*% matrix(a@MPinv[1:d^2], ncol = d) %*% u  
-stopifnot(isTRUE(all.equal(stat[1,1], statistic(it), 
-                           check.attributes = FALSE)))
+    stat <- t(u) %*% matrix(a@MPinv[1:d^2], ncol = d) %*% u  
+    stopifnot(isTRUE(all.equal(stat[1,1], statistic(it), 
+                               check.attributes = FALSE)))
+}

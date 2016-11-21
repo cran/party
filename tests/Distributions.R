@@ -6,7 +6,7 @@ if (!require("mvtnorm"))
 
 
 ### get rid of the NAMESPACE
-attach(asNamespace("party"))
+attach(list2env(as.list(asNamespace("party"))))
 
 ### 
 ###

@@ -1,6 +1,6 @@
 
-R version 3.2.2 (2015-08-14) -- "Fire Safety"
-Copyright (C) 2015 The R Foundation for Statistical Computing
+R version 3.3.2 (2016-10-31) -- "Sincere Pumpkin Patch"
+Copyright (C) 2016 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -283,6 +283,14 @@ attr(,"assign")
 +     }
 Loading required package: TH.data
 Loading required package: survival
+Loading required package: MASS
+
+Attaching package: ‘TH.data’
+
+The following object is masked from ‘package:MASS’:
+
+    geyser
+
 1) pnodes <= 3; criterion = 1, statistic = 37.638
   2) horTh == {}; criterion = 0.986, statistic = 6.053
     3) pnodes <= 2; criterion = 0.905, statistic = 2.788
@@ -406,7 +414,7 @@ Loading required package: survival
 > graphics::par(get("par.postscript", pos = 'CheckExEnv'))
 > cleanEx()
 
-detaching ‘package:survival’, ‘package:TH.data’
+detaching ‘package:TH.data’, ‘package:MASS’, ‘package:survival’
 
 > nameEx("ctree")
 > ### * ctree
@@ -533,6 +541,14 @@ Number of observations:  150
 +     }
 Loading required package: TH.data
 Loading required package: survival
+Loading required package: MASS
+
+Attaching package: ‘TH.data’
+
+The following object is masked from ‘package:MASS’:
+
+    geyser
+
 [[1]]
 Call: survfit(formula = y ~ 1, weights = weights)
 
@@ -569,42 +585,8 @@ Call: survfit(formula = y ~ 1, weights = weights)
 > 
 > cleanEx()
 
-detaching ‘package:survival’, ‘package:TH.data’
+detaching ‘package:TH.data’, ‘package:MASS’, ‘package:survival’
 
-> nameEx("ctree_memory")
-> ### * ctree_memory
-> 
-> flush(stderr()); flush(stdout())
-> 
-> ### Name: Memory Allocation
-> ### Title: Memory Allocation
-> ### Aliases: ctree_memory
-> ### Keywords: misc
-> 
-> ### ** Examples
-> 
-> 
->     set.seed(290875)
-> 
->     ### setup learning sample
->     airq <- subset(airquality, !is.na(Ozone))
->     ls <- dpp(conditionalTree, Ozone ~ ., data = airq)
-> 
->     ### setup memory and controls 
->     mem <- ctree_memory(ls)
->     ct <- ctree_control(teststat = "max")
-> 
->     ### fit 50 trees on bootstrap samples
->     bs <- rmultinom(50, nrow(airq), rep(1, nrow(airq))/nrow(airq))
->     storage.mode(bs) <- "double"
->     cfit <- conditionalTree@fit
->     ens <- apply(bs, 2, function(w) cfit(ls, ct, weights = w, 
-+                                          fitmem = mem))
-> 
-> 
-> 
-> 
-> cleanEx()
 > nameEx("mob")
 > ### * mob
 > 
@@ -769,13 +751,22 @@ detaching ‘package:mlbench’
 +   plot(gbsg2ct, type = "simple")  
 +   }
 Loading required package: TH.data
+Loading required package: survival
+Loading required package: MASS
+
+Attaching package: ‘TH.data’
+
+The following object is masked from ‘package:MASS’:
+
+    geyser
+
 > 
 > 
 > 
 > 
 > cleanEx()
 
-detaching ‘package:survival’, ‘package:TH.data’
+detaching ‘package:TH.data’, ‘package:MASS’, ‘package:survival’
 
 > nameEx("plot.mob")
 > ### * plot.mob
@@ -973,7 +964,7 @@ nativeSpeaker           age      shoeSize
 > ###
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  9.707 0.075 9.792 0 0 
+Time elapsed:  11.128 0.076 11.202 0 0 
 > grDevices::dev.off()
 null device 
           1 

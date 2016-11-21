@@ -1,18 +1,18 @@
 
-# $Id: RandomForest.R 540 2014-06-27 07:41:46Z thothorn $
+# $Id: RandomForest.R 601 2016-11-07 13:04:33Z thothorn $
 
 ### the fitting procedure
-cforestfit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
+cforestfit <- function(object, controls, weights = NULL, ...) {
 
     if (!extends(class(object), "LearningSample"))
         stop(sQuote("object"), " is not of class ", sQuote("LearningSample"))
     if (!extends(class(controls), "ForestControl"))
         stop(sQuote("controls"), " is not of class ", sQuote("ForestControl"))
 
-    if (is.null(fitmem)) 
-        fitmem <- ctree_memory(object, TRUE)
-    if (!extends(class(fitmem), "TreeFitMemory"))
-        stop(sQuote("fitmem"), " is not of class ", sQuote("TreeFitMemory"))
+#    if (is.null(fitmem)) 
+#        fitmem <- ctree_memory(object, TRUE)
+#    if (!extends(class(fitmem), "TreeFitMemory"))
+#        stop(sQuote("fitmem"), " is not of class ", sQuote("TreeFitMemory"))
 
     if (is.null(weights))
         weights <- object@weights
@@ -25,26 +25,18 @@ cforestfit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
             stop(sQuote("weights"), " are not a double matrix of ", 
                  object@nobs, " rows")
         bweights <- weights
-        bwhere <- vector(mode = "list", length = controls@ntree)
         ### grow the tree
-        ensemble <- .Call("R_Ensemble_weights", object, bwhere, bweights, fitmem, controls,
-                          PACKAGE = "party")
+        RET <- .Call("R_Ensemble_weights", object, bweights, controls,
+                     PACKAGE = "party")
     } else {
         if (length(weights) != object@nobs || storage.mode(weights) != "double")
             stop(sQuote("weights"), " are not a double vector of ", 
                  object@nobs, " elements")
-        bweights <- vector(mode = "list", length = controls@ntree)
-        bwhere <- vector(mode = "list", length = controls@ntree)
         ### grow the tree
-        ensemble <- .Call("R_Ensemble", object, weights, bwhere, bweights, fitmem, controls,
-                          PACKAGE = "party")
+        RET <- .Call("R_Ensemble", object, weights, controls,
+                     PACKAGE = "party")
     }
 
-    ### prepare the returned object
-    RET <- new("RandomForest")
-    RET@ensemble <- ensemble
-    RET@where <- bwhere
-    RET@weights <- bweights
     if (USER_WEIGHTS) {
         RET@initweights <- as.double(rep(1.0, object@nobs)) ### <FIXME>
     } else {
@@ -56,7 +48,7 @@ cforestfit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
 
     RET@update <- function(weights = NULL) {
         cforestfit(object = object, controls = controls,
-                   weights = weights, fitmem = fitmem, ...)
+                   weights = weights, ...)
     }
 
 
@@ -126,7 +118,7 @@ cforestfit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
 
         newinp <- newinputs(object, newdata)
 
-        lapply(ensemble, function(e) 
+        lapply(RET@ensemble, function(e) 
             R_get_nodeID(e, newinp, mincriterion))
     }
 
@@ -135,7 +127,7 @@ cforestfit <- function(object, controls, weights = NULL, fitmem = NULL, ...) {
 
         newinp <- newinputs(object, newdata)
 
-        RET <- .Call("R_predictRF_weights", ensemble, bwhere, bweights, 
+        RET <- .Call("R_predictRF_weights", RET@ensemble, RET@where, RET@weights, 
                      newinp, mincriterion, OOB && is.null(newdata),
                      PACKAGE = "party")
         names(RET) <- rownames(newinp@variables)
@@ -198,12 +190,11 @@ cforest <- function(formula, data = list(), subset = NULL, weights = NULL,
     ls <- dpp(RandomForest, formula, data, subset, xtrafo = xtrafo, 
               ytrafo = ytrafo, scores = scores)
 
-    ### setup memory
-    fitmem <- ctree_memory(ls, TRUE)
+#    ### setup memory
+#    fitmem <- ctree_memory(ls, TRUE)
 
     ### fit and return a conditional tree
-    fit(RandomForest, ls, controls = controls, weights = weights, 
-        fitmem = fitmem)
+    fit(RandomForest, ls, controls = controls, weights = weights)
 }
 
 ###

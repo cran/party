@@ -3,7 +3,7 @@ set.seed(290875)
 library("party")
 
 ### get rid of the NAMESPACE
-attach(asNamespace("party"))
+attach(list2env(as.list(asNamespace("party"))))
 
 ### 
 ###

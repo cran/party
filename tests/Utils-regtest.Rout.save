@@ -1,6 +1,6 @@
 
-R version 3.2.2 (2015-08-14) -- "Fire Safety"
-Copyright (C) 2015 The R Foundation for Statistical Computing
+R version 3.3.2 (2016-10-31) -- "Sincere Pumpkin Patch"
+Copyright (C) 2016 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -36,15 +36,16 @@ Loading required package: sandwich
 +     stop("cannot load package MASS")
 > 
 > ### get rid of the NAMESPACE
-> attach(asNamespace("party"))
+> attach(list2env(as.list(asNamespace("party"))))
 The following objects are masked from package:party:
 
     cforest, cforest_classical, cforest_control, cforest_unbiased,
-    conditionalTree, ctree, ctree_control, ctree_memory, edge_simple,
-    mob, mob_control, node_barplot, node_bivplot, node_boxplot,
-    node_density, node_hist, node_inner, node_scatterplot, node_surv,
-    node_terminal, party_intern, prettytree, proximity, ptrafo,
-    reweight, sctest.mob, varimp, varimpAUC
+    conditionalTree, ctree, ctree_control, edge_simple,
+    initVariableFrame, mob, mob_control, node_barplot, node_bivplot,
+    node_boxplot, node_density, node_hist, node_inner,
+    node_scatterplot, node_surv, node_terminal, nodes, party_intern,
+    prettytree, proximity, ptrafo, response, reweight, sctest.mob,
+    treeresponse, varimp, varimpAUC, where
 
 > 
 > ###
@@ -109,4 +110,4 @@ The following objects are masked from package:party:
 > 
 > proc.time()
    user  system elapsed 
-  0.588   0.022   0.596 
+  0.920   0.016   0.934 

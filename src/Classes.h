@@ -45,6 +45,7 @@ extern SEXP
     PL2_varmemorySym,
     PL2_linexpcov2sampleSym, 
     PL2_weightsSym, 
+    PL2_splitstatisticsSym,
     PL2_varmemorySym, 
     PL2_responsesSym, 
     PL2_inputsSym,
@@ -63,7 +64,10 @@ extern SEXP
     PL2_ntreeSym,
     PL2_replaceSym,
     PL2_fractionSym,
-    PL2_traceSym;
+    PL2_traceSym,
+    PL2_ensembleSym,
+    PL2_whereSym,
+    PL2_remove_weightsSym;
             
 int get_dimension(SEXP object);
 int get_teststat(SEXP object);

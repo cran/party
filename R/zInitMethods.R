@@ -1,5 +1,5 @@
 
-# $Id: zInitMethods.R 571 2014-09-17 16:11:00Z thothorn $
+# $Id: zInitMethods.R 601 2016-11-07 13:04:33Z thothorn $
 
 ### moved to coin as of coin 1.0-24
 if (FALSE) {
@@ -27,6 +27,7 @@ setMethod(f = "initialize", signature = "ExpectCovarInfluence",
 
 }
 
+### done at C level as of party 1.1-0 but still used in Utils (for tests)
 setMethod(f = "initialize", signature = "LinStatExpectCovar",
     definition = function(.Object, p, q) {
         .Object@expectation <- rep(0, p*q)

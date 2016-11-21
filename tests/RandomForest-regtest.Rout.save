@@ -1,6 +1,6 @@
 
-R version 3.2.2 (2015-08-14) -- "Fire Safety"
-Copyright (C) 2015 The R Foundation for Statistical Computing
+R version 3.3.2 (2016-10-31) -- "Sincere Pumpkin Patch"
+Copyright (C) 2016 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -35,10 +35,18 @@ Loading required package: sandwich
 > if (!require("TH.data"))
 +     stop("cannot load package TH.data")
 Loading required package: TH.data
+Loading required package: survival
+Loading required package: MASS
+
+Attaching package: 'TH.data'
+
+The following object is masked from 'package:MASS':
+
+    geyser
+
 > if (!require("coin"))
 +     stop("cannot load package coin")
 Loading required package: coin
-Loading required package: survival
 > 
 > data("GlaucomaM", package = "TH.data")
 > rf <- cforest(Class ~ ., data = GlaucomaM, control = cforest_unbiased(ntree = 30))
@@ -162,4 +170,4 @@ Sepal.Length  Sepal.Width Petal.Length  Petal.Width
 > 
 > proc.time()
    user  system elapsed 
-  2.248   0.022   2.263 
+  2.380   0.028   2.407 

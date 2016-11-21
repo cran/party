@@ -3,7 +3,7 @@
     Random forest with conditional inference trees
     *\file RandomForest.c
     *\author $Author: thothorn $
-    *\date $Date: 2013-02-11 18:14:58 +0100 (Mon, 11 Feb 2013) $
+    *\date $Date: 2016-11-07 14:04:33 +0100 (Mon, 07 Nov 2016) $
 */
 
 #include "party.h"
@@ -19,10 +19,9 @@
 */
 
 
-SEXP R_Ensemble(SEXP learnsample, SEXP weights, SEXP bwhere, SEXP bweights, 
-                SEXP fitmem, SEXP controls) {
+SEXP R_Ensemble(SEXP learnsample, SEXP weights, SEXP controls) {
             
-     SEXP nweights, tree, where, ans, bw;
+     SEXP ans, nweights, tree, where, ensemble, bw, fitmem, bwhere, bweights;
      double *dnweights, *dweights, sw = 0.0, *prob, tmp;
      int nobs, i, b, B , nodenum = 1, *iweights, *iweightstmp, 
          *iwhere, replace, fraction, wgrzero = 0, realweights = 0;
@@ -31,7 +30,15 @@ SEXP R_Ensemble(SEXP learnsample, SEXP weights, SEXP bwhere, SEXP bweights,
      B = get_ntree(controls);
      nobs = get_nobs(learnsample);
      
-     PROTECT(ans = allocVector(VECSXP, B));
+     PROTECT(ans = NEW_OBJECT(MAKE_CLASS("RandomForest")));
+     PROTECT(bwhere = allocVector(VECSXP, B));
+     PROTECT(bweights = allocVector(VECSXP, B));
+     PROTECT(ensemble = allocVector(VECSXP, B));
+     PROTECT(fitmem = ctree_memory(learnsample, PROTECT(ScalarLogical(1))));
+
+     SET_SLOT(ans, PL2_ensembleSym, ensemble);
+     SET_SLOT(ans, PL2_whereSym, bwhere);
+     SET_SLOT(ans, PL2_weightsSym, bweights);
 
      iweights = Calloc(nobs, int);
      iweightstmp = Calloc(nobs, int);
@@ -75,7 +82,7 @@ SEXP R_Ensemble(SEXP learnsample, SEXP weights, SEXP bwhere, SEXP bweights,
      if (get_trace(controls))
          Rprintf("\n");
      for (b  = 0; b < B; b++) {
-         SET_VECTOR_ELT(ans, b, tree = allocVector(VECSXP, NODE_LENGTH + 1));
+         SET_VECTOR_ELT(ensemble, b, tree = allocVector(VECSXP, NODE_LENGTH + 1));
          SET_VECTOR_ELT(bwhere, b, where = allocVector(INTSXP, nobs));
          SET_VECTOR_ELT(bweights, b, bw = allocVector(REALSXP, nobs));
          
@@ -133,7 +140,7 @@ SEXP R_Ensemble(SEXP learnsample, SEXP weights, SEXP bwhere, SEXP bweights,
      PutRNGstate();
 
      Free(prob); Free(iweights); Free(iweightstmp);
-     UNPROTECT(1);
+     UNPROTECT(6);
      return(ans);
 }
 
@@ -148,10 +155,10 @@ SEXP R_Ensemble(SEXP learnsample, SEXP weights, SEXP bwhere, SEXP bweights,
 */
 
 
-SEXP R_Ensemble_weights(SEXP learnsample, SEXP bwhere, SEXP bweights, 
-                SEXP fitmem, SEXP controls) {
+SEXP R_Ensemble_weights(SEXP learnsample, SEXP bweights, 
+                        SEXP controls) {
             
-     SEXP nweights, tree, where, ans;
+     SEXP nweights, tree, where, ensemble, fitmem, ans, bwhere;
      double *dnweights, *dweights;
      int nobs, i, b, B , nodenum = 1, *iwhere;
      int j, k, l;
@@ -159,7 +166,14 @@ SEXP R_Ensemble_weights(SEXP learnsample, SEXP bwhere, SEXP bweights,
      B = get_ntree(controls);
      nobs = get_nobs(learnsample);
      
-     PROTECT(ans = allocVector(VECSXP, B));
+     PROTECT(ans = NEW_OBJECT(MAKE_CLASS("RandomForest")));
+     PROTECT(bwhere = allocVector(VECSXP, B));
+     PROTECT(ensemble = allocVector(VECSXP, B));
+     PROTECT(fitmem = ctree_memory(learnsample, PROTECT(ScalarLogical(1))));
+
+     SET_SLOT(ans, PL2_ensembleSym, ensemble);
+     SET_SLOT(ans, PL2_whereSym, bwhere);
+     SET_SLOT(ans, PL2_weightsSym, bweights);
 
      /* <FIXME> can we call those guys ONCE? what about the deeper
          calls??? </FIXME> */
@@ -168,7 +182,7 @@ SEXP R_Ensemble_weights(SEXP learnsample, SEXP bwhere, SEXP bweights,
      if (get_trace(controls))
          Rprintf("\n");
      for (b  = 0; b < B; b++) {
-         SET_VECTOR_ELT(ans, b, tree = allocVector(VECSXP, NODE_LENGTH + 1));
+         SET_VECTOR_ELT(ensemble, b, tree = allocVector(VECSXP, NODE_LENGTH + 1));
          SET_VECTOR_ELT(bwhere, b, where = allocVector(INTSXP, nobs));
          
          iwhere = INTEGER(where);
@@ -215,6 +229,6 @@ SEXP R_Ensemble_weights(SEXP learnsample, SEXP bwhere, SEXP bweights,
 
      PutRNGstate();
 
-     UNPROTECT(1);
+     UNPROTECT(5);
      return(ans);
 }
