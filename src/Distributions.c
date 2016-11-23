@@ -3,7 +3,7 @@
     Conditional Distributions
     *\file Distributions.c
     *\author $Author: thothorn $
-    *\date $Date: 2014-12-16 16:51:36 +0100 (Tue, 16 Dec 2014) $
+    *\date $Date: 2014-12-16 16:51:36 +0100 (Die, 16 Dez 2014) $
 */
                 
 #include "party.h"

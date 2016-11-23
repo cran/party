@@ -3,7 +3,7 @@
     Node splitting and prediction
     *\file Predict.c
     *\author $Author: thothorn $
-    *\date $Date: 2014-06-26 14:09:22 +0200 (Thu, 26 Jun 2014) $
+    *\date $Date: 2014-06-26 14:09:22 +0200 (Don, 26 Jun 2014) $
 */
                 
 #include "party.h"

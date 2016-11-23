@@ -3,7 +3,7 @@
     Binary splits 
     *\file Splits.c
     *\author $Author: thothorn $
-    *\date $Date: 2012-12-17 11:31:10 +0100 (Mon, 17 Dec 2012) $
+    *\date $Date: 2012-12-17 11:31:10 +0100 (Mon, 17 Dez 2012) $
 */
                 
 #include "party.h"

@@ -3,7 +3,7 @@
     S3 classes for dealing with nodes and splits
     *\file S3Classes.c
     *\author $Author: hothorn $
-    *\date $Date: 2011-10-27 17:43:21 +0200 (Thu, 27 Oct 2011) $
+    *\date $Date: 2011-10-27 17:43:21 +0200 (Don, 27 Okt 2011) $
 */
                 
 #include "party.h"

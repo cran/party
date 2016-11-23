@@ -1,4 +1,9 @@
 
+                CHANGES IN party VERSION 1.1-1 (2016-11-23)
+
+    o    fix memory leak
+
+
                 CHANGES IN party VERSION 1.1-0 (2016-11-18)
 
     o    don't change values of R objects in C code, this caused

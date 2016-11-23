@@ -3,7 +3,7 @@
     The tree growing recursion
     *\file TreeGrow.c
     *\author $Author: thothorn $
-    *\date $Date: 2016-11-07 14:04:33 +0100 (Mon, 07 Nov 2016) $
+    *\date $Date: 2016-11-23 20:01:51 +0100 (Mit, 23 Nov 2016) $
 */
 
 #include "party.h"
@@ -82,7 +82,7 @@ SEXP R_TreeGrow(SEXP learnsample, SEXP weights, SEXP controls) {
             
      SEXP ans, tree, where, nweights, fitmem;
      double *dnweights, *dweights;
-     int nobs, i, nodenum = 1;
+     int nobs, i, nodenum = 1, *iwhere;
 
 
      GetRNGstate();
@@ -91,6 +91,8 @@ SEXP R_TreeGrow(SEXP learnsample, SEXP weights, SEXP controls) {
      nobs = get_nobs(learnsample);
      PROTECT(ans = allocVector(VECSXP, 2));
      SET_VECTOR_ELT(ans, 0, where = allocVector(INTSXP, nobs));
+     iwhere = INTEGER(where);
+     for (int i = 0; i < nobs; i++) iwhere[i] = 0;
      SET_VECTOR_ELT(ans, 1, tree = allocVector(VECSXP, NODE_LENGTH));
      C_init_node(tree, nobs, get_ninputs(learnsample), get_maxsurrogate(get_splitctrl(controls)),
                  ncol(get_predict_trafo(GET_SLOT(learnsample, PL2_responsesSym))));
@@ -100,7 +102,7 @@ SEXP R_TreeGrow(SEXP learnsample, SEXP weights, SEXP controls) {
      dweights = REAL(weights);
      for (i = 0; i < nobs; i++) dnweights[i] = dweights[i];
      
-     C_TreeGrow(tree, learnsample, fitmem, controls, INTEGER(where), &nodenum, 1);
+     C_TreeGrow(tree, learnsample, fitmem, controls, iwhere, &nodenum, 1);
 
      if (LOGICAL(GET_SLOT(get_tgctrl(controls), PL2_remove_weightsSym))[0])
          C_remove_weights(tree, 0);
