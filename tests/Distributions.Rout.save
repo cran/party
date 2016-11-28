@@ -92,71 +92,73 @@ The following objects are masked from package:party:
 > p2 <- pmvnorm(lower = rep(-a,4), upper = rep(a,4), corr = b)
 > stopifnot(isequal(round(p1, 3), round(1 - p2, 3)))
 > 
-> ### Monte-Carlo approximation of P-Values, univariate
-> mydata = data.frame(y = gl(2, 50), x1 = rnorm(100),  
+> if (FALSE) {
++ ### Monte-Carlo approximation of P-Values, univariate
++ mydata = data.frame(y = gl(2, 50), x1 = rnorm(100),  
 +                     x2 = rnorm(100), x3 = rnorm(100))
-> inp <- initVariableFrame(mydata[,"x1",drop = FALSE], trafo = function(data)
++ inp <- initVariableFrame(mydata[,"x1",drop = FALSE], trafo = function(data)
 + ptrafo(data, numeric_trafo = rank))
-> resp <- initVariableFrame(mydata[,"y",drop = FALSE], trafo = NULL, response = TRUE)
-> ls <- new("LearningSample", inputs = inp, responses = resp,
++ resp <- initVariableFrame(mydata[,"y",drop = FALSE], trafo = NULL, response = TRUE)
++ ls <- new("LearningSample", inputs = inp, responses = resp,
 +           weights = rep(1, inp@nobs), nobs = nrow(mydata),
 +           ninputs = inp@ninputs)
-> tm <- ctree_memory(ls)
-> varctrl <- new("VariableControl")
-> varctrl@teststat <- factor("max", levels = c("max", "quad"))
-> varctrl@pvalue <- FALSE
-> gtctrl <- new("GlobalTestControl")
-> gtctrl@testtype <- factor("MonteCarlo", levels = levels(gtctrl@testtype))
-> gtctrl@nresample <- as.integer(19999)
-> 
-> pvals <- .Call("R_GlobalTest", ls, ls@weights, tm, varctrl, gtctrl, PACKAGE = "party")
-> wstat <- abs(qnorm(wilcox.test(x1 ~ y, data = mydata, 
++ tm <- ctree_memory(ls)
++ varctrl <- new("VariableControl")
++ varctrl@teststat <- factor("max", levels = c("max", "quad"))
++ varctrl@pvalue <- FALSE
++ gtctrl <- new("GlobalTestControl")
++ gtctrl@testtype <- factor("MonteCarlo", levels = levels(gtctrl@testtype))
++ gtctrl@nresample <- as.integer(19999)
++ 
++ pvals <- .Call("R_GlobalTest", ls, ls@weights, tm, varctrl, gtctrl, PACKAGE = "party")
++ wstat <- abs(qnorm(wilcox.test(x1 ~ y, data = mydata, 
 +              exact = FALSE, correct = FALSE)$p.value/2))
-> wpval <- wilcox.test(x1 ~ y, data = mydata, exact = TRUE)$p.value
-> stopifnot(isequal(wstat, pvals[[1]]))
-> stopifnot(abs(wpval - (1 - pvals[[2]])) < 0.01)
-> 
-> ### Monte-Carlo approximations of P-Values, multiple inputs
-> mydata = data.frame(y = gl(2, 50), x1 = rnorm(100),  
++ wpval <- wilcox.test(x1 ~ y, data = mydata, exact = TRUE)$p.value
++ stopifnot(isequal(wstat, pvals[[1]]))
++ stopifnot(abs(wpval - (1 - pvals[[2]])) < 0.01)
++ 
++ ### Monte-Carlo approximations of P-Values, multiple inputs
++ mydata = data.frame(y = gl(2, 50), x1 = rnorm(100),  
 +                     x2 = rnorm(100), x3 = rnorm(100))
-> inp <- initVariableFrame(mydata[,c("x1", "x2", "x3"),
++ inp <- initVariableFrame(mydata[,c("x1", "x2", "x3"),
 +                                 drop = FALSE], trafo = function(data)
 + ptrafo(data, numeric_trafo = rank))
-> resp <- initVariableFrame(mydata[,"y",drop = FALSE], trafo = NULL, response = TRUE)
-> ls <- new("LearningSample", inputs = inp, responses = resp,
++ resp <- initVariableFrame(mydata[,"y",drop = FALSE], trafo = NULL, response = TRUE)
++ ls <- new("LearningSample", inputs = inp, responses = resp,
 +           weights = rep(1, inp@nobs), nobs = nrow(mydata),
 +           ninputs = inp@ninputs)
-> tm <- ctree_memory(ls)
-> varctrl <- new("VariableControl")
-> varctrl@teststat <- factor("max", levels = c("max", "quad"))
-> varctrl@pvalue <- TRUE
-> gtctrl <- new("GlobalTestControl")
-> gtctrl@testtype <- factor("Univariate", levels = levels(gtctrl@testtype))
-> gtctrl@nresample <- as.integer(19999)
-> 
-> pvals <- .Call("R_GlobalTest", ls, ls@weights, tm, varctrl, gtctrl, PACKAGE = "party")
-> wstat <- c(abs(qnorm(wilcox.test(x1 ~ y, data = mydata, 
++ tm <- ctree_memory(ls)
++ varctrl <- new("VariableControl")
++ varctrl@teststat <- factor("max", levels = c("max", "quad"))
++ varctrl@pvalue <- TRUE
++ gtctrl <- new("GlobalTestControl")
++ gtctrl@testtype <- factor("Univariate", levels = levels(gtctrl@testtype))
++ gtctrl@nresample <- as.integer(19999)
++ 
++ pvals <- .Call("R_GlobalTest", ls, ls@weights, tm, varctrl, gtctrl, PACKAGE = "party")
++ wstat <- c(abs(qnorm(wilcox.test(x1 ~ y, data = mydata, 
 +                exact = FALSE, correct = FALSE)$p.value/2)),
 +            abs(qnorm(wilcox.test(x2 ~ y, data = mydata, 
 +                exact = FALSE, correct = FALSE)$p.value/2)),
 +            abs(qnorm(wilcox.test(x3 ~ y, data = mydata, 
 +                exact = FALSE, correct = FALSE)$p.value/2)))
-> wpval <- c(wilcox.test(x1 ~ y, data = mydata, 
++ wpval <- c(wilcox.test(x1 ~ y, data = mydata, 
 +                exact = FALSE, correct = FALSE)$p.value,
 +            wilcox.test(x2 ~ y, data = mydata, 
 +                exact = FALSE, correct = FALSE)$p.value,
 +            wilcox.test(x3 ~ y, data = mydata, 
 +                exact = FALSE, correct = FALSE)$p.value)
-> stopifnot(isequal(wstat, pvals[[1]]))
-> stopifnot(isequal(wpval, 1 - pvals[[2]]))
-> 
-> ### Monte-Carlo approximations of P-Values, min-P approach
-> gtctrl@testtype <- factor("MonteCarlo", levels = levels(gtctrl@testtype))
-> gtctrl@nresample <- as.integer(19999)
-> pvals <- .Call("R_GlobalTest", ls, ls@weights, tm, varctrl, gtctrl, PACKAGE = "party")
-> stopifnot(isequal(wstat, pvals[[1]]))
-> stopifnot(all(wpval < (1 - pvals[[2]])))
++ stopifnot(isequal(wstat, pvals[[1]]))
++ stopifnot(isequal(wpval, 1 - pvals[[2]]))
++ 
++ ### Monte-Carlo approximations of P-Values, min-P approach
++ gtctrl@testtype <- factor("MonteCarlo", levels = levels(gtctrl@testtype))
++ gtctrl@nresample <- as.integer(19999)
++ pvals <- .Call("R_GlobalTest", ls, ls@weights, tm, varctrl, gtctrl, PACKAGE = "party")
++ stopifnot(isequal(wstat, pvals[[1]]))
++ stopifnot(all(wpval < (1 - pvals[[2]])))
++ }
 > 
 > proc.time()
    user  system elapsed 
-  1.172   0.044   1.212 
+  1.016   0.016   1.028 

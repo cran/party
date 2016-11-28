@@ -75,4 +75,4 @@ The following objects are masked from package:party:
 > 
 > proc.time()
    user  system elapsed 
-  0.900   0.024   0.920 
+  0.948   0.036   0.981 

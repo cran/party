@@ -473,4 +473,4 @@ Number of Fisher Scoring iterations: 4
 > 
 > proc.time()
    user  system elapsed 
-  2.320   0.052   2.369 
+  2.496   0.076   2.568 

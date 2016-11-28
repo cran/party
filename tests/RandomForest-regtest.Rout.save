@@ -170,4 +170,4 @@ Sepal.Length  Sepal.Width Petal.Length  Petal.Width
 > 
 > proc.time()
    user  system elapsed 
-  2.380   0.028   2.407 
+  2.604   0.044   2.647 

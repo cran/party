@@ -296,4 +296,4 @@ Number of observations:  412
 > 
 > proc.time()
    user  system elapsed 
-  2.280   0.052   2.330 
+  2.364   0.044   2.404 

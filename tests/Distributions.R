@@ -51,6 +51,7 @@ p1 <- .Call("R_maxabsConditionalPvalue", a, b, maxpts, abseps, releps, tol, PACK
 p2 <- pmvnorm(lower = rep(-a,4), upper = rep(a,4), corr = b)
 stopifnot(isequal(round(p1, 3), round(1 - p2, 3)))
 
+if (FALSE) {
 ### Monte-Carlo approximation of P-Values, univariate
 mydata = data.frame(y = gl(2, 50), x1 = rnorm(100),  
                     x2 = rnorm(100), x3 = rnorm(100))
@@ -115,3 +116,4 @@ gtctrl@nresample <- as.integer(19999)
 pvals <- .Call("R_GlobalTest", ls, ls@weights, tm, varctrl, gtctrl, PACKAGE = "party")
 stopifnot(isequal(wstat, pvals[[1]]))
 stopifnot(all(wpval < (1 - pvals[[2]])))
+}

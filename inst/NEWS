@@ -1,4 +1,9 @@
 
+                CHANGES IN party VERSION 1.1-2 (2016-11-28)
+
+    o    remove ctree_memory(), also from examples
+
+
                 CHANGES IN party VERSION 1.1-1 (2016-11-23)
 
     o    fix memory leak

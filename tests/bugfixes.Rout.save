@@ -792,4 +792,4 @@ Error in model@fit(data, ...) :
 > 
 > proc.time()
    user  system elapsed 
-  9.464   0.104   9.575 
+  8.884   0.080   8.962 
