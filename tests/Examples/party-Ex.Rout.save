@@ -157,9 +157,9 @@ Loading required package: sandwich
 +                                OOB = TRUE))
                
                 Never Within a Year Over a Year
-  Never           193            28          13
-  Within a Year    60            43           1
-  Over a Year      56            18           0
+  Never           213            21           0
+  Within a Year    58            46           0
+  Over a Year      54            20           0
 > 
 > 
 > 
@@ -264,9 +264,9 @@ attr(,"assign")
 +                                OOB = TRUE))
                
                 Never Within a Year Over a Year
-  Never           193            28          13
-  Within a Year    60            43           1
-  Over a Year      56            18           0
+  Never           213            21           0
+  Within a Year    58            46           0
+  Over a Year      54            20           0
 > 
 >     ### fit forest to censored response
 >     if (require("TH.data") && require("survival")) {
@@ -964,7 +964,7 @@ nativeSpeaker           age      shoeSize
 > ###
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  11.128 0.076 11.202 0 0 
+Time elapsed:  8.648 0.068 8.714 0 0 
 > grDevices::dev.off()
 null device 
           1 

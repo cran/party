@@ -1,4 +1,10 @@
 
+                CHANGES IN party VERSION 1.2-0 (2017-02-06)
+
+    o    predict(<cforest>, OOB = TRUE) relied on incorrect weights
+         and gave suboptimal predictions. varimp() was not affected.
+
+
                 CHANGES IN party VERSION 1.1-2 (2016-11-28)
 
     o    remove ctree_memory(), also from examples

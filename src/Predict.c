@@ -451,6 +451,7 @@ SEXP R_predictRF_weights(SEXP forest, SEXP where, SEXP weights,
 
     SEXP ans, tree, bw;
     int ntrees, nobs, i, b, j, iwhere, oob = 0, count = 0, ntrain;
+    double *dw;
     
     if (LOGICAL(oobpred)[0]) oob = 1;
     
@@ -468,26 +469,31 @@ SEXP R_predictRF_weights(SEXP forest, SEXP where, SEXP weights,
     PROTECT(ans = allocVector(VECSXP, nobs));
     
     for (i = 0; i < nobs; i++) {
+
         count = 0;
         SET_VECTOR_ELT(ans, i, bw = allocVector(REALSXP, ntrain));
         for (j = 0; j < ntrain; j++)
             REAL(bw)[j] = 0.0;
         for (b = 0; b < ntrees; b++) {
             tree = VECTOR_ELT(forest, b);
-
-            if (oob && 
-                REAL(VECTOR_ELT(weights, b))[i] > 0.0) 
-                continue;
+            dw = REAL(VECTOR_ELT(weights, b));
 
             iwhere = C_get_nodeID(tree, newinputs, REAL(mincriterion)[0], i, -1);
             
             for (j = 0; j < ntrain; j++) {
-                if (iwhere == INTEGER(VECTOR_ELT(where, b))[j])
-                    REAL(bw)[j] += REAL(VECTOR_ELT(weights, b))[j];
+                if (iwhere == INTEGER(VECTOR_ELT(where, b))[j]) {
+                    if (oob) {
+                        if (dw[j] == 0.0) {
+                            REAL(bw)[j] += 1.0;
+                            count++;
+                        }
+                    } else {
+                        REAL(bw)[j] += dw[j];
+                    }
+                }
             }
-            count++;
         }
-        if (count == 0) 
+        if (oob && count == 0) 
             error("cannot compute out-of-bag predictions for observation number %d", i + 1);
     }
     UNPROTECT(1);

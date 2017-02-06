@@ -113,6 +113,10 @@ SEXP R_Ensemble(SEXP learnsample, SEXP weights, SEXP controls) {
          C_TreeGrow(tree, learnsample, fitmem, controls, iwhere, &nodenum, 1);
          nodenum = 1;
          C_remove_weights(tree, 0);
+
+         /* compute terminal node ids for all observations (not just those with weight > 0) */
+         for (i = 0; i < nobs; i++)
+            iwhere[i] = C_get_nodeID(tree, GET_SLOT(learnsample, PL2_inputsSym), 0.0, i, -1);
          
          if (get_trace(controls)) {
              /* progress bar; inspired by 
@@ -203,6 +207,10 @@ SEXP R_Ensemble_weights(SEXP learnsample, SEXP bweights,
          C_TreeGrow(tree, learnsample, fitmem, controls, iwhere, &nodenum, 1);
          nodenum = 1;
          C_remove_weights(tree, 0);
+
+         /* compute terminal node ids for all observations (not just those with weight > 0) */
+         for (i = 0; i < nobs; i++)
+            iwhere[i] = C_get_nodeID(tree, GET_SLOT(learnsample, PL2_inputsSym), 0.0, i, -1);
          
          if (get_trace(controls)) {
              /* progress bar; inspired by 

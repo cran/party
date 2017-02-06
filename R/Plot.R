@@ -1,5 +1,5 @@
 
-# $Id: Plot.R 512 2013-01-09 10:53:30Z thothorn $
+# $Id: Plot.R 617 2016-12-29 23:06:52Z azeileis $
 
 ## utility functions for querying the number of
 ## terminal nodes and the maximal depth of (sub-)trees
@@ -175,7 +175,7 @@ node_barplot <- function(ctreeobj,
     } else {
         if(is.null(beside)) beside <- FALSE
         if(is.null(ymax)) ymax <- getMaxPred(ctreeobj@tree) * 1.1
-        ylevels <- seq(along = ctreeobj@tree$prediction)
+        ylevels <- seq_along(ctreeobj@tree$prediction)
         if(length(ylevels) < 2) ylevels <- ""
 	if(is.null(gap)) gap <- 1
     }
