@@ -1,8 +1,22 @@
 
+                CHANGES IN party VERSION 1.2-1 (2017-02-08)
+
+    o    fix a memory leak occuring while searching for surrogate
+         splits in the process of predicting the terminal node ID
+
+    o    surrogate splits might have used statistics with slightly
+         incorrect weights
+
+    o    party::ctree gives _same_ results as partykit::ctree 
+         (version >= 2.0-1 from R-forge)
+
+
                 CHANGES IN party VERSION 1.2-0 (2017-02-06)
 
     o    predict(<cforest>, OOB = TRUE) relied on incorrect weights
          and gave suboptimal predictions. varimp() was not affected.
+         The effect was pointed out by Julian Karch when comparing
+         party::cforest to partykit::cforest
 
 
                 CHANGES IN party VERSION 1.1-2 (2016-11-28)

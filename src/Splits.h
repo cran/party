@@ -3,7 +3,7 @@ void C_split(const double *x, int p,
              const double *y, int q,
              const double *weights, int n,
              const int *orderx, SEXP splitctrl, SEXP linexpcov2sample, 
-             SEXP expcovinf, double *cutpoint, double *maxstat, 
+             SEXP expcovinf, int surrogates, double *cutpoint, double *maxstat, 
              double *statistics);
 
 void C_splitcategorical(const int *codingx, int p,

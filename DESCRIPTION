@@ -1,7 +1,7 @@
 Package: party
 Title: A Laboratory for Recursive Partytioning
-Date: 2017-02-06
-Version: 1.2-0
+Date: 2017-02-08
+Version: 1.2-1
 Authors@R: c(person("Torsten", "Hothorn", role = c("aut", "cre"),
                     email = "Torsten.Hothorn@R-project.org"),
              person("Kurt", "Hornik", role = "aut"),
@@ -21,7 +21,10 @@ Description: A computational toolbox for recursive partitioning.
   parametric models (e.g. linear models, GLMs or survival
   regression) employing parameter instability tests for split
   selection. Extensible functionality for visualizing tree-structured
-  regression models is available.
+  regression models is available. The methods are described in
+  Hothorn et al. (2006) <doi:10.1198/106186006X133933>,
+  Zeileis et al. (2008) <doi:10.1198/106186008X319331> and 
+  Strobl et al. (2007) <doi:10.1186/1471-2105-8-25>.
 Depends: R (>= 2.14.0), methods, grid, stats, mvtnorm (>= 1.0-2),
         modeltools (>= 0.2-21), strucchange
 LinkingTo: mvtnorm
@@ -32,11 +35,11 @@ LazyData: yes
 License: GPL-2
 URL: http://party.R-forge.R-project.org
 NeedsCompilation: yes
-Packaged: 2017-02-06 16:50:53 UTC; hothorn
+Packaged: 2017-02-08 10:55:12 UTC; hothorn
 Author: Torsten Hothorn [aut, cre],
   Kurt Hornik [aut],
   Carolin Strobl [aut],
   Achim Zeileis [aut]
 Maintainer: Torsten Hothorn <Torsten.Hothorn@R-project.org>
 Repository: CRAN
-Date/Publication: 2017-02-06 21:34:23
+Date/Publication: 2017-02-09 19:10:28

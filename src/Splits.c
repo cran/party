@@ -3,7 +3,7 @@
     Binary splits 
     *\file Splits.c
     *\author $Author: thothorn $
-    *\date $Date: 2012-12-17 11:31:10 +0100 (Mon, 17 Dez 2012) $
+    *\date $Date: 2017-02-08 11:50:18 +0100 (Mit, 08 Feb 2017) $
 */
                 
 #include "party.h"
@@ -35,7 +35,8 @@ void C_split(const double *x, int p,
              const double *weights, int n,
              const int *orderx,
              SEXP splitctrl, SEXP linexpcov2sample, 
-             SEXP expcovinf, double *cutpoint, double *maxstat, 
+             SEXP expcovinf, 
+             int surrogate, double *cutpoint, double *maxstat, 
              double *statistics) {
 
     double *dExp_y, *dCov_y, *dlinstat, *dexpect, *dcovar, 
@@ -61,6 +62,13 @@ void C_split(const double *x, int p,
     dCov_y = REAL(GET_SLOT(expcovinf, PL2_covarianceSym));
     sweights = REAL(GET_SLOT(expcovinf, PL2_sumweightsSym))[0];
 
+    /* weights are different in surrogate splits, so recompute here */
+    if (surrogate) {
+        sweights = 0.0;
+        for (i = 0; i < n; i++)
+            sweights += weights[i];
+    }
+
     /* if there is something to split */
     if (sweights > 1) {
 
@@ -75,6 +83,12 @@ void C_split(const double *x, int p,
         maxobs = sweights * (1 - minprob) - 1.0;
         if (maxobs > sweights - minbucket) 
             maxobs = sweights - minbucket; 
+
+        /* implement surrogate splits regardless of constaints */
+        if (surrogate) {
+            minobs = 0;
+            maxobs = sweights;
+        }
 
         f1 = (double) sweights / (sweights - 1);
         f2 = 1.0 / (sweights - 1);
@@ -145,9 +159,8 @@ void C_split(const double *x, int p,
                 tmp = fabs(dlinstat[k] - dexpect[k]) / sqrt(dcovar[k * q + k]);
                 if (statistics[j] < tmp) statistics[j] = tmp;
             }
-
         }
-    
+        
         /* search for the maximum and the best separating cutpoint */
         /* <FIXME> the result might differ between 32 and 64bit systems 
                    because of rounding errors in 'statistics' */
@@ -186,7 +199,7 @@ SEXP R_split(SEXP x, SEXP y, SEXP weights, SEXP orderx, SEXP linexpcov2sample,
     SET_VECTOR_ELT(ans, 2, statistics = allocVector(REALSXP, nrow(x)));
     
     C_split(REAL(x), ncol(x), REAL(y), ncol(y), REAL(weights), nrow(x),
-            INTEGER(orderx), splitctrl, linexpcov2sample, expcovinf,
+            INTEGER(orderx), splitctrl, linexpcov2sample, expcovinf, 0,
             REAL(cutpoint), REAL(maxstat), REAL(statistics));
     UNPROTECT(1);
     return(ans);
@@ -267,7 +280,7 @@ void C_splitcategorical(const int *codingx, int p,
         /* search for a cutpoint (now we do have an ordering) */
         C_split(tmpx, 1, y, q, weights, n, ordertmpx,
                 splitctrl, linexpcov2sample,
-                expcovinf, cutpoint, maxstat, statistics);
+                expcovinf, 0, cutpoint, maxstat, statistics);
 
         /* if we have seen an improvement: save this segmentation 
            note: there may be splits with equal goodness */

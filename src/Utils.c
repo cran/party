@@ -3,7 +3,7 @@
     Some commonly needed utility functions.
     *\file Utils.c
     *\author $Author: thothorn $
-    *\date $Date: 2016-11-07 14:04:33 +0100 (Mon, 07 Nov 2016) $
+    *\date $Date: 2017-02-08 11:49:22 +0100 (Mit, 08 Feb 2017) $
 */
                 
 #include "party.h"
@@ -850,15 +850,14 @@ SEXP R_remove_weights(SEXP subtree, SEXP removestats) {
 }
 */
 
-double* C_tempweights(int j, SEXP weights, SEXP fitmem, SEXP inputs) {
+double* C_tempweights(int j, double *dweights, SEXP fitmem, SEXP inputs) {
 
     int nobs, *iNAs, i, k;
-    double *dw, *dweights;
+    double *dw;
     SEXP NAs;
     
     dw = REAL(get_weights(fitmem));
-    nobs = LENGTH(weights);
-    dweights = REAL(weights);
+    nobs = LENGTH(get_weights(fitmem));
     NAs = get_missings(inputs, j);
     iNAs = INTEGER(NAs);
     if (length(NAs) == 0) return(dw);

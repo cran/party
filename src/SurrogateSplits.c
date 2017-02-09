@@ -3,7 +3,7 @@
     Suggorgate splits
     *\file SurrogateSplits.c
     *\author $Author: thothorn $
-    *\date $Date: 2012-03-21 17:14:01 +0100 (Mit, 21 Mär 2012) $
+    *\date $Date: 2017-02-08 11:49:22 +0100 (Mit, 08 Feb 2017) $
 */
                 
 #include "party.h"
@@ -99,7 +99,8 @@ void C_surrogates(SEXP node, SEXP learnsample, SEXP weights, SEXP controls,
 
          if (has_missings(inputs, j + 1)) {
 
-             thisweights = C_tempweights(j + 1, weights, fitmem, inputs);
+             /* update _tweights_ wrt missings in variable j + 1 */
+             thisweights = C_tempweights(j + 1, tweights, fitmem, inputs);
 
              /* check if sum(weights) > 1 */
              sumw = 0.0;
@@ -111,13 +112,13 @@ void C_surrogates(SEXP node, SEXP learnsample, SEXP weights, SEXP controls,
              C_split(REAL(x), 1, ytmp, 1, thisweights, nobs,
                      INTEGER(get_ordering(inputs, j + 1)), splitctrl,
                      GET_SLOT(fitmem, PL2_linexpcov2sampleSym),
-                     expcovinf, &cp, &ms, splitstat);
+                     expcovinf, 1, &cp, &ms, splitstat);
          } else {
          
              C_split(REAL(x), 1, ytmp, 1, tweights, nobs,
              INTEGER(get_ordering(inputs, j + 1)), splitctrl,
              GET_SLOT(fitmem, PL2_linexpcov2sampleSym),
-             expcovinf, &cp, &ms, splitstat);
+             expcovinf, 1, &cp, &ms, splitstat);
          }
 
          maxstat[j] = -ms;

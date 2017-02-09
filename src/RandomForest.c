@@ -3,7 +3,7 @@
     Random forest with conditional inference trees
     *\file RandomForest.c
     *\author $Author: thothorn $
-    *\date $Date: 2016-11-07 14:04:33 +0100 (Mon, 07 Nov 2016) $
+    *\date $Date: 2017-02-06 17:53:27 +0100 (Mon, 06 Feb 2017) $
 */
 
 #include "party.h"

@@ -3,7 +3,7 @@
     Node splitting and prediction
     *\file Predict.c
     *\author $Author: thothorn $
-    *\date $Date: 2014-06-26 14:09:22 +0200 (Don, 26 Jun 2014) $
+    *\date $Date: 2017-02-07 11:07:11 +0100 (Die, 07 Feb 2017) $
 */
                 
 #include "party.h"
@@ -163,9 +163,12 @@ SEXP C_get_node(SEXP subtree, SEXP newinputs,
                 if (ns >= LENGTH(surrsplit)) break;
             
                 ssplit = VECTOR_ELT(surrsplit, ns);
+                /* any missings in the surrogate variable ? */
                 if (has_missings(newinputs, S3get_variableID(ssplit))) {
-                    if (INTEGER(get_missings(newinputs, 
-                                             S3get_variableID(ssplit)))[i]) {
+                    /* i in 0 ... n - 1 but get_missings in 1:n */
+                    /* if i is missing, move to next surrogate split */
+                    if (C_i_in_set(i + 1, 
+                                   get_missings(newinputs, S3get_variableID(ssplit)))) {
                         ns++;
                         continue;
                     }
@@ -479,7 +482,8 @@ SEXP R_predictRF_weights(SEXP forest, SEXP where, SEXP weights,
             dw = REAL(VECTOR_ELT(weights, b));
 
             iwhere = C_get_nodeID(tree, newinputs, REAL(mincriterion)[0], i, -1);
-            
+
+            /* this was completely braindamaged in party < 1.2-0 */            
             for (j = 0; j < ntrain; j++) {
                 if (iwhere == INTEGER(VECTOR_ELT(where, b))[j]) {
                     if (oob) {
