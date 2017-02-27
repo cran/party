@@ -72,4 +72,4 @@ S3method(reweight, glinearModel)
 S3method(reweight, linearModel)
 S3method(reweight, survReg)
 
-useDynLib(party)
+useDynLib(party, .registration = TRUE)

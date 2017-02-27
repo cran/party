@@ -1,4 +1,12 @@
 
+                CHANGES IN party VERSION 1.2-2 (2017-02-27)
+
+    o    free memory in src/Distributions.c (pointed out by
+         Martin Binder)
+
+    o    register C routines
+
+
                 CHANGES IN party VERSION 1.2-1 (2017-02-08)
 
     o    fix a memory leak occuring while searching for surrogate

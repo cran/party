@@ -1,8 +1,8 @@
 
-# $Id: AAA.R 270 2006-09-07 11:28:44Z hothorn $
+# $Id: AAA.R 630 2017-02-27 14:58:59Z thothorn $
 
 .onLoad <- function(lib, pkg) {
     GCtorture <<- FALSE
-    .Call("party_init", PACKAGE = "party")
+    .Call(party_init)
     return(TRUE)
 }

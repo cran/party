@@ -1,6 +1,6 @@
 
-R version 3.3.2 (2016-10-31) -- "Sincere Pumpkin Patch"
-Copyright (C) 2016 The R Foundation for Statistical Computing
+R Under development (unstable) (2017-02-27 r72261) -- "Unsuffered Consequences"
+Copyright (C) 2017 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -61,10 +61,10 @@ The following objects are masked from package:party:
 > storage.mode(t) <- "double"
 > storage.mode(df) <- "double"
 > stopifnot(isequal(1 - pchisq(t, df = df), ### P-values!!!
-+           .Call("R_quadformConditionalPvalue", t, df, PACKAGE = "party")))
++           .Call(R_quadformConditionalPvalue, t, df)))
 > 
 > stopifnot(isequal(2*pnorm(-t), 
-+           .Call("R_maxabsConditionalPvalue", t, matrix(1), as.integer(1), 0.0, 0.0, 0.0, PACKAGE = "party")))
++           .Call(R_maxabsConditionalPvalue, t, matrix(1), as.integer(1), 0.0, 0.0, 0.0)))
 > 
 > 
 > maxpts <- 25000
@@ -76,19 +76,19 @@ The following objects are masked from package:party:
 > a <- 1.96
 > b <- diag(2)
 > 
-> p1 <- .Call("R_maxabsConditionalPvalue", a, b, maxpts, abseps, releps, tol, PACKAGE = "party")
+> p1 <- .Call(R_maxabsConditionalPvalue, a, b, maxpts, abseps, releps, tol)
 > p2 <- pmvnorm(lower = rep(-a,2), upper = rep(a,2), corr = b)
 > stopifnot(isequal(round(p1, 3), round(1 - p2, 3)))
 > 
 > b <- diag(4)
-> p1 <- .Call("R_maxabsConditionalPvalue", a, b, maxpts, abseps, releps, tol, PACKAGE = "party")
+> p1 <- .Call(R_maxabsConditionalPvalue, a, b, maxpts, abseps, releps, tol)
 > p2 <- pmvnorm(lower = rep(-a,4), upper = rep(a,4), corr = b)
 > stopifnot(isequal(round(p1, 3), round(1 - p2, 3)))
 > 
 > b <- diag(4)
 > b[upper.tri(b)] <- c(0.1, 0.2, 0.3)
 > b[lower.tri(b)] <- t(b)[lower.tri(b)]
-> p1 <- .Call("R_maxabsConditionalPvalue", a, b, maxpts, abseps, releps, tol, PACKAGE = "party")
+> p1 <- .Call(R_maxabsConditionalPvalue, a, b, maxpts, abseps, releps, tol)
 > p2 <- pmvnorm(lower = rep(-a,4), upper = rep(a,4), corr = b)
 > stopifnot(isequal(round(p1, 3), round(1 - p2, 3)))
 > 
@@ -110,7 +110,7 @@ The following objects are masked from package:party:
 + gtctrl@testtype <- factor("MonteCarlo", levels = levels(gtctrl@testtype))
 + gtctrl@nresample <- as.integer(19999)
 + 
-+ pvals <- .Call("R_GlobalTest", ls, ls@weights, tm, varctrl, gtctrl, PACKAGE = "party")
++ pvals <- .Call(R_GlobalTest, ls, ls@weights, tm, varctrl, gtctrl)
 + wstat <- abs(qnorm(wilcox.test(x1 ~ y, data = mydata, 
 +              exact = FALSE, correct = FALSE)$p.value/2))
 + wpval <- wilcox.test(x1 ~ y, data = mydata, exact = TRUE)$p.value
@@ -135,7 +135,7 @@ The following objects are masked from package:party:
 + gtctrl@testtype <- factor("Univariate", levels = levels(gtctrl@testtype))
 + gtctrl@nresample <- as.integer(19999)
 + 
-+ pvals <- .Call("R_GlobalTest", ls, ls@weights, tm, varctrl, gtctrl, PACKAGE = "party")
++ pvals <- .Call(R_GlobalTest, ls, ls@weights, tm, varctrl, gtctrl)
 + wstat <- c(abs(qnorm(wilcox.test(x1 ~ y, data = mydata, 
 +                exact = FALSE, correct = FALSE)$p.value/2)),
 +            abs(qnorm(wilcox.test(x2 ~ y, data = mydata, 
@@ -154,11 +154,11 @@ The following objects are masked from package:party:
 + ### Monte-Carlo approximations of P-Values, min-P approach
 + gtctrl@testtype <- factor("MonteCarlo", levels = levels(gtctrl@testtype))
 + gtctrl@nresample <- as.integer(19999)
-+ pvals <- .Call("R_GlobalTest", ls, ls@weights, tm, varctrl, gtctrl, PACKAGE = "party")
++ pvals <- .Call(R_GlobalTest, ls, ls@weights, tm, varctrl, gtctrl)
 + stopifnot(isequal(wstat, pvals[[1]]))
 + stopifnot(all(wpval < (1 - pvals[[2]])))
 + }
 > 
 > proc.time()
    user  system elapsed 
-  1.016   0.016   1.028 
+  4.128   0.212   4.326 

@@ -1,5 +1,5 @@
 
-# $Id: RandomForest.R 617 2016-12-29 23:06:52Z azeileis $
+# $Id: RandomForest.R 630 2017-02-27 14:58:59Z thothorn $
 
 ### the fitting procedure
 cforestfit <- function(object, controls, weights = NULL, ...) {
@@ -26,15 +26,13 @@ cforestfit <- function(object, controls, weights = NULL, ...) {
                  object@nobs, " rows")
         bweights <- weights
         ### grow the tree
-        RET <- .Call("R_Ensemble_weights", object, bweights, controls,
-                     PACKAGE = "party")
+        RET <- .Call(R_Ensemble_weights, object, bweights, controls)
     } else {
         if (length(weights) != object@nobs || storage.mode(weights) != "double")
             stop(sQuote("weights"), " are not a double vector of ", 
                  object@nobs, " elements")
         ### grow the tree
-        RET <- .Call("R_Ensemble", object, weights, controls,
-                     PACKAGE = "party")
+        RET <- .Call(R_Ensemble, object, weights, controls)
     }
 
     if (USER_WEIGHTS) {
@@ -119,7 +117,7 @@ cforestfit <- function(object, controls, weights = NULL, ...) {
         newinp <- newinputs(object, newdata)
 
         lapply(RET@ensemble, function(e) 
-            R_get_nodeID(e, newinp, mincriterion))
+            .R_get_nodeID(e, newinp, mincriterion))
     }
 
     RET@prediction_weights <- function(newdata = NULL, 
@@ -127,9 +125,8 @@ cforestfit <- function(object, controls, weights = NULL, ...) {
 
         newinp <- newinputs(object, newdata)
 
-        RET <- .Call("R_predictRF_weights", RET@ensemble, RET@where, RET@weights, 
-                     newinp, mincriterion, OOB && is.null(newdata),
-                     PACKAGE = "party")
+        RET <- .Call(R_predictRF_weights, RET@ensemble, RET@where, RET@weights, 
+                     newinp, mincriterion, OOB && is.null(newdata))
         names(RET) <- rownames(newinp@variables)
         RET
     }
@@ -230,7 +227,7 @@ proximity <- function(object, newdata = NULL) {
         rn <- rownames(newdata)
     }
     ### extract prediction weights
-    prox <- .Call("R_proximity", wh, package = "party")
+    prox <- .Call(R_proximity, wh)
     prox <- matrix(unlist(prox), ncol = length(prox))
     rownames(prox) <- rn
     colnames(prox) <- rn

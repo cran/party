@@ -610,7 +610,7 @@ if (FALSE) { ### (require("libcoin")) {
     tmp@covariance <- tmp@covariance + t(tmp@covariance)
     diag(tmp@covariance) <- diag(tmp@covariance) / 2
 
-   a <- .Call("R_linexpcovReduce", tmp)
+   a <- .Call(R_linexpcovReduce, tmp)
 
     u <- matrix(tmp@linearstatistic - tmp@expectation, nc = 1)
     d <- tmp@dimension
@@ -627,19 +627,19 @@ if (FALSE) { ### (require("libcoin")) {
     m <- new("svd_mem", 18L)
     m@p <- as.integer(d)
 
-    s2 <- .Call("R_svd", x, m)
+    s2 <- .Call(R_svd, x, m)
 
     stopifnot(max(abs(s$d - m@s[1:d])) < sqrt(.Machine$double.eps))
     stopifnot(max(abs(s$v - t(matrix(m@v[1:d^2], nrow = d)))) < sqrt(.Machine$double.eps))
     stopifnot(max(abs(s$u - matrix(m@u[1:d^2], nrow = d))) < sqrt(.Machine$double.eps))
 
-    s2 <- .Call("R_svd", tmp@covariance, m)
+    s2 <- .Call(R_svd, tmp@covariance, m)
 
     stopifnot(max(abs(s$d - m@s[1:d])) < sqrt(.Machine$double.eps))
     stopifnot(max(abs(s$v - t(matrix(m@v[1:d^2], nrow = d)))) < sqrt(.Machine$double.eps))
     stopifnot(max(abs(s$u - matrix(m@u[1:d^2], nrow = d))) < sqrt(.Machine$double.eps))
 
-    a <- .Call("R_MPinv", tmp@covariance, sqrt(.Machine$double.eps), m)
+    a <- .Call(R_MPinv, tmp@covariance, sqrt(.Machine$double.eps), m)
 
     stat <- t(u) %*% matrix(a@MPinv[1:d^2], ncol = d) %*% u  
     stopifnot(isTRUE(all.equal(stat[1,1], statistic(it), 

@@ -128,13 +128,13 @@ predict.mob <- function(object, newdata = NULL, type = c("response", "node"), ..
     nobs <- NROW(newpart)
     newpart <- initVariableFrame(newpart, trafo = NULL)
     
-    nodeIDs <- R_get_nodeID(object@tree, newpart, as.double(0.0))
+    nodeIDs <- .R_get_nodeID(object@tree, newpart, as.double(0.0))
 
     type <- match.arg(type)
     if(type == "response") {
         pred <- vector(mode = "list", length = nobs)
         for (n in unique(nodeIDs)) {
-            node <- .Call("R_get_nodebynum", object@tree, as.integer(n), PACKAGE = "party")
+            node <- .Call(R_get_nodebynum, object@tree, as.integer(n))
             indx <- which(nodeIDs == n)
             pred[indx] <- predict(node$model, newdata = newinput[indx,,drop = FALSE], ...)
         }
@@ -152,11 +152,11 @@ residuals.mob <- function(object, ...)
     newinput <- object@data@get("input")
     nobs <- NROW(newpart)
     newpart <- initVariableFrame(newpart, trafo = NULL)
-    nodeIDs <- R_get_nodeID(object@tree, newpart, as.double(0.0))
+    nodeIDs <- .R_get_nodeID(object@tree, newpart, as.double(0.0))
 
     res <- vector(mode = "list", length = nobs)
     for (n in unique(nodeIDs)) {
-    	node <- .Call("R_get_nodebynum", object@tree, as.integer(n), PACKAGE = "party")
+    	node <- .Call(R_get_nodebynum, object@tree, as.integer(n))
     	indx <- which(nodeIDs == n)
     	res[indx] <- residuals(node$model, ...)[indx]
     }

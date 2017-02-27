@@ -1,5 +1,5 @@
 
-# $Id: ConditionalTree.R 601 2016-11-07 13:04:33Z thothorn $
+# $Id: ConditionalTree.R 630 2017-02-27 14:58:59Z thothorn $
 
 ### the fitting procedure
 ctreefit <- function(object, controls, weights = NULL, ...) {
@@ -25,7 +25,7 @@ ctreefit <- function(object, controls, weights = NULL, ...) {
              only integer values are allowed") 
 
     ### grow the tree
-    tree <- .Call("R_TreeGrow", object, weights, controls, PACKAGE = "party")
+    tree <- .Call(R_TreeGrow, object, weights, controls)
     where <- tree[[1]]
     tree <- tree[[2]]
 
@@ -56,7 +56,7 @@ ctreefit <- function(object, controls, weights = NULL, ...) {
 
         newinp <- newinputs(object, newdata)
 
-        R_get_nodeID(tree, newinp, mincriterion)
+        .R_get_nodeID(tree, newinp, mincriterion)
     }
 
     ### (estimated) conditional distribution of the response given the
@@ -70,8 +70,7 @@ ctreefit <- function(object, controls, weights = NULL, ...) {
         ### survival: estimated Kaplan-Meier
         if (any(response@is_censored)) {
             swh <- sort(unique(wh))
-#            w <- .Call("R_getweights", tree, swh,
-#                       PACKAGE = "party")
+#            w <- .Call(R_getweights, tree, swh)
             RET <- vector(mode = "list", length = length(wh))
             resp <- response@variables[[1]]
             for (i in 1:length(swh)) {
@@ -83,7 +82,7 @@ ctreefit <- function(object, controls, weights = NULL, ...) {
 
         ### classification: estimated class probabilities
         ### regression: the means, not really a distribution
-        RET <- .Call("R_getpredictions", tree, wh, PACKAGE = "party")
+        RET <- .Call(R_getpredictions, tree, wh)
         return(RET)
     }
 
@@ -139,8 +138,7 @@ ctreefit <- function(object, controls, weights = NULL, ...) {
         wh <- RET@get_where(newdata = newdata, mincriterion = mincriterion)
 
         swh <- sort(unique(wh))
-#        w <- .Call("R_getweights", tree, swh,
-#                   PACKAGE = "party")
+#        w <- .Call(R_getweights, tree, swh)
         RET <- vector(mode = "list", length = length(wh))   
         
         for (i in 1:length(swh))

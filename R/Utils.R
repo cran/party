@@ -1,5 +1,5 @@
 
-# $Id: Utils.R 602 2016-11-07 13:35:19Z thothorn $
+# $Id: Utils.R 630 2017-02-27 14:58:59Z thothorn $
 
 ### Wrapper for functions defined in ./src/Utilsc
 
@@ -8,7 +8,7 @@ qsvd <- function(x) {
         stop(sQuote("x"), " is not a quadratic matrix")
 
     svdmem <- new("svd_mem", ncol(x)) 
-    dummy <- .Call("R_svd", x, svdmem, PACKAGE = "party")
+    dummy <- .Call(R_svd, x, svdmem)
     rm(dummy)
     return(list(u = svdmem@u, vt = svdmem@v, d = svdmem@s))
 }
@@ -18,7 +18,7 @@ MPinv <- function(x, tol = sqrt(.Machine$double.eps)) {
         stop(sQuote("x"), " is not a quadratic matrix")
 
     svdmem <- new("svd_mem", ncol(x))
-    RET <- .Call("R_MPinv", x, tol, svdmem, PACKAGE = "party")
+    RET <- .Call(R_MPinv, x, tol, svdmem)
     return(RET@MPinv)
 }
 
@@ -40,8 +40,8 @@ Split <- function(x, y, weights, splitctrl) {
         lecxy <- new("LinStatExpectCovar", ncol(xm), ncol(ym))
         lec <- new("LinStatExpectCovar", as.integer(1), ncol(ym))
         eci <- ExpectCovarInfluence(ym, weights)
-        split <- .Call("R_splitcategorical", xm, xc, ym, weights, lec, lecxy,
-                       eci, splitctrl, PACKAGE = "party")
+        split <- .Call(R_splitcategorical, xm, xc, ym, weights, lec, lecxy,
+                       eci, splitctrl)
     } else {
         ox <- order(x)
         storage.mode(ox) <- "integer"
@@ -49,8 +49,8 @@ Split <- function(x, y, weights, splitctrl) {
         storage.mode(xm) <- "double"
         lec <- new("LinStatExpectCovar", as.integer(1), ncol(ym))
         eci <- ExpectCovarInfluence(ym, weights)
-        split <- .Call("R_split", xm, ym, weights, ox, lec,
-                       eci, splitctrl, PACKAGE = "party")
+        split <- .Call(R_split, xm, ym, weights, ox, lec,
+                       eci, splitctrl)
     }
     split
 }
@@ -66,7 +66,7 @@ maxabsTestStatistic <- function(t, mu, Sigma, tol = sqrt(.Machine$double.eps)) {
     if (length(t) != length(mu) || length(t) != nrow(Sigma)) 
         stop("dimensions don't match")
         
-    .Call("R_maxabsTestStatistic", t, mu, Sigma, tol, PACKAGE = "party")
+    .Call(R_maxabsTestStatistic, t, mu, Sigma, tol)
 }
 
 quadformTestStatistic <- function(t, mu, Sigma, 
@@ -81,7 +81,7 @@ quadformTestStatistic <- function(t, mu, Sigma,
         stop("dimensions don't match")
         
     SigmaPlus <- MPinv(Sigma, tol = tol)
-    .Call("R_quadformTestStatistic", t, mu, SigmaPlus, PACKAGE = "party")
+    .Call(R_quadformTestStatistic, t, mu, SigmaPlus)
 }
 
 
@@ -91,13 +91,13 @@ LinearStatistic <- function(x, y, weights) {
     storage.mode(x) <- "double"
     storage.mode(y) <- "double"
     storage.mode(weights) <- "double"
-    .Call("R_LinearStatistic", x, y, weights, PACKAGE = "party")
+    .Call(R_LinearStatistic, x, y, weights)
 }
 
 ExpectCovarInfluence <- function(y, weights) {
     storage.mode(y) <- "double"
     storage.mode(weights) <- "double"
-    .Call("R_ExpectCovarInfluence", y, weights, PACKAGE = "party")
+    .Call(R_ExpectCovarInfluence, y, weights)
 }
 
 ExpectCovarLinearStatistic <- function(x, y, weights) {
@@ -105,8 +105,7 @@ ExpectCovarLinearStatistic <- function(x, y, weights) {
     storage.mode(y) <- "double"
     storage.mode(weights) <- "double"
     expcovinf <- ExpectCovarInfluence(y, weights)
-    .Call("R_ExpectCovarLinearStatistic", x, y, weights, expcovinf,
-          PACKAGE = "party")
+    .Call(R_ExpectCovarLinearStatistic, x, y, weights, expcovinf)
 }
 
 PermutedLinearStatistic <- function(x, y, indx, perm) {
@@ -124,8 +123,7 @@ PermutedLinearStatistic <- function(x, y, indx, perm) {
     perm <- perm - 1
     storage.mode(indx) <- "integer"
     storage.mode(perm) <- "integer"
-    .Call("R_PermutedLinearStatistic", x, y, indx, perm, 
-          PACKAGE = "party")
+    .Call(R_PermutedLinearStatistic, x, y, indx, perm)
 }
 
 ### Median Survival Time, see survival:::print.survfit
@@ -220,22 +218,21 @@ mysurvfit <- function(y, weights, ...) {
     return(survfit(y ~ 1, weights = weights, ...))
 }
 
-R_get_nodeID <- function(tree, inputs, mincriterion)
-    .Call("R_get_nodeID", tree, inputs, 0.0, -1L, PACKAGE = "party")
+.R_get_nodeID <- function(tree, inputs, mincriterion)
+    .Call(R_get_nodeID, tree, inputs, 0.0, -1L)
 
-R_getpredictions <- function(tree, where)
-    .Call("R_getpredictions", tree, where, PACKAGE = "party")
+.R_getpredictions <- function(tree, where)
+    .Call(R_getpredictions, tree, where)
 
 ### no longer available as for party 1.1-0
 #R_remove_weights <- function(tree, remove)
-#    .Call("R_remove_weights", tree, remove, package = "party")
+#    .Call(R_remove_weights, tree, remove)
 
 #R_modify_response <- function(y, responses)
-#    .Call("R_modify_response", as.double(y), responses,
-#          PACKAGE = "party")
+#    .Call(R_modify_response, as.double(y), responses)
 
-R_TreeGrow <- function(object, weights, ctrl)
-    .Call("R_TreeGrow", object, weights, ctrl, PACKAGE = "party")
+.R_TreeGrow <- function(object, weights, ctrl)
+    .Call(R_TreeGrow, object, weights, ctrl)
 
 copyslots <- function(source, target) {
     slots <- names(getSlots(class(source)))

@@ -1,5 +1,5 @@
 
-# $Id: Predict.R 587 2015-07-28 14:31:55Z thothorn $
+# $Id: Predict.R 630 2017-02-27 14:58:59Z thothorn $
 
 predict.BinaryTree <- function(object, ...) {
     conditionalTree@predict(object, ...)
@@ -65,7 +65,7 @@ setGeneric("nodes", function(object, where, ...) standardGeneric("nodes"))
 setMethod("nodes", signature = signature(object = "BinaryTree", 
                                          where = "integer"),
     definition = function(object, where, ...)
-        lapply(where, function(i) .Call("R_get_nodebynum", object@tree, i))
+        lapply(where, function(i) .Call(R_get_nodebynum, object@tree, i))
 )
 
 setMethod("nodes", signature = signature(object = "BinaryTree", 

@@ -20,7 +20,7 @@ for (i in 1:10) {
     A = matrix(rnorm(i*5), ncol = i, nrow = 5)
     B = matrix(rnorm(i*10), ncol = 10, nrow = i)
     Rkr = kronecker(A, B)
-    mykr = .Call("R_kronecker", A, B, PACKAGE = "party")
+    mykr = .Call(R_kronecker, A, B)
     stopifnot(isequal(Rkr, mykr))
 }
 
@@ -38,31 +38,31 @@ stopifnot(isequal(mpinvx, ginv(x)))
 
 ### test for function C_max
 y <- rnorm(1000)
-stopifnot(isequal(max(y), .Call("R_max", y, PACKAGE = "party")))
+stopifnot(isequal(max(y), .Call(R_max, y)))
 
 ### test for function C_abs
 y <- rnorm(1000)
-stopifnot(isequal(abs(y), .Call("R_abs", y, PACKAGE = "party")))
+stopifnot(isequal(abs(y), .Call(R_abs, y)))
 
 ### tests for function C_matprod{T}
 x <- matrix(rnorm(100), ncol = 4)
 y <- matrix(rnorm(40), nrow = 4)
 stopifnot(isequal(x %*% y, 
-                  .Call("R_matprod", x, y, PACKAGE = "party")))
+                  .Call(R_matprod, x, y)))
 x <- matrix(rnorm(100), ncol = 20)
 y <- matrix(rnorm(200), ncol = 20)
 stopifnot(isequal(x %*% t(y), 
-                  .Call("R_matprodT", x, y, PACKAGE = "party")))
+                  .Call(R_matprodT, x, y)))
 
 ### test for function C_SampleNoReplace
 ### permutation case
 m <- 10000
 storage.mode(m) <- "integer"
-perm <- .Call("R_permute", m, PACKAGE = "party") + 1 
+perm <- .Call(R_permute, m) + 1 
 stopifnot(all(sort(perm) == (1:m)))
 
 ### the random subset case
 k <- 100
 storage.mode(k) <- "integer"
-perm <- .Call("R_rsubset", m, k, PACKAGE = "party") + 1 
+perm <- .Call(R_rsubset, m, k) + 1 
 stopifnot(all(perm %in% (1:m)))

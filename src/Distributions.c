@@ -3,7 +3,7 @@
     Conditional Distributions
     *\file Distributions.c
     *\author $Author: thothorn $
-    *\date $Date: 2014-12-16 16:51:36 +0100 (Die, 16 Dez 2014) $
+    *\date $Date: 2017-02-27 12:02:30 +0100 (Mon, 27 Feb 2017) $
 */
                 
 #include "party.h"
@@ -142,7 +142,7 @@ double C_maxabsConditionalPvalue(const double tstat, const double *Sigma,
     ans = prob[0];
     Free(corr); Free(sd); Free(lower); Free(upper); 
     Free(infin); Free(delta); Free(myerror); Free(prob);
-    Free(n); Free(nu); Free(inform); 
+    Free(n); Free(nu); Free(inform); Free(index);
     return(1 - ans);  /* return P-value */
 }
 
