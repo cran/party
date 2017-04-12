@@ -1,4 +1,21 @@
 
+                CHANGES IN party VERSION 1.2-3 (2017-04-10)
+
+    o    predict(<cforest>, OOB = TRUE) in party < 1.2-0 was _correct_
+         and version 1.2-0 to 1.2-2 contained in incorrect "correction".
+         The test set error and the out-of-bag error are now (again) 
+         roughly equal. There won't be any correlation between 
+         observations and out-of-bag predictions when the response is
+         independent to all explanatory variables. Out-of-bag predictions 
+         in package partykit (>= 2.0-0) are now based on the same
+         out-of-bag weights and the results from both packages are 
+         roughly equivalent. The issue was first spotted by
+         Julian Karch and later by Andrew Sage.
+
+    o    comment on false alarms by maacheck / bcheck (email by
+         Tomas Kalibera April 10, 2017) in party/src/*c
+
+
                 CHANGES IN party VERSION 1.2-2 (2017-02-27)
 
     o    free memory in src/Distributions.c (pointed out by

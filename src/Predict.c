@@ -3,7 +3,7 @@
     Node splitting and prediction
     *\file Predict.c
     *\author $Author: thothorn $
-    *\date $Date: 2017-02-07 11:07:11 +0100 (Die, 07 Feb 2017) $
+    *\date $Date: 2017-04-10 14:59:27 +0200 (Mon, 10 Apr 2017) $
 */
                 
 #include "party.h"
@@ -472,32 +472,26 @@ SEXP R_predictRF_weights(SEXP forest, SEXP where, SEXP weights,
     PROTECT(ans = allocVector(VECSXP, nobs));
     
     for (i = 0; i < nobs; i++) {
-
         count = 0;
         SET_VECTOR_ELT(ans, i, bw = allocVector(REALSXP, ntrain));
         for (j = 0; j < ntrain; j++)
             REAL(bw)[j] = 0.0;
         for (b = 0; b < ntrees; b++) {
             tree = VECTOR_ELT(forest, b);
-            dw = REAL(VECTOR_ELT(weights, b));
+
+            if (oob && 
+                REAL(VECTOR_ELT(weights, b))[i] > 0.0) 
+                continue;
 
             iwhere = C_get_nodeID(tree, newinputs, REAL(mincriterion)[0], i, -1);
 
-            /* this was completely braindamaged in party < 1.2-0 */            
             for (j = 0; j < ntrain; j++) {
-                if (iwhere == INTEGER(VECTOR_ELT(where, b))[j]) {
-                    if (oob) {
-                        if (dw[j] == 0.0) {
-                            REAL(bw)[j] += 1.0;
-                            count++;
-                        }
-                    } else {
-                        REAL(bw)[j] += dw[j];
-                    }
-                }
+                if (iwhere == INTEGER(VECTOR_ELT(where, b))[j])
+                    REAL(bw)[j] += REAL(VECTOR_ELT(weights, b))[j];
             }
+            count++;
         }
-        if (oob && count == 0) 
+        if (count == 0) 
             error("cannot compute out-of-bag predictions for observation number %d", i + 1);
     }
     UNPROTECT(1);

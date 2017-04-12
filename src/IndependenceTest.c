@@ -3,7 +3,7 @@
     Functions for variable selection in each node of a tree
     *\file IndependenceTest.c
     *\author $Author: thothorn $
-    *\date $Date: 2017-02-08 11:49:22 +0100 (Mit, 08 Feb 2017) $
+    *\date $Date: 2017-04-10 17:01:54 +0200 (Mon, 10 Apr 2017) $
 */
                 
 #include "party.h"
@@ -82,6 +82,8 @@ void C_IndependenceTest(const SEXP x, const SEXP y, const SEXP weights,
     /* compute linear statistic and its conditional expectation and
        covariance
     */
+    /* GET_SLOT and ncol are assumed NOT to return a fresh object so
+       we don't PROTECT here */
     C_LinStatExpCov(REAL(x), ncol(x), REAL(y), ncol(y), 
                     REAL(weights), nrow(x), 1, 
                     GET_SLOT(linexpcov, PL2_expcovinfSym), linexpcov);
@@ -225,6 +227,8 @@ void C_GlobalTest(const SEXP learnsample, const SEXP weights,
                     continue; 
                 }
 
+               /* GET_SLOT is assumed NOT to return a fresh object so
+                  we don't PROTECT here */
                 C_LinStatExpCov(REAL(x), ncol(x), REAL(y), ncol(y),
                                 thisweights, nrow(x), RECALC, 
                                 GET_SLOT(xmem, PL2_expcovinfSym),
@@ -246,6 +250,8 @@ void C_GlobalTest(const SEXP learnsample, const SEXP weights,
                <FIXME> can we avoid to compute these things twice??? */ 
             if (get_teststat(varctrl) == 2) {
                 if (!has_missings(inputs, j)) {
+                    /* ncol is assumed NOT to return a fresh object so
+                       we don't PROTECT here */
                     C_LinStatExpCov(REAL(x), ncol(x), REAL(y), ncol(y),
                                     REAL(weights), nrow(x), !RECALC, expcovinf,
                                     xmem);

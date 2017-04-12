@@ -3,7 +3,7 @@
     Binary splits 
     *\file Splits.c
     *\author $Author: thothorn $
-    *\date $Date: 2017-02-08 11:50:18 +0100 (Mit, 08 Feb 2017) $
+    *\date $Date: 2017-04-10 17:01:54 +0200 (Mon, 10 Apr 2017) $
 */
                 
 #include "party.h"
@@ -331,6 +331,8 @@ SEXP R_splitcategorical(SEXP x, SEXP codingx, SEXP y, SEXP weights,
     SEXP ans, cutpoint, maxstat, statistics, levelset;
     double *standstat;
 
+    /* GET_SLOT / ncol are assumed NOT to return a fresh object so
+       we don't PROTECT here */
     C_LinStatExpCov(REAL(x), ncol(x), REAL(y), ncol(y), REAL(weights), nrow(x),
                     1, GET_SLOT(linexpcov, PL2_expcovinfSym), linexpcov);
 
