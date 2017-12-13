@@ -84,7 +84,7 @@ varimp <- function (object, mincriterion = 0, conditional = FALSE,
                 if (conditional || pre1.0_0) {
                     tmp <- inp
                     ccl <- create_cond_list(conditional, threshold, xnames[j], input)
-                    if (is.null(ccl)) {
+                    if (length(ccl) < 1) {
                         perm <- sample(which(oob))
                     } else {
                         perm <- conditional_perm(ccl, xnames, input, tree, oob)
@@ -165,7 +165,7 @@ varimpsurv <- function (object, mincriterion = 0, conditional = FALSE,
                  if (conditional || pre1.0_0) {
                     tmp <- inp
                     ccl <- create_cond_list(conditional, threshold, xnames[j], input)
-                    if (is.null(ccl)) {
+                    if (length(ccl) < 1) {
                         perm <- sample(which(oob))
                     } else {
                         perm <- conditional_perm(ccl, xnames, input, tree, oob)
@@ -213,16 +213,15 @@ cutpoints_list <- function(tree, variableID) {
 
 conditional_perm <- function(cond, xnames, input, tree, oob){
 
-    ## get cutpoints of all conditioning variables of the current variable of interest 
-    ## and generate design matrix for permutation from factors in help
-    blocks <- vector(mode = "list", length = length(cond))
+    ## intitial partitioning => all observations in one partition
+    parts <- rep(1, length(oob))
                     
-    for (i in 1:length(cond)) {
+    ## develop partitioning by going over all the conditiong variables
+    for (condVar in cond) {
 
         ## varID is variable index or column number of input (predictor matrix) 
         ## not variable name!
-        varID <- which(xnames == cond[i])
-
+        varID <- which(xnames == condVar)
 
         ## if conditioning variable is not used for splitting in current tree
         ## proceed with next conditioning variable
@@ -260,30 +259,23 @@ conditional_perm <- function(cond, xnames, input, tree, oob){
                             }
                             as.factor(block)
                          })
-         blocks[[i]] <- block
+        ## add partitioning based on the split points the variable to the 
+        ## current partitioning
+        parts <- interaction(parts, as.numeric(block), drop = TRUE, sep = "")
     }
 
-    ## remove non-splitting variables
-    names(blocks) <- cond
-    blocks <- blocks[!sapply(blocks, is.null)]
-
     ## if none of the conditioning variables are used in the tree
-    if (!length(blocks)>0){
+    if (!length(levels(parts)) > 1) {
         perm <- sample(which(oob))
         return(perm)
     } else {
-        blocks <- as.data.frame(blocks)
-        ## from factors blocks create design matrix
-        f <- paste("~ - 1 + ", paste(colnames(blocks), collapse = ":", sep = ""))
-        des <- model.matrix(as.formula(f), data = blocks)
-
         ## one conditional permutation
         perm <- 1:nrow(input)
-        for (l in 1:ncol(des)) {
-           index <- which(des[,l] > 0 & oob)
+        for(part in levels(parts)){
+           index <- which(parts == part & oob)
            if (length(index) > 1)
-               perm[index] <- sample(index)
-           }
+               perm[index] <- .resample(index)
+        }
         return(perm[oob])
     }
 }
@@ -353,7 +345,7 @@ varimpAUC <- function(object, mincriterion = 0, conditional = FALSE,
                 if (conditional || pre1.0_0) {
                     tmp <- inp
                     ccl <- create_cond_list(conditional, threshold, xnames[j], input)
-                    if (is.null(ccl)) {
+                    if (length(ccl) < 1) {
                         perm <- sample(which(oob))
                     } else {
                         perm <- conditional_perm(ccl, xnames, input, tree, oob)
@@ -372,4 +364,3 @@ varimpAUC <- function(object, mincriterion = 0, conditional = FALSE,
     perror <- as.data.frame(perror)
     return(MeanDecreaseAccuracy = colMeans(perror, na.rm = TRUE)) ## na.rm = TRUE because with AUC-perm. VIM NA values occur whenever a tree's OOB-observations are all from the same class
 }
-

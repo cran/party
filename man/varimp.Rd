@@ -20,11 +20,12 @@ varimpAUC(object, mincriterion = 0, conditional = FALSE,
                        guarantees that all splits are included.}
   \item{conditional}{ a logical determining whether unconditional or conditional 
                       computation of the importance is performed. }
-  \item{threshold}{ the value of the test statistic or 1 - p-value of the association 
-                    between the variable of interest and a covariate that must be 
-                    exceeded inorder to include the covariate in the conditioning 
-                    scheme for the variable of interest (only relevant if 
-                    \code{conditional = TRUE}). }
+  \item{threshold}{ the threshold value for (1 - p-value) of the association 
+                    between the variable of interest and a covariate, which must be 
+                     exceeded inorder to include the covariate in the conditioning 
+                     scheme for the variable of interest (only relevant if 
+                    \code{conditional = TRUE}). A threshold value of zero includes 
+                    all covariates.}
   \item{nperm}{ the number of permutations performed.}
   \item{OOB}{ a logical determining whether the importance is computed from the out-of-bag 
               sample or the learning sample (not suggested).}

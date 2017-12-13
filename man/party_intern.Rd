@@ -9,7 +9,7 @@ Call one of the internal party functions.
 \usage{
 party_intern(..., fun = c("R_TreeGrow", "R_get_nodeID", 
              "R_getpredictions", "initVariableFrame", 
-             "ctreedpp", "newinputs"))
+             "ctreedpp", "newinputs", "R_predict"))
 }
 \arguments{
   \item{\dots}{Arguments to \code{fun}.}

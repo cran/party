@@ -3,7 +3,7 @@
     Functions for variable selection in each node of a tree
     *\file IndependenceTest.c
     *\author $Author: thothorn $
-    *\date $Date: 2017-04-10 17:01:54 +0200 (Mon, 10 Apr 2017) $
+    *\date $Date: 2017-04-24 16:39:53 +0200 (Mon, 24 Apr 2017) $
 */
                 
 #include "party.h"
@@ -139,7 +139,7 @@ void C_GlobalTest(const SEXP learnsample, const SEXP weights,
     SEXP Smtry;
     double *thisweights, *pvaltmp, stweights = 0.0;
     int RANDOM, mtry, *randomvar, *index;
-    int *dontuse, *dontusetmp;
+    int *dontuse, *dontusetmp, countvars = 0;
     
     ninputs = get_ninputs(learnsample);
     nobs = get_nobs(learnsample);
@@ -196,6 +196,7 @@ void C_GlobalTest(const SEXP learnsample, const SEXP weights,
             Free(randomvar);
         }
 
+        countvars = 0;
         for (j = 1; j <= ninputs; j++) {
 
             if ((RANDOM && dontusetmp[j - 1]) || dontuse[j - 1]) {
@@ -235,6 +236,9 @@ void C_GlobalTest(const SEXP learnsample, const SEXP weights,
                                 xmem);
             }
 
+            /* count the number of non-constant variables */
+            countvars++;
+
             /* teststat = "quad" 
                ATTENTION: we mess with xmem by putting elements with zero variances last
                           but C_Node() reuses the original xmem for setting up 
@@ -270,7 +274,7 @@ void C_GlobalTest(const SEXP learnsample, const SEXP weights,
             /* Bonferroni: p_adj = 1 - (1 - p)^k */
             case BONFERRONI: 
                     for (j = 0; j < ninputs; j++)
-                        ans_criterion[j] = R_pow_di(ans_criterion[j], ninputs);
+                        ans_criterion[j] = R_pow_di(ans_criterion[j], countvars);
                     break;
             /* Monte-Carlo */
             case MONTECARLO: 

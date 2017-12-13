@@ -3,7 +3,7 @@
     Node splitting and prediction
     *\file Predict.c
     *\author $Author: thothorn $
-    *\date $Date: 2017-04-10 14:59:27 +0200 (Mon, 10 Apr 2017) $
+    *\date $Date: 2017-04-24 16:39:42 +0200 (Mon, 24 Apr 2017) $
 */
                 
 #include "party.h"
@@ -454,7 +454,6 @@ SEXP R_predictRF_weights(SEXP forest, SEXP where, SEXP weights,
 
     SEXP ans, tree, bw;
     int ntrees, nobs, i, b, j, iwhere, oob = 0, count = 0, ntrain;
-    double *dw;
     
     if (LOGICAL(oobpred)[0]) oob = 1;
     

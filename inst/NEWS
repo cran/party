@@ -1,4 +1,14 @@
 
+
+                CHANGES IN party VERSION 1.2-4 (2017-12-13)
+
+    o    Bonferroni sometimes overcorrected (by taking constant variables into account). 
+         Spotted by Heidi Seibold.
+
+    o    Bugfix for long-standing problem in conditional variable importances
+         by Dries Debeer.
+
+
                 CHANGES IN party VERSION 1.2-3 (2017-04-10)
 
     o    predict(<cforest>, OOB = TRUE) in party < 1.2-0 was _correct_

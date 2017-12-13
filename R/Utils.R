@@ -1,5 +1,5 @@
 
-# $Id: Utils.R 630 2017-02-27 14:58:59Z thothorn $
+# $Id: Utils.R 641 2017-12-01 09:45:19Z thothorn $
 
 ### Wrapper for functions defined in ./src/Utilsc
 
@@ -243,3 +243,5 @@ copyslots <- function(source, target) {
         eval(parse(text = paste("target@", s, " <- source@", s)))
     return(target)
 }
+
+.resample <- function(x, ...) x[sample.int(length(x), ...)]
