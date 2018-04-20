@@ -74,7 +74,7 @@ varimp <- function (object, mincriterion = 0, conditional = FALSE,
 
             ## if OOB == TRUE use only oob observations, otherwise use all observations in learning sample
             if(OOB){oob <- object@weights[[b]] == 0} else{ oob <- rep(TRUE, length(y))}
-            p <- .Call(R_predict, tree, inp, mincriterion, -1L)
+            p <- .R_predict(tree, inp, mincriterion, -1L)
             eoob <- error(p, oob)
 
             ## for all variables (j = 1 ... number of variables) 
@@ -90,9 +90,9 @@ varimp <- function (object, mincriterion = 0, conditional = FALSE,
                         perm <- conditional_perm(ccl, xnames, input, tree, oob)
                     }
                     tmp@variables[[j]][which(oob)] <- tmp@variables[[j]][perm]
-                    p <- .Call(R_predict, tree, tmp, mincriterion, -1L)
+                    p <- .R_predict(tree, tmp, mincriterion, -1L)
                 } else {
-                    p <- .Call(R_predict, tree, inp, mincriterion, as.integer(j))
+                    p <- .R_predict(tree, inp, mincriterion, as.integer(j))
                 }
                 ## run through all rows of perror
                 perror[(per+(b-1)*nperm), j] <- (error(p, oob) - eoob)
@@ -336,7 +336,7 @@ varimpAUC <- function(object, mincriterion = 0, conditional = FALSE,
             tree <- object@ensemble[[b]]
 
             if(OOB){oob <- object@weights[[b]] == 0} else{ oob <- rep(TRUE, length(xnames))}
-            p <- .Call(R_predict, tree, inp, mincriterion, -1L)
+            p <- .R_predict(tree, inp, mincriterion, -1L)
             eoob <- error(p, oob)
 
             for(j in unique(varIDs(tree))){
@@ -351,9 +351,9 @@ varimpAUC <- function(object, mincriterion = 0, conditional = FALSE,
                         perm <- conditional_perm(ccl, xnames, input, tree, oob)
                     }
                     tmp@variables[[j]][which(oob)] <- tmp@variables[[j]][perm]
-                    p <- .Call(R_predict, tree, tmp, mincriterion, -1L)
+                    p <- .R_predict(tree, tmp, mincriterion, -1L)
                 } else {
-                    p <- .Call(R_predict, tree, inp, mincriterion, as.integer(j))
+                    p <- .R_predict(tree, inp, mincriterion, as.integer(j))
                 }
                 perror[(per+(b-1)*nperm), j] <- (error(p, oob) - eoob)
 

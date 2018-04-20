@@ -22,7 +22,7 @@ extern SEXP R_maxabsTestStatistic(SEXP, SEXP, SEXP, SEXP);
 extern SEXP R_MPinv(SEXP, SEXP, SEXP);
 extern SEXP R_PermutedLinearStatistic(SEXP, SEXP, SEXP, SEXP);
 extern SEXP R_predict(SEXP, SEXP, SEXP, SEXP);
-extern SEXP R_predictRF_weights(SEXP, SEXP, SEXP, SEXP, SEXP, SEXP);
+extern SEXP R_predictRF_weights(SEXP, SEXP, SEXP, SEXP, SEXP, SEXP, SEXP);
 extern SEXP R_proximity(SEXP);
 extern SEXP R_quadformTestStatistic(SEXP, SEXP, SEXP);
 extern SEXP R_split(SEXP, SEXP, SEXP, SEXP, SEXP, SEXP, SEXP);
@@ -55,7 +55,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"R_MPinv",                      (DL_FUNC) &R_MPinv,                      3},
     {"R_PermutedLinearStatistic",    (DL_FUNC) &R_PermutedLinearStatistic,    4},
     {"R_predict",                    (DL_FUNC) &R_predict,                    4},
-    {"R_predictRF_weights",          (DL_FUNC) &R_predictRF_weights,          6},
+    {"R_predictRF_weights",          (DL_FUNC) &R_predictRF_weights,          7},
     {"R_proximity",                  (DL_FUNC) &R_proximity,                  1},
     {"R_quadformTestStatistic",      (DL_FUNC) &R_quadformTestStatistic,      3},
     {"R_split",                      (DL_FUNC) &R_split,                      7},

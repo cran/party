@@ -1,5 +1,5 @@
 
-# $Id: Utils.R 641 2017-12-01 09:45:19Z thothorn $
+# $Id: Utils.R 647 2018-02-26 11:15:00Z thothorn $
 
 ### Wrapper for functions defined in ./src/Utilsc
 
@@ -233,6 +233,13 @@ mysurvfit <- function(y, weights, ...) {
 
 .R_TreeGrow <- function(object, weights, ctrl)
     .Call(R_TreeGrow, object, weights, ctrl)
+
+.R_getpredictions <- function(tree, where)
+    .Call(R_getpredictions, tree, where)
+
+.R_predict <- function(tree, newinputs, mincriterion, varperm)
+    .Call(R_predict, tree, newinputs, mincriterion, varperm)
+
 
 copyslots <- function(source, target) {
     slots <- names(getSlots(class(source)))

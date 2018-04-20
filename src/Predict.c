@@ -3,7 +3,7 @@
     Node splitting and prediction
     *\file Predict.c
     *\author $Author: thothorn $
-    *\date $Date: 2017-04-24 16:39:42 +0200 (Mon, 24 Apr 2017) $
+    *\date $Date: 2018-03-26 14:18:17 +0200 (Mon, 26 Mär 2018) $
 */
                 
 #include "party.h"
@@ -450,10 +450,10 @@ SEXP R_getpredictions(SEXP tree, SEXP where) {
 */
 
 SEXP R_predictRF_weights(SEXP forest, SEXP where, SEXP weights, 
-                         SEXP newinputs, SEXP mincriterion, SEXP oobpred) {
+                         SEXP newinputs, SEXP mincriterion, SEXP oobpred, SEXP scale) {
 
     SEXP ans, tree, bw;
-    int ntrees, nobs, i, b, j, iwhere, oob = 0, count = 0, ntrain;
+    int ntrees, nobs, i, b, j, iwhere, oob = 0, count = 0, ntrain, *tnsize;
     
     if (LOGICAL(oobpred)[0]) oob = 1;
     
@@ -470,6 +470,9 @@ SEXP R_predictRF_weights(SEXP forest, SEXP where, SEXP weights,
     
     PROTECT(ans = allocVector(VECSXP, nobs));
     
+    tnsize = Calloc(ntrain, int);
+    for (j = 0; j < ntrain; j++) tnsize[j] = 1;
+    
     for (i = 0; i < nobs; i++) {
         count = 0;
         SET_VECTOR_ELT(ans, i, bw = allocVector(REALSXP, ntrain));
@@ -484,15 +487,25 @@ SEXP R_predictRF_weights(SEXP forest, SEXP where, SEXP weights,
 
             iwhere = C_get_nodeID(tree, newinputs, REAL(mincriterion)[0], i, -1);
 
+            /* possibly scale by sum of weights in each terminal node */
+            if (LOGICAL(scale)[0]) {
+                for (j = 0; j < ntrain; j++)
+                    tnsize[j] = 0;
+                for (j = 0; j < ntrain; j++)
+                    tnsize[INTEGER(VECTOR_ELT(where, b))[j] - 1] += REAL(VECTOR_ELT(weights, b))[j];
+            }
+
             for (j = 0; j < ntrain; j++) {
                 if (iwhere == INTEGER(VECTOR_ELT(where, b))[j])
-                    REAL(bw)[j] += REAL(VECTOR_ELT(weights, b))[j];
+                    REAL(bw)[j] += REAL(VECTOR_ELT(weights, b))[j] / 
+                                   tnsize[INTEGER(VECTOR_ELT(where, b))[j] - 1];
             }
             count++;
         }
         if (count == 0) 
             error("cannot compute out-of-bag predictions for observation number %d", i + 1);
     }
+    Free(tnsize);
     UNPROTECT(1);
     return(ans);
 }

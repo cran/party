@@ -1,6 +1,6 @@
 
-R version 3.3.2 (2016-10-31) -- "Sincere Pumpkin Patch"
-Copyright (C) 2016 The R Foundation for Statistical Computing
+R version 3.4.3 (2017-11-30) -- "Kite-Eating Tree"
+Copyright (C) 2017 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -60,13 +60,13 @@ $`1`
 Call: survfit(formula = y ~ 1, weights = weights)
 
 records       n  events  median 0.95LCL 0.95UCL 
-    146     402     213    1753    1601    1814 
+  146.0    30.0    15.9  1753.0  1157.0      NA 
 
 $`2`
 Call: survfit(formula = y ~ 1, weights = weights)
 
 records       n  events  median 0.95LCL 0.95UCL 
-    148     393     176    1975    1502    2015 
+  148.0    30.0    13.4  1975.0  1120.0      NA 
 
 > 
 > ### give it a try, at least
@@ -170,4 +170,4 @@ Sepal.Length  Sepal.Width Petal.Length  Petal.Width
 > 
 > proc.time()
    user  system elapsed 
-  2.472   0.020   2.490 
+  3.040   0.068   3.104 

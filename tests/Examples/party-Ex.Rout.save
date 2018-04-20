@@ -1,5 +1,5 @@
 
-R version 3.3.3 (2017-03-06) -- "Another Canoe"
+R version 3.4.3 (2017-11-30) -- "Kite-Eating Tree"
 Copyright (C) 2017 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
@@ -157,8 +157,8 @@ Loading required package: sandwich
 +                                OOB = TRUE))
                
                 Never Within a Year Over a Year
-  Never           193            28          13
-  Within a Year    60            43           1
+  Never           189            29          16
+  Within a Year    58            43           3
   Over a Year      56            18           0
 > 
 > 
@@ -264,8 +264,8 @@ attr(,"assign")
 +                                OOB = TRUE))
                
                 Never Within a Year Over a Year
-  Never           193            28          13
-  Within a Year    60            43           1
+  Never           189            29          16
+  Within a Year    58            43           3
   Over a Year      56            18           0
 > 
 >     ### fit forest to censored response
@@ -964,7 +964,7 @@ nativeSpeaker           age      shoeSize
 > ###
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  8.748 0.068 8.82 0 0 
+Time elapsed:  10.712 0.068 10.788 0 0 
 > grDevices::dev.off()
 null device 
           1 
