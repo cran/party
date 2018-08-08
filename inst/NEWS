@@ -1,5 +1,10 @@
 
 
+                CHANGES IN party VERSION 1.3-1 (2018-08-08)
+
+    o    varimpAUC() now calls varImp::varImpAUC()
+
+
                 CHANGES IN party VERSION 1.3-0 (2018-04-20)
 
     o    New scale argument for predict(<cforest>, scale = TRUE, ...).
