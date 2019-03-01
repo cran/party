@@ -1,6 +1,6 @@
 
-R version 3.4.3 (2017-11-30) -- "Kite-Eating Tree"
-Copyright (C) 2017 The R Foundation for Statistical Computing
+R Under development (unstable) (2019-02-28 r76174) -- "Unsuffered Consequences"
+Copyright (C) 2019 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -16,6 +16,10 @@ Type 'demo()' for some demos, 'help()' for on-line help, or
 Type 'q()' to quit R.
 
 > 
+> RNGversion("3.5.2")
+Warning message:
+In RNGkind("Mersenne-Twister", "Inversion", "Rounding") :
+  non-uniform 'Rounding' sampler used
 > set.seed(290875)
 > library("party")
 Loading required package: grid
@@ -170,4 +174,4 @@ Sepal.Length  Sepal.Width Petal.Length  Petal.Width
 > 
 > proc.time()
    user  system elapsed 
-  3.040   0.068   3.104 
+  4.364   0.156   4.520 

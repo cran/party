@@ -15,9 +15,6 @@ import("sandwich")
 import("grid")
 import("mvtnorm")
 
-importClassesFrom("coin", "ExpectCovar", "ExpectCovarInfluence")
-importMethodsFrom("coin", "initialize")
-
 importFrom("grDevices", "gray.colors")
 importFrom("graphics", "barplot", "boxplot", "hist", "lines", "points")
 importFrom("stats", "weights", "approx", "as.formula", "coef", "complete.cases",

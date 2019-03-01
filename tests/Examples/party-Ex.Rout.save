@@ -1,6 +1,6 @@
 
-R version 3.4.3 (2017-11-30) -- "Kite-Eating Tree"
-Copyright (C) 2017 The R Foundation for Statistical Computing
+R Under development (unstable) (2019-02-28 r76174) -- "Unsuffered Consequences"
+Copyright (C) 2019 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -37,6 +37,7 @@ The following objects are masked from ‘package:base’:
 Loading required package: sandwich
 > 
 > base::assign(".oldSearch", base::search(), pos = 'CheckExEnv')
+> base::assign(".old_wd", base::getwd(), pos = 'CheckExEnv')
 > cleanEx()
 > nameEx("BinaryTree-class")
 > ### * BinaryTree-class
@@ -870,12 +871,12 @@ nativeSpeaker           age      shoeSize
 >    # the same modulo random variation
 >    varimp(readingSkills.cf, pre1.0_0 = TRUE)
 nativeSpeaker           age      shoeSize 
-     13.06254      80.44754      14.38979 
+     12.88414      79.09714      15.37933 
 > 
 >    # conditional importance, may take a while...
 >    varimp(readingSkills.cf, conditional = TRUE) 
 nativeSpeaker           age      shoeSize 
-    11.870034     52.114547      1.461803 
+    11.466498     51.125596      1.521413 
 > 
 > 
 > 
@@ -935,12 +936,12 @@ nativeSpeaker           age      shoeSize
 >    # the same modulo random variation
 >    varimp(readingSkills.cf, pre1.0_0 = TRUE)
 nativeSpeaker           age      shoeSize 
-     13.06254      80.44754      14.38979 
+     12.88414      79.09714      15.37933 
 > 
 >    # conditional importance, may take a while...
 >    varimp(readingSkills.cf, conditional = TRUE)
 nativeSpeaker           age      shoeSize 
-    11.870034     52.114547      1.461803 
+    11.466498     51.125596      1.521413 
 > 
 >    ## Not run: 
 > ##D    data("GBSG2", package = "TH.data")
@@ -962,9 +963,10 @@ nativeSpeaker           age      shoeSize
 > 
 > ### * <FOOTER>
 > ###
+> cleanEx()
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  10.712 0.068 10.788 0 0 
+Time elapsed:  13.844 0.188 14.031 0 0 
 > grDevices::dev.off()
 null device 
           1 
