@@ -3,7 +3,7 @@
     Functions for variable selection in each node of a tree
     *\file IndependenceTest.c
     *\author $Author: thothorn $
-    *\date $Date: 2017-04-24 16:39:53 +0200 (Mon, 24 Apr 2017) $
+    *\date $Date: 2019-03-05 14:35:06 +0100 (Di, 05 Mär 2019) $
 */
                 
 #include "party.h"
@@ -86,7 +86,8 @@ void C_IndependenceTest(const SEXP x, const SEXP y, const SEXP weights,
        we don't PROTECT here */
     C_LinStatExpCov(REAL(x), ncol(x), REAL(y), ncol(y), 
                     REAL(weights), nrow(x), 1, 
-                    GET_SLOT(linexpcov, PL2_expcovinfSym), linexpcov);
+                    PROTECT(GET_SLOT(linexpcov, PL2_expcovinfSym)), linexpcov);
+    UNPROTECT(1);
 
     /* compute test statistic */
     if (get_teststat(varctrl) == 2) 
@@ -232,8 +233,9 @@ void C_GlobalTest(const SEXP learnsample, const SEXP weights,
                   we don't PROTECT here */
                 C_LinStatExpCov(REAL(x), ncol(x), REAL(y), ncol(y),
                                 thisweights, nrow(x), RECALC, 
-                                GET_SLOT(xmem, PL2_expcovinfSym),
+                                PROTECT(GET_SLOT(xmem, PL2_expcovinfSym)),
                                 xmem);
+                UNPROTECT(1);
             }
 
             /* count the number of non-constant variables */
@@ -262,8 +264,9 @@ void C_GlobalTest(const SEXP learnsample, const SEXP weights,
                 } else {
                     C_LinStatExpCov(REAL(x), ncol(x), REAL(y), ncol(y),
                                     thisweights, nrow(x), RECALC, 
-                                    GET_SLOT(xmem, PL2_expcovinfSym),
+                                    PROTECT(GET_SLOT(xmem, PL2_expcovinfSym)),
                                     xmem);
+                    UNPROTECT(1);
                 }
             }
             /* </FIXME> */

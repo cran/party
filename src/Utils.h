@@ -21,3 +21,4 @@ void C_SampleSplitting(int n, double *prob, int *weights, int k);
 void C_remove_weights(SEXP subtree, int removestats);
 double* C_tempweights(int j, double *dweights, SEXP fitmem, SEXP inputs);
 void C_linexpcovReduce (SEXP x);
+SEXP party_NEW_OBJECT(const char* classname);

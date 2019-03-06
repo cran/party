@@ -5,7 +5,7 @@ SEXP new_ExpectCovarInfluence(int q) {
 
     SEXP ans, expect, covar, sw;
 
-    PROTECT(ans = NEW_OBJECT(MAKE_CLASS("ExpectCovarInfluence")));
+    PROTECT(ans = party_NEW_OBJECT("ExpectCovarInfluence"));
     SET_SLOT(ans, PL2_expectationSym,
              expect = PROTECT(allocVector(REALSXP, q)));
     for (int i = 0; i < q; i++)
@@ -26,7 +26,7 @@ SEXP new_LinStatExpectCovar(int p, int q) {
 
     SEXP ans, expect, covar, linearstatistic;
 
-    PROTECT(ans = NEW_OBJECT(MAKE_CLASS("LinStatExpectCovar")));
+    PROTECT(ans = party_NEW_OBJECT("LinStatExpectCovar"));
 
     SET_SLOT(ans, PL2_expectationSym, expect = PROTECT(allocVector(REALSXP, p * q)));
     for (int i = 0; i < p * q; i++)
@@ -53,7 +53,7 @@ SEXP new_svd_mem(int p) {
 
     SEXP ans, u, v, s;
 
-    PROTECT(ans = NEW_OBJECT(MAKE_CLASS("svd_mem")));
+    PROTECT(ans = party_NEW_OBJECT("svd_mem"));
 
     SET_SLOT(ans, PL2_pSym, PROTECT(ScalarInteger(p)));
     SET_SLOT(ans, PL2_methodSym, PROTECT(mkString("dgesdd")));
@@ -79,7 +79,7 @@ SEXP new_LinStatExpectCovarMPinv(int p, int q) {
 
     SEXP ans, expect, covar, linearstatistic, MPinv;
 
-    PROTECT(ans = NEW_OBJECT(MAKE_CLASS("LinStatExpectCovarMPinv")));
+    PROTECT(ans = party_NEW_OBJECT("LinStatExpectCovarMPinv"));
 
     SET_SLOT(ans, PL2_expectationSym, expect = PROTECT(allocVector(REALSXP, p * q)));
     for (int i = 0; i < p * q; i++)
@@ -120,7 +120,7 @@ SEXP ctree_memory (SEXP object, SEXP MP_INV) {
     ninputs = get_ninputs(object);
     nobs = get_nobs(object);
 
-    ans = PROTECT(NEW_OBJECT(MAKE_CLASS("TreeFitMemory")));
+    ans = PROTECT(party_NEW_OBJECT("TreeFitMemory"));
     SET_SLOT(ans, PL2_expcovinfSym, PROTECT(new_ExpectCovarInfluence(q)));
     SET_SLOT(ans, PL2_expcovinfssSym, PROTECT(new_ExpectCovarInfluence(1)));
     SET_SLOT(ans, PL2_linexpcov2sampleSym, PROTECT(new_LinStatExpectCovar(1, q)));

@@ -3,7 +3,7 @@
     Suggorgate splits
     *\file SurrogateSplits.c
     *\author $Author: thothorn $
-    *\date $Date: 2017-04-10 17:01:54 +0200 (Mon, 10 Apr 2017) $
+    *\date $Date: 2019-03-05 14:35:06 +0100 (Di, 05 Mär 2019) $
 */
                 
 #include "party.h"
@@ -140,8 +140,8 @@ void C_surrogates(SEXP node, SEXP learnsample, SEXP weights, SEXP controls,
         cut = cutpoint[order[j] - 1];
         /* this might give warnings about split being
            UNPROTECTed but is is since node is PROTECTed */
-        SET_VECTOR_ELT(S3get_surrogatesplits(node), j, 
-                       split = allocVector(VECSXP, SPLIT_LENGTH));
+        PROTECT(split = allocVector(VECSXP, SPLIT_LENGTH));
+        SET_VECTOR_ELT(S3get_surrogatesplits(node), j, split);
         C_init_orderedsplit(split, 0);
         S3set_variableID(split, order[j]);
         REAL(S3get_splitpoint(split))[0] = cut;
@@ -160,6 +160,7 @@ void C_surrogates(SEXP node, SEXP learnsample, SEXP weights, SEXP controls,
         }
         S3set_toleft(split, (int) (twotab[0] - twotab[1] * twotab[2] / 
                      twotab[3]) > 0);
+        UNPROTECT(1);
     }
     
     Free(maxstat);

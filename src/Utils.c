@@ -3,7 +3,7 @@
     Some commonly needed utility functions.
     *\file Utils.c
     *\author $Author: thothorn $
-    *\date $Date: 2017-04-10 17:01:54 +0200 (Mon, 10 Apr 2017) $
+    *\date $Date: 2019-03-05 14:35:06 +0100 (Di, 05 Mär 2019) $
 */
                 
 #include "party.h"
@@ -179,10 +179,13 @@ void C_svd (SEXP x, SEXP svdmem) {
 
     /* GET_SLOT is assumed NOT to return a fresh object so
        we don't PROTECT here */
-    CR_La_svd(p, GET_SLOT(svdmem, PL2_jobuSym), 
-        GET_SLOT(svdmem, PL2_jobvSym), x, GET_SLOT(svdmem, PL2_sSym), 
-        GET_SLOT(svdmem, PL2_uSym), GET_SLOT(svdmem, PL2_vSym), 
-        GET_SLOT(svdmem, PL2_methodSym));
+    CR_La_svd(p, PROTECT(GET_SLOT(svdmem, PL2_jobuSym)), 
+        PROTECT(GET_SLOT(svdmem, PL2_jobvSym)), x, 
+        PROTECT(GET_SLOT(svdmem, PL2_sSym)), 
+        PROTECT(GET_SLOT(svdmem, PL2_uSym)), 
+        PROTECT(GET_SLOT(svdmem, PL2_vSym)), 
+        PROTECT(GET_SLOT(svdmem, PL2_methodSym)));
+    UNPROTECT(6);
     /* return(R_NilValue); */
 }
 
@@ -388,7 +391,7 @@ SEXP R_MPinv (SEXP x, SEXP tol, SEXP svdmem) {
         error("R_MPinv: dimensions don't match");
     */
 
-    PROTECT(ans = NEW_OBJECT(MAKE_CLASS("LinStatExpectCovarMPinv")));
+    PROTECT(ans = party_NEW_OBJECT("LinStatExpectCovarMPinv"));
     SET_SLOT(ans, PL2_MPinvSym, PROTECT(allocMatrix(REALSXP, p, p)));
     SET_SLOT(ans, PL2_rankSym, PROTECT(allocVector(REALSXP, 1)));
     
@@ -871,4 +874,11 @@ double* C_tempweights(int j, double *dweights, SEXP fitmem, SEXP inputs) {
         dw[iNAs[k] - 1] = 0.0;
     
     return(dw);
+}
+
+SEXP party_NEW_OBJECT(const char* classname)
+{
+    SEXP ans = NEW_OBJECT(PROTECT(MAKE_CLASS(classname)));
+    UNPROTECT(1);
+    return ans;
 }

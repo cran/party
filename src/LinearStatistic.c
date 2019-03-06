@@ -2,8 +2,8 @@
 /**
     Linear statistics for conditional inference based on Strasser & Weber (1999)
     *\file LinearStatistic.c
-    *\author $Author: hothorn $
-    *\date $Date: 2011-05-06 17:01:10 +0200 (Fre, 06 Mai 2011) $
+    *\author $Author: thothorn $
+    *\date $Date: 2019-03-04 11:23:08 +0100 (Mo, 04 Mär 2019) $
 */
     
 #include "party.h"
@@ -182,7 +182,7 @@ SEXP R_ExpectCovarInfluence(SEXP y, SEXP weights) {
         error("R_ExpectCovarInfluence: vector of case weights does not have %d elements", n);
 
     /*  allocate storage for return values */
-    PROTECT(ans = NEW_OBJECT(MAKE_CLASS("ExpectCovarInfluence")));
+    PROTECT(ans = party_NEW_OBJECT("ExpectCovarInfluence"));
     SET_SLOT(ans, PL2_expectationSym, 
              PROTECT(allocVector(REALSXP, q)));
     SET_SLOT(ans, PL2_covarianceSym, 
@@ -319,7 +319,7 @@ SEXP R_ExpectCovarLinearStatistic(SEXP x, SEXP y, SEXP weights,
     if (LENGTH(weights) != n) 
         error("vector of case weights does not have %d elements", n);
 
-    PROTECT(ans = NEW_OBJECT(MAKE_CLASS("ExpectCovar")));
+    PROTECT(ans = party_NEW_OBJECT("ExpectCovar"));
     SET_SLOT(ans, PL2_expectationSym, 
              PROTECT(allocVector(REALSXP, pq)));
     SET_SLOT(ans, PL2_covarianceSym, 

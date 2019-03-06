@@ -3,7 +3,7 @@
     Random forest with conditional inference trees
     *\file RandomForest.c
     *\author $Author: thothorn $
-    *\date $Date: 2017-02-06 17:53:27 +0100 (Mon, 06 Feb 2017) $
+    *\date $Date: 2019-03-04 11:23:08 +0100 (Mo, 04 Mär 2019) $
 */
 
 #include "party.h"
@@ -30,7 +30,7 @@ SEXP R_Ensemble(SEXP learnsample, SEXP weights, SEXP controls) {
      B = get_ntree(controls);
      nobs = get_nobs(learnsample);
      
-     PROTECT(ans = NEW_OBJECT(MAKE_CLASS("RandomForest")));
+     PROTECT(ans = party_NEW_OBJECT("RandomForest"));
      PROTECT(bwhere = allocVector(VECSXP, B));
      PROTECT(bweights = allocVector(VECSXP, B));
      PROTECT(ensemble = allocVector(VECSXP, B));
@@ -170,7 +170,7 @@ SEXP R_Ensemble_weights(SEXP learnsample, SEXP bweights,
      B = get_ntree(controls);
      nobs = get_nobs(learnsample);
      
-     PROTECT(ans = NEW_OBJECT(MAKE_CLASS("RandomForest")));
+     PROTECT(ans = party_NEW_OBJECT("RandomForest"));
      PROTECT(bwhere = allocVector(VECSXP, B));
      PROTECT(ensemble = allocVector(VECSXP, B));
      PROTECT(fitmem = ctree_memory(learnsample, PROTECT(ScalarLogical(1))));
