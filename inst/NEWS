@@ -1,5 +1,9 @@
 
 
+                CHANGES IN party VERSION 1.3-4 (2020-03-05)
+
+    o    /bin/sh is portable
+
                 CHANGES IN party VERSION 1.3-3 (2019-03-04)
 
     o    make rchk happier

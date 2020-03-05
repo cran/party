@@ -103,7 +103,7 @@ the $n$ observations with respect to these variables and find a fitting model
 in each cell of the partition. The algorithm described here tries to find
 such a partition adaptively using a greedy forward search. This procedure is
 implemented in the function \code{mob()} and described in more detail in the following
-section. However, we we will state some goals and design principles in advance.
+section. However, we will state some goals and design principles in advance.
 
 To translate the model-based partitioning problem into \proglang{R}, we start with
 a formula description of the variables involved. This formula should be of type

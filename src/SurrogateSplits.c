@@ -3,7 +3,7 @@
     Suggorgate splits
     *\file SurrogateSplits.c
     *\author $Author: thothorn $
-    *\date $Date: 2019-03-05 14:35:06 +0100 (Di, 05 Mär 2019) $
+    *\date $Date: 2020-01-11 15:00:15 +0100 (Sat, 11 Jan 2020) $
 */
                 
 #include "party.h"
