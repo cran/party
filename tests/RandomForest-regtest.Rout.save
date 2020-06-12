@@ -1,6 +1,6 @@
 
-R Under development (unstable) (2019-02-28 r76174) -- "Unsuffered Consequences"
-Copyright (C) 2019 The R Foundation for Statistical Computing
+R Under development (unstable) (2020-06-11 r78686) -- "Unsuffered Consequences"
+Copyright (C) 2020 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -64,13 +64,13 @@ $`1`
 Call: survfit(formula = y ~ 1, weights = weights)
 
 records       n  events  median 0.95LCL 0.95UCL 
-  146.0    30.0    15.9  1753.0  1157.0      NA 
+  146.0    30.0    15.9  1753.0  1481.0      NA 
 
 $`2`
 Call: survfit(formula = y ~ 1, weights = weights)
 
 records       n  events  median 0.95LCL 0.95UCL 
-  148.0    30.0    13.4  1975.0  1120.0      NA 
+  148.0    30.0    13.4  1975.0  1343.0  2018.0 
 
 > 
 > ### give it a try, at least
@@ -174,4 +174,4 @@ Sepal.Length  Sepal.Width Petal.Length  Petal.Width
 > 
 > proc.time()
    user  system elapsed 
-  4.364   0.156   4.520 
+  4.820   0.152   4.969 
