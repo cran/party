@@ -60,12 +60,12 @@ citEntry(entry="Article",
          year         = "2007",
          volume       = "8",
          number       = "25",
-         url          = "http://www.biomedcentral.com/1471-2105/8/25",
+         doi          = "10.1186/1471-2105-8-25",
 
          textVersion =
          paste("Carolin Strobl, Anne-Laure Boulesteix, Achim Zeileis and Torsten Hothorn (2007).",
                "Bias in Random Forest Variable Importance Measures: Illustrations, Sources and a Solution.",
-               "BMC Bioinformatics, 8(25). URL http://www.biomedcentral.com/1471-2105/8/25."),
+               "BMC Bioinformatics, 8(25)."),
 	 
 )
 
@@ -78,12 +78,12 @@ citEntry(entry="Article",
          year         = "2008",
          volume       = "9",
          number       = "307",
-         url          = "http://www.biomedcentral.com/1471-2105/9/307",
+         doi          = "10.1186/1471-2105-9-307",
 
          textVersion =
          paste("Carolin Strobl, Anne-Laure Boulesteix, Thomas Kneib, Thomas Augustin and Achim Zeileis (2008).",
                "Conditional Variable Importance for Random Forests.",
-               "BMC Bioinformatics, 9(307). URL http://www.biomedcentral.com/1471-2105/9/307."),
+               "BMC Bioinformatics, 9(307)."),
 	 
 )
 

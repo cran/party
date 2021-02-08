@@ -119,12 +119,12 @@ proximity(object, newdata = NULL)
     Recursive Partitioning: A Conditional Inference Framework.
     \emph{Journal of Computational and Graphical Statistics}, \bold{15}(3),
     651--674.  Preprint available from 
-    \url{http://statmath.wu-wien.ac.at/~zeileis/papers/Hothorn+Hornik+Zeileis-2006.pdf}
+    \url{https://www.zeileis.org/papers/Hothorn+Hornik+Zeileis-2006.pdf}
 
     Carolin Strobl, Anne-Laure Boulesteix, Achim Zeileis and Torsten Hothorn (2007).
     Bias in Random Forest Variable Importance Measures: Illustrations, Sources and 
     a Solution. \emph{BMC Bioinformatics}, \bold{8}, 25. 
-    \url{http://www.biomedcentral.com/1471-2105/8/25}
+    \doi{10.1186/1471-2105-8-25}
 
     Carolin Strobl, James Malley and Gerhard Tutz (2009).
     An Introduction to Recursive Partitioning: Rationale, Application, and Characteristics of

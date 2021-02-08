@@ -136,7 +136,7 @@ node_bivplot(mobobj, which = NULL, id = TRUE, pop = TRUE,
   David Meyer, Achim Zeileis, and Kurt Hornik (2006).
   The Strucplot Framework: Visualizing Multi-Way Contingency Tables with vcd.
   \emph{Journal of Statistical Software}, \bold{17}(3).
-  \url{http://www.jstatsoft.org/v17/i03/}
+  \doi{10.18637/jss.v017.i03}
 }
 
 \examples{
