@@ -1,5 +1,9 @@
 
 
+                CHANGES IN party VERSION 1.3-7 (2021-03-03)
+
+    o    suggest randomForest
+
                 CHANGES IN party VERSION 1.3-6 (2021-02-08)
 
     o    fix LaTeX problem
