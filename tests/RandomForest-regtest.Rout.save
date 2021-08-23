@@ -1,6 +1,6 @@
 
-R Under development (unstable) (2020-06-11 r78686) -- "Unsuffered Consequences"
-Copyright (C) 2020 The R Foundation for Statistical Computing
+R version 4.1.1 (2021-08-10) -- "Kick Things"
+Copyright (C) 2021 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -63,14 +63,14 @@ Loading required package: coin
 $`1`
 Call: survfit(formula = y ~ 1, weights = weights)
 
-records       n  events  median 0.95LCL 0.95UCL 
-  146.0    30.0    15.9  1753.0  1481.0      NA 
+     records  n events median 0.95LCL 0.95UCL
+[1,]     146 30   15.9   1753    1481      NA
 
 $`2`
 Call: survfit(formula = y ~ 1, weights = weights)
 
-records       n  events  median 0.95LCL 0.95UCL 
-  148.0    30.0    13.4  1975.0  1343.0  2018.0 
+     records  n events median 0.95LCL 0.95UCL
+[1,]     148 30   13.4   1975    1343    2018
 
 > 
 > ### give it a try, at least
@@ -174,4 +174,4 @@ Sepal.Length  Sepal.Width Petal.Length  Petal.Width
 > 
 > proc.time()
    user  system elapsed 
-  4.820   0.152   4.969 
+  2.769   0.094   2.847 

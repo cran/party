@@ -29,7 +29,7 @@ ctree_control(teststat = c("quad", "max"),
                 nodes only) is to be computed. }
   \item{nresample}{ number of Monte-Carlo replications to use when the
                     distribution of the test statistic is simulated.}
-  \item{maxsurrogate}{ number of surrogate splits to evaluate. Note the
+  \item{maxsurrogate}{ number of surrogate splits to evaluate. Note that
                        currently only surrogate splits in ordered
                        covariables are implemented. }
   \item{mtry}{ number of input variables randomly sampled as candidates 

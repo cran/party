@@ -555,14 +555,14 @@ Levels: A B C
 [[1]]
 Call: survfit(formula = y ~ 1, weights = weights)
 
-      n  events  median 0.95LCL 0.95UCL 
-    248      88    2093    1814      NA 
+       n events median 0.95LCL 0.95UCL
+[1,] 248     88   2093    1814      NA
 
 [[2]]
 Call: survfit(formula = y ~ 1, weights = weights)
 
-      n  events  median 0.95LCL 0.95UCL 
-    166      77    1701    1174    2018 
+       n events median 0.95LCL 0.95UCL
+[1,] 166     77   1701    1174    2018
 
 
 > data("mammoexp", package = "TH.data")
@@ -574,4 +574,4 @@ Call: survfit(formula = y ~ 1, weights = weights)
  *** Run successfully completed ***
 > proc.time()
    user  system elapsed 
-  1.452   0.072   1.520 
+  1.667   0.076   1.737 

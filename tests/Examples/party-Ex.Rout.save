@@ -1,6 +1,6 @@
 
-R Under development (unstable) (2019-02-28 r76174) -- "Unsuffered Consequences"
-Copyright (C) 2019 The R Foundation for Statistical Computing
+R version 4.1.1 (2021-08-10) -- "Kick Things"
+Copyright (C) 2021 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -553,14 +553,14 @@ The following object is masked from ‘package:MASS’:
 [[1]]
 Call: survfit(formula = y ~ 1, weights = weights)
 
-      n  events  median 0.95LCL 0.95UCL 
-    248      88    2093    1814      NA 
+       n events median 0.95LCL 0.95UCL
+[1,] 248     88   2093    1814      NA
 
 [[2]]
 Call: survfit(formula = y ~ 1, weights = weights)
 
-      n  events  median 0.95LCL 0.95UCL 
-    166      77    1701    1174    2018 
+       n events median 0.95LCL 0.95UCL
+[1,] 166     77   1701    1174    2018
 
 > 
 >     ### if you are interested in the internals:
@@ -966,7 +966,7 @@ nativeSpeaker           age      shoeSize
 > cleanEx()
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  13.844 0.188 14.031 0 0 
+Time elapsed:  8.239 0.076 8.316 0 0 
 > grDevices::dev.off()
 null device 
           1 
