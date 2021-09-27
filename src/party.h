@@ -3,12 +3,17 @@
 
 /* include R header files */
 
+#define USE_FC_LEN_T
+#include <Rconfig.h>
+#include <R_ext/BLAS.h>   /* for dgemm */
+#include <R_ext/Lapack.h> /* for dgesdd */
+#ifndef FCONE
+# define FCONE
+#endif
 #include <R.h>
 #include <Rmath.h>
 #include <Rinternals.h>
 #include <Rdefines.h>
-#include <R_ext/Applic.h> /* for dgemm */
-#include <R_ext/Lapack.h> /* for dgesdd */
 
 /* include private header files: this need to be restricted */
 

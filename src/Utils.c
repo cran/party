@@ -3,7 +3,7 @@
     Some commonly needed utility functions.
     *\file Utils.c
     *\author $Author: thothorn $
-    *\date $Date: 2019-03-05 14:35:06 +0100 (Di, 05 Mär 2019) $
+    *\date $Date: 2021-09-27 10:37:35 +0200 (Mon, 27 Sep 2021) $
 */
                 
 #include "party.h"
@@ -137,7 +137,7 @@ void CR_La_svd(int dim, SEXP jobu, SEXP jobv, SEXP x, SEXP s, SEXP u, SEXP v,
 			 &dim, &dim, xvals, &dim, REAL(s),
 			 REAL(u), &ldu,
 			 REAL(v), &ldvt,
-			 &tmp, &lwork, iwork, &info);
+			 &tmp, &lwork, iwork, &info FCONE);
 	if (info != 0)
 	    error(("error code %d from Lapack routine '%s'"), info, "dgesdd");
 	lwork = (int) tmp;
@@ -147,7 +147,7 @@ void CR_La_svd(int dim, SEXP jobu, SEXP jobv, SEXP x, SEXP s, SEXP u, SEXP v,
 /* was			 &n, &p, xvals, &n, REAL(s), for the non-square case */
 			 REAL(u), &ldu,
 			 REAL(v), &ldvt,
-			 work, &lwork, iwork, &info);
+			 work, &lwork, iwork, &info FCONE);
 	if (info != 0)
 	    error(("error code %d from Lapack routine '%s'"), info, "dgesdd");
     }
@@ -493,7 +493,7 @@ void C_matprod(double *x, int nrx, int ncx,
 
     if (nrx > 0 && ncx > 0 && nry > 0 && ncy > 0) {
         F77_CALL(dgemm)(transa, transb, &nrx, &ncy, &ncx, &one,
-	                x, &nrx, y, &nry, &zero, z, &nrx);
+	                x, &nrx, y, &nry, &zero, z, &nrx FCONE FCONE);
     } else /* zero-extent operations should return zeroes */
 	for(i = 0; i < nrx*ncy; i++) z[i] = 0;
 }
@@ -545,7 +545,7 @@ void C_matprodT(double *x, int nrx, int ncx,
 
     if (nrx > 0 && ncx > 0 && nry > 0 && ncy > 0) {
         F77_CALL(dgemm)(transa, transb, &nrx, &nry, &ncy, &one,
-	                x, &nrx, y, &nry, &zero, z, &nrx);
+	                x, &nrx, y, &nry, &zero, z, &nrx FCONE FCONE);
     } else /* zero-extent operations should return zeroes */
 	for(i = 0; i < nrx*nry; i++) z[i] = 0;
 }
