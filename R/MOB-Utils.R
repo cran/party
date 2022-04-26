@@ -24,7 +24,7 @@ mob_fit_childweights <- function(node, mf, weights) {
     ## we need to coerce ordered factors to numeric
     ## this is what party C code does as well!
 
-    if (class(node$psplit) == "orderedSplit") {
+    if (inherits(node$psplit, "orderedSplit")) {
         leftweights <- (as.double(xselect) <= node$psplit$splitpoint) * weights
         rightweights <- (as.double(xselect) > node$psplit$splitpoint) * weights
     } else {

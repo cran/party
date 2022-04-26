@@ -3,7 +3,7 @@
     Some commonly needed utility functions.
     *\file Utils.c
     *\author $Author: thothorn $
-    *\date $Date: 2021-09-27 10:37:35 +0200 (Mon, 27 Sep 2021) $
+    *\date $Date: 2021-09-27 13:31:16 +0200 (Mon, 27 Sep 2021) $
 */
                 
 #include "party.h"

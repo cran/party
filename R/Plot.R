@@ -167,7 +167,7 @@ node_barplot <- function(ctreeobj,
 
     y <- response(ctreeobj)[[1]]
     
-    if(is.factor(y) || class(y) == "was_ordered") {
+    if(is.factor(y) || inherits(y, "was_ordered")) {
         ylevels <- levels(y)
 	if(is.null(beside)) beside <- if(length(ylevels) < 3) FALSE else TRUE
         if(is.null(ymax)) ymax <- if(beside) 1.1 else 1
