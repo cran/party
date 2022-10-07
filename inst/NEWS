@@ -1,5 +1,9 @@
 
 
+                CHANGES IN party VERSION 1.3-11 (2022-10-07)
+
+    o    fix party_init prototype
+
                 CHANGES IN party VERSION 1.3-10 (2022-04-25)
 
     o    proper use of inherits in two instances

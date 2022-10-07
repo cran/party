@@ -9,7 +9,7 @@
 */
 
 /* .Call calls */
-extern SEXP party_init();
+extern SEXP party_init(void);
 extern SEXP R_Ensemble(SEXP, SEXP, SEXP);
 extern SEXP R_Ensemble_weights(SEXP, SEXP, SEXP);
 extern SEXP R_ExpectCovarInfluence(SEXP, SEXP);
