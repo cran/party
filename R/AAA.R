@@ -1,5 +1,5 @@
 
-# $Id: AAA.R 630 2017-02-27 14:58:59Z thothorn $
+# $Id: AAA.R 681 2023-11-27 11:55:24Z thothorn $
 
 .onLoad <- function(lib, pkg) {
     ### GCtorture <<- FALSE

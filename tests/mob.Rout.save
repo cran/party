@@ -1,6 +1,6 @@
 
-R version 3.3.2 (2016-10-31) -- "Sincere Pumpkin Patch"
-Copyright (C) 2016 The R Foundation for Statistical Computing
+R version 4.3.2 (2023-10-31) -- "Eye Holes"
+Copyright (C) 2023 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -399,10 +399,6 @@ $`2`
 Call:
 NULL
 
-Deviance Residuals: 
-   Min      1Q  Median      3Q     Max  
--1.817   0.000   0.000   0.000   2.718  
-
 Coefficients:
             Estimate Std. Error z value Pr(>|z|)    
 (Intercept) -9.95151    1.74013  -5.719 1.07e-08 ***
@@ -423,10 +419,6 @@ $`4`
 
 Call:
 NULL
-
-Deviance Residuals: 
-    Min       1Q   Median       3Q      Max  
--1.9438  -0.3484   0.0000   0.0000   2.4893  
 
 Coefficients:
              Estimate Std. Error z value Pr(>|z|)    
@@ -449,10 +441,6 @@ $`5`
 Call:
 NULL
 
-Deviance Residuals: 
-   Min      1Q  Median      3Q     Max  
--2.005   0.000   0.000   0.000   2.380  
-
 Coefficients:
              Estimate Std. Error z value Pr(>|z|)    
 (Intercept) -2.770954   0.548241  -5.054 4.32e-07 ***
@@ -473,4 +461,4 @@ Number of Fisher Scoring iterations: 4
 > 
 > proc.time()
    user  system elapsed 
-  2.496   0.076   2.568 
+  1.371   0.072   1.438 

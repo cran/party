@@ -3,7 +3,7 @@
     Random forest with conditional inference trees
     *\file RandomForest.c
     *\author $Author: thothorn $
-    *\date $Date: 2019-03-04 11:23:08 +0100 (Mo, 04 Mär 2019) $
+    *\date $Date: 2023-11-27 12:47:25 +0100 (Mo, 27 Nov 2023) $
 */
 
 #include "party.h"
@@ -72,7 +72,7 @@ SEXP R_Ensemble(SEXP learnsample, SEXP weights, SEXP controls) {
 
      if (!replace) {
          if (fraction < 10)
-             error("fraction of %f is too small", fraction);
+             error("fraction of %d is too small", fraction);
      }
 
      /* <FIXME> can we call those guys ONCE? what about the deeper
