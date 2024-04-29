@@ -41,7 +41,7 @@ mob(formula, weights, data = list(), na.action = na.omit, model = glinearModel,
   \item{data}{A data frame containing the variables in the model.}
   \item{na.action}{A function which indicates what should happen when the data
     contain \code{NA}s, defaulting to \code{\link{na.omit}}.}
-  \item{model}{A model of class \code{"\linkS4class{StatModel}"}. See details
+  \item{model}{A model of class \code{"StatModel"}. See details
     for requirements.}
   \item{control}{A list with control parameters as returned by
     \code{\link{mob_control}}.}
