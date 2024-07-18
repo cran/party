@@ -61,7 +61,7 @@ mob(formula, weights, data = list(), na.action = na.omit, model = glinearModel,
 Model-based partitioning fits a model tree using the following algorithm:
   \enumerate{
     \item \code{fit} a \code{model} (default: a generalized linear model
-          \code{"\linkS4class{StatModel}"} with formula \code{y ~ x1 + \dots + xk}
+          \code{"StatModel"} with formula \code{y ~ x1 + \dots + xk}
 	  for the observations in the current node.
     \item Assess the stability of the model parameters with respect to each
           of the partitioning variables \code{z1}, \dots, \code{zl}. If
