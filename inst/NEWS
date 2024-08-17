@@ -1,5 +1,9 @@
 
 
+                CHANGES IN party VERSION 1.3-17 (2024-08-17)
+
+    o    Calloc -> R_Calloc
+
                 CHANGES IN party VERSION 1.3-16 (2024-07-18)
 
     o    Fix Rd issues

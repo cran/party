@@ -3,7 +3,7 @@
     Conditional Distributions
     *\file Distributions.c
     *\author $Author: thothorn $
-    *\date $Date: 2017-02-27 12:02:30 +0100 (Mon, 27 Feb 2017) $
+    *\date $Date: 2024-08-15 13:57:20 +0200 (Thu, 15 Aug 2024) $
 */
                 
 #include "party.h"
@@ -61,25 +61,25 @@ double C_maxabsConditionalPvalue(const double tstat, const double *Sigma,
     if (pq == 1) 
         return(2*pnorm(fabs(tstat)*-1.0, 0.0, 1.0, 1, 0)); /* return P-value */
     
-    n = Calloc(1, int);
-    nu = Calloc(1, int);
-    myerror = Calloc(1, double);
-    prob = Calloc(1, double);
+    n = R_Calloc(1, int);
+    nu = R_Calloc(1, int);
+    myerror = R_Calloc(1, double);
+    prob = R_Calloc(1, double);
     nu[0] = 0;
-    inform = Calloc(1, int);
+    inform = R_Calloc(1, int);
     n[0] = pq;
         
     if (n[0] == 2)  
-         corr = Calloc(1, double);
+         corr = R_Calloc(1, double);
     else 
-         corr = Calloc(n[0] + ((n[0] - 2) * (n[0] - 1))/2, double);
+         corr = R_Calloc(n[0] + ((n[0] - 2) * (n[0] - 1))/2, double);
     
-    sd = Calloc(n[0], double);
-    lower = Calloc(n[0], double);
-    upper = Calloc(n[0], double);
-    infin = Calloc(n[0], int);
-    delta = Calloc(n[0], double);
-    index = Calloc(n[0], int);
+    sd = R_Calloc(n[0], double);
+    lower = R_Calloc(n[0], double);
+    upper = R_Calloc(n[0], double);
+    infin = R_Calloc(n[0], int);
+    delta = R_Calloc(n[0], double);
+    index = R_Calloc(n[0], int);
 
     /* determine elements with non-zero variance */ 
 
@@ -140,9 +140,9 @@ double C_maxabsConditionalPvalue(const double tstat, const double *Sigma,
                  prob[0] = 0.0;
     }
     ans = prob[0];
-    Free(corr); Free(sd); Free(lower); Free(upper); 
-    Free(infin); Free(delta); Free(myerror); Free(prob);
-    Free(n); Free(nu); Free(inform); Free(index);
+    R_Free(corr); R_Free(sd); R_Free(lower); R_Free(upper); 
+    R_Free(infin); R_Free(delta); R_Free(myerror); R_Free(prob);
+    R_Free(n); R_Free(nu); R_Free(inform); R_Free(index);
     return(1 - ans);  /* return P-value */
 }
 
@@ -215,13 +215,13 @@ void C_MonteCarlo(double *criterion, SEXP learnsample, SEXP weights,
     sweights = REAL(GET_SLOT(expcovinf, PL2_sumweightsSym))[0];
     m = (int) sweights;
     
-    stats = Calloc(ninputs, double);
-    counts = Calloc(ninputs, int);
+    stats = R_Calloc(ninputs, double);
+    counts = R_Calloc(ninputs, int);
     
-    dummy = Calloc(m, int);
-    permute = Calloc(m, int);
-    index = Calloc(m, int);
-    permindex = Calloc(m, int);
+    dummy = R_Calloc(m, int);
+    permute = R_Calloc(m, int);
+    index = R_Calloc(m, int);
+    permindex = R_Calloc(m, int);
                 
     /* expand weights, see appendix of 
        `Unbiased Recursive Partitioning: A Conditional Inference Framework' */
@@ -284,8 +284,8 @@ void C_MonteCarlo(double *criterion, SEXP learnsample, SEXP weights,
     }
     /* </FIXME> */
     
-    Free(stats); Free(counts); Free(dummy); Free(permute); 
-    Free(index); Free(permindex);
+    R_Free(stats); R_Free(counts); R_Free(dummy); R_Free(permute); 
+    R_Free(index); R_Free(permindex);
 }
 
 

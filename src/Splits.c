@@ -3,7 +3,7 @@
     Binary splits 
     *\file Splits.c
     *\author $Author: thothorn $
-    *\date $Date: 2019-03-05 14:35:06 +0100 (Di, 05 Mär 2019) $
+    *\date $Date: 2024-08-15 13:57:20 +0200 (Thu, 15 Aug 2024) $
 */
                 
 #include "party.h"
@@ -242,10 +242,10 @@ void C_splitcategorical(const int *codingx, int p,
     int *irank, *ordertmpx, i, j, k, l, jp, chk;
 
     /* allocate memory */
-    tmpx = Calloc(n, double);
-    ordertmpx = Calloc(n, int);
-    irank = Calloc(p, int);
-    tmptmpx = Calloc(n, double);
+    tmpx = R_Calloc(n, double);
+    ordertmpx = R_Calloc(n, int);
+    irank = R_Calloc(p, int);
+    tmptmpx = R_Calloc(n, double);
 
     /* for all response variables (aka: dummy variables) */
     for (j = 0; j < q; j++) {
@@ -307,7 +307,7 @@ void C_splitcategorical(const int *codingx, int p,
     maxstat[0] = tmp;
 
     /* free memory */
-    Free(tmpx); Free(ordertmpx); Free(irank); Free(tmptmpx);
+    R_Free(tmpx); R_Free(ordertmpx); R_Free(irank); R_Free(tmptmpx);
 }
 
 
@@ -338,7 +338,7 @@ SEXP R_splitcategorical(SEXP x, SEXP codingx, SEXP y, SEXP weights,
                     PROTECT(GET_SLOT(linexpcov, PL2_expcovinfSym)), linexpcov);
     UNPROTECT(1);
 
-    standstat = Calloc(get_dimension(linexpcov), double);
+    standstat = R_Calloc(get_dimension(linexpcov), double);
     C_standardize(REAL(GET_SLOT(linexpcov, PL2_linearstatisticSym)),
                   REAL(GET_SLOT(linexpcov, PL2_expectationSym)),
                   REAL(GET_SLOT(linexpcov, PL2_covarianceSym)),
@@ -357,6 +357,6 @@ SEXP R_splitcategorical(SEXP x, SEXP codingx, SEXP y, SEXP weights,
                        REAL(statistics));
 
     UNPROTECT(1);
-    Free(standstat);
+    R_Free(standstat);
     return(ans);
 }

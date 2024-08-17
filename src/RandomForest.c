@@ -3,7 +3,7 @@
     Random forest with conditional inference trees
     *\file RandomForest.c
     *\author $Author: thothorn $
-    *\date $Date: 2023-11-27 12:47:25 +0100 (Mo, 27 Nov 2023) $
+    *\date $Date: 2024-08-15 13:57:20 +0200 (Thu, 15 Aug 2024) $
 */
 
 #include "party.h"
@@ -40,9 +40,9 @@ SEXP R_Ensemble(SEXP learnsample, SEXP weights, SEXP controls) {
      SET_SLOT(ans, PL2_whereSym, bwhere);
      SET_SLOT(ans, PL2_weightsSym, bweights);
 
-     iweights = Calloc(nobs, int);
-     iweightstmp = Calloc(nobs, int);
-     prob = Calloc(nobs, double);
+     iweights = R_Calloc(nobs, int);
+     iweightstmp = R_Calloc(nobs, int);
+     prob = R_Calloc(nobs, double);
      dweights = REAL(weights);
 
      for (i = 0; i < nobs; i++) {
@@ -143,7 +143,7 @@ SEXP R_Ensemble(SEXP learnsample, SEXP weights, SEXP controls) {
 
      PutRNGstate();
 
-     Free(prob); Free(iweights); Free(iweightstmp);
+     R_Free(prob); R_Free(iweights); R_Free(iweightstmp);
      UNPROTECT(6);
      return(ans);
 }

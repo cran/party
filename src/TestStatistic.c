@@ -2,8 +2,8 @@
 /**
     Test statistics for conditional inference
     *\file TestStatistic.c
-    *\author $Author: hothorn $
-    *\date $Date: 2005-06-14 11:21:32 +0200 (Die, 14 Jun 2005) $
+    *\author $Author: thothorn $
+    *\date $Date: 2024-08-15 13:57:20 +0200 (Thu, 15 Aug 2024) $
 */
                 
 #include "party.h"
@@ -68,10 +68,10 @@ double C_maxabsTestStatistic(const double *t, const double *mu, const double *Si
                            
      double *mem, ans;
      
-     mem = Calloc(pq, double);
+     mem = R_Calloc(pq, double);
      C_absstandardize(t, mu, Sigma, pq, tol, mem);
      ans = C_max(mem, pq);
-     Free(mem);
+     R_Free(mem);
      return(ans);
 }
 
@@ -113,11 +113,11 @@ double C_quadformTestStatistic(const double *t, const double *mu,
     int i, j;
     double quadform = 0.0, *tmmu, *tmmuSigmaPlus;
 
-    tmmu = Calloc(pq, double);
+    tmmu = R_Calloc(pq, double);
     for (i = 0; i < pq; i++)
         tmmu[i] = t[i] - mu[i];
     
-    tmmuSigmaPlus = Calloc(pq, double);
+    tmmuSigmaPlus = R_Calloc(pq, double);
     for (i = 0; i < pq; i++)  {
         tmmuSigmaPlus[i] = 0.0;
         for (j = 0; j < pq; j++)
@@ -125,7 +125,7 @@ double C_quadformTestStatistic(const double *t, const double *mu,
         quadform += tmmuSigmaPlus[i] * tmmu[i];
     }
 
-    Free(tmmu); Free(tmmuSigmaPlus);
+    R_Free(tmmu); R_Free(tmmuSigmaPlus);
     return(quadform);
 }
 

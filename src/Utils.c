@@ -3,7 +3,7 @@
     Some commonly needed utility functions.
     *\file Utils.c
     *\author $Author: thothorn $
-    *\date $Date: 2021-09-27 13:31:16 +0200 (Mon, 27 Sep 2021) $
+    *\date $Date: 2024-08-15 13:57:20 +0200 (Thu, 15 Aug 2024) $
 */
                 
 #include "party.h"
@@ -62,7 +62,7 @@ SEXP R_kronecker (SEXP A, SEXP B) {
         adim = INTEGER(getAttrib(A, R_DimSymbol));
     } else {
         /* assume row vectors */
-        adim = Calloc(2, int);
+        adim = R_Calloc(2, int);
         adim[0] = 1;
         adim[1] = LENGTH(A);
     }
@@ -71,7 +71,7 @@ SEXP R_kronecker (SEXP A, SEXP B) {
         bdim = INTEGER(getAttrib(B, R_DimSymbol));
     } else {
         /* assume row vectors */
-        bdim = Calloc(2, int);
+        bdim = R_Calloc(2, int);
         bdim[0] = 1;
         bdim[1] = LENGTH(B);
     }
@@ -81,8 +81,8 @@ SEXP R_kronecker (SEXP A, SEXP B) {
                               adim[1] * bdim[1]));
     C_kronecker(REAL(A), adim[0], adim[1], 
                 REAL(B), bdim[0], bdim[1], REAL(ans));
-    if (!isMatrix(A)) Free(adim); 
-    if (!isMatrix(B)) Free(bdim);
+    if (!isMatrix(A)) R_Free(adim); 
+    if (!isMatrix(B)) R_Free(bdim);
     UNPROTECT(1);
     return(ans);
 }
@@ -116,7 +116,7 @@ void CR_La_svd(int dim, SEXP jobu, SEXP jobv, SEXP x, SEXP s, SEXP u, SEXP v,
        we don't PROTECT here */
     xdims = INTEGER(coerceVector(getAttrib(x, R_DimSymbol), INTSXP));
     n = xdims[0]; p = xdims[1];
-    xvals = Calloc(n * p, double);
+    xvals = R_Calloc(n * p, double);
     /* work on a copy of x */
     Memcpy(xvals, REAL(x), (size_t) (n * p));
 
@@ -128,7 +128,7 @@ void CR_La_svd(int dim, SEXP jobu, SEXP jobv, SEXP x, SEXP s, SEXP u, SEXP v,
            output */
         ldu = dim;
         ldvt = dim;
-	iwork= (int *) Calloc(8*(n<p ? n : p), int);
+	iwork= (int *) R_Calloc(8*(n<p ? n : p), int);
 
 	/* ask for optimal size of work array */
 	lwork = -1;
@@ -141,7 +141,7 @@ void CR_La_svd(int dim, SEXP jobu, SEXP jobv, SEXP x, SEXP s, SEXP u, SEXP v,
 	if (info != 0)
 	    error(("error code %d from Lapack routine '%s'"), info, "dgesdd");
 	lwork = (int) tmp;
-	work = Calloc(lwork, double);
+	work = R_Calloc(lwork, double);
 	F77_CALL(dgesdd)(CHAR(STRING_ELT(jobu, 0)),
 			 &dim, &dim, xvals, &dim, REAL(s),
 /* was			 &n, &p, xvals, &n, REAL(s), for the non-square case */
@@ -151,7 +151,7 @@ void CR_La_svd(int dim, SEXP jobu, SEXP jobv, SEXP x, SEXP s, SEXP u, SEXP v,
 	if (info != 0)
 	    error(("error code %d from Lapack routine '%s'"), info, "dgesdd");
     }
-    Free(work); Free(xvals); Free(iwork);
+    R_Free(work); R_Free(xvals); R_Free(iwork);
 }
 
 /**
@@ -223,7 +223,7 @@ void C_linexpcovReduce (SEXP x) {
     dcov = REAL(GET_SLOT(x, PL2_covarianceSym));
 
     /* indicator of zero variance */
-    zerovar = Calloc(pq, int);
+    zerovar = R_Calloc(pq, int);
 
     /* identify and count zero variances (we can use 0.0 because variances
        corresponding to empty levels are exactly zero */
@@ -241,9 +241,9 @@ void C_linexpcovReduce (SEXP x) {
 
         /* do we really need a copy ? */
         pqn = pq - sumzv;
-        dlinstat2 = Calloc(pq, double);
-        dexp2 = Calloc(pq, double);
-        dcov2 = Calloc(pq * pq, double);
+        dlinstat2 = R_Calloc(pq, double);
+        dexp2 = R_Calloc(pq, double);
+        dcov2 = R_Calloc(pq * pq, double);
         
         /* init */
         for (i = 0; i < pq; i++) {
@@ -283,11 +283,11 @@ void C_linexpcovReduce (SEXP x) {
         dim[0] = pqn;
         /* we reset the original dimension in C_TestStatistic */
         
-        Free(dlinstat2);
-        Free(dexp2);
-        Free(dcov2);
+        R_Free(dlinstat2);
+        R_Free(dexp2);
+        R_Free(dcov2);
     }
-    Free(zerovar);
+    R_Free(zerovar);
 }
 
 
@@ -333,7 +333,7 @@ void C_MPinv (SEXP x, double tol, SEXP svdmem, SEXP ans) {
 
     if (tol * dd[0] > tol) tol = tol * dd[0];
 
-    positive = Calloc(p, int); 
+    positive = R_Calloc(p, int); 
     
     drank[0] = 0.0;
     for (i = 0; i < p; i++) {
@@ -360,7 +360,7 @@ void C_MPinv (SEXP x, double tol, SEXP svdmem, SEXP ans) {
         }
     }
 
-    Free(positive);
+    R_Free(positive);
 }
 
 
@@ -817,16 +817,16 @@ void C_SampleSplitting(int n, double *prob, int *weights, int k) {
     double *tmpprob;
     int *ans, *perm;
 
-    tmpprob = Calloc(n, double);
-    perm = Calloc(n, int);
-    ans = Calloc(k, int);
+    tmpprob = R_Calloc(n, double);
+    perm = R_Calloc(n, int);
+    ans = R_Calloc(k, int);
     for (i = 0; i < n; i++) tmpprob[i] = prob[i];
 
     C_ProbSampleNoReplace(n, tmpprob, perm, k, ans);
     for (i = 0; i < n; i++) weights[i] = 0;
     for (i = 0; i < k; i++)
         weights[ans[i] - 1] = 1;
-    Free(tmpprob); Free(perm); Free(ans);
+    R_Free(tmpprob); R_Free(perm); R_Free(ans);
 }
 
 /**

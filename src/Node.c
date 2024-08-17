@@ -3,7 +3,7 @@
     Node computations
     *\file Node.c
     *\author $Author: thothorn $
-    *\date $Date: 2017-02-08 11:49:22 +0100 (Mit, 08 Feb 2017) $
+    *\date $Date: 2024-08-15 13:57:20 +0200 (Thu, 15 Aug 2024) $
 */
                 
 #include "party.h"
@@ -162,7 +162,7 @@ void C_Node(SEXP node, SEXP learnsample, SEXP weights,
                 }
           
                  linexpcov = get_varmemory(fitmem, jselect);
-                 standstat = Calloc(get_dimension(linexpcov), double);
+                 standstat = R_Calloc(get_dimension(linexpcov), double);
                  C_standardize(REAL(GET_SLOT(linexpcov, 
                                              PL2_linearstatisticSym)),
                                REAL(GET_SLOT(linexpcov, PL2_expectationSym)),
@@ -195,7 +195,7 @@ void C_Node(SEXP node, SEXP learnsample, SEXP weights,
                      }
                  }
 
-                 Free(standstat);
+                 R_Free(standstat);
             }
             if (maxstat == 0) {
                 if (j == 1) {          

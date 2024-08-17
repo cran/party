@@ -3,7 +3,7 @@
     Suggorgate splits
     *\file SurrogateSplits.c
     *\author $Author: thothorn $
-    *\date $Date: 2020-01-11 15:00:15 +0100 (Sat, 11 Jan 2020) $
+    *\date $Date: 2024-08-15 13:57:20 +0200 (Thu, 15 Aug 2024) $
 */
                 
 #include "party.h"
@@ -38,7 +38,7 @@ void C_surrogates(SEXP node, SEXP learnsample, SEXP weights, SEXP controls,
     
     /* (weights > 0) in left node are the new `response' to be approximated */
     y = S3get_nodeweights(VECTOR_ELT(node, S3_LEFT));
-    ytmp = Calloc(nobs, double);
+    ytmp = R_Calloc(nobs, double);
     for (i = 0; i < nobs; i++) {
         ytmp[i] = REAL(y)[i];
         if (ytmp[i] > 1.0) ytmp[i] = 1.0;
@@ -56,7 +56,7 @@ void C_surrogates(SEXP node, SEXP learnsample, SEXP weights, SEXP controls,
         error("cannot set up %d surrogate splits with only %d ordered input variable(s)", 
               maxsurr, nvar);
 
-    tweights = Calloc(nobs, double);
+    tweights = R_Calloc(nobs, double);
     dweights = REAL(weights);
     for (i = 0; i < nobs; i++) tweights[i] = dweights[i];
     if (has_missings(inputs, jselect)) {
@@ -76,9 +76,9 @@ void C_surrogates(SEXP node, SEXP learnsample, SEXP weights, SEXP controls,
     
     splitstat = REAL(get_splitstatistics(fitmem));
     /* <FIXME> extend `TreeFitMemory' to those as well ... */
-    maxstat = Calloc(ninputs, double);
-    cutpoint = Calloc(ninputs, double);
-    order = Calloc(ninputs, int);
+    maxstat = R_Calloc(ninputs, double);
+    cutpoint = R_Calloc(ninputs, double);
+    order = R_Calloc(ninputs, int);
     /* <FIXME> */
     
     /* this is essentially an exhaustive search */
@@ -129,7 +129,7 @@ void C_surrogates(SEXP node, SEXP learnsample, SEXP weights, SEXP controls,
     /* order with respect to maximal statistic */
     rsort_with_index(maxstat, order, ninputs);
     
-    twotab = Calloc(4, double);
+    twotab = R_Calloc(4, double);
     
     /* the best `maxsurr' ones are implemented */
     for (j = 0; j < maxsurr; j++) {
@@ -163,12 +163,12 @@ void C_surrogates(SEXP node, SEXP learnsample, SEXP weights, SEXP controls,
         UNPROTECT(1);
     }
     
-    Free(maxstat);
-    Free(cutpoint);
-    Free(order);
-    Free(tweights);
-    Free(twotab);
-    Free(ytmp);
+    R_Free(maxstat);
+    R_Free(cutpoint);
+    R_Free(order);
+    R_Free(tweights);
+    R_Free(twotab);
+    R_Free(ytmp);
 }
 
 /**

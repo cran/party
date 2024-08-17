@@ -3,7 +3,7 @@
     Functions for variable selection in each node of a tree
     *\file IndependenceTest.c
     *\author $Author: thothorn $
-    *\date $Date: 2019-03-05 14:35:06 +0100 (Di, 05 Mär 2019) $
+    *\date $Date: 2024-08-15 13:57:20 +0200 (Thu, 15 Aug 2024) $
 */
                 
 #include "party.h"
@@ -182,8 +182,8 @@ void C_GlobalTest(const SEXP learnsample, const SEXP weights,
             RANDOM = 0;
         }
         if (RANDOM) {
-            index = Calloc(ninputs, int);
-            randomvar = Calloc(mtry, int);
+            index = R_Calloc(ninputs, int);
+            randomvar = R_Calloc(mtry, int);
             C_SampleNoReplace(index, ninputs, mtry, randomvar);
             j = 0;
             for (k = 0; k < mtry; k++) {
@@ -193,8 +193,8 @@ void C_GlobalTest(const SEXP learnsample, const SEXP weights,
                     error("not enough variables to sample from");
                 dontusetmp[j] = 0;
             }
-            Free(index);
-            Free(randomvar);
+            R_Free(index);
+            R_Free(randomvar);
         }
 
         countvars = 0;
@@ -281,12 +281,12 @@ void C_GlobalTest(const SEXP learnsample, const SEXP weights,
                     break;
             /* Monte-Carlo */
             case MONTECARLO: 
-                    pvaltmp = Calloc(ninputs, double);
+                    pvaltmp = R_Calloc(ninputs, double);
                     C_MonteCarlo(ans_criterion, learnsample, weights, fitmem, 
                                  varctrl, gtctrl, pvaltmp);
                     for (j = 0; j < ninputs; j++)
                         ans_criterion[j] = 1 - pvaltmp[j];
-                    Free(pvaltmp);
+                    R_Free(pvaltmp);
                     break;
             /* aggregated */
             case AGGREGATED: 

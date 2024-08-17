@@ -3,7 +3,7 @@
     Linear statistics for conditional inference based on Strasser & Weber (1999)
     *\file LinearStatistic.c
     *\author $Author: thothorn $
-    *\date $Date: 2019-03-04 11:23:08 +0100 (Mo, 04 Mär 2019) $
+    *\date $Date: 2024-08-15 13:57:20 +0200 (Thu, 15 Aug 2024) $
 */
     
 #include "party.h"
@@ -234,8 +234,8 @@ void C_ExpectCovarLinearStatistic(const double* x, const int p,
     dCov_T = REAL(GET_SLOT(ans, PL2_covarianceSym));
 
     /* allocate storage: all helpers, initially zero */
-    swx = Calloc(p, double);               /* p x 1  */
-    CT1 = Calloc(p * p, double);           /* p x p  */
+    swx = R_Calloc(p, double);               /* p x 1  */
+    CT1 = R_Calloc(p * p, double);           /* p x p  */
 
     for (i = 0; i < n; i++) {
 
@@ -274,8 +274,8 @@ void C_ExpectCovarLinearStatistic(const double* x, const int p,
         dCov_T[0] -= f2 * dCov_y[0] * swx[0] * swx[0];
     } else {
         /* two more helpers needed */
-        CT2 = Calloc(pq * pq, double);            /* pq x pq */
-        Covy_x_swx = Calloc(pq * q, double);      /* pq x q  */
+        CT2 = R_Calloc(pq * pq, double);            /* pq x pq */
+        Covy_x_swx = R_Calloc(pq * q, double);      /* pq x q  */
         
         C_kronecker(dCov_y, q, q, CT1, p, p, dCov_T);
         C_kronecker(dCov_y, q, q, swx, p, 1, Covy_x_swx);
@@ -285,11 +285,11 @@ void C_ExpectCovarLinearStatistic(const double* x, const int p,
             dCov_T[k] = f1 * dCov_T[k] - f2 * CT2[k];
 
         /* clean up */
-        Free(CT2); Free(Covy_x_swx);
+        R_Free(CT2); R_Free(Covy_x_swx);
     }
 
     /* clean up */
-    Free(swx); Free(CT1); 
+    R_Free(swx); R_Free(CT1); 
 }
 
 
