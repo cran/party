@@ -107,8 +107,9 @@ node_bivplot(mobobj, which = NULL, id = TRUE, pop = TRUE,
   should depend only on the node being visualzied, however, for setting up
   an appropriate panel function, information from the whole tree is typically
   required. Hence, \pkg{party} adopts the framework of \code{grapcon_generator}
-  (graphical appearance control) from the \pkg{vcd} package (Meyer, Zeileis and
-  Hornik, 2005) and provides several panel-generating functions. For convenience,
+  (graphical appearance control) from the \pkg{vcd} package
+  \bibcitep{party::Meyer+Zeileis+Hornik:2006} and 
+  provides several panel-generating functions. For convenience,
   the panel-generating functions \code{node_inner} and \code{edge_simple} 
   return panel functions to draw inner nodes and left and right edges. 
   For drawing terminal nodes, the functions returned by the other panel 
@@ -132,13 +133,7 @@ node_bivplot(mobobj, which = NULL, id = TRUE, pop = TRUE,
   \code{\link[vcd]{cd_plot}} from the \pkg{vcd} package are re-used.
 }
 
-\references{
-  David Meyer, Achim Zeileis, and Kurt Hornik (2006).
-  The Strucplot Framework: Visualizing Multi-Way Contingency Tables with vcd.
-  \emph{Journal of Statistical Software}, \bold{17}(3).
-  \doi{10.18637/jss.v017.i03}
-}
-
+\references{\bibshow{*}}
 \examples{
 
   set.seed(290875)

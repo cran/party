@@ -45,7 +45,7 @@ ctree(formula, data, subset = NULL, weights = NULL,
   3) Recursively repeate steps 1) and 2). 
 
   The implementation utilizes a unified framework for conditional inference,
-  or permutation tests, developed by Strasser and Weber (1999). The stop
+  or permutation tests, developed by \bibcitet{party::strasserweber1999}. The stop
   criterion in step 1) is either based on multiplicity adjusted p-values 
   (\code{testtype == "Bonferroni"}
   or \code{testtype == "MonteCarlo"} in \code{\link{ctree_control}}),
@@ -86,36 +86,18 @@ ctree(formula, data, subset = NULL, weights = NULL,
   \code{\link{treeresponse}}.  For observations with zero weights,
   predictions are computed from the fitted tree when \code{newdata = NULL}.
 
-  For a general description of the methodology see Hothorn, Hornik and
-  Zeileis (2006) and Hothorn, Hornik, van de Wiel and Zeileis (2006). 
-  Introductions for novices can be found in Strobl et al. (2009) and
+  For a general description of the methodology see
+  \bibcitet{party::hothorn+hornik+zeileis:2006a} and 
+  \bibcitet{party::Hothorn+Hornik+Wiel+Zeileis:2006}.
+  Introductions for novices can be found in
+  \bibcitet{party::Strobl+Malley+Tutz:2009} and 
   at \url{https://github.com/christophM/overview-ctrees}.
 
 }
 \value{
   An object of class \code{\link{BinaryTree-class}}.
 }
-\references{ 
-
-   Helmut Strasser and Christian Weber (1999). On the asymptotic theory of permutation
-   statistics. \emph{Mathematical Methods of Statistics}, \bold{8}, 220--250.
-
-   Torsten Hothorn, Kurt Hornik, Mark A. van de Wiel and Achim Zeileis (2006).
-   A Lego System for Conditional Inference. \emph{The American Statistician},
-   \bold{60}(3), 257--263.
-
-   Torsten Hothorn, Kurt Hornik and Achim Zeileis (2006). Unbiased Recursive
-   Partitioning: A Conditional Inference Framework. \emph{Journal of
-   Computational and Graphical Statistics}, \bold{15}(3), 651--674. 
-   Preprint available
-   from \url{https://www.zeileis.org/papers/Hothorn+Hornik+Zeileis-2006.pdf}
-
-   Carolin Strobl, James Malley and Gerhard Tutz (2009).
-   An Introduction to Recursive Partitioning: Rationale, Application, and Characteristics of 
-   Classification and Regression Trees, Bagging, and Random forests.
-   \emph{Psychological Methods}, \bold{14}(4), 323--348. 
-
-}
+\references{\bibshow{*}}
 \examples{
 
     set.seed(290875)

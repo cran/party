@@ -30,9 +30,10 @@ varimpAUC(...)
               sample or the learning sample (not suggested).}
   \item{pre1.0_0}{ Prior to party version 1.0-0, the actual data values
                    were permuted according to the original permutation
-                   importance suggested by Breiman (2001). Now the assignments
+                   importance suggested by \bibcitet{party::Breiman:2001}. Now the assignments
                    to child nodes of splits in the variable of interest
-                   are permuted as described by Hapfelmeier et al. (2012),
+                   are permuted as described by
+                   \bibcitet{party::Hapfelmeier_Hothorn_Ulm_Strobl_2014},
                    which allows for missing values in the explanatory
                    variables and is more efficient wrt memory consumption and 
                    computing time. This method does not apply to conditional
@@ -51,7 +52,7 @@ varimpAUC(...)
   greater than \code{threshold}) to the variable of interest.
   The resulting variable importance score is conditional in the sense of beta coefficients in   
   regression models, but represents the effect of a variable in both main effects and interactions.
-  See Strobl et al. (2008) for details.
+  See \bibcitet{party::Strobl+Boulesteix+Kneib:2008} for details.
 
   Note, however, that all random forest results are subject to random variation. Thus, before
   interpreting the importance ranking, check whether the same ranking is achieved with a
@@ -59,11 +60,11 @@ varimpAUC(...)
   \code{\link{ctree_control}}.
 
   Note that in the presence of missings in the predictor variables the procedure
-  described in Hapfelmeier et al. (2012) is performed.
+  described in \bibcitet{party::Hapfelmeier_Hothorn_Ulm_Strobl_2014} is performed.
 
   Function \code{varimpAUC} is a wrapper for
   \code{\link[varImp]{varImpAUC}} which implements AUC-based variables importances as
-  described by Janitza et al. (2012).  Here, the area under the curve
+  described by \bibcitet{party::Janitza+Strobl+Boulesteix:2013}.  Here, the area under the curve
   instead of the accuracy is used to calculate the importance of each variable. 
   This AUC-based variable importance measure is more robust towards class imbalance.
 
@@ -75,28 +76,9 @@ varimpAUC(...)
 \value{
   A vector of `mean decrease in accuracy' importance scores.
 }
-\references{ 
 
-    Leo Breiman (2001). Random Forests. \emph{Machine Learning}, 45(1), 5--32.
+\references{\bibshow{*}}
 
-    Alexander Hapfelmeier, Torsten Hothorn, Kurt Ulm, and Carolin Strobl (2012).
-    A New Variable Importance Measure for Random Forests with Missing Data.
-    \emph{Statistics and Computing}, \doi{10.1007/s11222-012-9349-1}
-
-    Torsten Hothorn, Kurt Hornik, and Achim Zeileis (2006b). Unbiased
-    Recursive Partitioning: A Conditional Inference Framework.
-    \emph{Journal of Computational and Graphical Statistics}, \bold{15} (3),
-    651-674.  Preprint available from 
-    \url{https://www.zeileis.org/papers/Hothorn+Hornik+Zeileis-2006.pdf}
-
-    Silke Janitza, Carolin Strobl and Anne-Laure Boulesteix (2013). An AUC-based Permutation 
-    Variable Importance Measure for Random Forests. BMC Bioinformatics.2013, \bold{14} 119.
-    \doi{10.1186/1471-2105-14-119}
-
-    Carolin Strobl, Anne-Laure Boulesteix, Thomas Kneib, Thomas Augustin, and Achim Zeileis (2008).
-    Conditional Variable Importance for Random Forests. \emph{BMC Bioinformatics}, \bold{9}, 307. 
-    \doi{10.1186/1471-2105-9-307}
-}
 \examples{
     
    set.seed(290875)

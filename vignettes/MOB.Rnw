@@ -57,7 +57,6 @@ options(useFancyQuotes = FALSE)
   Universit\"atsstr.~15\\
   6020 Innsbruck, Austria\\
   E-mail: \email{Achim.Zeileis@R-project.org}\\
-  URL: \url{http://eeecon.uibk.ac.at/~zeileis/}\\
 
   Torsten Hothorn\\
   Institut f\"ur Statistik\\
@@ -65,7 +64,6 @@ options(useFancyQuotes = FALSE)
   Ludwigstra{\ss}e 33\\
   80539 M\"unchen, Germany\\
   E-mail: \email{Torsten.Hothorn@R-project.org}\\
-  URL: \url{http://www.stat.uni-muenchen.de/~hothorn/}\\
   
   Kurt Hornik\\
   Institute for Statistics and Mathematics\\
@@ -73,7 +71,6 @@ options(useFancyQuotes = FALSE)
   Augasse 2--6\\
   1090 Wien, Austria\\
   E-mail: \email{Kurt.Hornik@R-project.org}\\
-  URL: \url{http://statmath.wu.ac.at/~hornik/}\\
 
 }
 
@@ -483,6 +480,6 @@ The resulting ``\code{mob}'' tree can be flexibly summarized, both numerically a
 and used for predictions on new data.
 
 
-\bibliography{partyrefs}
+\bibliography{\Sexpr{gsub("\\.bib", "", system.file("REFERENCES.bib", package = "party"))}}
 
 \end{document}

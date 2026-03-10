@@ -78,7 +78,7 @@ cforest_control(teststat = "max",
 
   Function \code{cforest_unbiased} returns the settings suggested 
   for the construction of unbiased random forests (\code{teststat = "quad", testtype = "Univ", 
-    replace = FALSE}) by Strobl et al. (2007)
+    replace = FALSE}) by \bibcitet{party::Strobl+Boulesteix+Zeileis:2006}
   and is the default since version 0.9-90.
   Hyper parameter settings mimicing the behaviour of
   \code{\link[randomForest]{randomForest}} are available in
@@ -93,10 +93,5 @@ cforest_control(teststat = "max",
 \value{
   An object of class \code{\link{ForestControl-class}}.
 }
-\references{
-
-    Carolin Strobl, Anne-Laure Boulesteix, Achim Zeileis and Torsten Hothorn (2007).
-    Bias in Random Forest Variable Importance Measures: Illustrations, Sources and  
-    a Solution. \emph{BMC Bioinformatics}, \bold{8}, 25. DOI: 10.1186/1471-2105-8-25
-}
+\references{\bibshow{*}}
 \keyword{misc}

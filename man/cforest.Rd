@@ -1,6 +1,7 @@
 \name{cforest}
 \alias{cforest}
 \alias{proximity}
+\encoding{utf-8}
 \title{ Random Forest }
 \description{
     An implementation of the random forest and bagging ensemble algorithms
@@ -47,6 +48,7 @@ proximity(object, newdata = NULL)
 
   This implementation of the random forest (and bagging) algorithm differs
   from the reference implementation in \code{\link[randomForest]{randomForest}}
+  \bibcitep{as introduced by|party::Breiman:2001|}
   with respect to the base learners used and the aggregation scheme applied.
   
   Conditional inference trees, see \code{\link{ctree}}, are fitted to each
@@ -70,7 +72,7 @@ proximity(object, newdata = NULL)
   The aggregation scheme works by averaging observation weights extracted
   from each of the \code{ntree} trees and NOT by averaging predictions directly
   as in \code{\link[randomForest]{randomForest}}.
-  See Hothorn et al. (2004) for a description. 
+  See \bibcitet{party::Hothorn+Lausen+Benner:2004} for a description. 
 
   Predictions can be computed using \code{\link{predict}}. For observations
   with zero weights, predictions are computed from the fitted tree 
@@ -92,8 +94,8 @@ proximity(object, newdata = NULL)
   of categories, variable selection and computation of variable importance is biased 
   in favor of variables with many potential cutpoints in \code{\link[randomForest]{randomForest}}, 
   while in \code{\link{cforest}} unbiased trees and an adequate resampling scheme 
-  are used by default. See Hothorn et al. (2006b) and Strobl et al. (2007) 
-  as well as Strobl et al. (2009). 
+  are used by default. See \bibcitet{party::Hothorn+Buehlmann+Dudoit:2006} and \bibcitet{party::Strobl+Boulesteix+Zeileis:2006}
+  as well as \bibcitet{party::Strobl+Malley+Tutz:2009}.
 
   The \code{proximity} matrix is an \eqn{n \times n} matrix \eqn{P} with \eqn{P_{ij}}
   equal to the fraction of trees where observations \eqn{i} and \eqn{j} 
@@ -104,34 +106,7 @@ proximity(object, newdata = NULL)
 \value{
   An object of class \code{\link{RandomForest-class}}.
 }
-\references{ 
-
-    Leo Breiman (2001). Random Forests. \emph{Machine Learning}, 45(1), 5--32.
-
-    Torsten Hothorn, Berthold Lausen, Axel Benner and Martin Radespiel-Troeger
-    (2004). Bagging Survival Trees. \emph{Statistics in Medicine}, \bold{23}(1), 77--91.
-
-    Torsten Hothorn, Peter Buhlmann, Sandrine Dudoit, Annette Molinaro 
-    and Mark J. van der Laan (2006a). Survival Ensembles. \emph{Biostatistics}, 
-    \bold{7}(3), 355--373.
-
-    Torsten Hothorn, Kurt Hornik and Achim Zeileis (2006b). Unbiased
-    Recursive Partitioning: A Conditional Inference Framework.
-    \emph{Journal of Computational and Graphical Statistics}, \bold{15}(3),
-    651--674.  Preprint available from 
-    \url{https://www.zeileis.org/papers/Hothorn+Hornik+Zeileis-2006.pdf}
-
-    Carolin Strobl, Anne-Laure Boulesteix, Achim Zeileis and Torsten Hothorn (2007).
-    Bias in Random Forest Variable Importance Measures: Illustrations, Sources and 
-    a Solution. \emph{BMC Bioinformatics}, \bold{8}, 25. 
-    \doi{10.1186/1471-2105-8-25}
-
-    Carolin Strobl, James Malley and Gerhard Tutz (2009).
-    An Introduction to Recursive Partitioning: Rationale, Application, and Characteristics of
-    Classification and Regression Trees, Bagging, and Random forests.
-    \emph{Psychological Methods}, \bold{14}(4), 323--348.
-
-}
+\references{\bibshow{*}}
 \examples{
 
     set.seed(290875)

@@ -98,7 +98,6 @@
   Ludwigstra{\ss}e 33\\
   80539 M\"unchen, Germany\\
   E-mail: \email{Torsten.Hothorn@R-project.org}\\
-  URL: \url{http://www.stat.uni-muenchen.de/~hothorn/}\\
 
   Kurt Hornik, Achim Zeileis\\
   Institute for Statistics and Mathematics\\
@@ -106,8 +105,6 @@
   Augasse 2--6\\
   1090 Wien, Austria\\
   E-mail: \email{Kurt.Hornik@R-project.org}, \email{Achim.Zeileis@R-project.org}\\
-  URL: \url{http://statmath.wu.ac.at/~hornik/},\\
-  \phantom{URL:} \url{http://statmath.wu.ac.at/~zeileis/}
 }
 
 
@@ -726,7 +723,7 @@ structures inherent in the learning sample with subject matter knowledge.
 For $98$ patients and $98$ controls, matched by age
 and gender, $62$ covariates describing the eye morphology are available. The
 data is part of the 
-\pkg{TH.data} package, \url{http://CRAN.R-project.org}).
+\pkg{TH.data} package.
 The first split in Figure~\ref{glaucoma} separates eyes with a volume 
 above reference less than
 $\Sexpr{x$psplit$splitpoint} \text{ mm}^3$ in the inferior part of the
@@ -921,7 +918,7 @@ benefits of the examination. For those women in (strong) disagreement with the f
 question above, low values of \texttt{benefit} identify persons being more likely to have 
 experienced such an examination at all. 
 
-\bibliography{partyrefs}
+\bibliography{\Sexpr{gsub("\\.bib", "", system.file("REFERENCES.bib", package = "party"))}}
 
 \end{document}
 
@@ -943,7 +940,7 @@ replications. The prognostic factors \texttt{twigs} and \texttt{water}
 found by \cite{Death2002} are confirmed by the model 
 shown in Figure~\ref{spider} which additionally identifies \texttt{reft}.
 The data are available in package 
-\pkg{mvpart} \citep{mvpart2004} at \url{http://CRAN.R-project.org}.
+\pkg{mvpart} \citep{mvpart2004}.
 
 <<spider-ctree, echo = TRUE, eval = FALSE>>=
 data("spider", package = "mvpart")   
