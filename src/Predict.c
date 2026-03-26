@@ -3,7 +3,7 @@
     Node splitting and prediction
     *\file Predict.c
     *\author $Author: thothorn $
-    *\date $Date: 2024-08-15 13:57:20 +0200 (Thu, 15 Aug 2024) $
+    *\date $Date: 2026-03-25 13:58:15 +0100 (Wed, 25 Mar 2026) $
 */
                 
 #include "party.h"
@@ -21,7 +21,7 @@
 void C_splitnode(SEXP node, SEXP learnsample, SEXP control) {
 
     SEXP weights, leftnode, rightnode, split;
-    SEXP responses, inputs, whichNA;
+    SEXP responses, inputs, whichNA, sc, pt;
     double cutpoint, *dx, *dweights, *leftweights, *rightweights;
     double sleft = 0.0, sright = 0.0;
     int *ix, *levelset, *iwhichNA;
@@ -29,23 +29,26 @@ void C_splitnode(SEXP node, SEXP learnsample, SEXP control) {
                     
     weights = S3get_nodeweights(node);
     dweights = REAL(weights);
-    responses = GET_SLOT(learnsample, PL2_responsesSym);
-    inputs = GET_SLOT(learnsample, PL2_inputsSym);
+    PROTECT(responses = GET_SLOT(learnsample, PL2_responsesSym));
+    PROTECT(inputs = GET_SLOT(learnsample, PL2_inputsSym));
+    PROTECT(sc = get_splitctrl(control));
+    PROTECT(pt = get_predict_trafo(responses));
+    
     nobs = get_nobs(learnsample);
             
     /* set up memory for the left daughter */
     SET_VECTOR_ELT(node, S3_LEFT, leftnode = allocVector(VECSXP, NODE_LENGTH));
     C_init_node(leftnode, nobs, 
-        get_ninputs(learnsample), get_maxsurrogate(get_splitctrl(control)),
-        ncol(get_predict_trafo(responses)));
+        get_ninputs(learnsample), get_maxsurrogate(sc),
+        ncol(pt));
     leftweights = REAL(S3get_nodeweights(leftnode));
 
     /* set up memory for the right daughter */
     SET_VECTOR_ELT(node, S3_RIGHT, 
                    rightnode = allocVector(VECSXP, NODE_LENGTH));
     C_init_node(rightnode, nobs, 
-        get_ninputs(learnsample), get_maxsurrogate(get_splitctrl(control)),
-        ncol(get_predict_trafo(responses)));
+        get_ninputs(learnsample), get_maxsurrogate(sc),
+        ncol(pt));
     rightweights = REAL(S3get_nodeweights(rightnode));
 
     /* split according to the primary split */
@@ -105,6 +108,7 @@ void C_splitnode(SEXP node, SEXP learnsample, SEXP control) {
             }
         }
     }
+    UNPROTECT(4);
 }
 
 

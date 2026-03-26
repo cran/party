@@ -116,3 +116,5 @@ int get_ntree(SEXP object);
 int get_replace(SEXP object);
 double get_fraction(SEXP object);
 int get_trace(SEXP object);
+int get_remove_weights(SEXP object);
+

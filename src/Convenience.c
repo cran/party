@@ -3,7 +3,7 @@
     Some convenience functions
     *\file Convenience.c
     *\author $Author: thothorn $
-    *\date $Date: 2019-03-05 14:35:06 +0100 (Di, 05 Mär 2019) $
+    *\date $Date: 2026-03-25 13:58:15 +0100 (Wed, 25 Mar 2026) $
 */
                 
 #include "party.h"
@@ -55,18 +55,19 @@ void C_LinStatExpCovMPinv(SEXP linexpcov, double tol) {
             
     /* reduced dimension */
     pqn = get_dimension(linexpcov);
-    INTEGER(GET_SLOT(GET_SLOT(linexpcov, PL2_svdmemSym), PL2_pSym))[0] = pqn;
+    INTEGER(GET_SLOT(PROTECT(GET_SLOT(linexpcov, PL2_svdmemSym)), PL2_pSym))[0] = pqn;
  
     /* compute MPinv in reduced dimension */                   
     /* GET_SLOT is assumed NOT to return a fresh object so
        we don't PROTECT here */
     C_MPinv(PROTECT(GET_SLOT(linexpcov, PL2_covarianceSym)), tol,
             PROTECT(GET_SLOT(linexpcov, PL2_svdmemSym)), linexpcov);
-    UNPROTECT(2);
 
     /* make sure to reset svdmem to original dimension;
        the dimension of linexpcov is reset in C_TestStatistic */
-    INTEGER(GET_SLOT(GET_SLOT(linexpcov, PL2_svdmemSym), PL2_pSym))[0] = pq;
+    INTEGER(GET_SLOT(PROTECT(GET_SLOT(linexpcov, PL2_svdmemSym)), PL2_pSym))[0] = pq;
+
+    UNPROTECT(4);
 }
                                             
 
@@ -158,8 +159,13 @@ double C_ConditionalPvalue(const double tstat, SEXP linexpcov,
 */
 
 SEXP R_get_response(SEXP learnsample) {
-    return(VECTOR_ELT(GET_SLOT(GET_SLOT(learnsample, PL2_responsesSym), 
-                               PL2_variablesSym), 0));
+    SEXP responses, variables, ans;
+    
+    PROTECT(responses = GET_SLOT(learnsample, PL2_responsesSym));
+    PROTECT(variables = GET_SLOT(responses, PL2_variablesSym));
+    ans = VECTOR_ELT(variables, 0);
+    UNPROTECT(2);
+    return(ans);
 }
 
 
@@ -171,6 +177,7 @@ SEXP R_get_response(SEXP learnsample) {
 
 void R_set_response(SEXP learnsample, SEXP y) {
 
+    SEXP responses, pt, tt;
     double *v, *t, *j, *dy, *p;
     int i, n;
     
@@ -180,12 +187,16 @@ void R_set_response(SEXP learnsample, SEXP y) {
     if (LENGTH(R_get_response(learnsample)) != n)
         error("lengths of arguments don't match");
     
-    v = REAL(VECTOR_ELT(GET_SLOT(GET_SLOT(learnsample, PL2_responsesSym), 
+    PROTECT(responses = GET_SLOT(learnsample, PL2_responsesSym));
+    PROTECT(tt = get_test_trafo(responses));
+    PROTECT(pt = get_predict_trafo(responses));
+    
+    v = REAL(VECTOR_ELT(GET_SLOT(responses,
                                  PL2_variablesSym), 0));
-    t = REAL(VECTOR_ELT(GET_SLOT(GET_SLOT(learnsample, PL2_responsesSym), 
+    t = REAL(VECTOR_ELT(GET_SLOT(responses,
                                  PL2_transformationsSym), 0));
-    j = REAL(get_test_trafo(GET_SLOT(learnsample, PL2_responsesSym)));
-    p = REAL(get_predict_trafo(GET_SLOT(learnsample, PL2_responsesSym)));
+    j = REAL(tt);
+    p = REAL(pt);
     
     for (i = 0; i < n; i++) {
         v[i] = dy[i];
@@ -193,4 +204,6 @@ void R_set_response(SEXP learnsample, SEXP y) {
         j[i] = dy[i];
         p[i] = dy[i];
     }
+    
+    UNPROTECT(3);
 }

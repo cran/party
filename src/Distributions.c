@@ -3,7 +3,7 @@
     Conditional Distributions
     *\file Distributions.c
     *\author $Author: thothorn $
-    *\date $Date: 2024-08-15 13:57:20 +0200 (Thu, 15 Aug 2024) $
+    *\date $Date: 2026-03-25 13:58:15 +0100 (Wed, 25 Mar 2026) $
 */
                 
 #include "party.h"
@@ -200,17 +200,17 @@ void C_MonteCarlo(double *criterion, SEXP learnsample, SEXP weights,
     
     ninputs = get_ninputs(learnsample);
     nobs = get_nobs(learnsample);
-    responses = GET_SLOT(learnsample, PL2_responsesSym);
-    inputs = GET_SLOT(learnsample, PL2_inputsSym);
+    PROTECT(responses = GET_SLOT(learnsample, PL2_responsesSym));
+    PROTECT(inputs = GET_SLOT(learnsample, PL2_inputsSym));
     dweights = REAL(weights);
     
     /* number of Monte-Carlo replications */
     B = get_nresample(gtctrl);
 
     /* y = get_transformation(responses, 1); */
-    y = get_test_trafo(responses);
+    PROTECT(y = get_test_trafo(responses));
     
-    expcovinf = GET_SLOT(fitmem, PL2_expcovinfSym);
+    PROTECT(expcovinf = GET_SLOT(fitmem, PL2_expcovinfSym));
 
     sweights = REAL(GET_SLOT(expcovinf, PL2_sumweightsSym))[0];
     m = (int) sweights;
@@ -286,6 +286,8 @@ void C_MonteCarlo(double *criterion, SEXP learnsample, SEXP weights,
     
     R_Free(stats); R_Free(counts); R_Free(dummy); R_Free(permute); 
     R_Free(index); R_Free(permindex);
+    
+    UNPROTECT(4);
 }
 
 

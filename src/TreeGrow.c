@@ -3,7 +3,7 @@
     The tree growing recursion
     *\file TreeGrow.c
     *\author $Author: thothorn $
-    *\date $Date: 2016-11-23 20:01:51 +0100 (Mit, 23 Nov 2016) $
+    *\date $Date: 2026-03-25 13:58:15 +0100 (Wed, 25 Mar 2026) $
 */
 
 #include "party.h"
@@ -23,7 +23,7 @@
 void C_TreeGrow(SEXP node, SEXP learnsample, SEXP fitmem, 
                 SEXP controls, int *where, int *nodenum, int depth) {
 
-    SEXP weights;
+    SEXP weights, tc, sc;
     int nobs, i, stop;
     double *dweights;
     
@@ -31,9 +31,11 @@ void C_TreeGrow(SEXP node, SEXP learnsample, SEXP fitmem,
     
     /* stop if either stumps have been requested or 
        the maximum depth is exceeded */
+    PROTECT(tc = get_tgctrl(controls));
+    PROTECT(sc = get_splitctrl(controls));
     stop = (nodenum[0] == 2 || nodenum[0] == 3) && 
-           get_stump(get_tgctrl(controls));
-    stop = stop || !check_depth(get_tgctrl(controls), depth);
+           get_stump(tc);
+    stop = stop || !check_depth(tc, depth);
     
     if (stop)
         C_Node(node, learnsample, weights, fitmem, controls, 1, depth);
@@ -47,7 +49,7 @@ void C_TreeGrow(SEXP node, SEXP learnsample, SEXP fitmem,
         C_splitnode(node, learnsample, controls);
 
         /* determine surrogate splits and split missing values */
-        if (get_maxsurrogate(get_splitctrl(controls)) > 0) {
+        if (get_maxsurrogate(sc) > 0) {
             C_surrogates(node, learnsample, weights, controls, fitmem);
             C_splitsurrogate(node, learnsample);
         }
@@ -66,6 +68,7 @@ void C_TreeGrow(SEXP node, SEXP learnsample, SEXP fitmem,
         for (i = 0; i < nobs; i++)
             if (dweights[i] > 0) where[i] = nodenum[0];
     } 
+    UNPROTECT(2);
 }
 
 
@@ -80,7 +83,7 @@ void C_TreeGrow(SEXP node, SEXP learnsample, SEXP fitmem,
 
 SEXP R_TreeGrow(SEXP learnsample, SEXP weights, SEXP controls) {
             
-     SEXP ans, tree, where, nweights, fitmem;
+     SEXP ans, tree, where, nweights, fitmem, sc, responses;
      double *dnweights, *dweights;
      int nobs, i, nodenum = 1, *iwhere;
 
@@ -88,14 +91,16 @@ SEXP R_TreeGrow(SEXP learnsample, SEXP weights, SEXP controls) {
      GetRNGstate();
      
      PROTECT(fitmem = ctree_memory(learnsample, PROTECT(ScalarLogical(1))));
+     PROTECT(sc = get_splitctrl(controls));
+     PROTECT(responses = GET_SLOT(learnsample, PL2_responsesSym));
      nobs = get_nobs(learnsample);
      PROTECT(ans = allocVector(VECSXP, 2));
      SET_VECTOR_ELT(ans, 0, where = allocVector(INTSXP, nobs));
      iwhere = INTEGER(where);
      for (int i = 0; i < nobs; i++) iwhere[i] = 0;
      SET_VECTOR_ELT(ans, 1, tree = allocVector(VECSXP, NODE_LENGTH));
-     C_init_node(tree, nobs, get_ninputs(learnsample), get_maxsurrogate(get_splitctrl(controls)),
-                 ncol(get_predict_trafo(GET_SLOT(learnsample, PL2_responsesSym))));
+     C_init_node(tree, nobs, get_ninputs(learnsample), get_maxsurrogate(sc),
+                 ncol(PROTECT(get_predict_trafo(responses))));
 
      nweights = S3get_nodeweights(tree);
      dnweights = REAL(nweights);
@@ -104,11 +109,11 @@ SEXP R_TreeGrow(SEXP learnsample, SEXP weights, SEXP controls) {
      
      C_TreeGrow(tree, learnsample, fitmem, controls, iwhere, &nodenum, 1);
 
-     if (LOGICAL(GET_SLOT(get_tgctrl(controls), PL2_remove_weightsSym))[0])
+     if (get_remove_weights(controls))
          C_remove_weights(tree, 0);
      
      PutRNGstate();
      
-     UNPROTECT(3);
+     UNPROTECT(6);
      return(ans);
 }

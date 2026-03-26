@@ -3,7 +3,7 @@
     Node computations
     *\file Node.c
     *\author $Author: thothorn $
-    *\date $Date: 2024-08-15 13:57:20 +0200 (Thu, 15 Aug 2024) $
+    *\date $Date: 2026-03-25 13:58:15 +0100 (Wed, 25 Mar 2026) $
 */
                 
 #include "party.h"
@@ -53,22 +53,23 @@ void C_Node(SEXP node, SEXP learnsample, SEXP weights,
     double mincriterion, sweights, *dprediction;
     double *teststat, *pvalue, smax, cutpoint = 0.0, maxstat = 0.0;
     double *standstat, *splitstat;
-    SEXP responses, inputs, x, expcovinf, linexpcov;
+    SEXP responses, inputs, x, expcovinf, linexpcov, lec2s;
     SEXP varctrl, splitctrl, gtctrl, tgctrl, split, testy, predy;
     double *dxtransf, *thisweights;
     int *itable;
     
     nobs = get_nobs(learnsample);
     ninputs = get_ninputs(learnsample);
-    varctrl = get_varctrl(controls);
-    splitctrl = get_splitctrl(controls);
-    gtctrl = get_gtctrl(controls);
-    tgctrl = get_tgctrl(controls);
+    PROTECT(varctrl = get_varctrl(controls));
+    PROTECT(splitctrl = get_splitctrl(controls));
+    PROTECT(gtctrl = get_gtctrl(controls));
+    PROTECT(tgctrl = get_tgctrl(controls));
     mincriterion = get_mincriterion(gtctrl);
-    responses = GET_SLOT(learnsample, PL2_responsesSym);
-    inputs = GET_SLOT(learnsample, PL2_inputsSym);
-    testy = get_test_trafo(responses);
-    predy = get_predict_trafo(responses);
+    PROTECT(responses = GET_SLOT(learnsample, PL2_responsesSym));
+    PROTECT(inputs = GET_SLOT(learnsample, PL2_inputsSym));
+    PROTECT(testy = get_test_trafo(responses));
+    PROTECT(predy = get_predict_trafo(responses));
+    PROTECT(lec2s = GET_SLOT(fitmem, PL2_linexpcov2sampleSym));
     q = ncol(testy);
 
     /* <FIXME> we compute C_GlobalTest even for TERMINAL nodes! </FIXME> */
@@ -79,7 +80,7 @@ void C_Node(SEXP node, SEXP learnsample, SEXP weights,
                  REAL(S3get_teststat(node)), REAL(S3get_criterion(node)), depth);
     
     /* sum of weights: C_GlobalTest did nothing if sweights < mincriterion */
-    sweights = REAL(GET_SLOT(GET_SLOT(fitmem, PL2_expcovinfSym), 
+    sweights = REAL(GET_SLOT(PROTECT(GET_SLOT(fitmem, PL2_expcovinfSym)), 
                              PL2_sumweightsSym))[0];
     REAL(VECTOR_ELT(node, S3_SUMWEIGHTS))[0] = sweights;
 
@@ -112,11 +113,11 @@ void C_Node(SEXP node, SEXP learnsample, SEXP weights,
             /* get the raw numeric values or the codings of a factor */
             x = get_variable(inputs, jselect);
             if (has_missings(inputs, jselect)) {
-                expcovinf = GET_SLOT(get_varmemory(fitmem, jselect), 
-                                    PL2_expcovinfSym);
+                PROTECT(expcovinf = GET_SLOT(get_varmemory(fitmem, jselect), 
+                                             PL2_expcovinfSym));
                 thisweights = C_tempweights(jselect, REAL(weights), fitmem, inputs);
             } else {
-                expcovinf = GET_SLOT(fitmem, PL2_expcovinfSym);
+                PROTECT(expcovinf = GET_SLOT(fitmem, PL2_expcovinfSym));
                 thisweights = REAL(weights);
             }
 
@@ -138,11 +139,11 @@ void C_Node(SEXP node, SEXP learnsample, SEXP weights,
 
                 C_split(REAL(x), 1, REAL(testy), q, thisweights, nobs,
                         INTEGER(get_ordering(inputs, jselect)), splitctrl, 
-                        GET_SLOT(fitmem, PL2_linexpcov2sampleSym),
+                        lec2s,
                         expcovinf, 0, REAL(S3get_splitpoint(split)), &maxstat,
                         splitstat);
                 S3set_variableID(split, jselect);
-             } else {
+            } else {
            
                  /* search of a set of levels (split) in a numeric variable x */
                  split = S3get_primarysplit(node);
@@ -174,7 +175,7 @@ void C_Node(SEXP node, SEXP learnsample, SEXP weights,
                                     LENGTH(get_levels(inputs, jselect)), 
                                     REAL(testy), q, thisweights, 
                                     nobs, standstat, splitctrl, 
-                                    GET_SLOT(fitmem, PL2_linexpcov2sampleSym),
+                                    lec2s,
                                     expcovinf, &cutpoint, 
                                     INTEGER(S3get_splitpoint(split)),
                                     &maxstat, splitstat);
@@ -194,9 +195,11 @@ void C_Node(SEXP node, SEXP learnsample, SEXP weights,
                          }
                      }
                  }
-
                  R_Free(standstat);
             }
+
+            UNPROTECT(1); // expcovinf
+
             if (maxstat == 0) {
                 if (j == 1) {          
                     S3set_nodeterminal(node);
@@ -213,6 +216,7 @@ void C_Node(SEXP node, SEXP learnsample, SEXP weights,
             break;
         }
     }
+    UNPROTECT(10);
 }       
 
 
@@ -226,14 +230,18 @@ void C_Node(SEXP node, SEXP learnsample, SEXP weights,
 
 SEXP R_Node(SEXP learnsample, SEXP weights, SEXP fitmem, SEXP controls) {
             
-     SEXP ans;
+     SEXP ans, sc, responses, pt;
      
      PROTECT(ans = allocVector(VECSXP, NODE_LENGTH));
+     PROTECT(sc = get_splitctrl(controls));
+     PROTECT(responses = GET_SLOT(learnsample, PL2_responsesSym));
+     PROTECT(pt = get_predict_trafo(responses));
+     
      C_init_node(ans, get_nobs(learnsample), get_ninputs(learnsample), 
-                 get_maxsurrogate(get_splitctrl(controls)),
-                 ncol(get_predict_trafo(GET_SLOT(learnsample, PL2_responsesSym))));
+                 get_maxsurrogate(sc),
+                 ncol(pt));
 
      C_Node(ans, learnsample, weights, fitmem, controls, 0, 1);
-     UNPROTECT(1);
+     UNPROTECT(4);
      return(ans);
 }

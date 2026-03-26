@@ -3,7 +3,7 @@
     Random forest with conditional inference trees
     *\file RandomForest.c
     *\author $Author: thothorn $
-    *\date $Date: 2024-08-15 13:57:20 +0200 (Thu, 15 Aug 2024) $
+    *\date $Date: 2026-03-25 13:58:15 +0100 (Wed, 25 Mar 2026) $
 */
 
 #include "party.h"
@@ -21,7 +21,8 @@
 
 SEXP R_Ensemble(SEXP learnsample, SEXP weights, SEXP controls) {
             
-     SEXP ans, nweights, tree, where, ensemble, bw, fitmem, bwhere, bweights;
+     SEXP ans, nweights, tree, where, ensemble, bw, fitmem, bwhere;
+     SEXP bweights, sc, responses, pt, inputs;
      double *dnweights, *dweights, sw = 0.0, *prob, tmp;
      int nobs, i, b, B , nodenum = 1, *iweights, *iweightstmp, 
          *iwhere, replace, fraction, wgrzero = 0, realweights = 0;
@@ -35,6 +36,10 @@ SEXP R_Ensemble(SEXP learnsample, SEXP weights, SEXP controls) {
      PROTECT(bweights = allocVector(VECSXP, B));
      PROTECT(ensemble = allocVector(VECSXP, B));
      PROTECT(fitmem = ctree_memory(learnsample, PROTECT(ScalarLogical(1))));
+     PROTECT(sc = get_splitctrl(controls));
+     PROTECT(responses = GET_SLOT(learnsample, PL2_responsesSym));
+     PROTECT(inputs = GET_SLOT(learnsample, PL2_inputsSym));
+     PROTECT(pt = get_predict_trafo(responses));
 
      SET_SLOT(ans, PL2_ensembleSym, ensemble);
      SET_SLOT(ans, PL2_whereSym, bwhere);
@@ -90,9 +95,8 @@ SEXP R_Ensemble(SEXP learnsample, SEXP weights, SEXP controls) {
          for (i = 0; i < nobs; i++) iwhere[i] = 0;
      
          C_init_node(tree, nobs, get_ninputs(learnsample), 
-                     get_maxsurrogate(get_splitctrl(controls)),
-                     ncol(get_predict_trafo(GET_SLOT(learnsample, 
-                                                   PL2_responsesSym))));
+                     get_maxsurrogate(sc),
+                     ncol(pt));
 
          /* generate altered weights for perturbation */
          if (replace) {
@@ -116,7 +120,7 @@ SEXP R_Ensemble(SEXP learnsample, SEXP weights, SEXP controls) {
 
          /* compute terminal node ids for all observations (not just those with weight > 0) */
          for (i = 0; i < nobs; i++)
-            iwhere[i] = C_get_nodeID(tree, GET_SLOT(learnsample, PL2_inputsSym), 0.0, i, -1);
+            iwhere[i] = C_get_nodeID(tree, inputs, 0.0, i, -1);
          
          if (get_trace(controls)) {
              /* progress bar; inspired by 
@@ -144,7 +148,7 @@ SEXP R_Ensemble(SEXP learnsample, SEXP weights, SEXP controls) {
      PutRNGstate();
 
      R_Free(prob); R_Free(iweights); R_Free(iweightstmp);
-     UNPROTECT(6);
+     UNPROTECT(10);
      return(ans);
 }
 
@@ -162,7 +166,8 @@ SEXP R_Ensemble(SEXP learnsample, SEXP weights, SEXP controls) {
 SEXP R_Ensemble_weights(SEXP learnsample, SEXP bweights, 
                         SEXP controls) {
             
-     SEXP nweights, tree, where, ensemble, fitmem, ans, bwhere;
+     SEXP nweights, tree, where, ensemble, fitmem, ans, bwhere, sc;
+     SEXP inputs, responses, pt;
      double *dnweights, *dweights;
      int nobs, i, b, B , nodenum = 1, *iwhere;
      int j, k, l;
@@ -174,6 +179,10 @@ SEXP R_Ensemble_weights(SEXP learnsample, SEXP bweights,
      PROTECT(bwhere = allocVector(VECSXP, B));
      PROTECT(ensemble = allocVector(VECSXP, B));
      PROTECT(fitmem = ctree_memory(learnsample, PROTECT(ScalarLogical(1))));
+     PROTECT(sc = get_splitctrl(controls));
+     PROTECT(responses = GET_SLOT(learnsample, PL2_responsesSym));
+     PROTECT(inputs = GET_SLOT(learnsample, PL2_inputsSym));
+     PROTECT(pt = get_predict_trafo(responses));
 
      SET_SLOT(ans, PL2_ensembleSym, ensemble);
      SET_SLOT(ans, PL2_whereSym, bwhere);
@@ -193,9 +202,8 @@ SEXP R_Ensemble_weights(SEXP learnsample, SEXP bweights,
          for (i = 0; i < nobs; i++) iwhere[i] = 0;
      
          C_init_node(tree, nobs, get_ninputs(learnsample), 
-                     get_maxsurrogate(get_splitctrl(controls)),
-                     ncol(get_predict_trafo(GET_SLOT(learnsample, 
-                                                   PL2_responsesSym))));
+                     get_maxsurrogate(sc),
+                     ncol(pt));
 
          nweights = S3get_nodeweights(tree);
          dnweights = REAL(nweights);
@@ -210,7 +218,7 @@ SEXP R_Ensemble_weights(SEXP learnsample, SEXP bweights,
 
          /* compute terminal node ids for all observations (not just those with weight > 0) */
          for (i = 0; i < nobs; i++)
-            iwhere[i] = C_get_nodeID(tree, GET_SLOT(learnsample, PL2_inputsSym), 0.0, i, -1);
+            iwhere[i] = C_get_nodeID(tree, inputs, 0.0, i, -1);
          
          if (get_trace(controls)) {
              /* progress bar; inspired by 
@@ -237,6 +245,6 @@ SEXP R_Ensemble_weights(SEXP learnsample, SEXP bweights,
 
      PutRNGstate();
 
-     UNPROTECT(5);
+     UNPROTECT(9);
      return(ans);
 }

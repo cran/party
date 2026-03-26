@@ -3,7 +3,7 @@
     Suggorgate splits
     *\file SurrogateSplits.c
     *\author $Author: thothorn $
-    *\date $Date: 2024-08-15 13:57:20 +0200 (Thu, 15 Aug 2024) $
+    *\date $Date: 2026-03-25 13:58:15 +0100 (Wed, 25 Mar 2026) $
 */
                 
 #include "party.h"
@@ -23,7 +23,7 @@ void C_surrogates(SEXP node, SEXP learnsample, SEXP weights, SEXP controls,
 
     SEXP x, y, expcovinf; 
     SEXP splitctrl, inputs; 
-    SEXP split, thiswhichNA;
+    SEXP split, thiswhichNA, lec2s;
     int nobs, ninputs, i, j, k, jselect, maxsurr, *order, nvar = 0;
     double ms, cp, *thisweights, *cutpoint, *maxstat, 
            *splitstat, *dweights, *tweights, *dx, *dy;
@@ -31,10 +31,11 @@ void C_surrogates(SEXP node, SEXP learnsample, SEXP weights, SEXP controls,
     
     nobs = get_nobs(learnsample);
     ninputs = get_ninputs(learnsample);
-    splitctrl = get_splitctrl(controls);
+    PROTECT(splitctrl = get_splitctrl(controls));
     maxsurr = get_maxsurrogate(splitctrl);
-    inputs = GET_SLOT(learnsample, PL2_inputsSym);
+    PROTECT(inputs = GET_SLOT(learnsample, PL2_inputsSym));
     jselect = S3get_variableID(S3get_primarysplit(node));
+    PROTECT(lec2s = GET_SLOT(fitmem, PL2_linexpcov2sampleSym));
     
     /* (weights > 0) in left node are the new `response' to be approximated */
     y = S3get_nodeweights(VECTOR_ELT(node, S3_LEFT));
@@ -71,7 +72,7 @@ void C_surrogates(SEXP node, SEXP learnsample, SEXP weights, SEXP controls,
     if (sumw < 2.0)
         error("can't implement surrogate splits, not enough observations available");
 
-    expcovinf = GET_SLOT(fitmem, PL2_expcovinfssSym);
+    PROTECT(expcovinf = GET_SLOT(fitmem, PL2_expcovinfssSym));
     C_ExpectCovarInfluence(ytmp, 1, tweights, nobs, expcovinf);
     
     splitstat = REAL(get_splitstatistics(fitmem));
@@ -111,13 +112,13 @@ void C_surrogates(SEXP node, SEXP learnsample, SEXP weights, SEXP controls,
              
              C_split(REAL(x), 1, ytmp, 1, thisweights, nobs,
                      INTEGER(get_ordering(inputs, j + 1)), splitctrl,
-                     GET_SLOT(fitmem, PL2_linexpcov2sampleSym),
+                     lec2s,
                      expcovinf, 1, &cp, &ms, splitstat);
          } else {
          
              C_split(REAL(x), 1, ytmp, 1, tweights, nobs,
              INTEGER(get_ordering(inputs, j + 1)), splitctrl,
-             GET_SLOT(fitmem, PL2_linexpcov2sampleSym),
+             lec2s,
              expcovinf, 1, &cp, &ms, splitstat);
          }
 
@@ -169,6 +170,8 @@ void C_surrogates(SEXP node, SEXP learnsample, SEXP weights, SEXP controls,
     R_Free(tweights);
     R_Free(twotab);
     R_Free(ytmp);
+
+    UNPROTECT(4);
 }
 
 /**
@@ -206,7 +209,7 @@ void C_splitsurrogate(SEXP node, SEXP learnsample) {
                     
     weights = S3get_nodeweights(node);
     dweights = REAL(weights);
-    inputs = GET_SLOT(learnsample, PL2_inputsSym);
+    PROTECT(inputs = GET_SLOT(learnsample, PL2_inputsSym));
             
     leftweights = REAL(S3get_nodeweights(S3get_leftnode(node)));
     rightweights = REAL(S3get_nodeweights(S3get_rightnode(node)));
@@ -265,4 +268,5 @@ void C_splitsurrogate(SEXP node, SEXP learnsample) {
             }
         }
     }
+    UNPROTECT(1);
 }

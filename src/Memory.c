@@ -113,9 +113,14 @@ SEXP new_LinStatExpectCovarMPinv(int p, int q) {
 SEXP ctree_memory (SEXP object, SEXP MP_INV) {
 
     SEXP ans, weights, splitstatistics, dontuse, dontusetmp, varmemory;
+    SEXP inputs, responses, tt, tr;
     int q, p, nobs, ninputs;
 
-    q = ncol(get_test_trafo(GET_SLOT(object, PL2_responsesSym)));
+    PROTECT(responses = GET_SLOT(object, PL2_responsesSym));
+    PROTECT(tt = get_test_trafo(responses));
+    PROTECT(inputs = GET_SLOT(object, PL2_inputsSym));
+
+    q = ncol(tt);
     
     ninputs = get_ninputs(object);
     nobs = get_nobs(object);
@@ -142,19 +147,21 @@ SEXP ctree_memory (SEXP object, SEXP MP_INV) {
     varmemory = PROTECT(allocVector(VECSXP, ninputs));
     
     for (int i = 0; i < ninputs; i++) {
-    
-        p = ncol(get_transformation(GET_SLOT(object, PL2_inputsSym), i + 1));
+
+        PROTECT(tr = get_transformation(inputs, i + 1));    
+        p = ncol(tr);
 
         if (LOGICAL(MP_INV)[0]) {        
             SET_VECTOR_ELT(varmemory, i, new_LinStatExpectCovarMPinv(p, q));
         } else {
            SET_VECTOR_ELT(varmemory, i, new_LinStatExpectCovar(p, q));
         }
+        UNPROTECT(1);
     }
 
     SET_SLOT(ans, PL2_varmemorySym, varmemory);
 
-    UNPROTECT(9);
+    UNPROTECT(12);
     return(ans);
 }
 

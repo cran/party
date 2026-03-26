@@ -3,7 +3,7 @@
     S4 classes for package `party'
     *\file Classes.c
     *\author $Author: thothorn $
-    *\date $Date: 2016-11-07 14:04:33 +0100 (Mon, 07 Nov 2016) $
+    *\date $Date: 2026-03-25 13:57:54 +0100 (Wed, 25 Mar 2026) $
 */
 
 #include "party.h"
@@ -373,4 +373,13 @@ double get_fraction(SEXP object) {
 
 int get_trace(SEXP object) {
     return(INTEGER(GET_SLOT(object, PL2_traceSym))[0]);
+}
+
+int get_remove_weights(SEXP object) {
+    int ans;
+    SEXP tc;
+    PROTECT(tc = get_tgctrl(object));
+    ans = LOGICAL(GET_SLOT(tc, PL2_remove_weightsSym))[0];
+    UNPROTECT(1);
+    return(ans);
 }

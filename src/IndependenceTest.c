@@ -3,7 +3,7 @@
     Functions for variable selection in each node of a tree
     *\file IndependenceTest.c
     *\author $Author: thothorn $
-    *\date $Date: 2024-08-15 13:57:20 +0200 (Thu, 15 Aug 2024) $
+    *\date $Date: 2026-03-25 13:58:15 +0100 (Wed, 25 Mar 2026) $
 */
                 
 #include "party.h"
@@ -144,13 +144,13 @@ void C_GlobalTest(const SEXP learnsample, const SEXP weights,
     
     ninputs = get_ninputs(learnsample);
     nobs = get_nobs(learnsample);
-    responses = GET_SLOT(learnsample, PL2_responsesSym);
-    inputs = GET_SLOT(learnsample, PL2_inputsSym);
+    PROTECT(responses = GET_SLOT(learnsample, PL2_responsesSym));
+    PROTECT(inputs = GET_SLOT(learnsample, PL2_inputsSym));
     
     /* y = get_transformation(responses, 1); */
-    y = get_test_trafo(responses);
+    PROTECT(y = get_test_trafo(responses));
     
-    expcovinf = GET_SLOT(fitmem, PL2_expcovinfSym);
+    PROTECT(expcovinf = GET_SLOT(fitmem, PL2_expcovinfSym));
     C_ExpectCovarInfluence(REAL(y), ncol(y), REAL(weights), 
                            nobs, expcovinf);
     
@@ -299,6 +299,7 @@ void C_GlobalTest(const SEXP learnsample, const SEXP weights,
                      break;
         }
     }
+    UNPROTECT(4);
 }
 
 

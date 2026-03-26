@@ -3,7 +3,7 @@
     Some commonly needed utility functions.
     *\file Utils.c
     *\author $Author: thothorn $
-    *\date $Date: 2024-08-15 13:57:20 +0200 (Thu, 15 Aug 2024) $
+    *\date $Date: 2026-03-25 13:58:15 +0100 (Wed, 25 Mar 2026) $
 */
                 
 #include "party.h"
@@ -703,11 +703,41 @@ int C_i_in_set(int i, SEXP set) {
 }
     
 int nrow(SEXP x) {
-    return(INTEGER(getAttrib(x, R_DimSymbol))[0]);
+    SEXP a;
+    int ret;
+
+    PROTECT(a = getAttrib(x, R_DimSymbol));  // rchk warning
+    if (a == R_NilValue) {
+        UNPROTECT(1);
+        return(1);
+    }
+    if (TYPEOF(a) == REALSXP) {
+        ret = (int) REAL(a)[0];
+        UNPROTECT(1);
+        return(ret);
+    }
+    ret = INTEGER(a)[0];
+    UNPROTECT(1);
+    return(ret);
 }
 
 int ncol(SEXP x) {
-    return(INTEGER(getAttrib(x, R_DimSymbol))[1]);
+    SEXP a;
+    int ret;
+
+    PROTECT(a = getAttrib(x, R_DimSymbol));  // rchk warning
+    if (a == R_NilValue) {
+        UNPROTECT(1);
+        return(1);
+    }
+    if (TYPEOF(a) == REALSXP) {
+        ret = (int) REAL(a)[1];
+        UNPROTECT(1);
+        return(ret);
+    }
+    ret = INTEGER(a)[1];
+    UNPROTECT(1);
+    return(ret);
 }
 
 /* compute index of variable with smallest p-value 

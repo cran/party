@@ -3,7 +3,7 @@
     Binary splits 
     *\file Splits.c
     *\author $Author: thothorn $
-    *\date $Date: 2024-08-15 13:57:20 +0200 (Thu, 15 Aug 2024) $
+    *\date $Date: 2026-03-25 13:58:15 +0100 (Wed, 25 Mar 2026) $
 */
                 
 #include "party.h"
@@ -239,7 +239,7 @@ void C_splitcategorical(const int *codingx, int p,
                         double *maxstat, double *statistics) {
 
     double *tmpx, *tmptmpx, tmp = 0.0;
-    int *irank, *ordertmpx, i, j, k, l, jp, chk;
+    int *irank, *ordertmpx, i, j, k, l, jp;
 
     /* allocate memory */
     tmpx = R_Calloc(n, double);
@@ -284,12 +284,10 @@ void C_splitcategorical(const int *codingx, int p,
 
         /* if we have seen an improvement: save this segmentation 
            note: there may be splits with equal goodness */
-        chk = 0;
         if (maxstat[0] > tmp) {
             for (k = 0; k < p; k++) {
                 if (irank[k] > cutpoint[0]) {
                     levelset[k] = 1;
-                    chk += 1;
                 } else {
                     levelset[k] = 0;
                 }
@@ -300,9 +298,6 @@ void C_splitcategorical(const int *codingx, int p,
                    C_split may end up with cutpoint > max(irank), why?
            </FIXME>
         */
-        /* hm, why did I added 
-        if (chk == 0) tmp = 0.0; 
-        ??? */
     }
     maxstat[0] = tmp;
 
